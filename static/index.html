@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>کراولر محصولات</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f5f2; --panel:#ffffff; --ink:#1d1f23; --muted:#6b6f78; --line:#e4e2dc;
+  --accent:#1f6f5c; --accent-ink:#ffffff; --accent-soft:#e3f0ec;
+  --warn:#9a5b00; --warn-soft:#fdf1dc; --bad:#a3302a; --bad-soft:#fbe6e4;
+  --run:#2456a6; --run-soft:#e5edfa; --code:#f1f0ec;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#15171a; --panel:#1d2024; --ink:#e8e8e6; --muted:#9a9ea6; --line:#2e3238;
+    --accent:#4fb79c; --accent-ink:#0f1a17; --accent-soft:#1d3530;
+    --warn:#e2a34a; --warn-soft:#3a2d17; --bad:#ec7b73; --bad-soft:#3a1f1d;
+    --run:#7fa8ec; --run-soft:#1d2a40; --code:#181a1d;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.7 Vazirmatn,Tahoma,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 16px 60px}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 20px;font-size:14px}
+.grid{display:grid;grid-template-columns:360px minmax(0,1fr);gap:16px;align-items:start}
+.grid>*{min-width:0}
+@media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.card h2{font-size:15px;margin:0 0 12px}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
+textarea,input,select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+textarea{min-height:110px;direction:ltr;text-align:left;font-size:14px}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+button{font:inherit;border:0;border-radius:8px;padding:8px 14px;cursor:pointer;background:var(--code);color:var(--ink)}
+button.primary{background:var(--accent);color:var(--accent-ink);width:100%;margin-top:14px;padding:10px;font-weight:500}
+button:disabled{opacity:.5;cursor:default}
+.msg{font-size:13px;margin-top:8px;min-height:1.2em}
+.msg.err{color:var(--bad)}
+.jobs{display:flex;flex-direction:column;gap:6px;margin-top:4px;max-height:420px;overflow:auto}
+.job{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:var(--panel)}
+.job.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+.job .h{direction:ltr;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.job .n{font-size:12px;color:var(--muted)}
+.chip{font-size:12px;padding:1px 8px;border-radius:99px;white-space:nowrap}
+.s-queued{background:var(--code);color:var(--muted)}
+.s-running{background:var(--run-soft);color:var(--run)}
+.s-done{background:var(--accent-soft);color:var(--accent)}
+.s-stopped{background:var(--warn-soft);color:var(--warn)}
+.s-failed{background:var(--bad-soft);color:var(--bad)}
+.empty{color:var(--muted);font-size:14px;padding:30px 0;text-align:center}
+.stats{display:flex;gap:24px;flex-wrap:wrap;margin:4px 0 14px}
+.stat b{display:block;font-size:22px;font-variant-numeric:tabular-nums}
+.stat span{font-size:12px;color:var(--muted)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.actions a{text-decoration:none;color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:8px;font-size:14px}
+.actions a.off{pointer-events:none;opacity:.4}
+pre.log{direction:ltr;text-align:left;background:var(--code);border-radius:8px;padding:10px;font:12px/1.55 ui-monospace,Menlo,Consolas,monospace;max-height:240px;overflow:auto;white-space:pre-wrap;margin:0 0 14px}
+.tbl{overflow:auto;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:13px}
+td.nw{white-space:nowrap}
+th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}
+th{background:var(--code);font-weight:500;position:sticky;top:0}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+td a{color:var(--accent)}
+.title{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.title h2{margin:0;direction:ltr;overflow-wrap:anywhere}
+.err-box{background:var(--bad-soft);color:var(--bad);padding:8px 10px;border-radius:8px;margin-bottom:12px;font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>کراولر محصولات</h1>
+  <p class="sub">آدرس سایت را وارد کنید؛ محصولات جمع‌آوری می‌شود و خروجی Excel / CSV / JSON تحویل می‌گیرید.</p>
+
+  <div class="grid">
+    <div>
+      <div class="card">
+        <h2>کراول جدید</h2>
+        <label for="urls">آدرس سایت (هر خط یک سایت)</label>
+        <textarea id="urls" placeholder="https://example.com/"></textarea>
+        <div class="row">
+          <div>
+            <label for="mode">روش</label>
+            <select id="mode">
+              <option value="auto">خودکار</option>
+              <option value="api">API ووکامرس</option>
+              <option value="sitemap">سایت‌مپ</option>
+              <option value="crawl">پیمایش لینک</option>
+            </select>
+          </div>
+          <div>
+            <label for="maxp">حداکثر صفحه</label>
+            <input id="maxp" type="number" value="2000" min="1" max="20000">
+          </div>
+          <div>
+            <label for="delay">تأخیر (ثانیه)</label>
+            <input id="delay" type="number" value="1" min="0.2" max="30" step="0.1">
+          </div>
+        </div>
+        <button class="primary" id="go">شروع</button>
+        <div class="msg" id="msg"></div>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h2>کارها</h2>
+        <div class="jobs" id="jobs"><div class="empty">هنوز کاری نیست</div></div>
+      </div>
+    </div>
+
+    <div class="card" id="detail"><div class="empty">یک کار را انتخاب کنید</div></div>
+  </div>
+</div>
+
+<script>
+const CUR = {IRT:"تومان", IRR:"ریال"};
+const MODE = {auto:"خودکار", api:"API ووکامرس", sitemap:"سایت‌مپ", crawl:"پیمایش لینک"};
+const STATUS = {queued:"در صف", running:"در حال اجرا", done:"تمام شد", stopped:"متوقف شد", failed:"خطا"};
+const fa = n => (n ?? "").toLocaleString("fa-IR");
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const dur = s => { s = s||0; const m = Math.floor(s/60); return m ? `${fa(m)} دقیقه و ${fa(s%60)} ثانیه` : `${fa(s)} ثانیه`; };
+let selected = null, jobsCache = [];
+
+async function api(path, opts = {}) {
+  const r = await fetch(path, {headers: {"Content-Type": "application/json"}, ...opts});
+  const data = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(data.error || `HTTP ${r.status}`);
+  return data;
+}
+
+document.getElementById("go").onclick = async () => {
+  const btn = document.getElementById("go"), msg = document.getElementById("msg");
+  const urls = document.getElementById("urls").value.split(/\s+/).map(s => s.trim()).filter(Boolean);
+  if (!urls.length) { msg.className = "msg err"; msg.textContent = "آدرسی وارد نشده"; return; }
+  btn.disabled = true; msg.className = "msg"; msg.textContent = "";
+  const errs = []; let last = null;
+  for (const url of urls) {
+    try {
+      last = await api("/api/jobs", {method: "POST", body: JSON.stringify({
+        url, mode: document.getElementById("mode").value,
+        max_pages: +document.getElementById("maxp").value, delay: +document.getElementById("delay").value})});
+    } catch (e) { errs.push(`${url}: ${e.message}`); }
+  }
+  btn.disabled = false;
+  if (errs.length) { msg.className = "msg err"; msg.textContent = errs.join(" — "); }
+  else { msg.textContent = `${fa(urls.length)} کار ساخته شد`; document.getElementById("urls").value = ""; }
+  if (last) selected = last.id;
+  refresh();
+};
+
+function renderJobs() {
+  const box = document.getElementById("jobs");
+  if (!jobsCache.length) { box.innerHTML = '<div class="empty">هنوز کاری نیست</div>'; return; }
+  box.innerHTML = jobsCache.map(j => `
+    <div class="job ${j.id === selected ? "sel" : ""}" data-id="${j.id}">
+      <div style="min-width:0">
+        <div class="h">${esc(j.host)}</div>
+        <div class="n">${fa(j.count)} محصول · ${dur(j.elapsed)}</div>
+      </div>
+      <span class="chip s-${j.status}">${STATUS[j.status] || j.status}</span>
+    </div>`).join("");
+  box.querySelectorAll(".job").forEach(el => el.onclick = () => { selected = el.dataset.id; renderJobs(); refreshDetail(); });
+}
+
+async function refreshDetail() {
+  const box = document.getElementById("detail");
+  if (!selected) { box.innerHTML = '<div class="empty">یک کار را انتخاب کنید</div>'; return; }
+  let j;
+  try { j = await api(`/api/jobs/${selected}`); } catch { selected = null; return refreshDetail(); }
+  const active = j.status === "queued" || j.status === "running";
+  const ready = !active && j.count > 0;
+  const logEl = box.querySelector("pre.log");
+  const stick = !logEl || logEl.scrollTop + logEl.clientHeight >= logEl.scrollHeight - 20;
+  const rows = j.preview.map(p => {
+    const price = p.min_price !== "" && p.max_price !== "" && p.min_price !== p.max_price
+      ? `${fa(p.min_price)} – ${fa(p.max_price)}` : fa(p.price);
+    const stock = p.in_stock === true ? "موجود" : p.in_stock === false ? "ناموجود" : "—";
+    return `<tr><td>${esc(p.name)}</td><td class="num">${price}</td><td class="nw">${esc(CUR[p.currency] || p.currency)}</td>
+      <td class="nw">${stock}</td><td>${esc(p.categories)}</td><td class="nw"><a href="${esc(p.url)}" target="_blank" rel="noopener">باز کردن</a></td></tr>`;
+  }).join("");
+  box.innerHTML = `
+    <div class="title"><h2>${esc(j.url)}</h2><span class="chip s-${j.status}">${STATUS[j.status] || j.status}</span></div>
+    ${j.error ? `<div class="err-box">${esc(j.error)}</div>` : ""}
+    <div class="stats">
+      <div class="stat"><b>${fa(j.count)}</b><span>محصول</span></div>
+      <div class="stat"><b>${dur(j.elapsed)}</b><span>زمان</span></div>
+      <div class="stat"><b>${esc(MODE[j.mode] || j.mode)}</b><span>روش</span></div>
+    </div>
+    <div class="actions">
+      <a class="${ready ? "" : "off"}" href="/api/jobs/${j.id}/download/xlsx">دانلود Excel</a>
+      <a class="${ready ? "" : "off"}" href="/api/jobs/${j.id}/download/csv">CSV</a>
+      <a class="${ready ? "" : "off"}" href="/api/jobs/${j.id}/download/json">JSON</a>
+      ${active ? `<button id="stop">توقف</button>` : `<button id="del">حذف</button>`}
+    </div>
+    <pre class="log">${esc(j.logs.join("\n")) || "…"}</pre>
+    ${j.preview.length ? `<div class="tbl" style="max-height:420px"><table>
+      <thead><tr><th>نام</th><th>قیمت</th><th>واحد</th><th>موجودی</th><th>دسته</th><th></th></tr></thead>
+      <tbody>${rows}</tbody></table></div>
+      ${j.count > j.preview.length ? `<p class="sub" style="margin-top:8px">نمایش ${fa(j.preview.length)} از ${fa(j.count)} محصول — همه در فایل خروجی هستند.</p>` : ""}`
+      : `<div class="empty">${active ? "در حال جمع‌آوری…" : "محصولی پیدا نشد — لاگ بالا را ببینید."}</div>`}`;
+  const newLog = box.querySelector("pre.log");
+  if (stick) newLog.scrollTop = newLog.scrollHeight;
+  const stop = box.querySelector("#stop");
+  if (stop) stop.onclick = async () => { await api(`/api/jobs/${j.id}/stop`, {method: "POST"}); refresh(); };
+  const del = box.querySelector("#del");
+  if (del) del.onclick = async () => { await api(`/api/jobs/${j.id}`, {method: "DELETE"}); selected = null; refresh(); };
+}
+
+async function refresh() {
+  try { jobsCache = (await api("/api/jobs")).jobs; } catch { return; }
+  if (!selected && jobsCache.length) selected = jobsCache[0].id;
+  renderJobs();
+  refreshDetail();
+}
+refresh();
+setInterval(() => {
+  const busy = jobsCache.some(j => j.status === "queued" || j.status === "running");
+  if (busy || document.hasFocus()) refresh();
+}, 2000);
+</script>
+</body>
+</html>

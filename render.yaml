@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: product-crawler
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      - key: APP_PASSWORD
+        sync: false          # set it in the Render dashboard when creating the service
+      - key: MAX_CONCURRENT_JOBS
+        value: "2"
