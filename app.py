@@ -108,33 +108,44 @@ class Job:
             P.STOP.clear()
             P.PROGRESS.update(step=step, done=0, total=0)
             self.logs.clear()
-            self.state = {"running": True, "step": step, "run": run, "started": time.time(),
+            self.state = {"running": True, "step": step, "current": step, "run": run, "started": time.time(),
                           "ended": 0, "ok": None, "error": ""}
             self.thread = threading.Thread(target=self._run, args=(step, run, opts), daemon=True)
             self.thread.start()
         return None
 
+    def _one(self, cfg: dict, step: str, run: str, opts: dict) -> None:
+        self.state["current"] = step
+        P.PROGRESS.update(step=step, done=0, total=0)
+        if step == "queue":
+            P.step_queue(cfg, run, mode=opts.get("mode", "gap"), level1=opts.get("level1") or None,
+                         path_contains=opts.get("path") or None,
+                         ids=[i for i in re.split(r"[\s,،]+", opts.get("ids") or "") if i] or None,
+                         include_flagged=bool(opts.get("include_flagged")),
+                         limit=int(opts["limit"]) if str(opts.get("limit") or "").isdigit() else None)
+        elif step == "search":
+            P.step_search(cfg, run)
+        elif step == "crawl":
+            P.step_crawl(cfg, run, use_llm_fallback=bool(opts.get("llm_fallback")))
+        elif step == "filter":
+            P.step_filter(cfg, run)
+        elif step == "dedupe":
+            P.step_dedupe(cfg, run, None, skip_filter=bool(opts.get("skip_filter")))
+        elif step == "export":
+            P.step_export(cfg, run)
+        if not P.STOP.is_set() and P.PROGRESS.get("total"):
+            P.PROGRESS["done"] = P.PROGRESS["total"]
+
     def _run(self, step: str, run: str, opts: dict) -> None:
         try:
             cfg = build_cfg()
-            if step == "queue":
-                P.step_queue(cfg, run, mode=opts.get("mode", "gap"), level1=opts.get("level1") or None,
-                             path_contains=opts.get("path") or None,
-                             ids=[i for i in re.split(r"[\s,،]+", opts.get("ids") or "") if i] or None,
-                             include_flagged=bool(opts.get("include_flagged")),
-                             limit=int(opts["limit"]) if str(opts.get("limit") or "").isdigit() else None)
-            elif step == "search":
-                P.step_search(cfg, run)
-            elif step == "crawl":
-                P.step_crawl(cfg, run, use_llm_fallback=bool(opts.get("llm_fallback")))
-            elif step == "filter":
-                P.step_filter(cfg, run)
-            elif step == "dedupe":
-                P.step_dedupe(cfg, run, None, skip_filter=bool(opts.get("skip_filter")))
-            elif step == "export":
-                P.step_export(cfg, run)
-            if not P.STOP.is_set() and P.PROGRESS.get("total"):
-                P.PROGRESS["done"] = P.PROGRESS["total"]
+            # "all" runs every step in order and stops at the first failure or a stop request
+            for st in (STEPS if step == "all" else [step]):
+                if P.STOP.is_set():
+                    break
+                if step == "all":
+                    self.logs.append(f"—— {st} ——")
+                self._one(cfg, st, run, opts)
             for line in P.stats(cfg, run).splitlines():
                 self.logs.append(line)
             self.state["ok"] = not P.STOP.is_set()
@@ -190,6 +201,45 @@ def list_runs() -> list[dict]:
             out.append({"name": r.name, "modified": r.stat().st_mtime,
                         "files": {f.name: file_rows(f) for f in sorted(r.glob("*.csv"))}})
     return out
+
+
+def _read(d: Path, name: str) -> pd.DataFrame:
+    p = d / name
+    if not p.exists():
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(p, encoding=ENCODING, dtype=str, keep_default_na=False)
+    except Exception:
+        return pd.DataFrame()
+
+
+def run_kpi(d: Path) -> dict:
+    c = _read(d, FILES["crawled"])
+    priced = int((c["price_toman"] != "").sum()) if "price_toman" in c else 0
+    return {"queue": len(_read(d, FILES["queue"])), "hits": len(_read(d, FILES["hits"])),
+            "crawled": len(c), "priced": priced,
+            "sellers": int(c["source_domain"].nunique()) if "source_domain" in c else 0,
+            "filtered": len(_read(d, FILES["filtered"])), "rejected": len(_read(d, FILES["rejected"])),
+            "new": len(_read(d, FILES["new"])), "updates": len(_read(d, FILES["updates"])),
+            "review": len(_read(d, FILES["review"])), "woo": len(_read(d, FILES["woo"]))}
+
+
+def sellers_of(d: Path) -> list[dict]:
+    """Suppliers found in a run: the list for the 'invite suppliers' phase."""
+    c = _read(d, FILES["crawled"])
+    if c.empty:
+        return []
+    out = []
+    for dom, g in c.groupby("source_domain"):
+        phones = sorted({p for v in g["seller_phones"] for p in str(v).split(" | ") if p})
+        prices = pd.to_numeric(g["price_toman"], errors="coerce")
+        out.append({"seller": next((n for n in g["seller_name"] if n and n != dom), dom), "domain": dom,
+                    "phones": " | ".join(phones), "products": len(g), "priced": int(prices.notna().sum()),
+                    "categories": " | ".join(sorted({b.split(">")[-1].strip() for b in g["breadcrumb"] if b}))[:300],
+                    "claims_representative": "yes" if (g["claims_representative"] == "yes").any() else "",
+                    "brands": " | ".join(sorted({b for b in g["brand"] if b}))[:200],
+                    "sample_url": g["url"].iloc[0]})
+    return sorted(out, key=lambda r: -r["products"])
 
 
 def test_site(domain: str) -> dict:
@@ -434,7 +484,15 @@ class Handler(BaseHTTPRequestHandler):
                 d = run_path(parts[2])
                 if len(parts) == 3:
                     return self._json({"name": parts[2], "files": {f.name: file_rows(f) for f in sorted(d.glob("*.csv"))},
-                                       "stats": P.stats(build_cfg(), parts[2]) if d.exists() else ""})
+                                       "kpi": run_kpi(d), "stats": P.stats(build_cfg(), parts[2]) if d.exists() else ""})
+                if parts[3] == "sellers":
+                    rows = sellers_of(d)
+                    if q.get("format") == "csv":
+                        buf = io.StringIO()
+                        pd.DataFrame(rows).to_csv(buf, index=False)
+                        return self._download(("\ufeff" + buf.getvalue()).encode("utf-8"),
+                                              f"{parts[2]}-sellers.csv", "text/csv; charset=utf-8")
+                    return self._json({"rows": rows})
                 if parts[3] == "zip":
                     buf = io.BytesIO()
                     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
@@ -525,11 +583,11 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "runs"] and len(parts) == 5 and parts[3] == "step":
                 run, step = parts[2], parts[4]
                 run_path(run)
-                if step not in STEPS:
+                if step not in STEPS and step != "all":
                     return self._err("unknown step")
-                if step != "queue" and not (run_path(run) / FILES["queue"]).exists():
+                if step not in ("queue", "all") and not (run_path(run) / FILES["queue"]).exists():
                     return self._err("اول مرحله‌ی «صف» را اجرا کنید.")
-                if step == "queue" and taxonomy_df() is None:
+                if step in ("queue", "all") and taxonomy_df() is None:
                     return self._err("اول فایل تاکسونومی را بارگذاری کنید.")
                 err = JOB.start(step, run, self._jbody())
                 return self._err(err, 409) if err else self._json({"ok": True})

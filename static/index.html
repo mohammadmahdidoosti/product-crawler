@@ -5,178 +5,262 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>کراولر کاروان صنعت</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --gold:#b8904a; --gold-d:#8f6c2f; --gold-l:#f4ead7; --ink:#2a2419; --muted:#7a705f;
-  --bg:#faf7f1; --card:#ffffff; --line:#e8e0d0; --ok:#3f7d4e; --warn:#b06d12; --bad:#b03a2e;
+  --ink:#1d2836; --ink-2:#2a3849; --ink-3:#3a4b60;
+  --gold:#b8904a; --gold-d:#8a6a30; --sand:#efe6d4; --sand-2:#f7f2e8;
+  --canvas:#f3f4f6; --card:#fff; --line:#e2e5ea; --text:#1d2836; --muted:#6b7684;
+  --ok:#2f7d5b; --warn:#a86b12; --bad:#b4423a;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:Vazirmatn,Tahoma,sans-serif;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.7}
-header{background:var(--gold);color:#fff;padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-header h1{font-size:18px;margin:0;font-weight:700}
-header .sub{opacity:.85;font-size:13px}
-header .spacer{flex:1}
-.pill{background:rgba(255,255,255,.18);border-radius:999px;padding:4px 12px;font-size:13px;white-space:nowrap}
-.pill.run{background:#fff;color:var(--gold-d);font-weight:500}
-nav{display:flex;gap:4px;padding:0 24px;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto}
-nav button{border:0;background:none;padding:12px 16px;font:inherit;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
-nav button.on{color:var(--ink);border-bottom-color:var(--gold);font-weight:500}
-main{max-width:1180px;margin:0 auto;padding:20px 16px 60px}
-.tab{display:none}.tab.on{display:block}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:16px}
-.card h2{font-size:15px;margin:0 0 10px;font-weight:700}
-.card h2 small{font-weight:400;color:var(--muted);margin-right:6px}
+html,body{margin:0}
+body{font-family:Vazirmatn,Tahoma,sans-serif;background:var(--canvas);color:var(--text);font-size:14px;line-height:1.75}
+button,input,select,textarea{font:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.app{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}
+
+/* ---------- sidebar */
+aside{background:var(--ink);color:#d9dee6;padding:22px 16px;display:flex;flex-direction:column;gap:22px;position:sticky;top:0;height:100vh}
+.brand{display:flex;align-items:center;gap:10px;padding:0 6px}
+.brand svg{flex:none}
+.brand b{display:block;color:#fff;font-size:17px;font-weight:800;line-height:1.3}
+.brand span{font-size:12px;color:#9aa6b5}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav button{display:flex;align-items:center;gap:10px;border:0;background:none;color:#c5ccd6;padding:9px 12px;border-radius:8px;cursor:pointer;text-align:right;font-size:14px}
+.nav button svg{opacity:.75;flex:none}
+.nav button:hover{background:var(--ink-2);color:#fff}
+.nav button.on{background:var(--ink-2);color:#fff;font-weight:600;box-shadow:inset -3px 0 0 var(--gold)}
+.nav button.on svg{opacity:1;color:var(--gold)}
+.side-h{font-size:12px;color:#8996a6;margin:0 12px 6px}
+.check{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.check a{display:flex;align-items:center;gap:9px;padding:6px 12px;border-radius:8px;color:#c5ccd6;text-decoration:none;cursor:pointer;font-size:13px}
+.check a:hover{background:var(--ink-2)}
+.check i{width:16px;height:16px;border-radius:50%;border:1.5px solid #6b7a8d;flex:none;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:10px}
+.check .done i{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.check .done{color:#8996a6}
+.jobbox{margin-top:auto;background:var(--ink-2);border-radius:10px;padding:12px 14px;font-size:13px}
+.jobbox b{color:#fff;font-weight:600}
+.jobbox .mini{height:4px;background:var(--ink-3);border-radius:2px;margin-top:8px;overflow:hidden}
+.jobbox .mini i{display:block;height:100%;width:0;background:var(--gold);transition:width .5s}
+.jobbox small{display:block;color:#8996a6;margin-top:6px;line-height:1.6}
+
+/* ---------- main */
+main{padding:28px 32px 80px;max-width:1220px;width:100%;min-width:0}
+.page{display:none}.page.on{display:block}
+.ph{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.ph h1{font-size:22px;font-weight:800;margin:0;line-height:1.4}
+.ph p{margin:2px 0 0;color:var(--muted);max-width:620px}
+.ph .grow{flex:1;min-width:220px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:16px}
+.card h2{font-size:15px;margin:0 0 12px;font-weight:600}
+.card h2 small{font-weight:400;color:var(--muted);margin-right:8px;font-size:13px}
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end}
 .field{display:flex;flex-direction:column;gap:4px;min-width:150px;flex:1}
-.field.s{flex:0 0 120px;min-width:100px}
+.field.s{flex:0 0 130px;min-width:110px}
 label{font-size:12.5px;color:var(--muted)}
-input,select,textarea{font:inherit;border:1px solid var(--line);border-radius:7px;padding:7px 10px;background:#fff;color:var(--ink);width:100%}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--gold-l);border-color:var(--gold)}
-textarea.code{font-family:var(--mono);font-size:12.5px;direction:ltr;text-align:left;min-height:380px;line-height:1.5}
-.check{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--ink)}
-.check input{width:auto}
-.btn{font:inherit;border:1px solid var(--gold);background:var(--gold);color:#fff;border-radius:7px;padding:7px 16px;cursor:pointer;white-space:nowrap}
-.btn:hover{background:var(--gold-d)}
-.btn.ghost{background:#fff;color:var(--gold-d)}
-.btn.ghost:hover{background:var(--gold-l)}
-.btn.bad{background:#fff;color:var(--bad);border-color:var(--bad)}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.muted{color:var(--muted)}
-.note{background:var(--gold-l);border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:16px}
-.note.warn{background:#fdf0dd;color:#6b4407}
-.steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
-.step{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:#fff;display:flex;flex-direction:column;gap:6px}
-.step .n{width:24px;height:24px;border-radius:50%;background:var(--gold-l);color:var(--gold-d);display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;margin-left:6px}
-.step h3{margin:0;font-size:14px;display:flex;align-items:center}
-.step p{margin:0;font-size:12.5px;color:var(--muted);flex:1}
-.step .out{font-size:12.5px}
-.step .out b{color:var(--ink)}
-.step.active{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold-l)}
-.step .net{font-size:11.5px;color:var(--warn)}
-.bar{height:8px;background:var(--gold-l);border-radius:4px;overflow:hidden;margin:8px 0}
-.bar i{display:block;height:100%;background:var(--gold);width:0;transition:width .4s}
-pre.log{background:#1f1b14;color:#e9e1cf;font-family:var(--mono);font-size:12px;border-radius:8px;padding:10px 12px;max-height:300px;overflow:auto;direction:ltr;text-align:left;margin:0;white-space:pre-wrap}
-table{border-collapse:collapse;width:100%;font-size:12.5px}
-.tablewrap{overflow:auto;max-height:560px;border:1px solid var(--line);border-radius:8px}
-th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:right;vertical-align:top;max-width:320px}
-th{background:#f6f1e7;position:sticky;top:0;font-weight:500;white-space:nowrap}
-td{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-td:hover{white-space:normal;overflow:visible}
-td a{color:var(--gold-d)}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
-.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 12px;font-size:12.5px;cursor:pointer}
-.chip.on{background:var(--gold);color:#fff;border-color:var(--gold)}
-.chip b{font-weight:500}
-.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:13px}
-.kv dt{color:var(--muted)}.kv dd{margin:0}
-.ok{color:var(--ok)}.bad{color:var(--bad)}.warn{color:var(--warn)}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media (max-width:820px){.grid2{grid-template-columns:1fr}header{padding:10px 16px}nav{padding:0 8px}}
-.toast{position:fixed;bottom:20px;left:20px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;opacity:0;transition:opacity .3s;pointer-events:none;max-width:420px;z-index:9}
-.toast.show{opacity:1}
-.toast.err{background:var(--bad)}
+input,select,textarea{border:1px solid var(--line);border-radius:8px;padding:8px 11px;background:#fff;color:var(--text);width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px var(--sand)}
+textarea.code{font-family:var(--mono);font-size:12.5px;direction:ltr;text-align:left;min-height:340px;line-height:1.5}
+.cb{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--text);cursor:pointer}
+.cb input{width:auto;accent-color:var(--gold)}
+.btn{border:1px solid var(--gold);background:var(--gold);color:#fff;border-radius:8px;padding:8px 18px;cursor:pointer;white-space:nowrap;font-weight:500;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.btn:hover{background:var(--gold-d);border-color:var(--gold-d)}
+.btn.ghost{background:#fff;color:var(--gold-d);border-color:#d8c49d}
+.btn.ghost:hover{background:var(--sand-2)}
+.btn.ink{background:var(--ink);border-color:var(--ink)}
+.btn.ink:hover{background:var(--ink-2)}
+.btn.bad{background:#fff;color:var(--bad);border-color:#e3b4ae}
+.btn.sm{padding:4px 12px;font-size:13px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.muted{color:var(--muted)}.ok{color:var(--ok)}.bad-t{color:var(--bad)}.warn{color:var(--warn)}
 .ltr{direction:ltr;text-align:left}
-.drop{display:block;border:2px dashed var(--gold);border-radius:10px;padding:18px;text-align:center;color:var(--gold-d);cursor:pointer;background:#fffdf8;font-weight:500}
-.drop:hover{background:var(--gold-l)}
+.lnk{color:var(--gold-d);cursor:pointer;text-decoration:underline}
+.banner{border-radius:10px;padding:10px 16px;font-size:13px;margin-bottom:16px;background:var(--sand-2);border:1px solid #eadcc2;color:#5f4a22}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* ---------- route (the six steps) */
+.route{display:grid;grid-template-columns:repeat(6,1fr);margin:8px 0 4px}
+.stn{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 4px;cursor:pointer;border:0;background:none;color:inherit}
+.stn::before{content:"";position:absolute;top:21px;left:50%;width:100%;height:2px;background:repeating-linear-gradient(to left,#c9ced6 0 6px,transparent 6px 11px);z-index:0}
+.stn:first-child::before{display:none}
+.stn.done::before,.stn.run::before{background:var(--gold)}
+.dot{position:relative;z-index:1;width:44px;height:44px;border-radius:50%;background:#fff;border:2px solid #c9ced6;display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--muted);font-size:15px;transition:transform .15s}
+.stn:hover .dot{transform:scale(1.06)}
+.stn.done .dot{background:var(--gold);border-color:var(--gold);color:#fff}
+.stn.run .dot{border-color:var(--gold);color:var(--gold-d);animation:pulse 1.4s ease-in-out infinite}
+.stn.err .dot{border-color:var(--bad);color:var(--bad)}
+.stn.sel .dot{box-shadow:0 0 0 5px var(--sand)}
+.stn b{margin-top:8px;font-size:13.5px;font-weight:600}
+.stn span{font-size:12.5px;color:var(--muted)}
+.stn.done span{color:var(--text)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(184,144,74,.45)}50%{box-shadow:0 0 0 8px rgba(184,144,74,0)}}
+@media (prefers-reduced-motion:reduce){.stn.run .dot{animation:none}.dot{transition:none}}
+.detail{margin-top:18px;border-top:1px solid var(--line);padding-top:16px;display:grid;grid-template-columns:1fr auto;gap:8px 24px;align-items:start}
+.detail h3{margin:0;font-size:16px}
+.detail p{margin:4px 0 0;color:var(--muted);max-width:640px}
+.detail .acts{display:flex;flex-direction:column;gap:8px;align-items:stretch;min-width:190px}
+.detail .opts{grid-column:1/-1;display:flex;gap:18px;flex-wrap:wrap}
+.summary{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:13px;color:var(--muted);margin-top:14px}
+.summary b{color:var(--text);font-weight:600}
+.bar{height:6px;background:var(--sand);border-radius:3px;overflow:hidden;margin:14px 0 6px}
+.bar i{display:block;height:100%;background:var(--gold);width:0;transition:width .5s}
+pre.log{background:var(--ink);color:#dfe5ec;font-family:var(--mono);font-size:12px;border-radius:10px;padding:12px 14px;max-height:280px;overflow:auto;direction:ltr;text-align:left;margin:8px 0 0;white-space:pre-wrap}
+details.logwrap summary{cursor:pointer;color:var(--muted);font-size:13px;margin-top:6px}
+
+/* ---------- tables */
+.tablewrap{overflow:auto;max-height:600px;border:1px solid var(--line);border-radius:10px;background:#fff}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border-bottom:1px solid var(--line);padding:7px 10px;text-align:right;vertical-align:middle}
+th{background:#f7f8fa;position:sticky;top:0;font-weight:600;white-space:nowrap;color:#4b5664;z-index:1}
+td{max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+td.wrap{white-space:normal}
+td a{color:var(--gold-d)}
+td img{width:38px;height:38px;object-fit:contain;border-radius:6px;border:1px solid var(--line);background:#fff;display:block}
+td.num{font-variant-numeric:tabular-nums}
+tr:hover td{background:#fbf8f1}
+.flag{display:inline-block;background:#fbeee0;color:var(--warn);border-radius:6px;padding:0 6px;font-size:12px;margin-left:3px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chipgroup{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.chipgroup>em{font-style:normal;color:var(--muted);font-size:12px;width:52px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:3px 12px;font-size:13px;cursor:pointer;color:var(--text)}
+.chip:hover{border-color:#d8c49d}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip small{color:var(--muted);margin-right:5px}
+.chip.on small{color:#c5ccd6}
+.drop{display:block;border:2px dashed #d8c49d;border-radius:12px;padding:20px;text-align:center;color:var(--gold-d);cursor:pointer;background:var(--sand-2);font-weight:500}
+.drop:hover{background:var(--sand)}
 .drop input{display:none}
-.upmsg{margin-top:8px;font-size:13px;min-height:1em}
-.note a{color:inherit;font-weight:700;cursor:pointer;text-decoration:underline}
+.upmsg{margin-top:8px;font-size:13px;min-height:1.2em}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:13px;margin:0}
+.kv dt{color:var(--muted);white-space:nowrap}.kv dd{margin:0}
+.empty{padding:28px;text-align:center;color:var(--muted);white-space:normal}
+.toast{position:fixed;bottom:22px;left:22px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;max-width:440px;z-index:9}
+.toast.show{opacity:1;transform:none}
+.toast.err{background:var(--bad)}
+
+@media (max-width:980px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  aside{position:static;height:auto;padding:12px;gap:10px}
+  .nav{flex-direction:row;overflow-x:auto}
+  .nav button{white-space:nowrap}
+  .side-checks,.jobbox small{display:none}
+  .jobbox{margin-top:0}
+  main{padding:18px 14px 60px}
+  .grid2{grid-template-columns:1fr}
+  .route{grid-template-columns:repeat(3,1fr);row-gap:18px}
+  .stn:nth-child(4)::before{display:none}
+  .detail{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<header>
-  <h1>کراولر کاروان صنعت</h1>
-  <span class="sub">فاز ۱ · از تاکسونومی تا فایل ایمپورت ووکامرس</span>
-  <span class="spacer"></span>
-  <span class="pill" id="jobPill">آماده</span>
-</header>
-<nav id="nav">
-  <button data-tab="run" class="on">اجرا</button>
-  <button data-tab="results">نتایج</button>
-  <button data-tab="sources">منابع</button>
-  <button data-tab="setup">داده و تنظیمات</button>
-</nav>
-<main>
-  <div class="note warn" id="ephemeral" hidden>
-    این سرور روی پلن رایگان است: با هر ری‌استارت یا دیپلوی تازه، فایل‌ها پاک می‌شوند و بعد از ۱۵ دقیقه بدون بازدید، سرور می‌خوابد.
-    بعد از هر اجرا فایل‌ها را دانلود کنید و از «داده و تنظیمات» یک پشتیبان بگیرید. تا وقتی این صفحه باز است، سرور بیدار می‌ماند.
+<div class="app">
+<aside>
+  <div class="brand">
+    <svg width="38" height="38" viewBox="0 0 38 38" aria-hidden="true"><rect width="38" height="38" rx="10" fill="#b8904a"/><path d="M8 27c3-1 4-4 5-8 1-3 3-5 6-5s4 2 5 4c1-2 2-3 4-3 1 0 2 1 2 2l-2 1c0 3-1 6-3 9" fill="none" stroke="#1d2836" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 27v-4M24 27v-4" stroke="#1d2836" stroke-width="2.2" stroke-linecap="round"/></svg>
+    <div><b>کاروان صنعت</b><span>کراولر محصولات</span></div>
   </div>
-  <div class="note warn" id="setupNote" hidden></div>
+  <nav class="nav" id="nav">
+    <button data-tab="run" class="on"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="12" r="2.5"/><path d="M7.5 12h9"/></svg>مسیر اجرا</button>
+    <button data-tab="results"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg>نتایج</button>
+    <button data-tab="sellers"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l2-6h12l2 6M4 10h16v10H4zM9 20v-5h6v5"/></svg>تأمین‌کننده‌ها</button>
+    <button data-tab="sources"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>سایت‌های منبع</button>
+    <button data-tab="setup"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>داده و تنظیمات</button>
+  </nav>
+  <div class="side-checks">
+    <div class="side-h">آماده‌سازی</div>
+    <ul class="check" id="checks"></ul>
+  </div>
+  <div class="jobbox"><b id="jobTitle">آماده</b><div class="mini"><i id="miniBar"></i></div><small id="jobSub">مرحله‌ای در حال اجرا نیست.</small></div>
+</aside>
+
+<main>
+  <div class="banner" id="ephemeral" hidden>
+    این سرور روی پلن رایگان است و با هر ری‌استارت فایل‌ها پاک می‌شوند. بعد از هر اجرا فایل‌ها را دانلود کنید. تا وقتی این صفحه باز است سرور بیدار می‌ماند.
+  </div>
 
   <!-- ===================== RUN ===================== -->
-  <section class="tab on" id="tab-run">
-    <div class="card">
-      <h2>اجرا <small>هر اجرا یک پوشه با فایل‌های همه‌ی مرحله‌هاست</small></h2>
-      <div class="row">
-        <div class="field"><label>اجرای فعلی</label><select id="runSel"></select></div>
-        <div class="field"><label>یا اجرای تازه با نام</label><input id="runNew" placeholder="مثلاً drive-pilot" class="ltr"></div>
-        <button class="btn ghost" id="runCreate">ساختن</button>
-        <button class="btn bad" id="runDelete">حذف این اجرا</button>
-      </div>
+  <section class="page on" id="page-run">
+    <div class="ph">
+      <div class="grow"><h1>مسیر اجرا</h1><p>دسته‌ها را انتخاب کنید و مرحله‌ها را یکی‌یکی یا همه را با هم اجرا کنید. هر مرحله را می‌شود متوقف کرد و بعداً از همان‌جا ادامه داد.</p></div>
+      <div class="field s" style="flex:0 0 190px"><label>اجرا</label><select id="runSel"></select></div>
+      <button class="btn ghost" id="runNewBtn">اجرای تازه</button>
     </div>
 
     <div class="card">
-      <h2>۱. صف کراول <small>کدام دسته‌های تاکسونومی جستجو شوند</small></h2>
+      <h2>کدام دسته‌ها جستجو شوند؟</h2>
       <div class="row">
-        <div class="field" style="flex:0 0 210px"><label>حالت</label>
-          <select id="qMode"><option value="gap">بی‌محصول روی سایت</option><option value="enrich">دارای محصول (به‌روزرسانی)</option><option value="all">همه</option></select></div>
+        <div class="field" style="flex:0 0 220px"><label>حالت</label>
+          <select id="qMode"><option value="gap">دسته‌های بی‌محصول روی سایت</option><option value="enrich">دسته‌های دارای محصول</option><option value="all">همه‌ی دسته‌ها</option></select></div>
         <div class="field"><label>دسته‌ی اصلی</label><select id="qL1"><option value="">همه</option></select></div>
-        <div class="field"><label>مسیر شامل</label><input id="qPath" placeholder="مثلاً درایو و اینورتر موتور"></div>
-        <div class="field s"><label>حداکثر ردیف</label><input id="qLimit" type="number" min="1" placeholder="همه"></div>
+        <div class="field"><label>مسیر شامل این عبارت</label><input id="qPath" placeholder="مثلاً درایو و اینورتر موتور"></div>
+        <div class="field s"><label>حداکثر تعداد</label><input id="qLimit" type="number" min="1" placeholder="همه"></div>
       </div>
-      <div class="row" style="margin-top:10px">
+      <div class="row" style="margin-top:12px">
         <div class="field"><label>فقط این شناسه‌ها (اختیاری)</label><input id="qIds" class="ltr" placeholder="3578, 3579"></div>
-        <label class="check"><input type="checkbox" id="qFlag"> ردیف‌های فلگ‌خورده با اولویت بالا هم بیاید</label>
+        <label class="cb"><input type="checkbox" id="qFlag"> دسته‌های فلگ‌خورده با اولویت بالا هم بیایند</label>
         <button class="btn ghost" id="qPreview">پیش‌نمایش</button>
       </div>
-      <div id="qOut" class="muted" style="margin-top:10px"></div>
+      <div id="qOut" style="margin-top:12px"></div>
     </div>
 
     <div class="card">
-      <h2>مرحله‌ها <small>به ترتیب اجرا کنید؛ هر مرحله را می‌شود متوقف و دوباره اجرا کرد</small></h2>
-      <div class="steps" id="steps"></div>
-    </div>
-
-    <div class="card">
-      <div class="row" style="align-items:center">
-        <h2 style="margin:0;flex:1">وضعیت <small id="jobWhat"></small></h2>
+      <div class="row" style="align-items:center;margin-bottom:12px">
+        <h2 style="margin:0;flex:1">مرحله‌ها <small id="runName"></small></h2>
+        <button class="btn" id="runAll">اجرای همه‌ی مرحله‌ها</button>
         <button class="btn bad" id="stopBtn" disabled>توقف</button>
       </div>
+      <div class="route" id="route"></div>
+      <div class="summary" id="summary"></div>
+      <div class="detail" id="detail"></div>
       <div class="bar"><i id="barFill"></i></div>
       <div class="muted" id="barText" style="font-size:12.5px"></div>
-      <pre class="log" id="logBox">—</pre>
+      <details class="logwrap" id="logwrap"><summary>گزارش کامل</summary><pre class="log" id="logBox">—</pre></details>
     </div>
   </section>
 
   <!-- ===================== RESULTS ===================== -->
-  <section class="tab" id="tab-results">
+  <section class="page" id="page-results">
+    <div class="ph">
+      <div class="grow"><h1>نتایج</h1><p>خروجی هر مرحله. روی هر فایل بزنید تا ببینید؛ فایل‌ها در اکسل هم درست باز می‌شوند.</p></div>
+      <div class="field s" style="flex:0 0 190px"><label>اجرا</label><select id="resRun"></select></div>
+      <button class="btn ghost" id="resZip">دانلود همه (ZIP)</button>
+    </div>
     <div class="card">
-      <div class="row">
-        <div class="field"><label>اجرا</label><select id="resRun"></select></div>
-        <button class="btn ghost" id="resZip">دانلود همه (ZIP)</button>
+      <div id="resFiles"></div>
+      <div class="row" style="margin:14px 0 10px">
+        <div class="field"><input id="resQ" placeholder="جستجو در این فایل: نام، برند، دامنه…"></div>
+        <button class="btn ghost" id="resDl">دانلود این فایل</button>
       </div>
-      <div class="chips" id="resFiles"></div>
-      <div class="row" style="margin-bottom:10px">
-        <div class="field"><label>جستجو در این فایل</label><input id="resQ" placeholder="نام، برند، دامنه…"></div>
-        <button class="btn ghost" id="resDl">دانلود این فایل (CSV)</button>
-      </div>
-      <div class="muted" id="resInfo" style="font-size:12.5px;margin-bottom:6px"></div>
+      <div class="muted" id="resInfo" style="font-size:12.5px;margin-bottom:8px"></div>
       <div class="tablewrap"><table id="resTable"></table></div>
-      <div class="row" style="margin-top:10px;justify-content:center">
-        <button class="btn ghost" id="resPrev">قبلی</button><button class="btn ghost" id="resNext">بعدی</button>
+      <div class="row" style="margin-top:12px;justify-content:center">
+        <button class="btn ghost sm" id="resPrev">قبلی</button><button class="btn ghost sm" id="resNext">بعدی</button>
       </div>
     </div>
   </section>
 
-  <!-- ===================== SOURCES ===================== -->
-  <section class="tab" id="tab-sources">
+  <!-- ===================== SELLERS ===================== -->
+  <section class="page" id="page-sellers">
+    <div class="ph">
+      <div class="grow"><h1>تأمین‌کننده‌ها</h1><p>فروشنده‌هایی که در این اجرا پیدا شدند؛ همان فهرستی که برای دعوت به کاروان لازم دارید. فقط داخلی است و روی سایت نمی‌آید.</p></div>
+      <div class="field s" style="flex:0 0 190px"><label>اجرا</label><select id="selRun"></select></div>
+      <button class="btn ghost" id="selDl">دانلود فهرست</button>
+    </div>
     <div class="card">
-      <h2>سایت‌های منبع <small>کراولر فقط در همین سایت‌ها جستجو می‌کند</small></h2>
+      <div class="summary" id="selSummary" style="margin:0 0 12px"></div>
+      <div class="tablewrap"><table id="selTable"></table></div>
+    </div>
+  </section>
+
+  <!-- ===================== SOURCES ===================== -->
+  <section class="page" id="page-sources">
+    <div class="ph"><div class="grow"><h1>سایت‌های منبع</h1><p>کراولر فقط در همین سایت‌ها جستجو می‌کند. هر سایت را اول تست کنید تا نوعش خودکار معلوم شود.</p></div></div>
+    <div class="card">
       <div class="tablewrap" style="max-height:none"><table id="srcTable"></table></div>
     </div>
-
     <div class="grid2">
       <div class="card">
         <h2>افزودن سایت</h2>
@@ -196,46 +280,48 @@ td a{color:var(--gold-d)}
           <div class="field"><label>تلفن (اختیاری)</label><input id="sPhones" class="ltr" placeholder="021..., 0912..."></div>
         </div>
         <div class="row" id="sTplRow" style="margin-top:10px;display:none">
-          <div class="field" style="flex:2"><label>آدرس جستجوی سایت؛ جای عبارت را {query} بگذارید</label><input id="sUrl" class="ltr" placeholder="https://example-shop.ir/search?q={query}"></div>
+          <div class="field" style="flex:2"><label>آدرس جستجو؛ جای عبارت را {query} بگذارید</label><input id="sUrl" class="ltr" placeholder="https://example-shop.ir/search?q={query}"></div>
           <div class="field"><label>انتخابگر CSS لینک محصول</label><input id="sSel" class="ltr" placeholder="div.product a"></div>
         </div>
-        <div style="margin-top:12px"><label>برای کدام دسته‌های اصلی جستجو شود؟ (هیچ‌کدام = همه)</label>
-          <div class="chips" id="sCats"></div></div>
+        <div style="margin:14px 0"><label>برای کدام دسته‌های اصلی؟ (هیچ‌کدام یعنی همه)</label>
+          <div class="chips" id="sCats" style="margin-top:6px"></div></div>
         <button class="btn" id="sAdd">افزودن به منابع</button>
       </div>
       <div class="card">
-        <h2>این‌ها یعنی چه؟</h2>
+        <h2>راهنمای انواع</h2>
         <dl class="kv">
-          <dt>ووکامرس با API</dt><dd>سایت‌های وردپرسی که اطلاعات محصول را به شکل داده می‌دهند. سریع‌ترین و دقیق‌ترین حالت؛ صفحه‌ی محصول اصلاً باز نمی‌شود.</dd>
+          <dt>ووکامرس با API</dt><dd>سایت وردپرسی که اطلاعات محصول را مستقیم می‌دهد. سریع‌ترین و دقیق‌ترین حالت.</dd>
           <dt>ووکامرس بدون API</dt><dd>سایت وردپرسی که API را بسته؛ صفحه‌ی جستجو و بعد صفحه‌ی هر محصول باز می‌شود.</dd>
-          <dt>سایت دیگر</dt><dd>سایت‌های غیر وردپرسی. آدرس صفحه‌ی جستجو و نشانی لینک محصولات را باید یک نفر فنی بدهد.</dd>
-          <dt>دسته‌های اصلی</dt><dd>اگر سایت فقط شیرآلات می‌فروشد، فقط «شیرآلات» را انتخاب کنید تا بی‌خود برای پمپ و کابل جستجو نشود.</dd>
-          <dt>فروشنده و تلفن</dt><dd>اگر خالی بماند، از خود سایت خوانده می‌شود. فقط در فایل‌های داخلی می‌آید، نه روی سایت کاروان.</dd>
+          <dt>سایت دیگر</dt><dd>غیر وردپرسی؛ آدرس صفحه‌ی جستجو و نشانی لینک محصولات را یک نفر فنی بدهد.</dd>
+          <dt>دسته‌های اصلی</dt><dd>سایتی که فقط شیرآلات دارد را فقط برای «شیرآلات» علامت بزنید.</dd>
+          <dt>فروشنده و تلفن</dt><dd>اگر خالی بماند از خود سایت خوانده می‌شود؛ فقط در فایل‌های داخلی می‌آید.</dd>
         </dl>
-        <p class="muted" style="margin-bottom:0">ترب، دیجی‌کالا، دیوار، شیپور، ایمالز و خود کاروان صنعت عمداً منبع نیستند. این سرور خارج از ایران است؛ اگر تست سایتی جواب نداد، احتمالاً IP خارجی را می‌بندد.</p>
+        <p class="muted" style="margin:12px 0 0;font-size:13px">ترب، دیجی‌کالا، دیوار، شیپور، ایمالز و خود کاروان صنعت عمداً منبع نیستند. این سرور خارج از ایران است؛ اگر تست سایتی جواب نداد، احتمالاً IP خارجی را می‌بندد.</p>
       </div>
     </div>
-
     <details class="card">
       <summary style="cursor:pointer;font-weight:500">ویرایش مستقیم فایل منابع (پیشرفته)</summary>
-      <textarea id="srcYaml" class="code" spellcheck="false" style="margin-top:10px"></textarea>
+      <textarea id="srcYaml" class="code" spellcheck="false" style="margin-top:12px"></textarea>
       <div class="row" style="margin-top:10px"><button class="btn" id="srcSave">ذخیره‌ی فایل</button><span id="srcMsg" class="muted"></span></div>
     </details>
   </section>
 
   <!-- ===================== SETUP ===================== -->
-  <section class="tab" id="tab-setup">
+  <section class="page" id="page-setup">
+    <div class="ph"><div class="grow"><h1>داده و تنظیمات</h1><p>فایل‌ها با انتخاب، خودکار بارگذاری می‌شوند. CSV با هر رمزگذاری و فایل Excel هر دو قبول است.</p></div></div>
     <div class="grid2">
       <div class="card">
         <h2>تاکسونومی</h2>
-        <div id="taxInfo" class="muted">بارگذاری نشده</div>
-        <label class="drop" style="margin-top:10px">انتخاب فایل تاکسونومی (CSV یا Excel)<input type="file" id="taxFile" accept=".csv,.xlsx"></label><div id="taxUpMsg" class="upmsg"></div>
+        <div id="taxInfo" class="muted" style="margin-bottom:10px">بارگذاری نشده</div>
+        <label class="drop">انتخاب فایل تاکسونومی<input type="file" id="taxFile" accept=".csv,.xlsx"></label>
+        <div id="taxUpMsg" class="upmsg"></div>
       </div>
       <div class="card">
-        <h2>خروجی محصولات فعلی سایت <small>برای مرحله‌ی ادغام</small></h2>
-        <div id="siteInfo" class="muted">بارگذاری نشده؛ بدون آن همه‌ی محصولات «تازه» حساب می‌شوند.</div>
-        <p class="muted" style="font-size:12.5px">از پیشخوان وردپرس: محصولات ← برون‌بری (Export) ← CSV. ستون‌های ID و نام کافی است؛ SKU و قیمت بهتر.</p>
-        <label class="drop">انتخاب فایل محصولات سایت (CSV یا Excel)<input type="file" id="siteFile" accept=".csv,.xlsx"></label><div id="siteUpMsg" class="upmsg"></div>
+        <h2>محصولات فعلی سایت <small>برای تشخیص تکراری‌ها</small></h2>
+        <div id="siteInfo" class="muted" style="margin-bottom:10px">بارگذاری نشده؛ بدون آن همه‌ی محصولات «تازه» حساب می‌شوند.</div>
+        <label class="drop">انتخاب خروجی محصولات ووکامرس<input type="file" id="siteFile" accept=".csv,.xlsx"></label>
+        <div id="siteUpMsg" class="upmsg"></div>
+        <p class="muted" style="font-size:12.5px;margin:6px 0 0">پیشخوان وردپرس ← محصولات ← برون‌بری. شناسه، نام، شناسه محصول و قیمت عادی کافی است.</p>
       </div>
     </div>
 
@@ -257,19 +343,17 @@ td a{color:var(--gold-d)}
       <div class="card">
         <h2>جستجو و کراول</h2>
         <div class="row">
-          <div class="field s"><label>فاصله بین درخواست‌ها (ثانیه)</label><input id="delay" type="number" step="0.5" min="0.5"></div>
-          <div class="field s"><label>حداکثر نتیجه از هر منبع</label><input id="maxHits" type="number" min="1"></div>
+          <div class="field s"><label>فاصله‌ی درخواست‌ها (ثانیه)</label><input id="delay" type="number" step="0.5" min="0.5"></div>
+          <div class="field s"><label>نتیجه از هر منبع</label><input id="maxHits" type="number" min="1"></div>
         </div>
-        <label class="check" style="margin-top:10px"><input type="checkbox" id="webSearch"> جستجو در کل وب هم انجام شود (کلید Serper لازم است)</label>
-        <div class="row" style="margin-top:10px">
-          <div class="field"><label>پراکسی برای سایت‌های ایرانی (اختیاری)</label><input id="pxIran" class="ltr" placeholder="http://user:pass@ip:port"></div>
-        </div>
+        <label class="cb" style="margin-top:12px"><input type="checkbox" id="webSearch"> جستجو در کل وب هم انجام شود (کلید Serper لازم است)</label>
+        <div class="field" style="margin-top:12px"><label>پراکسی برای سایت‌های ایرانی (اختیاری)</label><input id="pxIran" class="ltr" placeholder="http://user:pass@ip:port"></div>
       </div>
       <div class="card">
-        <h2>فیلتر مرحله‌ی ۴ و کلیدها</h2>
+        <h2>فیلتر مرحله‌ی ۴</h2>
         <div class="row">
           <div class="field"><label>روش فیلتر</label><select id="llmProv">
-            <option value="rules">قاعده‌محور (رایگان، بدون هوش مصنوعی)</option>
+            <option value="rules">قاعده‌محور (رایگان)</option>
             <option value="openai_compatible">مدل زبانی (Ollama یا سرویس سازگار با OpenAI)</option></select></div>
           <div class="field s"><label>حداقل اطمینان</label><input id="minConf" type="number" step="0.05" min="0" max="1"></div>
         </div>
@@ -277,8 +361,8 @@ td a{color:var(--gold-d)}
           <div class="field" style="flex:2"><label>آدرس سرویس (تا /v1)</label><input id="llmUrl" class="ltr" placeholder="https://…/v1"></div>
           <div class="field"><label>نام مدل</label><input id="llmModel" class="ltr" placeholder="qwen2.5:7b"></div>
         </div>
-        <dl class="kv" id="keys" style="margin-top:12px"></dl>
-        <p class="muted" style="font-size:12.5px;margin-bottom:0">کلیدها در پیشخوان Render ← سرویس ← Environment تنظیم می‌شوند، نه اینجا.</p>
+        <dl class="kv" id="keys" style="margin-top:14px"></dl>
+        <p class="muted" style="font-size:12.5px;margin:10px 0 0">کلیدها در پیشخوان Render ← سرویس ← Environment تنظیم می‌شوند.</p>
       </div>
     </div>
     <div class="row"><button class="btn" id="setSave">ذخیره‌ی تنظیمات</button><span id="setMsg" class="muted"></span></div>
@@ -287,32 +371,52 @@ td a{color:var(--gold-d)}
       <h2>پشتیبان <small>تاکسونومی، منابع، تنظیمات و همه‌ی اجراها در یک فایل</small></h2>
       <div class="row">
         <a class="btn ghost" href="/api/backup">دانلود پشتیبان</a>
-        <input type="file" id="restFile" accept=".zip" style="max-width:280px"><button class="btn ghost" id="restBtn">بازگردانی</button>
+        <label class="btn ghost" style="cursor:pointer">بازگردانی از فایل<input type="file" id="restFile" accept=".zip" hidden></label>
       </div>
     </div>
   </section>
 </main>
-<div class="toast" id="toast"></div>
+</div>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
 const $ = s => document.querySelector(s);
-const fa = n => (n ?? 0).toLocaleString('fa-IR');
-let STATE = null, CUR_RUN = null, RES = {run:null, file:null, offset:0, q:''};
-const FILE_FA = {'01_queue.csv':'صف','02_search_hits.csv':'نتایج جستجو','02_no_hits.csv':'بی‌نتیجه',
-  '03_crawled.csv':'کراول‌شده','03_failed.csv':'ناموفق','04_filtered.csv':'تأییدشده','04_rejected.csv':'ردشده',
-  '05_new_products.csv':'محصولات تازه','05_updates_existing.csv':'به‌روزرسانی موجودها','05_review.csv':'بازبینی',
-  '06_woo_import.csv':'ایمپورت ووکامرس','06_woo_update_prices.csv':'به‌روزرسانی قیمت'};
-const ROUTE_FA = {iran:'ایرانی', foreign:'خارجی', both:'هر دو'};
-const STEPS = [
-  {k:'queue', t:'صف', d:'برگ‌های تاکسونومی طبق فیلتر بالا به‌همراه عبارت جستجو و مسیر منبع.', f:'01_queue.csv'},
-  {k:'search', t:'جستجو', d:'جستجوی هر دسته در سایت‌های منبع (و در صورت فعال بودن، کل وب).', f:'02_search_hits.csv', net:'اینترنت ایران بهتر است'},
-  {k:'crawl', t:'کراول', d:'باز کردن صفحه‌ها و استخراج نام، برند، مدل، مشخصات، قیمت، فروشنده و تلفن.', f:'03_crawled.csv', opt:['llm_fallback','برای صفحه‌های بی‌ساختار از هوش مصنوعی کمک بگیر'], net:'اینترنت ایران بهتر است'},
-  {k:'filter', t:'فیلتر', d:'بررسی می‌کند هر محصول واقعاً مال همان دسته است؛ بقیه با دلیل به فایل ردشده‌ها می‌روند. روش فیلتر در «داده و تنظیمات» انتخاب می‌شود.', f:'04_filtered.csv', needKey:true},
-  {k:'dedupe', t:'ادغام و مقایسه', d:'یک مدل از چند سایت ← یک محصول با قیمت میانه. محصولات موجود روی سایت ← فایل به‌روزرسانی.', f:'05_new_products.csv', opt:['skip_filter','بدون مرحله‌ی فیلتر (از خروجی کراول)']},
-  {k:'export', t:'خروجی ووکامرس', d:'فایل ایمپورت محصولات تازه (پیش‌نویس) و فایل به‌روزرسانی قیمت محصولات موجود.', f:'06_woo_import.csv'},
-];
+const fa = n => (+n || 0).toLocaleString('fa-IR');
+const esc = v => String(v ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+let STATE=null, CUR_RUN=null, SEL_STEP='queue', RES={run:null,file:null,offset:0,q:''}, RUNKPI={};
 
-function toast(msg, err){ const t=$('#toast'); t.textContent=msg; t.className='toast show'+(err?' err':''); clearTimeout(t._h); t._h=setTimeout(()=>t.className='toast',3500); }
+const STEPS = [
+  {k:'queue',  t:'صف',     f:'01_queue.csv',        d:'برگ‌های تاکسونومی طبق فیلتر بالا، با عبارت جستجو و مسیر منبع هر کدام.'},
+  {k:'search', t:'جستجو',  f:'02_search_hits.csv',  d:'جستجوی هر دسته در سایت‌های منبع. دسته‌هایی که نتیجه نداشتند در فایل «بی‌نتیجه» می‌روند.', net:true},
+  {k:'crawl',  t:'کراول',  f:'03_crawled.csv',      d:'باز کردن صفحه‌ها و استخراج نام، برند، مدل، مشخصات، قیمت، فروشنده و تلفن.', net:true,
+    opt:['llm_fallback','برای صفحه‌های بی‌ساختار از مدل زبانی کمک بگیر']},
+  {k:'filter', t:'فیلتر',   f:'04_filtered.csv',     d:'بررسی اینکه هر محصول واقعاً مال همان دسته است؛ ردشده‌ها با دلیل در فایل جدا می‌روند.'},
+  {k:'dedupe', t:'ادغام',   f:'05_new_products.csv', d:'یک مدل از چند سایت یک محصول با قیمت میانه می‌شود. محصولاتی که روی سایت دارید به فایل به‌روزرسانی می‌روند.',
+    opt:['skip_filter','از خروجی کراول استفاده کن (بدون فیلتر)']},
+  {k:'export', t:'خروجی',   f:'06_woo_import.csv',   d:'فایل ایمپورت ووکامرس برای محصولات تازه (پیش‌نویس) و فایل به‌روزرسانی قیمت محصولات موجود.'},
+];
+const STEP_FA = Object.fromEntries(STEPS.map(s=>[s.k,s.t])); STEP_FA.all='همه‌ی مرحله‌ها';
+const FILES = [
+  ['صف',['01_queue.csv']], ['جستجو',['02_search_hits.csv','02_no_hits.csv']], ['کراول',['03_crawled.csv','03_failed.csv']],
+  ['فیلتر',['04_filtered.csv','04_rejected.csv']], ['ادغام',['05_new_products.csv','05_updates_existing.csv','05_review.csv']],
+  ['خروجی',['06_woo_import.csv','06_woo_update_prices.csv']]];
+const FILE_FA = {'01_queue.csv':'صف','02_search_hits.csv':'لینک‌های پیداشده','02_no_hits.csv':'بی‌نتیجه','03_crawled.csv':'کراول‌شده',
+  '03_failed.csv':'ناموفق','04_filtered.csv':'تأییدشده','04_rejected.csv':'ردشده','05_new_products.csv':'محصولات تازه',
+  '05_updates_existing.csv':'به‌روزرسانی موجودها','05_review.csv':'بازبینی','06_woo_import.csv':'ایمپورت ووکامرس','06_woo_update_prices.csv':'به‌روزرسانی قیمت'};
+const COL_FA = {taxonomy_id:'شناسه دسته',breadcrumb:'مسیر دسته',query:'عبارت جستجو',route:'مسیر',leaf:'دسته',level1:'دسته‌ی اصلی',
+  site_product_count:'محصول روی سایت',priority:'اولویت',name:'نام',brand:'برند',model:'مدل',specs_json:'مشخصات',short_description:'توضیح',
+  price_raw:'قیمت خام',price_unit_detected:'واحد',price_toman:'قیمت (تومان)',price_usd:'دلار',price_flags:'هشدار قیمت',sale_unit:'واحد فروش',
+  in_stock:'موجودی',usd_rate_toman:'نرخ دلار',usd_rate_date:'تاریخ قیمت',usd_rate_type:'نوع نرخ',seller_name:'فروشنده',seller_phones:'تلفن',
+  claims_representative:'ادعای نمایندگی',source_domain:'دامنه',source_type:'نوع منبع',url:'لینک',image_urls:'تصویر',extracted_by:'روش استخراج',
+  crawled_at:'زمان کراول',relevant:'مرتبط',relevance_confidence:'اطمینان',relevance_reason:'دلیل',price_min_toman:'کمترین',price_max_toman:'بیشترین',
+  n_sources:'تعداد منبع',n_priced:'منبع قیمت‌دار',urls:'لینک‌ها',sellers:'فروشنده‌ها',site_product_id:'شناسه در سایت',site_name:'نام در سایت',
+  site_price:'قیمت سایت',match_score:'امتیاز تطبیق',match_by:'تطبیق با',found_by:'روش یافتن',title:'عنوان',reason:'علت'};
+const HIDE = new Set(['prefilled_json']);
+const PRICE_COLS = new Set(['price_toman','price_min_toman','price_max_toman','site_price','usd_rate_toman','price_raw','Regular price']);
+const ROUTE_FA = {iran:'ایرانی', foreign:'خارجی', both:'هر دو'};
+const TYPE_FA = {woo_store_api:'ووکامرس با API', woo_search:'ووکامرس بدون API', url_template:'سایت دیگر'};
+
+function toast(msg, err){ const t=$('#toast'); t.textContent=msg; t.className='toast show'+(err?' err':''); clearTimeout(t._h); t._h=setTimeout(()=>t.className='toast',3800); }
 async function api(path, opts={}){
   const r = await fetch(path, opts);
   const ct = r.headers.get('content-type')||'';
@@ -321,28 +425,26 @@ async function api(path, opts={}){
   return data;
 }
 const post = (p, body) => api(p, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body||{})});
-
-// ---------------- tabs
-$('#nav').addEventListener('click', e=>{
-  const b=e.target.closest('button'); if(!b) return;
-  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on', x===b));
-  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on', x.id==='tab-'+b.dataset.tab));
-  if(b.dataset.tab==='results') loadResults();
-  if(b.dataset.tab==='sources') loadSources();
-});
-
-function go(tab){ document.querySelector(`nav button[data-tab="${tab}"]`).click(); window.scrollTo(0,0); }
-document.addEventListener('click', e=>{ const a=e.target.closest('[data-go]'); if(a){ e.preventDefault(); go(a.dataset.go); } });
-
-// The free server forgets everything on restart. Settings and the sources
-// list are mirrored in this browser and put back automatically.
 const LS = {get(k){ try{ return JSON.parse(localStorage.getItem('cc_'+k)); }catch(e){ return null; } },
             set(k,v){ try{ localStorage.setItem('cc_'+k, JSON.stringify(v)); }catch(e){} }};
+
+// ---------------- navigation
+function go(tab){ document.querySelector(`.nav button[data-tab="${tab}"]`).click(); window.scrollTo(0,0); }
+$('#nav').addEventListener('click', e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('on', x===b));
+  document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on', x.id==='page-'+b.dataset.tab));
+  if(b.dataset.tab==='results') loadResults();
+  if(b.dataset.tab==='sellers') loadSellers();
+  if(b.dataset.tab==='sources') loadSources();
+});
+document.addEventListener('click', e=>{ const a=e.target.closest('[data-go]'); if(a){ e.preventDefault(); go(a.dataset.go); } });
+
+// ---------------- state
 let _synced=false;
 async function syncFromBrowser(){
   if(_synced) return; _synced=true;
-  let changed=false;
-  const st=LS.get('settings'), src=LS.get('sources');
+  let changed=false; const st=LS.get('settings'), src=LS.get('sources');
   try{
     if(!STATE.has_settings && st){ await post('/api/settings', st); changed=true; }
     if(!STATE.has_sources && src){ await post('/api/sources', {yaml:src}); changed=true; }
@@ -350,177 +452,226 @@ async function syncFromBrowser(){
   if(changed){ STATE = await api('/api/state'); toast('تنظیمات و منابع از این مرورگر برگردانده شد'); }
 }
 
-// ---------------- state
 async function loadState(){
   STATE = await api('/api/state');
-  $('#ephemeral').hidden = !STATE.ephemeral;
   await syncFromBrowser();
-  const missing = [];
-  if(!STATE.taxonomy) missing.push('<a data-go="setup">فایل تاکسونومی را بارگذاری کنید</a>');
-  if(!STATE.sources.iran_sites) missing.push('<a data-go="sources">حداقل یک سایت منبع اضافه کنید</a>');
-  if(STATE.settings.fx.provider==='manual' && !STATE.settings.fx.manual_rate_toman) missing.push('<a data-go="setup">نرخ دلار را تنظیم کنید</a>');
-  $('#setupNote').hidden = !missing.length;
-  $('#setupNote').innerHTML = 'برای شروع: ' + missing.join('، ') + '.';
-  // runs
-  if(!STATE.runs.length) STATE.runs.push({name: CUR_RUN || 'test1', files:{}});   // a ready-to-use first run
+  $('#ephemeral').hidden = !STATE.ephemeral;
+  const s = STATE.settings;
+  const checks = [
+    ['تاکسونومی', !!STATE.taxonomy, 'setup', false],
+    ['سایت منبع', STATE.sources.iran_sites>0, 'sources', false],
+    ['نرخ دلار', !(s.fx.provider==='manual' && !s.fx.manual_rate_toman), 'setup', false],
+    ['محصولات سایت', !!STATE.site_export, 'setup', true],
+  ];
+  $('#checks').innerHTML = checks.map(([t,ok,g,opt])=>`<li><a data-go="${g}" class="${ok?'done':''}"><i>${ok?'✓':''}</i>${t}${opt&&!ok?' <span style="opacity:.6">(اختیاری)</span>':''}</a></li>`).join('');
+  if(!STATE.runs.length) STATE.runs.push({name: CUR_RUN || 'test1', files:{}});
   else if(CUR_RUN && !STATE.runs.find(r=>r.name===CUR_RUN)) STATE.runs.unshift({name: CUR_RUN, files:{}});
   const names = STATE.runs.map(r=>r.name);
   if(!CUR_RUN || !names.includes(CUR_RUN)) CUR_RUN = names[0];
-  for(const sel of ['#runSel','#resRun']){
-    const el=$(sel), v = sel==='#resRun' ? (RES.run||CUR_RUN) : CUR_RUN;
-    el.innerHTML = names.length ? names.map(n=>`<option ${n===v?'selected':''}>${n}</option>`).join('') : '<option value="">— هنوز اجرایی نیست —</option>';
+  for(const sel of ['#runSel','#resRun','#selRun']){
+    const prev = $(sel).value, v = sel==='#runSel' ? CUR_RUN : (names.includes(prev) ? prev : CUR_RUN);
+    $(sel).innerHTML = names.map(n=>`<option ${n===v?'selected':''}>${esc(n)}</option>`).join('');
   }
-  // level1
   if(STATE.taxonomy){
     const cur=$('#qL1').value;
-    $('#qL1').innerHTML = '<option value="">همه</option>' + STATE.taxonomy.level1.map(x=>`<option ${x===cur?'selected':''}>${x}</option>`).join('');
-    $('#taxInfo').innerHTML = `<span class="ok">بارگذاری شده</span> · ${fa(STATE.taxonomy.nodes)} گره · ${fa(STATE.taxonomy.leaves)} برگ · ${fa(STATE.taxonomy.gap_leaves)} برگ بی‌محصول`;
+    $('#qL1').innerHTML = '<option value="">همه</option>' + STATE.taxonomy.level1.map(x=>`<option ${x===cur?'selected':''}>${esc(x)}</option>`).join('');
+    $('#taxInfo').innerHTML = `<span class="ok">✓ بارگذاری شده</span> · ${fa(STATE.taxonomy.nodes)} گره، ${fa(STATE.taxonomy.leaves)} برگ، ${fa(STATE.taxonomy.gap_leaves)} برگ بی‌محصول`;
   }
-  $('#siteInfo').innerHTML = STATE.site_export ? `<span class="ok">بارگذاری شده</span> · ${fa(STATE.site_export.rows)} محصول` : $('#siteInfo').innerHTML;
-  // settings
-  const s=STATE.settings;
+  if(STATE.site_export) $('#siteInfo').innerHTML = `<span class="ok">✓ بارگذاری شده</span> · ${fa(STATE.site_export.rows)} محصول`;
   $('#fxProv').value=s.fx.provider||'manual'; $('#fxRate').value=s.fx.manual_rate_toman||''; $('#fxType').value=s.fx.rate_type||'free';
   $('#fxUrl').value=s.fx.url||''; $('#fxPath').value=s.fx.json_path||''; $('#fxUnit').value=s.fx.unit||'toman';
   $('#fxApiRow').style.display = $('#fxProv').value==='json_api' ? '' : 'none';
   $('#delay').value=s.http.delay_seconds; $('#maxHits').value=s.search.max_hits_per_source; $('#webSearch').checked=!!s.search.use_web_search;
   $('#pxIran').value=(s.http.proxy||{}).iran||'';
-  $('#llmProv').value=s.llm.provider==='openai_compatible'?'openai_compatible':'rules';
+  $('#llmProv').value = s.llm.provider==='openai_compatible' ? 'openai_compatible' : 'rules';
   $('#llmUrl').value=s.llm.base_url||''; $('#llmModel').value=s.llm.model||''; $('#minConf').value=s.llm.min_confidence;
   $('#llmRow').style.display = $('#llmProv').value==='rules' ? 'none' : '';
   $('#keys').innerHTML = Object.entries(STATE.keys).map(([k,v])=>`<dt class="ltr">${k}</dt><dd class="${v?'ok':'muted'}">${v?'تنظیم شده':'تنظیم نشده'}</dd>`).join('');
-  renderSteps(); renderJob(STATE.job);
+  await loadRunKpi();
+  renderRoute(); renderJob(STATE.job);
 }
-
+async function loadRunKpi(){
+  try{ const r = await api('/api/runs/'+encodeURIComponent(CUR_RUN)); RUNKPI = r.kpi||{}; }catch(e){ RUNKPI = {}; }
+}
 function runFiles(){ const r = STATE && STATE.runs.find(x=>x.name===CUR_RUN); return r ? r.files : {}; }
 
-function renderSteps(){
-  const files = runFiles(), running = STATE.job.running;
-  $('#steps').innerHTML = STEPS.map((s,i)=>{
-    const n = files[s.f];
-    let out = n!==undefined ? `خروجی: <b>${fa(n)}</b> ردیف` : '<span class="muted">هنوز اجرا نشده</span>';
-    if(s.k==='filter' && files['04_rejected.csv']!==undefined) out += ` · ردشده ${fa(files['04_rejected.csv'])}`;
-    if(s.k==='dedupe' && files['05_updates_existing.csv']!==undefined) out += ` · به‌روزرسانی ${fa(files['05_updates_existing.csv'])} · بازبینی ${fa(files['05_review.csv']||0)}`;
-    const keyWarn = s.needKey ? `<div class="muted" style="font-size:12px">روش: ${STATE.settings.llm.provider==='openai_compatible' ? 'مدل زبانی ('+(STATE.settings.llm.model||'')+')' : 'قاعده‌محور (رایگان)'}</div>` : '';
-    return `<div class="step ${running && STATE.job.step===s.k && STATE.job.run===CUR_RUN ? 'active':''}">
-      <h3><span class="n">${fa(i+1)}</span>${s.t}</h3><p>${s.d}</p>
-      ${s.net?`<div class="net">${s.net}</div>`:''}${keyWarn}
-      ${s.opt?`<label class="check"><input type="checkbox" data-opt="${s.opt[0]}"> ${s.opt[1]}</label>`:''}
-      <div class="out">${out}</div>
-      <button class="btn" data-step="${s.k}" ${running?'disabled title="یک مرحله در حال اجراست"':''}>اجرا</button>
-    </div>`;
-  }).join('');
+// ---------------- the route
+function stepState(s){
+  const j = STATE.job, files = runFiles();
+  if(j.running && j.run===CUR_RUN && j.current===s.k) return 'run';
+  if(!j.running && j.run===CUR_RUN && j.ok===false && j.current===s.k) return 'err';
+  return files[s.f]!==undefined ? 'done' : 'todo';
 }
-
-$('#steps').addEventListener('click', async e=>{
-  const b=e.target.closest('button[data-step]'); if(!b) return;
-  const step=b.dataset.step, body={};
-  if(step==='queue') Object.assign(body, queueOpts());
-  b.closest('.step').querySelectorAll('[data-opt]').forEach(c=>body[c.dataset.opt]=c.checked);
-  try{ await post(`/api/runs/${encodeURIComponent(CUR_RUN)}/step/${step}`, body); toast('شروع شد: '+step); poll(true); }
-  catch(err){ toast(err.message, true); }
+function renderRoute(){
+  const files = runFiles();
+  $('#runName').textContent = CUR_RUN ? '· '+CUR_RUN : '';
+  $('#route').innerHTML = STEPS.map((s,i)=>{
+    const st = stepState(s), n = files[s.f];
+    const sub = st==='run' ? 'در حال اجرا' : st==='err' ? 'ناموفق' : (n!==undefined ? fa(n)+' ردیف' : 'اجرا نشده');
+    return `<button class="stn ${st} ${s.k===SEL_STEP?'sel':''}" data-k="${s.k}"><span class="dot">${st==='done'?'✓':fa(i+1)}</span><b>${s.t}</b><span>${sub}</span></button>`;
+  }).join('');
+  const k = RUNKPI;
+  $('#summary').innerHTML = k.crawled ? [
+    `<span><b>${fa(k.crawled)}</b> محصول کراول شد</span>`,
+    `<span><b>${fa(Math.round(100*k.priced/k.crawled))}٪</b> قیمت‌دار</span>`,
+    `<span><b>${fa(k.sellers)}</b> فروشنده</span>`,
+    (k.filtered||k.rejected) ? `<span><b>${fa(k.filtered)}</b> تأیید، <b>${fa(k.rejected)}</b> رد</span>` : '',
+    (k.new||k.updates) ? `<span><b>${fa(k.new)}</b> محصول تازه، <b>${fa(k.updates)}</b> به‌روزرسانی</span>` : '',
+  ].join('') : '';
+  renderDetail();
+  const running = STATE.job.running;
+  $('#runAll').disabled = running; $('#stopBtn').disabled = !running;
+}
+function renderDetail(){
+  const s = STEPS.find(x=>x.k===SEL_STEP), i = STEPS.indexOf(s), running = STATE.job.running, n = runFiles()[s.f];
+  let extra = '';
+  if(s.k==='filter') extra = `<div class="muted" style="font-size:12.5px;margin-top:4px">روش فعلی: ${STATE.settings.llm.provider==='openai_compatible' ? 'مدل زبانی ('+esc(STATE.settings.llm.model||'')+')' : 'قاعده‌محور، رایگان'} · <span class="lnk" data-go="setup">تغییر</span></div>`;
+  if(s.net) extra += `<div class="warn" style="font-size:12.5px;margin-top:4px">بعضی سایت‌های ایرانی سرور خارجی را می‌بندند؛ اگر نتیجه کم بود، فایل «ناموفق» را ببینید.</div>`;
+  $('#detail').innerHTML = `<div><h3>${fa(i+1)}. ${s.t}</h3><p>${s.d}</p>${extra}</div>
+    <div class="acts"><button class="btn ink" id="runOne" ${running?'disabled':''}>اجرای «${s.t}»</button>
+      ${n!==undefined?`<button class="btn ghost sm" data-show="${s.f}">دیدن خروجی (${fa(n)})</button>`:''}</div>
+    ${s.opt?`<div class="opts"><label class="cb"><input type="checkbox" data-opt="${s.opt[0]}"> ${s.opt[1]}</label></div>`:''}`;
+}
+$('#route').addEventListener('click', e=>{ const b=e.target.closest('.stn'); if(!b) return; SEL_STEP=b.dataset.k; renderRoute(); });
+$('#detail').addEventListener('click', e=>{
+  const show = e.target.closest('[data-show]');
+  if(show){ RES.run=CUR_RUN; RES.file=show.dataset.show; $('#resRun').value=CUR_RUN; go('results'); return; }
+  if(e.target.closest('#runOne')) startStep(SEL_STEP);
 });
+function stepOpts(){
+  const body = queueOpts();
+  document.querySelectorAll('#detail [data-opt]').forEach(c=>body[c.dataset.opt]=c.checked);
+  return body;
+}
+async function startStep(step){
+  try{ await post(`/api/runs/${encodeURIComponent(CUR_RUN)}/step/${step}`, stepOpts()); toast('شروع شد: '+STEP_FA[step]); $('#logwrap').open=true; poll(true); }
+  catch(err){ toast(err.message, true); }
+}
+$('#runAll').onclick = ()=>startStep('all');
 
 function queueOpts(){ return {mode:$('#qMode').value, level1:$('#qL1').value, path:$('#qPath').value.trim(), ids:$('#qIds').value.trim(), limit:$('#qLimit').value, include_flagged:$('#qFlag').checked}; }
 $('#qPreview').onclick = async ()=>{
   try{
     const r = await post('/api/queue-preview', queueOpts());
-    if(r.error){ $('#qOut').textContent=r.error; return; }
-    const routes = Object.entries(r.routes).map(([k,v])=>`${ROUTE_FA[k]||k}: ${fa(v)}`).join(' · ');
-    $('#qOut').innerHTML = `<b>${fa(r.count)}</b> ردیف${r.total!==r.count?` (از ${fa(r.total)})`:''} · ${routes}<div class="tablewrap" style="max-height:220px;margin-top:8px"><table><tr><th>شناسه</th><th>عبارت جستجو</th><th>مسیر</th><th>محصول روی سایت</th></tr>${r.rows.map(x=>`<tr><td>${x.taxonomy_id}</td><td>${x.query}</td><td>${ROUTE_FA[x.route]||x.route}</td><td>${fa(+x.site_product_count)}</td></tr>`).join('')}</table></div>`;
+    if(r.error){ $('#qOut').innerHTML=`<span class="warn">${esc(r.error)}</span>`; return; }
+    const routes = Object.entries(r.routes).map(([k,v])=>`${ROUTE_FA[k]||k}: ${fa(v)}`).join('، ');
+    $('#qOut').innerHTML = `<div style="margin-bottom:8px"><b>${fa(r.count)}</b> دسته${r.total!==r.count?` از ${fa(r.total)}`:''} · ${routes}</div>
+      <div class="tablewrap" style="max-height:230px"><table><tr><th>شناسه</th><th>عبارت جستجو</th><th>مسیر منبع</th><th>محصول روی سایت</th></tr>${r.rows.map(x=>`<tr><td>${x.taxonomy_id}</td><td>${esc(x.query)}</td><td>${ROUTE_FA[x.route]||x.route}</td><td>${fa(x.site_product_count)}</td></tr>`).join('')}</table></div>`;
   }catch(err){ toast(err.message,true); }
 };
-
-$('#runSel').onchange = e=>{ CUR_RUN=e.target.value; renderSteps(); };
-$('#runCreate').onclick = ()=>{
-  const n=$('#runNew').value.trim();
+$('#runSel').onchange = async e=>{ CUR_RUN=e.target.value; await loadRunKpi(); renderRoute(); };
+$('#runNewBtn').onclick = ()=>{
+  const n = prompt('نام اجرای تازه (حروف انگلیسی، عدد، - و _):', 'run-'+(STATE.runs.length+1));
+  if(!n) return;
   if(!/^[\w\-]{1,60}$/.test(n)){ toast('نام فقط حروف انگلیسی، عدد، - و _', true); return; }
   if(!STATE.runs.find(r=>r.name===n)) STATE.runs.unshift({name:n, files:{}});
-  CUR_RUN=n; $('#runNew').value='';
-  $('#runSel').innerHTML = STATE.runs.map(r=>`<option ${r.name===n?'selected':''}>${r.name}</option>`).join('');
-  renderSteps(); toast('اجرای «'+n+'» آماده است؛ از مرحله‌ی صف شروع کنید.');
-};
-$('#runDelete').onclick = async ()=>{
-  if(!CUR_RUN || !confirm('اجرای «'+CUR_RUN+'» و همه‌ی فایل‌هایش حذف شود؟')) return;
-  try{ await api('/api/runs/'+encodeURIComponent(CUR_RUN), {method:'DELETE'}); CUR_RUN=null; loadState(); }catch(err){ toast(err.message,true); }
+  CUR_RUN=n; RUNKPI={};
+  $('#runSel').innerHTML = STATE.runs.map(r=>`<option ${r.name===n?'selected':''}>${esc(r.name)}</option>`).join('');
+  SEL_STEP='queue'; renderRoute(); toast('اجرای «'+n+'» آماده است.');
 };
 
 // ---------------- job polling
 let pollTimer=null;
 function renderJob(j){
-  const p=j.progress||{}, pct = p.total ? Math.round(100*p.done/p.total) : (j.running?5:(j.ok?100:0));
-  $('#barFill').style.width = pct+'%';
-  $('#barText').textContent = j.running ? `${p.step||j.step}: ${fa(p.done)} از ${fa(p.total)}` : (j.step ? (j.ok?'تمام شد':'متوقف یا ناموفق')+(j.error?' — '+j.error:'') : '');
-  $('#jobWhat').textContent = j.step ? `${j.run} / ${j.step}` : '';
+  const p=j.progress||{}, pct = p.total ? Math.round(100*p.done/p.total) : (j.running?4:(j.ok?100:0));
+  $('#barFill').style.width = pct+'%'; $('#miniBar').style.width = (j.running?pct:0)+'%';
+  const cur = STEP_FA[j.current||j.step]||'';
+  $('#barText').textContent = j.running ? `${cur}: ${fa(p.done)} از ${fa(p.total)}` : (j.step ? (j.ok ? `«${STEP_FA[j.step]}» تمام شد` : `«${cur}» متوقف شد یا خطا داد${j.error?': '+j.error:''}`) : '');
+  $('#jobTitle').textContent = j.running ? `در حال اجرا: ${cur}` : (j.step ? (j.ok?'آخرین اجرا تمام شد':'آخرین اجرا ناموفق') : 'آماده');
+  $('#jobSub').textContent = j.running ? `${j.run} · ${fa(pct)}٪` : (j.step ? j.run : 'مرحله‌ای در حال اجرا نیست.');
   $('#logBox').textContent = (j.logs||[]).join('\n') || '—';
   $('#logBox').scrollTop = 1e9;
-  $('#stopBtn').disabled = !j.running;
-  const pill=$('#jobPill');
-  pill.textContent = j.running ? `در حال اجرا: ${j.step} (${pct}%)` : (j.step ? (j.ok?'آخرین مرحله تمام شد':'آخرین مرحله ناموفق') : 'آماده');
-  pill.className = 'pill' + (j.running?' run':'');
 }
 async function poll(force){
   clearTimeout(pollTimer);
   try{
     const j = await api('/api/job');
-    const was = STATE && STATE.job.running;
+    const was = STATE && STATE.job.running, stepChanged = STATE && STATE.job.current!==j.current;
     if(STATE) STATE.job=j;
     renderJob(j);
-    if((was && !j.running) || force) await loadState();
-    pollTimer = setTimeout(poll, j.running ? 2000 : 15000);   // keeps the free server awake while open
+    if((was && !j.running) || force || stepChanged) await loadState(); else if(STATE) renderRoute();
+    pollTimer = setTimeout(poll, j.running ? 2000 : 15000);   // also keeps the free server awake
   }catch(e){ pollTimer=setTimeout(poll, 5000); }
 }
-$('#stopBtn').onclick = ()=>post('/api/job/stop').then(()=>toast('درخواست توقف ارسال شد؛ بعد از ردیف فعلی متوقف می‌شود.'));
+$('#stopBtn').onclick = ()=>post('/api/job/stop').then(()=>toast('توقف بعد از ردیف فعلی انجام می‌شود.'));
 
 // ---------------- results
+function cell(col, v){
+  if(v==='' || v==null) return '<td></td>';
+  if(col==='image_urls'){ let u=null; try{ u=JSON.parse(v)[0]; }catch(e){} return u?`<td><img src="${esc(u)}" loading="lazy" alt="" referrerpolicy="no-referrer"></td>`:'<td></td>'; }
+  if(col==='url'||col==='urls') return '<td>'+String(v).split(' | ').map(u=>`<a href="${esc(u)}" target="_blank" rel="noopener" title="${esc(u)}">باز کردن</a>`).join(' ')+'</td>';
+  if(PRICE_COLS.has(col) && !isNaN(+v)) return `<td class="num">${fa(Math.round(+v))}</td>`;
+  if(col==='price_flags') return '<td>'+String(v).split(' | ').map(f=>`<span class="flag">${esc(f)}</span>`).join('')+'</td>';
+  if(col==='specs_json'){ let t=v; try{ t=Object.entries(JSON.parse(v)).map(([a,b])=>a+': '+b).join('، '); }catch(e){} return `<td title="${esc(t)}">${esc(t)}</td>`; }
+  if(col==='route') return `<td>${ROUTE_FA[v]||esc(v)}</td>`;
+  if(col==='relevant'){ const y = v==='True'||v==='true'; return `<td class="${y?'ok':'bad-t'}">${y?'بله':'خیر'}</td>`; }
+  return `<td title="${esc(v)}">${esc(v)}</td>`;
+}
 async function loadResults(){
   RES.run = $('#resRun').value || CUR_RUN;
-  if(!RES.run){ $('#resFiles').innerHTML='<span class="muted">هنوز اجرایی نیست.</span>'; return; }
   const r = await api('/api/runs/'+encodeURIComponent(RES.run));
   const names = Object.keys(r.files);
-  if(!RES.file || !names.includes(RES.file)) RES.file = names.includes('05_new_products.csv') ? '05_new_products.csv' : names[names.length-1];
-  $('#resFiles').innerHTML = names.map(n=>`<span class="chip ${n===RES.file?'on':''}" data-f="${n}" title="${n}"><b>${FILE_FA[n]||n.replace('.csv','')}</b> ${fa(r.files[n])}</span>`).join('') || '<span class="muted">این اجرا هنوز فایلی ندارد.</span>';
+  if(!RES.file || !names.includes(RES.file)) RES.file = ['05_new_products.csv','03_crawled.csv','02_search_hits.csv','01_queue.csv'].find(n=>names.includes(n)) || names[0];
+  $('#resFiles').innerHTML = names.length ? FILES.map(([g,fs])=>{
+      const have = fs.filter(f=>names.includes(f)); if(!have.length) return '';
+      return `<div class="chipgroup"><em>${g}</em>${have.map(f=>`<button class="chip ${f===RES.file?'on':''}" data-f="${f}">${FILE_FA[f]||f}<small>${fa(r.files[f])}</small></button>`).join('')}</div>`;
+    }).join('') : `<div class="empty">این اجرا هنوز خروجی ندارد. از <span class="lnk" data-go="run">مسیر اجرا</span> اولین مرحله را بزنید.</div>`;
+  $('#resTable').innerHTML=''; $('#resInfo').textContent='';
   RES.offset=0; if(RES.file) loadTable();
 }
 async function loadTable(){
   const lim=100;
   const r = await api(`/api/runs/${encodeURIComponent(RES.run)}/file/${RES.file}?offset=${RES.offset}&limit=${lim}&q=${encodeURIComponent(RES.q)}`);
-  const linkCols = new Set(['url','urls']);
-  $('#resInfo').textContent = `${fa(r.matched)} ردیف${RES.q?` از ${fa(r.total)}`:''} · نمایش ${fa(r.offset+1)} تا ${fa(Math.min(r.offset+lim, r.matched))}`;
-  $('#resTable').innerHTML = '<tr>'+r.columns.map(c=>`<th>${c}</th>`).join('')+'</tr>' + r.rows.map(row=>'<tr>'+row.map((v,i)=>{
-    const c=r.columns[i]; const esc = String(v).replace(/&/g,'&amp;').replace(/</g,'&lt;');
-    if(linkCols.has(c) && v) return `<td>${String(v).split(' | ').map(u=>`<a href="${encodeURI(u)}" target="_blank" rel="noopener">${u.replace(/^https?:\/\//,'').slice(0,40)}</a>`).join(' ')}</td>`;
-    return `<td title="${esc.replace(/"/g,'&quot;')}">${esc}</td>`;
-  }).join('')+'</tr>').join('');
+  const idx = r.columns.map((c,i)=>[c,i]).filter(([c])=>!HIDE.has(c));
+  $('#resInfo').textContent = r.matched ? `${fa(r.matched)} ردیف${RES.q?` (از ${fa(r.total)})`:''} · ${fa(r.offset+1)} تا ${fa(Math.min(r.offset+lim, r.matched))}` : 'ردیفی نیست.';
+  $('#resTable').innerHTML = '<tr>'+idx.map(([c])=>`<th title="${c}">${COL_FA[c]||c}</th>`).join('')+'</tr>' +
+    r.rows.map(row=>'<tr>'+idx.map(([c,i])=>cell(c,row[i])).join('')+'</tr>').join('');
   $('#resPrev').disabled = RES.offset<=0; $('#resNext').disabled = RES.offset+lim>=r.matched;
 }
 $('#resRun').onchange = ()=>{ RES.file=null; loadResults(); };
-$('#resFiles').addEventListener('click', e=>{ const c=e.target.closest('.chip'); if(!c) return; RES.file=c.dataset.f; RES.offset=0; loadResults(); });
+$('#resFiles').addEventListener('click', e=>{ const c=e.target.closest('[data-f]'); if(!c) return; RES.file=c.dataset.f; RES.offset=0; loadResults(); });
 let qT; $('#resQ').oninput = e=>{ clearTimeout(qT); qT=setTimeout(()=>{ RES.q=e.target.value.trim(); RES.offset=0; loadTable(); }, 300); };
 $('#resPrev').onclick = ()=>{ RES.offset=Math.max(0,RES.offset-100); loadTable(); };
 $('#resNext').onclick = ()=>{ RES.offset+=100; loadTable(); };
 $('#resDl').onclick = ()=>{ if(RES.file) location.href=`/api/runs/${encodeURIComponent(RES.run)}/download/${RES.file}`; };
 $('#resZip').onclick = ()=>{ if(RES.run) location.href=`/api/runs/${encodeURIComponent(RES.run)}/zip`; };
 
+// ---------------- sellers
+async function loadSellers(){
+  const run = $('#selRun').value || CUR_RUN;
+  const r = await api(`/api/runs/${encodeURIComponent(run)}/sellers`);
+  const rows = r.rows;
+  if(!rows.length){ $('#selSummary').innerHTML=''; $('#selTable').innerHTML = `<tr><td class="empty">هنوز فروشنده‌ای نیست؛ بعد از مرحله‌ی کراول اینجا پر می‌شود.</td></tr>`; return; }
+  const withPhone = rows.filter(x=>x.phones).length, reps = rows.filter(x=>x.claims_representative).length;
+  $('#selSummary').innerHTML = `<span><b>${fa(rows.length)}</b> فروشنده</span><span><b>${fa(withPhone)}</b> با تلفن</span><span><b>${fa(reps)}</b> ادعای نمایندگی</span><span><b>${fa(rows.reduce((a,x)=>a+x.products,0))}</b> محصول</span>`;
+  $('#selTable').innerHTML = '<tr><th>فروشنده</th><th>دامنه</th><th>تلفن</th><th>محصول</th><th>قیمت‌دار</th><th>نمایندگی</th><th>برندها</th><th>دسته‌ها</th><th></th></tr>' +
+    rows.map(x=>`<tr><td><b>${esc(x.seller)}</b></td><td class="ltr">${esc(x.domain)}</td><td class="ltr">${esc(x.phones)}</td>
+      <td class="num">${fa(x.products)}</td><td class="num">${fa(x.priced)}</td><td>${x.claims_representative?'<span class="ok">دارد</span>':''}</td>
+      <td title="${esc(x.brands)}">${esc(x.brands)}</td><td title="${esc(x.categories)}">${esc(x.categories)}</td>
+      <td><a href="${esc(x.sample_url)}" target="_blank" rel="noopener">نمونه</a></td></tr>`).join('');
+}
+$('#selRun').onchange = loadSellers;
+$('#selDl').onclick = ()=>{ location.href=`/api/runs/${encodeURIComponent($('#selRun').value||CUR_RUN)}/sellers?format=csv`; };
+
 // ---------------- sources
-const TYPE_FA = {woo_store_api:'ووکامرس با API', woo_search:'ووکامرس بدون API', url_template:'سایت دیگر'};
-let SRC = null, SCATS = new Set();
-function srcSaved(r){ SRC = r.data || {}; $('#srcYaml').value = r.yaml; LS.set('sources', r.yaml); renderSources(); loadState(); }
+let SRC=null, SCATS=new Set();
+function srcSaved(r){ SRC=r.data||{}; $('#srcYaml').value=r.yaml; LS.set('sources', r.yaml); renderSources(); loadState(); }
 async function loadSources(){ const r=await api('/api/sources'); SRC=r.data||{}; $('#srcYaml').value=r.yaml; renderSources(); }
 function renderSources(){
-  const sites = (SRC && SRC.iran_sites) || [];
+  const sites=(SRC&&SRC.iran_sites)||[];
   $('#srcTable').innerHTML = sites.length
-    ? '<tr><th>دامنه</th><th>نوع</th><th>دسته‌ها</th><th>فروشنده</th><th></th></tr>' + sites.map(x=>`<tr>
-        <td class="ltr">${x.domain}</td><td>${TYPE_FA[x.type]||x.type}</td>
-        <td>${(x.level1||[]).join('، ')||'<span class="muted">همه</span>'}</td>
-        <td>${x.seller_name||'<span class="muted">از سایت</span>'}</td>
-        <td><button class="btn bad" data-rm="${x.domain}" style="padding:2px 10px">حذف</button></td></tr>`).join('')
-    : '<tr><td class="muted" style="padding:16px">هنوز سایتی اضافه نشده. از فرم پایین یک سایت را تست و اضافه کنید.</td></tr>';
-  const cats = (STATE && STATE.taxonomy && STATE.taxonomy.level1) || [];
-  $('#sCats').innerHTML = cats.length ? cats.map(c=>`<span class="chip ${SCATS.has(c)?'on':''}" data-cat="${c}">${c}</span>`).join('')
-                                      : '<span class="muted">اول تاکسونومی را بارگذاری کنید تا دسته‌ها اینجا بیایند.</span>';
+    ? '<tr><th>دامنه</th><th>نوع</th><th>دسته‌ها</th><th>فروشنده</th><th></th></tr>'+sites.map(x=>`<tr>
+        <td class="ltr"><b>${esc(x.domain)}</b></td><td>${TYPE_FA[x.type]||esc(x.type)}</td>
+        <td class="wrap">${(x.level1||[]).map(esc).join('، ')||'<span class="muted">همه</span>'}</td>
+        <td>${esc(x.seller_name)||'<span class="muted">از خود سایت</span>'}</td>
+        <td><button class="btn bad sm" data-rm="${esc(x.domain)}">حذف</button></td></tr>`).join('')
+    : '<tr><td class="empty">هنوز سایتی اضافه نشده. با فرم پایین یک سایت را تست و اضافه کنید.</td></tr>';
+  const cats=(STATE&&STATE.taxonomy&&STATE.taxonomy.level1)||[];
+  $('#sCats').innerHTML = cats.length ? cats.map(c=>`<button class="chip ${SCATS.has(c)?'on':''}" data-cat="${esc(c)}">${esc(c)}</button>`).join('')
+    : '<span class="muted">اول <span class="lnk" data-go="setup">تاکسونومی را بارگذاری کنید</span> تا دسته‌ها اینجا بیایند.</span>';
 }
 $('#sCats').addEventListener('click', e=>{ const c=e.target.closest('[data-cat]'); if(!c) return;
-  SCATS.has(c.dataset.cat) ? SCATS.delete(c.dataset.cat) : SCATS.add(c.dataset.cat); c.classList.toggle('on'); });
+  SCATS.has(c.dataset.cat)?SCATS.delete(c.dataset.cat):SCATS.add(c.dataset.cat); c.classList.toggle('on'); });
 $('#srcTable').addEventListener('click', async e=>{ const b=e.target.closest('[data-rm]'); if(!b) return;
   if(!confirm('سایت '+b.dataset.rm+' از منابع حذف شود؟')) return;
   try{ srcSaved(await post('/api/sources/remove',{domain:b.dataset.rm})); toast('حذف شد'); }catch(err){ toast(err.message,true); } });
@@ -530,48 +681,42 @@ $('#sTest').onclick = async ()=>{
   $('#tsOut').innerHTML='<span class="warn">در حال تست… (تا یک دقیقه)</span>';
   try{
     const r=await post('/api/test-site',{domain:d});
-    let h = `<div>robots.txt: ${r.robots_ok===false?'<span class="bad">کراول را منع کرده؛ این سایت را اضافه نکنید</span>':'<span class="ok">مجاز</span>'}</div>`;
-    h += `<div>API ووکامرس: ${r.store_api?'<span class="ok">دارد</span>':'<span class="muted">ندارد</span>'}</div>`;
-    if(r.sample.length) h += '<div class="muted">نمونه محصول: '+r.sample.map(s=>`${s.name} (${s.price||'—'} ${s.currency||''})`).join('، ')+'</div>';
-    if(r.note) h += `<div class="warn">${r.note}</div>`;
-    if(r.suggested){ $('#sType').value=r.suggested; $('#sType').onchange(); h += `<div class="ok">نوع «${TYPE_FA[r.suggested]}» انتخاب شد.</div>`; }
+    let h=`<div>robots.txt: ${r.robots_ok===false?'<span class="bad-t">کراول را منع کرده؛ اضافه نکنید</span>':'<span class="ok">مجاز</span>'}</div>`;
+    h+=`<div>API ووکامرس: ${r.store_api?'<span class="ok">دارد</span>':'<span class="muted">ندارد</span>'}</div>`;
+    if(r.sample.length) h+='<div class="muted">نمونه: '+r.sample.map(s=>`${esc(s.name)} (${s.price?fa(s.price):'—'} ${esc(s.currency||'')})`).join('، ')+'</div>';
+    if(r.note) h+=`<div class="warn">${esc(r.note)}</div>`;
+    if(r.suggested){ $('#sType').value=r.suggested; $('#sType').onchange(); h+=`<div class="ok">نوع «${TYPE_FA[r.suggested]}» انتخاب شد.</div>`; }
     $('#tsOut').innerHTML=h;
   }catch(err){ $('#tsOut').textContent=''; toast(err.message,true); }
 };
 $('#sAdd').onclick = async ()=>{
-  const site = {domain:$('#sDomain').value.trim(), type:$('#sType').value, level1:[...SCATS],
-                seller_name:$('#sSeller').value.trim(), phones:$('#sPhones').value.trim(),
-                search_url:$('#sUrl').value.trim(), link_selector:$('#sSel').value.trim()};
-  try{
-    srcSaved(await post('/api/sources/site',{site}));
-    toast('اضافه شد: '+site.domain);
-    ['#sDomain','#sSeller','#sPhones','#sUrl','#sSel'].forEach(x=>$(x).value=''); SCATS.clear(); $('#tsOut').innerHTML=''; renderSources();
-  }catch(err){ toast(err.message,true); }
+  const site={domain:$('#sDomain').value.trim(), type:$('#sType').value, level1:[...SCATS], seller_name:$('#sSeller').value.trim(),
+              phones:$('#sPhones').value.trim(), search_url:$('#sUrl').value.trim(), link_selector:$('#sSel').value.trim()};
+  try{ srcSaved(await post('/api/sources/site',{site})); toast('اضافه شد: '+site.domain);
+       ['#sDomain','#sSeller','#sPhones','#sUrl','#sSel'].forEach(x=>$(x).value=''); SCATS.clear(); $('#tsOut').innerHTML=''; renderSources(); }
+  catch(err){ toast(err.message,true); }
 };
 $('#srcSave').onclick = async ()=>{
-  try{ const r=await post('/api/sources',{yaml:$('#srcYaml').value}); srcSaved(r); $('#srcMsg').textContent=`ذخیره شد · ${fa(r.sites)} سایت ایرانی`; }
+  try{ const r=await post('/api/sources',{yaml:$('#srcYaml').value}); srcSaved(r); $('#srcMsg').textContent=`ذخیره شد · ${fa(r.sites)} سایت`; }
   catch(err){ $('#srcMsg').textContent=''; toast(err.message,true); }
 };
 
 // ---------------- setup
-// a file is sent as soon as it is chosen (no separate button to miss)
 async function upload(kind, input, msgEl){
   const f=input.files[0]; if(!f) return;
-  const mb=(f.size/1048576).toFixed(1);
-  msgEl.innerHTML=`<span class="warn">در حال بارگذاری ${f.name} (${mb} مگابایت)…</span>`;
+  msgEl.innerHTML=`<span class="warn">در حال بارگذاری ${esc(f.name)} (${(f.size/1048576).toFixed(1)} مگابایت)…</span>`;
   try{
-    const r = await api('/api/upload/'+kind,{method:'POST', body:f, headers:{'X-Filename': encodeURIComponent(f.name)}});
-    input.value=''; await loadState();
-    msgEl.innerHTML=`<span class="ok">✓ ${f.name} بارگذاری شد · ${fa(r.rows)} ردیف</span>`;
-  }catch(err){ msgEl.innerHTML=`<span class="bad">خطا: ${err.message}</span>`; }
+    const r=await api('/api/upload/'+kind,{method:'POST', body:f, headers:{'X-Filename':encodeURIComponent(f.name)}});
+    input.value=''; await loadState(); msgEl.innerHTML=`<span class="ok">✓ ${esc(f.name)} بارگذاری شد · ${fa(r.rows)} ردیف</span>`;
+  }catch(err){ msgEl.innerHTML=`<span class="bad-t">${esc(err.message)}</span>`; }
 }
 $('#taxFile').onchange = ()=>upload('taxonomy', $('#taxFile'), $('#taxUpMsg'));
 $('#siteFile').onchange = ()=>upload('site', $('#siteFile'), $('#siteUpMsg'));
 $('#llmProv').onchange = ()=>{ $('#llmRow').style.display = $('#llmProv').value==='rules' ? 'none' : ''; };
 $('#fxProv').onchange = ()=>{ $('#fxApiRow').style.display = $('#fxProv').value==='json_api' ? '' : 'none'; };
 $('#setSave').onclick = async ()=>{
-  const num = (v)=> v===''? null : Number(v);
-  const body = {
+  const num=v=> v===''?null:Number(v);
+  const body={
     fx:{provider:$('#fxProv').value, manual_rate_toman:num($('#fxRate').value), rate_type:$('#fxType').value,
         url:$('#fxUrl').value.trim()||null, json_path:$('#fxPath').value.trim()||null, unit:$('#fxUnit').value},
     search:{use_web_search:$('#webSearch').checked, max_hits_per_source:num($('#maxHits').value)||8},
@@ -579,9 +724,10 @@ $('#setSave').onclick = async ()=>{
     llm:{provider:$('#llmProv').value, base_url:$('#llmUrl').value.trim()||null, model:$('#llmModel').value.trim()||null,
          min_confidence:num($('#minConf').value)??0.6},
   };
-  try{ await post('/api/settings', body); LS.set('settings', body); $('#setMsg').textContent='ذخیره شد'; loadState(); }catch(err){ toast(err.message,true); }
+  try{ await post('/api/settings', body); LS.set('settings', body); $('#setMsg').textContent='ذخیره شد'; toast('تنظیمات ذخیره شد'); loadState(); }
+  catch(err){ toast(err.message,true); }
 };
-$('#restBtn').onclick = async ()=>{
+$('#restFile').onchange = async ()=>{
   const f=$('#restFile').files[0]; if(!f) return;
   try{ const r=await api('/api/restore',{method:'POST', body:f}); toast(`${fa(r.restored.length)} فایل بازگردانی شد`); loadState(); }catch(err){ toast(err.message,true); }
 };
