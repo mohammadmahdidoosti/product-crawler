@@ -69,7 +69,7 @@ def _english_queries(cfg: dict, rows: list[dict]) -> dict[str, str]:
         try:
             llm = LLM(cfg)
         except RuntimeError as e:
-            log.warning("foreign route skipped: %s", e)
+            log.warning("foreign route skipped (needs a language model to translate): %s", e)
             return cache
         for i in range(0, len(todo), 40):
             chunk = todo[i:i + 40]
@@ -246,15 +246,20 @@ def _llm_record(llm, html: str) -> dict | None:
 # ------------------------------------------------------------------ 4 filter
 
 def step_filter(cfg: dict, run: str) -> Path:
+    """AI or rule-based relevance check, per config llm.provider."""
     from .llm import LLM, relevance_batch
+    from .rules import judge
     d = run_dir(cfg, run)
     df = read_csv(d / FILES["crawled"])
     out, rej = d / FILES["filtered"], d / FILES["rejected"]
     done = done_values(out, "url") | done_values(rej, "url")
-    todo = df[~df["url"].isin(done)]
-    min_conf = float(cfg.get("llm", {}).get("min_confidence", 0.6))
-    batch = int(cfg.get("llm", {}).get("batch_size", 15))
-    llm = LLM(cfg)
+    todo = df[~df["url"].isin(done)] if len(df) else df
+    lc = cfg.get("llm", {})
+    use_rules = lc.get("provider", "rules") == "rules"
+    min_conf = float(lc.get("min_confidence", 0.6)) if not use_rules else float(lc.get("rules_min_confidence", 0.5))
+    batch = int(lc.get("batch_size", 15))
+    llm = None if use_rules else LLM(cfg)
+    log.info("filter: %s", "rule-based (free)" if use_rules else f"{llm.provider} / {llm.model}")
     kept = dropped = 0
     total = len(todo)
     with Appender(out, FILTER_COLS) as w_ok, Appender(rej, FILTER_COLS) as w_no:
@@ -262,13 +267,18 @@ def step_filter(cfg: dict, run: str) -> Path:
             if _progress("filter", kept + dropped, total):
                 break
             rows = part.to_dict("records")
+            crumb = rows[0]["breadcrumb"]
+            leaf = crumb.split(">")[-1].strip() if crumb else rows[0].get("query", "")
             for i in range(0, len(rows), batch):
                 chunk = rows[i:i + batch]
-                try:
-                    verdicts = relevance_batch(llm, chunk[0]["breadcrumb"], chunk)
-                except Exception as e:
-                    log.warning("filter failed for %s: %s (will retry next run)", tid, e)
-                    continue
+                if use_rules:
+                    verdicts = [judge(crumb, leaf, r) for r in chunk]
+                else:
+                    try:
+                        verdicts = relevance_batch(llm, crumb, chunk)
+                    except Exception as e:
+                        log.warning("filter failed for %s: %s (will retry next run)", tid, e)
+                        continue
                 for r, v in zip(chunk, verdicts):
                     r.update({"relevant": v.get("relevant"), "relevance_confidence": v.get("confidence"),
                               "relevance_reason": v.get("reason", "")})
@@ -280,7 +290,7 @@ def step_filter(cfg: dict, run: str) -> Path:
                     (w_ok if good else w_no).write(r)
                     kept += good
                     dropped += not good
-    log.info("filter: kept %d, rejected %d; Claude usage %s", kept, dropped, llm.usage)
+    log.info("filter: kept %d, rejected %d%s", kept, dropped, "" if use_rules else f"; usage {llm.usage}")
     return out
 
 

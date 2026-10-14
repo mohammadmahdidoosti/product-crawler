@@ -266,10 +266,16 @@ td a{color:var(--gold-d)}
         </div>
       </div>
       <div class="card">
-        <h2>هوش مصنوعی و کلیدها</h2>
+        <h2>فیلتر مرحله‌ی ۴ و کلیدها</h2>
         <div class="row">
-          <div class="field"><label>مدل</label><select id="llmModel"><option value="claude-haiku-5-5">Haiku (ارزان، پیش‌فرض)</option><option value="claude-sonnet-5-5">Sonnet (دقیق‌تر)</option></select></div>
+          <div class="field"><label>روش فیلتر</label><select id="llmProv">
+            <option value="rules">قاعده‌محور (رایگان، بدون هوش مصنوعی)</option>
+            <option value="openai_compatible">مدل زبانی (Ollama یا سرویس سازگار با OpenAI)</option></select></div>
           <div class="field s"><label>حداقل اطمینان</label><input id="minConf" type="number" step="0.05" min="0" max="1"></div>
+        </div>
+        <div class="row" id="llmRow" style="margin-top:10px">
+          <div class="field" style="flex:2"><label>آدرس سرویس (تا /v1)</label><input id="llmUrl" class="ltr" placeholder="https://…/v1"></div>
+          <div class="field"><label>نام مدل</label><input id="llmModel" class="ltr" placeholder="qwen2.5:7b"></div>
         </div>
         <dl class="kv" id="keys" style="margin-top:12px"></dl>
         <p class="muted" style="font-size:12.5px;margin-bottom:0">کلیدها در پیشخوان Render ← سرویس ← Environment تنظیم می‌شوند، نه اینجا.</p>
@@ -301,7 +307,7 @@ const STEPS = [
   {k:'queue', t:'صف', d:'برگ‌های تاکسونومی طبق فیلتر بالا به‌همراه عبارت جستجو و مسیر منبع.', f:'01_queue.csv'},
   {k:'search', t:'جستجو', d:'جستجوی هر دسته در سایت‌های منبع (و در صورت فعال بودن، کل وب).', f:'02_search_hits.csv', net:'اینترنت ایران بهتر است'},
   {k:'crawl', t:'کراول', d:'باز کردن صفحه‌ها و استخراج نام، برند، مدل، مشخصات، قیمت، فروشنده و تلفن.', f:'03_crawled.csv', opt:['llm_fallback','برای صفحه‌های بی‌ساختار از هوش مصنوعی کمک بگیر'], net:'اینترنت ایران بهتر است'},
-  {k:'filter', t:'فیلتر هوش مصنوعی', d:'Claude بررسی می‌کند هر محصول واقعاً مال همان دسته است؛ بقیه به فایل ردشده‌ها می‌روند.', f:'04_filtered.csv', needKey:true},
+  {k:'filter', t:'فیلتر', d:'بررسی می‌کند هر محصول واقعاً مال همان دسته است؛ بقیه با دلیل به فایل ردشده‌ها می‌روند. روش فیلتر در «داده و تنظیمات» انتخاب می‌شود.', f:'04_filtered.csv', needKey:true},
   {k:'dedupe', t:'ادغام و مقایسه', d:'یک مدل از چند سایت ← یک محصول با قیمت میانه. محصولات موجود روی سایت ← فایل به‌روزرسانی.', f:'05_new_products.csv', opt:['skip_filter','بدون مرحله‌ی فیلتر (از خروجی کراول)']},
   {k:'export', t:'خروجی ووکامرس', d:'فایل ایمپورت محصولات تازه (پیش‌نویس) و فایل به‌روزرسانی قیمت محصولات موجود.', f:'06_woo_import.csv'},
 ];
@@ -378,7 +384,9 @@ async function loadState(){
   $('#fxApiRow').style.display = $('#fxProv').value==='json_api' ? '' : 'none';
   $('#delay').value=s.http.delay_seconds; $('#maxHits').value=s.search.max_hits_per_source; $('#webSearch').checked=!!s.search.use_web_search;
   $('#pxIran').value=(s.http.proxy||{}).iran||'';
-  $('#llmModel').value=s.llm.model; $('#minConf').value=s.llm.min_confidence;
+  $('#llmProv').value=s.llm.provider==='openai_compatible'?'openai_compatible':'rules';
+  $('#llmUrl').value=s.llm.base_url||''; $('#llmModel').value=s.llm.model||''; $('#minConf').value=s.llm.min_confidence;
+  $('#llmRow').style.display = $('#llmProv').value==='rules' ? 'none' : '';
   $('#keys').innerHTML = Object.entries(STATE.keys).map(([k,v])=>`<dt class="ltr">${k}</dt><dd class="${v?'ok':'muted'}">${v?'تنظیم شده':'تنظیم نشده'}</dd>`).join('');
   renderSteps(); renderJob(STATE.job);
 }
@@ -392,7 +400,7 @@ function renderSteps(){
     let out = n!==undefined ? `خروجی: <b>${fa(n)}</b> ردیف` : '<span class="muted">هنوز اجرا نشده</span>';
     if(s.k==='filter' && files['04_rejected.csv']!==undefined) out += ` · ردشده ${fa(files['04_rejected.csv'])}`;
     if(s.k==='dedupe' && files['05_updates_existing.csv']!==undefined) out += ` · به‌روزرسانی ${fa(files['05_updates_existing.csv'])} · بازبینی ${fa(files['05_review.csv']||0)}`;
-    const keyWarn = s.needKey && !STATE.keys.ANTHROPIC_API_KEY ? '<div class="net">کلید ANTHROPIC_API_KEY تنظیم نشده</div>' : '';
+    const keyWarn = s.needKey ? `<div class="muted" style="font-size:12px">روش: ${STATE.settings.llm.provider==='openai_compatible' ? 'مدل زبانی ('+(STATE.settings.llm.model||'')+')' : 'قاعده‌محور (رایگان)'}</div>` : '';
     return `<div class="step ${running && STATE.job.step===s.k && STATE.job.run===CUR_RUN ? 'active':''}">
       <h3><span class="n">${fa(i+1)}</span>${s.t}</h3><p>${s.d}</p>
       ${s.net?`<div class="net">${s.net}</div>`:''}${keyWarn}
@@ -559,6 +567,7 @@ async function upload(kind, input, msgEl){
 }
 $('#taxFile').onchange = ()=>upload('taxonomy', $('#taxFile'), $('#taxUpMsg'));
 $('#siteFile').onchange = ()=>upload('site', $('#siteFile'), $('#siteUpMsg'));
+$('#llmProv').onchange = ()=>{ $('#llmRow').style.display = $('#llmProv').value==='rules' ? 'none' : ''; };
 $('#fxProv').onchange = ()=>{ $('#fxApiRow').style.display = $('#fxProv').value==='json_api' ? '' : 'none'; };
 $('#setSave').onclick = async ()=>{
   const num = (v)=> v===''? null : Number(v);
@@ -567,7 +576,8 @@ $('#setSave').onclick = async ()=>{
         url:$('#fxUrl').value.trim()||null, json_path:$('#fxPath').value.trim()||null, unit:$('#fxUnit').value},
     search:{use_web_search:$('#webSearch').checked, max_hits_per_source:num($('#maxHits').value)||8},
     http:{delay_seconds:num($('#delay').value)||3, proxy:{iran:$('#pxIran').value.trim()||null}},
-    llm:{model:$('#llmModel').value, min_confidence:num($('#minConf').value)??0.6},
+    llm:{provider:$('#llmProv').value, base_url:$('#llmUrl').value.trim()||null, model:$('#llmModel').value.trim()||null,
+         min_confidence:num($('#minConf').value)??0.6},
   };
   try{ await post('/api/settings', body); LS.set('settings', body); $('#setMsg').textContent='ذخیره شد'; loadState(); }catch(err){ toast(err.message,true); }
 };

@@ -55,10 +55,16 @@ price:
   round_to_toman: 1000
 
 llm:
-  api_key_env: ANTHROPIC_API_KEY
-  model: claude-haiku-5-5          # cheap and enough for yes/no relevance; try claude-sonnet-5-5 if quality is low
+  # rules             free rule-based filter, no model (default)
+  # openai_compatible any OpenAI-style chat API: local Ollama or a hosted open-model service
+  # anthropic         Claude API (only where Anthropic's service is available)
+  provider: rules
+  base_url: http://localhost:11434/v1   # Ollama default; for a hosted service put its /v1 URL
+  model: qwen2.5:7b                     # e.g. qwen2.5:7b on Ollama
+  api_key_env: LLM_API_KEY              # not needed for local Ollama
   batch_size: 15
   min_confidence: 0.6
+  rules_min_confidence: 0.5
   max_tokens: 4000
 
 dedupe:

@@ -108,3 +108,32 @@ class Dedupe(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RulesFilter(unittest.TestCase):
+    def test_rules(self):
+        from crawler.rules import judge
+        crumb = "تجهیزات تابلو برق و برق صنعتی > درایو و اینورتر موتور > درایو تک فاز"
+        self.assertTrue(judge(crumb, "درایو تک فاز", {"name": "اینورتر تکفاز YD101 یولیکو"})["relevant"])
+        self.assertFalse(judge(crumb, "درایو تک فاز", {"name": "کابل شیلدار 4 در 1"})["relevant"])
+        self.assertFalse(judge(crumb, "درایو تک فاز", {"name": "تعمیر درایو تک فاز"})["relevant"])
+        coil = "شیرآلات > بوبین شیر برقی > بوبین"
+        self.assertTrue(judge(coil, "بوبین", {"name": "بوبین شیر برقی 220 ولت"})["relevant"])
+        valve = "شیرآلات > شیر برقی > شیر برقی 24 ولت"
+        self.assertFalse(judge(valve, "شیر برقی 24 ولت", {"name": "بوبین شیر برقی"})["relevant"])
+
+
+class OpenAICompatible(unittest.TestCase):
+    def test_chat_completions_reply(self):
+        from unittest import mock
+        from crawler.llm import LLM, relevance_batch
+        cfg = {"llm": {"provider": "openai_compatible", "base_url": "http://localhost:11434/v1", "model": "qwen2.5:7b"}}
+        llm = LLM(cfg)
+        reply = {"choices": [{"message": {"content": '<think>x</think>```json\n[{"i":0,"relevant":true,"confidence":0.9,"reason":"ok","brand":"یولیکو","model":"YD101"}]\n```'}}],
+                 "usage": {"prompt_tokens": 100, "completion_tokens": 20}}
+        with mock.patch.object(LLM, "_post", return_value=reply) as p:
+            v = relevance_batch(llm, "a > b", [{"name": "درایو"}])
+        self.assertEqual(p.call_args[0][0], "http://localhost:11434/v1/chat/completions")
+        self.assertTrue(v[0]["relevant"])
+        self.assertEqual(v[0]["brand"], "یولیکو")
+        self.assertEqual(llm.usage["input_tokens"], 100)

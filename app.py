@@ -5,7 +5,7 @@ Environment variables:
   PORT               port (Render sets it)                        default 8000
   APP_PASSWORD       password for the whole UI (HTTP Basic, any username)
   DATA_DIR           where taxonomy, settings, cache and runs live default ./data
-  ANTHROPIC_API_KEY  Claude API key (AI filter, translation)
+  LLM_API_KEY        key of an OpenAI-compatible model service (optional; filter, translation)
   SERPER_API_KEY     web-search API key (optional)
   FX_API_KEY         used inside the dollar-API URL as {FX_API_KEY} (optional)
 
@@ -568,14 +568,14 @@ class Handler(BaseHTTPRequestHandler):
             "site_export": {"rows": file_rows(site)} if site.exists() else None,
             "sources": {"iran_sites": len(src.get("iran_sites") or []),
                         "foreign_sites": len(src.get("foreign_sites") or [])},
-            "keys": {k: bool(os.environ.get(k)) for k in ("ANTHROPIC_API_KEY", "SERPER_API_KEY", "FX_API_KEY")},
+            "keys": {k: bool(os.environ.get(k)) for k in ("LLM_API_KEY", "SERPER_API_KEY", "FX_API_KEY")},
             "settings": {
                 "fx": {k: cfg["fx"].get(k) for k in ("provider", "manual_rate_toman", "rate_type", "url", "json_path", "unit")},
                 "search": {"use_web_search": cfg["search"].get("use_web_search", False),
                            "max_hits_per_source": cfg["search"].get("max_hits_per_source", 8)},
                 "http": {"delay_seconds": cfg["http"].get("delay_seconds"),
                          "proxy": cfg["http"].get("proxy") or {}},
-                "llm": {"model": cfg["llm"].get("model"), "min_confidence": cfg["llm"].get("min_confidence")},
+                "llm": {k: cfg["llm"].get(k) for k in ("provider", "base_url", "model", "min_confidence")},
             },
             "runs": list_runs(),
             "job": JOB.status(),
