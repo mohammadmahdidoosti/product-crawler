@@ -12,14 +12,16 @@ Environment variables:
   MAX_CONCURRENT_JOBS   jobs running at the same time                  default 2
   CRAWLER_PROXY         optional http(s) proxy for all outgoing crawls
   ALLOW_PRIVATE_URLS    "1" to allow localhost / private IPs (testing only)
+  MAX_IMAGE_MB          cap on downloaded images per job                default 1500
 
 API (JSON):
-  POST   /api/jobs                {"url": "...", "mode": "auto", "max_pages": 2000, "delay": 1.0}
+  POST   /api/jobs                {"url": "...", "mode": "auto", "max_pages": 2000, "delay": 1.0,
+                                   "images": "none|main|all", "enrich": true}
   GET    /api/jobs                list
   GET    /api/jobs/<id>           status + log + preview rows
   POST   /api/jobs/<id>/stop
   DELETE /api/jobs/<id>
-  GET    /api/jobs/<id>/download/<csv|xlsx|json>
+  GET    /api/jobs/<id>/download/<csv|xlsx|json|zip>
   GET    /healthz
 """
 
@@ -38,6 +40,7 @@ import socket
 import threading
 import time
 import uuid
+import zipfile
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from types import SimpleNamespace
 from urllib.parse import urlparse
@@ -75,11 +78,14 @@ class JobLogHandler(logging.Handler):
 
 
 class Job:
-    def __init__(self, url: str, mode: str, max_pages: int, delay: float):
+    def __init__(self, url: str, mode: str, max_pages: int, delay: float,
+                 images: str = "main", enrich: bool = True):
         self.id = uuid.uuid4().hex[:10]
         self.url = url
         self.host = crawler.norm_host(urlparse(url).netloc)
         self.mode, self.max_pages, self.delay = mode, max_pages, delay
+        self.images, self.enrich = images, enrich
+        self.phase = ""                   # crawl | images | export
         self.status = "queued"            # queued | running | done | failed | stopped
         self.error = ""
         self.created = time.time()
@@ -102,6 +108,8 @@ class Job:
         return {
             "id": self.id, "url": self.url, "host": self.host, "mode": self.mode,
             "max_pages": self.max_pages, "delay": self.delay, "status": self.status,
+            "images": self.images, "enrich": self.enrich, "phase": self.phase,
+            "has_zip": os.path.exists(os.path.join(self.dir, "products-images.zip")),
             "error": self.error, "count": self.live_count(), "created": self.created,
             "started": self.started, "finished": self.finished,
             "elapsed": round(end - self.started) if self.started else 0,
@@ -116,9 +124,16 @@ class Job:
                         r = json.loads(line)
                     except ValueError:
                         continue
-                    rows.append({k: r.get(k, "") for k in
-                                 ("name", "price", "min_price", "max_price", "currency",
-                                  "in_stock", "categories", "url", "source")})
+                    row = {k: r.get(k, "") for k in
+                           ("name", "price", "min_price", "max_price", "currency",
+                            "in_stock", "categories", "url", "source", "image_main", "image_count")}
+                    try:
+                        row["spec_count"] = len(json.loads(r["specs"])) if r.get("specs") else 0
+                    except ValueError:
+                        row["spec_count"] = 0
+                    row["has_description"] = bool(r.get("description"))
+                    row["file_count"] = len([x for x in (r.get("files") or "").split(" | ") if x])
+                    rows.append(row)
                     if len(rows) >= n:
                         break
         return rows
@@ -149,17 +164,37 @@ def run_job(job: Job):
         args = SimpleNamespace(
             user_agent=crawler.DEFAULT_USER_AGENT, proxy=PROXY, insecure=False, timeout=30,
             delay=job.delay, workers=3, max_pages=job.max_pages, mode=job.mode,
-            resume=False, ignore_robots=False, out=job.dir,
+            resume=False, ignore_robots=False, out=job.dir, enrich=job.enrich,
         )
         sc = crawler.SiteCrawler(job.url, args, stop_event=job.stop_event,
                                  logger_name=logger_name, out_path=job.jsonl)
         job.crawler = sc
+        job.phase = "crawl"
         job.count = sc.run()
+        if job.images != "none" and job.count and not job.stop_event.is_set():
+            job.phase = "images"
+            sc.download_images(job.images)
+        job.phase = "export"
+        lg.info("ساخت فایل‌های خروجی… / building output files")
         rows = crawler.read_jsonl(job.jsonl)
         crawler.write_csv(rows, os.path.join(job.dir, "products.csv"))
         crawler.write_xlsx(rows, os.path.join(job.dir, "products.xlsx"))
         with open(os.path.join(job.dir, "products.json"), "w", encoding="utf-8") as f:
             json.dump(rows, f, ensure_ascii=False, indent=1)
+        img_dir = os.path.join(job.dir, "images")
+        if os.path.isdir(img_dir):
+            zpath = os.path.join(job.dir, "products-images.zip")
+            with zipfile.ZipFile(zpath + ".part", "w", zipfile.ZIP_STORED) as z:
+                for root, _, files in os.walk(img_dir):
+                    for fn in sorted(files):
+                        if fn.endswith("_thumb.png"):
+                            continue
+                        full = os.path.join(root, fn)
+                        z.write(full, os.path.relpath(full, job.dir))
+                z.write(os.path.join(job.dir, "products.xlsx"), "products.xlsx")
+            os.replace(zpath + ".part", zpath)
+            lg.info("ZIP عکس‌ها: %.1f MB", os.path.getsize(zpath) / 1048576)
+        job.phase = ""
         job.status = "stopped" if job.stop_event.is_set() else "done"
     except Exception as e:  # report, never crash the server
         log.exception("job %s failed", job.id)
@@ -219,6 +254,7 @@ DOWNLOADS = {
     "csv": ("products.csv", "text/csv; charset=utf-8"),
     "xlsx": ("products.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"),
     "json": ("products.json", "application/json; charset=utf-8"),
+    "zip": ("products-images.zip", "application/zip"),
 }
 
 
@@ -242,6 +278,20 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         if self.command != "HEAD":
             self.wfile.write(body)
+
+    def _send_file(self, fpath: str, ctype: str, download_name: str):
+        """Stream a file from disk (zips can be large)."""
+        size = os.path.getsize(fpath)
+        self.send_response(200)
+        self.send_header("Content-Type", ctype)
+        self.send_header("Content-Length", str(size))
+        self.send_header("Content-Disposition", f'attachment; filename="{download_name}"')
+        self.send_header("Cache-Control", "no-store")
+        self.end_headers()
+        if self.command == "HEAD":
+            return
+        with open(fpath, "rb") as f:
+            shutil.copyfileobj(f, self.wfile, 256 * 1024)
 
     def _json(self, code: int, obj):
         self._send(code, json.dumps(obj, ensure_ascii=False).encode("utf-8"), "application/json; charset=utf-8")
@@ -300,7 +350,7 @@ class Handler(BaseHTTPRequestHandler):
             if not job:
                 return self._error(404, "کار پیدا نشد")
             return self._json(200, {**job.summary(), "logs": list(job.logs), "preview": job.preview()})
-        m = re.fullmatch(r"/api/jobs/([0-9a-f]{10})/download/(csv|xlsx|json)", path)
+        m = re.fullmatch(r"/api/jobs/([0-9a-f]{10})/download/(csv|xlsx|json|zip)", path)
         if m:
             job = self._job(m.group(1))
             if not job:
@@ -309,14 +359,10 @@ class Handler(BaseHTTPRequestHandler):
             fpath = os.path.join(job.dir, fname)
             if not os.path.exists(fpath):
                 return self._error(409, "خروجی هنوز آماده نیست")
-            with open(fpath, "rb") as f:
-                data = f.read()
-            if m.group(2) == "csv":
-                data = data if data.startswith(b"\xef\xbb\xbf") else b"\xef\xbb\xbf" + data
             stamp = time.strftime("%Y%m%d-%H%M", time.localtime(job.created))
             safe_host = re.sub(r"[^A-Za-z0-9.-]+", "_", job.host)
-            name = f"{safe_host}-{stamp}.{m.group(2)}"
-            return self._send(200, data, ctype, {"Content-Disposition": f'attachment; filename="{name}"'})
+            suffix = "-images.zip" if m.group(2) == "zip" else f".{m.group(2)}"
+            return self._send_file(fpath, ctype, f"{safe_host}-{stamp}{suffix}")
         self._error(404, "مسیر پیدا نشد")
 
     def do_POST(self):
@@ -336,9 +382,13 @@ class Handler(BaseHTTPRequestHandler):
                     raise ValueError("حداکثر صفحه باید بین ۱ تا ۲۰۰۰۰ باشد")
                 if not (0.2 <= delay <= 30):
                     raise ValueError("تأخیر باید بین ۰٫۲ تا ۳۰ ثانیه باشد")
+                images = body.get("images", "main")
+                if images not in ("none", "main", "all"):
+                    raise ValueError("گزینه‌ی عکس نامعتبر")
+                enrich = bool(body.get("enrich", True))
             except (ValueError, TypeError, json.JSONDecodeError) as e:
                 return self._error(400, str(e))
-            job = Job(url, mode, max_pages, delay)
+            job = Job(url, mode, max_pages, delay, images, enrich)
             with JOBS_LOCK:
                 JOBS[job.id] = job
             threading.Thread(target=run_job, args=(job,), daemon=True, name=f"job-{job.id}").start()
