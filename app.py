@@ -220,6 +220,44 @@ def test_site(domain: str) -> dict:
     return out
 
 
+ENCODINGS = ("utf-8-sig", "cp1256", "utf-16")
+
+
+def read_any_table(data: bytes, filename: str = "") -> tuple[pd.DataFrame, str]:
+    """Read an uploaded table whatever Excel did to it.
+
+    Excel on Persian Windows saves "CSV" as Windows-1256 (byte 0x9D is the
+    half-space), "Unicode text" as tab-separated UTF-16, and in some locales
+    uses ; instead of , — all of these are accepted, and .xlsx too.
+    """
+    if filename.lower().endswith((".xlsx", ".xlsm")) or data[:2] == b"PK":
+        df = pd.read_excel(io.BytesIO(data), dtype=str, keep_default_na=False)
+        return df, "xlsx"
+    if data[:2] in (b"\xff\xfe", b"\xfe\xff"):
+        encs = ("utf-16",)
+    else:
+        encs = ENCODINGS
+    last = None
+    for enc in encs:
+        try:
+            text = data.decode(enc)
+        except UnicodeDecodeError as e:
+            last = e
+            continue
+        if enc == "cp1256":
+            # Windows-1256 has no Persian ی/ک; Excel either swaps in the Arabic
+            # letters (fixed here) or writes "?" (data is lost: refuse it)
+            if len(re.findall(r"[\u0600-\u06FF]\?|\?[\u0600-\u06FF]", text)) > 3:
+                raise ValueError("Excel این فایل را با رمزگذاری ویندوز ذخیره کرده و حروفی مثل «ی» به «?» تبدیل شده‌اند. "
+                                 "خود فایل Excel (xlsx) را بارگذاری کنید، یا در Excel از Save As نوع «CSV UTF-8» را انتخاب کنید.")
+            text = text.replace("ي", "ی").replace("ك", "ک")
+        first = text.split("\n", 1)[0]
+        sep = max((",", ";", "\t"), key=first.count)
+        df = pd.read_csv(io.StringIO(text), sep=sep, dtype=str, keep_default_na=False)
+        return df, f"{enc}, sep={'tab' if sep == chr(9) else sep}"
+    raise ValueError(f"encoding not recognised ({last}); save the file from Excel as 'CSV UTF-8'")
+
+
 def backup_zip() -> bytes:
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
@@ -377,12 +415,12 @@ class Handler(BaseHTTPRequestHandler):
                 dest = paths()[kind]
                 DATA_DIR.mkdir(parents=True, exist_ok=True)
                 tmp = dest.with_suffix(".tmp")
-                tmp.write_bytes(data)
                 try:
-                    df = pd.read_csv(tmp, encoding="utf-8-sig", dtype=str, nrows=5)
+                    df, how = read_any_table(data, unquote(self.headers.get("X-Filename", "")))
                 except Exception as e:
-                    tmp.unlink(missing_ok=True)
-                    return self._err(f"CSV خوانده نشد: {e}")
+                    return self._err(f"فایل خوانده نشد: {e}")
+                df.columns = [str(c).strip() for c in df.columns]
+                df.to_csv(tmp, index=False, encoding="utf-8-sig")   # stored as clean UTF-8 from here on
                 if kind == "taxonomy":
                     try:
                         load_taxonomy(tmp)
@@ -390,7 +428,8 @@ class Handler(BaseHTTPRequestHandler):
                         tmp.unlink(missing_ok=True)
                         return self._err(str(e))
                 tmp.replace(dest)
-                return self._json({"ok": True, "columns": list(df.columns)})
+                log.info("upload %s: %d rows (%s)", kind, len(df), how)
+                return self._json({"ok": True, "rows": len(df), "read_as": how, "columns": list(df.columns)})
             if parts[:2] == ["api", "sources"]:
                 txt = self._jbody().get("yaml", "")
                 try:

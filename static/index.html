@@ -205,13 +205,13 @@ td a{color:var(--gold-d)}
       <div class="card">
         <h2>تاکسونومی</h2>
         <div id="taxInfo" class="muted">بارگذاری نشده</div>
-        <label class="drop" style="margin-top:10px">انتخاب فایل CSV تاکسونومی<input type="file" id="taxFile" accept=".csv"></label><div id="taxUpMsg" class="upmsg"></div>
+        <label class="drop" style="margin-top:10px">انتخاب فایل تاکسونومی (CSV یا Excel)<input type="file" id="taxFile" accept=".csv,.xlsx"></label><div id="taxUpMsg" class="upmsg"></div>
       </div>
       <div class="card">
         <h2>خروجی محصولات فعلی سایت <small>برای مرحله‌ی ادغام</small></h2>
         <div id="siteInfo" class="muted">بارگذاری نشده؛ بدون آن همه‌ی محصولات «تازه» حساب می‌شوند.</div>
         <p class="muted" style="font-size:12.5px">از پیشخوان وردپرس: محصولات ← برون‌بری (Export) ← CSV. ستون‌های ID و نام کافی است؛ SKU و قیمت بهتر.</p>
-        <label class="drop">انتخاب فایل CSV محصولات سایت<input type="file" id="siteFile" accept=".csv"></label><div id="siteUpMsg" class="upmsg"></div>
+        <label class="drop">انتخاب فایل محصولات سایت (CSV یا Excel)<input type="file" id="siteFile" accept=".csv,.xlsx"></label><div id="siteUpMsg" class="upmsg"></div>
       </div>
     </div>
 
@@ -496,9 +496,9 @@ async function upload(kind, input, msgEl){
   const mb=(f.size/1048576).toFixed(1);
   msgEl.innerHTML=`<span class="warn">در حال بارگذاری ${f.name} (${mb} مگابایت)…</span>`;
   try{
-    await api('/api/upload/'+kind,{method:'POST', body:f});
+    const r = await api('/api/upload/'+kind,{method:'POST', body:f, headers:{'X-Filename': encodeURIComponent(f.name)}});
     input.value=''; await loadState();
-    msgEl.innerHTML=`<span class="ok">✓ ${f.name} بارگذاری شد</span>`;
+    msgEl.innerHTML=`<span class="ok">✓ ${f.name} بارگذاری شد · ${fa(r.rows)} ردیف</span>`;
   }catch(err){ msgEl.innerHTML=`<span class="bad">خطا: ${err.message}</span>`; }
 }
 $('#taxFile').onchange = ()=>upload('taxonomy', $('#taxFile'), $('#taxUpMsg'));

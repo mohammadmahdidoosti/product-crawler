@@ -3,5 +3,6 @@ beautifulsoup4>=4.12
 lxml>=5.0
 pandas>=2.1
 PyYAML>=6.0
+openpyxl>=3.1
 # optional, better and faster name matching in dedupe:
 rapidfuzz>=3.0
