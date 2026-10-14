@@ -220,6 +220,61 @@ def test_site(domain: str) -> dict:
     return out
 
 
+SOURCE_TYPES = ("woo_store_api", "woo_search", "url_template")
+SOURCES_HEADER = """# سایت‌های منبع کاروان صنعت — این فایل از صفحه‌ی «منابع» ساخته می‌شود.
+# iran_sites: سایت‌های ایرانی. type یکی از: woo_store_api | woo_search | url_template
+# level1: اختیاری؛ اگر خالی باشد سایت برای همه‌ی دسته‌ها جستجو می‌شود.
+# foreign_sites: سایت‌های خارجی (فعلاً خاموش). web_search: جستجو در کل وب و دامنه‌های کنار گذاشته‌شده.
+"""
+
+
+def sources_text() -> str:
+    p = paths()["sources"]
+    return p.read_text(encoding="utf-8") if p.exists() else (ROOT / "sources.yaml").read_text(encoding="utf-8")
+
+
+def validate_sources(txt: str) -> dict:
+    data = yaml.safe_load(txt) or {}
+    assert isinstance(data, dict), "باید یک نگاشت YAML باشد"
+    for s in data.get("iran_sites") or []:
+        assert isinstance(s, dict) and s.get("domain"), "هر سایت باید domain داشته باشد"
+        assert s.get("type", "woo_search") in SOURCE_TYPES, f"نوع نامعتبر برای {s.get('domain')}"
+        if s.get("type") == "url_template":
+            assert "{query}" in (s.get("search_url") or ""), f"search_url سایت {s['domain']} باید {{query}} داشته باشد"
+            assert s.get("link_selector"), f"link_selector سایت {s['domain']} لازم است"
+    return data
+
+
+def clean_site(s: dict) -> dict:
+    dom = re.sub(r"^https?://", "", str(s.get("domain", "")).strip()).strip("/").lower()
+    dom = dom[4:] if dom.startswith("www.") else dom
+    if not re.match(r"^[a-z0-9.\-]+\.[a-z]{2,}(:\d+)?$", dom):
+        raise ValueError("دامنه نامعتبر است؛ مثل example-shop.ir")
+    out = {"domain": dom, "type": s.get("type") if s.get("type") in SOURCE_TYPES else "woo_search"}
+    cats = [c for c in (s.get("level1") or []) if str(c).strip()]
+    if cats:
+        out["level1"] = cats
+    for k in ("seller_name", "search_url", "link_selector"):
+        if str(s.get(k) or "").strip():
+            out[k] = str(s[k]).strip()
+    phones = [p.strip() for p in re.split(r"[,،\s]+", str(s.get("phones") or "")) if p.strip()]
+    if phones:
+        out["phones"] = phones
+    if out["type"] == "url_template" and ("{query}" not in out.get("search_url", "") or not out.get("link_selector")):
+        raise ValueError("برای نوع url_template آدرس جستجو با {query} و انتخابگر لینک لازم است")
+    return out
+
+
+def save_sources(data: dict) -> str:
+    data.setdefault("foreign_sites", [])
+    if not data.get("web_search"):
+        data["web_search"] = (yaml.safe_load((ROOT / "sources.yaml").read_text(encoding="utf-8")) or {}).get("web_search")
+    txt = SOURCES_HEADER + yaml.safe_dump(data, allow_unicode=True, sort_keys=False, default_flow_style=False)
+    validate_sources(txt)
+    paths()["sources"].write_text(txt, encoding="utf-8")
+    return txt
+
+
 ENCODINGS = ("utf-8-sig", "cp1256", "utf-16")
 
 
@@ -368,9 +423,8 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "job"]:
                 return self._json(JOB.status())
             if parts[:2] == ["api", "sources"]:
-                p = paths()["sources"]
-                txt = p.read_text(encoding="utf-8") if p.exists() else (ROOT / "sources.yaml").read_text(encoding="utf-8")
-                return self._json({"yaml": txt})
+                txt = sources_text()
+                return self._json({"yaml": txt, "data": yaml.safe_load(txt) or {}})
             if parts[:2] == ["api", "backup"]:
                 return self._download(backup_zip(), f"caravan-backup-{time.strftime('%Y%m%d-%H%M')}.zip",
                                       "application/zip")
@@ -430,19 +484,27 @@ class Handler(BaseHTTPRequestHandler):
                 tmp.replace(dest)
                 log.info("upload %s: %d rows (%s)", kind, len(df), how)
                 return self._json({"ok": True, "rows": len(df), "read_as": how, "columns": list(df.columns)})
-            if parts[:2] == ["api", "sources"]:
+            if parts[:3] == ["api", "sources", "site"]:      # add or replace one site (from the form)
+                site = clean_site(self._jbody().get("site") or {})
+                data = yaml.safe_load(sources_text()) or {}
+                sites = [x for x in (data.get("iran_sites") or []) if x.get("domain") != site["domain"]]
+                data["iran_sites"] = sites + [site]
+                txt = save_sources(data)
+                return self._json({"ok": True, "yaml": txt, "data": data})
+            if parts[:3] == ["api", "sources", "remove"]:
+                dom = self._jbody().get("domain", "")
+                data = yaml.safe_load(sources_text()) or {}
+                data["iran_sites"] = [x for x in (data.get("iran_sites") or []) if x.get("domain") != dom]
+                txt = save_sources(data)
+                return self._json({"ok": True, "yaml": txt, "data": data})
+            if parts[:2] == ["api", "sources"]:              # whole file (advanced editor)
                 txt = self._jbody().get("yaml", "")
                 try:
-                    data = yaml.safe_load(txt) or {}
-                    assert isinstance(data, dict), "باید یک نگاشت YAML باشد"
-                    for s in data.get("iran_sites") or []:
-                        assert s.get("domain"), "هر سایت باید domain داشته باشد"
-                        assert s.get("type", "woo_search") in ("woo_store_api", "woo_search", "url_template"), \
-                            f"نوع نامعتبر برای {s.get('domain')}"
+                    data = validate_sources(txt)
                 except Exception as e:
                     return self._err(f"YAML نامعتبر: {e}")
                 paths()["sources"].write_text(txt, encoding="utf-8")
-                return self._json({"ok": True, "sites": len(data.get("iran_sites") or [])})
+                return self._json({"ok": True, "yaml": txt, "data": data, "sites": len(data.get("iran_sites") or [])})
             if parts[:2] == ["api", "settings"]:
                 body = self._jbody()
                 cur = read_settings()

@@ -172,31 +172,55 @@ td a{color:var(--gold-d)}
 
   <!-- ===================== SOURCES ===================== -->
   <section class="tab" id="tab-sources">
+    <div class="card">
+      <h2>سایت‌های منبع <small>کراولر فقط در همین سایت‌ها جستجو می‌کند</small></h2>
+      <div class="tablewrap" style="max-height:none"><table id="srcTable"></table></div>
+    </div>
+
     <div class="grid2">
       <div class="card">
-        <h2>سایت‌های منبع <small>sources.yaml</small></h2>
-        <textarea id="srcYaml" class="code" spellcheck="false"></textarea>
-        <div class="row" style="margin-top:10px"><button class="btn" id="srcSave">ذخیره</button><span id="srcMsg" class="muted"></span></div>
+        <h2>افزودن سایت</h2>
+        <div class="row">
+          <div class="field"><label>دامنه</label><input id="sDomain" class="ltr" placeholder="example-shop.ir"></div>
+          <button class="btn ghost" id="sTest">تست و تشخیص نوع</button>
+        </div>
+        <div id="tsOut" style="margin:10px 0;font-size:13px"></div>
+        <div class="row">
+          <div class="field"><label>نوع</label>
+            <select id="sType">
+              <option value="woo_store_api">ووکامرس با API (بهترین)</option>
+              <option value="woo_search">ووکامرس بدون API</option>
+              <option value="url_template">سایت دیگر (آدرس جستجو)</option>
+            </select></div>
+          <div class="field"><label>نام فروشنده (اختیاری)</label><input id="sSeller"></div>
+          <div class="field"><label>تلفن (اختیاری)</label><input id="sPhones" class="ltr" placeholder="021..., 0912..."></div>
+        </div>
+        <div class="row" id="sTplRow" style="margin-top:10px;display:none">
+          <div class="field" style="flex:2"><label>آدرس جستجوی سایت؛ جای عبارت را {query} بگذارید</label><input id="sUrl" class="ltr" placeholder="https://example-shop.ir/search?q={query}"></div>
+          <div class="field"><label>انتخابگر CSS لینک محصول</label><input id="sSel" class="ltr" placeholder="div.product a"></div>
+        </div>
+        <div style="margin-top:12px"><label>برای کدام دسته‌های اصلی جستجو شود؟ (هیچ‌کدام = همه)</label>
+          <div class="chips" id="sCats"></div></div>
+        <button class="btn" id="sAdd">افزودن به منابع</button>
       </div>
-      <div>
-        <div class="card">
-          <h2>تست یک سایت</h2>
-          <p class="muted" style="margin-top:0">دامنه را بدهید؛ معلوم می‌شود API ووکامرس دارد یا نه، و چه نوعی در فایل منابع بنویسید.</p>
-          <div class="row"><div class="field"><input id="tsDomain" class="ltr" placeholder="example-shop.ir"></div><button class="btn ghost" id="tsBtn">تست</button></div>
-          <div id="tsOut" style="margin-top:10px;font-size:13px"></div>
-        </div>
-        <div class="card">
-          <h2>راهنما</h2>
-          <dl class="kv">
-            <dt class="ltr">woo_store_api</dt><dd>بهترین حالت؛ اطلاعات کامل محصول بدون باز کردن صفحه.</dd>
-            <dt class="ltr">woo_search</dt><dd>ووکامرس بدون API؛ صفحه‌ی جستجو و بعد صفحه‌ی هر محصول.</dd>
-            <dt class="ltr">url_template</dt><dd>هر سایت دیگر؛ <span class="ltr">search_url</span> با <span class="ltr">{query}</span> و <span class="ltr">link_selector</span> لازم است.</dd>
-            <dt class="ltr">level1</dt><dd>اختیاری؛ سایت فقط برای این دسته‌های اصلی جستجو می‌شود.</dd>
-          </dl>
-          <p class="muted" style="margin-bottom:0">نکته: این سرور خارج از ایران است و بعضی سایت‌های ایرانی IP خارجی را می‌بندند. اگر تست سایتی جواب نداد، در «داده و تنظیمات» یک پراکسی ایرانی بدهید یا آن سایت را روی کامپیوتر خودتان کراول کنید.</p>
-        </div>
+      <div class="card">
+        <h2>این‌ها یعنی چه؟</h2>
+        <dl class="kv">
+          <dt>ووکامرس با API</dt><dd>سایت‌های وردپرسی که اطلاعات محصول را به شکل داده می‌دهند. سریع‌ترین و دقیق‌ترین حالت؛ صفحه‌ی محصول اصلاً باز نمی‌شود.</dd>
+          <dt>ووکامرس بدون API</dt><dd>سایت وردپرسی که API را بسته؛ صفحه‌ی جستجو و بعد صفحه‌ی هر محصول باز می‌شود.</dd>
+          <dt>سایت دیگر</dt><dd>سایت‌های غیر وردپرسی. آدرس صفحه‌ی جستجو و نشانی لینک محصولات را باید یک نفر فنی بدهد.</dd>
+          <dt>دسته‌های اصلی</dt><dd>اگر سایت فقط شیرآلات می‌فروشد، فقط «شیرآلات» را انتخاب کنید تا بی‌خود برای پمپ و کابل جستجو نشود.</dd>
+          <dt>فروشنده و تلفن</dt><dd>اگر خالی بماند، از خود سایت خوانده می‌شود. فقط در فایل‌های داخلی می‌آید، نه روی سایت کاروان.</dd>
+        </dl>
+        <p class="muted" style="margin-bottom:0">ترب، دیجی‌کالا، دیوار، شیپور، ایمالز و خود کاروان صنعت عمداً منبع نیستند. این سرور خارج از ایران است؛ اگر تست سایتی جواب نداد، احتمالاً IP خارجی را می‌بندد.</p>
       </div>
     </div>
+
+    <details class="card">
+      <summary style="cursor:pointer;font-weight:500">ویرایش مستقیم فایل منابع (پیشرفته)</summary>
+      <textarea id="srcYaml" class="code" spellcheck="false" style="margin-top:10px"></textarea>
+      <div class="row" style="margin-top:10px"><button class="btn" id="srcSave">ذخیره‌ی فایل</button><span id="srcMsg" class="muted"></span></div>
+    </details>
   </section>
 
   <!-- ===================== SETUP ===================== -->
@@ -470,23 +494,55 @@ $('#resDl').onclick = ()=>{ if(RES.file) location.href=`/api/runs/${encodeURICom
 $('#resZip').onclick = ()=>{ if(RES.run) location.href=`/api/runs/${encodeURIComponent(RES.run)}/zip`; };
 
 // ---------------- sources
-async function loadSources(){ const r=await api('/api/sources'); $('#srcYaml').value=r.yaml; }
-$('#srcSave').onclick = async ()=>{
-  try{ const r=await post('/api/sources',{yaml:$('#srcYaml').value}); LS.set('sources', $('#srcYaml').value); $('#srcMsg').textContent=`ذخیره شد · ${fa(r.sites)} سایت ایرانی`; loadState(); }
-  catch(err){ $('#srcMsg').textContent=''; toast(err.message,true); }
-};
-$('#tsBtn').onclick = async ()=>{
-  const d=$('#tsDomain').value.trim(); if(!d) return;
-  $('#tsOut').textContent='در حال تست…';
+const TYPE_FA = {woo_store_api:'ووکامرس با API', woo_search:'ووکامرس بدون API', url_template:'سایت دیگر'};
+let SRC = null, SCATS = new Set();
+function srcSaved(r){ SRC = r.data || {}; $('#srcYaml').value = r.yaml; LS.set('sources', r.yaml); renderSources(); loadState(); }
+async function loadSources(){ const r=await api('/api/sources'); SRC=r.data||{}; $('#srcYaml').value=r.yaml; renderSources(); }
+function renderSources(){
+  const sites = (SRC && SRC.iran_sites) || [];
+  $('#srcTable').innerHTML = sites.length
+    ? '<tr><th>دامنه</th><th>نوع</th><th>دسته‌ها</th><th>فروشنده</th><th></th></tr>' + sites.map(x=>`<tr>
+        <td class="ltr">${x.domain}</td><td>${TYPE_FA[x.type]||x.type}</td>
+        <td>${(x.level1||[]).join('، ')||'<span class="muted">همه</span>'}</td>
+        <td>${x.seller_name||'<span class="muted">از سایت</span>'}</td>
+        <td><button class="btn bad" data-rm="${x.domain}" style="padding:2px 10px">حذف</button></td></tr>`).join('')
+    : '<tr><td class="muted" style="padding:16px">هنوز سایتی اضافه نشده. از فرم پایین یک سایت را تست و اضافه کنید.</td></tr>';
+  const cats = (STATE && STATE.taxonomy && STATE.taxonomy.level1) || [];
+  $('#sCats').innerHTML = cats.length ? cats.map(c=>`<span class="chip ${SCATS.has(c)?'on':''}" data-cat="${c}">${c}</span>`).join('')
+                                      : '<span class="muted">اول تاکسونومی را بارگذاری کنید تا دسته‌ها اینجا بیایند.</span>';
+}
+$('#sCats').addEventListener('click', e=>{ const c=e.target.closest('[data-cat]'); if(!c) return;
+  SCATS.has(c.dataset.cat) ? SCATS.delete(c.dataset.cat) : SCATS.add(c.dataset.cat); c.classList.toggle('on'); });
+$('#srcTable').addEventListener('click', async e=>{ const b=e.target.closest('[data-rm]'); if(!b) return;
+  if(!confirm('سایت '+b.dataset.rm+' از منابع حذف شود؟')) return;
+  try{ srcSaved(await post('/api/sources/remove',{domain:b.dataset.rm})); toast('حذف شد'); }catch(err){ toast(err.message,true); } });
+$('#sType').onchange = ()=>{ $('#sTplRow').style.display = $('#sType').value==='url_template' ? '' : 'none'; };
+$('#sTest').onclick = async ()=>{
+  const d=$('#sDomain').value.trim(); if(!d){ toast('دامنه را بنویسید', true); return; }
+  $('#tsOut').innerHTML='<span class="warn">در حال تست… (تا یک دقیقه)</span>';
   try{
     const r=await post('/api/test-site',{domain:d});
-    let h = `<div>robots.txt: ${r.robots_ok===false?'<span class="bad">کراول را منع کرده</span>':'<span class="ok">مجاز</span>'}</div>`;
+    let h = `<div>robots.txt: ${r.robots_ok===false?'<span class="bad">کراول را منع کرده؛ این سایت را اضافه نکنید</span>':'<span class="ok">مجاز</span>'}</div>`;
     h += `<div>API ووکامرس: ${r.store_api?'<span class="ok">دارد</span>':'<span class="muted">ندارد</span>'}</div>`;
-    if(r.sample.length) h += '<div class="muted">نمونه: '+r.sample.map(s=>`${s.name} (${s.price||'—'} ${s.currency||''})`).join('، ')+'</div>';
-    if(r.suggested) h += `<div style="margin-top:6px">پیشنهاد برای فایل منابع:</div><pre class="log" style="max-height:none">  - domain: ${r.domain}\n    type: ${r.suggested}</pre>`;
+    if(r.sample.length) h += '<div class="muted">نمونه محصول: '+r.sample.map(s=>`${s.name} (${s.price||'—'} ${s.currency||''})`).join('، ')+'</div>';
     if(r.note) h += `<div class="warn">${r.note}</div>`;
+    if(r.suggested){ $('#sType').value=r.suggested; $('#sType').onchange(); h += `<div class="ok">نوع «${TYPE_FA[r.suggested]}» انتخاب شد.</div>`; }
     $('#tsOut').innerHTML=h;
   }catch(err){ $('#tsOut').textContent=''; toast(err.message,true); }
+};
+$('#sAdd').onclick = async ()=>{
+  const site = {domain:$('#sDomain').value.trim(), type:$('#sType').value, level1:[...SCATS],
+                seller_name:$('#sSeller').value.trim(), phones:$('#sPhones').value.trim(),
+                search_url:$('#sUrl').value.trim(), link_selector:$('#sSel').value.trim()};
+  try{
+    srcSaved(await post('/api/sources/site',{site}));
+    toast('اضافه شد: '+site.domain);
+    ['#sDomain','#sSeller','#sPhones','#sUrl','#sSel'].forEach(x=>$(x).value=''); SCATS.clear(); $('#tsOut').innerHTML=''; renderSources();
+  }catch(err){ toast(err.message,true); }
+};
+$('#srcSave').onclick = async ()=>{
+  try{ const r=await post('/api/sources',{yaml:$('#srcYaml').value}); srcSaved(r); $('#srcMsg').textContent=`ذخیره شد · ${fa(r.sites)} سایت ایرانی`; }
+  catch(err){ $('#srcMsg').textContent=''; toast(err.message,true); }
 };
 
 // ---------------- setup
