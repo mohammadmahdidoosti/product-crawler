@@ -479,6 +479,8 @@ class Handler(BaseHTTPRequestHandler):
             "runs": list_runs(),
             "job": JOB.status(),
             "ephemeral": bool(os.environ.get("RENDER")),
+            "has_settings": paths()["settings"].exists(),
+            "has_sources": paths()["sources"].exists(),
         }
 
     def queue_preview(self, opts: dict) -> dict:

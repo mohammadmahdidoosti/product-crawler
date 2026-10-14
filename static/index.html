@@ -78,6 +78,11 @@ td a{color:var(--gold-d)}
 .toast.show{opacity:1}
 .toast.err{background:var(--bad)}
 .ltr{direction:ltr;text-align:left}
+.drop{display:block;border:2px dashed var(--gold);border-radius:10px;padding:18px;text-align:center;color:var(--gold-d);cursor:pointer;background:#fffdf8;font-weight:500}
+.drop:hover{background:var(--gold-l)}
+.drop input{display:none}
+.upmsg{margin-top:8px;font-size:13px;min-height:1em}
+.note a{color:inherit;font-weight:700;cursor:pointer;text-decoration:underline}
 </style>
 </head>
 <body>
@@ -200,13 +205,13 @@ td a{color:var(--gold-d)}
       <div class="card">
         <h2>تاکسونومی</h2>
         <div id="taxInfo" class="muted">بارگذاری نشده</div>
-        <div class="row" style="margin-top:10px"><input type="file" id="taxFile" accept=".csv"><button class="btn" id="taxUp">بارگذاری</button></div>
+        <label class="drop" style="margin-top:10px">انتخاب فایل CSV تاکسونومی<input type="file" id="taxFile" accept=".csv"></label><div id="taxUpMsg" class="upmsg"></div>
       </div>
       <div class="card">
         <h2>خروجی محصولات فعلی سایت <small>برای مرحله‌ی ادغام</small></h2>
         <div id="siteInfo" class="muted">بارگذاری نشده؛ بدون آن همه‌ی محصولات «تازه» حساب می‌شوند.</div>
         <p class="muted" style="font-size:12.5px">از پیشخوان وردپرس: محصولات ← برون‌بری (Export) ← CSV. ستون‌های ID و نام کافی است؛ SKU و قیمت بهتر.</p>
-        <div class="row"><input type="file" id="siteFile" accept=".csv"><button class="btn" id="siteUp">بارگذاری</button></div>
+        <label class="drop">انتخاب فایل CSV محصولات سایت<input type="file" id="siteFile" accept=".csv"></label><div id="siteUpMsg" class="upmsg"></div>
       </div>
     </div>
 
@@ -296,19 +301,41 @@ $('#nav').addEventListener('click', e=>{
   if(b.dataset.tab==='sources') loadSources();
 });
 
+function go(tab){ document.querySelector(`nav button[data-tab="${tab}"]`).click(); window.scrollTo(0,0); }
+document.addEventListener('click', e=>{ const a=e.target.closest('[data-go]'); if(a){ e.preventDefault(); go(a.dataset.go); } });
+
+// The free server forgets everything on restart. Settings and the sources
+// list are mirrored in this browser and put back automatically.
+const LS = {get(k){ try{ return JSON.parse(localStorage.getItem('cc_'+k)); }catch(e){ return null; } },
+            set(k,v){ try{ localStorage.setItem('cc_'+k, JSON.stringify(v)); }catch(e){} }};
+let _synced=false;
+async function syncFromBrowser(){
+  if(_synced) return; _synced=true;
+  let changed=false;
+  const st=LS.get('settings'), src=LS.get('sources');
+  try{
+    if(!STATE.has_settings && st){ await post('/api/settings', st); changed=true; }
+    if(!STATE.has_sources && src){ await post('/api/sources', {yaml:src}); changed=true; }
+  }catch(e){}
+  if(changed){ STATE = await api('/api/state'); toast('تنظیمات و منابع از این مرورگر برگردانده شد'); }
+}
+
 // ---------------- state
 async function loadState(){
   STATE = await api('/api/state');
   $('#ephemeral').hidden = !STATE.ephemeral;
+  await syncFromBrowser();
   const missing = [];
-  if(!STATE.taxonomy) missing.push('فایل تاکسونومی را بارگذاری کنید');
-  if(!STATE.sources.iran_sites) missing.push('حداقل یک سایت منبع در «منابع» اضافه کنید');
-  if(STATE.settings.fx.provider==='manual' && !STATE.settings.fx.manual_rate_toman) missing.push('نرخ دلار را تنظیم کنید');
+  if(!STATE.taxonomy) missing.push('<a data-go="setup">فایل تاکسونومی را بارگذاری کنید</a>');
+  if(!STATE.sources.iran_sites) missing.push('<a data-go="sources">حداقل یک سایت منبع اضافه کنید</a>');
+  if(STATE.settings.fx.provider==='manual' && !STATE.settings.fx.manual_rate_toman) missing.push('<a data-go="setup">نرخ دلار را تنظیم کنید</a>');
   $('#setupNote').hidden = !missing.length;
-  $('#setupNote').textContent = 'برای شروع: ' + missing.join('، ') + '.';
+  $('#setupNote').innerHTML = 'برای شروع: ' + missing.join('، ') + '.';
   // runs
+  if(!STATE.runs.length) STATE.runs.push({name: CUR_RUN || 'test1', files:{}});   // a ready-to-use first run
+  else if(CUR_RUN && !STATE.runs.find(r=>r.name===CUR_RUN)) STATE.runs.unshift({name: CUR_RUN, files:{}});
   const names = STATE.runs.map(r=>r.name);
-  if(!CUR_RUN || !names.includes(CUR_RUN)) CUR_RUN = names[0] || null;
+  if(!CUR_RUN || !names.includes(CUR_RUN)) CUR_RUN = names[0];
   for(const sel of ['#runSel','#resRun']){
     const el=$(sel), v = sel==='#resRun' ? (RES.run||CUR_RUN) : CUR_RUN;
     el.innerHTML = names.length ? names.map(n=>`<option ${n===v?'selected':''}>${n}</option>`).join('') : '<option value="">— هنوز اجرایی نیست —</option>';
@@ -347,7 +374,7 @@ function renderSteps(){
       ${s.net?`<div class="net">${s.net}</div>`:''}${keyWarn}
       ${s.opt?`<label class="check"><input type="checkbox" data-opt="${s.opt[0]}"> ${s.opt[1]}</label>`:''}
       <div class="out">${out}</div>
-      <button class="btn" data-step="${s.k}" ${running||!CUR_RUN?'disabled':''}>اجرا</button>
+      <button class="btn" data-step="${s.k}" ${running?'disabled title="یک مرحله در حال اجراست"':''}>اجرا</button>
     </div>`;
   }).join('');
 }
@@ -445,7 +472,7 @@ $('#resZip').onclick = ()=>{ if(RES.run) location.href=`/api/runs/${encodeURICom
 // ---------------- sources
 async function loadSources(){ const r=await api('/api/sources'); $('#srcYaml').value=r.yaml; }
 $('#srcSave').onclick = async ()=>{
-  try{ const r=await post('/api/sources',{yaml:$('#srcYaml').value}); $('#srcMsg').textContent=`ذخیره شد · ${fa(r.sites)} سایت ایرانی`; loadState(); }
+  try{ const r=await post('/api/sources',{yaml:$('#srcYaml').value}); LS.set('sources', $('#srcYaml').value); $('#srcMsg').textContent=`ذخیره شد · ${fa(r.sites)} سایت ایرانی`; loadState(); }
   catch(err){ $('#srcMsg').textContent=''; toast(err.message,true); }
 };
 $('#tsBtn').onclick = async ()=>{
@@ -463,13 +490,19 @@ $('#tsBtn').onclick = async ()=>{
 };
 
 // ---------------- setup
-async function upload(kind, input){
-  const f=input.files[0]; if(!f){ toast('فایلی انتخاب نشده', true); return; }
-  try{ await api('/api/upload/'+kind,{method:'POST', body:f}); toast('بارگذاری شد'); input.value=''; loadState(); }
-  catch(err){ toast(err.message,true); }
+// a file is sent as soon as it is chosen (no separate button to miss)
+async function upload(kind, input, msgEl){
+  const f=input.files[0]; if(!f) return;
+  const mb=(f.size/1048576).toFixed(1);
+  msgEl.innerHTML=`<span class="warn">در حال بارگذاری ${f.name} (${mb} مگابایت)…</span>`;
+  try{
+    await api('/api/upload/'+kind,{method:'POST', body:f});
+    input.value=''; await loadState();
+    msgEl.innerHTML=`<span class="ok">✓ ${f.name} بارگذاری شد</span>`;
+  }catch(err){ msgEl.innerHTML=`<span class="bad">خطا: ${err.message}</span>`; }
 }
-$('#taxUp').onclick = ()=>upload('taxonomy', $('#taxFile'));
-$('#siteUp').onclick = ()=>upload('site', $('#siteFile'));
+$('#taxFile').onchange = ()=>upload('taxonomy', $('#taxFile'), $('#taxUpMsg'));
+$('#siteFile').onchange = ()=>upload('site', $('#siteFile'), $('#siteUpMsg'));
 $('#fxProv').onchange = ()=>{ $('#fxApiRow').style.display = $('#fxProv').value==='json_api' ? '' : 'none'; };
 $('#setSave').onclick = async ()=>{
   const num = (v)=> v===''? null : Number(v);
@@ -480,7 +513,7 @@ $('#setSave').onclick = async ()=>{
     http:{delay_seconds:num($('#delay').value)||3, proxy:{iran:$('#pxIran').value.trim()||null}},
     llm:{model:$('#llmModel').value, min_confidence:num($('#minConf').value)??0.6},
   };
-  try{ await post('/api/settings', body); $('#setMsg').textContent='ذخیره شد'; loadState(); }catch(err){ toast(err.message,true); }
+  try{ await post('/api/settings', body); LS.set('settings', body); $('#setMsg').textContent='ذخیره شد'; loadState(); }catch(err){ toast(err.message,true); }
 };
 $('#restBtn').onclick = async ()=>{
   const f=$('#restFile').files[0]; if(!f) return;
