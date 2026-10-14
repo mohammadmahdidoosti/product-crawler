@@ -1,0 +1,110 @@
+import json
+import unittest
+from pathlib import Path
+
+import pandas as pd
+
+from crawler.dedupe import merge_crawl, split_against_site
+from crawler.extract import extract_page, from_store_api, resolve_price_unit
+from crawler.normalize import (extract_models, extract_phones, model_key, norm_text,
+                               parse_number)
+from crawler.taxonomy import build_query, resolve_route
+
+FIX = Path(__file__).parent / "fixtures"
+
+
+class Normalize(unittest.TestCase):
+    def test_persian_letters_digits(self):
+        self.assertEqual(norm_text("كنتاكتور  ۳۲ آمپر"), norm_text("کنتاکتور 32 امپر"))
+        self.assertEqual(norm_text("یک‌طرفه"), "یک طرفه")
+
+    def test_parse_number(self):
+        self.assertEqual(parse_number("۱۲,۰۰۰,۰۰۰ تومان"), 12_000_000)
+        self.assertEqual(parse_number("12.000.000"), 12_000_000)
+        self.assertEqual(parse_number("1٬850٬000"), 1_850_000)
+        self.assertEqual(parse_number("12.5"), 12.5)
+        self.assertIsNone(parse_number("تماس بگیرید"))
+
+    def test_models(self):
+        self.assertIn("yd101-00p7-t2s", extract_models("درایو مدل YD101-00P7-T2S برند یولیکو"))
+        self.assertEqual(extract_models("پمپ 1.5 اسب 220v 50hz"), [])
+        self.assertEqual(model_key("YD101-00P7"), model_key("yd10100p7"))
+
+    def test_phones(self):
+        p = extract_phones("تلفن: ۰۲۱-۶۶۷۰ ۱۲۳۴ و ۰۹۱۲۳۴۵۶۷۸۹")
+        self.assertEqual(p, ["02166701234", "09123456789"])
+
+
+class Extract(unittest.TestCase):
+    def test_jsonld_page_with_wrong_currency_code(self):
+        rec = extract_page((FIX / "woo_product.html").read_text(encoding="utf-8"))
+        self.assertEqual(rec["extracted_by"], "jsonld")
+        self.assertEqual(rec["brand"], "یولیکو")
+        self.assertEqual(rec["price_amount"], 12_000_000)
+        # schema says IRR but the page shows "۱۲,۰۰۰,۰۰۰ تومان" -> toman
+        unit, flags = resolve_price_unit(rec)
+        self.assertEqual(unit, "toman")
+        self.assertEqual(rec["specs"]["توان"], "0.75 کیلووات")
+        self.assertEqual(rec["claims_representative"], "yes")
+        self.assertIn("09123456789", rec["seller_phones"])
+        self.assertEqual(rec["in_stock"], "yes")
+
+    def test_store_api(self):
+        items = json.loads((FIX / "store_api.json").read_text(encoding="utf-8"))
+        a, b = from_store_api(items[0]), from_store_api(items[1])
+        self.assertEqual(a["price_amount"], 1_850_000)
+        self.assertEqual(resolve_price_unit(a)[0], "toman")
+        self.assertEqual(a["brand"], "یونی")
+        self.assertEqual(a["model"], "SV-2W-15")
+        self.assertEqual(resolve_price_unit(b)[0], "rial")
+
+
+class Taxonomy(unittest.TestCase):
+    def test_short_leaf_gets_parent(self):
+        self.assertEqual(build_query(["تصفیه آب", "فیلتر تصفیه آب", "ممبران"]), "ممبران فیلتر تصفیه آب")
+        self.assertEqual(build_query(["شیرآلات", "شیر فلکه", "شیر فلکه 1/2"]), "شیر فلکه 1/2")
+
+    def test_route_inheritance(self):
+        rules = {"default": "iran", "by_path_prefix": {"شیرآلات": "iran", "شیرآلات > اکچویتور برقی": "both"}}
+        row = pd.Series({"route_col": "", "taxonomy_id": "1",
+                         "breadcrumb": "شیرآلات > اکچویتور برقی > محرک الکتریکی"})
+        self.assertEqual(resolve_route(row, rules), "both")
+        row["breadcrumb"] = "شیرآلات > شیر فلکه"
+        self.assertEqual(resolve_route(row, rules), "iran")
+        row["route_col"] = "foreign"
+        self.assertEqual(resolve_route(row, rules), "foreign")
+
+
+class Dedupe(unittest.TestCase):
+    def rows(self):
+        base = {"taxonomy_id": "7", "breadcrumb": "x", "specs_json": "", "price_flags": "",
+                "usd_rate_toman": "100000", "image_urls": "[]", "seller_phones": ""}
+        return pd.DataFrame([
+            {**base, "name": "درایو YD101-00P7-T2S", "model": "YD101-00P7-T2S", "brand": "یولیکو",
+             "price_toman": "12000000", "url": "a", "seller_name": "A"},
+            {**base, "name": "اینورتر تکفاز yd101 00p7 t2s", "model": "yd10100p7t2s", "brand": "Pulico",
+             "price_toman": "13000000", "url": "b", "seller_name": "B"},
+            {**base, "name": "درایو YD101-00P7-T2S", "model": "YD101-00P7-T2S", "brand": "یولیکو",
+             "price_toman": "1200", "price_flags": "too_low", "url": "c", "seller_name": "C"},
+            {**base, "name": "شیر برقی 24 ولت 1/2 برنجی", "model": "", "brand": "",
+             "price_toman": "1850000", "url": "d", "seller_name": "D"},
+        ])
+
+    def test_merge_median_and_bad_price(self):
+        m = merge_crawl(self.rows())
+        self.assertEqual(len(m), 2)
+        drive = m[m["name"].str.contains("YD101", case=False)].iloc[0]
+        self.assertEqual(drive["price_toman"], 12_500_000)   # too_low row excluded
+        self.assertEqual(drive["n_sources"], 3)
+
+    def test_existing_product_goes_to_updates(self):
+        site = pd.DataFrame([{"id": "501", "sku": "", "name": "درایو 1 اسب تک فاز مدل YD101-00P7-T2S برند یولیکو",
+                              "price": "12000000", "categories": ""}])
+        site["name_n"] = site["name"].map(norm_text)
+        new, upd, rev = split_against_site(merge_crawl(self.rows()), site)
+        self.assertEqual(list(upd["site_product_id"]), ["501"])
+        self.assertEqual(len(new), 1)
+
+
+if __name__ == "__main__":
+    unittest.main()

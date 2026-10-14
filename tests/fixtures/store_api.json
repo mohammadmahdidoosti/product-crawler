@@ -1,0 +1,11 @@
+[
+  {"id": 11, "name": "شیر برقی 24 ولت 1/2 اینچ برنجی", "permalink": "https://valve.example.ir/product/sv-24v-half/",
+   "sku": "SV-2W-15", "short_description": "<p>شیر برقی نرمال بسته</p>",
+   "prices": {"price": "1850000", "regular_price": "1850000", "currency_code": "IRT", "currency_minor_unit": 0,
+              "currency_symbol": "تومان", "currency_prefix": "", "currency_suffix": " تومان"},
+   "is_in_stock": true, "images": [{"src": "https://valve.example.ir/a.jpg"}],
+   "attributes": [{"name": "برند", "terms": [{"name": "یونی"}]}, {"name": "ولتاژ", "terms": [{"name": "24 ولت"}]}]},
+  {"id": 12, "name": "بوبین شیر برقی", "permalink": "https://valve.example.ir/product/coil/",
+   "prices": {"price": "3500000", "currency_code": "IRR", "currency_minor_unit": 0, "currency_suffix": " ریال"},
+   "is_in_stock": false, "images": [], "attributes": []}
+]

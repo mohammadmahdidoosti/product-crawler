@@ -1,0 +1,80 @@
+# ---------------------------------------------------------------------------
+# Caravan Sanat crawler — settings. Secrets (API keys) go in .env, not here.
+# ---------------------------------------------------------------------------
+data_dir: data
+sources_file: sources.yaml
+
+taxonomy:
+  file: data/taxonomy.csv          # copy taxonomy-test01-merged.csv here
+  exclude_level1:
+    - برندها و خطوط محصول
+
+# Route per category: iran | foreign | both.
+# Priority: a "Route" column in the taxonomy file > by_id > the longest
+# matching breadcrumb prefix > default. A rule on a parent is inherited by
+# every leaf under it, so only exceptions need writing.
+routes:
+  default: iran
+  by_path_prefix:
+    "شیرآلات > اکچویتور برقی و محرک شیر": both
+    "تجهیزات تابلو برق و برق صنعتی > درایو و اینورتر موتور": both
+    "بذر": iran
+    "کود و نهاده‌های کشاورزی و دامی": iran
+  by_id: {}
+
+search:
+  max_hits_per_source: 8
+  use_web_search: false            # true = also search the whole web (needs SERPER_API_KEY)
+
+http:
+  delay_seconds: 3                 # wait between two requests to the same site
+  timeout_seconds: 25
+  retries: 2
+  cache_days: 14                   # reruns within this window reuse saved pages
+  respect_robots: true
+  user_agent: "CaravanSanatBot/0.1 (+https://caravansanat.com)"
+  proxy:                           # optional, e.g. a VPN's local proxy
+    iran: null                     # Iranian sites: usually direct (no VPN)
+    foreign: null                  # e.g. "http://127.0.0.1:10809" for Claude API / Made-in-China
+
+fx:
+  provider: manual                 # manual | json_api
+  manual_rate_toman: null          # <- REQUIRED for manual: today's dollar rate in toman
+  rate_type: free                  # free | nima — stored next to every price
+  # json_api example (your existing dollar API):
+  # provider: json_api
+  # url: "https://example.com/api/latest?key={FX_API_KEY}"
+  # json_path: "usd_sell.value"     # where the number is inside the JSON
+  # unit: toman                     # toman | rial
+  sanity_range_toman: [10000, 10000000]
+
+price:
+  default_unit: toman              # used only when a page gives no clue (flagged "unit_assumed")
+  min_toman: 5000                  # below this -> flag too_low (excluded from the median)
+  max_toman: 50000000000
+  round_to_toman: 1000
+
+llm:
+  api_key_env: ANTHROPIC_API_KEY
+  model: claude-haiku-5-5          # cheap and enough for yes/no relevance; try claude-sonnet-5-5 if quality is low
+  batch_size: 15
+  min_confidence: 0.6
+  max_tokens: 4000
+
+dedupe:
+  crawl_name_threshold: 0.9        # same product inside the crawl (by name, when no model number)
+  same_threshold: 0.92             # >= this vs a site product -> "update existing"
+  review_threshold: 0.8            # between the two -> review file
+
+site_catalog:
+  file: null                       # or pass --site-export at the dedupe step
+  columns:                         # WooCommerce export headers, English or Persian
+    id: [ID, شناسه]
+    sku: [SKU, شناسه محصول]
+    name: [Name, نام]
+    price: [Regular price, قیمت عادی, قیمت]
+    categories: [Categories, دسته‌ها, دسته ها]
+
+export:
+  published: 0                     # 0 = import as draft, check, then publish
+  require_price: true

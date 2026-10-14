@@ -1,0 +1,50 @@
+# ---------------------------------------------------------------------------
+# Where to look. Fill 5-15 trusted sites per category; the list grows over time.
+# Torob and Digikala are deliberately not sources of content.
+# ---------------------------------------------------------------------------
+
+# Iranian sites. type:
+#   woo_store_api  WooCommerce shop with the public Store API
+#                  (test: open https://SITE/wp-json/wc/store/v1/products?search=درایو
+#                   in a browser; if you see JSON, use this type — fastest and cleanest)
+#   woo_search     WooCommerce shop without the API (search page + product pages)
+#   url_template   any other shop: give its search URL and the CSS selector of product links
+# level1: optional; the site is only searched for these top-level categories.
+# seller_name / phones: optional; otherwise read from the site itself.
+iran_sites:
+  # - domain: example-electric.ir
+  #   type: woo_store_api
+  #   level1: [تجهیزات تابلو برق و برق صنعتی]
+  #   seller_name: فروشگاه نمونه برق
+  #   phones: ["02100000000"]
+  #
+  # - domain: example-valve.com
+  #   type: woo_search
+  #   level1: [شیرآلات]
+  #
+  # - domain: example-shop.ir
+  #   type: url_template
+  #   search_url: "https://example-shop.ir/search?q={query}"
+  #   link_selector: "div.product-card a.title"
+
+# Foreign sites, searched through the web-search API with site:… and an
+# English query translated by Claude (routes "foreign" and "both" only).
+foreign_sites:
+  # - domain: made-in-china.com
+  # - domain: alibaba.com
+
+# Whole-web search (search.use_web_search: true in config.yaml)
+web_search:
+  provider: serper
+  api_key_env: SERPER_API_KEY
+  gl: ir
+  hl: fa
+  exclude_domains:
+    - torob.com
+    - digikala.com
+    - divar.ir
+    - sheypoor.com
+    - emalls.ir
+    - caravansanat.com
+    - aparat.com
+    - instagram.com

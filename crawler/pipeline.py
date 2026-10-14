@@ -1,0 +1,391 @@
+"""The steps, each reading the previous step's CSV in the same run folder."""
+from __future__ import annotations
+
+import datetime as dt
+import json
+import logging
+from pathlib import Path
+
+import pandas as pd
+
+from . import fx as fxmod
+from .config import ROOT, run_dir
+from .dedupe import load_site_catalog, merge_crawl, split_against_site
+from .extract import extract_page, from_store_api, resolve_price_unit
+from .fetch import Fetcher, domain_of
+from .io import (CRAWLED_COLS, FILES, FILTER_COLS, HITS_COLS, Appender, done_values,
+                 read_csv, write_csv)
+from .normalize import extract_phones
+from .search import search_row
+from .taxonomy import build_queue, load_taxonomy
+
+log = logging.getLogger(__name__)
+
+# Set by the web UI: STOP asks a running step to finish cleanly after the
+# current row; PROGRESS is read by the UI for its progress bar.
+import threading  # noqa: E402
+
+STOP = threading.Event()
+PROGRESS: dict = {"step": "", "done": 0, "total": 0}
+
+
+def _progress(step: str, done: int, total: int) -> bool:
+    """Update progress; return True if the user asked to stop."""
+    PROGRESS.update(step=step, done=done, total=total)
+    if STOP.is_set():
+        log.warning("stopped by user at %d/%d — run the step again to continue", done, total)
+        return True
+    return False
+
+
+def _fetchers(cfg: dict) -> dict[str, Fetcher]:
+    return {"iran": Fetcher(cfg, "iran"), "foreign": Fetcher(cfg, "foreign")}
+
+
+# ------------------------------------------------------------------ 1 queue
+
+def step_queue(cfg: dict, run: str, **filters) -> Path:
+    tax_path = ROOT / cfg["taxonomy"]["file"]
+    tax = load_taxonomy(tax_path)
+    q = build_queue(tax, cfg, **filters)
+    out = run_dir(cfg, run) / FILES["queue"]
+    write_csv(q, out)
+    log.info("queue: %d rows -> %s (routes: %s)", len(q), out.name, q["route"].value_counts().to_dict())
+    return out
+
+
+# ------------------------------------------------------------------ 2 search
+
+def _english_queries(cfg: dict, rows: list[dict]) -> dict[str, str]:
+    """Translate foreign-route queries once and cache them in data/translations.csv."""
+    need = [r for r in rows if r["route"] in ("foreign", "both")]
+    if not need or not cfg["sources"].get("foreign_sites"):
+        return {}
+    cache_p = cfg["_data_dir"] / "translations.csv"
+    cache = dict(read_csv(cache_p)[["query", "english"]].values) if cache_p.exists() else {}
+    todo = [r for r in need if r["query"] not in cache]
+    if todo:
+        from .llm import LLM, translate
+        try:
+            llm = LLM(cfg)
+        except RuntimeError as e:
+            log.warning("foreign route skipped: %s", e)
+            return cache
+        for i in range(0, len(todo), 40):
+            chunk = todo[i:i + 40]
+            for r, en in zip(chunk, translate(llm, [(r["breadcrumb"], r["query"]) for r in chunk])):
+                cache[r["query"]] = en
+        write_csv(pd.DataFrame({"query": list(cache), "english": list(cache.values())}), cache_p)
+    return cache
+
+
+def step_search(cfg: dict, run: str) -> Path:
+    d = run_dir(cfg, run)
+    queue = read_csv(d / FILES["queue"]).to_dict("records")
+    out = d / FILES["hits"]
+    done = done_values(out, "taxonomy_id") | done_values(d / "02_no_hits.csv", "taxonomy_id")
+    en = _english_queries(cfg, queue)
+    f = _fetchers(cfg)
+    n_hits = 0
+    with Appender(out, HITS_COLS) as w, Appender(d / "02_no_hits.csv", ["taxonomy_id", "query", "route"]) as miss:
+        for i, row in enumerate(queue, 1):
+            if _progress("search", i - 1, len(queue)):
+                break
+            if row["taxonomy_id"] in done:
+                continue
+            hits = search_row(cfg, f, row, en.get(row["query"]))
+            for h in hits:
+                w.write(h)
+            if not hits:
+                miss.write(row)
+            n_hits += len(hits)
+            if i % 10 == 0:
+                log.info("search %d/%d, %d hits so far", i, len(queue), n_hits)
+    log.info("search done: %d new hits -> %s", n_hits, out.name)
+    return out
+
+
+# ------------------------------------------------------------------ 3 crawl
+
+class SellerInfo:
+    """Seller name + phones per domain: sources.yaml first, else the homepage."""
+
+    def __init__(self, cfg: dict, fetchers: dict[str, Fetcher]):
+        self.f = fetchers
+        self.known = {s["domain"]: s for s in (cfg["sources"].get("iran_sites") or [])}
+        self.cache: dict[str, dict] = {}
+
+    def get(self, domain: str, route: str) -> dict:
+        if domain in self.cache:
+            return self.cache[domain]
+        k = self.known.get(domain, {})
+        info = {"seller_name": k.get("seller_name", ""), "seller_phones": k.get("phones") or []}
+        if not info["seller_phones"] and route != "foreign":
+            base = (k.get("base_url") or f"https://{domain}").rstrip("/")
+            res = self.f["iran"].get(base + "/")
+            if res and res.get("text"):
+                from bs4 import BeautifulSoup
+                soup = BeautifulSoup(res["text"], "lxml")
+                info["seller_phones"] = extract_phones(soup.get_text(" "))
+                if not info["seller_name"]:
+                    m = soup.find("meta", attrs={"property": "og:site_name"})
+                    info["seller_name"] = m["content"].strip() if m and m.get("content") else ""
+        info["seller_name"] = info["seller_name"] or domain
+        self.cache[domain] = info
+        return info
+
+
+def price_fields(rec: dict, rate: dict, cfg: dict) -> dict:
+    p = cfg.get("price", {})
+    unit, flags = resolve_price_unit(rec, p.get("default_unit", "toman"))
+    amt = rec.get("price_amount")
+    usd_rate = rate["usd_rate_toman"]
+    toman = usd = None
+    if amt:
+        if unit == "usd":
+            usd, toman = amt, amt * usd_rate
+        else:
+            toman = amt / 10 if unit == "rial" else amt
+            usd = toman / usd_rate
+        if toman < p.get("min_toman", 5_000):
+            flags.append("too_low")
+        if toman > p.get("max_toman", 50_000_000_000):
+            flags.append("too_high")
+    else:
+        flags.append("no_price")
+    return {"price_raw": amt or "", "price_unit_detected": unit,
+            "price_toman": round(toman) if toman else "", "price_usd": round(usd, 2) if usd else "",
+            "price_flags": " | ".join(flags), **rate}
+
+
+def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
+    d = run_dir(cfg, run)
+    hits = read_csv(d / FILES["hits"]).to_dict("records")
+    queue = {r["taxonomy_id"]: r for r in read_csv(d / FILES["queue"]).to_dict("records")}
+    out = d / FILES["crawled"]
+    # a page found for two categories is checked for each (the AI filter
+    # decides where it belongs); the disk cache means it is fetched only once
+    done = {f"{r['taxonomy_id']}|{r['url']}" for r in (read_csv(out).to_dict("records") if out.exists() else [])}
+    done |= {f"{r.get('taxonomy_id', '')}|{r['url']}" for r in
+             (read_csv(d / "03_failed.csv").to_dict("records") if (d / "03_failed.csv").exists() else [])}
+    rate = fxmod.today_rate(cfg)
+    f = _fetchers(cfg)
+    sellers = SellerInfo(cfg, f)
+    llm = None
+    if use_llm_fallback:
+        from .llm import LLM
+        llm = LLM(cfg)
+    ok = 0
+    with Appender(out, CRAWLED_COLS) as w, Appender(d / "03_failed.csv", ["taxonomy_id", "url", "reason"]) as fail:
+        for i, h in enumerate(hits, 1):
+            if _progress("crawl", i - 1, len(hits)):
+                break
+            key = f"{h['taxonomy_id']}|{h['url']}"
+            if key in done:
+                continue
+            done.add(key)
+            rec = None
+            if h.get("prefilled_json"):
+                rec = from_store_api(json.loads(h["prefilled_json"]))
+            else:
+                fetcher = f["foreign" if h["route"] == "foreign" and h["source_type"] == "foreign" else "iran"]
+                res = fetcher.get(h["url"])
+                if not res or res.get("status") != 200:
+                    fail.write({"taxonomy_id": h["taxonomy_id"], "url": h["url"], "reason": f"http {res.get('status') if res else 'blocked/none'}"})
+                    continue
+                rec = extract_page(res["text"])
+                if rec is None and llm:
+                    rec = _llm_record(llm, res["text"])
+            if not rec or not rec.get("name"):
+                fail.write({"taxonomy_id": h["taxonomy_id"], "url": h["url"], "reason": "no product data"})
+                continue
+            dom = domain_of(h["url"])
+            s = sellers.get(dom, h["route"])
+            q = queue.get(h["taxonomy_id"], {})
+            row = {
+                "taxonomy_id": h["taxonomy_id"], "breadcrumb": q.get("breadcrumb", ""),
+                "query": h["query"], "route": h["route"],
+                "name": rec["name"], "brand": rec["brand"], "model": rec["model"],
+                "specs_json": json.dumps(rec["specs"], ensure_ascii=False) if rec["specs"] else "",
+                "short_description": rec["short_description"],
+                "sale_unit": rec["sale_unit"], "in_stock": rec["in_stock"],
+                "seller_name": rec.get("seller_name") or s["seller_name"],
+                "seller_phones": " | ".join(rec["seller_phones"] or s["seller_phones"]),
+                "claims_representative": rec["claims_representative"],
+                "source_domain": dom, "source_type": h["source_type"], "url": h["url"],
+                "image_urls": json.dumps(rec["image_urls"][:6], ensure_ascii=False),
+                "extracted_by": rec["extracted_by"],
+                "crawled_at": dt.datetime.now().isoformat(timespec="seconds"),
+                **price_fields(rec, rate, cfg),
+            }
+            w.write(row)
+            ok += 1
+            if i % 25 == 0:
+                log.info("crawl %d/%d, %d products", i, len(hits), ok)
+    log.info("crawl done: %d products -> %s", ok, out.name)
+    return out
+
+
+def _llm_record(llm, html: str) -> dict | None:
+    from bs4 import BeautifulSoup
+    from .extract import empty_record, finalize
+    from .llm import extract as llm_extract
+    text = BeautifulSoup(html, "lxml").get_text(" ", strip=True)
+    data = llm_extract(llm, text)
+    if not data or not data.get("name"):
+        return None
+    rec = empty_record()
+    rec.update({"name": data.get("name", ""), "brand": data.get("brand", ""), "model": data.get("model", ""),
+                "specs": data.get("specs") or {}, "price_amount": data.get("price"),
+                "price_unit_detected": data.get("price_unit") or "", "extracted_by": "llm",
+                "page_text": text})
+    finalize(rec, text)
+    return rec
+
+
+# ------------------------------------------------------------------ 4 filter
+
+def step_filter(cfg: dict, run: str) -> Path:
+    from .llm import LLM, relevance_batch
+    d = run_dir(cfg, run)
+    df = read_csv(d / FILES["crawled"])
+    out, rej = d / FILES["filtered"], d / FILES["rejected"]
+    done = done_values(out, "url") | done_values(rej, "url")
+    todo = df[~df["url"].isin(done)]
+    min_conf = float(cfg.get("llm", {}).get("min_confidence", 0.6))
+    batch = int(cfg.get("llm", {}).get("batch_size", 15))
+    llm = LLM(cfg)
+    kept = dropped = 0
+    total = len(todo)
+    with Appender(out, FILTER_COLS) as w_ok, Appender(rej, FILTER_COLS) as w_no:
+        for tid, part in todo.groupby("taxonomy_id", sort=False):
+            if _progress("filter", kept + dropped, total):
+                break
+            rows = part.to_dict("records")
+            for i in range(0, len(rows), batch):
+                chunk = rows[i:i + batch]
+                try:
+                    verdicts = relevance_batch(llm, chunk[0]["breadcrumb"], chunk)
+                except Exception as e:
+                    log.warning("filter failed for %s: %s (will retry next run)", tid, e)
+                    continue
+                for r, v in zip(chunk, verdicts):
+                    r.update({"relevant": v.get("relevant"), "relevance_confidence": v.get("confidence"),
+                              "relevance_reason": v.get("reason", "")})
+                    if not r.get("brand") and v.get("brand"):
+                        r["brand"] = v["brand"]
+                    if not r.get("model") and v.get("model"):
+                        r["model"] = v["model"]
+                    good = v.get("relevant") is True and float(v.get("confidence") or 0) >= min_conf
+                    (w_ok if good else w_no).write(r)
+                    kept += good
+                    dropped += not good
+    log.info("filter: kept %d, rejected %d; Claude usage %s", kept, dropped, llm.usage)
+    return out
+
+
+# ------------------------------------------------------------------ 5 dedupe
+
+def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool = False) -> list[Path]:
+    d = run_dir(cfg, run)
+    src = d / (FILES["crawled"] if skip_filter else FILES["filtered"])
+    df = read_csv(src)
+    dd = cfg.get("dedupe", {})
+    merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)))
+    site = None
+    path = site_export or cfg.get("site_catalog", {}).get("file")
+    if path:
+        p = Path(path) if Path(path).is_absolute() else ROOT / path
+        site = load_site_catalog(p, cfg["site_catalog"]["columns"])
+    else:
+        log.warning("no site export given: every product counts as new (use --site-export)")
+    new, upd, rev = split_against_site(merged, site, float(dd.get("same_threshold", 0.92)),
+                                       float(dd.get("review_threshold", 0.8)))
+    paths = [write_csv(new, d / FILES["new"]), write_csv(upd, d / FILES["updates"]),
+             write_csv(rev, d / FILES["review"])]
+    log.info("dedupe: %d rows -> %d products; new %d, updates %d, review %d",
+             len(df), len(merged), len(new), len(upd), len(rev))
+    return paths
+
+
+# ------------------------------------------------------------------ 6 export
+
+def _round_price(x, step: int) -> str:
+    try:
+        v = float(x)
+    except (TypeError, ValueError):
+        return ""
+    return str(int(round(v / step) * step)) if step else str(int(v))
+
+
+def _spec_html(r: dict) -> str:
+    """Description built only from extracted facts, never the source's text."""
+    specs = json.loads(r.get("specs_json") or "{}")
+    facts = {"برند": r.get("brand"), "مدل": r.get("model"), **specs}
+    lis = "".join(f"<li><strong>{k}:</strong> {v}</li>" for k, v in facts.items() if v)
+    return f"<ul>{lis}</ul>" if lis else ""
+
+
+def step_export(cfg: dict, run: str) -> list[Path]:
+    d = run_dir(cfg, run)
+    step = int(cfg.get("price", {}).get("round_to_toman", 1000))
+    out = []
+    new = read_csv(d / FILES["new"])
+    new = new[new["price_toman"] != ""] if cfg.get("export", {}).get("require_price", True) else new
+    rows = []
+    for r in new.to_dict("records"):
+        rows.append({
+            "Type": "simple", "SKU": "", "Name": r["name"],
+            "Published": cfg.get("export", {}).get("published", 0),
+            "Visibility in catalog": "visible",
+            "Description": _spec_html(r), "Short description": "",
+            "Regular price": _round_price(r["price_toman"], step),
+            "Categories": r["breadcrumb"],
+            "Images": "",
+            "Attribute 1 name": "برند" if r.get("brand") else "", "Attribute 1 value(s)": r.get("brand", ""),
+            "Attribute 1 visible": 1 if r.get("brand") else "", "Attribute 1 global": 1 if r.get("brand") else "",
+            "Meta: _caravan_price_date": r.get("usd_rate_date", ""),
+            "Meta: _caravan_usd_rate": r.get("usd_rate_toman", ""),
+            "Meta: _caravan_price_usd": r.get("price_usd", ""),
+            "Meta: _caravan_taxonomy_id": r.get("taxonomy_id", ""),
+        })
+    out.append(write_csv(pd.DataFrame(rows), d / FILES["woo"]))
+    upd = read_csv(d / FILES["updates"]) if (d / FILES["updates"]).exists() else pd.DataFrame()
+    if len(upd):
+        u = pd.DataFrame({
+            "ID": upd["site_product_id"],
+            "Regular price": upd["price_toman"].map(lambda x: _round_price(x, step)),
+            "Meta: _caravan_price_date": upd["usd_rate_date"],
+            "Meta: _caravan_usd_rate": upd["usd_rate_toman"],
+            "Meta: _caravan_price_usd": upd["price_usd"],
+        })
+        u = u[u["Regular price"] != ""]
+        out.append(write_csv(u, d / "06_woo_update_prices.csv"))
+    log.info("export: %d new products for import%s", len(rows),
+             f", {len(upd)} price updates" if len(upd) else "")
+    return out
+
+
+# ------------------------------------------------------------------ stats
+
+def stats(cfg: dict, run: str) -> str:
+    d = run_dir(cfg, run)
+    lines = [f"run: {run}"]
+    for k, name in FILES.items():
+        p = d / name
+        if p.exists():
+            n = len(read_csv(p))
+            lines.append(f"  {name:<28} {n:>7,} rows")
+    crawled = d / FILES["crawled"]
+    if crawled.exists():
+        df = read_csv(crawled)
+        if len(df):
+            priced = (df["price_toman"] != "").mean()
+            lines.append(f"  priced share in crawl: {priced:.0%}")
+            lines.append("  extracted by: " + ", ".join(f"{k} {v}" for k, v in df["extracted_by"].value_counts().items()))
+            flags = df["price_flags"].str.split(" \\| ").explode()
+            flags = flags[flags != ""]
+            if len(flags):
+                lines.append("  price flags: " + ", ".join(f"{k} {v}" for k, v in flags.value_counts().items()))
+            lines.append("  top domains: " + ", ".join(f"{k} {v}" for k, v in df["source_domain"].value_counts().head(8).items()))
+    return "\n".join(lines)
