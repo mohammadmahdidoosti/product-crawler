@@ -192,6 +192,19 @@ def norm_host(host: str) -> str:
     return host[4:] if host.startswith("www.") else host
 
 
+_SECOND_LEVEL = {"co", "ac", "org", "gov", "net", "com", "sch", "id", "edu"}
+SKIP_SUBDOMAINS = ("blog.", "forum.", "mail.", "webmail.", "cdn.", "static.", "status.", "help.", "support.",
+                   "cpanel.", "ftp.", "api.", "admin.", "panel.")
+
+
+def base_domain(host: str) -> str:
+    """'list.invt-co.com' -> 'invt-co.com', 'shop.example.co.ir' -> 'example.co.ir'."""
+    parts = norm_host(host).split(":")[0].split(".")
+    if len(parts) >= 3 and parts[-2] in _SECOND_LEVEL and len(parts[-1]) == 2:
+        return ".".join(parts[-3:])
+    return ".".join(parts[-2:])
+
+
 def normalize_url(url: str) -> str:
     url, _ = urldefrag(url)
     p = urlparse(url)
@@ -506,6 +519,10 @@ def extract_specs(*containers) -> dict:
         for lst in c.find_all(["ul", "ol"]):
             pairs = []
             for li in lst.find_all("li", recursive=False):
+                kids = [k for k in li.find_all(True, recursive=False) if clean_text(k.get_text(" "))]
+                if len(kids) == 2 and not kids[0].find(["ul", "ol", "table"]):
+                    pairs.append((kids[0].get_text(" "), kids[1].get_text(" ")))
+                    continue
                 t = clean_text(li.get_text(" "))
                 m = re.match(r"^([^:：]{2,40})\s*[:：]\s*(.{1,300})$", t, re.S)
                 if m:
@@ -535,6 +552,25 @@ def set_images(rec: dict, urls: list[str]):
     rec["image_count"] = len(urls)
 
 
+SKU_LABEL_RE = re.compile(r"^(کد محصول|کد کالا|شناسه محصول|شناسه کالا|کد|sku|product code|part number|پارت نامبر)$", re.I)
+BRAND_LABEL_RE = re.compile(r"^(برند|سازنده|نام تجاری|brand|manufacturer)$", re.I)
+GENERIC_CRUMB_RE = re.compile(r"^(خانه|صفحه اصلی|home|فروشگاه|shop|محصولات|products|دسته بندی محصولات|"
+                              r"دسته‌بندی محصولات|همه محصولات|لیست کالا ?ها)$", re.I)
+
+
+def labeled_values(soup) -> dict:
+    """'label : value' snippets in small elements, e.g. <div>کد محصول : <b>100282</b></div>."""
+    out = {}
+    for el in soup.find_all(["div", "li", "p", "span", "td"]):
+        if el.find(["div", "li", "p", "table", "ul"]):
+            continue
+        t = clean_text(el.get_text(" "))
+        m = re.match(r"^([^:：]{2,30})\s*[:：]\s*(.{1,120})$", t)
+        if m and m.group(1).strip() not in out:
+            out[m.group(1).strip()] = m.group(2).strip()
+    return out
+
+
 def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = False) -> dict | None:
     soup = BeautifulSoup(html, "lxml")
     ld = find_jsonld_product(soup)
@@ -555,8 +591,12 @@ def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = 
         or "single-product" in body_cls
         or html_signals
     )
-    if not is_product and not trust_as_product:
+    generic = not is_product and (trust_as_product or looks_like_product_url(url))
+    if not is_product and not generic:
         return None
+    for junk in soup.select("header, footer, nav:not([aria-label*=readcrumb]):not([class*=breadcrumb]), .mega-menu, #mega-menu"):
+        if junk.find_parent(["main", "article"]) is None and not junk.select_one("h1"):
+            junk.decompose()      # menus repeat on every page; keep them out of names/specs/images
 
     rec = {k: "" for k in FIELDS}
     rec.update(site=site, source="page", url=url,
@@ -564,10 +604,18 @@ def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = 
 
     # ---- name
     h1 = first(soup, ["h1.product_title", "h1.product-title", ".product_title", "main h1", "h1"])
+    crumbs_last = soup.select("nav[aria-label*=readcrumb] li:last-child, [class*=breadcrumb] li:last-child")
+    page_title = soup.find("title")
+    title_name = ""
+    if page_title:
+        parts = re.split(r"\s+[-|–—]\s+", clean_text(page_title.get_text()))
+        title_name = parts[0] if parts else ""
     rec["name"] = clean_text((ld or {}).get("name")) or (clean_text(h1.get_text()) if h1 else "") \
-        or clean_text(meta.get("og:title", ""))
+        or clean_text(meta.get("og:title", "")) \
+        or (clean_text(crumbs_last[0].get_text()) if crumbs_last else "") or title_name
     if not rec["name"]:
         return None
+    labeled = labeled_values(soup)
 
     # ---- id / sku
     rec["sku"] = clean_text((ld or {}).get("sku") or (ld or {}).get("mpn") or "")
@@ -575,6 +623,8 @@ def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = 
         el = soup.select_one(".sku, [itemprop=sku]")
         if el:
             rec["sku"] = clean_text(el.get("content") or el.get_text())
+        else:
+            rec["sku"] = next((v for k, v in labeled.items() if SKU_LABEL_RE.search(k)), "")
     m = re.search(r"postid-(\d+)", body_cls)
     if m:
         rec["product_id"] = m.group(1)
@@ -589,7 +639,7 @@ def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = 
         brand = brand[0] if brand else ""
     if isinstance(brand, dict):
         brand = brand.get("name", "")
-    rec["brand"] = clean_text(brand)
+    rec["brand"] = clean_text(brand) or next((v for k, v in labeled.items() if BRAND_LABEL_RE.search(k)), "")
 
     # ---- price (JSON-LD offers first)
     prices, currency, availability = [], "", ""
@@ -614,6 +664,9 @@ def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = 
 
     price_el = first(soup, [".summary .price", ".entry-summary .price", ".product-info .price",
                             "p.price", "[itemprop=price]", ".product-price", "span.price"])
+    if price_el is None and generic:
+        price_el = next((el for el in soup.select("main [class*=price], [class*=price], [id*=price]")
+                         if extract_numbers(el.get_text(" ")) and len(el.get_text(" ")) < 120), None)
     price_text = ""
     if price_el:
         price_text = clean_text(price_el.get("content") or price_el.get_text(" "))
@@ -652,8 +705,9 @@ def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = 
     cats = [clean_text(a.get_text()) for a in soup.select(".product_meta .posted_in a, .posted_in a")]
     if not cats:
         crumbs = soup.select(".woocommerce-breadcrumb a, nav.rank-math-breadcrumb a, "
-                             ".breadcrumb a, .breadcrumbs a, [class*=breadcrumb] a")
+                             ".breadcrumb a, .breadcrumbs a, [class*=breadcrumb] a, nav[aria-label*=readcrumb] a")
         cats = [clean_text(a.get_text()) for a in crumbs[1:]]
+        cats = [c for c in cats if not GENERIC_CRUMB_RE.match(c)]
     if not cats and ld and ld.get("category"):
         cats = [clean_text(c) for c in _as_list(ld["category"]) if isinstance(c, str)]
     rec["categories"] = " | ".join(_dedupe([c for c in cats if c and c != rec["name"]]))
@@ -664,7 +718,8 @@ def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = 
     rec["short_description"] = clean_text(sd) if sd else ""
     desc_el = first(soup, ["#tab-description", ".woocommerce-Tabs-panel--description",
                            ".product-description", "#description", ".product-details-content",
-                           ".product-content", "div[itemprop=description]"])
+                           ".product-content", "div[itemprop=description]", "[id*=description]",
+                           "[class*=product-desc]", "#review", "#introduction"])
     rec["description"] = (clean_text(desc_el) if desc_el else "") \
         or clean_text((ld or {}).get("description")) \
         or rec["short_description"] or clean_text(meta.get("description", ""))
@@ -687,7 +742,9 @@ def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = 
         if isinstance(prop, dict) and prop.get("name"):
             specs.setdefault(clean_text(prop["name"]), clean_text(prop.get("value")))
     panels = soup.select(".woocommerce-Tabs-panel, .wc-tab, .product-specs, .product-attributes, "
-                         ".specifications, #specifications, .product-features")
+                         ".specifications, #specifications, .product-features, #specs, [id*=spec], "
+                         "[class*=spec], [class*=attribute], [class*=feature]")
+    panels = [p for p in panels if p.name not in ("html", "body")]
     for k, v in extract_specs(desc_el, *panels, sd).items():
         specs.setdefault(k, v)
     rec["specs"] = json.dumps(specs, ensure_ascii=False) if specs else ""
@@ -698,7 +755,8 @@ def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = 
         if re.search(r"\.(jpe?g|png|webp|gif|avif)(?:$|\?)", a["href"], re.I):
             imgs.append(a["href"])
     for img in soup.select(".woocommerce-product-gallery img, .product-gallery img, "
-                           ".product-images img, [class*=product-image] img"):
+                           ".product-images img, [class*=product-image] img, [id*=allery] img, "
+                           "[class*=gallery] img, main .swiper img, section .swiper img"):
         u = best_img_src(img)
         if u:
             imgs.append(u)
@@ -710,6 +768,189 @@ def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = 
     rec["description_images"] = " | ".join(u for u in content_images(desc_el, url) if u not in gallery)
     rec["files"] = " | ".join(find_files(soup, url))
     return rec
+
+
+# --------------------------------------------------------------------------- #
+# Price lists: products as rows of an HTML table or items of JSON embedded in the page
+# --------------------------------------------------------------------------- #
+
+NAME_KEYS = ["name", "title", "product_name", "productName", "product", "model", "code", "sku",
+             "نام", "نام کالا", "کد کالا", "مدل", "عنوان"]
+PRICE_KEYS = ["price", "final_price", "finalPrice", "sale_price", "salePrice", "regular_price", "unit_price",
+              "قیمت", "amount", "cost"]
+NAME_HDR_RE = re.compile(r"نام|مدل|کد|عنوان|شرح|کالا|محصول|name|model|code|product|item|description", re.I)
+PRICE_HDR_RE = re.compile(r"قیمت|بها|price|ریال|تومان|cost", re.I)
+SKIP_COL_RE = re.compile(r"^(ردیف|#|row|no\.?|شماره)$", re.I)
+
+
+def _listing_record(site, page_url, name, price_raw, specs, category="", link="", image="", currency="", source="table"):
+    rec = {k: "" for k in FIELDS}
+    rec.update(site=site, source=source, name=clean_text(name)[:300],
+               crawled_at=datetime.now(timezone.utc).isoformat(timespec="seconds"))
+    anchor = re.sub(r"\s+", "-", f"{category}-{rec['name']}".strip("-"))[:120]
+    rec["url"] = urljoin(page_url, link) if link else f"{page_url.split('#')[0]}#{anchor}"
+    if isinstance(price_raw, (int, float)) and not isinstance(price_raw, bool):
+        rec["price"] = rec["min_price"] = rec["max_price"] = price_raw
+        rec["price_text"] = str(price_raw)
+    else:
+        txt = clean_text(price_raw)
+        rec["price_text"] = txt
+        nums = [n for n in extract_numbers(txt) if n > 0]
+        if nums:
+            rec["price"], rec["min_price"], rec["max_price"] = nums[0], min(nums), max(nums)
+        currency = currency or detect_currency(txt)
+    rec["currency"] = currency
+    rec["categories"] = clean_text(category)
+    specs = {clean_text(k): clean_text(v) for k, v in specs.items() if clean_text(k) and clean_text(v)}
+    rec["specs"] = json.dumps(specs, ensure_ascii=False) if specs else ""
+    if image:
+        set_images(rec, [urljoin(page_url, image)])
+    return rec
+
+
+def records_from_json(data, page_url: str, site: str) -> list[dict]:
+    """Find lists of product-like objects (a name key and a price key) anywhere in a JSON document."""
+    out = []
+
+    def pick(keys, candidates):
+        lower = {k.lower(): k for k in keys}
+        for c in candidates:
+            if c.lower() in lower:
+                return lower[c.lower()]
+        return None
+
+    def scalar(v):
+        if isinstance(v, dict):
+            v = v.get("value", v.get("label", ""))
+        if isinstance(v, (list, dict)) or v is None:
+            return ""
+        return v
+
+    def walk(node, parent, depth):
+        if depth > 12:
+            return
+        if isinstance(node, list):
+            dicts = [x for x in node if isinstance(x, dict)]
+            if len(dicts) >= 2:
+                keys = set().union(*(d.keys() for d in dicts))
+                nk, pk = pick(keys, NAME_KEYS), pick(keys, PRICE_KEYS)
+                if nk and pk and sum(1 for d in dicts if d.get(nk) not in (None, "")) >= 0.6 * len(dicts):
+                    labels = {}
+                    if isinstance(parent, dict):
+                        for c in parent.get("columns") or []:
+                            if isinstance(c, dict) and c.get("key"):
+                                labels[c["key"]] = c.get("label") or c["key"]
+                    category = ""
+                    if isinstance(parent, dict):
+                        category = parent.get("title") or parent.get("name") or parent.get("category") or ""
+                        category = category if isinstance(category, str) else ""
+                    for d in dicts:
+                        if d.get(nk) in (None, ""):
+                            continue
+                        specs = {}
+                        for k, v in d.items():
+                            if k in (nk, pk) or str(k).lower() in ("row", "id", "url", "link", "permalink",
+                                                                    "slug", "image", "img", "thumbnail"):
+                                continue
+                            val = scalar(v)
+                            if val != "":
+                                label = labels.get(k) or (v.get("label") if isinstance(v, dict) else None) or k
+                                specs[str(label)] = str(val)
+                        link = d.get("url") or d.get("permalink") or d.get("link") or ""
+                        img = d.get("image") or d.get("img") or d.get("thumbnail") or ""
+                        out.append(_listing_record(site, page_url, str(d[nk]), d.get(pk), specs, category,
+                                                   link if isinstance(link, str) else "",
+                                                   img if isinstance(img, str) else "", source="json"))
+                    return
+            for x in node:
+                walk(x, parent, depth + 1)
+        elif isinstance(node, dict):
+            for v in node.values():
+                if isinstance(v, (list, dict)):
+                    walk(v, node, depth + 1)
+
+    walk(data, None, 0)
+    return out
+
+
+def _table_category(table) -> str:
+    cap = table.find("caption")
+    if cap and clean_text(cap.get_text()):
+        return clean_text(cap.get_text())
+    prev = table.find_previous(["h2", "h3", "h4", "h5"])
+    return clean_text(prev.get_text()) if prev else ""
+
+
+def records_from_table(table, page_url: str, site: str, require_price: bool = True) -> list[dict]:
+    """Each data row of a price table becomes a product. Handles repeated header rows and
+    single-cell group rows (used as the category)."""
+    out = []
+    header: list[str] = []
+    group = ""
+    base_cat = _table_category(table)
+    for tr in table.find_all("tr"):
+        cells = tr.find_all(["th", "td"], recursive=False)
+        if not cells:
+            continue
+        texts = [clean_text(c.get_text(" ")) for c in cells]
+        nonempty = [t for t in texts if t]
+        if len(nonempty) <= 1 and (len(cells) == 1 or (cells[0].get("colspan") or "1") != "1"):
+            group = nonempty[0] if nonempty else group            # group title row
+            continue
+        keyword_cells = sum(1 for t in texts if NAME_HDR_RE.search(t) or PRICE_HDR_RE.search(t))
+        numeric_cells = sum(1 for t in texts if re.fullmatch(r"[\d\s,٬.۰-۹/×x\-]+", t or "x"))
+        is_header = all(c.name == "th" for c in cells) or texts == header or (
+            keyword_cells >= 2 and numeric_cells == 0)
+        if is_header:
+            header = texts
+            continue
+        if not header or len(texts) < 2:
+            continue
+        cols = header + [f"ستون {i + 1}" for i in range(len(header), len(texts))]
+        price_i = next((i for i, h in enumerate(cols) if PRICE_HDR_RE.search(h)), None)
+        if price_i is None and require_price:
+            continue
+        name_i = next((i for i, h in enumerate(cols) if NAME_HDR_RE.search(h) and i != price_i
+                       and not SKIP_COL_RE.match(h)), None)
+        if name_i is None:
+            name_i = next((i for i, t in enumerate(texts) if t and not extract_numbers(t) and i != price_i), 0)
+        name = texts[name_i] if name_i < len(texts) else ""
+        if not name:
+            continue
+        specs = {cols[i]: t for i, t in enumerate(texts)
+                 if i not in (name_i, price_i) and t and not SKIP_COL_RE.match(cols[i])}
+        link = ""
+        a = tr.find("a", href=True)
+        if a and not a["href"].startswith(("#", "tel:", "mailto:", "javascript:")):
+            link = a["href"]
+        img = tr.find("img")
+        price_txt = texts[price_i] if price_i is not None and price_i < len(texts) else ""
+        currency = detect_currency(" ".join(cols)) if price_i is not None else ""
+        category = " / ".join(x for x in (base_cat, group) if x)
+        out.append(_listing_record(site, page_url, name, price_txt, specs, category, link,
+                                   best_img_src(img) if img else "", currency, source="table"))
+    return out
+
+
+def extract_listing_records(html: str, page_url: str, site: str, require_price: bool = True) -> list[dict]:
+    """Products from price tables and from product lists embedded as JSON in the page."""
+    soup = BeautifulSoup(html, "lxml")
+    out = []
+    for script in soup.find_all("script"):
+        typ = (script.get("type") or "").lower()
+        if "json" not in typ or "ld+json" in typ:
+            continue
+        text = script.string or script.get_text() or ""
+        if len(text) < 100:
+            continue
+        try:
+            out += records_from_json(json.loads(text), page_url, site)
+        except ValueError:
+            continue
+    for table in soup.find_all("table"):
+        if len(table.find_all("tr")) >= 3:
+            out += records_from_table(table, page_url, site, require_price)
+    return out
 
 
 def merge_records(base: dict, extra: dict | None) -> dict:
@@ -837,24 +1078,46 @@ class JsonlWriter:
         self.fh.close()
 
 
+def iter_jsonl(src):
+    """Yield records from a .jsonl path (streamed, one line at a time) or from a list."""
+    if isinstance(src, (list, tuple)):
+        yield from src
+        return
+    if not src or not os.path.exists(src):
+        return
+    with open(src, encoding="utf-8") as f:
+        for line in f:
+            try:
+                yield json.loads(line)
+            except ValueError:
+                pass
+
+
 def read_jsonl(path: str) -> list[dict]:
-    rows = []
-    if os.path.exists(path):
-        with open(path, encoding="utf-8") as f:
-            for line in f:
-                try:
-                    rows.append(json.loads(line))
-                except ValueError:
-                    pass
-    return rows
+    return list(iter_jsonl(path))
 
 
-def write_csv(rows: list[dict], path: str):
+def write_csv(src, path: str) -> int:
+    n = 0
     with open(path, "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS, extrasaction="ignore")
         w.writeheader()
-        for r in rows:
+        for r in iter_jsonl(src):
             w.writerow({k: r.get(k, "") for k in FIELDS})
+            n += 1
+    return n
+
+
+def write_json(src, path: str) -> int:
+    """JSON array written record by record (never holds the whole list in memory)."""
+    n = 0
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("[\n")
+        for r in iter_jsonl(src):
+            f.write((",\n" if n else "") + json.dumps(r, ensure_ascii=False))
+            n += 1
+        f.write("\n]\n")
+    return n
 
 
 LABELS_FA = {
@@ -904,102 +1167,135 @@ def make_thumbnail(path: str, size: int = 110) -> str | None:
         return None
 
 
-def write_xlsx(rows: list[dict], path: str, base_dir: str | None = None,
+THUMB_MAX_ROWS = 1500        # above this the workbook is streamed (write-only) without embedded thumbnails
+_HEAD_FIELDS = ["name", "url", "price", "regular_price", "sale_price", "min_price", "max_price",
+                "currency", "in_stock", "categories", "tags", "brand", "sku", "product_id",
+                "short_description", "description", "image_main", "image_count"]
+_TAIL_FIELDS = ["description_images", "files", "meta_title", "meta_description", "image_files",
+                "price_text", "source", "site", "crawled_at", "description_html"]
+
+
+def _split(v) -> list[str]:
+    return [u for u in (v or "").split(" | ") if u]
+
+
+def write_xlsx(src, path: str, base_dir: str | None = None,
                max_image_cols: int = 10, max_spec_cols: int = 40) -> bool:
     """Excel with Persian headers: thumbnail (if images were downloaded), one column per image and per
-    spec, plus 'specs' and 'images' sheets in long format."""
+    spec, plus 'specs' and 'images' sheets in long format. `src` is a .jsonl path (streamed in two
+    passes) or a list of records. Large outputs are written in openpyxl's write-only mode."""
     try:
         from openpyxl import Workbook
+        from openpyxl.cell import WriteOnlyCell
         from openpyxl.drawing.image import Image as XLImage
         from openpyxl.styles import Alignment, Font
         from openpyxl.utils import get_column_letter
     except ImportError:
         return False
     base_dir = base_dir or os.path.dirname(path)
-    wb = Workbook()
-    ws = wb.active
-    ws.title = "محصولات"
-    ws.sheet_view.rightToLeft = True
 
-    img_lists = [[u for u in (r.get("images") or "").split(" | ") if u] for r in rows]
-    n_img = min(max((len(x) for x in img_lists), default=0), max_image_cols)
+    # pass 1: shape of the data only
+    n_rows, n_img, has_files = 0, 0, False
     spec_counts: dict[str, int] = {}
-    for r in rows:
+    for r in iter_jsonl(src):
+        n_rows += 1
+        n_img = max(n_img, len(_split(r.get("images"))))
+        has_files = has_files or bool(r.get("image_files"))
         for k in _specs(r):
             spec_counts[k] = spec_counts.get(k, 0) + 1
+    n_img = min(n_img, max_image_cols)
     spec_keys = [k for k, _ in sorted(spec_counts.items(), key=lambda kv: -kv[1])][:max_spec_cols]
-    has_thumbs = any(r.get("image_files") for r in rows)
+    streaming = n_rows > THUMB_MAX_ROWS
+    has_thumbs = has_files and not streaming
 
-    head_fields = ["name", "url", "price", "regular_price", "sale_price", "min_price", "max_price",
-                   "currency", "in_stock", "categories", "tags", "brand", "sku", "product_id",
-                   "short_description", "description", "image_main", "image_count"]
-    tail_fields = ["description_images", "files", "meta_title", "meta_description", "image_files",
-                   "price_text", "source", "site", "crawled_at", "description_html"]
-    headers = (["تصویر"] if has_thumbs else []) + [LABELS_FA[f] for f in head_fields] \
-        + [f"عکس {i}" for i in range(1, n_img + 1)] + spec_keys + [LABELS_FA[f] for f in tail_fields]
-    ws.append(headers)
-    for c in ws[1]:
-        c.font = Font(bold=True)
-
-    link_cols = {headers.index(LABELS_FA["url"]) + 1, headers.index(LABELS_FA["image_main"]) + 1} \
-        | set(range(headers.index("عکس 1") + 1, headers.index("عکس 1") + 1 + n_img) if n_img else [])
-    thumb_px = 110
-    for ri, (r, imgs) in enumerate(zip(rows, img_lists), start=2):
-        specs = _specs(r)
-        vals = ([""] if has_thumbs else []) + [_cell(r.get(f, "")) for f in head_fields] \
-            + [imgs[i] if i < len(imgs) else "" for i in range(n_img)] \
-            + [_cell(specs.get(k, "")) for k in spec_keys] + [_cell(r.get(f, "")) for f in tail_fields]
-        ws.append(vals)
-        for ci in link_cols:
-            cell = ws.cell(row=ri, column=ci)
-            if isinstance(cell.value, str) and cell.value.startswith("http"):
-                cell.hyperlink = cell.value
-                cell.style = "Hyperlink"
-        if has_thumbs:
-            first_file = next((f for f in (r.get("image_files") or "").split(" | ") if f), "")
-            thumb = make_thumbnail(os.path.join(base_dir, first_file), thumb_px) if first_file else None
-            if thumb:
-                try:
-                    pic = XLImage(thumb)
-                    ws.add_image(pic, f"A{ri}")
-                    ws.row_dimensions[ri].height = max(pic.height, 20) * 0.75 + 4
-                except Exception:
-                    pass
-
+    headers = (["تصویر"] if has_thumbs else []) + [LABELS_FA[f] for f in _HEAD_FIELDS] \
+        + [f"عکس {i}" for i in range(1, n_img + 1)] + spec_keys + [LABELS_FA[f] for f in _TAIL_FIELDS]
     widths = {LABELS_FA["name"]: 40, LABELS_FA["url"]: 30, LABELS_FA["categories"]: 25,
               LABELS_FA["description"]: 60, LABELS_FA["short_description"]: 40, "تصویر": 17,
               LABELS_FA["description_html"]: 40, LABELS_FA["image_main"]: 30}
-    for i, h in enumerate(headers, 1):
-        ws.column_dimensions[get_column_letter(i)].width = widths.get(h, 22 if h.startswith("عکس ") else 15)
-    wrap_cols = {headers.index(LABELS_FA["description"]) + 1, headers.index(LABELS_FA["short_description"]) + 1}
+    wrap_cols = {headers.index(LABELS_FA["description"]), headers.index(LABELS_FA["short_description"])}
+    first_img = headers.index("عکس 1") if n_img else -1
+    link_cols = {headers.index(LABELS_FA["url"]), headers.index(LABELS_FA["image_main"])} \
+        | (set(range(first_img, first_img + n_img)) if n_img else set())
+    bold = Font(bold=True)
     mid = Alignment(vertical="center")
     mid_wrap = Alignment(vertical="center", wrap_text=True)
-    for row in ws.iter_rows(min_row=2, max_row=len(rows) + 1):
-        for cell in row:
-            cell.alignment = mid_wrap if cell.column in wrap_cols else mid
-    ws.freeze_panes = ws.cell(row=2, column=(3 if has_thumbs else 2))
 
-    # long-format sheets: easy to filter / pivot
+    wb = Workbook(write_only=streaming)
+    if streaming:
+        ws = wb.create_sheet("محصولات")
+    else:
+        ws = wb.active
+        ws.title = "محصولات"
     ss = wb.create_sheet("مشخصات")
-    ss.sheet_view.rightToLeft = True
-    ss.append(["نام محصول", "لینک", "ویژگی", "مقدار"])
-    for r in rows:
-        for k, v in _specs(r).items():
-            ss.append([_cell(r.get("name", "")), r.get("url", ""), _cell(k), _cell(v)])
+    si = wb.create_sheet("عکس‌ها")
+    for sheet in (ws, ss, si):
+        sheet.sheet_view.rightToLeft = True
+    for i, h in enumerate(headers, 1):
+        ws.column_dimensions[get_column_letter(i)].width = widths.get(h, 22 if h.startswith("عکس ") else 15)
     for col, w in zip("ABCD", (40, 30, 25, 40)):
         ss.column_dimensions[col].width = w
-
-    si = wb.create_sheet("عکس‌ها")
-    si.sheet_view.rightToLeft = True
-    si.append(["نام محصول", "لینک محصول", "ردیف", "نوع", "لینک عکس", "فایل دانلودشده"])
-    for r, imgs in zip(rows, img_lists):
-        files = [f for f in (r.get("image_files") or "").split(" | ") if f]
-        desc_imgs = [u for u in (r.get("description_images") or "").split(" | ") if u]
-        for i, u in enumerate(_dedupe(imgs + desc_imgs), 1):
-            si.append([_cell(r.get("name", "")), r.get("url", ""), i,
-                       "گالری" if i <= len(imgs) else "داخل توضیحات", u, files[i - 1] if i <= len(files) else ""])
     for col, w in zip("ABCDEF", (40, 30, 6, 14, 50, 30)):
         si.column_dimensions[col].width = w
+    ws.freeze_panes = "C2" if has_thumbs else "B2"
+
+    def header_row(sheet, values):
+        if streaming:
+            cells = []
+            for v in values:
+                c = WriteOnlyCell(sheet, value=v)
+                c.font = bold
+                cells.append(c)
+            sheet.append(cells)
+        else:
+            sheet.append(values)
+            for c in sheet[sheet.max_row]:
+                c.font = bold
+
+    header_row(ws, headers)
+    header_row(ss, ["نام محصول", "لینک", "ویژگی", "مقدار"])
+    header_row(si, ["نام محصول", "لینک محصول", "ردیف", "نوع", "لینک عکس", "فایل دانلودشده"])
+
+    # pass 2: rows
+    for ri, r in enumerate(iter_jsonl(src), start=2):
+        imgs = _split(r.get("images"))
+        specs = _specs(r)
+        vals = ([""] if has_thumbs else []) + [_cell(r.get(f, "")) for f in _HEAD_FIELDS] \
+            + [imgs[i] if i < len(imgs) else "" for i in range(n_img)] \
+            + [_cell(specs.get(k, "")) for k in spec_keys] + [_cell(r.get(f, "")) for f in _TAIL_FIELDS]
+        if streaming:
+            row = []
+            for ci, v in enumerate(vals):
+                c = WriteOnlyCell(ws, value=v)
+                c.alignment = mid_wrap if ci in wrap_cols else mid
+                if ci in link_cols and isinstance(v, str) and v.startswith("http"):
+                    c.hyperlink = v
+                    c.style = "Hyperlink"
+                row.append(c)
+            ws.append(row)
+        else:
+            ws.append(vals)
+            for ci, cell in enumerate(ws[ri]):
+                cell.alignment = mid_wrap if ci in wrap_cols else mid
+                if ci in link_cols and isinstance(cell.value, str) and cell.value.startswith("http"):
+                    cell.hyperlink = cell.value
+                    cell.style = "Hyperlink"
+            if has_thumbs:
+                first_file = next(iter(_split(r.get("image_files"))), "")
+                thumb = make_thumbnail(os.path.join(base_dir, first_file)) if first_file else None
+                if thumb:
+                    try:
+                        pic = XLImage(thumb)
+                        ws.add_image(pic, f"A{ri}")
+                        ws.row_dimensions[ri].height = max(pic.height, 20) * 0.75 + 4
+                    except Exception:
+                        pass
+        for k, v in specs.items():
+            ss.append([_cell(r.get("name", "")), r.get("url", ""), _cell(k), _cell(v)])
+        files = _split(r.get("image_files"))
+        for i, u in enumerate(_dedupe(imgs + _split(r.get("description_images"))), 1):
+            si.append([_cell(r.get("name", "")), r.get("url", ""), i,
+                       "گالری" if i <= len(imgs) else "داخل توضیحات", u, files[i - 1] if i <= len(files) else ""])
 
     wb.save(path)
     return True
@@ -1022,6 +1318,8 @@ class SiteCrawler:
         self.robots = Robots("")
         self.log = logging.getLogger(logger_name or self.host)
         self.blocked_by_robots = 0
+        self._robots_cache: dict[str, Robots] = {}
+        self._robots_lock = threading.Lock()
         self.writer = JsonlWriter(out_path or os.path.join(args.out, f"{self.host}.jsonl"), args.resume)
 
     @property
@@ -1030,10 +1328,25 @@ class SiteCrawler:
 
     # ---- plumbing
     def same_site(self, url: str) -> bool:
-        return norm_host(urlparse(url).netloc) == self.host
+        """Same host, or another subdomain of the same domain (e.g. list.example.com for example.com)."""
+        host = norm_host(urlparse(url).netloc)
+        if host == self.host:
+            return True
+        return base_domain(host) == base_domain(self.host) and not host.startswith(SKIP_SUBDOMAINS)
+
+    def robots_for(self, url: str) -> Robots:
+        host = norm_host(urlparse(url).netloc)
+        if host == self.host:
+            return self.robots
+        with self._robots_lock:
+            if host not in self._robots_cache:
+                r = self.fetcher.get(f"{urlparse(url).scheme}://{urlparse(url).netloc}/robots.txt")
+                ok = r is not None and r.status_code == 200 and "text/html" not in r.headers.get("content-type", "")
+                self._robots_cache[host] = Robots(r.text if ok else "")
+            return self._robots_cache[host]
 
     def fetch(self, url: str):
-        if not self.args.ignore_robots and not self.robots.allowed(url):
+        if not self.args.ignore_robots and not self.robots_for(url).allowed(url):
             self.blocked_by_robots += 1
             self.log.debug("robots.txt disallows %s", url)
             return None
@@ -1129,8 +1442,7 @@ class SiteCrawler:
         mode: 'main' (first image only) or 'all' (gallery + description images, capped)."""
         if mode not in ("main", "all"):
             return 0
-        rows = read_jsonl(self.writer.path)
-        if not rows:
+        if not os.path.exists(self.writer.path):
             return 0
         base_dir = os.path.dirname(self.writer.path)
         host_dir = re.sub(r"[^A-Za-z0-9.-]+", "_", self.host)
@@ -1162,7 +1474,7 @@ class SiteCrawler:
                                              max_bytes // 1048576)
                             state["warned"] = True
                         break
-                if self.same_site(u) and not self.args.ignore_robots and not self.robots.allowed(u):
+                if self.same_site(u) and not self.args.ignore_robots and not self.robots_for(u).allowed(u):
                     continue
                 resp = fetcher.get(u)
                 if resp is None or resp.status_code != 200:
@@ -1184,12 +1496,25 @@ class SiteCrawler:
                         self.log.info("downloaded %d images (%.0f MB)", state["files"], state["bytes"] / 1048576)
             r["image_files"] = " | ".join(saved)
 
-        self.log.info("downloading images (%s) for %d products", mode, len(rows))
-        with ThreadPoolExecutor(max_workers=self.args.workers) as pool:
-            list(pool.map(one, enumerate(rows)))
-        with open(self.writer.path, "w", encoding="utf-8") as f:
-            for r in rows:
-                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        self.log.info("downloading images (%s) for %d products", mode, self.writer.count)
+        tmp = self.writer.path + ".tmp"
+        batch: list = []
+
+        def flush(out):
+            with ThreadPoolExecutor(max_workers=self.args.workers) as pool:
+                list(pool.map(one, batch))
+            for _, r in batch:
+                out.write(json.dumps(r, ensure_ascii=False) + "\n")
+            batch.clear()
+
+        with open(tmp, "w", encoding="utf-8") as out:      # stream: only ~30 records in memory
+            for idx, r in enumerate(iter_jsonl(self.writer.path)):
+                batch.append((idx, r))
+                if len(batch) >= 30:
+                    flush(out)
+            if batch:
+                flush(out)
+        os.replace(tmp, self.writer.path)
         self.log.info("images done: %d files, %.1f MB", state["files"], state["bytes"] / 1048576)
         return state["files"]
 
@@ -1292,14 +1617,29 @@ class SiteCrawler:
                 for final_url, html in pool.map(self._fetch_page, todo[i:i + batch]):
                     if not html:
                         continue
-                    try:
-                        rec = parse_product_page(html, final_url, self.host, trust_as_product=trust)
-                    except Exception as e:  # never let one bad page kill the run
-                        self.log.debug("parse error %s: %s", final_url, e)
-                        rec = None
+                    found += self.parse_any(html, final_url, trust)
                     del html
-                    found += self.emit(rec)
         return found
+
+    def parse_any(self, html: str, url: str, trust: bool = False) -> int:
+        """A product page -> one record; otherwise look for a price table / embedded product list."""
+        try:
+            rec = parse_product_page(html, url, self.host, trust_as_product=trust)
+        except Exception as e:
+            self.log.debug("parse error %s: %s", url, e)
+            rec = None
+        if rec:
+            return int(self.emit(rec))
+        try:
+            recs = extract_listing_records(html, url, self.host,
+                                           require_price=getattr(self.args, "mode", "") != "list")
+        except Exception as e:
+            self.log.debug("listing parse error %s: %s", url, e)
+            return 0
+        n = sum(self.emit(r) for r in recs)
+        if n:
+            self.log.info("price list on %s: %d items", url, n)
+        return n
 
     # ---- strategy 3: BFS link crawl
     def extract_links(self, html: str, page_url: str) -> list[str]:
@@ -1333,15 +1673,14 @@ class SiteCrawler:
                     if not html:
                         continue
                     if final_url not in self.writer.seen_urls:
-                        try:
-                            found += self.emit(parse_product_page(html, final_url, self.host))
-                        except Exception as e:
-                            self.log.debug("parse error %s: %s", final_url, e)
+                        found += self.parse_any(html, final_url)
                     for link in self.extract_links(html, final_url):
                         if link in seen:
                             continue
                         seen.add(link)
-                        (hi if looks_like_product_url(link) or looks_like_listing_url(link) else lo).append(link)
+                        promising = looks_like_product_url(link) or looks_like_listing_url(link) or \
+                            re.search(r"(^|\.)(list|price|prices|shop|store|catalog|pricelist)\.", urlparse(link).netloc)
+                        (hi if promising else lo).append(link)
                 if pages % 100 < len(batch):
                     self.log.info("crawled %d pages, %d queued, %d products", pages, len(hi) + len(lo),
                                   self.writer.count)
@@ -1375,7 +1714,7 @@ class SiteCrawler:
                 if urls:
                     self.log.info("sitemap: %d urls (%s)", len(urls), "product sitemap" if trusted else "guessed")
                     total = self.crawl_pages(urls, trusted)
-            if not total and mode in ("auto", "crawl") and not self.stopped:
+            if not total and mode in ("auto", "crawl", "list") and not self.stopped:
                 self.log.info("falling back to link crawling (max %d pages)", self.args.max_pages)
                 total = self.bfs()
             if self.blocked_by_robots:
@@ -1383,7 +1722,7 @@ class SiteCrawler:
                                  "(use --ignore-robots only if you have the owner's permission)",
                                  self.blocked_by_robots)
             if self.stopped:
-                self.log.warning("stopped by user")
+                self.log.warning("stopped (توقف شد)")
             self.log.info("done: %d products in %.0fs", self.writer.count, time.time() - t0)
             return self.writer.count
         finally:
@@ -1399,7 +1738,7 @@ def main():
     ap.add_argument("--sites", nargs="*", help="site URLs (default: the built-in list)")
     ap.add_argument("--sites-file", help="text file with one site URL per line")
     ap.add_argument("--out", default="output", help="output folder (default: output)")
-    ap.add_argument("--mode", choices=["auto", "api", "sitemap", "crawl"], default="auto")
+    ap.add_argument("--mode", choices=["auto", "api", "sitemap", "crawl", "list"], default="auto")
     ap.add_argument("--delay", type=float, default=1.0, help="seconds between requests per site (default 1.0)")
     ap.add_argument("--workers", type=int, default=3, help="parallel requests per site (default 3)")
     ap.add_argument("--parallel-sites", type=int, default=4, help="sites crawled at the same time (default 4)")
@@ -1448,19 +1787,23 @@ def main():
                 logging.getLogger(c.host).exception("crashed: %s", e)
                 summary[c.host] = 0
 
-    all_rows = []
-    for c in crawlers:
-        rows = read_jsonl(c.writer.path)
-        if rows:
-            write_csv(rows, os.path.join(args.out, f"{c.host}.csv"))
-        all_rows += rows
-    write_csv(all_rows, os.path.join(args.out, "all_products.csv"))
-    xlsx = write_xlsx(all_rows, os.path.join(args.out, "all_products.xlsx"))
+    combined = os.path.join(args.out, "all_products.jsonl")
+    total = 0
+    with open(combined, "w", encoding="utf-8") as out:
+        for c in crawlers:
+            if os.path.exists(c.writer.path):
+                write_csv(c.writer.path, os.path.join(args.out, f"{c.host}.csv"))
+                with open(c.writer.path, encoding="utf-8") as f:
+                    for line in f:
+                        out.write(line)
+                        total += 1
+    write_csv(combined, os.path.join(args.out, "all_products.csv"))
+    xlsx = write_xlsx(combined, os.path.join(args.out, "all_products.xlsx"))
 
     print("\n===== summary =====")
     for c in crawlers:
         print(f"  {c.host:<28} {summary.get(c.host, 0):>6} products")
-    print(f"  {'TOTAL':<28} {len(all_rows):>6}")
+    print(f"  {'TOTAL':<28} {total:>6}")
     print(f"\nfiles in: {os.path.abspath(args.out)}" + ("" if xlsx else "  (pip install openpyxl for .xlsx)"))
 
 

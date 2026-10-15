@@ -58,6 +58,10 @@ button:disabled{opacity:.5;cursor:default}
 .s-done{background:var(--accent-soft);color:var(--accent)}
 .s-stopped{background:var(--warn-soft);color:var(--warn)}
 .s-failed{background:var(--bad-soft);color:var(--bad)}
+.s-interrupted{background:var(--warn-soft);color:var(--warn)}
+.banner{display:none;background:var(--warn-soft);color:var(--warn);border-radius:10px;padding:10px 14px;margin:0 0 16px;font-size:14px}
+.banner.show{display:block}
+button.resume{background:var(--accent);color:var(--accent-ink)}
 .empty{color:var(--muted);font-size:14px;padding:30px 0;text-align:center}
 .stats{display:flex;gap:24px;flex-wrap:wrap;margin:4px 0 14px}
 .stat b{display:block;font-size:22px;font-variant-numeric:tabular-nums}
@@ -82,6 +86,7 @@ td a{color:var(--accent)}
 <div class="wrap">
   <h1>کراولر محصولات</h1>
   <p class="sub">آدرس سایت را وارد کنید؛ محصولات جمع‌آوری می‌شود و خروجی Excel / CSV / JSON تحویل می‌گیرید.</p>
+  <div class="banner" id="banner">ارتباط با سرور قطع شده — احتمالاً سرور در حال ری‌استارت یا بیدار شدن است. خودکار دوباره تلاش می‌کنم…</div>
 
   <div class="grid">
     <div>
@@ -97,6 +102,7 @@ td a{color:var(--accent)}
               <option value="api">API ووکامرس</option>
               <option value="sitemap">سایت‌مپ</option>
               <option value="crawl">پیمایش لینک</option>
+              <option value="list">لیست قیمت / جدول</option>
             </select>
           </div>
           <div>
@@ -135,9 +141,9 @@ td a{color:var(--accent)}
 
 <script>
 const CUR = {IRT:"تومان", IRR:"ریال"};
-const MODE = {auto:"خودکار", api:"API ووکامرس", sitemap:"سایت‌مپ", crawl:"پیمایش لینک"};
+const MODE = {auto:"خودکار", api:"API ووکامرس", sitemap:"سایت‌مپ", crawl:"پیمایش لینک", list:"لیست قیمت"};
 const PHASE = {crawl:"جمع‌آوری محصولات", images:"دانلود عکس‌ها", export:"ساخت فایل خروجی"};
-const STATUS = {queued:"در صف", running:"در حال اجرا", done:"تمام شد", stopped:"متوقف شد", failed:"خطا"};
+const STATUS = {queued:"در صف", running:"در حال اجرا", done:"تمام شد", stopped:"متوقف شد", failed:"خطا", interrupted:"قطع شد"};
 const fa = n => (n ?? "").toLocaleString("fa-IR");
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const dur = s => { s = s||0; const m = Math.floor(s/60); return m ? `${fa(m)} دقیقه و ${fa(s%60)} ثانیه` : `${fa(s)} ثانیه`; };
@@ -189,9 +195,10 @@ async function refreshDetail() {
   const box = document.getElementById("detail");
   if (!selected) { box.innerHTML = '<div class="empty">یک کار را انتخاب کنید</div>'; return; }
   let j;
-  try { j = await api(`/api/jobs/${selected}`); } catch { selected = null; return refreshDetail(); }
+  try { j = await api(`/api/jobs/${selected}`); }
+  catch (e) { if (/پیدا نشد|404/.test(e.message)) { selected = null; return refreshDetail(); } return; }
   const active = j.status === "queued" || j.status === "running";
-  const ready = !active && j.count > 0;
+  const ready = !active && j.has_export;
   const logEl = box.querySelector("pre.log");
   const stick = !logEl || logEl.scrollTop + logEl.clientHeight >= logEl.scrollHeight - 20;
   const rows = j.preview.map(p => {
@@ -218,7 +225,7 @@ async function refreshDetail() {
       <a class="${ready ? "" : "off"}" href="/api/jobs/${j.id}/download/csv">CSV</a>
       <a class="${ready ? "" : "off"}" href="/api/jobs/${j.id}/download/json">JSON</a>
       ${j.has_zip && !active ? `<a href="/api/jobs/${j.id}/download/zip">ZIP عکس‌ها</a>` : ""}
-      ${active ? `<button id="stop">توقف</button>` : `<button id="del">حذف</button>`}
+      ${active ? `<button id="stop">توقف</button>` : `${["stopped","interrupted","failed"].includes(j.status) ? `<button id="resume" class="resume">ادامه از همین‌جا</button>` : ""}<button id="del">حذف</button>`}
     </div>
     <pre class="log">${esc(j.logs.join("\n")) || "…"}</pre>
     ${j.preview.length ? `<div class="tbl" style="max-height:420px"><table>
@@ -230,12 +237,16 @@ async function refreshDetail() {
   if (stick) newLog.scrollTop = newLog.scrollHeight;
   const stop = box.querySelector("#stop");
   if (stop) stop.onclick = async () => { await api(`/api/jobs/${j.id}/stop`, {method: "POST"}); refresh(); };
+  const resume = box.querySelector("#resume");
+  if (resume) resume.onclick = async () => { resume.disabled = true; await api(`/api/jobs/${j.id}/resume`, {method: "POST"}); refresh(); };
   const del = box.querySelector("#del");
   if (del) del.onclick = async () => { await api(`/api/jobs/${j.id}`, {method: "DELETE"}); selected = null; refresh(); };
 }
 
+let failures = 0;
 async function refresh() {
-  try { jobsCache = (await api("/api/jobs")).jobs; } catch { return; }
+  try { jobsCache = (await api("/api/jobs")).jobs; failures = 0; document.getElementById("banner").classList.remove("show"); }
+  catch { if (++failures >= 2) document.getElementById("banner").classList.add("show"); return; }
   if (!selected && jobsCache.length) selected = jobsCache[0].id;
   renderJobs();
   refreshDetail();

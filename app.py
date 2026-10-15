@@ -29,6 +29,8 @@ from __future__ import annotations
 
 import base64
 import collections
+import ctypes
+import gc
 import hmac
 import ipaddress
 import json
@@ -54,6 +56,8 @@ MAX_CONCURRENT = max(1, int(os.environ.get("MAX_CONCURRENT_JOBS", "2")))
 PROXY = os.environ.get("CRAWLER_PROXY") or None
 ALLOW_PRIVATE = os.environ.get("ALLOW_PRIVATE_URLS") == "1"
 MAX_JOBS_KEPT = 50
+MEM_LIMIT_MB = float(os.environ.get("MEM_LIMIT_MB", "512"))       # instance memory (Render free = 512)
+MEM_STOP_FRACTION = float(os.environ.get("MEM_STOP_FRACTION", "0.82"))
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s")
 logging.getLogger("urllib3").setLevel(logging.WARNING)
@@ -96,7 +100,48 @@ class Job:
         self.dir = os.path.join(DATA_DIR, self.id)
         self.jsonl = os.path.join(self.dir, "products.jsonl")
         self.crawler: crawler.SiteCrawler | None = None
+        self.mem_stopped = False
         os.makedirs(self.dir, exist_ok=True)
+
+    PERSIST = ("id", "url", "host", "mode", "max_pages", "delay", "images", "enrich", "status",
+               "error", "created", "started", "finished", "count")
+
+    def save(self):
+        data = {k: getattr(self, k) for k in self.PERSIST}
+        data["count"] = self.live_count()
+        data["logs"] = list(self.logs)[-200:]
+        tmp = os.path.join(self.dir, "job.json.tmp")
+        try:
+            with open(tmp, "w", encoding="utf-8") as f:
+                json.dump(data, f, ensure_ascii=False)
+            os.replace(tmp, os.path.join(self.dir, "job.json"))
+        except OSError:
+            pass
+
+    @classmethod
+    def load(cls, path: str) -> "Job | None":
+        try:
+            with open(path, encoding="utf-8") as f:
+                d = json.load(f)
+            job = cls(d["url"], d["mode"], d["max_pages"], d["delay"], d.get("images", "main"), d.get("enrich", True))
+        except (OSError, ValueError, KeyError):
+            return None
+        shutil.rmtree(job.dir, ignore_errors=True)     # constructor made a fresh dir; reuse the old one
+        for k in cls.PERSIST:
+            if k in d:
+                setattr(job, k, d[k])
+        job.dir = os.path.dirname(path)
+        job.jsonl = os.path.join(job.dir, "products.jsonl")
+        job.logs.extend(d.get("logs", []))
+        if job.status in ("queued", "running"):
+            job.status = "interrupted"
+            job.error = ("سرور وسط کار ری‌استارت شد. محصولاتِ جمع‌شده تا آن لحظه ذخیره شده‌اند؛ "
+                         "با «ادامه» از همان‌جا ادامه می‌دهد.")
+            job.finished = job.finished or time.time()
+        if os.path.exists(job.jsonl):
+            with open(job.jsonl, encoding="utf-8") as f:
+                job.count = sum(1 for _ in f)
+        return job
 
     def live_count(self) -> int:
         if self.crawler is not None and self.status == "running":
@@ -110,6 +155,7 @@ class Job:
             "max_pages": self.max_pages, "delay": self.delay, "status": self.status,
             "images": self.images, "enrich": self.enrich, "phase": self.phase,
             "has_zip": os.path.exists(os.path.join(self.dir, "products-images.zip")),
+            "has_export": os.path.exists(os.path.join(self.dir, "products.xlsx")),
             "error": self.error, "count": self.live_count(), "created": self.created,
             "started": self.started, "finished": self.finished,
             "elapsed": round(end - self.started) if self.started else 0,
@@ -144,13 +190,59 @@ JOBS_LOCK = threading.Lock()
 SLOTS = threading.Semaphore(MAX_CONCURRENT)
 
 
-def run_job(job: Job):
+def free_memory():
+    gc.collect()
+    try:
+        ctypes.CDLL("libc.so.6").malloc_trim(0)     # hand freed heap back to the OS
+    except Exception:
+        pass
+
+
+def rss_mb() -> float:
+    try:
+        with open("/proc/self/status") as f:
+            for line in f:
+                if line.startswith("VmRSS:"):
+                    return int(line.split()[1]) / 1024
+    except OSError:
+        pass
+    return 0.0
+
+
+def export_job(job: Job, lg):
+    """Build CSV / JSON / XLSX / ZIP from the job's jsonl, streaming from disk."""
+    if not os.path.exists(job.jsonl):
+        return
+    lg.info("ساخت فایل‌های خروجی… / building output files")
+    crawler.write_csv(job.jsonl, os.path.join(job.dir, "products.csv"))
+    crawler.write_json(job.jsonl, os.path.join(job.dir, "products.json"))
+    free_memory()
+    crawler.write_xlsx(job.jsonl, os.path.join(job.dir, "products.xlsx"))
+    free_memory()
+    img_dir = os.path.join(job.dir, "images")
+    if os.path.isdir(img_dir):
+        zpath = os.path.join(job.dir, "products-images.zip")
+        with zipfile.ZipFile(zpath + ".part", "w", zipfile.ZIP_STORED) as z:
+            for root, _, files in os.walk(img_dir):
+                for fn in sorted(files):
+                    if fn.endswith("_thumb.png"):
+                        continue
+                    full = os.path.join(root, fn)
+                    z.write(full, os.path.relpath(full, job.dir))
+            z.write(os.path.join(job.dir, "products.xlsx"), "products.xlsx")
+        os.replace(zpath + ".part", zpath)
+        lg.info("ZIP عکس‌ها: %.1f MB", os.path.getsize(zpath) / 1048576)
+
+
+def run_job(job: Job, resume: bool = False):
     logger_name = f"job.{job.id}"
     lg = logging.getLogger(logger_name)
     handler = JobLogHandler(job)
     lg.addHandler(handler)
     lg.setLevel(logging.INFO)
-    lg.info("در صف اجرا… / queued")
+    lg.info("%s %s  (mode=%s images=%s enrich=%s)", "ادامه / resume" if resume else "در صف اجرا… / queued",
+            job.url, job.mode, job.images, job.enrich)
+    job.save()
     acquired = False
     try:
         while not job.stop_event.is_set():
@@ -164,7 +256,7 @@ def run_job(job: Job):
         args = SimpleNamespace(
             user_agent=crawler.DEFAULT_USER_AGENT, proxy=PROXY, insecure=False, timeout=30,
             delay=job.delay, workers=3, max_pages=job.max_pages, mode=job.mode,
-            resume=False, ignore_robots=False, out=job.dir, enrich=job.enrich,
+            resume=resume, ignore_robots=False, out=job.dir, enrich=job.enrich,
         )
         sc = crawler.SiteCrawler(job.url, args, stop_event=job.stop_event,
                                  logger_name=logger_name, out_path=job.jsonl)
@@ -175,27 +267,14 @@ def run_job(job: Job):
             job.phase = "images"
             sc.download_images(job.images)
         job.phase = "export"
-        lg.info("ساخت فایل‌های خروجی… / building output files")
-        rows = crawler.read_jsonl(job.jsonl)
-        crawler.write_csv(rows, os.path.join(job.dir, "products.csv"))
-        crawler.write_xlsx(rows, os.path.join(job.dir, "products.xlsx"))
-        with open(os.path.join(job.dir, "products.json"), "w", encoding="utf-8") as f:
-            json.dump(rows, f, ensure_ascii=False, indent=1)
-        img_dir = os.path.join(job.dir, "images")
-        if os.path.isdir(img_dir):
-            zpath = os.path.join(job.dir, "products-images.zip")
-            with zipfile.ZipFile(zpath + ".part", "w", zipfile.ZIP_STORED) as z:
-                for root, _, files in os.walk(img_dir):
-                    for fn in sorted(files):
-                        if fn.endswith("_thumb.png"):
-                            continue
-                        full = os.path.join(root, fn)
-                        z.write(full, os.path.relpath(full, job.dir))
-                z.write(os.path.join(job.dir, "products.xlsx"), "products.xlsx")
-            os.replace(zpath + ".part", zpath)
-            lg.info("ZIP عکس‌ها: %.1f MB", os.path.getsize(zpath) / 1048576)
+        job.save()
+        free_memory()
+        export_job(job, lg)
         job.phase = ""
         job.status = "stopped" if job.stop_event.is_set() else "done"
+        if job.mem_stopped:
+            job.error = ("حافظه‌ی سرور نزدیک به پر شدن بود؛ کار متوقف شد و محصولات جمع‌شده در فایل‌ها هست. "
+                         "برای ادامه از همان‌جا «ادامه» را بزنید.")
     except Exception as e:  # report, never crash the server
         log.exception("job %s failed", job.id)
         job.status, job.error = "failed", f"{type(e).__name__}: {e}"
@@ -208,6 +287,55 @@ def run_job(job: Job):
         if acquired:
             SLOTS.release()
         lg.removeHandler(handler)
+        job.save()
+        free_memory()
+
+
+def memory_guard():
+    """Stop the busiest job before the instance is OOM-killed (which would lose everything)."""
+    limit = MEM_LIMIT_MB * MEM_STOP_FRACTION
+    while True:
+        time.sleep(3)
+        used = rss_mb()
+        if used < limit:
+            continue
+        with JOBS_LOCK:
+            running = [j for j in JOBS.values() if j.status == "running" and not j.stop_event.is_set()]
+        if not running:
+            free_memory()
+            continue
+        victim = max(running, key=lambda j: j.live_count())
+        log.warning("memory %.0f MB >= %.0f MB: stopping job %s (%s)", used, limit, victim.id, victim.host)
+        victim.logs.append(time.strftime("%H:%M:%S") + f" WARNING حافظه {used:.0f}MB — توقف ایمن کار")
+        victim.mem_stopped = True
+        victim.stop_event.set()
+
+
+def autosave():
+    while True:
+        time.sleep(10)
+        with JOBS_LOCK:
+            active = [j for j in JOBS.values() if j.status in ("queued", "running")]
+        for j in active:
+            j.save()
+
+
+def load_jobs():
+    if not os.path.isdir(DATA_DIR):
+        return
+    found = []
+    for name in os.listdir(DATA_DIR):
+        path = os.path.join(DATA_DIR, name, "job.json")
+        if os.path.exists(path):
+            job = Job.load(path)
+            if job:
+                found.append(job)
+    for job in sorted(found, key=lambda j: j.created):
+        JOBS[job.id] = job
+        if job.status == "interrupted" and job.count and not os.path.exists(os.path.join(job.dir, "products.xlsx")):
+            threading.Thread(target=export_job, args=(job, logging.getLogger(f"job.{job.id}")), daemon=True).start()
+    if found:
+        log.info("restored %d jobs from disk", len(found))
 
 
 def prune_jobs():
@@ -374,7 +502,7 @@ class Handler(BaseHTTPRequestHandler):
                 body = self._body()
                 url = validate_url(body.get("url", ""))
                 mode = body.get("mode", "auto")
-                if mode not in ("auto", "api", "sitemap", "crawl"):
+                if mode not in ("auto", "api", "sitemap", "crawl", "list"):
                     raise ValueError("حالت نامعتبر")
                 max_pages = int(body.get("max_pages", 2000))
                 delay = float(body.get("delay", 1.0))
@@ -394,6 +522,18 @@ class Handler(BaseHTTPRequestHandler):
             threading.Thread(target=run_job, args=(job,), daemon=True, name=f"job-{job.id}").start()
             prune_jobs()
             return self._json(201, job.summary())
+        m = re.fullmatch(r"/api/jobs/([0-9a-f]{10})/resume", path)
+        if m:
+            job = self._job(m.group(1))
+            if not job:
+                return self._error(404, "کار پیدا نشد")
+            if job.status in ("queued", "running"):
+                return self._error(409, "این کار در حال اجراست")
+            job.stop_event = threading.Event()
+            job.mem_stopped = False
+            job.status, job.error, job.finished, job.phase = "queued", "", None, ""
+            threading.Thread(target=run_job, args=(job, True), daemon=True, name=f"job-{job.id}").start()
+            return self._json(200, job.summary())
         m = re.fullmatch(r"/api/jobs/([0-9a-f]{10})/stop", path)
         if m:
             job = self._job(m.group(1))
@@ -423,6 +563,9 @@ class Handler(BaseHTTPRequestHandler):
 
 def main():
     os.makedirs(DATA_DIR, exist_ok=True)
+    load_jobs()
+    threading.Thread(target=memory_guard, daemon=True, name="memory-guard").start()
+    threading.Thread(target=autosave, daemon=True, name="autosave").start()
     try:
         import diag
         diag.start()
