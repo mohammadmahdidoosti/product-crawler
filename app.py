@@ -423,6 +423,11 @@ class Handler(BaseHTTPRequestHandler):
 
 def main():
     os.makedirs(DATA_DIR, exist_ok=True)
+    try:
+        import diag
+        diag.start()
+    except Exception:
+        log.exception("diagnostics failed")
     port = int(os.environ.get("PORT", "8000"))
     srv = ThreadingHTTPServer(("0.0.0.0", port), Handler)
     srv.daemon_threads = True

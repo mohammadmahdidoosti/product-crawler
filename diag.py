@@ -1,0 +1,81 @@
+"""Startup diagnostics: fetch the URLs in $DIAG_URLS and log their structure (for debugging sites remotely).
+
+DIAG_URLS="https://a.com/ https://a.com/robots.txt"   -> lines prefixed with "DIAG" in the service log.
+"""
+import logging
+import os
+import re
+import threading
+
+import requests
+from bs4 import BeautifulSoup
+
+import crawler
+
+log = logging.getLogger("diag")
+CHUNK = 1800
+
+
+def _chunks(label: str, text: str, limit: int):
+    text = text[:limit]
+    for i in range(0, len(text), CHUNK):
+        log.info("DIAG %s [%d] %s", label, i // CHUNK, text[i:i + CHUNK].replace("\n", "⏎"))
+
+
+def diagnose(url: str, html_limit: int):
+    s = requests.Session()
+    s.headers.update({"User-Agent": crawler.DEFAULT_USER_AGENT, "Accept-Language": "fa-IR,fa;q=0.9"})
+    try:
+        r = s.get(url, timeout=30)
+    except Exception as e:
+        log.info("DIAG %s ERROR %s", url, e)
+        return
+    ct = r.headers.get("content-type", "")
+    log.info("DIAG %s status=%s final=%s type=%s bytes=%d server=%s", url, r.status_code, r.url, ct,
+             len(r.content), r.headers.get("server", ""))
+    if "html" not in ct:
+        _chunks(f"{url} BODY", r.text, html_limit)
+        return
+    r.encoding = r.encoding if r.encoding and r.encoding.lower() != "iso-8859-1" else "utf-8"
+    soup = BeautifulSoup(r.text, "lxml")
+    gen = soup.find("meta", attrs={"name": "generator"})
+    log.info("DIAG %s generator=%s title=%s body_class=%s", url, gen.get("content") if gen else "",
+             (soup.title.get_text() if soup.title else "")[:120],
+             " ".join(soup.body.get("class") or [])[:300] if soup.body else "")
+    scripts = [t.get("src") for t in soup.find_all("script", src=True)]
+    log.info("DIAG %s scripts=%s", url, " ".join(scripts)[:CHUNK])
+    inline = " ".join(t.get_text() for t in soup.find_all("script", src=False))
+    endpoints = sorted(set(re.findall(r"""["'](https?://[^"']+|/[^"'\s]*(?:api|ajax|json|wp-json|graphql|sheet|csv|xlsx?)[^"'\s]*)["']""", inline, re.I)))
+    log.info("DIAG %s inline_script_bytes=%d endpoints=%s", url, len(inline), " ".join(endpoints)[:CHUNK])
+    ld = [t.get_text()[:300] for t in soup.find_all("script", type=re.compile("ld\\+json"))]
+    log.info("DIAG %s jsonld=%s", url, " || ".join(ld)[:CHUNK])
+    links = []
+    for a in soup.find_all("a", href=True):
+        h = a["href"]
+        if not h.startswith(("#", "tel:", "mailto:", "javascript:")):
+            links.append(h)
+    links = list(dict.fromkeys(links))
+    log.info("DIAG %s links=%d", url, len(links))
+    _chunks(f"{url} LINKS", " ".join(links), 9000)
+    for i, t in enumerate(soup.find_all("table")[:3]):
+        rows = t.find_all("tr")
+        log.info("DIAG %s table%d rows=%d attrs=%s", url, i, len(rows), dict(t.attrs))
+        _chunks(f"{url} TABLE{i}", str(t), 3600)
+    for tag in soup(["script", "style", "svg", "noscript"]):
+        tag.decompose()
+    body = str(soup.body) if soup.body else r.text
+    _chunks(f"{url} HTML", re.sub(r"\s+", " ", body), html_limit)
+
+
+def start():
+    urls = os.environ.get("DIAG_URLS", "").split()
+    if not urls:
+        return
+    limit = int(os.environ.get("DIAG_HTML_LIMIT", "12000"))
+
+    def run():
+        for u in urls:
+            diagnose(u, limit)
+        log.info("DIAG done")
+
+    threading.Thread(target=run, daemon=True, name="diag").start()

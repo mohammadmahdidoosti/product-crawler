@@ -1282,16 +1282,22 @@ class SiteCrawler:
         todo = [u for u in urls if u not in self.writer.seen_urls][: self.args.max_pages]
         self.log.info("parsing %d candidate pages from sitemap", len(todo))
         found = 0
+        # Work in small batches so only a handful of pages are ever held in memory at once.
+        # (Submitting everything up front kept every finished page's HTML alive until the end.)
+        batch = max(1, self.args.workers * 2)
         with ThreadPoolExecutor(max_workers=self.args.workers) as pool:
-            futures = [pool.submit(self._fetch_page, u) for u in todo]
-            for fut in as_completed(futures):
-                final_url, html = fut.result()
-                if html:
+            for i in range(0, len(todo), batch):
+                if self.stopped:
+                    break
+                for final_url, html in pool.map(self._fetch_page, todo[i:i + batch]):
+                    if not html:
+                        continue
                     try:
                         rec = parse_product_page(html, final_url, self.host, trust_as_product=trust)
                     except Exception as e:  # never let one bad page kill the run
                         self.log.debug("parse error %s: %s", final_url, e)
                         rec = None
+                    del html
                     found += self.emit(rec)
         return found
 
