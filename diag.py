@@ -104,10 +104,27 @@ def parse_check(url: str):
                  x["price_text"], x["categories"], x["specs"][:200])
 
 
+def dump(url: str):
+    """Log the raw page gzip+base64 encoded, so it can be reassembled and profiled offline."""
+    import base64
+    import gzip
+    try:
+        r = requests.get(url, timeout=30, headers={"User-Agent": crawler.DEFAULT_USER_AGENT})
+    except Exception as e:
+        log.info("DIAG DUMP %s ERROR %s", url, e)
+        return
+    blob = base64.b64encode(gzip.compress(r.content)).decode()
+    log.info("DIAG DUMP %s status=%s bytes=%d type=%s parts=%d", url, r.status_code, len(r.content),
+             r.headers.get("content-type", ""), (len(blob) + CHUNK - 1) // CHUNK)
+    for i in range(0, len(blob), CHUNK):
+        log.info("DIAG DUMPPART %s [%d] %s", url, i // CHUNK, blob[i:i + CHUNK])
+
+
 def start():
     urls = os.environ.get("DIAG_URLS", "").split()
     parse_urls = os.environ.get("DIAG_PARSE_URLS", "").split()
-    if not urls and not parse_urls:
+    dump_urls = os.environ.get("DIAG_DUMP_URLS", "").split()
+    if not urls and not parse_urls and not dump_urls:
         return
     limit = int(os.environ.get("DIAG_HTML_LIMIT", "12000"))
 
@@ -116,6 +133,8 @@ def start():
             diagnose(u, limit)
         for u in parse_urls:
             parse_check(u)
+        for u in dump_urls:
+            dump(u)
         log.info("DIAG done")
 
     threading.Thread(target=run, daemon=True, name="diag").start()
