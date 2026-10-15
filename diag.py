@@ -47,6 +47,12 @@ def diagnose(url: str, html_limit: int):
     inline = " ".join(t.get_text() for t in soup.find_all("script", src=False))
     endpoints = sorted(set(re.findall(r"""["'](https?://[^"']+|/[^"'\s]*(?:api|ajax|json|wp-json|graphql|sheet|csv|xlsx?)[^"'\s]*)["']""", inline, re.I)))
     log.info("DIAG %s inline_script_bytes=%d endpoints=%s", url, len(inline), " ".join(endpoints)[:CHUNK])
+    if os.environ.get("DIAG_SCRIPTS") == "1" and inline:
+        _chunks(f"{url} SCRIPT_HEAD", inline, 7200)
+        for kw in ("[{", "JSON.parse", "const data", "var data", "prices", "versions"):
+            i = inline.find(kw)
+            if i >= 0:
+                _chunks(f"{url} SCRIPT@{kw}", inline[max(0, i - 300):i + 1500], 1800)
     ld = [t.get_text()[:300] for t in soup.find_all("script", type=re.compile("ld\\+json"))]
     log.info("DIAG %s jsonld=%s", url, " || ".join(ld)[:CHUNK])
     links = []
