@@ -255,7 +255,7 @@ def run_job(job: Job, resume: bool = False):
         job.status, job.started = "running", time.time()
         args = SimpleNamespace(
             user_agent=crawler.DEFAULT_USER_AGENT, proxy=PROXY, insecure=False, timeout=30,
-            delay=job.delay, workers=3, max_pages=job.max_pages, mode=job.mode,
+            delay=job.delay, workers=4, max_pages=job.max_pages, mode=job.mode,
             resume=resume, ignore_robots=False, out=job.dir, enrich=job.enrich,
         )
         sc = crawler.SiteCrawler(job.url, args, stop_event=job.stop_event,
@@ -504,8 +504,8 @@ class Handler(BaseHTTPRequestHandler):
                 mode = body.get("mode", "auto")
                 if mode not in ("auto", "api", "sitemap", "crawl", "list"):
                     raise ValueError("حالت نامعتبر")
-                max_pages = int(body.get("max_pages", 2000))
-                delay = float(body.get("delay", 1.0))
+                max_pages = int(body.get("max_pages", 10000))
+                delay = float(body.get("delay", 0.5))
                 if not (1 <= max_pages <= 20000):
                     raise ValueError("حداکثر صفحه باید بین ۱ تا ۲۰۰۰۰ باشد")
                 if not (0.2 <= delay <= 30):

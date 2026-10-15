@@ -40,10 +40,11 @@ import threading
 import time
 import xml.etree.ElementTree as ET
 from collections import deque
-from concurrent.futures import ThreadPoolExecutor, as_completed
+from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, as_completed, wait
 from datetime import datetime, timezone
 from urllib.parse import parse_qsl, unquote, urldefrag, urlencode, urljoin, urlparse
 
+import lxml.html
 import requests
 from bs4 import BeautifulSoup
 from requests.adapters import HTTPAdapter
@@ -554,7 +555,7 @@ def set_images(rec: dict, urls: list[str]):
 
 SKU_LABEL_RE = re.compile(r"^(کد محصول|کد کالا|شناسه محصول|شناسه کالا|کد|sku|product code|part number|پارت نامبر)$", re.I)
 BRAND_LABEL_RE = re.compile(r"^(برند|سازنده|نام تجاری|brand|manufacturer)$", re.I)
-GENERIC_CRUMB_RE = re.compile(r"^(خانه|صفحه اصلی|home|فروشگاه|shop|محصولات|products|دسته بندی محصولات|"
+GENERIC_CRUMB_RE = re.compile(r"^(خانه|صفحه اصلی|home|فروشگاه( .{1,30})?|shop|محصولات|products|دسته بندی محصولات|"
                               r"دسته‌بندی محصولات|همه محصولات|لیست کالا ?ها)$", re.I)
 
 
@@ -571,8 +572,51 @@ def labeled_values(soup) -> dict:
     return out
 
 
-def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = False) -> dict | None:
-    soup = BeautifulSoup(html, "lxml")
+_LXML_PARSER = lxml.html.HTMLParser(encoding="utf-8", remove_comments=True)
+_JUNK_CLASS_RE = re.compile(r"mega-?menu|mobile-?(menu|nav)|menu-?mobile|off-?canvas|side-?menu|navbar-collapse|"
+                            r"cart-?(widget|sidebar)|mini-?cart|search-?(modal|popup)", re.I)
+
+
+def preclean(html: str) -> str:
+    """Strip what the extractor never reads (scripts, styles, SVG icons, site menus, header/footer) with lxml,
+    which is ~15x faster than building a BeautifulSoup tree. Iranian shop themes often carry thousands of
+    menu nodes per page; dropping them first makes the detailed parse several times cheaper."""
+    if not html or len(html) < 20000:
+        return html
+    try:
+        root = lxml.html.fromstring(html.encode("utf-8", "replace"), parser=_LXML_PARSER)
+    except Exception:
+        return html
+    if root is None or root.tag != "html":
+        return html
+    drop = []
+    for el in root.iter("script", "style", "noscript", "svg", "iframe", "template", "link"):
+        if el.tag == "script" and "json" in (el.get("type") or "").lower():
+            continue                          # JSON-LD and embedded JSON data are needed
+        drop.append(el)
+    for el in root.iter("header", "footer", "nav", "aside", "div", "ul", "section"):
+        if el.tag in ("div", "ul", "section"):
+            if not _JUNK_CLASS_RE.search(f"{el.get('class', '')} {el.get('id', '')}"):
+                continue
+        elif el.tag == "nav" and re.search(r"breadcrumb", f"{el.get('aria-label', '')} {el.get('class', '')}", re.I):
+            continue
+        if any(a.tag in ("main", "article") for a in el.iterancestors()):
+            continue
+        if el.find(".//h1") is not None or el.xpath(".//*[contains(@class,'product_title') or contains(@class,'breadcrumb')]"):
+            continue
+        drop.append(el)
+    for el in drop:
+        if el.getparent() is not None:
+            el.drop_tree()          # keeps the element's tail text
+    try:
+        return lxml.html.tostring(root, encoding="unicode", method="html")
+    except Exception:
+        return html
+
+
+def parse_product_page_bs4(html: str, url: str, site: str, trust_as_product: bool = False) -> dict | None:
+    """Previous BeautifulSoup implementation, kept for comparison tests."""
+    soup = BeautifulSoup(preclean(html), "lxml")
     ld = find_jsonld_product(soup)
     meta = {}
     for m in soup.find_all("meta"):
@@ -771,6 +815,531 @@ def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = 
 
 
 # --------------------------------------------------------------------------- #
+# Fast product-page parser (lxml + XPath; ~10x less CPU than BeautifulSoup/soupsieve)
+# --------------------------------------------------------------------------- #
+
+import copy
+import functools
+from lxml import etree
+
+_CSS_TOKEN = re.compile(r"""
+    (?P<tag>^[a-zA-Z][\w-]*|\*)?
+""", re.X)
+
+
+def _css_compound_to_xpath(comp: str) -> str:
+    """'div.a#b[x*=y]:not([c*=d]):last-child' -> 'div[...][...]' (subset used in this file)."""
+    m = re.match(r"^([a-zA-Z][\w-]*|\*)?", comp)
+    tag = m.group(1) or "*"
+    rest = comp[m.end():]
+    preds = []
+    while rest:
+        if rest.startswith("."):
+            mm = re.match(r"^\.([\w-]+)", rest)
+            preds.append(f"contains(concat(' ',normalize-space(@class),' '),' {mm.group(1)} ')")
+        elif rest.startswith("#"):
+            mm = re.match(r"^#([\w-]+)", rest)
+            preds.append(f"@id='{mm.group(1)}'")
+        elif rest.startswith("["):
+            mm = re.match(r"^\[([\w-]+)(?:([*^$]?=)['\"]?([^'\"\]]*)['\"]?)?\]", rest)
+            attr, op, val = mm.group(1), mm.group(2), mm.group(3)
+            if not op:
+                preds.append(f"@{attr}")
+            elif op == "=":
+                preds.append(f"@{attr}='{val}'")
+            elif op == "*=":
+                preds.append(f"contains(@{attr},'{val}')")
+            elif op == "^=":
+                preds.append(f"starts-with(@{attr},'{val}')")
+            else:
+                preds.append(f"substring(@{attr},string-length(@{attr})-{len(val) - 1})='{val}'")
+        elif rest.startswith(":not("):
+            depth, i = 0, 0
+            for i, ch in enumerate(rest):
+                depth += ch == "("
+                depth -= ch == ")"
+                if depth == 0 and ch == ")":
+                    break
+            inner = rest[5:i]
+            inner_x = _css_compound_to_xpath(inner)
+            inner_preds = inner_x[inner_x.index("["):] if "[" in inner_x else ""
+            preds.append(f"not(self::*{inner_preds})")
+            mm = re.match(r"^.{%d}" % (i + 1), rest, re.S)
+        elif rest.startswith(":last-child"):
+            mm = re.match(r"^:last-child", rest)
+            preds.append("not(following-sibling::*)")
+        elif rest.startswith(":first-child"):
+            mm = re.match(r"^:first-child", rest)
+            preds.append("not(preceding-sibling::*)")
+        else:
+            raise ValueError(f"unsupported selector: {comp}")
+        rest = rest[mm.end():]
+    return tag + "".join(f"[{p}]" for p in preds)
+
+
+@functools.lru_cache(maxsize=512)
+def css_xpath(selector: str) -> etree.XPath:
+    parts = []
+    for group in re.split(r",(?![^\[(]*[\])])", selector):
+        tokens = re.findall(r">|[^\s>]+(?:\([^)]*\))?[^\s>]*", group.strip())
+        xp, axis = "", "descendant-or-self::"
+        for t in tokens:
+            if t == ">":
+                axis = "/"
+                continue
+            step = _css_compound_to_xpath(t)
+            if not xp:
+                xp = f"descendant-or-self::{step}"
+            else:
+                xp += f"/{step}" if axis == "/" else f"//{step}"
+            axis = "//"
+        parts.append(xp)
+    return etree.XPath(" | ".join(parts))
+
+
+def lx_select(root, selector: str) -> list:
+    return css_xpath(selector)(root)
+
+
+def lx_one(root, selector: str):
+    r = css_xpath(selector)(root)
+    return r[0] if r else None
+
+
+def lx_first(root, selectors: list[str]):
+    for sel in selectors:
+        el = lx_one(root, sel)
+        if el is not None:
+            return el
+    return None
+
+
+def _ws(s: str) -> str:
+    s = (s or "").replace("\xa0", " ")
+    s = re.sub(r"[ \t\r\f\v]+", " ", s)
+    s = re.sub(r"\n\s*\n+", "\n", s)
+    return "\n".join(line.strip() for line in s.split("\n")).strip()
+
+
+def lx_inline(el) -> str:
+    """Plain text of an element on one line."""
+    if el is None:
+        return ""
+    return re.sub(r"\s+", " ", html_lib.unescape(" ".join(el.itertext()))).strip()
+
+
+_SKIP_TEXT_TAGS = {"script", "style", "noscript", "template"}
+
+
+def lx_text(el) -> str:
+    """Readable multi-line text: newlines only around block elements, ' | ' between table cells."""
+    if el is None:
+        return ""
+    parts: list[str] = []
+
+    def walk(e, root=False):
+        tag = e.tag if isinstance(e.tag, str) else None
+        if tag and tag not in _SKIP_TEXT_TAGS:
+            if tag in BLOCK_TAGS:
+                parts.append("\n")
+            if tag == "br":
+                parts.append("\n")
+            if e.text:
+                parts.append(e.text)
+            for c in e:
+                walk(c)
+            if tag in ("td", "th"):
+                parts.append(" | ")
+            if tag in BLOCK_TAGS:
+                parts.append("\n")
+        if not root and e.tail:
+            parts.append(e.tail)
+
+    walk(el, root=True)
+    text = re.sub(r"[ \t]*\|[ \t]*\n", "\n", "".join(parts))
+    return _ws(html_lib.unescape(text))
+
+
+def lx_sanitize(el, base_url: str) -> str:
+    if el is None:
+        return ""
+    el = copy.deepcopy(el)
+    for bad in el.xpath(".//script|.//style|.//noscript|.//iframe|.//form|.//button|.//svg|.//input|"
+                        ".//select|.//textarea|.//link|.//meta|.//template|.//comment()"):
+        if bad.getparent() is not None:
+            bad.drop_tree() if isinstance(bad.tag, str) else bad.getparent().remove(bad)
+    for img in list(el.iter("img")):
+        src = best_img_src(img)
+        if src:
+            img.set("src", urljoin(base_url, src))
+        elif img.getparent() is not None:
+            img.drop_tree()
+    for tag in list(el.iterdescendants()):
+        if not isinstance(tag.tag, str):
+            continue
+        if tag.tag not in SAFE_TAGS:
+            tag.drop_tag()
+            continue
+        for k in list(tag.attrib):
+            if k not in SAFE_ATTRS:
+                del tag.attrib[k]
+        for k in ("href", "src"):
+            if tag.get(k):
+                tag.set(k, urljoin(base_url, tag.get(k)))
+    html = (el.text or "") + "".join(lxml.html.tostring(c, encoding="unicode") for c in el)
+    html = re.sub(r"\n\s*\n+", "\n", html)
+    return re.sub(r"<(p|div|span)>\s*</\1>", "", html).strip()
+
+
+def lx_content_images(el, base_url: str) -> list[str]:
+    if el is None:
+        return []
+    out = []
+    for img in el.iter("img"):
+        u = best_img_src(img)
+        if u and not u.lower().endswith(".svg"):
+            out.append(urljoin(base_url, u))
+    return _dedupe(out)
+
+
+def lx_specs(*containers) -> dict:
+    """Key/value pairs from 2-column tables, <dl> lists and list items ('key: value' or two child elements)."""
+    specs: dict[str, str] = {}
+
+    def add(k, v):
+        k, v = _ws(k).strip(" :：-"), _ws(v)
+        if k and v and len(k) <= 60 and k != v and k not in specs:
+            specs[k] = v[:1000]
+
+    seen = set()
+    for c in containers:
+        if c is None or id(c) in seen:
+            continue
+        seen.add(id(c))
+        for tr in c.iter("tr"):
+            cells = [x for x in tr if x.tag in ("th", "td")]
+            if len(cells) == 2:
+                add(lx_inline(cells[0]), lx_inline(cells[1]))
+        for dt in c.iter("dt"):
+            dd = dt.getnext()
+            while dd is not None and dd.tag != "dd":
+                dd = dd.getnext() if dd.tag not in ("dt",) else None
+            if dd is not None:
+                add(lx_inline(dt), lx_inline(dd))
+        for lst in c.iter("ul", "ol"):
+            pairs = []
+            for li in lst:
+                if li.tag != "li":
+                    continue
+                kids = [k for k in li if isinstance(k.tag, str) and lx_inline(k)]
+                if len(kids) == 2 and kids[0].find(".//ul") is None and kids[0].find(".//table") is None:
+                    pairs.append((lx_inline(kids[0]), lx_inline(kids[1])))
+                    continue
+                t = lx_inline(li)
+                m = re.match(r"^([^:：]{2,40})\s*[:：]\s*(.{1,300})$", t, re.S)
+                if m:
+                    pairs.append(m.groups())
+            if len(pairs) >= 2:
+                for k, v in pairs:
+                    add(k, v)
+    return specs
+
+
+_BLOCKY = {"div", "li", "p", "table", "ul", "ol", "section", "article"}
+
+
+def lx_labeled_values(root) -> dict:
+    out = {}
+    for el in root.iter("div", "li", "p", "span", "td"):
+        if any(isinstance(d.tag, str) and d.tag in _BLOCKY for d in el.iterdescendants()):
+            continue
+        t = lx_inline(el)
+        if len(t) > 160:
+            continue
+        m = re.match(r"^([^:：]{2,30})\s*[:：]\s*(.{1,120})$", t)
+        if m and m.group(1).strip() not in out:
+            out[m.group(1).strip()] = m.group(2).strip()
+    return out
+
+
+def _in_product_card(el) -> bool:
+    """True for elements inside related/upsell/listing product cards (not the main product)."""
+    for a in el.iterancestors():
+        cls = f" {a.get('class', '')} "
+        if re.search(r"\s(related|upsells?|cross-sells?|product-item|products-list|product-card|product-box|related-products)\s", cls) \
+                or (a.tag == "li" and " product " in cls) or (a.tag == "article" and " product " in cls):
+            return True
+    return False
+
+
+def _lx_jsonld(root):
+    for sc in root.xpath("//script[contains(translate(@type,'LDJSON','ldjson'),'ld+json')]"):
+        raw = re.sub(r"[\x00-\x1f]", " ", sc.text or "").strip()
+        if not raw:
+            continue
+        try:
+            data = json.loads(raw)
+        except ValueError:
+            continue
+        stack = [data]
+        while stack:
+            node = stack.pop()
+            if isinstance(node, list):
+                stack.extend(node)
+            elif isinstance(node, dict):
+                yield node
+                for k in ("@graph", "mainEntity", "itemListElement", "item"):
+                    if k in node:
+                        stack.append(node[k])
+
+
+def lx_parse(html: str):
+    """Parse and strip menus/scripts/icons in place. Returns the lxml root or None."""
+    try:
+        root = lxml.html.fromstring(html.encode("utf-8", "replace"), parser=_LXML_PARSER)
+    except Exception:
+        return None
+    if root is None:
+        return None
+    drop = []
+    for el in root.iter("script", "style", "noscript", "svg", "iframe", "template", "link"):
+        if el.tag == "script" and "json" in (el.get("type") or "").lower():
+            continue
+        drop.append(el)
+    for el in root.iter("header", "footer", "nav", "aside", "div", "ul", "section"):
+        if el.tag in ("div", "ul", "section"):
+            if not _JUNK_CLASS_RE.search(f"{el.get('class', '')} {el.get('id', '')}"):
+                continue
+        elif el.tag == "nav" and re.search(r"breadcrumb", f"{el.get('aria-label', '')} {el.get('class', '')}", re.I):
+            continue
+        if any(a.tag in ("main", "article") for a in el.iterancestors()):
+            continue
+        if el.find(".//h1") is not None or el.xpath(".//*[contains(@class,'product_title') or contains(@class,'breadcrumb')]"):
+            continue
+        drop.append(el)
+    for el in drop:
+        if el.getparent() is not None:
+            el.drop_tree()
+    return root
+
+
+def parse_product_page(html: str, url: str, site: str, trust_as_product: bool = False, root=None) -> dict | None:
+    root = root if root is not None else lx_parse(html)
+    if root is None:
+        return None
+    ld, crumbs_ld = None, []
+    for node in _lx_jsonld(root):
+        if _is_type(node, "Product") or _is_type(node, "ProductGroup"):
+            if ld is None or (node.get("offers") and not ld.get("offers")):
+                ld = node
+        elif _is_type(node, "BreadcrumbList") and not crumbs_ld:
+            items = sorted((x for x in _as_list(node.get("itemListElement")) if isinstance(x, dict)),
+                           key=lambda x: x.get("position") or 0)
+            crumbs_ld = [clean_text(x.get("name") or (x.get("item") or {}).get("name") if isinstance(x.get("item"), dict)
+                                    else x.get("name")) for x in items]
+    meta = {}
+    for m in root.iter("meta"):
+        k = (m.get("property") or m.get("name") or m.get("itemprop") or "").strip().lower()
+        if k and m.get("content") and k not in meta:
+            meta[k] = m.get("content").strip()
+    body = root.find(".//body")
+    body_cls = body.get("class", "") if body is not None else ""
+
+    html_signals = lx_one(root, "form.cart, .product_title, .single-product-summary, "
+                                "[itemtype*='schema.org/Product'], .woocommerce-product-gallery") is not None
+    is_product = (ld is not None or meta.get("og:type", "").lower() == "product"
+                  or "single-product" in body_cls or html_signals)
+    generic = not is_product and (trust_as_product or looks_like_product_url(url))
+    if not is_product and not generic:
+        return None
+
+    rec = {k: "" for k in FIELDS}
+    rec.update(site=site, source="page", url=url,
+               crawled_at=datetime.now(timezone.utc).isoformat(timespec="seconds"))
+
+    # ---- name
+    h1 = lx_first(root, ["h1.product_title", "h1.product-title", ".product_title", "main h1", "h1"])
+    crumbs_last = lx_one(root, "nav[aria-label*=readcrumb] li:last-child, [class*=breadcrumb] li:last-child")
+    title_el = root.find(".//title")
+    title_name = ""
+    if title_el is not None:
+        bits = re.split(r"\s+[-|–—]\s+", lx_inline(title_el))
+        title_name = bits[0] if bits else ""
+    rec["name"] = clean_text((ld or {}).get("name")) or lx_inline(h1) or clean_text(meta.get("og:title", "")) \
+        or lx_inline(crumbs_last) or title_name
+    if not rec["name"]:
+        return None
+    labeled = lx_labeled_values(root) if generic else {}
+
+    # ---- id / sku
+    rec["sku"] = clean_text((ld or {}).get("sku") or (ld or {}).get("mpn") or "")
+    if not rec["sku"]:
+        el = lx_one(root, ".sku, [itemprop=sku]")
+        if el is not None:
+            rec["sku"] = clean_text(el.get("content") or lx_inline(el))
+        else:
+            rec["sku"] = next((v for k, v in labeled.items() if SKU_LABEL_RE.search(k)), "")
+    m = re.search(r"postid-(\d+)", body_cls)
+    if m:
+        rec["product_id"] = m.group(1)
+    else:
+        el = lx_one(root, "[data-product_id], input[name=add-to-cart], button[name=add-to-cart]")
+        if el is not None:
+            rec["product_id"] = el.get("data-product_id") or el.get("value") or ""
+    main_box = None
+    if rec["product_id"]:
+        main_box = lx_one(root, f"#product-{rec['product_id']}")
+    if main_box is None:
+        main_box = next((d for d in lx_select(root, "div[id^=product-]") if " product " in f" {d.get('class', '')} "), None)
+
+    # ---- brand
+    brand = (ld or {}).get("brand")
+    if isinstance(brand, list):
+        brand = brand[0] if brand else ""
+    if isinstance(brand, dict):
+        brand = brand.get("name", "")
+    rec["brand"] = clean_text(brand) or next((v for k, v in labeled.items() if BRAND_LABEL_RE.search(k)), "")
+
+    # ---- price (JSON-LD offers first, then the main product's price box, never a related product's)
+    prices, currency, availability = [], "", ""
+    for off in _as_list((ld or {}).get("offers")):
+        if not isinstance(off, dict):
+            continue
+        currency = currency or off.get("priceCurrency", "")
+        availability = availability or str(off.get("availability", ""))
+        for key in ("price", "lowPrice", "highPrice"):
+            v = off.get(key)
+            if v not in (None, ""):
+                n = parse_number(str(v))
+                if n is not None:
+                    prices.append(n)
+        for ps in _as_list(off.get("priceSpecification")):
+            if isinstance(ps, dict) and ps.get("price") not in (None, ""):
+                n = parse_number(str(ps["price"]))
+                if n is not None:
+                    prices.append(n)
+                currency = currency or ps.get("priceCurrency", "")
+
+    price_el = None
+    for sel in (".summary .price", ".entry-summary .price", ".product-info .price", ".price-wrapper .price",
+                "p.price", "[itemprop=price]", ".product-price", "span.price"):
+        price_el = next((e for e in lx_select(root, sel) if not _in_product_card(e)), None)
+        if price_el is not None:
+            break
+    if price_el is None and generic:
+        price_el = next((e for e in lx_select(root, "[class*=price], [id*=price]")
+                         if not _in_product_card(e) and extract_numbers(lx_inline(e)) and len(lx_inline(e)) < 120), None)
+    price_text = ""
+    if price_el is not None:
+        price_text = clean_text(price_el.get("content") or lx_inline(price_el))
+        ins, dels = price_el.find(".//ins"), price_el.find(".//del")
+        if ins is not None and dels is not None:
+            sale, reg = extract_numbers(lx_inline(ins)), extract_numbers(lx_inline(dels))
+            if sale:
+                rec["sale_price"] = sale[0]
+            if reg:
+                rec["regular_price"] = reg[0]
+    if not price_text and meta.get("product:price:amount"):
+        price_text = meta["product:price:amount"]
+    rec["price_text"] = price_text
+    if not prices and price_text:
+        nums = [n for n in extract_numbers(price_text) if n > 0]
+        prices = [rec["sale_price"]] if rec["sale_price"] != "" else nums
+    if prices:
+        rec["min_price"], rec["max_price"] = min(prices), max(prices)
+        rec["price"] = rec["sale_price"] if rec["sale_price"] != "" else min(prices)
+    rec["currency"] = currency or meta.get("product:price:currency", "") or detect_currency(price_text)
+
+    # ---- stock
+    av = availability.lower()
+    stock_el = next((e for e in lx_select(root, ".summary .stock, p.stock, .stock") if not _in_product_card(e)), None)
+    stock_txt = lx_inline(stock_el)
+    stock_cls = stock_el.get("class", "") if stock_el is not None else ""
+    box_cls = f" {main_box.get('class', '')} " if main_box is not None else ""
+    if "outofstock" in av or "out-of-stock" in stock_cls or "ناموجود" in stock_txt or " outofstock " in box_cls:
+        rec["in_stock"] = False
+    elif "instock" in av or "in-stock" in stock_cls or "موجود" in stock_txt or " instock " in box_cls:
+        rec["in_stock"] = True
+
+    # ---- descriptions (needed before specs)
+    sd = lx_first(root, [".woocommerce-product-details__short-description", ".short-description",
+                         "div[itemprop=description]"])
+    rec["short_description"] = lx_text(sd)
+    desc_el = lx_first(root, ["#tab-description", ".woocommerce-Tabs-panel--description",
+                              ".product-description", "#description", ".product-details-content",
+                              ".product-content", "div[itemprop=description]", "[id*=description]",
+                              "[class*=product-desc]", "#review", "#introduction"])
+    rec["description"] = lx_text(desc_el) or clean_text((ld or {}).get("description")) \
+        or rec["short_description"] or clean_text(meta.get("description", ""))
+    rec["description_html"] = lx_sanitize(desc_el, url)
+
+    # ---- specs
+    specs = {}
+    for tr in lx_select(root, "table.woocommerce-product-attributes tr, table.shop_attributes tr"):
+        th, td = tr.find("th"), tr.find("td")
+        if th is not None and td is not None:
+            specs[lx_inline(th)] = lx_inline(td)
+    for prop in _as_list((ld or {}).get("additionalProperty")):
+        if isinstance(prop, dict) and prop.get("name"):
+            specs.setdefault(clean_text(prop["name"]), clean_text(prop.get("value")))
+    panels = [p for p in lx_select(root, ".woocommerce-Tabs-panel, .wc-tab, .product-specs, .product-attributes, "
+                                         ".specifications, #specifications, .product-features, #specs, [id*=spec], "
+                                         "[class*=spec], [class*=attribute], [class*=feature]")
+              if p.tag not in ("html", "body") and not _in_product_card(p)]
+    for k, v in lx_specs(desc_el, *panels, sd).items():
+        specs.setdefault(k, v)
+    rec["specs"] = json.dumps(specs, ensure_ascii=False) if specs else ""
+    if not rec["brand"]:
+        rec["brand"] = next((v for k, v in specs.items() if BRAND_LABEL_RE.search(k)), "")
+
+    # ---- categories
+    cats = [lx_inline(a) for a in lx_select(root, ".product_meta .posted_in a, .posted_in a")]
+    if not cats:
+        crumbs = lx_select(root, ".woocommerce-breadcrumb a, nav.rank-math-breadcrumb a, .breadcrumb a, "
+                                 ".breadcrumbs a, [class*=breadcrumb] a, nav[aria-label*=readcrumb] a")
+        cats = [lx_inline(a) for a in crumbs[1:]]
+    if not cats and crumbs_ld:
+        cats = crumbs_ld[1:]
+    if not cats and ld and ld.get("category"):
+        cats = [clean_text(c) for c in _as_list(ld["category"]) if isinstance(c, str)]
+    if not cats:
+        cats = [v for k, v in specs.items() if re.match(r"^(دسته ?بندی|دسته‌بندی|category)$", k, re.I)]
+    rec["categories"] = " | ".join(_dedupe([c for c in cats if c and c != rec["name"] and not GENERIC_CRUMB_RE.match(c)]))
+
+    # ---- tags / meta
+    rec["tags"] = " | ".join(_dedupe(lx_inline(a) for a in lx_select(root, ".product_meta .tagged_as a, .tagged_as a")))
+    rec["meta_title"] = lx_inline(title_el) if title_el is not None else clean_text(meta.get("og:title", ""))
+    rec["meta_description"] = clean_text(meta.get("description") or meta.get("og:description", ""))
+
+    # ---- images
+    imgs = []
+    for a in lx_select(root, ".woocommerce-product-gallery__image a[href], .woocommerce-product-gallery a[href]"):
+        if re.search(r"\.(jpe?g|png|webp|gif|avif)(?:$|\?)", a.get("href", ""), re.I):
+            imgs.append(a.get("href"))
+    for img in lx_select(root, ".woocommerce-product-gallery img, .product-gallery img, .product-images img, "
+                               "[class*=product-image] img, [id*=allery] img, [class*=gallery] img, "
+                               "main .swiper img, section .swiper img"):
+        if _in_product_card(img):
+            continue
+        u = best_img_src(img)
+        if u:
+            imgs.append(u)
+    imgs += _image_urls((ld or {}).get("image"))
+    if meta.get("og:image"):
+        imgs.append(meta["og:image"])
+    set_images(rec, [urljoin(url, u) for u in imgs if isinstance(u, str)][: MAX_IMAGES_PER_PRODUCT * 2])
+    gallery = set(rec["images"].split(" | "))
+    rec["description_images"] = " | ".join(u for u in lx_content_images(desc_el, url) if u not in gallery)
+
+    # ---- files
+    scope = lx_first(root, ["main", "#main", ".site-main", ".product", "article"])
+    scope = scope if scope is not None else root
+    rec["files"] = " | ".join(_dedupe(urljoin(url, a.get("href")) for a in scope.iter("a")
+                                      if a.get("href") and FILE_EXT_RE.search(a.get("href"))))
+    return rec
+
+
+# --------------------------------------------------------------------------- #
 # Price lists: products as rows of an HTML table or items of JSON embedded in the page
 # --------------------------------------------------------------------------- #
 
@@ -934,7 +1503,7 @@ def records_from_table(table, page_url: str, site: str, require_price: bool = Tr
 
 def extract_listing_records(html: str, page_url: str, site: str, require_price: bool = True) -> list[dict]:
     """Products from price tables and from product lists embedded as JSON in the page."""
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(preclean(html), "lxml")
     out = []
     for script in soup.find_all("script"):
         typ = (script.get("type") or "").lower()
@@ -1006,8 +1575,11 @@ def product_from_store_api(item: dict, site: str) -> dict:
         terms = [t.get("name", "") for t in (a.get("terms") or []) if isinstance(t, dict)]
         attrs[clean_text(a.get("name"))] = "، ".join(clean_text(t) for t in terms)
     desc_raw = item.get("description") or ""
-    desc_el = BeautifulSoup(f"<div>{desc_raw}</div>", "html.parser").div if desc_raw else None
-    for k, v in extract_specs(desc_el).items():
+    try:
+        desc_el = lxml.html.fragment_fromstring(desc_raw, create_parent="div") if desc_raw.strip() else None
+    except Exception:
+        desc_el = None
+    for k, v in lx_specs(desc_el).items():
         attrs.setdefault(k, v)
 
     brand = ""
@@ -1030,11 +1602,11 @@ def product_from_store_api(item: dict, site: str) -> dict:
         categories=" | ".join(clean_text(c.get("name")) for c in item.get("categories") or [] if isinstance(c, dict)),
         brand=brand,
         short_description=clean_text(item.get("short_description")),
-        description=clean_text(desc_raw),
-        description_html=sanitize_html(desc_el, url) if desc_el else "",
+        description=lx_text(desc_el) if desc_el is not None else "",
+        description_html=lx_sanitize(desc_el, url) if desc_el is not None else "",
         specs=json.dumps(attrs, ensure_ascii=False) if attrs else "",
         tags=" | ".join(clean_text(t.get("name")) for t in item.get("tags") or [] if isinstance(t, dict)),
-        description_images=" | ".join(content_images(desc_el, url)),
+        description_images=" | ".join(lx_content_images(desc_el, url)),
         crawled_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
     )
     set_images(rec, [i.get("src", "") for i in item.get("images") or [] if isinstance(i, dict)])
@@ -1448,7 +2020,7 @@ class SiteCrawler:
         host_dir = re.sub(r"[^A-Za-z0-9.-]+", "_", self.host)
         max_bytes = int(float(os.environ.get("MAX_IMAGE_MB", "1500")) * 1024 * 1024)
         # images are static files: allow a shorter gap than for pages, but stay polite
-        img_args = argparse.Namespace(**{**vars(self.args), "delay": max(0.2, self.args.delay / 3)})
+        img_args = argparse.Namespace(**{**vars(self.args), "delay": max(0.1, self.args.delay / 4)})
         fetcher = Fetcher(img_args, self.stop_event)
         state = {"bytes": 0, "files": 0, "warned": False}
         lock = threading.Lock()
@@ -1603,22 +2175,39 @@ class SiteCrawler:
         r.encoding = r.encoding if r.encoding and r.encoding.lower() != "iso-8859-1" else "utf-8"
         return r.url, r.text
 
+    def fetch_stream(self, pool, next_url, window: int):
+        """Yield (final_url, html) as downloads finish, keeping `window` requests in flight so the network
+        stays busy while pages are parsed. Memory is bounded by the window, not by the number of URLs."""
+        inflight = set()
+
+        def fill():
+            while len(inflight) < window and not self.stopped:
+                u = next_url()
+                if u is None:
+                    break
+                inflight.add(pool.submit(self._fetch_page, u))
+
+        fill()
+        while inflight:
+            done, _ = wait(inflight, return_when=FIRST_COMPLETED)
+            for f in done:
+                inflight.discard(f)
+                yield f.result()
+            fill()
+
     def crawl_pages(self, urls: list[str], trust: bool) -> int:
         todo = [u for u in urls if u not in self.writer.seen_urls][: self.args.max_pages]
         self.log.info("parsing %d candidate pages from sitemap", len(todo))
-        found = 0
-        # Work in small batches so only a handful of pages are ever held in memory at once.
-        # (Submitting everything up front kept every finished page's HTML alive until the end.)
-        batch = max(1, self.args.workers * 2)
+        found, done = 0, 0
+        it = iter(todo)
         with ThreadPoolExecutor(max_workers=self.args.workers) as pool:
-            for i in range(0, len(todo), batch):
-                if self.stopped:
-                    break
-                for final_url, html in pool.map(self._fetch_page, todo[i:i + batch]):
-                    if not html:
-                        continue
+            for final_url, html in self.fetch_stream(pool, lambda: next(it, None), self.args.workers * 2):
+                done += 1
+                if html:
                     found += self.parse_any(html, final_url, trust)
                     del html
+                if done % 200 == 0:
+                    self.log.info("pages %d/%d, %d products", done, len(todo), self.writer.count)
         return found
 
     def parse_any(self, html: str, url: str, trust: bool = False) -> int:
@@ -1630,6 +2219,8 @@ class SiteCrawler:
             rec = None
         if rec:
             return int(self.emit(rec))
+        if "<table" not in html and "application/json" not in html:
+            return 0                       # nothing a price list could be made of; skip the second parse
         try:
             recs = extract_listing_records(html, url, self.host,
                                            require_price=getattr(self.args, "mode", "") != "list")
@@ -1643,11 +2234,14 @@ class SiteCrawler:
 
     # ---- strategy 3: BFS link crawl
     def extract_links(self, html: str, page_url: str) -> list[str]:
-        soup = BeautifulSoup(html, "lxml")
+        try:
+            root = lxml.html.fromstring(html.encode("utf-8", "replace"), parser=_LXML_PARSER)
+        except Exception:
+            return []
         out = []
-        for a in soup.find_all("a", href=True):
-            href = a["href"].strip()
-            if href.startswith(("mailto:", "tel:", "javascript:", "#", "whatsapp:")):
+        for a in root.iter("a"):
+            href = (a.get("href") or "").strip()
+            if not href or href.startswith(("mailto:", "tel:", "javascript:", "#", "whatsapp:")):
                 continue
             u = normalize_url(urljoin(page_url, href))
             if urlparse(u).scheme in ("http", "https") and self.same_site(u) and not is_excluded(u):
@@ -1662,16 +2256,19 @@ class SiteCrawler:
             s = normalize_url(s)
             seen.add(s)
             hi.append(s)
-        pages, found = 0, 0
+        state = {"submitted": 0, "pages": 0}
+        found = 0
+
+        def next_url():
+            if state["submitted"] >= self.args.max_pages or not (hi or lo):
+                return None
+            state["submitted"] += 1
+            return hi.popleft() if hi else lo.popleft()
+
         with ThreadPoolExecutor(max_workers=self.args.workers) as pool:
-            while (hi or lo) and pages < self.args.max_pages and not self.stopped:
-                batch = []
-                while (hi or lo) and len(batch) < self.args.workers * 2:
-                    batch.append(hi.popleft() if hi else lo.popleft())
-                for final_url, html in pool.map(self._fetch_page, batch):
-                    pages += 1
-                    if not html:
-                        continue
+            for final_url, html in self.fetch_stream(pool, next_url, self.args.workers * 2):
+                state["pages"] += 1
+                if html:
                     if final_url not in self.writer.seen_urls:
                         found += self.parse_any(html, final_url)
                     for link in self.extract_links(html, final_url):
@@ -1681,8 +2278,9 @@ class SiteCrawler:
                         promising = looks_like_product_url(link) or looks_like_listing_url(link) or \
                             re.search(r"(^|\.)(list|price|prices|shop|store|catalog|pricelist)\.", urlparse(link).netloc)
                         (hi if promising else lo).append(link)
-                if pages % 100 < len(batch):
-                    self.log.info("crawled %d pages, %d queued, %d products", pages, len(hi) + len(lo),
+                    del html
+                if state["pages"] % 100 == 0:
+                    self.log.info("crawled %d pages, %d queued, %d products", state["pages"], len(hi) + len(lo),
                                   self.writer.count)
         return found
 

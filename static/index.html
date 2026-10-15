@@ -35,7 +35,7 @@ label{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}
 textarea,input,select{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
 textarea{min-height:110px;direction:ltr;text-align:left;font-size:14px}
 .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:end}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:8px 10px;align-items:end}
 label.check{display:flex;flex-wrap:wrap;gap:6px;align-items:center;color:var(--ink);font-size:13px;margin:10px 0 4px;cursor:pointer}
 label.check input{width:auto;margin:0}
 label.check small{flex-basis:100%;color:var(--muted);font-size:11px;line-height:1.4}
@@ -94,7 +94,7 @@ td a{color:var(--accent)}
         <h2>کراول جدید</h2>
         <label for="urls">آدرس سایت (هر خط یک سایت)</label>
         <textarea id="urls" placeholder="https://example.com/"></textarea>
-        <div class="row">
+        <div class="row2">
           <div>
             <label for="mode">روش</label>
             <select id="mode">
@@ -107,14 +107,16 @@ td a{color:var(--accent)}
           </div>
           <div>
             <label for="maxp">حداکثر صفحه</label>
-            <input id="maxp" type="number" value="2000" min="1" max="20000">
+            <input id="maxp" type="number" value="10000" min="1" max="20000">
           </div>
           <div>
-            <label for="delay">تأخیر (ثانیه)</label>
-            <input id="delay" type="number" value="1" min="0.2" max="30" step="0.1">
+            <label for="delay">سرعت (صفحه در ثانیه)</label>
+            <select id="delay">
+              <option value="1">آرام · ۱</option>
+              <option value="0.5" selected>معمولی · ۲</option>
+              <option value="0.25">سریع · ۴</option>
+            </select>
           </div>
-        </div>
-        <div class="row2">
           <div>
             <label for="images">عکس‌ها</label>
             <select id="images">
@@ -123,8 +125,8 @@ td a{color:var(--accent)}
               <option value="none">فقط لینک عکس</option>
             </select>
           </div>
-          <label class="check"><input type="checkbox" id="enrich" checked> محتوای کامل هر محصول<small>توضیحات، مشخصات، گالری و فایل‌ها — کندتر ولی کامل</small></label>
         </div>
+        <label class="check"><input type="checkbox" id="enrich" checked> محتوای کامل هر محصول<small>وقتی API سایت باز است، صفحه‌ی هر محصول را هم می‌خواند (گالری، مشخصات، فایل‌ها) — کندتر ولی کامل‌تر</small></label>
         <button class="primary" id="go">شروع</button>
         <div class="msg" id="msg"></div>
       </div>
@@ -219,6 +221,7 @@ async function refreshDetail() {
       <div class="stat"><b>${dur(j.elapsed)}</b><span>زمان</span></div>
       <div class="stat"><b>${esc(MODE[j.mode] || j.mode)}</b><span>روش</span></div>
       <div class="stat"><b>${{none:"لینک", main:"اصلی", all:"همه"}[j.images] || "—"}</b><span>عکس</span></div>
+      ${j.elapsed > 20 && j.count ? `<div class="stat"><b>${fa(Math.round(j.count / j.elapsed * 60))}</b><span>محصول در دقیقه</span></div>` : ""}
     </div>
     <div class="actions">
       <a class="${ready ? "" : "off"}" href="/api/jobs/${j.id}/download/xlsx">دانلود Excel</a>
