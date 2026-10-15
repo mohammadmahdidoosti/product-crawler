@@ -1877,6 +1877,21 @@ def write_xlsx(src, path: str, base_dir: str | None = None,
 # Site crawler
 # --------------------------------------------------------------------------- #
 
+def is_available(rec: dict) -> bool:
+    """In stock (or stock unknown) AND has a real numeric price."""
+    if rec.get("in_stock") is False:
+        return False
+    for k in ("price", "min_price", "sale_price", "regular_price"):
+        v = rec.get(k)
+        if isinstance(v, (int, float)) and not isinstance(v, bool) and v > 0:
+            return True
+        if isinstance(v, str) and v.strip():
+            n = parse_number(v)
+            if n and n > 0:
+                return True
+    return False
+
+
 class SiteCrawler:
     def __init__(self, base: str, args, stop_event: threading.Event | None = None,
                  logger_name: str | None = None, out_path: str | None = None):
@@ -1890,6 +1905,15 @@ class SiteCrawler:
         self.robots = Robots("")
         self.log = logging.getLogger(logger_name or self.host)
         self.blocked_by_robots = 0
+        self.only_available = bool(getattr(args, "only_available", False))
+        self.skipped = 0
+        self.skipped_urls: set[str] = set()
+        self._skip_lock = threading.Lock()
+        self._skip_path = (out_path or os.path.join(args.out, f"{self.host}.jsonl")) + ".skipped"
+        if args.resume and os.path.exists(self._skip_path):
+            with open(self._skip_path, encoding="utf-8") as f:
+                self.skipped_urls = {line.strip() for line in f if line.strip()}
+            self.skipped = len(self.skipped_urls)
         self._robots_cache: dict[str, Robots] = {}
         self._robots_lock = threading.Lock()
         self.writer = JsonlWriter(out_path or os.path.join(args.out, f"{self.host}.jsonl"), args.resume)
@@ -1928,8 +1952,32 @@ class SiteCrawler:
             self.log.warning("blocked by firewall/challenge page (%s) at %s", r.status_code, url)
         return r
 
+    def skip(self, rec: dict):
+        url = rec.get("url") or ""
+        with self._skip_lock:
+            if url in self.skipped_urls:
+                return
+            self.skipped_urls.add(url)
+            self.skipped += 1
+            try:
+                with open(self._skip_path, "a", encoding="utf-8") as f:
+                    f.write(url + "\n")
+            except OSError:
+                pass
+            if self.skipped % 100 == 0:
+                self.log.info("skipped %d out-of-stock / no-price products", self.skipped)
+
+    def keep(self, rec: dict | None) -> bool:
+        """Applies the 'only in-stock with price' filter; records what was skipped."""
+        if not rec or not rec.get("name"):
+            return False
+        if self.only_available and not is_available(rec):
+            self.skip(rec)
+            return False
+        return True
+
     def emit(self, rec: dict | None) -> bool:
-        if rec and rec.get("name"):
+        if self.keep(rec):
             if self.writer.write(rec):
                 if self.writer.count % 25 == 0:
                     self.log.info("%d products so far", self.writer.count)
@@ -1953,9 +2001,16 @@ class SiteCrawler:
         ]
         for ep in endpoints:
             got, page, total_pages = 0, 1, None
+            stock_filter = self.only_available
             while True:
                 sep = "&" if "?" in ep else "?"
-                r = self.fetch(f"{ep}{sep}{urlencode({'per_page': 100, 'page': page})}")
+                params = {"per_page": 100, "page": page}
+                if stock_filter:
+                    params["stock_status"] = "instock"
+                r = self.fetch(f"{ep}{sep}{urlencode(params)}")
+                if r is not None and r.status_code == 400 and stock_filter and page == 1:
+                    stock_filter = False             # older stores don't know the filter; filter locally
+                    continue
                 if r is None or r.status_code != 200:
                     break
                 try:
@@ -1965,6 +2020,8 @@ class SiteCrawler:
                 if not isinstance(data, list) or not data:
                     break
                 recs = [product_from_store_api(i, self.host) for i in data if isinstance(i, dict)]
+                if self.only_available:
+                    recs = [x for x in recs if self.keep(x)]     # don't open pages of products we'll drop
                 if getattr(self.args, "enrich", False):
                     recs = self.enrich(recs)
                 for rec in recs:
@@ -1987,7 +2044,7 @@ class SiteCrawler:
 
     def enrich(self, recs: list[dict]) -> list[dict]:
         """Open each product page to add gallery images, spec tables, files and full content."""
-        todo = [r for r in recs if r.get("url") and r["url"] not in self.writer.seen_urls]
+        todo = [r for r in recs if r.get("url") and r["url"] not in self.writer.seen_urls]  # noqa
         if not todo:
             return recs
         self.log.info("reading %d product pages for full content/images", len(todo))
@@ -2196,7 +2253,7 @@ class SiteCrawler:
             fill()
 
     def crawl_pages(self, urls: list[str], trust: bool) -> int:
-        todo = [u for u in urls if u not in self.writer.seen_urls][: self.args.max_pages]
+        todo = [u for u in urls if u not in self.writer.seen_urls and u not in self.skipped_urls][: self.args.max_pages]
         self.log.info("parsing %d candidate pages from sitemap", len(todo))
         found, done = 0, 0
         it = iter(todo)
@@ -2269,7 +2326,7 @@ class SiteCrawler:
             for final_url, html in self.fetch_stream(pool, next_url, self.args.workers * 2):
                 state["pages"] += 1
                 if html:
-                    if final_url not in self.writer.seen_urls:
+                    if final_url not in self.writer.seen_urls and final_url not in self.skipped_urls:
                         found += self.parse_any(html, final_url)
                     for link in self.extract_links(html, final_url):
                         if link in seen:
@@ -2321,6 +2378,8 @@ class SiteCrawler:
                                  self.blocked_by_robots)
             if self.stopped:
                 self.log.warning("stopped (توقف شد)")
+            if self.only_available:
+                self.log.info("skipped %d products (out of stock or no price)", self.skipped)
             self.log.info("done: %d products in %.0fs", self.writer.count, time.time() - t0)
             return self.writer.count
         finally:
@@ -2348,6 +2407,8 @@ def main():
                     help="download product images: none / main (first image) / all")
     ap.add_argument("--enrich", action="store_true",
                     help="when the Store API works, still open each product page for full content & gallery")
+    ap.add_argument("--only-available", action="store_true",
+                    help="keep only in-stock products that have a price")
     ap.add_argument("--resume", action="store_true", help="keep existing .jsonl and skip already-saved URLs")
     ap.add_argument("--ignore-robots", action="store_true",
                     help="do not obey robots.txt (only with the site owner's permission)")

@@ -83,12 +83,14 @@ class JobLogHandler(logging.Handler):
 
 class Job:
     def __init__(self, url: str, mode: str, max_pages: int, delay: float,
-                 images: str = "main", enrich: bool = True):
+                 images: str = "main", enrich: bool = True, only_available: bool = False):
         self.id = uuid.uuid4().hex[:10]
         self.url = url
         self.host = crawler.norm_host(urlparse(url).netloc)
         self.mode, self.max_pages, self.delay = mode, max_pages, delay
         self.images, self.enrich = images, enrich
+        self.only_available = only_available
+        self.skipped = 0
         self.phase = ""                   # crawl | images | export
         self.status = "queued"            # queued | running | done | failed | stopped
         self.error = ""
@@ -103,12 +105,13 @@ class Job:
         self.mem_stopped = False
         os.makedirs(self.dir, exist_ok=True)
 
-    PERSIST = ("id", "url", "host", "mode", "max_pages", "delay", "images", "enrich", "status",
-               "error", "created", "started", "finished", "count")
+    PERSIST = ("id", "url", "host", "mode", "max_pages", "delay", "images", "enrich", "only_available", "skipped",
+               "status", "error", "created", "started", "finished", "count")
 
     def save(self):
         data = {k: getattr(self, k) for k in self.PERSIST}
         data["count"] = self.live_count()
+        data["skipped"] = self.live_skipped()
         data["logs"] = list(self.logs)[-200:]
         tmp = os.path.join(self.dir, "job.json.tmp")
         try:
@@ -148,12 +151,18 @@ class Job:
             return self.crawler.writer.count
         return self.count
 
+    def live_skipped(self) -> int:
+        if self.crawler is not None and self.status == "running":
+            return self.crawler.skipped
+        return self.skipped
+
     def summary(self) -> dict:
         end = self.finished or time.time()
         return {
             "id": self.id, "url": self.url, "host": self.host, "mode": self.mode,
             "max_pages": self.max_pages, "delay": self.delay, "status": self.status,
             "images": self.images, "enrich": self.enrich, "phase": self.phase,
+            "only_available": self.only_available, "skipped": self.live_skipped(),
             "has_zip": os.path.exists(os.path.join(self.dir, "products-images.zip")),
             "has_export": os.path.exists(os.path.join(self.dir, "products.xlsx")),
             "error": self.error, "count": self.live_count(), "created": self.created,
@@ -240,8 +249,9 @@ def run_job(job: Job, resume: bool = False):
     handler = JobLogHandler(job)
     lg.addHandler(handler)
     lg.setLevel(logging.INFO)
-    lg.info("%s %s  (mode=%s images=%s enrich=%s)", "ادامه / resume" if resume else "در صف اجرا… / queued",
-            job.url, job.mode, job.images, job.enrich)
+    lg.info("%s %s  (mode=%s images=%s enrich=%s only_available=%s delay=%s)",
+            "ادامه / resume" if resume else "در صف اجرا… / queued",
+            job.url, job.mode, job.images, job.enrich, job.only_available, job.delay)
     job.save()
     acquired = False
     try:
@@ -257,6 +267,7 @@ def run_job(job: Job, resume: bool = False):
             user_agent=crawler.DEFAULT_USER_AGENT, proxy=PROXY, insecure=False, timeout=30,
             delay=job.delay, workers=4, max_pages=job.max_pages, mode=job.mode,
             resume=resume, ignore_robots=False, out=job.dir, enrich=job.enrich,
+            only_available=job.only_available,
         )
         sc = crawler.SiteCrawler(job.url, args, stop_event=job.stop_event,
                                  logger_name=logger_name, out_path=job.jsonl)
@@ -282,6 +293,7 @@ def run_job(job: Job, resume: bool = False):
     finally:
         if job.crawler is not None:
             job.count = job.crawler.writer.count
+            job.skipped = job.crawler.skipped
         job.crawler = None
         job.finished = time.time()
         if acquired:
@@ -514,9 +526,10 @@ class Handler(BaseHTTPRequestHandler):
                 if images not in ("none", "main", "all"):
                     raise ValueError("گزینه‌ی عکس نامعتبر")
                 enrich = bool(body.get("enrich", True))
+                only_available = bool(body.get("only_available", False))
             except (ValueError, TypeError, json.JSONDecodeError) as e:
                 return self._error(400, str(e))
-            job = Job(url, mode, max_pages, delay, images, enrich)
+            job = Job(url, mode, max_pages, delay, images, enrich, only_available)
             with JOBS_LOCK:
                 JOBS[job.id] = job
             threading.Thread(target=run_job, args=(job,), daemon=True, name=f"job-{job.id}").start()

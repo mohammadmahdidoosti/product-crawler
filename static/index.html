@@ -126,6 +126,7 @@ td a{color:var(--accent)}
             </select>
           </div>
         </div>
+        <label class="check"><input type="checkbox" id="avail" checked> فقط محصولات موجود و قیمت‌دار<small>محصولات ناموجود و «تماس بگیرید» رد می‌شوند و در فایل نمی‌آیند؛ عکسشان هم دانلود نمی‌شود</small></label>
         <label class="check"><input type="checkbox" id="enrich" checked> محتوای کامل هر محصول<small>وقتی API سایت باز است، صفحه‌ی هر محصول را هم می‌خواند (گالری، مشخصات، فایل‌ها) — کندتر ولی کامل‌تر</small></label>
         <button class="primary" id="go">شروع</button>
         <div class="msg" id="msg"></div>
@@ -169,7 +170,8 @@ document.getElementById("go").onclick = async () => {
       last = await api("/api/jobs", {method: "POST", body: JSON.stringify({
         url, mode: document.getElementById("mode").value,
         max_pages: +document.getElementById("maxp").value, delay: +document.getElementById("delay").value,
-        images: document.getElementById("images").value, enrich: document.getElementById("enrich").checked})});
+        images: document.getElementById("images").value, enrich: document.getElementById("enrich").checked,
+        only_available: document.getElementById("avail").checked})});
     } catch (e) { errs.push(`${url}: ${e.message}`); }
   }
   btn.disabled = false;
@@ -186,7 +188,7 @@ function renderJobs() {
     <div class="job ${j.id === selected ? "sel" : ""}" data-id="${j.id}">
       <div style="min-width:0">
         <div class="h">${esc(j.host)}</div>
-        <div class="n">${fa(j.count)} محصول · ${dur(j.elapsed)}</div>
+        <div class="n">${fa(j.count)} محصول${j.only_available && j.skipped ? ` · ${fa(j.skipped)} رد شده` : ""} · ${dur(j.elapsed)}</div>
       </div>
       <span class="chip s-${j.status}">${STATUS[j.status] || j.status}</span>
     </div>`).join("");
@@ -218,6 +220,7 @@ async function refreshDetail() {
     ${j.error ? `<div class="err-box">${esc(j.error)}</div>` : ""}
     <div class="stats">
       <div class="stat"><b>${fa(j.count)}</b><span>محصول</span></div>
+      ${j.only_available ? `<div class="stat"><b>${fa(j.skipped)}</b><span>رد شده (ناموجود/بی‌قیمت)</span></div>` : ""}
       <div class="stat"><b>${dur(j.elapsed)}</b><span>زمان</span></div>
       <div class="stat"><b>${esc(MODE[j.mode] || j.mode)}</b><span>روش</span></div>
       <div class="stat"><b>${{none:"لینک", main:"اصلی", all:"همه"}[j.images] || "—"}</b><span>عکس</span></div>
