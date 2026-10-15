@@ -2,6 +2,7 @@
 
 DIAG_URLS="https://a.com/ https://a.com/robots.txt"   -> lines prefixed with "DIAG" in the service log.
 """
+import json
 import logging
 import os
 import re
@@ -73,15 +74,48 @@ def diagnose(url: str, html_limit: int):
     _chunks(f"{url} HTML", re.sub(r"\s+", " ", body), html_limit)
 
 
+def parse_check(url: str):
+    """Run the real parsers on a live page and log what they extract."""
+    s = requests.Session()
+    s.headers.update({"User-Agent": crawler.DEFAULT_USER_AGENT})
+    try:
+        r = s.get(url, timeout=30)
+        r.encoding = r.encoding if r.encoding and r.encoding.lower() != "iso-8859-1" else "utf-8"
+    except Exception as e:
+        log.info("DIAG PARSE %s ERROR %s", url, e)
+        return
+    host = crawler.norm_host(requests.utils.urlparse(url).netloc)
+    rec = crawler.parse_product_page(r.text, r.url, host)
+    if rec:
+        specs = crawler._specs(rec)
+        log.info("DIAG PARSE %s PRODUCT name=%r sku=%r brand=%r cats=%r price=%r cur=%r images=%s specs=%d %s desc=%d files=%d",
+                 url, rec["name"], rec["sku"], rec["brand"], rec["categories"], rec["price"], rec["currency"],
+                 rec["image_count"], len(specs), list(specs.items())[:4], len(rec["description"]),
+                 len(crawler._split(rec["files"])))
+        return
+    recs = crawler.extract_listing_records(r.text, r.url, host)
+    log.info("DIAG PARSE %s LISTING %d items", url, len(recs))
+    cats = {}
+    for x in recs:
+        cats[x["categories"]] = cats.get(x["categories"], 0) + 1
+    log.info("DIAG PARSE %s categories=%s", url, json.dumps(cats, ensure_ascii=False)[:CHUNK])
+    for x in recs[:3] + recs[-2:]:
+        log.info("DIAG PARSE %s item name=%r price=%r text=%r cat=%r specs=%s", url, x["name"], x["price"],
+                 x["price_text"], x["categories"], x["specs"][:200])
+
+
 def start():
     urls = os.environ.get("DIAG_URLS", "").split()
-    if not urls:
+    parse_urls = os.environ.get("DIAG_PARSE_URLS", "").split()
+    if not urls and not parse_urls:
         return
     limit = int(os.environ.get("DIAG_HTML_LIMIT", "12000"))
 
     def run():
         for u in urls:
             diagnose(u, limit)
+        for u in parse_urls:
+            parse_check(u)
         log.info("DIAG done")
 
     threading.Thread(target=run, daemon=True, name="diag").start()
