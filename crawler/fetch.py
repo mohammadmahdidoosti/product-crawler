@@ -33,7 +33,9 @@ class Fetcher:
         self.retries = int(h.get("retries", 2))
         self.cache_days = float(h.get("cache_days", 14))
         self.respect_robots = bool(h.get("respect_robots", True))
-        self.cache_dir: Path = cfg["_data_dir"] / "cache"
+        # page cache: only for re-runs, so it may live outside the persistent disk (CACHE_DIR)
+        import os
+        self.cache_dir: Path = Path(os.environ["CACHE_DIR"]) if os.environ.get("CACHE_DIR") else cfg["_data_dir"] / "cache"
         self.s = requests.Session()
         self.s.headers.update({
             "User-Agent": h.get("user_agent", "CaravanSanatBot/0.1 (+https://caravansanat.com)"),
