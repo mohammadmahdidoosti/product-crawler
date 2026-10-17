@@ -341,7 +341,13 @@ SHOP_CODE = re.compile(r"\s*[-–—|]\s*(کد|code|شناسه)\s*[:#]?\s*[\d۰-
 def clean_name(name: str) -> str:
     """'محرک ... مدل ML7421B3003 &#8211; کد 2021' -> 'محرک ... مدل ML7421B3003' (the shop's own item code goes)."""
     import html as _html
-    return SHOP_CODE.sub("", _html.unescape(name or "")).strip()
+    name = SHOP_CODE.sub("", _html.unescape(name or "")).strip()
+    if "|" in name:            # 'X | کنترل با ما' or 'CODE |قیمت ارزان خرید ...': drop shop name and sales wording
+        parts = [p.strip() for p in name.split("|") if p.strip()]
+        keep = [p for p in parts if not re.search(r"قیمت|خرید|فروش|ارزان|فروشگاه", p)]
+        keep = keep[:1] if len(keep) > 1 and len(keep[0]) >= max(len(x) for x in keep) / 2 else keep
+        name = " ".join(keep) if keep else parts[0]
+    return re.sub(r"\s+", " ", name).strip()
 
 
 def finalize(rec: dict, text: str) -> None:

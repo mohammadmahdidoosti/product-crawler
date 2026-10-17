@@ -68,6 +68,7 @@ price:
   max_toman: 50000000000
   round_to_toman: 1000
   foreign_multiplier: 2            # Made-in-China price x this (shipping, customs, margin)
+  estimate_missing: true           # no price -> median of same brand / category (internal flag only)
   outlier_factor: 6                # price < median/6 or > median*6 in its category -> dropped
 
 llm:

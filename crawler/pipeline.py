@@ -340,6 +340,8 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     df = one_category_per_product(df)
     merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)))
     merged = drop_price_outliers(merged, float(cfg.get("price", {}).get("outlier_factor", 6)))
+    if cfg.get("price", {}).get("estimate_missing", True):
+        merged = estimate_missing_prices(merged)
     from .ranking import select_top
     sel = cfg.get("select", {})
     n_all = len(merged)
@@ -399,6 +401,41 @@ def drop_price_outliers(df: pd.DataFrame, factor: float = 6) -> pd.DataFrame:
         n += len(bad)
     if n:
         log.info("price outliers removed: %d (far from their category's median)", n)
+    return df
+
+
+def estimate_missing_prices(df: pd.DataFrame) -> pd.DataFrame:
+    """Products with no price get one from their neighbours, so every product shows a number:
+    1) median of the same brand in the same category (2+ prices),
+    2) median of the category from the same kind of source (3+ prices).
+    The method is kept in price_estimated (internal; nothing is shown on the site)."""
+    if df.empty:
+        return df
+    df = df.copy()
+    df["price_estimated"] = ""
+    p = pd.to_numeric(df["price_toman"], errors="coerce")
+    usd = pd.to_numeric(df.get("usd_rate_toman"), errors="coerce")
+    n = 0
+    for i in df.index[p.isna()]:
+        same_cat = (df["taxonomy_id"] == df.at[i, "taxonomy_id"]) & p.notna()
+        est, how = None, ""
+        brand = str(df.at[i, "brand"] or "")
+        if brand:
+            vals = p[same_cat & (df["brand"] == brand)]
+            if len(vals) >= 2:
+                est, how = vals.median(), f"median of {len(vals)} same-brand in category"
+        if est is None:
+            vals = p[same_cat & (df["source_type"] == df.at[i, "source_type"])]
+            if len(vals) >= 3:
+                est, how = vals.median(), f"median of {len(vals)} in category"
+        if est is not None:
+            df.at[i, "price_toman"] = str(round(est))
+            if pd.notna(usd.get(i)) and usd[i]:
+                df.at[i, "price_usd"] = str(round(est / usd[i], 2))
+            df.at[i, "price_estimated"] = how
+            n += 1
+    if n:
+        log.info("prices estimated for %d products without one (see price_estimated)", n)
     return df
 
 
@@ -485,6 +522,7 @@ def step_export(cfg: dict, run: str) -> list[Path]:
             "Meta: _caravan_price_usd": r.get("price_usd", ""),
             "Meta: _caravan_taxonomy_id": r.get("taxonomy_id", ""),
             "Meta: _caravan_source_name": r.get("source_name", ""),
+            "Meta: _caravan_price_estimated": r.get("price_estimated", ""),
         })
     out.append(write_csv(pd.DataFrame(rows), d / FILES["woo"]))
     upd = read_csv(d / FILES["updates"]) if (d / FILES["updates"]).exists() else pd.DataFrame()

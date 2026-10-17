@@ -20,7 +20,7 @@ from .config import ROOT
 from .normalize import norm_text
 
 FA = re.compile(r"[؀-ۿ]")
-CODE = re.compile(r"^[A-Za-z]{0,4}[\s\-]?\d[\w\s.,/~\-+°%()*:x×]*$|^[A-Z0-9][A-Z0-9\-/+.]{1,14}$")
+CODE = re.compile(r"^[A-Z0-9][A-Z0-9\-/+.]{1,14}$")
 TITLE_KEYS = [  # spec keys worth putting in the name, in order
     ("ولتاژ", ("Power Supply", "Voltage", "Rated Voltage", "Operating Voltage", "Input Voltage")),
     ("توان", ("Power", "Rated Power", "Output Power", "Motor Power")),
@@ -32,7 +32,8 @@ TITLE_KEYS = [  # spec keys worth putting in the name, in order
 UNITS = {"piece": "عدد", "set": "دستگاه", "unit": "عدد", "pair": "جفت", "meter": "متر", "ton": "تن", "kg": "کیلوگرم",
          "roll": "رول", "boxe": "جعبه", "box": "جعبه"}
 SKIP_KEYS = {"customization", "after-sales service", "warranty", "package size", "package gross weight",
-             "transport package", "hs code", "production capacity", "trademark", "specification"}
+             "transport package", "hs code", "production capacity", "trademark", "specification",
+             "delivery time", "customized support", "customize", "description", "item", "ce", "iso5211", "warranty time", "warranty period", "oem", "odm", "sample", "payment", "payment terms", "packing", "port of loading", "lead time", "supply ability"}
 
 
 def is_foreign(name: str) -> bool:
@@ -58,6 +59,8 @@ def tr_value(v: str) -> tuple[str, bool]:
     d = _dict("values_fa.csv")
     if v.lower() in d:
         return d[v.lower()], True
+    if _numeric(v):
+        return v, True
     m = re.match(r"^([\d,.]+)\s*(Pieces?|Pcs|Sets?|Units?|Pairs?|Meters?|Tons?|Kg|Rolls?|Boxes?)$", v, re.I)
     if m:
         return f"{m.group(1)} {UNITS[m.group(2).lower().rstrip('s') if m.group(2).lower() != 'pcs' else 'piece']}", True
@@ -71,8 +74,16 @@ def tr_value(v: str) -> tuple[str, bool]:
         a, ok_a = tr_value(m.group(1))
         b, ok_b = tr_value(m.group(2))
         return f"{a} ({b})", ok_a and ok_b
-    if CODE.match(v) or FA.search(v) or (" " not in v and sum(c.isupper() for c in v) >= 2):
+    if CODE.match(v) or FA.search(v) or (" " not in v and sum(c.isupper() for c in v) >= 2) or _numeric(v):
         return v, True
+    v2 = _phrases(v)                                           # known multi-word phrases first
+    if v2 != v:
+        toks = re.findall(r"[\u0600-\u06FF\u200c]+(?:\s+[\u0600-\u06FF\u200c]+)*|\S+", v2)
+        out = [t if FA.search(t) else tr_word(t) for t in toks]
+        if all(out):
+            if len(out) > 1 and not FA.search(toks[-1]) and out[-1] not in ADJ_AFTER:
+                out = [out[-1]] + out[:-1]                     # 'Stainless Steel Body' -> 'بدنه استنلس استیل'
+            return " ".join(out), True
     words = v.split()
     if 1 < len(words) <= 5:                                    # word by word, only if every word is known
         tw = [tr_word(w) for w in words]
@@ -107,6 +118,18 @@ ADJ_AFTER = {"برقی", "پنوماتیک", "هیدرولیک", "دستی", "ا
              "مشکی", "سفید", "آبی", "قرمز", "نقره‌ای", "خاکستری", "زرد", "سبز", "تدریجی", "تنظیمی", "عمودی",
              "افقی", "کوچک", "بزرگ", "کامپکت", "پرتابل", "دیجیتال", "آنالوگ", "معمولی", "بالا", "پایین", "متوسط",
              "کربنی", "ریختگی", "داکتیل", "عمومی"}
+
+
+def _numeric(v: str) -> bool:
+    """'-20℃~60℃', '≤50db', '12-120mm/S', '2"~8"': numbers with a few unit letters read fine as they are."""
+    return bool(re.search(r"\d", v)) and len(re.findall(r"[A-Za-z]", v)) <= 6 and " " not in v.strip()
+
+
+def _phrases(v: str) -> str:
+    d = _dict("values_fa.csv")
+    for en in sorted((k for k in d if " " in k), key=len, reverse=True):
+        v = re.sub(rf"(?<![A-Za-z]){re.escape(en)}(?![A-Za-z])", d[en], v, flags=re.I)
+    return v
 
 
 def tr_word(w: str) -> str | None:
@@ -176,6 +199,18 @@ def title_features(title: str, have: str, n: int = 2) -> list[str]:
     return out
 
 
+def clean_model(model: str) -> str:
+    """Only a real model code goes into a name ('HY-DN15'), not 'BYS-Z series Multi-turn Electric Actuator'."""
+    m = (model or "").strip()
+    if not m:
+        return ""
+    toks = m.split()
+    if len(toks) > 2 or len(m) > 22:
+        first = toks[0]
+        return first if re.search(r"\d", first) and len(first) <= 22 else ""
+    return m if re.search(r"\d", m) or m.isupper() else ""
+
+
 def persian_name(leaf: str, model: str, specs: dict, title: str = "") -> str:
     bits = []
     for _, keys in TITLE_KEYS:
@@ -194,6 +229,7 @@ def persian_name(leaf: str, model: str, specs: dict, title: str = "") -> str:
     feats = title_features(title, have, 2 if model else 3)
     bits = [b for b in bits if not (("ولت" in " ".join(feats)) and re.search(r"\d\s?V", b))]
     name = leaf.strip() + (" " + " ".join(feats) if feats else "")
+    model = clean_model(model)
     if model:
         name += f" مدل {model}"
     return name + (f"، {'، '.join(bits)}" if bits else "")

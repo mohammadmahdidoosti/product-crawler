@@ -70,8 +70,10 @@ def judge_en(english: str, group_en: str, product: dict) -> dict:
     if neg:
         return {"relevant": False, "confidence": 0.8, "reason": f"«{neg}» در نام هست (قطعه/غیرمرتبط)"}
     core = [w for w in _en_words(group_en or english) if w not in EN_ADJ] or _en_words(group_en or english)
-    if core and not (set(core) & name_words):
-        return {"relevant": False, "confidence": 0.7, "reason": "واژه‌ی اصلی دسته در نام نیست: " + "، ".join(core)}
+    need = min(2, len(set(core)))                            # 'Car Jack with safety Valve' shares only 'valve'
+    if core and len(set(core) & name_words) < need:
+        return {"relevant": False, "confidence": 0.7,
+                "reason": f"کمتر از {need} واژه‌ی اصلی دسته در نام هست: " + "، ".join(core)}
     want = [w for w in _en_words(english) if w not in {_stem(x) for x in EN_ADJ if x in ("for", "and", "with")}]
     share = sum(w in name_words for w in want) / len(want) if want else 1.0
     return {"relevant": True, "confidence": round(0.5 + 0.5 * share, 2),
@@ -97,7 +99,8 @@ def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en
     name_words = set(name.split())
     cat = norm_text(breadcrumb)
     heads = head_words(breadcrumb, leaf)
-    neg = next((n for n in NEGATIVE if f" {n} " in f" {name} " and n not in cat), None)
+    only_name = norm_text(product.get("name", ""))           # negative words count in the name only, not the description
+    neg = next((n for n in NEGATIVE if f" {n} " in f" {only_name} " and n not in cat), None)
     if neg:
         return {"relevant": False, "confidence": 0.8, "reason": f"کلمه‌ی «{neg}» در نام هست (قطعه/خدمت/غیرمرتبط)"}
     if heads and not (heads & name_words):

@@ -46,18 +46,25 @@ def _hit(row: dict, src: dict, url: str, title: str, found_by: str, prefilled: d
 def search_store_api(f: Fetcher, src: dict, row: dict, n: int) -> list[dict]:
     """Woo search matches the whole phrase, so a long category name often finds
     nothing; then the last word is dropped and it tries again (down to 2 words)."""
+    from .routing import find_brand
     base = _base(src)
     words = row["query"].split()
+    b = find_brand(row["query"])
+    if b:   # a brand category: every try keeps the brand ('اکچویتور برقی روتورک' -> 'روتورک اکچویتور' -> 'روتورک')
+        bw = [w for w in words if norm_text(w) in norm_text(b[0]).split()] or [b[0]]
+        rest = [w for w in words if w not in bw]
+        tries = [words, bw + rest[:1], bw]
+    else:
+        tries = [words[:k] for k in range(len(words), 1, -1)] or [words]
     items: list = []
-    while words:
+    for t in tries:
         res = f.get(f"{base}/wp-json/wc/store/v1/products",
-                    params={"search": " ".join(words), "per_page": n}, as_json=True)
+                    params={"search": " ".join(t), "per_page": n}, as_json=True)
         if not res or res.get("status") != 200 or not isinstance(res.get("json"), list):
             return []
         items = res["json"]
-        if items or len(words) <= 2:
+        if items:
             break
-        words = words[:-1]
     out = []
     for item in items[:n]:
         url, title = item.get("permalink", ""), item.get("name", "")
