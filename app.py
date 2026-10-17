@@ -150,6 +150,15 @@ class Job:
             steps = STEPS if step == "all" else [step]
             if step == "all" and opts.get("keep_queue"):
                 steps = [x for x in STEPS if x != "queue"]
+            if step == "all" and opts.get("from_step") in STEPS:
+                # re-run from a step: its outputs and the later ones are cleared, earlier ones kept
+                steps = STEPS[STEPS.index(opts["from_step"]):]
+                prefixes = {"queue": "01_", "search": "02_", "crawl": "03_", "filter": "04_", "dedupe": "05_", "export": "06_"}
+                d = run_path(run)
+                for st in steps:
+                    for f in d.glob(prefixes[st] + "*.csv"):
+                        f.unlink()
+                self.logs.append(f"re-run from «{opts['from_step']}»: earlier files kept")
             for st in steps:
                 if P.STOP.is_set():
                     break
