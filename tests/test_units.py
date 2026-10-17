@@ -137,3 +137,16 @@ class OpenAICompatible(unittest.TestCase):
         self.assertTrue(v[0]["relevant"])
         self.assertEqual(v[0]["brand"], "یولیکو")
         self.assertEqual(llm.usage["input_tokens"], 100)
+
+
+class Routing(unittest.TestCase):
+    def test_rules(self):
+        from crawler.routing import rule_route
+        self.assertEqual(rule_route("گرمایش، سرمایش و تهویه > پکیج > پکیج ایران رادیاتور")["brand"], "ایران رادیاتور")
+        r = rule_route("شیرآلات > اکچویتور برقی و محرک شیر > اکچویتور برقی تدریجی")
+        self.assertEqual(r["decision"], "probe")
+        self.assertEqual(rule_route("تجهیزات تابلو برق و برق صنعتی > کنتاکتور > کنتاکتور اشنایدر")["brand_origin"], "foreign")
+        self.assertEqual(rule_route("بذر > بذر ریحان > بذر سبزی ریحان")["decision"], "iran")
+        # the top-level title is not a brand, and "قطعات" in it is not a spare part
+        self.assertEqual(rule_route("مصالح و شیمی ساختمان > چسب کاشی")["kind"], "local_category")
+        self.assertEqual(rule_route("قطعات مکانیکی و انتقال قدرت > بلبرینگ")["decision"], "probe")
