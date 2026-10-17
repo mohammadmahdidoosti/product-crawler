@@ -22,6 +22,13 @@ routes:
     "کود و نهاده‌های کشاورزی و دامی": iran
   by_id: {}
 
+routing:
+  iran_min_priced: 3               # >= this many Iranian shops with a price -> Iranian sources
+  foreign_max_shops: 1             # <= this many Iranian shops -> Made-in-China
+  probe_rule_groups: true          # also search branded groups, to discover shops
+  discovered_per_group: 5          # shops from a group's search used as crawl sources
+  batch_size: 100
+
 search:
   max_hits_per_source: 8
   use_web_search: false            # true = also search the whole web (needs SERPER_API_KEY)

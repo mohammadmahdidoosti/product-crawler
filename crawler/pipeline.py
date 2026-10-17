@@ -84,7 +84,15 @@ def step_search(cfg: dict, run: str) -> Path:
     queue = read_csv(d / FILES["queue"]).to_dict("records")
     out = d / FILES["hits"]
     done = done_values(out, "taxonomy_id") | done_values(d / "02_no_hits.csv", "taxonomy_id")
-    en = _english_queries(cfg, queue)
+    en = {} if all(r.get("english") for r in queue if r.get("route") in ("foreign", "both")) \
+        else _english_queries(cfg, queue)
+    from .probe import load_probes
+    from .routing_state import english_for, group_of, load_glossary
+    probes = load_probes(cfg)
+    gl = load_glossary()
+    for r in queue:           # English term for Made-in-China from the glossary when missing
+        if not r.get("english"):
+            r["english"] = english_for(r.get("group") or group_of(r["breadcrumb"]), gl)
     f = _fetchers(cfg)
     n_hits = 0
     with Appender(out, HITS_COLS) as w, Appender(d / "02_no_hits.csv", ["taxonomy_id", "query", "route"]) as miss:
@@ -93,7 +101,7 @@ def step_search(cfg: dict, run: str) -> Path:
                 break
             if row["taxonomy_id"] in done:
                 continue
-            hits = search_row(cfg, f, row, en.get(row["query"]))
+            hits = search_row(cfg, f, row, en.get(row["query"]), probes)
             for h in hits:
                 w.write(h)
             if not hits:

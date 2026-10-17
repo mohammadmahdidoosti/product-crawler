@@ -136,6 +136,13 @@ tr:hover td{background:#fbf8f1}
 .kv{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:13px;margin:0}
 .kv dt{color:var(--muted);white-space:nowrap}.kv dd{margin:0}
 .empty{padding:28px;text-align:center;color:var(--muted);white-space:normal}
+.badge{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:600;white-space:nowrap}
+.b-iran{background:#e6f1ea;color:#24694a}.b-foreign{background:#e8eef8;color:#2c5191}.b-both{background:#f3ecdf;color:#7a5a1f}
+.b-probe{background:#eef0f3;color:#6b7684}.b-skip{background:#f7e4e2;color:var(--bad)}
+tr.wrong td{background:#fdf3f2}
+.batchchip.done{border-color:#bcdcc9;background:#f2f8f4}.batchchip.queued{border-color:#d8c49d;background:var(--sand-2)}
+.ev a{color:var(--gold-d);margin-left:6px}
+td select,td input{padding:3px 6px;font-size:12.5px}
 .toast{position:fixed;bottom:22px;left:22px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;max-width:440px;z-index:9}
 .toast.show{opacity:1;transform:none}
 .toast.err{background:var(--bad)}
@@ -164,6 +171,7 @@ tr:hover td{background:#fbf8f1}
   </div>
   <nav class="nav" id="nav">
     <button data-tab="run" class="on"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="12" r="2.5"/><path d="M7.5 12h9"/></svg>مسیر اجرا</button>
+    <button data-tab="routing"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h7l3 6-3 6H4"/><path d="M14 12h6"/></svg>مسیریابی</button>
     <button data-tab="results"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg>نتایج</button>
     <button data-tab="sellers"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l2-6h12l2 6M4 10h16v10H4zM9 20v-5h6v5"/></svg>تأمین‌کننده‌ها</button>
     <button data-tab="sources"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>سایت‌های منبع</button>
@@ -218,6 +226,37 @@ tr:hover td{background:#fbf8f1}
       <div class="bar"><i id="barFill"></i></div>
       <div class="muted" id="barText" style="font-size:12.5px"></div>
       <details class="logwrap" id="logwrap"><summary>گزارش کامل</summary><pre class="log" id="logBox">—</pre></details>
+    </div>
+  </section>
+
+  <!-- ===================== ROUTING ===================== -->
+  <section class="page" id="page-routing">
+    <div class="ph">
+      <div class="grow"><h1>مسیریابی</h1><p>برای هر دسته تصمیم گرفته می‌شود از کجا محصول پیدا شود: منبع ایرانی، Made-in-China یا هر دو. کار ۱۰۰ تا ۱۰۰ تا جلو می‌رود؛ شما فقط ردیف‌های غلط را علامت می‌زنید.</p></div>
+      <div class="muted" id="rtUsage" style="font-size:13px"></div>
+    </div>
+    <div class="card">
+      <h2>جدول مسیریابی</h2>
+      <div class="row">
+        <div class="field" style="flex:0 0 220px"><label>حالت</label>
+          <select id="rtMode"><option value="gap">دسته‌های بی‌محصول روی سایت</option><option value="enrich">دسته‌های دارای محصول</option><option value="all">همه</option></select></div>
+        <div class="field"><label>دسته‌ی اصلی</label><select id="rtL1"><option value="">همه</option></select></div>
+        <div class="field"><label>مسیر شامل</label><input id="rtPath" placeholder="اختیاری"></div>
+        <button class="btn ghost" id="rtBuild">ساختن جدول</button>
+      </div>
+      <div class="summary" id="rtSummary"></div>
+    </div>
+    <div class="card">
+      <div class="row" style="align-items:center;margin-bottom:10px">
+        <h2 style="margin:0;flex:1">دسته‌ی <span id="rtBatchNo">—</span> <small id="rtBatchInfo"></small></h2>
+        <button class="btn ghost" id="rtProbe">سنجش بازار این دسته</button>
+        <button class="btn ink" id="rtReview">ثبت بررسی</button>
+        <button class="btn" id="rtQueue">کراول ردیف‌های تأییدشده</button>
+      </div>
+      <div class="chips" id="rtBatches" style="margin-bottom:12px"></div>
+      <p class="muted" style="font-size:12.5px;margin:0 0 10px">ردیف‌ها به‌طور پیش‌فرض درست حساب می‌شوند. اگر تصمیمی غلط است، «غلط» را بزنید و مسیر درست را انتخاب کنید. «رد» یعنی این دسته کراول نشود.</p>
+      <div class="tablewrap" style="max-height:640px"><table id="rtTable"></table></div>
+      <div class="row" style="margin-top:10px"><a class="btn ghost sm" id="rtCsv">دانلود این دسته</a><span class="muted" id="rtMsg" style="font-size:13px"></span></div>
     </div>
   </section>
 
@@ -395,7 +434,7 @@ const STEPS = [
     opt:['skip_filter','از خروجی کراول استفاده کن (بدون فیلتر)']},
   {k:'export', t:'خروجی',   f:'06_woo_import.csv',   d:'فایل ایمپورت ووکامرس برای محصولات تازه (پیش‌نویس) و فایل به‌روزرسانی قیمت محصولات موجود.'},
 ];
-const STEP_FA = Object.fromEntries(STEPS.map(s=>[s.k,s.t])); STEP_FA.all='همه‌ی مرحله‌ها';
+const STEP_FA = Object.fromEntries(STEPS.map(s=>[s.k,s.t])); STEP_FA.all='همه‌ی مرحله‌ها'; STEP_FA.probe='سنجش بازار';
 const FILES = [
   ['صف',['01_queue.csv']], ['جستجو',['02_search_hits.csv','02_no_hits.csv']], ['کراول',['03_crawled.csv','03_failed.csv']],
   ['فیلتر',['04_filtered.csv','04_rejected.csv']], ['ادغام',['05_new_products.csv','05_updates_existing.csv','05_review.csv']],
@@ -436,6 +475,7 @@ $('#nav').addEventListener('click', e=>{
   document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on', x.id==='page-'+b.dataset.tab));
   if(b.dataset.tab==='results') loadResults();
   if(b.dataset.tab==='sellers') loadSellers();
+  if(b.dataset.tab==='routing') loadRouting();
   if(b.dataset.tab==='sources') loadSources();
 });
 document.addEventListener('click', e=>{ const a=e.target.closest('[data-go]'); if(a){ e.preventDefault(); go(a.dataset.go); } });
@@ -594,6 +634,81 @@ async function poll(force){
   }catch(e){ pollTimer=setTimeout(poll, 5000); }
 }
 $('#stopBtn').onclick = ()=>post('/api/job/stop').then(()=>toast('توقف بعد از ردیف فعلی انجام می‌شود.'));
+
+// ---------------- routing
+const ROUTE_LBL = {iran:'ایرانی', foreign:'Made-in-China', both:'هر دو', probe:'در انتظار سنجش', skip:'رد'};
+let RT = {batch:1, summary:null, rows:[], marks:{}};
+const badge = d => `<span class="badge b-${d}">${ROUTE_LBL[d]||d}</span>`;
+async function loadRouting(){
+  const r = await api('/api/routing'); RT.summary = r;
+  $('#rtUsage').innerHTML = r.serper_key ? `جستجوی مصرف‌شده: <b>${fa(r.serper_used)}</b> از ۲٬۵۰۰ رایگان` : '<span class="warn">کلید Serper روی سرور تنظیم نشده</span>';
+  if(STATE && STATE.taxonomy){ const cur=$('#rtL1').value; $('#rtL1').innerHTML='<option value="">همه</option>'+STATE.taxonomy.level1.map(x=>`<option ${x===cur?'selected':''}>${esc(x)}</option>`).join(''); }
+  if(!r.rows){ $('#rtSummary').innerHTML='<span>جدول هنوز ساخته نشده. محدوده را انتخاب کنید و «ساختن جدول» را بزنید.</span>'; $('#rtBatches').innerHTML=''; $('#rtTable').innerHTML=''; return; }
+  const d=r.by_decision||{};
+  $('#rtSummary').innerHTML = `<span><b>${fa(r.rows)}</b> دسته در <b>${fa(r.batches.length)}</b> دسته‌ی ۱۰۰تایی، <b>${fa(r.groups)}</b> گروه</span>` +
+    Object.entries(d).map(([k,v])=>`<span>${badge(k)} ${fa(v)}</span>`).join('');
+  $('#rtBatches').innerHTML = r.batches.map(b=>`<button class="chip batchchip ${b.queued?'queued':b.reviewed?'done':''} ${b.batch===RT.batch?'on':''}" data-b="${b.batch}">${fa(b.batch)}${b.reviewed?' ✓':''}${b.open?`<small>${fa(b.open)} باز</small>`:''}</button>`).join('');
+  await loadBatch();
+}
+async function loadBatch(){
+  const r = await api('/api/routing/batch/'+RT.batch); RT.rows = r.rows; RT.marks = {};
+  r.rows.forEach(x=>{ if(x.review==='wrong') RT.marks[x.taxonomy_id]={route:x.final_route, note:x.note}; });
+  const b = (RT.summary.batches||[]).find(x=>x.batch===RT.batch)||{};
+  $('#rtBatchNo').textContent = fa(RT.batch);
+  $('#rtBatchInfo').textContent = `${fa(r.rows.length)} ردیف` + (b.open?` · ${fa(b.open)} در انتظار سنجش`:'') + (b.reviewed?` · بررسی شده، ${fa(b.wrong)} خطا`:'') + (b.queued?' · کراول شده':'');
+  $('#rtCsv').href = `/api/routing/batch/${RT.batch}?format=csv`;
+  renderBatch();
+}
+function renderBatch(){
+  let lastG='';
+  $('#rtTable').innerHTML = '<tr><th>غلط؟</th><th>دسته</th><th>تصمیم</th><th>دلیل</th><th>شواهد</th><th>عبارت انگلیسی</th><th>مسیر درست</th><th>یادداشت</th></tr>' +
+    RT.rows.map(x=>{
+      const m = RT.marks[x.taxonomy_id], leaf = x.breadcrumb.split(' > ').slice(-1)[0];
+      const g = x.group!==lastG ? `<div class="muted" style="font-size:11.5px">${esc(x.group.split(' > ').slice(-2).join(' › '))}</div>` : ''; lastG = x.group;
+      const ev = (x.evidence||[]).map(e=>`<a href="${esc(e.url)}" target="_blank" rel="noopener" title="${esc(e.title)}">${esc(e.domain)}${e.priced?' ✓':''}</a>`).join('');
+      return `<tr class="${m?'wrong':''}" data-id="${x.taxonomy_id}">
+        <td><input type="checkbox" class="rtW" ${m?'checked':''}></td>
+        <td class="wrap" style="min-width:180px">${g}${esc(leaf)}</td>
+        <td>${badge(x.decision)}</td>
+        <td class="wrap" style="min-width:220px;font-size:12.5px">${esc(x.reason)}</td>
+        <td class="wrap ev" style="min-width:160px;font-size:12px">${x.shops!==''?`${fa(x.shops)} فروشگاه، ${fa(x.priced)} قیمت‌دار<br>`:''}${ev}</td>
+        <td class="ltr" style="font-size:12px">${esc(x.english)}</td>
+        <td><select class="rtR" ${m?'':'disabled'}>${['iran','foreign','both','skip'].map(k=>`<option value="${k}" ${((m?m.route:(x.final_route||x.decision))===k)?'selected':''}>${ROUTE_LBL[k]}</option>`).join('')}</select></td>
+        <td><input class="rtN" value="${esc(m?m.note:'')}" ${m?'':'disabled'} style="min-width:140px"></td></tr>`;
+    }).join('');
+}
+$('#rtTable').addEventListener('change', e=>{
+  const tr=e.target.closest('tr[data-id]'); if(!tr) return; const id=tr.dataset.id;
+  if(e.target.classList.contains('rtW')){
+    if(e.target.checked){ const x=RT.rows.find(r=>r.taxonomy_id===id); const alt = x.decision==='iran'?'foreign':'iran'; RT.marks[id]={route:alt,note:''}; }
+    else delete RT.marks[id];
+    renderBatch(); return;
+  }
+  if(RT.marks[id]){ RT.marks[id].route = tr.querySelector('.rtR').value; RT.marks[id].note = tr.querySelector('.rtN').value; }
+});
+$('#rtTable').addEventListener('input', e=>{ const tr=e.target.closest('tr[data-id]'); if(tr && RT.marks[tr.dataset.id] && e.target.classList.contains('rtN')) RT.marks[tr.dataset.id].note=e.target.value; });
+$('#rtBatches').addEventListener('click', e=>{ const c=e.target.closest('[data-b]'); if(!c) return; RT.batch=+c.dataset.b; loadRouting(); });
+$('#rtBuild').onclick = async ()=>{
+  try{ await post('/api/routing/build',{mode:$('#rtMode').value, level1:$('#rtL1').value, path:$('#rtPath').value.trim()}); RT.batch=1; toast('جدول مسیریابی ساخته شد'); loadRouting(); }
+  catch(err){ toast(err.message,true); }
+};
+$('#rtProbe').onclick = async ()=>{
+  try{ await post('/api/routing/probe/'+RT.batch); toast('سنجش بازار شروع شد'); waitJob(loadRouting); }catch(err){ toast(err.message,true); }
+};
+$('#rtReview').onclick = async ()=>{
+  const open = RT.rows.filter(x=>x.decision==='probe').length;
+  if(open && !confirm(`${fa(open)} ردیف هنوز سنجش نشده‌اند و «ایرانی» ثبت می‌شوند. ادامه؟`)) return;
+  const rows = Object.entries(RT.marks).map(([id,m])=>({taxonomy_id:id, review:'wrong', final_route:m.route, note:m.note}));
+  try{ const r=await post('/api/routing/review/'+RT.batch,{rows}); $('#rtMsg').textContent=`ثبت شد: ${fa(r.wrong)} خطا از ${fa(r.rows)} (${fa(Math.round(r.error_rate*100))}٪)`; loadRouting(); }
+  catch(err){ toast(err.message,true); }
+};
+$('#rtQueue').onclick = async ()=>{
+  try{ const r=await post('/api/routing/queue/'+RT.batch,{start:true}); CUR_RUN=r.run; toast(`اجرای «${r.run}» با ${fa(r.rows)} دسته شروع شد`); await loadState(); go('run'); poll(true); }
+  catch(err){ toast(err.message,true); }
+};
+function waitJob(after){
+  const t=setInterval(async ()=>{ const j=await api('/api/job'); renderJob(j); if(!j.running){ clearInterval(t); after&&after(); if(j.ok===false) toast(j.error||'خطا',true); } }, 2000);
+}
 
 // ---------------- results
 function cell(col, v){

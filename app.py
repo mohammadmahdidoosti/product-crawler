@@ -133,6 +133,12 @@ class Job:
             P.step_dedupe(cfg, run, None, skip_filter=bool(opts.get("skip_filter")))
         elif step == "export":
             P.step_export(cfg, run)
+        elif step == "probe":
+            from crawler import routing_state as RS
+            res = RS.probe_batch(cfg, int(opts["batch"]),
+                                 progress=lambda d, t: P.PROGRESS.update(step="probe", done=d, total=t),
+                                 stop=P.STOP.is_set)
+            log.info("probe batch %s: %s", opts["batch"], res)
         if not P.STOP.is_set() and P.PROGRESS.get("total"):
             P.PROGRESS["done"] = P.PROGRESS["total"]
 
@@ -140,14 +146,18 @@ class Job:
         try:
             cfg = build_cfg()
             # "all" runs every step in order and stops at the first failure or a stop request
-            for st in (STEPS if step == "all" else [step]):
+            steps = STEPS if step == "all" else [step]
+            if step == "all" and opts.get("keep_queue"):
+                steps = [x for x in STEPS if x != "queue"]
+            for st in steps:
                 if P.STOP.is_set():
                     break
                 if step == "all":
                     self.logs.append(f"—— {st} ——")
                 self._one(cfg, st, run, opts)
-            for line in P.stats(cfg, run).splitlines():
-                self.logs.append(line)
+            if step != "probe":
+                for line in P.stats(cfg, run).splitlines():
+                    self.logs.append(line)
             self.state["ok"] = not P.STOP.is_set()
         except Exception as e:
             self.state["ok"] = False
@@ -363,6 +373,42 @@ def read_any_table(data: bytes, filename: str = "") -> tuple[pd.DataFrame, str]:
     raise ValueError(f"encoding not recognised ({last}); save the file from Excel as 'CSV UTF-8'")
 
 
+PEEK_DOMAINS = ("made-in-china.com",)
+
+
+def peek(url: str) -> dict:
+    """Developer aid: fetch one page through the server and summarise its structure.
+    Limited to Made-in-China and the configured or discovered source domains."""
+    from crawler.extract import extract_page
+    from crawler.fetch import domain_of
+    cfg = build_cfg()
+    dom = domain_of(url)
+    allowed = set(PEEK_DOMAINS) | {s["domain"] for s in (cfg["sources"].get("iran_sites") or [])}
+    disc = DATA_DIR / "discovered.csv"
+    if disc.exists():
+        allowed |= set(pd.read_csv(disc, encoding=ENCODING, dtype=str)["domain"])
+    if not any(dom == d or dom.endswith("." + d) for d in allowed):
+        return {"error": f"domain {dom} not allowed for peek"}
+    f = Fetcher(cfg, "foreign")
+    r = f.get(url, use_cache=False)
+    if not r or r.get("status") != 200:
+        return {"status": r.get("status") if r else None}
+    html = r["text"]
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html, "lxml")
+    links = []
+    for a in soup.find_all("a", href=True)[:4000]:
+        h = a["href"]
+        if "/product" in h or "/prod/" in h:
+            links.append([h[:200], (a.get("title") or a.get_text(" ", strip=True))[:80]])
+    rec = extract_page(html)
+    if rec:
+        rec.pop("page_text", None)
+    return {"status": 200, "length": len(html), "title": soup.title.get_text()[:150] if soup.title else "",
+            "jsonld": html.count("application/ld+json"), "product_links": links[:40],
+            "extracted": rec, "head": html[:3000]}
+
+
 def backup_zip() -> bytes:
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
@@ -370,7 +416,8 @@ def backup_zip() -> bytes:
             p = paths()[k]
             if p.exists():
                 z.write(p, p.name)
-        for f in ("fx_rates.csv", "translations.csv"):
+        for f in ("fx_rates.csv", "translations.csv", "routing.csv", "probes.csv", "discovered.csv",
+                  "serper_usage.csv"):
             if (DATA_DIR / f).exists():
                 z.write(DATA_DIR / f, f)
         runs = DATA_DIR / "runs"
@@ -387,7 +434,8 @@ def restore_zip(data: bytes) -> list[str]:
             if n.endswith("/") or ".." in n or n.startswith("/"):
                 continue
             ok = n in ("taxonomy.csv", "sources.yaml", "settings.json", "site_export.csv",
-                       "fx_rates.csv", "translations.csv") or re.match(r"^runs/[\w\-]+/[\w\-.]+\.csv$", n)
+                       "fx_rates.csv", "translations.csv", "routing.csv", "probes.csv", "discovered.csv",
+                       "serper_usage.csv") or re.match(r"^runs/[\w\-]+/[\w\-.]+\.csv$", n)
             if not ok:
                 continue
             dest = DATA_DIR / n
@@ -475,6 +523,27 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "sources"]:
                 txt = sources_text()
                 return self._json({"yaml": txt, "data": yaml.safe_load(txt) or {}})
+            if parts[:2] == ["api", "routing"]:
+                from crawler import routing_state as RS
+                from crawler.probe import total_usage
+                cfg = build_cfg()
+                if len(parts) == 2:
+                    return self._json({**RS.summary(cfg), "serper_used": total_usage(cfg),
+                                       "serper_key": bool(os.environ.get("SERPER_API_KEY"))})
+                if parts[2] == "batch" and len(parts) == 4:
+                    rows = RS.batch_rows(cfg, int(parts[3]))
+                    if q.get("format") == "csv":
+                        buf = io.StringIO()
+                        rows.to_csv(buf, index=False)
+                        return self._download(("\ufeff" + buf.getvalue()).encode("utf-8"),
+                                              f"routing-batch-{parts[3]}.csv", "text/csv; charset=utf-8")
+                    from crawler.probe import load_probes
+                    pr = load_probes(cfg)
+                    out = rows.to_dict("records")
+                    for r in out:
+                        p_ = pr.get(r["group"])
+                        r["evidence"] = json.loads(p_["domains_json"])[:5] if p_ else []
+                    return self._json({"rows": out})
             if parts[:2] == ["api", "backup"]:
                 return self._download(backup_zip(), f"caravan-backup-{time.strftime('%Y%m%d-%H%M')}.zip",
                                       "application/zip")
@@ -563,6 +632,34 @@ class Handler(BaseHTTPRequestHandler):
                     return self._err(f"YAML نامعتبر: {e}")
                 paths()["sources"].write_text(txt, encoding="utf-8")
                 return self._json({"ok": True, "yaml": txt, "data": data, "sites": len(data.get("iran_sites") or [])})
+            if parts[:2] == ["api", "routing"] and len(parts) >= 3:
+                from crawler import routing_state as RS
+                cfg = build_cfg()
+                body = self._jbody()
+                if parts[2] == "build":
+                    if taxonomy_df() is None:
+                        return self._err("اول فایل تاکسونومی را بارگذاری کنید.")
+                    return self._json(RS.build(cfg, mode=body.get("mode", "gap"), level1=body.get("level1") or None,
+                                               path_contains=body.get("path") or None,
+                                               include_flagged=bool(body.get("include_flagged")),
+                                               batch_size=int(cfg.get("routing", {}).get("batch_size", 100))))
+                if parts[2] == "probe" and len(parts) == 4:
+                    if not os.environ.get("SERPER_API_KEY"):
+                        return self._err("کلید SERPER_API_KEY روی سرور تنظیم نشده")
+                    err = JOB.start("probe", f"routing", {"batch": int(parts[3])})
+                    return self._err(err, 409) if err else self._json({"ok": True})
+                if parts[2] == "review" and len(parts) == 4:
+                    return self._json(RS.review_batch(cfg, int(parts[3]), body.get("rows") or []))
+                if parts[2] == "queue" and len(parts) == 4:
+                    run = f"batch-{int(parts[3])}"
+                    res = RS.make_queue(cfg, int(parts[3]), run)
+                    if body.get("start"):
+                        err = JOB.start("all", run, {"keep_queue": True})
+                        res["started"] = not err
+                    return self._json(res)
+                return self._err("not found", 404)
+            if parts[:2] == ["api", "debug"] and parts[2:3] == ["peek"]:
+                return self._json(peek(self._jbody().get("url", "")))
             if parts[:2] == ["api", "settings"]:
                 body = self._jbody()
                 cur = read_settings()
@@ -626,7 +723,7 @@ class Handler(BaseHTTPRequestHandler):
             "site_export": {"rows": file_rows(site)} if site.exists() else None,
             "sources": {"iran_sites": len(src.get("iran_sites") or []),
                         "foreign_sites": len(src.get("foreign_sites") or [])},
-            "keys": {k: bool(os.environ.get(k)) for k in ("LLM_API_KEY", "SERPER_API_KEY", "FX_API_KEY")},
+            "keys": {k: bool(os.environ.get(k)) for k in ("SERPER_API_KEY", "LLM_API_KEY", "FX_API_KEY")},
             "settings": {
                 "fx": {k: cfg["fx"].get(k) for k in ("provider", "manual_rate_toman", "rate_type", "url", "json_path", "unit")},
                 "search": {"use_web_search": cfg["search"].get("use_web_search", False),

@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from urllib.parse import quote_plus, urljoin
 
 from bs4 import BeautifulSoup
@@ -128,7 +129,96 @@ def sources_for(cfg: dict, row: dict) -> list[dict]:
     return out
 
 
-def search_row(cfg: dict, fetchers: dict[str, Fetcher], row: dict, english_query: str | None = None) -> list[dict]:
+# ------------------------------------------------------------------ discovered sources
+
+def _discovered_path(cfg):
+    return cfg["_data_dir"] / "discovered.csv"
+
+
+def detect_type(f: Fetcher, cfg: dict, domain: str) -> str:
+    """woo_store_api | woo_search | none — tested once per domain and remembered."""
+    import pandas as pd
+    from .io import read_csv, write_csv
+    p = _discovered_path(cfg)
+    df = read_csv(p) if p.exists() else pd.DataFrame(columns=["domain", "type", "checked_at"])
+    hit = df[df["domain"] == domain] if len(df) else df
+    if len(hit):
+        return hit.iloc[-1]["type"]
+    t = "none"
+    base = f"https://{domain}"
+    if f.allowed(base + "/"):
+        r = f.get(base + "/wp-json/wc/store/v1/products", params={"per_page": 1}, as_json=True)
+        if r and r.get("status") == 200 and isinstance(r.get("json"), list):
+            t = "woo_store_api"
+        else:
+            r2 = f.get(base + "/", params={"s": "a", "post_type": "product"})
+            if r2 and r2.get("status") == 200 and "woocommerce" in (r2.get("text") or "").lower():
+                t = "woo_search"
+    import datetime as dt
+    df = pd.concat([df, pd.DataFrame([{"domain": domain, "type": t,
+                                       "checked_at": dt.datetime.now().isoformat(timespec="seconds")}])])
+    write_csv(df, p)
+    log.info("discovered source %s: %s", domain, t)
+    return t
+
+
+def discovered_hits(cfg: dict, f: Fetcher, row: dict, n: int, probes: dict) -> list[dict]:
+    """Shops the market probe found for this row's group: their product page
+    from the search result, plus a site search when the shop is WooCommerce."""
+    import json as _json
+    from .routing_state import group_of
+    g = row.get("group") or group_of(row["breadcrumb"])
+    pr = probes.get(g)
+    if not pr:
+        return []
+    known = {s["domain"] for s in (cfg["sources"].get("iran_sites") or [])}
+    out = []
+    top = int(cfg.get("routing", {}).get("discovered_per_group", 5))
+    for d in _json.loads(pr.get("domains_json") or "[]")[:top]:
+        dom = d["domain"]
+        src = {"domain": dom, "kind": "iran"}
+        if d.get("url"):
+            out.append(_hit(row, src, d["url"], d.get("title", ""), "probe_result"))
+        if dom in known:
+            continue
+        t = detect_type(f, cfg, dom)
+        if t in SEARCHERS:
+            try:
+                out += SEARCHERS[t](f, {**src, "type": t}, row, n)
+            except Exception as e:
+                log.warning("search failed on discovered %s: %s", dom, e)
+    return out
+
+
+# ------------------------------------------------------------------ Made-in-China
+
+def search_mic(f: Fetcher, row: dict, english: str, n: int) -> list[dict]:
+    """Made-in-China product search (its /products-search/ pages are open in robots.txt)."""
+    term = "_".join(w.capitalize() for w in re.sub(r"[^a-zA-Z0-9 ]+", " ", english).split())
+    if not term:
+        return []
+    url = f"https://www.made-in-china.com/products-search/hot-china-products/{term}.html"
+    res = f.get(url)
+    if not res or res.get("status") != 200:
+        return []
+    soup = BeautifulSoup(res["text"], "lxml")
+    out, seen = [], set()
+    for a in soup.find_all("a", href=True):
+        href = urljoin(url, a["href"]).split("?")[0].split("#")[0]
+        if "made-in-china.com" not in href or "/product/" not in href or href in seen:
+            continue
+        title = a.get("title") or a.get_text(" ", strip=True)
+        if not title or len(title) < 6:
+            continue
+        seen.add(href)
+        out.append(_hit(row, {"kind": "foreign", "domain": "made-in-china.com"}, href, title[:150], "made_in_china"))
+        if len(out) >= n:
+            break
+    return out
+
+
+def search_row(cfg: dict, fetchers: dict[str, Fetcher], row: dict, english_query: str | None = None,
+               probes: dict | None = None) -> list[dict]:
     n = int(cfg.get("search", {}).get("max_hits_per_source", 8))
     hits: list[dict] = []
     if row["route"] in ("iran", "both"):
@@ -142,12 +232,20 @@ def search_row(cfg: dict, fetchers: dict[str, Fetcher], row: dict, english_query
                 hits += fn(f, src, row, n)
             except Exception as e:  # one broken site must not stop the run
                 log.warning("search failed on %s: %s", src.get("domain"), e)
+        if probes:
+            hits += discovered_hits(cfg, f, row, n, probes)
         if cfg.get("search", {}).get("use_web_search", False):
             hits += search_web(f, cfg, row, row["query"], n)
-    if row["route"] in ("foreign", "both") and english_query:
+    english = row.get("english") or english_query
+    if row["route"] in ("foreign", "both") and english:
         f = fetchers["foreign"]
+        try:
+            hits += search_mic(f, row, english, n)
+        except Exception as e:
+            log.warning("Made-in-China search failed: %s", e)
         for site in cfg["sources"].get("foreign_sites") or []:
-            hits += search_web(f, cfg, row, english_query, n, site=site["domain"])
+            if "made-in-china" not in site.get("domain", ""):
+                hits += search_web(f, cfg, row, english, n, site=site["domain"])
     # same URL found twice for the same row -> keep one
     seen, uniq = set(), []
     for h in hits:
