@@ -37,7 +37,7 @@ def brands(path: str = str(BRANDS_FILE)) -> list[tuple[str, str, str]]:
     if not p.exists():
         return []
     with p.open(encoding="utf-8-sig") as f:
-        out = [(norm_text(r["brand"]), r["brand"], r.get("origin", "unknown"))
+        out = [(norm_text(r["brand"]), r.get("canonical") or r["brand"], r.get("origin", "unknown"))
                for r in csv.DictReader(f) if r.get("brand") and r.get("is_brand", "yes") != "no"]
     return sorted(out, key=lambda x: -len(x[0]))
 
