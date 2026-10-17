@@ -208,7 +208,7 @@ def search_mic(f: Fetcher, row: dict, english: str, n: int) -> list[dict]:
         if "made-in-china.com" not in href or "/product/" not in href or href in seen:
             continue
         title = a.get("title") or a.get_text(" ", strip=True)
-        if not title or len(title) < 6:
+        if not title or len(title) < 6 or re.match(r"US\$|\$|\d[\d,.]*\s*(Pieces?|Sets?|Units?|Pairs?)\b", title):   # skip price/MOQ links
             continue
         seen.add(href)
         out.append(_hit(row, {"kind": "foreign", "domain": "made-in-china.com"}, href, title[:150], "made_in_china"))

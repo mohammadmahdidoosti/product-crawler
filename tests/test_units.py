@@ -59,6 +59,19 @@ class Extract(unittest.TestCase):
         self.assertEqual(resolve_price_unit(b)[0], "rial")
 
 
+class MadeInChina(unittest.TestCase):
+    def test_company_is_seller_and_real_model(self):
+        rec = extract_page((FIX / "mic_product.html").read_text(encoding="utf-8"))
+        self.assertEqual(rec["seller_name"], "Wenzhou Heli Automatic Meter Co., Ltd.")
+        self.assertEqual((rec["brand"], rec["model"]), ("", "HEQ"))
+        self.assertEqual(rec["specs"]["Connection"], "Flange")
+        self.assertEqual(rec["specs"]["Power Supply"], "AC220V")
+        self.assertEqual(rec["specs"]["MOQ"], "10 Pieces")
+        self.assertNotIn("Customization", rec["specs"])
+        self.assertEqual(rec["seller_phones"], [])
+        self.assertEqual((rec["price_amount"], resolve_price_unit(rec)[0]), (500.0, "usd"))
+
+
 class Taxonomy(unittest.TestCase):
     def test_short_leaf_gets_parent(self):
         self.assertEqual(build_query(["تصفیه آب", "فیلتر تصفیه آب", "ممبران"]), "ممبران فیلتر تصفیه آب")

@@ -197,7 +197,41 @@ def extract_page(html: str) -> dict | None:
     rec["page_text"] = text
     rec["seller_name"] = site_name(soup)
     finalize(rec, text)
+    if "made-in-china.com" in html[:30000]:
+        made_in_china(rec, BeautifulSoup(html, "lxml"))
     return rec
+
+
+SKIP_MIC_SPECS = {"shipping cost", "customization", "trademark", "transport package", "origin", "hs code",
+                  "production capacity"}
+
+
+def made_in_china(rec: dict, soup: BeautifulSoup) -> None:
+    """Made-in-China pages: the JSON-LD 'brand' is the supplier company and the
+    'model' an internal MIC- number. Specs sit in 'Basic Info' blocks."""
+    specs = {}
+    for item in soup.select(".bsc-item"):
+        k, v = item.select_one(".bac-item-label"), item.select_one(".bac-item-value")
+        if k and v:
+            specs[_clean(k.get_text()).rstrip(":.")] = _clean(v.get_text())[:200]
+    for tr in soup.select(".sr-proMainInfo-baseInfo-propertyAttr tr"):
+        cells = [_clean(c.get_text()) for c in tr.find_all(["th", "td"])]
+        if len(cells) >= 2 and cells[0]:
+            specs.setdefault(cells[0].rstrip(":"), cells[1][:200])
+    moq = soup.find(string=re.compile(r"\(MOQ\)"))
+    if moq:
+        specs["MOQ"] = _clean(moq).replace("(MOQ)", "").strip()
+    company = rec["brand"]
+    model = next((v for k, v in specs.items() if k.lower().startswith("model")), "")
+    rec["model"] = model if model and model.lower() not in ("customized", "oem", "n/a") else \
+        ("" if str(rec["model"]).upper().startswith("MIC-") else rec["model"])
+    rec["brand"] = specs.get("Trademark", "") if specs.get("Trademark", "").lower() not in ("oem", "odm", "customized") else ""
+    rec["specs"] = {k: v for k, v in specs.items()
+                    if k.lower() not in SKIP_MIC_SPECS and not k.lower().startswith("model")}
+    rec["seller_name"] = company if company and "made-in-china" not in company.lower() else rec["seller_name"]
+    rec["seller_phones"] = []            # numbers in the text are not the supplier's; contact goes via the site
+    rec["claims_representative"] = ""
+    rec["sku"] = ""
 
 
 # ------------------------------------------------------------------ Woo Store API
