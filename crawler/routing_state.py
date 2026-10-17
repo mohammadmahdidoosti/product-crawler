@@ -19,7 +19,7 @@ import pandas as pd
 from .config import ROOT
 from .io import FILES, QUEUE_COLS, read_csv, write_csv
 from .normalize import norm_text
-from .probe import decide, load_probes, record_usage, run_probe, save_probes
+from .probe import decide, group_query, load_probes, record_usage, run_probe, save_probes
 from .routing import rule_route
 from .terms import leaf_english
 from .taxonomy import build_queue, load_taxonomy
@@ -130,7 +130,16 @@ def probe_batch(cfg, n: int, progress=None, stop=None) -> dict:
     want = [g for g in df.loc[mask & (df["decision"] == "probe"), "group"].unique()]
     if cfg.get("routing", {}).get("probe_rule_groups", True):      # also discover shops for branded groups
         want += [g for g in df.loc[mask & (df["decision"] != "probe"), "group"].unique() if g not in want]
-    todo = [g for g in want if g not in probes]
+    jobs = [(g, None) for g in want if g not in probes]
+    if cfg.get("routing", {}).get("brand_probe", True):     # one search per brand inside a group
+        from .probe import brand_key, brand_query
+        for g, b in df.loc[mask & (df["kind"] == "brand"), ["group", "brand"]].drop_duplicates().itertuples(index=False):
+            k = brand_key(g, b)
+            q = brand_query(g, b)
+            if b and k not in probes and q != group_query(g) and all(k != j[0] for j in jobs):
+                jobs.append((k, q))
+    todo = [j[0] for j in jobs]
+    queries = dict(jobs)
     done = []
     for i, g in enumerate(todo, 1):
         if stop and stop():
@@ -138,7 +147,7 @@ def probe_batch(cfg, n: int, progress=None, stop=None) -> dict:
         if progress:
             progress(i - 1, len(todo))
         try:
-            res = run_probe(cfg, g)
+            res = run_probe(cfg, g, query=queries.get(g))
         except Exception as e:
             log.warning("probe failed for %s: %s", g, e)
             if "SERPER_API_KEY" in str(e) or "did not answer" in str(e):

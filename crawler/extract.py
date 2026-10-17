@@ -49,7 +49,7 @@ def empty_record() -> dict:
             "price_amount": None, "price_code": "", "price_unit_detected": "",
             "in_stock": "", "image_urls": [], "seller_name": "", "seller_phones": [],
             "claims_representative": "", "sale_unit": "", "extracted_by": "", "page_text": "", "sku": "",
-            "supplier_badges": ""}
+            "supplier_badges": "", "description": "", "files": []}
 
 
 # ------------------------------------------------------------------ JSON-LD
@@ -218,6 +218,9 @@ def enrich_from_wpshop(rec: dict | None, html: str, url: str) -> dict | None:
         rec["price_amount"] = parse_number(str(w["price"]))
         cur = w.get("currency") or ""
         rec["price_unit_detected"] = {"IRT": "toman", "IRR": "rial"}.get(cur, rec["price_unit_detected"])
+    # full text and downloadable files, kept internally (source text is not published as is)
+    rec["description"] = _clean(w.get("description"))[:6000]
+    rec["files"] = [u for u in (w.get("files") or "").split(" | ") if u][:10]
     imgs = [u for u in (w.get("images") or "").split(" | ") if u]
     if len(imgs) > len(rec["image_urls"]):
         rec["image_urls"] = list(dict.fromkeys(imgs + rec["image_urls"]))
@@ -305,6 +308,9 @@ def made_in_china(rec: dict, soup: BeautifulSoup) -> None:
     if bt:
         badges.append(_clean(bt.get_text()))
     rec["supplier_badges"] = " | ".join(dict.fromkeys(b for b in badges if b))[:200]
+    desc = soup.select_one(".detail-desc, .J-rich-text-desc, .rich-text, #product-description")
+    if desc:
+        rec["description"] = _clean(desc.get_text(" "))[:6000]
 
 
 # ------------------------------------------------------------------ Woo Store API

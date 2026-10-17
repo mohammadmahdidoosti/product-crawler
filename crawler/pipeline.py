@@ -92,6 +92,9 @@ def step_search(cfg: dict, run: str) -> Path:
     from .terms import leaf_english
     probes = load_probes(cfg)
     gl = load_glossary()
+    syn = _synonyms(cfg)
+    for r in queue:
+        r["synonyms"] = syn.get(r["taxonomy_id"], "")
     for r in queue:           # English term for Made-in-China from the glossary when missing
         if not r.get("english"):
             g = r.get("group") or group_of(r["breadcrumb"])
@@ -142,6 +145,17 @@ def step_search(cfg: dict, run: str) -> Path:
                 log.info("search %d/%d, %d hits so far", i, len(todo), n_hits)
     log.info("search done: %d new hits (%d dropped by title before fetching) -> %s", n_hits, n_pre, out.name)
     return out
+
+
+def _synonyms(cfg: dict) -> dict[str, str]:
+    """taxonomy_id -> 'syn1 | syn2' from the cleaned taxonomy's Synonyms column (if it has one)."""
+    try:
+        t = read_csv(Path(cfg["taxonomy"]["file"]))
+    except Exception:
+        return {}
+    if "Synonyms" not in t.columns or "ID" not in t.columns:
+        return {}
+    return {i.strip(): s for i, s in zip(t["ID"], t["Synonyms"]) if str(s).strip()}
 
 
 # ------------------------------------------------------------------ 3 crawl
@@ -295,8 +309,9 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
                     "seller_phones": " | ".join(rec["seller_phones"] or s["seller_phones"]),
                     "claims_representative": rec["claims_representative"],
                     "source_domain": dom, "source_type": h["source_type"], "url": h["url"],
-                    "image_urls": json.dumps(rec["image_urls"][:6], ensure_ascii=False),
+                    "image_urls": json.dumps(rec["image_urls"][:15], ensure_ascii=False),
                     "extracted_by": rec["extracted_by"], "supplier_badges": rec.get("supplier_badges", ""),
+                    "description": rec.get("description", ""), "files": " | ".join(rec.get("files") or []),
                     "crawled_at": dt.datetime.now().isoformat(timespec="seconds"),
                     **price_fields(rec, rate, cfg),
                 }
@@ -415,6 +430,7 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     write_csv(dropped, d / "05_not_selected.csv")
     log.info("select: best %s per category -> kept %d of %d (rest in 05_not_selected.csv)",
              sel.get("max_per_category", 24), len(merged), n_all)
+    low_categories(cfg, d, merged, need)
     site = None
     path = site_export or cfg.get("site_catalog", {}).get("file")
     if path:
@@ -431,6 +447,26 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     log.info("dedupe: %d rows -> %d products; new %d, updates %d, review %d",
              len(df), len(merged), len(new), len(upd), len(rev))
     return paths
+
+
+def low_categories(cfg: dict, d: Path, kept: pd.DataFrame, need: pd.DataFrame) -> Path:
+    """Categories below the target count: the list for finding and inviting suppliers."""
+    target = int(cfg.get("select", {}).get("max_per_category", 24))
+    q = read_csv(d / FILES["queue"])
+    n = kept["taxonomy_id"].value_counts() if len(kept) else pd.Series(dtype=int)
+    m = need["taxonomy_id"].value_counts() if len(need) else pd.Series(dtype=int)
+    rows = []
+    for r in q.to_dict("records"):
+        k, w = int(n.get(r["taxonomy_id"], 0)), int(m.get(r["taxonomy_id"], 0))
+        if k < target:
+            rows.append({"taxonomy_id": r["taxonomy_id"], "breadcrumb": r["breadcrumb"], "route": r["route"],
+                         "products": k, "without_price": w, "missing": target - k,
+                         "status": "خالی" if k == 0 and w == 0 else "فقط بی‌قیمت" if k == 0 else "کم‌محصول"})
+    out = pd.DataFrame(rows, columns=["taxonomy_id", "breadcrumb", "route", "products", "without_price", "missing", "status"])
+    out = out.sort_values(["products", "breadcrumb"]) if len(out) else out
+    log.info("categories below %d products: %d of %d (%d empty) -> 05_low_categories.csv", target, len(out), len(q),
+             int((out["products"] == 0).sum()) if len(out) else 0)
+    return write_csv(out, d / "05_low_categories.csv")
 
 
 def one_category_per_product(df: pd.DataFrame) -> pd.DataFrame:

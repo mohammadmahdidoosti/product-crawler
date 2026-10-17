@@ -26,11 +26,13 @@ routing:
   iran_min_priced: 3               # >= this many Iranian shops with a price -> Iranian sources
   foreign_max_shops: 1             # <= this many Iranian shops -> Made-in-China
   probe_rule_groups: true          # also search branded groups, to discover shops
-  discovered_per_group: 5          # shops from a group's search used as crawl sources
+  discovered_per_group: 10         # shops from a group's search used as crawl sources
+  brand_probe: true                # brand categories: one more search with the brand name
   batch_size: 100
 
 search:
-  max_hits_per_source: 8            # per Iranian shop and category
+  max_hits_per_source: 12           # per Iranian shop and category
+  synonyms_max: 2                  # extra shop searches with the taxonomy's synonyms
   foreign_candidates: 40           # Made-in-China candidates per category (best ones kept later)
   per_supplier: 2                  # at most this many products from one Chinese supplier
   listing_max: 12                  # products opened from one shop category page

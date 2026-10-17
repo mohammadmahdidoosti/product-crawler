@@ -104,13 +104,28 @@ def classify_results(organic: list[dict]) -> dict:
     return {"shops": len(lst), "priced": sum(s["priced"] for s in lst), "domains": lst}
 
 
-def run_probe(cfg, group: str, fetcher: Fetcher | None = None) -> dict:
+BRAND_SEP = " || "
+
+
+def brand_key(group: str, brand: str) -> str:
+    """Probe key of one brand inside a group: its own search finds the brand's site and dealers."""
+    return f"{group}{BRAND_SEP}{brand}"
+
+
+def brand_query(group: str, brand: str) -> str:
+    title = [p.strip() for p in group.split(">")][-1]
+    if norm_text(brand) in norm_text(title).split() or norm_text(brand) in norm_text(title):
+        return f"خرید {title} قیمت"
+    return f"خرید {title} {brand} قیمت"
+
+
+def run_probe(cfg, group: str, fetcher: Fetcher | None = None, query: str | None = None) -> dict:
     key = secret(cfg.get("sources", {}).get("web_search", {}).get("api_key_env", "SERPER_API_KEY")) \
         or secret("SERPER_API_KEY")
     if not key:
         raise RuntimeError("SERPER_API_KEY is not set")
     f = fetcher or Fetcher(cfg, "iran")
-    q = group_query(group)
+    q = query or group_query(group)
     res = f.post_json("https://google.serper.dev/search",
                       {"q": q, "gl": "ir", "hl": "fa", "num": 10},
                       {"X-API-KEY": key, "Content-Type": "application/json"})

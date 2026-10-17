@@ -98,13 +98,14 @@ class TableCycle(unittest.TestCase):
 
         fake = {"group": "", "query": "q", "shops": 6, "priced": 1, "results": 10, "domains_json": "[]",
                 "searched_at": "now"}
-        with mock.patch.object(RS, "run_probe", side_effect=lambda c, g: {**fake, "group": g}) as rp, \
+        with mock.patch.object(RS, "run_probe", side_effect=lambda c, g, query=None: {**fake, "group": g}) as rp, \
                 mock.patch.object(RS, "record_usage", return_value=1):
             out = RS.probe_batch(cfg, 1)
-            self.assertEqual(rp.call_count, 1)                   # one search for the whole group
+            self.assertEqual(rp.call_count, 2)                   # one for the group + one for brand نوجیکس
+            self.assertIn("نوجیکس", rp.call_args_list[1].kwargs["query"])
             RS.probe_batch(cfg, 1)
-            self.assertEqual(rp.call_count, 1)                   # cached in probes.csv: no second search
-        self.assertEqual(out["searched"], 1)
+            self.assertEqual(rp.call_count, 2)                   # cached in probes.csv: no second search
+        self.assertEqual(out["searched"], 2)
         df = RS.load(cfg).set_index("taxonomy_id")
         self.assertEqual(df.at["2", "decision"], "both")
         self.assertEqual(df.at["4", "decision"], "iran")         # rule decision is not overwritten

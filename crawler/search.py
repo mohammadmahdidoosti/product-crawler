@@ -178,22 +178,30 @@ def detect_type(f: Fetcher, cfg: dict, domain: str) -> str:
     return t
 
 
-def discovered_hits(cfg: dict, f: Fetcher, row: dict, n: int, probes: dict) -> list[dict]:
-    """Shops the market probe found for this row's group: their product page
-    from the search result, plus a site search when the shop is WooCommerce."""
+def discovered_hits(cfg: dict, f: Fetcher, row: dict, n: int, probes: dict, with_results: bool = True) -> list[dict]:
+    """Shops the market probe found for this row's group (and, for a brand category,
+    the brand's own search): their product page from the search result, plus a site
+    search when the shop is WooCommerce."""
     import json as _json
+    from .probe import brand_key
+    from .routing import leaf_brand
     from .routing_state import group_of
     g = row.get("group") or group_of(row["breadcrumb"])
-    pr = probes.get(g)
-    if not pr:
+    doms: list[dict] = []
+    b = leaf_brand(row["breadcrumb"].split(">")[-1].strip())
+    for key in ([brand_key(g, b[0])] if b else []) + [g]:      # the brand's own shops first
+        pr = probes.get(key)
+        if pr:
+            doms += [d for d in _json.loads(pr.get("domains_json") or "[]") if d["domain"] not in {x["domain"] for x in doms}]
+    if not doms:
         return []
     known = {s["domain"] for s in (cfg["sources"].get("iran_sites") or [])}
     out = []
     top = int(cfg.get("routing", {}).get("discovered_per_group", 5))
-    for d in _json.loads(pr.get("domains_json") or "[]")[:top]:
+    for d in doms[:top]:
         dom = d["domain"]
         src = {"domain": dom, "kind": "iran"}
-        if d.get("url"):
+        if d.get("url") and with_results:
             out.append(_hit(row, src, d["url"], d.get("title", ""), "probe_result"))
         if dom in known:
             continue
@@ -222,7 +230,7 @@ def search_mic(f: Fetcher, row: dict, english: str, n: int, per_supplier: int = 
     return out
 
 
-def _mic_page(f: Fetcher, row: dict, term: str, n: int, per_supplier: int, pages: int = 2) -> list[dict]:
+def _mic_page(f: Fetcher, row: dict, term: str, n: int, per_supplier: int, pages: int = 3) -> list[dict]:
     out, seen, by_sup = [], set(), {}
     for page in range(1, pages + 1):
         url = (f"https://www.made-in-china.com/products-search/hot-china-products/{term}.html" if page == 1 else
@@ -256,17 +264,22 @@ def search_row(cfg: dict, fetchers: dict[str, Fetcher], row: dict, english_query
     hits: list[dict] = []
     if row["route"] in ("iran", "both"):
         f = fetchers["iran"]
-        for src in sources_for(cfg, row):
-            fn = SEARCHERS.get(src.get("type", "woo_search"))
-            if not fn:
-                log.warning("unknown source type %s", src.get("type"))
-                continue
-            try:
-                hits += fn(f, src, row, n)
-            except Exception as e:  # one broken site must not stop the run
-                log.warning("search failed on %s: %s", src.get("domain"), e)
-        if probes:
-            hits += discovered_hits(cfg, f, row, n, probes)
+        # the category name, then up to N synonyms from the taxonomy ('اکچویتور خطی برقی' for 'اکچویتور برقی خطی')
+        k = int(cfg.get("search", {}).get("synonyms_max", 2))
+        qs = [row["query"]] + [x.strip() for x in str(row.get("synonyms") or "").split(" | ") if x.strip()][:k]
+        for qi, q in enumerate(qs):
+            r2 = {**row, "query": q}
+            for src in sources_for(cfg, row):
+                fn = SEARCHERS.get(src.get("type", "woo_search"))
+                if not fn:
+                    log.warning("unknown source type %s", src.get("type"))
+                    continue
+                try:
+                    hits += fn(f, src, r2, n)
+                except Exception as e:  # one broken site must not stop the run
+                    log.warning("search failed on %s: %s", src.get("domain"), e)
+            if probes:
+                hits += discovered_hits(cfg, f, r2, n, probes, with_results=qi == 0)
         if cfg.get("search", {}).get("use_web_search", False):
             hits += search_web(f, cfg, row, row["query"], n)
     english = row.get("english") or english_query

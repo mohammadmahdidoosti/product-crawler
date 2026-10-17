@@ -44,7 +44,7 @@ CRAWLED_COLS = [
     "usd_rate_toman", "usd_rate_date", "usd_rate_type",
     "seller_name", "seller_phones", "claims_representative",
     "source_domain", "source_type", "url", "image_urls",
-    "extracted_by", "crawled_at", "supplier_badges",
+    "extracted_by", "crawled_at", "supplier_badges", "description", "files",
 ]
 
 FILTER_COLS = CRAWLED_COLS + ["relevant", "relevance_confidence", "relevance_reason"]
