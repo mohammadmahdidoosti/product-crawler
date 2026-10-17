@@ -225,7 +225,7 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
                 "claims_representative": rec["claims_representative"],
                 "source_domain": dom, "source_type": h["source_type"], "url": h["url"],
                 "image_urls": json.dumps(rec["image_urls"][:6], ensure_ascii=False),
-                "extracted_by": rec["extracted_by"],
+                "extracted_by": rec["extracted_by"], "supplier_badges": rec.get("supplier_badges", ""),
                 "crawled_at": dt.datetime.now().isoformat(timespec="seconds"),
                 **price_fields(rec, rate, cfg),
             }
@@ -321,6 +321,14 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     df = read_csv(src)
     dd = cfg.get("dedupe", {})
     merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)))
+    from .ranking import select_top
+    sel = cfg.get("select", {})
+    n_all = len(merged)
+    merged, dropped = select_top(merged, int(sel.get("max_per_category", 24)), int(sel.get("max_per_seller", 3)))
+    write_csv(dropped, d / "05_not_selected.csv")
+    merged = add_persian(cfg, merged)
+    log.info("select: best %s per category -> kept %d of %d (rest in 05_not_selected.csv)",
+             sel.get("max_per_category", 24), len(merged), n_all)
     site = None
     path = site_export or cfg.get("site_catalog", {}).get("file")
     if path:
@@ -337,6 +345,42 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     return paths
 
 
+def add_persian(cfg: dict, df: pd.DataFrame) -> pd.DataFrame:
+    """Persian name and specs for English (foreign) products; Persian rows are left as they are."""
+    from collections import Counter
+    from .fa_name import is_foreign, persian_name, save_missing, translate_specs
+    if df.empty:
+        return df
+    df = df.copy()
+    missing: Counter = Counter()
+    names_fa, specs_fa, src = [], [], []
+    used: Counter = Counter()
+    for r in df.to_dict("records"):
+        if not is_foreign(r.get("name", "")):
+            names_fa.append(r.get("name", ""))
+            specs_fa.append(r.get("specs_json", ""))
+            src.append("")
+            continue
+        specs = json.loads(r.get("specs_json") or "{}")
+        leaf = (r.get("breadcrumb") or r.get("query") or "").split(">")[-1].strip()
+        n = persian_name(leaf, r.get("model", ""), specs)
+        used[(r.get("taxonomy_id"), n)] += 1
+        if used[(r.get("taxonomy_id"), n)] > 1:            # same name twice in one category
+            n = f"{n} - طرح {used[(r.get('taxonomy_id'), n)]}"
+        tr = translate_specs(specs, missing)
+        if "made-in-china" in (r.get("source_domain") or ""):
+            tr["کشور سازنده"] = "چین"
+        names_fa.append(n)
+        specs_fa.append(json.dumps(tr, ensure_ascii=False))
+        src.append(r.get("name", ""))
+    df["name_fa"], df["specs_fa_json"], df["source_name"] = names_fa, specs_fa, src
+    if missing:
+        save_missing(cfg["_data_dir"] / "untranslated.csv", missing)
+        log.info("persian names: %d foreign products; %d spec texts not in the dictionary yet (data/untranslated.csv)",
+                 sum(1 for x in src if x), len(missing))
+    return df
+
+
 # ------------------------------------------------------------------ 6 export
 
 def _round_price(x, step: int) -> str:
@@ -349,7 +393,7 @@ def _round_price(x, step: int) -> str:
 
 def _spec_html(r: dict) -> str:
     """Description built only from extracted facts, never the source's text."""
-    specs = json.loads(r.get("specs_json") or "{}")
+    specs = json.loads(r.get("specs_fa_json") or r.get("specs_json") or "{}")
     facts = {"برند": r.get("brand"), "مدل": r.get("model"), **specs}
     lis = "".join(f"<li><strong>{k}:</strong> {v}</li>" for k, v in facts.items() if v)
     return f"<ul>{lis}</ul>" if lis else ""
@@ -364,7 +408,7 @@ def step_export(cfg: dict, run: str) -> list[Path]:
     rows = []
     for r in new.to_dict("records"):
         rows.append({
-            "Type": "simple", "SKU": "", "Name": r["name"],
+            "Type": "simple", "SKU": "", "Name": r.get("name_fa") or r["name"],
             "Published": cfg.get("export", {}).get("published", 0),
             "Visibility in catalog": "visible",
             "Description": _spec_html(r), "Short description": "",
@@ -377,6 +421,7 @@ def step_export(cfg: dict, run: str) -> list[Path]:
             "Meta: _caravan_usd_rate": r.get("usd_rate_toman", ""),
             "Meta: _caravan_price_usd": r.get("price_usd", ""),
             "Meta: _caravan_taxonomy_id": r.get("taxonomy_id", ""),
+            "Meta: _caravan_source_name": r.get("source_name", ""),
         })
     out.append(write_csv(pd.DataFrame(rows), d / FILES["woo"]))
     upd = read_csv(d / FILES["updates"]) if (d / FILES["updates"]).exists() else pd.DataFrame()

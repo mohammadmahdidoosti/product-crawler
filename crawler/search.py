@@ -206,28 +206,31 @@ def search_mic(f: Fetcher, row: dict, english: str, n: int, per_supplier: int = 
     return out
 
 
-def _mic_page(f: Fetcher, row: dict, term: str, n: int, per_supplier: int) -> list[dict]:
-    url = f"https://www.made-in-china.com/products-search/hot-china-products/{term}.html"
-    res = f.get(url)
-    if not res or res.get("status") != 200:
-        return []
-    soup = BeautifulSoup(res["text"], "lxml")
+def _mic_page(f: Fetcher, row: dict, term: str, n: int, per_supplier: int, pages: int = 2) -> list[dict]:
     out, seen, by_sup = [], set(), {}
-    for a in soup.find_all("a", href=True):
-        href = urljoin(url, a["href"]).split("?")[0].split("#")[0]
-        if "made-in-china.com" not in href or "/product/" not in href or href in seen:
-            continue
-        title = a.get("title") or a.get_text(" ", strip=True)
-        if not title or len(title) < 6 or re.match(r"US\$|\$|\d[\d,.]*\s*(Pieces?|Sets?|Units?|Pairs?)\b", title):
-            continue                                  # price / MOQ links next to the product link
-        seen.add(href)
-        sup = domain_of(href)
-        if by_sup.get(sup, 0) >= per_supplier:
-            continue
-        by_sup[sup] = by_sup.get(sup, 0) + 1
-        out.append(_hit(row, {"kind": "foreign", "domain": "made-in-china.com"}, href, title[:150], "made_in_china"))
-        if len(out) >= n:
+    for page in range(1, pages + 1):
+        url = (f"https://www.made-in-china.com/products-search/hot-china-products/{term}.html" if page == 1 else
+               f"https://www.made-in-china.com/products-search/find-china-products/0b0nolimit/{term}-{page}.html")
+        res = f.get(url)
+        if not res or res.get("status") != 200:
             break
+        soup = BeautifulSoup(res["text"], "lxml")
+        for a in soup.find_all("a", href=True):
+            href = urljoin(url, a["href"]).split("?")[0].split("#")[0]
+            if "made-in-china.com" not in href or "/product/" not in href or href in seen:
+                continue
+            title = a.get("title") or a.get_text(" ", strip=True)
+            if not title or len(title) < 6 or re.match(r"US\$|\$|\d[\d,.]*\s*(Pieces?|Sets?|Units?|Pairs?)\b", title):
+                continue                              # price / MOQ links next to the product link
+            seen.add(href)
+            sup = domain_of(href)
+            if by_sup.get(sup, 0) >= per_supplier:
+                continue
+            by_sup[sup] = by_sup.get(sup, 0) + 1
+            out.append(_hit(row, {"kind": "foreign", "domain": "made-in-china.com"}, href, title[:150],
+                            "made_in_china"))
+            if len(out) >= n:
+                return out
     return out
 
 
@@ -254,7 +257,9 @@ def search_row(cfg: dict, fetchers: dict[str, Fetcher], row: dict, english_query
     if row["route"] in ("foreign", "both") and english:
         f = fetchers["foreign"]
         try:
-            hits += search_mic(f, row, english, n)
+            sc = cfg.get("search", {})
+            hits += search_mic(f, row, english, int(sc.get("foreign_candidates", 40)),
+                               int(sc.get("per_supplier", 2)))
         except Exception as e:
             log.warning("Made-in-China search failed: %s", e)
         for site in cfg["sources"].get("foreign_sites") or []:

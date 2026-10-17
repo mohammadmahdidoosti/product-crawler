@@ -157,7 +157,9 @@ class ForeignSearch(unittest.TestCase):
         f = F()
         row = {"taxonomy_id": "1", "query": "q", "route": "foreign"}
         hits = search_mic(f, row, "electric valve actuator modulating", 8)
-        self.assertEqual(len(f.urls), 2)                                     # retried without the last word
+        self.assertIn("Modulating", f.urls[0])
+        self.assertTrue(f.urls[1].endswith("Electric_Valve_Actuator.html"))  # retried without the last word
+        self.assertTrue(f.urls[2].endswith("Electric_Valve_Actuator-2.html"))  # then its page 2
         self.assertEqual([h["source_domain"] for h in hits].count("big.en.made-in-china.com"), 2)
         self.assertIn("small.en.made-in-china.com", [h["source_domain"] for h in hits])
 
@@ -170,3 +172,24 @@ class ForeignSearch(unittest.TestCase):
         self.assertFalse(ok("047133062D Box Butterfly for Fabia VW"))
         self.assertFalse(ok("Micro Limit Switch for Electric Pallet"))
         self.assertTrue(ok("اکچویتور برقی پروانه ای"))          # Persian names still use the Persian rules
+
+
+class Ranking(unittest.TestCase):
+    def test_best_n_with_seller_cap(self):
+        from crawler.ranking import select_top
+        rows = []
+        for i in range(6):   # 6 good products from one seller, 2 weaker from others
+            rows.append({"taxonomy_id": "1", "sellers": "big", "price_toman": "100", "model": "A1",
+                         "specs_json": json.dumps({str(k): k for k in range(8)}), "image_urls": '["a","b","c"]',
+                         "relevance_confidence": "1", "n_sources": "1"})
+        for s in ("x", "y"):
+            rows.append({"taxonomy_id": "1", "sellers": s, "price_toman": "100", "model": "",
+                         "specs_json": "{}", "image_urls": "[]", "relevance_confidence": "0.6", "n_sources": "1"})
+        rows.append({"taxonomy_id": "1", "sellers": "z", "price_toman": "", "model": "",
+                     "specs_json": "{}", "image_urls": "[]", "relevance_confidence": "0.5", "n_sources": "1"})
+        kept, dropped = select_top(pd.DataFrame(rows), 5, max_per_seller=3)
+        self.assertEqual(len(kept), 5)
+        self.assertEqual(list(kept["sellers"]).count("big"), 3)        # cap keeps room for others
+        self.assertIn("x", list(kept["sellers"]))
+        self.assertNotIn("z", list(kept["sellers"]))                   # no price -> lowest score
+        self.assertEqual(len(dropped), 4)

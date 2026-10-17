@@ -30,7 +30,13 @@ routing:
   batch_size: 100
 
 search:
-  max_hits_per_source: 8
+  max_hits_per_source: 8            # per Iranian shop and category
+  foreign_candidates: 40           # Made-in-China candidates per category (best ones kept later)
+  per_supplier: 2                  # at most this many products from one Chinese supplier
+
+select:
+  max_per_category: 24             # keep the best N products per category (quality score), 0 = all
+  max_per_seller: 3                # inside those N, at most this many from one seller (if others exist)
   use_web_search: false            # true = also search the whole web (needs SERPER_API_KEY)
 
 http:

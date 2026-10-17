@@ -44,7 +44,8 @@ def empty_record() -> dict:
     return {"name": "", "brand": "", "model": "", "specs": {}, "short_description": "",
             "price_amount": None, "price_code": "", "price_unit_detected": "",
             "in_stock": "", "image_urls": [], "seller_name": "", "seller_phones": [],
-            "claims_representative": "", "sale_unit": "", "extracted_by": "", "page_text": "", "sku": ""}
+            "claims_representative": "", "sale_unit": "", "extracted_by": "", "page_text": "", "sku": "",
+            "supplier_badges": ""}
 
 
 # ------------------------------------------------------------------ JSON-LD
@@ -241,6 +242,18 @@ def made_in_china(rec: dict, soup: BeautifulSoup) -> None:
     rec["seller_phones"] = []            # numbers in the text are not the supplier's; contact goes via the site
     rec["claims_representative"] = ""
     rec["sku"] = ""
+    badges = []
+    for el in soup.select(".sr-comInfo-sign .sign-item, .com-place-three .sign-item"):
+        t = _clean(" ".join(el.find_all(string=True, recursive=False)))
+        alt = el.find("img")
+        t = t or (alt.get("alt", "") if alt else "")
+        yr = el.select_one(".txt-year")
+        if t:
+            badges.append(t + (f" {_clean(yr.get_text())}" if yr else ""))
+    bt = soup.select_one(".business-type-info")
+    if bt:
+        badges.append(_clean(bt.get_text()))
+    rec["supplier_badges"] = " | ".join(dict.fromkeys(b for b in badges if b))[:200]
 
 
 # ------------------------------------------------------------------ Woo Store API

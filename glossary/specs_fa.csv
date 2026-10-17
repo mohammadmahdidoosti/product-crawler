@@ -1,0 +1,153 @@
+﻿en,fa
+Material,جنس
+Body Material,جنس بدنه
+Shell Material,جنس پوسته
+Housing Material,جنس بدنه
+Disc Material,جنس دیسک
+Seal Material,جنس آب‌بندی
+Sealing Material,جنس آب‌بندی
+Ball Material,جنس توپی
+Shaft Material,جنس شفت
+Impeller Material,جنس پروانه
+Power Supply,ولتاژ تغذیه
+Voltage,ولتاژ
+Rated Voltage,ولتاژ نامی
+Operating Voltage,ولتاژ کاری
+Input Voltage,ولتاژ ورودی
+Output Voltage,ولتاژ خروجی
+Power,توان
+Rated Power,توان نامی
+Output Power,توان خروجی
+Motor Power,توان موتور
+Max Power,حداکثر توان
+Rated Current,جریان نامی
+Current,جریان
+Frequency,فرکانس
+Phase,فاز
+Speed,سرعت
+Rotating Speed,سرعت چرخش
+Rated Speed,سرعت نامی
+Torque,گشتاور
+Max Torque,حداکثر گشتاور
+Output Torque,گشتاور خروجی
+Rated Torque,گشتاور نامی
+Power Source,منبع انرژی
+Driving Mode,نوع محرک
+Drive Mode,نوع محرک
+Actuator,عملگر
+Control Mode,نوع کنترل
+Control,کنترل
+Connection,نوع اتصال
+Connection Form,نوع اتصال
+Connection Type,نوع اتصال
+Thread,رزوه
+Nominal Diameter,قطر نامی
+Size,سایز
+Nominal Pressure,فشار نامی
+Pressure,فشار
+Working Pressure,فشار کاری
+Max Pressure,حداکثر فشار
+Pressure Range,محدوده فشار
+Temperature,دما
+Working Temperature,دمای کاری
+Operating Temperature,دمای کاری
+Temperature Range,محدوده دما
+Media Temperature,دمای سیال
+Media,سیال
+Medium,سیال
+Application,کاربرد
+Usage,کاربرد
+Use,کاربرد
+Function,عملکرد
+Feature,ویژگی
+Features,ویژگی‌ها
+Type,نوع
+Structure,ساختار
+Valve Type,نوع شیر
+Motor Type,نوع موتور
+Pump Type,نوع پمپ
+Installation,نصب
+Mounting,نصب
+Mounting Type,نوع نصب
+Seal Form,نوع آب‌بندی
+Sealing Form,نوع آب‌بندی
+Flow Direction,جهت جریان
+Channel,تعداد راه
+Way,تعداد راه
+Protection Grade,درجه حفاظت
+Protection Class,درجه حفاظت
+Protection Level,درجه حفاظت
+IP Rating,درجه حفاظت
+Insulation Class,کلاس عایق
+Explosion Proof,ضد انفجار
+Explosion-Proof,ضد انفجار
+Certification,گواهی‌ها
+Standard,استاندارد
+Warranty,گارانتی
+Color,رنگ
+Weight,وزن
+Net Weight,وزن خالص
+Dimension,ابعاد
+Dimensions,ابعاد
+Length,طول
+Width,عرض
+Height,ارتفاع
+Diameter,قطر
+Thickness,ضخامت
+Capacity,ظرفیت
+Flow,دبی
+Flow Rate,دبی
+Max Flow,حداکثر دبی
+Head,ارتفاع آبدهی
+Max Head,حداکثر ارتفاع
+Efficiency,راندمان
+Noise,صدا
+Input Signal,سیگنال ورودی
+Output Signal,سیگنال خروجی
+Signal,سیگنال
+Communication,ارتباط
+Display,نمایشگر
+Accuracy,دقت
+Range,محدوده
+Measuring Range,محدوده اندازه‌گیری
+Response Time,زمان پاسخ
+Action Time,زمان عملکرد
+Operating Time,زمان عملکرد
+Rotation Angle,زاویه چرخش
+Stroke,کورس
+Thrust,نیروی رانش
+Load,بار
+Cooling Method,روش خنک‌کاری
+Cooling,خنک‌کاری
+Fuel,سوخت
+Fuel Type,نوع سوخت
+Shape,شکل
+Surface Treatment,پوشش سطح
+Finish,پوشش سطح
+Grade,گرید
+Pole,تعداد پل
+Poles,تعداد پل
+Number of Poles,تعداد پل
+Breaking Capacity,قدرت قطع
+Interface,رابط
+Mode,حالت
+Theory,اصول کار
+Operation,نحوه کار
+Manual Override,قابلیت دستی
+Specification,مشخصه
+Model,مدل
+MOQ,حداقل سفارش
+Origin,کشور سازنده
+Customization,سفارشی‌سازی
+After-sales Service,خدمات پس از فروش
+Wire,سیم
+Cable Length,طول کابل
+Battery,باتری
+Battery Capacity,ظرفیت باتری
+Charging Time,زمان شارژ
+Light Source,منبع نور
+Luminous Flux,شار نوری
+Color Temperature,دمای رنگ
+Lifespan,طول عمر
+Life Time,طول عمر
+Lamp Body Material,جنس بدنه چراغ
