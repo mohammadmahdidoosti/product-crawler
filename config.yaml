@@ -68,7 +68,10 @@ price:
   max_toman: 50000000000
   round_to_toman: 1000
   foreign_multiplier: 2            # Made-in-China price x this (shipping, customs, margin)
-  estimate_missing: true           # no price -> median of same brand / category (internal flag only)
+  estimate_missing: true           # no price -> same model elsewhere, same brand, careful category median
+  serper_lookup: true              # same model in a web search (1 search each, capped below)
+  serper_lookups_per_run: 60
+  woo_lookups_per_run: 300
   outlier_factor: 6                # price < median/6 or > median*6 in its category -> dropped
 
 llm:

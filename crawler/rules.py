@@ -22,6 +22,7 @@ NEGATIVE = [norm_text(w) for w in (
     "بوبین", "قطعه", "قطعات", "یدکی", "لوازم جانبی", "کارکرده", "دست دوم", "استوک", "تعمیر", "تعمیرات",
     "آموزش", "کتاب", "دوره", "فیلم", "نصب", "خدمات", "اجاره", "کاور", "قاب", "برچسب", "کاتالوگ",
     "پکیج آموزشی", "نرم افزار", "شارژ", "اشتراک", "کارت هدیه",
+    "چرخدنده", "چرخ دنده", "مهره انتقال", "واشر", "بلبرینگ", "اورینگ", "کاسه نمد", "لنگ دارد", "معیوب", "ایراد دار",
 )]
 
 
@@ -93,6 +94,13 @@ def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en
         if fb:
             return {"relevant": False, "confidence": 0.8,
                     "reason": f"کالای برند {fb} در مسیر چینی (مسیر چینی فقط برای کالای عمومی است)"}
+    kinds = {"برقی": ("پنوماتیک", "پنوماتیکی", "بادی", "دستی", "هیدرولیک"), "پنوماتیک": ("برقی", "الکتریکی")}
+    lf, nm = norm_text(leaf), norm_text(name)
+    for k, other in kinds.items():          # electric category, pneumatic product (or the reverse)
+        if k in lf.split() and not any(norm_text(k) in nm.split() for _ in [0]):
+            bad = next((o for o in other if norm_text(o) in nm.split() and norm_text(o) not in lf.split()), None)
+            if bad:
+                return {"relevant": False, "confidence": 0.8, "reason": f"دسته «{k}» است ولی محصول «{bad}» است"}
     if english and not re.search(r"[\u0600-\u06FF]", product.get("name") or ""):
         return judge_en(english, group_en, product)
     name = norm_text(f"{product.get('name', '')} {product.get('short_description', '')[:120]}")

@@ -237,3 +237,34 @@ class Batch1Fixes(unittest.TestCase):
         self.assertNotIn("Actuator", n)
         self.assertEqual(tr_value("SS304 or SS316L")[0], "SS304 یا SS316L")
         self.assertEqual(tr_value("Brass(Hpb59)")[0], "برنج (Hpb59)")
+
+
+class BrandAndPrice(unittest.TestCase):
+    def test_brand_never_empty(self):
+        from crawler.brandfix import fill_brands
+        df = pd.DataFrame([
+            {"name": "اکچویتور برقی کیستون", "brand": "ایتالیا", "source_type": "iran", "seller_name": "پیکاتک"},
+            {"name": "اکچویتور برقی GINICE مدل GQ", "brand": "", "source_type": "iran", "seller_name": "پیکاتک"},
+            {"name": "اکچویتور برقی کوچک", "source_name": "Mini Electric Actuator", "brand": "",
+             "source_type": "foreign", "seller_name": "Wenzhou Forever Classic Technology Co., Ltd."},
+        ])
+        out = fill_brands(df)
+        self.assertEqual(list(out["brand"]), ["پیکاتک", "GINICE", "Wenzhou Forever Classic"])
+        self.assertEqual(list(out["brand_source"]), ["supplier", "name", "supplier"])
+
+    def test_estimate_chain(self):
+        from crawler.pricing import estimate
+        cfg = {"price": {"serper_lookup": False}, "sources": {}, "_data_dir": Path(tempfile.mkdtemp())}
+        base = {"taxonomy_id": "1", "breadcrumb": "a > b > c", "source_type": "iran", "usd_rate_toman": "100",
+                "price_flags": ""}
+        df = pd.DataFrame([
+            {**base, "name": "اکچویتور بلیمو", "model": "NR24A-SR", "brand": "بلیمو", "price_toman": "", "source_domain": "x"},
+            {**base, "name": "اکچویتور آئوما", "model": "", "brand": "آئوما", "price_toman": "", "source_domain": "x"},
+            {**base, "name": "شیر با اکچویتور خنبره", "model": "", "brand": "خنبره", "price_toman": "110", "source_domain": "y"},
+            {**base, "name": "شیر با اکچویتور خنبره ۲", "model": "", "brand": "خنبره", "price_toman": "115", "source_domain": "y"},
+        ])
+        crawled = pd.DataFrame([{"model": "NR24A-SR", "name": "بلیمو NR24A-SR", "price_toman": "30", "price_flags": ""}])
+        ok, need = estimate(cfg, df, crawled)
+        got = dict(zip(ok["name"], ok["price_toman"]))
+        self.assertEqual(got["اکچویتور بلیمو"], "30")                 # same model elsewhere
+        self.assertIn("اکچویتور آئوما", list(need["name"]))           # no blind category median from combo sets
