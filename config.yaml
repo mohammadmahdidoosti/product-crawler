@@ -42,6 +42,9 @@ select:
 
 http:
   delay_seconds: 3                 # wait between two requests to the same site
+  domain_delays:                   # per-site exceptions (all subdomains of the site share it)
+    made-in-china.com: 1
+  workers: 8                       # sites fetched in parallel (each still at its own pace)
   timeout_seconds: 25
   retries: 2
   cache_days: 14                   # reruns within this window reuse saved pages

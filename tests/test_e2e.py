@@ -112,13 +112,15 @@ class EndToEnd(unittest.TestCase):
 
         P.step_search(cfg, run)
         hits = read_csv(self.tmp / "runs" / run / FILES["hits"])
-        # drive page + a robots-blocked page (woo_search), valve + its coil (store API);
-        # the coil is the kind of near-miss the AI filter step removes
-        self.assertEqual(len(hits), 4, hits[["url", "found_by"]])
+        # drive page + a robots-blocked page (woo_search), valve (store API); the valve's
+        # coil is dropped by its title before its page is fetched
+        self.assertEqual(len(hits), 3, hits[["url", "found_by"]])
+        pre = read_csv(self.tmp / "runs" / run / "02_prefiltered.csv")
+        self.assertEqual(list(pre["title"]), ["بوبین شیر برقی"])
 
         P.step_crawl(cfg, run)
         c = read_csv(self.tmp / "runs" / run / FILES["crawled"])
-        self.assertEqual(len(c), 3)
+        self.assertEqual(len(c), 2)
         drive = c[c["taxonomy_id"] == "2"].iloc[0]
         self.assertEqual(drive["price_toman"], "12000000")
         self.assertEqual(drive["price_usd"], "120.0")
@@ -129,8 +131,6 @@ class EndToEnd(unittest.TestCase):
         self.assertEqual(valve["seller_phones"], "02188776655")
         self.assertEqual(valve["extracted_by"], "woo_store_api")
 
-        coil = c[c["name"].str.contains("بوبین")].iloc[0]
-        self.assertEqual(coil["price_toman"], "350000")      # 3,500,000 rial
         failed = read_csv(self.tmp / "runs" / run / "03_failed.csv")
         self.assertEqual(list(failed["reason"]), ["http blocked/none"])  # robots.txt
 
@@ -146,7 +146,7 @@ class EndToEnd(unittest.TestCase):
         with mock.patch.dict(os.environ, {"ANTHROPIC_API_KEY": "test"}), \
                 mock.patch("crawler.llm.LLM.ask", fake_ask):
             P.step_filter(cfg, run)
-        self.assertEqual(len(read_csv(self.tmp / "runs" / run / FILES["rejected"])), 1)
+        self.assertEqual(len(read_csv(self.tmp / "runs" / run / FILES["rejected"])), 0)
 
         P.step_dedupe(cfg, run, str(site))
         upd = read_csv(self.tmp / "runs" / run / FILES["updates"])
@@ -167,7 +167,7 @@ class EndToEnd(unittest.TestCase):
 
         # re-running a step skips finished rows instead of duplicating them
         P.step_crawl(cfg, run)
-        self.assertEqual(len(read_csv(self.tmp / "runs" / run / FILES["crawled"])), 3)
+        self.assertEqual(len(read_csv(self.tmp / "runs" / run / FILES["crawled"])), 2)
         print("\n" + P.stats(cfg, run))
 
 

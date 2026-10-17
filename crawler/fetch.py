@@ -8,7 +8,9 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import threading
 import time
+from collections import defaultdict
 import urllib.robotparser
 from pathlib import Path
 from urllib.parse import urlparse
@@ -42,6 +44,19 @@ class Fetcher:
             self.s.proxies = {"http": proxy, "https": proxy}
         self._last: dict[str, float] = {}
         self._robots: dict[str, urllib.robotparser.RobotFileParser | None] = {}
+        # thread-safe politeness: one lock per site, so several sites are fetched in parallel
+        # while each site still gets at most one request per `delay` seconds
+        self.domain_delays = {k.lower(): float(v) for k, v in (h.get("domain_delays") or {}).items()}
+        self._locks: dict[str, threading.Lock] = defaultdict(threading.Lock)
+        self._glock = threading.Lock()
+
+    @staticmethod
+    def site_key(dom: str) -> str:
+        """'cnheli.en.made-in-china.com' -> 'made-in-china.com' (one politeness budget per site)."""
+        parts = dom.split(".")
+        if len(parts) >= 3 and parts[-2] in ("co", "ac", "org", "gov", "net") and len(parts[-1]) == 2:
+            return ".".join(parts[-3:])
+        return ".".join(parts[-2:])
 
     # ------------------------------------------------------------ robots
     def allowed(self, url: str) -> bool:
@@ -49,7 +64,9 @@ class Fetcher:
             return True
         p = urlparse(url)
         base = f"{p.scheme}://{p.netloc}"
-        if base not in self._robots:
+        with self._glock:
+            known = base in self._robots
+        if not known:
             rp = urllib.robotparser.RobotFileParser()
             try:
                 r = self.s.get(base + "/robots.txt", timeout=self.timeout)
@@ -81,12 +98,17 @@ class Fetcher:
 
     # ------------------------------------------------------------ get
     def _wait(self, dom: str) -> None:
-        last = self._last.get(dom)
-        if last is not None:
-            gap = time.time() - last
-            if gap < self.delay:
-                time.sleep(self.delay - gap)
-        self._last[dom] = time.time()
+        k = self.site_key(dom)
+        delay = self.domain_delays.get(k, self.delay)
+        with self._glock:
+            lock = self._locks[k]
+        with lock:
+            last = self._last.get(k)
+            if last is not None:
+                gap = time.time() - last
+                if gap < delay:
+                    time.sleep(delay - gap)
+            self._last[k] = time.time()
 
     def get(self, url: str, *, params: dict | None = None, as_json: bool = False,
             use_cache: bool = True) -> dict | None:

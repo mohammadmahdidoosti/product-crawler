@@ -255,6 +255,7 @@ td select,td input{padding:3px 6px;font-size:12.5px}
       </div>
       <div class="chips" id="rtBatches" style="margin-bottom:12px"></div>
       <p class="muted" style="font-size:12.5px;margin:0 0 10px">ردیف‌ها به‌طور پیش‌فرض درست حساب می‌شوند. اگر تصمیمی غلط است، «غلط» را بزنید و مسیر درست را انتخاب کنید. «رد» یعنی این دسته کراول نشود.</p>
+      <label class="muted" style="font-size:12.5px;display:inline-flex;gap:6px;align-items:center;margin:0 0 8px"><input type="checkbox" id="rtShowBrand"> نمایش ردیف‌های برند (<span id="rtBrandN">۰</span> ردیف، خودکار تأیید می‌شوند؛ برای اصلاح نمایششان دهید)</label>
       <div class="tablewrap" style="max-height:640px"><table id="rtTable"></table></div>
       <div class="row" style="margin-top:10px"><a class="btn ghost sm" id="rtCsv">دانلود این دسته</a><span class="muted" id="rtMsg" style="font-size:13px"></span></div>
     </div>
@@ -436,12 +437,12 @@ const STEPS = [
 ];
 const STEP_FA = Object.fromEntries(STEPS.map(s=>[s.k,s.t])); STEP_FA.all='همه‌ی مرحله‌ها'; STEP_FA.probe='سنجش بازار';
 const FILES = [
-  ['صف',['01_queue.csv']], ['جستجو',['02_search_hits.csv','02_no_hits.csv']], ['کراول',['03_crawled.csv','03_failed.csv']],
+  ['صف',['01_queue.csv']], ['جستجو',['02_search_hits.csv','02_no_hits.csv','02_prefiltered.csv']], ['کراول',['03_crawled.csv','03_failed.csv']],
   ['فیلتر',['04_filtered.csv','04_rejected.csv']], ['ادغام',['05_new_products.csv','05_updates_existing.csv','05_review.csv','05_not_selected.csv','05_needs_price.csv']],
   ['خروجی',['06_woo_import.csv','06_woo_update_prices.csv']]];
 const FILE_FA = {'01_queue.csv':'صف','02_search_hits.csv':'لینک‌های پیداشده','02_no_hits.csv':'بی‌نتیجه','03_crawled.csv':'کراول‌شده',
   '03_failed.csv':'ناموفق','04_filtered.csv':'تأییدشده','04_rejected.csv':'ردشده','05_new_products.csv':'محصولات تازه',
-  '05_updates_existing.csv':'به‌روزرسانی موجودها','05_review.csv':'بازبینی','06_woo_import.csv':'ایمپورت ووکامرس','06_woo_update_prices.csv':'به‌روزرسانی قیمت','05_not_selected.csv':'خارج از ۲۴ برتر','05_needs_price.csv':'نیازمند قیمت'};
+  '05_updates_existing.csv':'به‌روزرسانی موجودها','05_review.csv':'بازبینی','06_woo_import.csv':'ایمپورت ووکامرس','06_woo_update_prices.csv':'به‌روزرسانی قیمت','05_not_selected.csv':'خارج از ۲۴ برتر','05_needs_price.csv':'نیازمند قیمت','02_prefiltered.csv':'ردشده از روی عنوان'};
 const COL_FA = {name_fa:'نام فارسی',source_name:'نام اصلی (انگلیسی)',quality_score:'امتیاز کیفیت',quality_why:'جزئیات امتیاز',supplier_badges:'نشان تأمین‌کننده',specs_fa_json:'مشخصات فارسی',taxonomy_id:'شناسه دسته',breadcrumb:'مسیر دسته',query:'عبارت جستجو',route:'مسیر',leaf:'دسته',level1:'دسته‌ی اصلی',
   site_product_count:'محصول روی سایت',priority:'اولویت',name:'نام',brand:'برند',model:'مدل',specs_json:'مشخصات',short_description:'توضیح',
   price_raw:'قیمت خام',price_unit_detected:'واحد',price_toman:'قیمت (تومان)',price_usd:'دلار',price_flags:'هشدار قیمت',sale_unit:'واحد فروش',
@@ -637,7 +638,7 @@ $('#stopBtn').onclick = ()=>post('/api/job/stop').then(()=>toast('توقف بع�
 
 // ---------------- routing
 const ROUTE_LBL = {iran:'ایرانی', foreign:'Made-in-China', both:'هر دو', probe:'در انتظار سنجش', skip:'رد'};
-let RT = {batch:1, summary:null, rows:[], marks:{}};
+let RT = {batch:1, summary:null, rows:[], marks:{}, showBrand:false};
 const badge = d => `<span class="badge b-${d}">${ROUTE_LBL[d]||d}</span>`;
 async function loadRouting(){
   const r = await api('/api/routing'); RT.summary = r;
@@ -661,8 +662,9 @@ async function loadBatch(){
 }
 function renderBatch(){
   let lastG='';
+  $('#rtBrandN').textContent = fa(RT.rows.filter(x=>x.kind==='brand').length);
   $('#rtTable').innerHTML = '<tr><th>غلط؟</th><th>دسته</th><th>تصمیم</th><th>دلیل</th><th>شواهد</th><th>عبارت انگلیسی</th><th>مسیر درست</th><th>یادداشت</th></tr>' +
-    RT.rows.map(x=>{
+    RT.rows.filter(x=>RT.showBrand || x.kind!=='brand' || RT.marks[x.taxonomy_id]).map(x=>{
       const m = RT.marks[x.taxonomy_id], leaf = x.breadcrumb.split(' > ').slice(-1)[0];
       const g = x.group!==lastG ? `<div class="muted" style="font-size:11.5px">${esc(x.group.split(' > ').slice(-2).join(' › '))}</div>` : ''; lastG = x.group;
       const ev = (x.evidence||[]).map(e=>`<a href="${esc(e.url)}" target="_blank" rel="noopener" title="${esc(e.title)}">${esc(e.domain)}${e.priced?' ✓':''}</a>`).join('');
@@ -677,6 +679,7 @@ function renderBatch(){
         <td><input class="rtN" value="${esc(m?m.note:'')}" ${m?'':'disabled'} style="min-width:140px"></td></tr>`;
     }).join('');
 }
+$('#rtShowBrand').addEventListener('change', e=>{ RT.showBrand = e.target.checked; renderBatch(); });
 $('#rtTable').addEventListener('change', e=>{
   const tr=e.target.closest('tr[data-id]'); if(!tr) return; const id=tr.dataset.id;
   if(e.target.classList.contains('rtW')){

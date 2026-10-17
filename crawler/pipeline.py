@@ -97,22 +97,48 @@ def step_search(cfg: dict, run: str) -> Path:
             r["english"] = leaf_english(r["breadcrumb"].split(">")[-1].strip(), g.split(">")[-1].strip(),
                                         english_for(g, gl))
     f = _fetchers(cfg)
-    n_hits = 0
-    with Appender(out, HITS_COLS) as w, Appender(d / "02_no_hits.csv", ["taxonomy_id", "query", "route"]) as miss:
-        for i, row in enumerate(queue, 1):
-            if _progress("search", i - 1, len(queue)):
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    from .rules import judge
+    workers = max(1, int(cfg.get("http", {}).get("workers", 8)) // 2)
+    n_hits = n_pre = 0
+    todo = [r for r in queue if r["taxonomy_id"] not in done]
+
+    def run_row(row):
+        hits = search_row(cfg, f, row, en.get(row["query"]), probes)
+        # links whose title already shows they do not fit (wrong brand, spare part, off-topic
+        # English title) are dropped here, before their page is fetched
+        g = row.get("group") or group_of(row["breadcrumb"])
+        leaf = row["breadcrumb"].split(">")[-1].strip()
+        keep, drop = [], []
+        for h in hits:
+            if h.get("title") and h.get("found_by") in ("woo_store_api", "made_in_china", "woo_search"):
+                v = judge(row["breadcrumb"], leaf, {"name": h["title"], "source_type": h["source_type"]},
+                          row.get("english", ""), english_for(g, gl))
+                if not v["relevant"]:
+                    drop.append({**h, "reason": v["reason"]})
+                    continue
+            keep.append(h)
+        return row, keep, drop
+
+    with Appender(out, HITS_COLS) as w, Appender(d / "02_no_hits.csv", ["taxonomy_id", "query", "route"]) as miss, \
+            Appender(d / "02_prefiltered.csv", HITS_COLS + ["reason"]) as pre, ThreadPoolExecutor(workers) as ex:
+        futs = [ex.submit(run_row, r) for r in todo]
+        for i, fut in enumerate(as_completed(futs), 1):
+            if _progress("search", i - 1, len(todo)):
+                ex.shutdown(wait=False, cancel_futures=True)
                 break
-            if row["taxonomy_id"] in done:
-                continue
-            hits = search_row(cfg, f, row, en.get(row["query"]), probes)
+            row, hits, dropped = fut.result()
             for h in hits:
                 w.write(h)
+            for h in dropped:
+                pre.write(h)
             if not hits:
                 miss.write(row)
             n_hits += len(hits)
+            n_pre += len(dropped)
             if i % 10 == 0:
-                log.info("search %d/%d, %d hits so far", i, len(queue), n_hits)
-    log.info("search done: %d new hits -> %s", n_hits, out.name)
+                log.info("search %d/%d, %d hits so far", i, len(todo), n_hits)
+    log.info("search done: %d new hits (%d dropped by title before fetching) -> %s", n_hits, n_pre, out.name)
     return out
 
 
@@ -170,12 +196,14 @@ def price_fields(rec: dict, rate: dict, cfg: dict) -> dict:
 
 
 def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
+    """Fetch and read every found page. Pages are processed in parallel across sites
+    (each site keeps its own pace), and a page found for several categories is
+    fetched and read once; one row is still written per category for the filter."""
+    from concurrent.futures import ThreadPoolExecutor, as_completed
     d = run_dir(cfg, run)
     hits = read_csv(d / FILES["hits"]).to_dict("records")
     queue = {r["taxonomy_id"]: r for r in read_csv(d / FILES["queue"]).to_dict("records")}
     out = d / FILES["crawled"]
-    # a page found for two categories is checked for each (the AI filter
-    # decides where it belongs); the disk cache means it is fetched only once
     done = {f"{r['taxonomy_id']}|{r['url']}" for r in (read_csv(out).to_dict("records") if out.exists() else [])}
     done |= {f"{r.get('taxonomy_id', '')}|{r['url']}" for r in
              (read_csv(d / "03_failed.csv").to_dict("records") if (d / "03_failed.csv").exists() else [])}
@@ -186,71 +214,101 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
     if use_llm_fallback:
         from .llm import LLM
         llm = LLM(cfg)
-    ok = n_listing = 0
     list_max = int(cfg.get("search", {}).get("listing_max", 12))
+    workers = max(1, int(cfg.get("http", {}).get("workers", 8)))
+    mult = float(cfg.get("price", {}).get("foreign_multiplier", 1) or 1)
+
+    def process(h: dict) -> tuple[str, object]:
+        """One page -> ('rec', record) | ('list', product links) | ('fail', reason)."""
+        if h.get("prefilled_json"):
+            return "rec", from_store_api(json.loads(h["prefilled_json"]))
+        foreign = h["source_type"] == "foreign"
+        res = f["foreign" if foreign else "iran"].get(h["url"])
+        if not res or res.get("status") != 200:
+            return "fail", f"http {res.get('status') if res else 'blocked/none'}"
+        listing = not foreign and not h.get("from_listing") and is_listing_url(h["url"])
+        rec = None if listing else extract_page(res["text"], h["url"])
+        if not foreign and not h.get("from_listing") and (listing or not rec or not rec.get("price_amount")):
+            links = listing_links(res["text"], h["url"], list_max)
+            if links:            # a shop's category page: its products are crawled instead
+                return "list", links
+        if rec is None and llm:
+            rec = _llm_record(llm, res["text"])
+        return ("rec", rec) if rec and rec.get("name") else ("fail", "no product data")
+
+    def ukey(h: dict) -> str:
+        return f"{h['url']}|{'L' if h.get('from_listing') else ''}|{'P' if h.get('prefilled_json') else ''}"
+
+    memo: dict[str, tuple[str, object]] = {}
+    ok = n_listing = 0
+    pending = [h for h in hits if f"{h['taxonomy_id']}|{h['url']}" not in done]
+    total, finished, stopped = len(pending), 0, False
     with Appender(out, CRAWLED_COLS) as w, Appender(d / "03_failed.csv", ["taxonomy_id", "url", "reason"]) as fail:
-        for i, h in enumerate(hits, 1):
-            if _progress("crawl", i - 1, len(hits)):
-                break
-            key = f"{h['taxonomy_id']}|{h['url']}"
-            if key in done:
-                continue
-            done.add(key)
-            rec = None
-            if h.get("prefilled_json"):
-                rec = from_store_api(json.loads(h["prefilled_json"]))
-            else:
-                fetcher = f["foreign" if h["source_type"] == "foreign" else "iran"]
-                res = fetcher.get(h["url"])
-                if not res or res.get("status") != 200:
-                    fail.write({"taxonomy_id": h["taxonomy_id"], "url": h["url"], "reason": f"http {res.get('status') if res else 'blocked/none'}"})
+        while pending and not stopped:
+            todo = {}
+            for h in pending:
+                todo.setdefault(ukey(h), h)
+            todo = {k: h for k, h in todo.items() if k not in memo}
+            with ThreadPoolExecutor(workers) as ex:
+                futs = {ex.submit(process, h): k for k, h in todo.items()}
+                for fut in as_completed(futs):
+                    try:
+                        memo[futs[fut]] = fut.result()
+                    except Exception as e:                 # one bad page must not stop the run
+                        memo[futs[fut]] = ("fail", f"error {type(e).__name__}")
+                    finished += 1
+                    if _progress("crawl", finished, max(total, finished)):
+                        stopped = True
+                        ex.shutdown(wait=False, cancel_futures=True)
+                        break
+                    if finished % 50 == 0:
+                        log.info("crawl %d pages read (%d unique so far)", finished, len(memo))
+            nxt = []
+            for h in pending:
+                key = f"{h['taxonomy_id']}|{h['url']}"
+                if key in done or ukey(h) not in memo:
                     continue
-                listing = h["source_type"] != "foreign" and not h.get("from_listing") and is_listing_url(h["url"])
-                rec = None if listing else extract_page(res["text"], h["url"])
-                if (listing or not rec or not rec.get("price_amount")) and h["source_type"] != "foreign" \
-                        and not h.get("from_listing"):
-                    links = listing_links(res["text"], h["url"], list_max)
-                    if links and (listing or not rec or not rec.get("price_amount")):
-                        # a shop's category page: crawl the products listed on it instead
-                        hits += [{**h, "url": u, "title": "", "found_by": "listing", "prefilled_json": "",
-                                  "from_listing": "1"} for u in links]
-                        n_listing += 1
-                        continue
-                if rec is None and llm:
-                    rec = _llm_record(llm, res["text"])
-            if not rec or not rec.get("name"):
-                fail.write({"taxonomy_id": h["taxonomy_id"], "url": h["url"], "reason": "no product data"})
-                continue
-            dom = domain_of(h["url"])
-            s = sellers.get(dom, h["route"])
-            q = queue.get(h["taxonomy_id"], {})
-            row = {
-                "taxonomy_id": h["taxonomy_id"], "breadcrumb": q.get("breadcrumb", ""),
-                "query": h["query"], "route": h["route"],
-                "name": rec["name"], "brand": rec["brand"], "model": rec["model"],
-                "specs_json": json.dumps(rec["specs"], ensure_ascii=False) if rec["specs"] else "",
-                "short_description": rec["short_description"],
-                "sale_unit": rec["sale_unit"], "in_stock": rec["in_stock"],
-                "seller_name": rec.get("seller_name") or s["seller_name"],
-                "seller_phones": " | ".join(rec["seller_phones"] or s["seller_phones"]),
-                "claims_representative": rec["claims_representative"],
-                "source_domain": dom, "source_type": h["source_type"], "url": h["url"],
-                "image_urls": json.dumps(rec["image_urls"][:6], ensure_ascii=False),
-                "extracted_by": rec["extracted_by"], "supplier_badges": rec.get("supplier_badges", ""),
-                "crawled_at": dt.datetime.now().isoformat(timespec="seconds"),
-                **price_fields(rec, rate, cfg),
-            }
-            mult = float(cfg.get("price", {}).get("foreign_multiplier", 1) or 1)
-            if h["source_type"] == "foreign" and mult != 1 and row["price_toman"] != "":
-                # Made-in-China prices are ex-factory in China: shipping, customs and margin on top
-                row["price_toman"] = round(row["price_toman"] * mult)
-                row["price_usd"] = round(row["price_usd"] * mult, 2)
-                row["price_flags"] = " | ".join(x for x in (row["price_flags"], f"foreign_x{mult:g}") if x)
-            w.write(row)
-            ok += 1
-            if i % 25 == 0:
-                log.info("crawl %d/%d, %d products", i, len(hits), ok)
-    log.info("crawl done: %d products (%d shop list pages opened) -> %s", ok, n_listing, out.name)
+                done.add(key)
+                kind, val = memo[ukey(h)]
+                if kind == "list":
+                    n_listing += 1
+                    nxt += [{**h, "url": u, "title": "", "found_by": "listing", "prefilled_json": "",
+                             "from_listing": "1"} for u in val if f"{h['taxonomy_id']}|{u}" not in done]
+                    continue
+                if kind == "fail":
+                    fail.write({"taxonomy_id": h["taxonomy_id"], "url": h["url"], "reason": val})
+                    continue
+                rec = val
+                dom = domain_of(h["url"])
+                s = sellers.get(dom, h["route"])
+                q = queue.get(h["taxonomy_id"], {})
+                row = {
+                    "taxonomy_id": h["taxonomy_id"], "breadcrumb": q.get("breadcrumb", ""),
+                    "query": h["query"], "route": h["route"],
+                    "name": rec["name"], "brand": rec["brand"], "model": rec["model"],
+                    "specs_json": json.dumps(rec["specs"], ensure_ascii=False) if rec["specs"] else "",
+                    "short_description": rec["short_description"],
+                    "sale_unit": rec["sale_unit"], "in_stock": rec["in_stock"],
+                    "seller_name": rec.get("seller_name") or s["seller_name"],
+                    "seller_phones": " | ".join(rec["seller_phones"] or s["seller_phones"]),
+                    "claims_representative": rec["claims_representative"],
+                    "source_domain": dom, "source_type": h["source_type"], "url": h["url"],
+                    "image_urls": json.dumps(rec["image_urls"][:6], ensure_ascii=False),
+                    "extracted_by": rec["extracted_by"], "supplier_badges": rec.get("supplier_badges", ""),
+                    "crawled_at": dt.datetime.now().isoformat(timespec="seconds"),
+                    **price_fields(rec, rate, cfg),
+                }
+                if h["source_type"] == "foreign" and mult != 1 and row["price_toman"] != "":
+                    # Made-in-China prices are ex-factory in China: shipping, customs and margin on top
+                    row["price_toman"] = round(row["price_toman"] * mult)
+                    row["price_usd"] = round(row["price_usd"] * mult, 2)
+                    row["price_flags"] = " | ".join(x for x in (row["price_flags"], f"foreign_x{mult:g}") if x)
+                w.write(row)
+                ok += 1
+            total += len(nxt)
+            pending = nxt
+    log.info("crawl done: %d products from %d unique pages (%d shop list pages opened) -> %s",
+             ok, len(memo), n_listing, out.name)
     return out
 
 
