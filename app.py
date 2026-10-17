@@ -684,7 +684,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(test_site(self._jbody().get("domain", "")))
             if parts[:2] == ["api", "queue-preview"]:
                 return self._json(self.queue_preview(self._jbody()))
-            if parts[:2] == ["api", "job", "stop"]:
+            if parts[:3] == ["api", "job", "stop"]:
                 P.STOP.set()
                 return self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 5 and parts[3] == "step":
