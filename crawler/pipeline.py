@@ -273,6 +273,13 @@ def step_filter(cfg: dict, run: str) -> Path:
     log.info("filter: %s", "rule-based (free)" if use_rules else f"{llm.provider} / {llm.model}")
     kept = dropped = 0
     total = len(todo)
+    from .routing_state import english_for, group_of, load_glossary
+    gl = load_glossary()
+    qrows = read_csv(d / FILES["queue"]).to_dict("records") if (d / FILES["queue"]).exists() else []
+    en_of = {}
+    for q in qrows:                      # English term of each category, for foreign product names
+        g = q.get("group") or group_of(q["breadcrumb"])
+        en_of[q["taxonomy_id"]] = (q.get("english") or english_for(g, gl), english_for(g, gl))
     with Appender(out, FILTER_COLS) as w_ok, Appender(rej, FILTER_COLS) as w_no:
         for tid, part in todo.groupby("taxonomy_id", sort=False):
             if _progress("filter", kept + dropped, total):
@@ -283,7 +290,8 @@ def step_filter(cfg: dict, run: str) -> Path:
             for i in range(0, len(rows), batch):
                 chunk = rows[i:i + batch]
                 if use_rules:
-                    verdicts = [judge(crumb, leaf, r) for r in chunk]
+                    en, gen = en_of.get(tid, ("", ""))
+                    verdicts = [judge(crumb, leaf, r, en, gen) for r in chunk]
                 else:
                     try:
                         verdicts = relevance_batch(llm, crumb, chunk)

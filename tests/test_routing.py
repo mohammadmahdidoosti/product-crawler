@@ -160,3 +160,13 @@ class ForeignSearch(unittest.TestCase):
         self.assertEqual(len(f.urls), 2)                                     # retried without the last word
         self.assertEqual([h["source_domain"] for h in hits].count("big.en.made-in-china.com"), 2)
         self.assertIn("small.en.made-in-china.com", [h["source_domain"] for h in hits])
+
+    def test_english_relevance(self):
+        from crawler.rules import judge
+        c = "شیرآلات > اکچویتور برقی و محرک شیر > اکچویتور برقی شیر پروانه ای"
+        leaf, en, g = "اکچویتور برقی شیر پروانه ای", "electric valve actuator butterfly", "electric valve actuator"
+        ok = lambda n: judge(c, leaf, {"name": n}, en, g)["relevant"]
+        self.assertTrue(ok("Electric Butterfly Valve Actuators DN100"))
+        self.assertFalse(ok("047133062D Box Butterfly for Fabia VW"))
+        self.assertFalse(ok("Micro Limit Switch for Electric Pallet"))
+        self.assertTrue(ok("اکچویتور برقی پروانه ای"))          # Persian names still use the Persian rules
