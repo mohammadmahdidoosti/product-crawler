@@ -54,6 +54,7 @@ LATIN = {  # Latin names of brands, to recognise them in product names (Persian 
     "پارکر": "parker", "امرون": "omron", "هیلتی": "hilti", "روزمونت": "rosemount", "تله مکانیک": "telemecanique",
     "چینت": "chint", "روتورک": "rotork", "ایمرگاس": "immergas", "لگراند": "legrand", "زیگلر": "ziegler",
     "ریوبی": "ryobi", "بلمو": "belimo", "بلیمو": "belimo", "فلوسرو": "flowserve", "auma": "auma", "آوما": "auma",
+    "زیلابگ": "ziehl-abegg", "مونتاناری": "montanari", "ویتور": "wittur", "الکو": "elco",
     "abb": "abb", "smc": "smc", "aeg": "aeg", "obo": "obo", "eti": "eti", "dca": "dca", "فلوسرو ": "flowserve",
 }
 
@@ -82,12 +83,34 @@ def find_brand(text: str) -> tuple[str, str] | None:
     return None
 
 
+LATIN_NOT_BRAND = {"ip", "ac", "dc", "led", "pvc", "upvc", "cpvc", "pe", "pp", "ppr", "abs", "lcd", "usb", "cnc", "plc",
+                   "hmi", "vfd", "rpm", "bar", "psi", "mm", "cm", "kw", "hp", "kg", "nm", "mpa", "dn", "pn", "iso", "ce",
+                   "din", "ansi", "api", "ss", "nbr", "epdm", "ptfe", "hvac", "rtu", "wifi", "smart", "pro", "max",
+                   "mini", "series", "type", "model", "new", "set", "kit", "inch", "volt", "ups", "ats", "mcb", "mccb",
+                   "rcd", "rcbo", "ct", "pt", "cat", "rj", "utp", "ftp", "sfp", "poe", "nvr", "dvr", "ip67", "ip68",
+                   "gps", "gsm", "sms", "rf", "ir", "pir", "co2", "lpg", "cng", "hdpe", "ldpe", "pex", "pert", "ppr",
+                   "frp", "grp", "mdf", "hdf", "osb", "pu", "eva", "tpu", "pom", "pa", "pc", "pmma", "ptc", "ntc",
+                   "rtd", "pt100", "ac/dc", "ccs", "sr", "x", "v", "w", "a", "u", "l", "s", "m", "t", "z", "y"}
+
+
+def leaf_brand(text: str) -> tuple[str, str] | None:
+    """A brand in a category name: a known one (brands.csv), else a Latin word
+    ('موتور آسانسور elco', 'اره شارژی pap') — in Persian category names those are brands."""
+    b = find_brand(text)
+    if b:
+        return b
+    for w in re.findall(r"(?<![\w-])[A-Za-z][A-Za-z\-&]+(?![\w-])", text or ""):
+        if w.lower() not in LATIN_NOT_BRAND and len(w) >= 2:
+            return w, "unknown"
+    return None
+
+
 def rule_route(breadcrumb: str) -> dict:
     parts = [p.strip() for p in breadcrumb.split(">")]
     # a brand in the leaf beats one higher up; the top-level title is skipped
     # ("مصالح و شیمی ساختمان" is a category, "شیمی ساختمان" a brand)
     leaf_first = " ".join(reversed(parts[1:]))
-    b = find_brand(leaf_first)
+    b = find_brand(leaf_first) or leaf_brand(parts[-1])
     if b:
         name, origin = b
         label = {"iranian": "برند ایرانی", "foreign": "برند خارجی", "unknown": "برند"}[origin] if origin in (

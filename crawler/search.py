@@ -46,10 +46,10 @@ def _hit(row: dict, src: dict, url: str, title: str, found_by: str, prefilled: d
 def search_store_api(f: Fetcher, src: dict, row: dict, n: int) -> list[dict]:
     """Woo search matches the whole phrase, so a long category name often finds
     nothing; then the last word is dropped and it tries again (down to 2 words)."""
-    from .routing import find_brand
+    from .routing import leaf_brand
     base = _base(src)
     words = row["query"].split()
-    b = find_brand(row["query"])
+    b = leaf_brand(row["query"])
     if b:   # a brand category: every try keeps the brand ('اکچویتور برقی روتورک' -> 'روتورک اکچویتور' -> 'روتورک')
         bw = [w for w in words if norm_text(w) in norm_text(b[0]).split()] or [b[0]]
         rest = [w for w in words if w not in bw]

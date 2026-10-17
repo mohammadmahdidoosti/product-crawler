@@ -83,9 +83,9 @@ def judge_en(english: str, group_en: str, product: dict) -> dict:
 
 def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en: str = "") -> dict:
     import re
-    from .routing import brand_in, find_brand, foreign_brand_in
+    from .routing import brand_in, foreign_brand_in, leaf_brand
     name = product.get("name") or ""
-    b = find_brand(leaf)
+    b = leaf_brand(leaf)
     if b and not brand_in(name, b[0]):
         # a brand category (e.g. «محرک الکتریکی شیر سه طرفه بوتان») takes only that brand
         return {"relevant": False, "confidence": 0.8, "reason": f"دسته‌ی برند «{b[0]}» است ولی برند در نام محصول نیست"}

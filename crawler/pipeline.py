@@ -476,7 +476,7 @@ def add_persian(cfg: dict, df: pd.DataFrame) -> pd.DataFrame:
     from collections import Counter
     from .fa_name import is_foreign, persian_name, save_missing, translate_specs
     from .normalize import norm_text
-    from .routing import find_brand
+    from .routing import leaf_brand
     if df.empty:
         return df
     df = df.copy()
@@ -491,7 +491,7 @@ def add_persian(cfg: dict, df: pd.DataFrame) -> pd.DataFrame:
             continue
         specs = json.loads(r.get("specs_json") or "{}")
         leaf = (r.get("breadcrumb") or r.get("query") or "").split(">")[-1].strip()
-        b = find_brand(leaf)
+        b = leaf_brand(leaf)
         if b:                                              # a Chinese product never carries a brand's name
             leaf = " ".join(w for w in leaf.split() if norm_text(w) not in norm_text(b[0]).split()).strip() or leaf
         n = persian_name(leaf, r.get("model", ""), specs, r.get("name", ""))

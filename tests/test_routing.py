@@ -268,3 +268,10 @@ class BrandAndPrice(unittest.TestCase):
         got = dict(zip(ok["name"], ok["price_toman"]))
         self.assertEqual(got["اکچویتور بلیمو"], "30")                 # same model elsewhere
         self.assertIn("اکچویتور آئوما", list(need["name"]))           # no blind category median from combo sets
+
+
+class LeafBrands(unittest.TestCase):
+    def test_latin_word_is_a_brand(self):
+        r = rule_route("آسانسور > موتور و گیربکس آسانسور > موتور آسانسور elco")
+        self.assertEqual((r["decision"], r["kind"], r["brand"]), ("iran", "brand", "elco"))
+        self.assertEqual(rule_route("تابلو برق > کلید > کلید ups 3kva")["kind"], "generic")
