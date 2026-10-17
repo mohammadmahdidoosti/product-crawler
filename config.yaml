@@ -33,6 +33,7 @@ search:
   max_hits_per_source: 8            # per Iranian shop and category
   foreign_candidates: 40           # Made-in-China candidates per category (best ones kept later)
   per_supplier: 2                  # at most this many products from one Chinese supplier
+  listing_max: 12                  # products opened from one shop category page
 
 select:
   max_per_category: 24             # keep the best N products per category (quality score), 0 = all
@@ -66,6 +67,8 @@ price:
   min_toman: 5000                  # below this -> flag too_low (excluded from the median)
   max_toman: 50000000000
   round_to_toman: 1000
+  foreign_multiplier: 2            # Made-in-China price x this (shipping, customs, margin)
+  outlier_factor: 6                # price < median/6 or > median*6 in its category -> dropped
 
 llm:
   # rules             free rule-based filter, no model (default)

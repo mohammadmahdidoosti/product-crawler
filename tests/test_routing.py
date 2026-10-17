@@ -193,3 +193,47 @@ class Ranking(unittest.TestCase):
         self.assertIn("x", list(kept["sellers"]))
         self.assertNotIn("z", list(kept["sellers"]))                   # no price -> lowest score
         self.assertEqual(len(dropped), 4)
+
+
+class Batch1Fixes(unittest.TestCase):
+    def test_listing_page_links(self):
+        from crawler.extract import is_listing_url, listing_links
+        html = """<ul class="products"><li class="product"><a class="woocommerce-LoopProduct-link" href="/product/a1/">A</a>
+        <a href="/?add-to-cart=5">buy</a></li><li class="product"><a href="https://shop.ir/product/b2/">B</a></li></ul>
+        <a href="/product-category/valve/">cat</a><a href="https://other.ir/product/x/">other site</a>"""
+        u = "https://shop.ir/product-category/actuator/"
+        self.assertTrue(is_listing_url(u))
+        self.assertEqual(listing_links(html, u), ["https://shop.ir/product/a1/", "https://shop.ir/product/b2/"])
+
+    def test_brand_category_needs_the_brand(self):
+        from crawler.rules import judge
+        c = "شیرآلات > اکچویتور برقی و محرک شیر > محرک الکتریکی شیر سه طرفه بوتان"
+        leaf = c.split(" > ")[-1]
+        self.assertFalse(judge(c, leaf, {"name": "محرک الکتریکی شیر هانیول مدل ML6425A3006"})["relevant"])
+        self.assertTrue(judge(c, leaf, {"name": "محرک الکتریکی شیر سه طرفه بوتان"})["relevant"])
+        g = "شیرآلات > اکچویتور برقی و محرک شیر > اکچویتور برقی تدریجی"
+        self.assertFalse(judge(g, "اکچویتور برقی تدریجی", {"name": "Siemens Sqm33 Modulating Valve Actuator",
+                                                            "source_type": "foreign"},
+                               "electric valve actuator modulating", "electric valve actuator")["relevant"])
+
+    def test_one_category_and_outliers(self):
+        from crawler.pipeline import drop_price_outliers, one_category_per_product
+        df = pd.DataFrame([{"url": "u1", "taxonomy_id": "1", "breadcrumb": "a > b", "relevance_confidence": "0.6"},
+                           {"url": "u1", "taxonomy_id": "2", "breadcrumb": "a > b > c", "relevance_confidence": "0.9"}])
+        self.assertEqual(list(one_category_per_product(df)["taxonomy_id"]), ["2"])
+        m = pd.DataFrame([{"taxonomy_id": "1", "source_type": "foreign", "price_toman": p, "price_usd": "1",
+                           "price_flags": ""} for p in ("270000", "20000000", "25000000", "30000000", "27000000")])
+        out = drop_price_outliers(m)
+        self.assertEqual(out.at[0, "price_toman"], "")
+        self.assertIn("price_outlier", out.at[0, "price_flags"])
+        self.assertEqual(out.at[1, "price_toman"], "20000000")
+
+    def test_names(self):
+        from crawler.extract import clean_name
+        from crawler.fa_name import persian_name, tr_value
+        self.assertEqual(clean_name("محرک هانیول مدل ML7421B3003 &#8211; کد 2021"), "محرک هانیول مدل ML7421B3003")
+        n = persian_name("اکچویتور برقی تدریجی", "", {}, "Quarter Turn 4-20mA Modulating Explosion Proof Actuator 220V")
+        self.assertTrue(n.startswith("اکچویتور برقی تدریجی ضد انفجار"))
+        self.assertNotIn("Actuator", n)
+        self.assertEqual(tr_value("SS304 or SS316L")[0], "SS304 یا SS316L")
+        self.assertEqual(tr_value("Brass(Hpb59)")[0], "برنج (Hpb59)")

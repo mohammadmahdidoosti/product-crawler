@@ -401,7 +401,7 @@ def peek(url: str, find: list | None = None) -> dict:
         h = a["href"]
         if "/product" in h or "/prod/" in h:
             links.append([h[:200], (a.get("title") or a.get_text(" ", strip=True))[:80]])
-    rec = extract_page(html)
+    rec = extract_page(html, url)
     if rec:
         rec.pop("page_text", None)
     tables = []
@@ -427,7 +427,7 @@ def backup_zip() -> bytes:
             if p.exists():
                 z.write(p, p.name)
         for f in ("fx_rates.csv", "translations.csv", "routing.csv", "probes.csv", "discovered.csv",
-                  "serper_usage.csv"):
+                  "serper_usage.csv", "untranslated.csv"):
             if (DATA_DIR / f).exists():
                 z.write(DATA_DIR / f, f)
         runs = DATA_DIR / "runs"
@@ -445,7 +445,7 @@ def restore_zip(data: bytes) -> list[str]:
                 continue
             ok = n in ("taxonomy.csv", "sources.yaml", "settings.json", "site_export.csv",
                        "fx_rates.csv", "translations.csv", "routing.csv", "probes.csv", "discovered.csv",
-                       "serper_usage.csv") or re.match(r"^runs/[\w\-]+/[\w\-.]+\.csv$", n)
+                       "serper_usage.csv", "untranslated.csv") or re.match(r"^runs/[\w\-]+/[\w\-.]+\.csv$", n)
             if not ok:
                 continue
             dest = DATA_DIR / n

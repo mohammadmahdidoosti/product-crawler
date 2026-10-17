@@ -13,6 +13,7 @@ Every decision carries a plain-Persian reason for review.
 from __future__ import annotations
 
 import csv
+import re
 from functools import lru_cache
 from pathlib import Path
 
@@ -40,6 +41,37 @@ def brands(path: str = str(BRANDS_FILE)) -> list[tuple[str, str, str]]:
         out = [(norm_text(r["brand"]), r.get("canonical") or r["brand"], r.get("origin", "unknown"))
                for r in csv.DictReader(f) if r.get("brand") and r.get("is_brand", "yes") != "no"]
     return sorted(out, key=lambda x: -len(x[0]))
+
+
+LATIN = {  # Latin names of brands, to recognise them in product names (Persian or English)
+    "اشنایدر": "schneider", "هیوندای": "hyundai", "پنتاکس": "pentax", "ماکیتا": "makita", "ابارا": "ebara",
+    "زیمنس": "siemens", "بوش": "bosch", "هوندا": "honda", "کرون": "crown", "رکسروت": "rexroth", "ال جی": "lg",
+    "هیوکی": "hioki", "فستو": "festo", "فیندر": "finder", "یورک": "york", "دلتا": "delta", "پیمتاش": "pimtas",
+    "دانفوس": "danfoss", "دنفوس": "danfoss", "ویکا": "wika", "دیوالت": "dewalt", "ال اس": "ls", "فلوک": "fluke",
+    "اتونیکس": "autonics", "دوو": "daewoo", "گراندفوس": "grundfos", "میتسوبیشی": "mitsubishi",
+    "پارکساید": "parkside", "برتولینی": "bertolini", "سامسونگ": "samsung", "فونیکس": "phoenix",
+    "هانیول": "honeywell", "شیائومی": "xiaomi", "گرووات": "growatt", "اینکو": "ingco", "لورچ": "lorch",
+    "پارکر": "parker", "امرون": "omron", "هیلتی": "hilti", "روزمونت": "rosemount", "تله مکانیک": "telemecanique",
+    "چینت": "chint", "روتورک": "rotork", "ایمرگاس": "immergas", "لگراند": "legrand", "زیگلر": "ziegler",
+    "ریوبی": "ryobi", "بلمو": "belimo", "بلیمو": "belimo", "فلوسرو": "flowserve", "auma": "auma", "آوما": "auma",
+    "abb": "abb", "smc": "smc", "aeg": "aeg", "obo": "obo", "eti": "eti", "dca": "dca", "فلوسرو ": "flowserve",
+}
+
+
+def brand_in(name: str, brand: str) -> bool:
+    """Is this brand (Persian or Latin name) in the product name?"""
+    t = f" {norm_text(name)} "
+    keys = {norm_text(brand)} | {norm_text(k) for k, v in LATIN.items() if v == LATIN.get(brand, "~")}
+    lat = LATIN.get(brand) or (brand if brand.isascii() else "")
+    return any(f" {k} " in t for k in keys if k) or bool(lat and re.search(rf"\b{re.escape(lat)}\b", name, re.I))
+
+
+def foreign_brand_in(name: str) -> str | None:
+    """A known foreign brand written in Latin inside an English product name."""
+    for lat in sorted(set(LATIN.values()), key=len, reverse=True):
+        if len(lat) >= 3 and re.search(rf"\b{re.escape(lat)}\b", name, re.I):
+            return lat
+    return None
 
 
 def find_brand(text: str) -> tuple[str, str] | None:

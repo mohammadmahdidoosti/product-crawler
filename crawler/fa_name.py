@@ -17,6 +17,7 @@ from functools import lru_cache
 from pathlib import Path
 
 from .config import ROOT
+from .normalize import norm_text
 
 FA = re.compile(r"[؀-ۿ]")
 CODE = re.compile(r"^[A-Za-z]{0,4}[\s\-]?\d[\w\s.,/~\-+°%()*:x×]*$|^[A-Z0-9][A-Z0-9\-/+.]{1,14}$")
@@ -60,13 +61,71 @@ def tr_value(v: str) -> tuple[str, bool]:
     m = re.match(r"^([\d,.]+)\s*(Pieces?|Pcs|Sets?|Units?|Pairs?|Meters?|Tons?|Kg|Rolls?|Boxes?)$", v, re.I)
     if m:
         return f"{m.group(1)} {UNITS[m.group(2).lower().rstrip('s') if m.group(2).lower() != 'pcs' else 'piece']}", True
-    if CODE.match(v) or FA.search(v) or (" " not in v and sum(c.isupper() for c in v) >= 2):
-        return v, True
-    parts = [p.strip() for p in re.split(r"[,/;]", v) if p.strip()]
+    parts = [p.strip() for p in re.split(r"[,/;]|\s+or\s+|\s+and\s+|\s*&\s*", v) if p.strip()]
     if len(parts) > 1:
         out = [tr_value(p) for p in parts]
-        return "، ".join(t for t, _ in out), all(ok for _, ok in out)
+        joiner = " یا " if re.search(r"\sor\s", v, re.I) else "، "
+        return joiner.join(t for t, _ in out), all(ok for _, ok in out)
+    m = re.match(r"^(.+?)\s*\((.+)\)$", v)                 # 'Brass(Hpb59)' -> 'برنج (Hpb59)'
+    if m:
+        a, ok_a = tr_value(m.group(1))
+        b, ok_b = tr_value(m.group(2))
+        return f"{a} ({b})", ok_a and ok_b
+    if CODE.match(v) or FA.search(v) or (" " not in v and sum(c.isupper() for c in v) >= 2):
+        return v, True
+    words = v.split()
+    if 1 < len(words) <= 5:                                    # word by word, only if every word is known
+        tw = [tr_word(w) for w in words]
+        if all(tw):
+            return " ".join(_fa_order(tw)), True
     return v, False
+
+
+WORDS_EXTRA = {
+    "type": "نوع", "valve": "شیر", "actuator": "عملگر", "joint": "اتصال", "body": "بدنه", "motor": "موتور",
+    "pump": "پمپ", "switch": "کلید", "control": "کنترل", "power": "برق", "supply": "تغذیه", "high": "بالا",
+    "low": "پایین", "medium": "متوسط", "speed": "سرعت", "pressure": "فشار", "temperature": "دما",
+    "normal": "معمولی", "ordinary": "معمولی", "steel": "فولاد", "stainless": "استنلس", "carbon": "کربنی",
+    "iron": "آهن", "cast": "ریختگی", "ductile": "داکتیل", "alloy": "آلیاژ", "aluminum": "آلومینیوم",
+    "aluminium": "آلومینیوم", "brass": "برنج", "copper": "مس", "plastic": "پلاستیک", "rubber": "لاستیک",
+    "water": "آب", "oil": "روغن", "gas": "گاز", "air": "هوا", "steam": "بخار", "electric": "برقی",
+    "pneumatic": "پنوماتیک", "hydraulic": "هیدرولیک", "manual": "دستی", "automatic": "اتوماتیک", "rotary": "دورانی",
+    "linear": "خطی", "single": "تک", "double": "دو", "three": "سه", "phase": "فاز", "way": "راه", "acting": "کاره",
+    "seal": "آب‌بندی", "soft": "نرم", "hard": "سخت", "metal": "فلزی", "flange": "فلنج", "thread": "رزوه",
+    "wafer": "ویفری", "ball": "توپی", "butterfly": "پروانه‌ای", "gate": "کشویی", "globe": "سوزنی", "check": "یکطرفه",
+    "explosion": "انفجار", "proof": "ضد", "waterproof": "ضد آب", "intelligent": "هوشمند", "smart": "هوشمند",
+    "standard": "استاندارد", "customized": "سفارشی", "industrial": "صنعتی", "general": "عمومی", "purpose": "منظوره",
+    "black": "مشکی", "white": "سفید", "blue": "آبی", "red": "قرمز", "silver": "نقره‌ای", "gray": "خاکستری",
+    "grey": "خاکستری", "yellow": "زرد", "green": "سبز", "modulating": "تدریجی", "regulating": "تنظیمی",
+    "on-off": "قطع و وصل", "on/off": "قطع و وصل", "switching": "قطع و وصل", "quarter": "یک‌چهارم", "turn": "دور",
+    "multi": "چند", "part": "جزئی", "vertical": "عمودی", "horizontal": "افقی", "mini": "مینی", "small": "کوچک",
+    "large": "بزرگ", "compact": "کامپکت", "portable": "پرتابل", "digital": "دیجیتال", "analog": "آنالوگ",
+    "signal": "سیگنال", "input": "ورودی", "output": "خروجی", "with": "با", "without": "بدون", "yes": "دارد", "no": "ندارد",
+}
+ADJ_AFTER = {"برقی", "پنوماتیک", "هیدرولیک", "دستی", "اتوماتیک", "دورانی", "خطی", "نرم", "سخت", "فلزی",
+             "ویفری", "توپی", "پروانه‌ای", "کشویی", "سوزنی", "یکطرفه", "هوشمند", "استاندارد", "سفارشی", "صنعتی",
+             "مشکی", "سفید", "آبی", "قرمز", "نقره‌ای", "خاکستری", "زرد", "سبز", "تدریجی", "تنظیمی", "عمودی",
+             "افقی", "کوچک", "بزرگ", "کامپکت", "پرتابل", "دیجیتال", "آنالوگ", "معمولی", "بالا", "پایین", "متوسط",
+             "کربنی", "ریختگی", "داکتیل", "عمومی"}
+
+
+def tr_word(w: str) -> str | None:
+    lw = w.lower().strip(".,:;")
+    d = _dict("values_fa.csv")
+    if lw in d:
+        return d[lw]
+    if lw in WORDS_EXTRA:
+        return WORDS_EXTRA[lw]
+    if CODE.match(w) or (sum(c.isupper() for c in w) >= 2 and " " not in w):
+        return w
+    return None
+
+
+def _fa_order(tw: list[str]) -> list[str]:
+    """English puts adjectives first ('Rotary Joint Type'); Persian after the noun ('نوع اتصال دورانی')."""
+    adj = [t for t in tw if t in ADJ_AFTER]
+    nouns = [t for t in tw if t not in ADJ_AFTER]
+    return list(reversed(nouns)) + adj if nouns else adj
 
 
 def translate_specs(specs: dict, missing: Counter | None = None) -> dict[str, str]:
@@ -85,7 +144,39 @@ def translate_specs(specs: dict, missing: Counter | None = None) -> dict[str, st
     return out
 
 
-def persian_name(leaf: str, model: str, specs: dict) -> str:
+TITLE_FEATURES = [  # (pattern in the English title, Persian) — the most telling traits, in this order
+    (r"explosion[- ]?proof|\bex[- ]?proof|\batex\b", "ضد انفجار"),
+    (r"modulating|proportional|4[- ]?20\s?ma|regulating", "تدریجی"),
+    (r"quarter[- ]?turn|part[- ]?turn|90\s?(deg|°)", "یک‌چهارم دور"),
+    (r"multi[- ]?turn", "چند دور"),
+    (r"\blinear\b", "خطی"),
+    (r"\bon[- /]?off\b|switch(ing)? type", "قطع و وصل"),
+    (r"intelligent|smart", "هوشمند"),
+    (r"waterproof|\bip6[5-8]\b", "ضد آب"),
+    (r"\bmini\b|\bsmall\b|\bmicro\b|compact", "کوچک"),
+    (r"butterfly", "پروانه‌ای"), (r"\bball valve", "توپی"), (r"\bgate valve", "کشویی"),
+    (r"3[- ]?way|three[- ]?way", "سه راه"), (r"2[- ]?way|two[- ]?way", "دو راه"),
+    (r"damper", "دمپر"), (r"stainless", "استیل"), (r"\bbrass\b", "برنجی"),
+    (r"\b(\d{2,3})\s?v(ac|dc)?\b|\b(ac|dc)\s?(\d{2,3})\s?v\b", None),        # voltage, kept as written
+]
+
+
+def title_features(title: str, have: str, n: int = 2) -> list[str]:
+    out = []
+    for pat, fa in TITLE_FEATURES:
+        m = re.search(pat, title or "", re.I)
+        if not m:
+            continue
+        val = fa or re.sub(r"\s+", "", m.group(0)).upper().replace("V", " ولت").replace("AC", "AC ").replace("DC", "DC ").strip()
+        val = re.sub(r"\s+", " ", val)
+        if norm_text(val) not in norm_text(have) and all(norm_text(val) not in norm_text(o) for o in out):
+            out.append(val)
+        if len(out) >= n:
+            break
+    return out
+
+
+def persian_name(leaf: str, model: str, specs: dict, title: str = "") -> str:
     bits = []
     for _, keys in TITLE_KEYS:
         for k in keys:
@@ -99,7 +190,10 @@ def persian_name(leaf: str, model: str, specs: dict) -> str:
         if len(bits) >= 3:
             break
     bits = [b.replace("نوع اتصال ", "اتصال ") for b in bits]
-    name = leaf.strip()
+    have = leaf + " " + " ".join(bits)
+    feats = title_features(title, have, 2 if model else 3)
+    bits = [b for b in bits if not (("ولت" in " ".join(feats)) and re.search(r"\d\s?V", b))]
+    name = leaf.strip() + (" " + " ".join(feats) if feats else "")
     if model:
         name += f" مدل {model}"
     return name + (f"، {'، '.join(bits)}" if bits else "")

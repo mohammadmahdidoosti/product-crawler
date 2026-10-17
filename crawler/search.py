@@ -44,13 +44,22 @@ def _hit(row: dict, src: dict, url: str, title: str, found_by: str, prefilled: d
 
 
 def search_store_api(f: Fetcher, src: dict, row: dict, n: int) -> list[dict]:
+    """Woo search matches the whole phrase, so a long category name often finds
+    nothing; then the last word is dropped and it tries again (down to 2 words)."""
     base = _base(src)
-    res = f.get(f"{base}/wp-json/wc/store/v1/products",
-                params={"search": row["query"], "per_page": n}, as_json=True)
-    if not res or res.get("status") != 200 or not isinstance(res.get("json"), list):
-        return []
+    words = row["query"].split()
+    items: list = []
+    while words:
+        res = f.get(f"{base}/wp-json/wc/store/v1/products",
+                    params={"search": " ".join(words), "per_page": n}, as_json=True)
+        if not res or res.get("status") != 200 or not isinstance(res.get("json"), list):
+            return []
+        items = res["json"]
+        if items or len(words) <= 2:
+            break
+        words = words[:-1]
     out = []
-    for item in res["json"][:n]:
+    for item in items[:n]:
         url, title = item.get("permalink", ""), item.get("name", "")
         if url and _overlap_ok(row["query"], title):
             out.append(_hit(row, src, url, title, "woo_store_api", item))

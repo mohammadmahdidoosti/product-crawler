@@ -11,7 +11,7 @@ import pandas as pd
 from . import fx as fxmod
 from .config import ROOT, run_dir
 from .dedupe import load_site_catalog, merge_crawl, split_against_site
-from .extract import extract_page, from_store_api, resolve_price_unit
+from .extract import extract_page, from_store_api, is_listing_url, listing_links, resolve_price_unit
 from .fetch import Fetcher, domain_of
 from .io import (CRAWLED_COLS, FILES, FILTER_COLS, HITS_COLS, Appender, done_values,
                  read_csv, write_csv)
@@ -186,7 +186,8 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
     if use_llm_fallback:
         from .llm import LLM
         llm = LLM(cfg)
-    ok = 0
+    ok = n_listing = 0
+    list_max = int(cfg.get("search", {}).get("listing_max", 12))
     with Appender(out, CRAWLED_COLS) as w, Appender(d / "03_failed.csv", ["taxonomy_id", "url", "reason"]) as fail:
         for i, h in enumerate(hits, 1):
             if _progress("crawl", i - 1, len(hits)):
@@ -204,7 +205,17 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
                 if not res or res.get("status") != 200:
                     fail.write({"taxonomy_id": h["taxonomy_id"], "url": h["url"], "reason": f"http {res.get('status') if res else 'blocked/none'}"})
                     continue
-                rec = extract_page(res["text"])
+                listing = h["source_type"] != "foreign" and not h.get("from_listing") and is_listing_url(h["url"])
+                rec = None if listing else extract_page(res["text"], h["url"])
+                if (listing or not rec or not rec.get("price_amount")) and h["source_type"] != "foreign" \
+                        and not h.get("from_listing"):
+                    links = listing_links(res["text"], h["url"], list_max)
+                    if links and (listing or not rec or not rec.get("price_amount")):
+                        # a shop's category page: crawl the products listed on it instead
+                        hits += [{**h, "url": u, "title": "", "found_by": "listing", "prefilled_json": "",
+                                  "from_listing": "1"} for u in links]
+                        n_listing += 1
+                        continue
                 if rec is None and llm:
                     rec = _llm_record(llm, res["text"])
             if not rec or not rec.get("name"):
@@ -229,11 +240,17 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
                 "crawled_at": dt.datetime.now().isoformat(timespec="seconds"),
                 **price_fields(rec, rate, cfg),
             }
+            mult = float(cfg.get("price", {}).get("foreign_multiplier", 1) or 1)
+            if h["source_type"] == "foreign" and mult != 1 and row["price_toman"] != "":
+                # Made-in-China prices are ex-factory in China: shipping, customs and margin on top
+                row["price_toman"] = round(row["price_toman"] * mult)
+                row["price_usd"] = round(row["price_usd"] * mult, 2)
+                row["price_flags"] = " | ".join(x for x in (row["price_flags"], f"foreign_x{mult:g}") if x)
             w.write(row)
             ok += 1
             if i % 25 == 0:
                 log.info("crawl %d/%d, %d products", i, len(hits), ok)
-    log.info("crawl done: %d products -> %s", ok, out.name)
+    log.info("crawl done: %d products (%d shop list pages opened) -> %s", ok, n_listing, out.name)
     return out
 
 
@@ -320,13 +337,14 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     src = d / (FILES["crawled"] if skip_filter else FILES["filtered"])
     df = read_csv(src)
     dd = cfg.get("dedupe", {})
+    df = one_category_per_product(df)
     merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)))
+    merged = drop_price_outliers(merged, float(cfg.get("price", {}).get("outlier_factor", 6)))
     from .ranking import select_top
     sel = cfg.get("select", {})
     n_all = len(merged)
     merged, dropped = select_top(merged, int(sel.get("max_per_category", 24)), int(sel.get("max_per_seller", 3)))
     write_csv(dropped, d / "05_not_selected.csv")
-    merged = add_persian(cfg, merged)
     log.info("select: best %s per category -> kept %d of %d (rest in 05_not_selected.csv)",
              sel.get("max_per_category", 24), len(merged), n_all)
     site = None
@@ -338,6 +356,7 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
         log.warning("no site export given: every product counts as new (use --site-export)")
     new, upd, rev = split_against_site(merged, site, float(dd.get("same_threshold", 0.92)),
                                        float(dd.get("review_threshold", 0.8)))
+    new, upd, rev = (add_persian(cfg, x) for x in (new, upd, rev))   # after matching: site names are compared in the source wording
     paths = [write_csv(new, d / FILES["new"]), write_csv(upd, d / FILES["updates"]),
              write_csv(rev, d / FILES["review"])]
     log.info("dedupe: %d rows -> %d products; new %d, updates %d, review %d",
@@ -345,10 +364,50 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     return paths
 
 
+def one_category_per_product(df: pd.DataFrame) -> pd.DataFrame:
+    """A page found for several categories stays only in the one it fits best
+    (highest relevance confidence; ties go to the longer, more specific category)."""
+    if df.empty or "url" not in df.columns:
+        return df
+    df = df.copy()
+    df["_c"] = pd.to_numeric(df.get("relevance_confidence", 0), errors="coerce").fillna(0)
+    df["_l"] = df["breadcrumb"].str.len()
+    best = df.sort_values(["_c", "_l"], ascending=False, kind="stable").drop_duplicates("url")
+    if len(best) < len(df):
+        log.info("same page in several categories: kept %d of %d rows (best-fitting category)", len(best), len(df))
+    return best.drop(columns=["_c", "_l"]).sort_index()
+
+
+def drop_price_outliers(df: pd.DataFrame, factor: float = 6) -> pd.DataFrame:
+    """A price far from the others in its category (e.g. a 'US$1' bait price) is removed;
+    the product then has no price and is not exported until it gets a real one."""
+    if df.empty or not factor:
+        return df
+    df = df.copy()
+    p = pd.to_numeric(df["price_toman"], errors="coerce")
+    n = 0
+    for _, idx in df.groupby(["taxonomy_id", "source_type"]).groups.items():
+        vals = p.loc[idx].dropna()
+        if len(vals) < 4:
+            continue
+        med = vals.median()
+        bad = [i for i in vals.index if vals[i] < med / factor or vals[i] > med * factor]
+        for i in bad:
+            df.at[i, "price_flags"] = " | ".join(x for x in (str(df.at[i, "price_flags"]), "price_outlier") if x)
+            df.at[i, "price_toman"] = ""
+            df.at[i, "price_usd"] = ""
+        n += len(bad)
+    if n:
+        log.info("price outliers removed: %d (far from their category's median)", n)
+    return df
+
+
 def add_persian(cfg: dict, df: pd.DataFrame) -> pd.DataFrame:
     """Persian name and specs for English (foreign) products; Persian rows are left as they are."""
     from collections import Counter
     from .fa_name import is_foreign, persian_name, save_missing, translate_specs
+    from .normalize import norm_text
+    from .routing import find_brand
     if df.empty:
         return df
     df = df.copy()
@@ -363,7 +422,10 @@ def add_persian(cfg: dict, df: pd.DataFrame) -> pd.DataFrame:
             continue
         specs = json.loads(r.get("specs_json") or "{}")
         leaf = (r.get("breadcrumb") or r.get("query") or "").split(">")[-1].strip()
-        n = persian_name(leaf, r.get("model", ""), specs)
+        b = find_brand(leaf)
+        if b:                                              # a Chinese product never carries a brand's name
+            leaf = " ".join(w for w in leaf.split() if norm_text(w) not in norm_text(b[0]).split()).strip() or leaf
+        n = persian_name(leaf, r.get("model", ""), specs, r.get("name", ""))
         used[(r.get("taxonomy_id"), n)] += 1
         if used[(r.get("taxonomy_id"), n)] > 1:            # same name twice in one category
             n = f"{n} - طرح {used[(r.get('taxonomy_id'), n)]}"
@@ -374,6 +436,7 @@ def add_persian(cfg: dict, df: pd.DataFrame) -> pd.DataFrame:
         specs_fa.append(json.dumps(tr, ensure_ascii=False))
         src.append(r.get("name", ""))
     df["name_fa"], df["specs_fa_json"], df["source_name"] = names_fa, specs_fa, src
+    df["name"] = df["name_fa"]                    # the Persian name is the name; English stays in source_name
     if missing:
         save_missing(cfg["_data_dir"] / "untranslated.csv", missing)
         log.info("persian names: %d foreign products; %d spec texts not in the dictionary yet (data/untranslated.csv)",

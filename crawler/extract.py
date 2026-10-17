@@ -11,10 +11,14 @@ from __future__ import annotations
 
 import html as htmllib
 import json
+import logging
 import re
 from typing import Any
+from urllib.parse import urlparse
 
 from bs4 import BeautifulSoup
+
+log = logging.getLogger(__name__)
 
 from .normalize import (detect_unit, dominant_unit_in_page, extract_models,
                         extract_phones, fa_digits_to_en, norm_text, parse_number)
@@ -178,7 +182,54 @@ def site_name(soup: BeautifulSoup) -> str:
     return _clean(m["content"]) if m and m.get("content") else ""
 
 
-def extract_page(html: str) -> dict | None:
+def extract_page(html: str, url: str = "") -> dict | None:
+    rec = _extract_page(html)
+    if url and "made-in-china.com" not in html[:30000]:
+        rec = enrich_from_wpshop(rec, html, url)
+    return rec
+
+
+def enrich_from_wpshop(rec: dict | None, html: str, url: str) -> dict | None:
+    """Second opinion from the team's WordPress crawler (crawler/wpshop.py): it reads
+    spec tables, tabs and 'key: value' lists and the full-size gallery, which the
+    JSON-LD often lacks. Fills what is missing; JSON-LD values win on conflict."""
+    try:
+        from . import wpshop
+        w = wpshop.parse_product_page(html, url, wpshop.norm_host(urlparse(url).netloc), trust_as_product=rec is not None)
+    except Exception as e:                       # never let the second parser break a crawl
+        log.debug("wpshop parser failed on %s: %s", url, e)
+        return rec
+    if not w or not w.get("name"):
+        return rec
+    if rec is None:
+        rec = empty_record()
+        rec["extracted_by"] = "wpshop"
+        rec["name"] = _clean(w["name"])
+        rec["short_description"] = _clean(w.get("short_description"))[:600]
+    try:
+        wspecs = json.loads(w.get("specs") or "{}")
+    except ValueError:
+        wspecs = {}
+    for k, v in wspecs.items():
+        rec["specs"].setdefault(_clean(k), _clean(v))
+    if not rec["brand"] and w.get("brand"):
+        rec["brand"] = _clean(w["brand"])
+    if not rec["price_amount"] and w.get("price") not in ("", None):
+        rec["price_amount"] = parse_number(str(w["price"]))
+        cur = w.get("currency") or ""
+        rec["price_unit_detected"] = {"IRT": "toman", "IRR": "rial"}.get(cur, rec["price_unit_detected"])
+    imgs = [u for u in (w.get("images") or "").split(" | ") if u]
+    if len(imgs) > len(rec["image_urls"]):
+        rec["image_urls"] = list(dict.fromkeys(imgs + rec["image_urls"]))
+    if not rec["in_stock"] and w.get("in_stock") not in ("", None):
+        rec["in_stock"] = "yes" if str(w["in_stock"]).lower() in ("true", "yes", "1", "instock") else "no"
+    if rec["extracted_by"] != "wpshop" and wspecs:
+        rec["extracted_by"] += "+wpshop"
+    finalize(rec, rec.get("page_text") or _clean(w.get("description")))
+    return rec
+
+
+def _extract_page(html: str) -> dict | None:
     soup = BeautifulSoup(html, "lxml")
     rec = from_jsonld(soup)
     woo = from_woo_html(soup)
@@ -284,8 +335,18 @@ def from_store_api(item: dict) -> dict:
 
 # ------------------------------------------------------------------ shared
 
+SHOP_CODE = re.compile(r"\s*[-–—|]\s*(کد|code|شناسه)\s*[:#]?\s*[\d۰-۹]+\s*$", re.I)
+
+
+def clean_name(name: str) -> str:
+    """'محرک ... مدل ML7421B3003 &#8211; کد 2021' -> 'محرک ... مدل ML7421B3003' (the shop's own item code goes)."""
+    import html as _html
+    return SHOP_CODE.sub("", _html.unescape(name or "")).strip()
+
+
 def finalize(rec: dict, text: str) -> None:
     """Fill brand/model/unit/phones/representative from specs and text."""
+    rec["name"] = clean_name(rec["name"])
     specs_norm = {norm_text(k): v for k, v in rec["specs"].items()}
     if not rec["brand"]:
         rec["brand"] = next((v for k, v in specs_norm.items() if any(b in k for b in BRAND_KEYS)), "")
@@ -340,3 +401,42 @@ def resolve_price_unit(rec: dict, default_unit: str = "toman") -> tuple[str, lis
         return page_unit, flags
     flags.append("unit_assumed")
     return default_unit, flags
+
+
+# ------------------------------------------------------------------ listing pages
+
+LISTING_PATH = re.compile(r"/(product-category|product_cat|pcat|category|categories|shop|tag|brand)/", re.I)
+PRODUCT_LINK = re.compile(r"/(product|products|p|item|kala|محصول)/[^/?#]+", re.I)
+
+
+def is_listing_url(url: str) -> bool:
+    from urllib.parse import unquote, urlparse
+    return bool(LISTING_PATH.search(unquote(urlparse(url).path)))
+
+
+def listing_links(html: str, page_url: str, limit: int = 12) -> list[str]:
+    """Product links on a shop's category/list page (WooCommerce loop first, then
+    any same-site link that looks like a product page)."""
+    from urllib.parse import unquote, urljoin, urlparse
+    from . import wpshop
+    soup = BeautifulSoup(html, "lxml")
+    host = urlparse(page_url).netloc.removeprefix("www.")
+    cands = [a["href"] for a in soup.select("li.product a.woocommerce-LoopProduct-link, "
+                                             ".products .product a[href], .product-item a[href]")]
+    cands += [a["href"] for a in soup.find_all("a", href=True)]
+    out = []
+    for h in cands:
+        u = urljoin(page_url, h).split("#")[0]
+        if "add-to-cart" in u or "?" in u and "product" not in u.split("?")[0]:
+            continue
+        u = u.split("?")[0]
+        pu = urlparse(u)
+        if pu.netloc.removeprefix("www.") != host or LISTING_PATH.search(unquote(pu.path)):
+            continue
+        if wpshop.is_excluded(u) or not (wpshop.looks_like_product_url(u) or PRODUCT_LINK.search(unquote(pu.path))):
+            continue
+        if u not in out and u.rstrip("/") != page_url.rstrip("/"):
+            out.append(u)
+        if len(out) >= limit:
+            break
+    return out
