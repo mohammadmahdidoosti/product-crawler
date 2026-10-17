@@ -376,7 +376,7 @@ def read_any_table(data: bytes, filename: str = "") -> tuple[pd.DataFrame, str]:
 PEEK_DOMAINS = ("made-in-china.com",)
 
 
-def peek(url: str) -> dict:
+def peek(url: str, find: list | None = None) -> dict:
     """Developer aid: fetch one page through the server and summarise its structure.
     Limited to Made-in-China and the configured or discovered source domains."""
     from crawler.extract import extract_page
@@ -404,9 +404,19 @@ def peek(url: str) -> dict:
     rec = extract_page(html)
     if rec:
         rec.pop("page_text", None)
+    tables = []
+    for t in soup.find_all("table")[:12]:
+        rows = [[c.get_text(" ", strip=True)[:60] for c in tr.find_all(["th", "td"])][:4] for tr in t.find_all("tr")[:6]]
+        tables.append({"class": " ".join(t.get("class") or []), "parent": " ".join(t.parent.get("class") or []),
+                       "rows": rows})
+    snippets = {}
+    for word in (find or [])[:5]:
+        i = html.find(word)
+        if i >= 0:
+            snippets[word] = html[max(0, i - 300):i + 1200]
     return {"status": 200, "length": len(html), "title": soup.title.get_text()[:150] if soup.title else "",
             "jsonld": html.count("application/ld+json"), "product_links": links[:40],
-            "extracted": rec, "head": html[:3000]}
+            "extracted": rec, "tables": tables, "snippets": snippets, "head": html[:3000]}
 
 
 def backup_zip() -> bytes:
@@ -659,7 +669,7 @@ class Handler(BaseHTTPRequestHandler):
                     return self._json(res)
                 return self._err("not found", 404)
             if parts[:2] == ["api", "debug"] and parts[2:3] == ["peek"]:
-                return self._json(peek(self._jbody().get("url", "")))
+                b = self._jbody(); return self._json(peek(b.get("url", ""), b.get("find")))
             if parts[:2] == ["api", "settings"]:
                 body = self._jbody()
                 cur = read_settings()

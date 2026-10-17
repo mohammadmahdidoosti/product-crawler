@@ -196,7 +196,7 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
             if h.get("prefilled_json"):
                 rec = from_store_api(json.loads(h["prefilled_json"]))
             else:
-                fetcher = f["foreign" if h["route"] == "foreign" and h["source_type"] == "foreign" else "iran"]
+                fetcher = f["foreign" if h["source_type"] == "foreign" else "iran"]
                 res = fetcher.get(h["url"])
                 if not res or res.get("status") != 200:
                     fail.write({"taxonomy_id": h["taxonomy_id"], "url": h["url"], "reason": f"http {res.get('status') if res else 'blocked/none'}"})
