@@ -129,3 +129,34 @@ class TableCycle(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ForeignSearch(unittest.TestCase):
+    def test_leaf_terms_differ(self):
+        from crawler.terms import leaf_english
+        g, en = "اکچویتور برقی و محرک شیر", "electric valve actuator"
+        self.assertEqual(leaf_english("اکچویتور برقی تدریجی", g, en), "electric valve actuator modulating")
+        self.assertEqual(leaf_english("محرک الکتریکی شیر سه طرفه", g, en), "electric valve actuator 3 way")
+        self.assertEqual(leaf_english("اکچویتور برقی ۱/۲ اینچ", g, en), "electric valve actuator 1/2 inch")
+        self.assertEqual(leaf_english("اکچویتور برقی نوجیکس", g, en), en)   # brand words are dropped
+        self.assertEqual(leaf_english("x", g, ""), "")
+
+    def test_supplier_cap_and_shorter_retry(self):
+        from crawler.search import search_mic
+        links = "".join(f'<a href="https://big.en.made-in-china.com/product/{i}/x.html" title="Valve actuator {i}">a</a>'
+                        f'<a href="https://big.en.made-in-china.com/product/{i}/x.html">US$100.00</a>' for i in range(6))
+        links += '<a href="https://small.en.made-in-china.com/product/9/y.html" title="Small supplier actuator">b</a>'
+
+        class F:
+            urls = []
+
+            def get(self, url):
+                self.urls.append(url)
+                return {"status": 200, "text": f"<html>{links}</html>"} if "Modulating" not in url \
+                    else {"status": 404, "text": ""}
+        f = F()
+        row = {"taxonomy_id": "1", "query": "q", "route": "foreign"}
+        hits = search_mic(f, row, "electric valve actuator modulating", 8)
+        self.assertEqual(len(f.urls), 2)                                     # retried without the last word
+        self.assertEqual([h["source_domain"] for h in hits].count("big.en.made-in-china.com"), 2)
+        self.assertIn("small.en.made-in-china.com", [h["source_domain"] for h in hits])

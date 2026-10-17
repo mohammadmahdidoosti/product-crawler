@@ -192,25 +192,39 @@ def discovered_hits(cfg: dict, f: Fetcher, row: dict, n: int, probes: dict) -> l
 
 # ------------------------------------------------------------------ Made-in-China
 
-def search_mic(f: Fetcher, row: dict, english: str, n: int) -> list[dict]:
-    """Made-in-China product search (its /products-search/ pages are open in robots.txt)."""
-    term = "_".join(w.capitalize() for w in re.sub(r"[^a-zA-Z0-9 ]+", " ", english).split())
-    if not term:
-        return []
+def search_mic(f: Fetcher, row: dict, english: str, n: int, per_supplier: int = 2) -> list[dict]:
+    """Made-in-China product search (its /products-search/ pages are open in robots.txt).
+    At most `per_supplier` products from one supplier, so one big seller cannot fill
+    the list. A long leaf term with no results is retried shorter (down to 3 words)."""
+    words = re.sub(r"[^a-zA-Z0-9 ]+", " ", english).split()
+    out: list[dict] = []
+    while len(words) >= 1 and not out:
+        out = _mic_page(f, row, "_".join(w.capitalize() for w in words), n, per_supplier)
+        if len(words) <= 3:
+            break
+        words = words[:-1]
+    return out
+
+
+def _mic_page(f: Fetcher, row: dict, term: str, n: int, per_supplier: int) -> list[dict]:
     url = f"https://www.made-in-china.com/products-search/hot-china-products/{term}.html"
     res = f.get(url)
     if not res or res.get("status") != 200:
         return []
     soup = BeautifulSoup(res["text"], "lxml")
-    out, seen = [], set()
+    out, seen, by_sup = [], set(), {}
     for a in soup.find_all("a", href=True):
         href = urljoin(url, a["href"]).split("?")[0].split("#")[0]
         if "made-in-china.com" not in href or "/product/" not in href or href in seen:
             continue
         title = a.get("title") or a.get_text(" ", strip=True)
-        if not title or len(title) < 6 or re.match(r"US\$|\$|\d[\d,.]*\s*(Pieces?|Sets?|Units?|Pairs?)\b", title):   # skip price/MOQ links
-            continue
+        if not title or len(title) < 6 or re.match(r"US\$|\$|\d[\d,.]*\s*(Pieces?|Sets?|Units?|Pairs?)\b", title):
+            continue                                  # price / MOQ links next to the product link
         seen.add(href)
+        sup = domain_of(href)
+        if by_sup.get(sup, 0) >= per_supplier:
+            continue
+        by_sup[sup] = by_sup.get(sup, 0) + 1
         out.append(_hit(row, {"kind": "foreign", "domain": "made-in-china.com"}, href, title[:150], "made_in_china"))
         if len(out) >= n:
             break

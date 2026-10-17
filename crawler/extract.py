@@ -220,7 +220,16 @@ def made_in_china(rec: dict, soup: BeautifulSoup) -> None:
             specs.setdefault(cells[0].rstrip(":"), cells[1][:200])
     moq = soup.find(string=re.compile(r"\(MOQ\)"))
     if moq:
-        specs["MOQ"] = _clean(moq).replace("(MOQ)", "").strip()
+        node, txt = moq, ""
+        for _ in range(3):                      # "(MOQ)" may sit in its own tag next to the number
+            node = node.parent
+            if node is None:
+                break
+            txt = _clean(node.get_text(" ")).replace("(MOQ)", "").strip()
+            if txt:
+                break
+        if txt and len(txt) < 40:
+            specs["MOQ"] = txt
     company = rec["brand"]
     model = next((v for k, v in specs.items() if k.lower().startswith("model")), "")
     rec["model"] = model if model and model.lower() not in ("customized", "oem", "n/a") else \

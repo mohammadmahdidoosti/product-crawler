@@ -88,11 +88,14 @@ def step_search(cfg: dict, run: str) -> Path:
         else _english_queries(cfg, queue)
     from .probe import load_probes
     from .routing_state import english_for, group_of, load_glossary
+    from .terms import leaf_english
     probes = load_probes(cfg)
     gl = load_glossary()
     for r in queue:           # English term for Made-in-China from the glossary when missing
         if not r.get("english"):
-            r["english"] = english_for(r.get("group") or group_of(r["breadcrumb"]), gl)
+            g = r.get("group") or group_of(r["breadcrumb"])
+            r["english"] = leaf_english(r["breadcrumb"].split(">")[-1].strip(), g.split(">")[-1].strip(),
+                                        english_for(g, gl))
     f = _fetchers(cfg)
     n_hits = 0
     with Appender(out, HITS_COLS) as w, Appender(d / "02_no_hits.csv", ["taxonomy_id", "query", "route"]) as miss:

@@ -21,6 +21,7 @@ from .io import FILES, QUEUE_COLS, read_csv, write_csv
 from .normalize import norm_text
 from .probe import decide, load_probes, record_usage, run_probe, save_probes
 from .routing import rule_route
+from .terms import leaf_english
 from .taxonomy import build_queue, load_taxonomy
 
 log = logging.getLogger(__name__)
@@ -84,7 +85,8 @@ def build(cfg, *, mode="gap", level1=None, path_contains=None, include_flagged=F
         row = {"taxonomy_id": r["taxonomy_id"], "breadcrumb": r["breadcrumb"], "query": r["query"], "group": g,
                "kind": rr["kind"], "brand": rr["brand"], "brand_origin": rr["brand_origin"],
                "decision": rr["decision"], "reason": rr["reason"], "shops": "", "priced": "",
-               "english": english_for(g, gl), "review": "", "final_route": "", "note": "", "queued": ""}
+               "english": leaf_english(r["breadcrumb"].split(">")[-1].strip(), g.split(">")[-1].strip(),
+                                          english_for(g, gl)), "review": "", "final_route": "", "note": "", "queued": ""}
         if old is not None and r["taxonomy_id"] in old.index:
             o = old.loc[r["taxonomy_id"]]
             for k in ("review", "final_route", "note", "queued"):
