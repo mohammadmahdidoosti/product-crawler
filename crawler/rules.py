@@ -81,10 +81,37 @@ def judge_en(english: str, group_en: str, product: dict) -> dict:
             "reason": f"{round(share * 100)}٪ واژه‌های انگلیسی دسته در نام هست"}
 
 
+def _flat(s: str) -> str:
+    import re
+    from .normalize import fa_digits_to_en
+    return re.sub(r"[^0-9a-z]", "", fa_digits_to_en(str(s or "")).lower())
+
+
+def model_tokens(breadcrumb: str, leaf: str) -> list[str]:
+    """Number/code words that only the leaf has ('2008', '6.1', 'sr5', '40'), not its parents."""
+    import re
+    from .normalize import fa_digits_to_en
+    parents = set(fa_digits_to_en(" ".join(breadcrumb.split(">")[:-1])).lower().split())
+    out = []
+    for w in fa_digits_to_en(leaf).lower().split():
+        if re.search(r"\d", w) and w not in parents:
+            t = re.sub(r"[^0-9a-z]", "", w)
+            if t and t not in out:
+                out.append(t)
+    return out
+
+
 def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en: str = "") -> dict:
     import re
     from .routing import brand_in, foreign_brand_in, leaf_brand
     name = product.get("name") or ""
+    need = model_tokens(breadcrumb, leaf)
+    if need:
+        flat = _flat(name)
+        miss = [t for t in need if t not in flat]
+        if miss:                     # 'اره شارژی ویوارکس 2008' takes only the 2008, not every Vivarex saw
+            return {"relevant": False, "confidence": 0.8,
+                    "reason": "مدل یا اندازه‌ی دسته در نام نیست: " + "، ".join(miss)}
     b = leaf_brand(leaf)
     if b and not brand_in(name, b[0]):
         # a brand category (e.g. «محرک الکتریکی شیر سه طرفه بوتان») takes only that brand

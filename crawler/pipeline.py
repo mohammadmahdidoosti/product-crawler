@@ -490,7 +490,10 @@ def low_categories(cfg: dict, d: Path, kept: pd.DataFrame, need: pd.DataFrame) -
     """Categories below the target count: the list for finding and inviting suppliers."""
     target = int(cfg.get("select", {}).get("max_per_category", 24))
     q = read_csv(d / FILES["queue"])
-    n = kept["taxonomy_id"].value_counts() if len(kept) else pd.Series(dtype=int)
+    ids = []
+    for t, extra in zip(kept.get("taxonomy_id", []), kept.get("extra_taxonomy_ids", [""] * len(kept))):
+        ids += [t] + [x for x in str(extra or "").split(" | ") if x]      # extra categories count too
+    n = pd.Series(ids).value_counts() if ids else pd.Series(dtype=int)
     m = need["taxonomy_id"].value_counts() if len(need) else pd.Series(dtype=int)
     rows = []
     for r in q.to_dict("records"):
@@ -507,16 +510,26 @@ def low_categories(cfg: dict, d: Path, kept: pd.DataFrame, need: pd.DataFrame) -
 
 
 def one_category_per_product(df: pd.DataFrame) -> pd.DataFrame:
-    """A page found for several categories stays only in the one it fits best
-    (highest relevance confidence; ties go to the longer, more specific category)."""
+    """A page found for several categories becomes one product: its main category is the
+    best fit (highest relevance; ties go to the more specific category) and every other
+    category it passed the filter for is kept in extra_taxonomy_ids / extra_breadcrumbs,
+    so WooCommerce lists it in all of them without a duplicate product."""
     if df.empty or "url" not in df.columns:
         return df
     df = df.copy()
     df["_c"] = pd.to_numeric(df.get("relevance_confidence", 0), errors="coerce").fillna(0)
     df["_l"] = df["breadcrumb"].str.len()
-    best = df.sort_values(["_c", "_l"], ascending=False, kind="stable").drop_duplicates("url")
+    df = df.sort_values(["_c", "_l"], ascending=False, kind="stable")
+    extra_ids, extra_bc = {}, {}
+    for url, g in df.groupby("url", sort=False):
+        extra_ids[url] = " | ".join(dict.fromkeys(g["taxonomy_id"].iloc[1:]))
+        extra_bc[url] = " | ".join(dict.fromkeys(g["breadcrumb"].iloc[1:]))
+    best = df.drop_duplicates("url").copy()
+    best["extra_taxonomy_ids"] = best["url"].map(extra_ids).fillna("")
+    best["extra_breadcrumbs"] = best["url"].map(extra_bc).fillna("")
     if len(best) < len(df):
-        log.info("same page in several categories: kept %d of %d rows (best-fitting category)", len(best), len(df))
+        log.info("same page in several categories: %d products from %d rows (listed in all fitting categories)",
+                 len(best), len(df))
     return best.drop(columns=["_c", "_l"]).sort_index()
 
 
@@ -618,7 +631,8 @@ def step_export(cfg: dict, run: str) -> list[Path]:
             "Visibility in catalog": "visible",
             "Description": _spec_html(r), "Short description": "",
             "Regular price": _round_price(r["price_toman"], step),
-            "Categories": r["breadcrumb"],
+            "Categories": ", ".join(dict.fromkeys(
+                [r["breadcrumb"]] + [b for b in str(r.get("extra_breadcrumbs") or "").split(" | ") if b])),
             "Images": "",
             "Attribute 1 name": "برند" if r.get("brand") else "", "Attribute 1 value(s)": r.get("brand", ""),
             "Attribute 1 visible": 1 if r.get("brand") else "", "Attribute 1 global": 1 if r.get("brand") else "",

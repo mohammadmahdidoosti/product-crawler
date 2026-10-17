@@ -276,3 +276,19 @@ class LeafBrands(unittest.TestCase):
         r = rule_route("آسانسور > موتور و گیربکس آسانسور > موتور آسانسور elco")
         self.assertEqual((r["decision"], r["kind"], r["brand"]), ("iran", "brand", "elco"))
         self.assertEqual(rule_route("تابلو برق > کلید > کلید ups 3kva")["kind"], "generic")
+
+
+class MultiCategory(unittest.TestCase):
+    def test_product_listed_in_all_fitting_categories(self):
+        from crawler.pipeline import one_category_per_product
+        df = pd.DataFrame([{"url": "u1", "taxonomy_id": "1", "breadcrumb": "a > b", "relevance_confidence": "0.7"},
+                           {"url": "u1", "taxonomy_id": "2", "breadcrumb": "a > b > c", "relevance_confidence": "0.9"}])
+        out = one_category_per_product(df)
+        self.assertEqual(len(out), 1)
+        self.assertEqual((out.iloc[0]["taxonomy_id"], out.iloc[0]["extra_taxonomy_ids"]), ("2", "1"))
+
+    def test_model_leaf_needs_its_model(self):
+        from crawler.rules import judge
+        c = "ابزار > اره شارژی > اره شارژی ویوارکس 40 سانتی"
+        self.assertFalse(judge(c, "اره شارژی ویوارکس 40 سانتی", {"name": "اره شارژی ویوارکس 30 سانتی"})["relevant"])
+        self.assertTrue(judge(c, "اره شارژی ویوارکس 40 سانتی", {"name": "اره زنجیری شارژی ویوارکس ۴۰ سانت"})["relevant"])

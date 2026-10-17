@@ -85,6 +85,9 @@ def _aggregate(g: list[dict]) -> dict:
     usd = _num(out.get("usd_rate_toman"))
     out["price_usd"] = round(out["price_toman"] / usd, 2) if prices and usd else ""
     out["n_sources"] = len({r.get("url") for r in g})
+    for col in ("extra_taxonomy_ids", "extra_breadcrumbs"):     # categories of every merged page
+        vals = [x for r in g for x in str(r.get(col) or "").split(" | ") if x and x != "nan"]
+        out[col] = " | ".join(dict.fromkeys(v for v in vals if v not in (out.get("taxonomy_id"), out.get("breadcrumb"))))
     out["n_priced"] = len(prices)
     brands = Counter(r.get("brand") for r in g if r.get("brand"))
     out["brand"] = brands.most_common(1)[0][0] if brands else ""
