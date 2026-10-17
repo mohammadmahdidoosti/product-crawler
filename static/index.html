@@ -140,6 +140,7 @@ tr:hover td{background:#fbf8f1}
 .b-iran{background:#e6f1ea;color:#24694a}.b-foreign{background:#e8eef8;color:#2c5191}.b-both{background:#f3ecdf;color:#7a5a1f}
 .b-probe{background:#eef0f3;color:#6b7684}.b-skip{background:#f7e4e2;color:var(--bad)}
 tr.wrong td{background:#fdf3f2}
+.batchchip{display:inline-flex;align-items:center;flex-direction:column;gap:0;min-width:58px;line-height:1.3}.batchchip small{display:block;font-size:10.5px;opacity:.75}
 .batchchip.done{border-color:#bcdcc9;background:#f2f8f4}.batchchip.queued{border-color:#d8c49d;background:var(--sand-2)}
 .ev a{color:var(--gold-d);margin-left:6px}
 td select,td input{padding:3px 6px;font-size:12.5px}
@@ -255,7 +256,11 @@ td select,td input{padding:3px 6px;font-size:12.5px}
       </div>
       <div class="chips" id="rtBatches" style="margin-bottom:12px"></div>
       <p class="muted" style="font-size:12.5px;margin:0 0 10px">ردیف‌ها به‌طور پیش‌فرض درست حساب می‌شوند. اگر تصمیمی غلط است، «غلط» را بزنید و مسیر درست را انتخاب کنید. «رد» یعنی این دسته کراول نشود.</p>
-      <label class="muted" style="font-size:12.5px;display:inline-flex;gap:6px;align-items:center;margin:0 0 8px"><input type="checkbox" id="rtShowBrand"> نمایش ردیف‌های برند (<span id="rtBrandN">۰</span> ردیف، خودکار تأیید می‌شوند؛ برای اصلاح نمایششان دهید)</label>
+      <div class="chips" id="rtView" style="margin:0 0 10px">
+        <button class="chip on" data-v="review">برای بررسی شما <small id="rtNReview">۰</small></button>
+        <button class="chip" data-v="brand">برندها (خودکار تأییدشده) <small id="rtNBrand">۰</small></button>
+        <button class="chip" data-v="all">همه <small id="rtNAll">۰</small></button>
+      </div>
       <div class="tablewrap" style="max-height:640px"><table id="rtTable"></table></div>
       <div class="row" style="margin-top:10px"><a class="btn ghost sm" id="rtCsv">دانلود این دسته</a><span class="muted" id="rtMsg" style="font-size:13px"></span></div>
     </div>
@@ -638,7 +643,7 @@ $('#stopBtn').onclick = ()=>post('/api/job/stop').then(()=>toast('توقف بع�
 
 // ---------------- routing
 const ROUTE_LBL = {iran:'ایرانی', foreign:'Made-in-China', both:'هر دو', probe:'در انتظار سنجش', skip:'رد'};
-let RT = {batch:1, summary:null, rows:[], marks:{}, showBrand:false};
+let RT = {batch:1, summary:null, rows:[], marks:{}, view:'review'};
 const badge = d => `<span class="badge b-${d}">${ROUTE_LBL[d]||d}</span>`;
 async function loadRouting(){
   const r = await api('/api/routing'); RT.summary = r;
@@ -648,7 +653,7 @@ async function loadRouting(){
   const d=r.by_decision||{};
   $('#rtSummary').innerHTML = `<span><b>${fa(r.rows)}</b> دسته در <b>${fa(r.batches.length)}</b> دسته‌ی ۱۰۰تایی، <b>${fa(r.groups)}</b> گروه</span>` +
     Object.entries(d).map(([k,v])=>`<span>${badge(k)} ${fa(v)}</span>`).join('');
-  $('#rtBatches').innerHTML = r.batches.map(b=>`<button class="chip batchchip ${b.queued?'queued':b.reviewed?'done':''} ${b.batch===RT.batch?'on':''}" data-b="${b.batch}">${fa(b.batch)}${b.reviewed?' ✓':''}${b.open?`<small>${fa(b.open)} باز</small>`:''}</button>`).join('');
+  $('#rtBatches').innerHTML = r.batches.map(b=>`<button class="chip batchchip ${b.queued?'queued':b.reviewed?'done':''} ${b.batch===RT.batch?'on':''}" data-b="${b.batch}" title="دسته‌ی ${fa(b.batch)}: ${fa(b.rows)} ردیف${b.open?`، ${fa(b.open)} ردیف منتظر سنجش بازار`:''}${b.reviewed?'، بررسی‌شده':''}${b.queued?'، کراول‌شده':''}"><b>${fa(b.batch)}</b>${b.queued?'<small>کراول</small>':b.reviewed?'<small>✓</small>':b.open?'<small>منتظر سنجش</small>':'<small>آماده</small>'}</button>`).join('');
   await loadBatch();
 }
 async function loadBatch(){
@@ -662,9 +667,11 @@ async function loadBatch(){
 }
 function renderBatch(){
   let lastG='';
-  $('#rtBrandN').textContent = fa(RT.rows.filter(x=>x.kind==='brand').length);
+  const nb = RT.rows.filter(x=>x.kind==='brand').length;
+  $('#rtNBrand').textContent = fa(nb); $('#rtNReview').textContent = fa(RT.rows.length-nb); $('#rtNAll').textContent = fa(RT.rows.length);
+  document.querySelectorAll('#rtView .chip').forEach(c=>c.classList.toggle('on', c.dataset.v===RT.view));
   $('#rtTable').innerHTML = '<tr><th>غلط؟</th><th>دسته</th><th>تصمیم</th><th>دلیل</th><th>شواهد</th><th>عبارت انگلیسی</th><th>مسیر درست</th><th>یادداشت</th></tr>' +
-    RT.rows.filter(x=>RT.showBrand || x.kind!=='brand' || RT.marks[x.taxonomy_id]).map(x=>{
+    RT.rows.filter(x=>RT.view==='all' || (RT.view==='brand') === (x.kind==='brand') || RT.marks[x.taxonomy_id]).map(x=>{
       const m = RT.marks[x.taxonomy_id], leaf = x.breadcrumb.split(' > ').slice(-1)[0];
       const g = x.group!==lastG ? `<div class="muted" style="font-size:11.5px">${esc(x.group.split(' > ').slice(-2).join(' › '))}</div>` : ''; lastG = x.group;
       const ev = (x.evidence||[]).map(e=>`<a href="${esc(e.url)}" target="_blank" rel="noopener" title="${esc(e.title)}">${esc(e.domain)}${e.priced?' ✓':''}</a>`).join('');
@@ -679,7 +686,7 @@ function renderBatch(){
         <td><input class="rtN" value="${esc(m?m.note:'')}" ${m?'':'disabled'} style="min-width:140px"></td></tr>`;
     }).join('');
 }
-$('#rtShowBrand').addEventListener('change', e=>{ RT.showBrand = e.target.checked; renderBatch(); });
+$('#rtView').addEventListener('click', e=>{ const c=e.target.closest('[data-v]'); if(!c) return; RT.view=c.dataset.v; renderBatch(); });
 $('#rtTable').addEventListener('change', e=>{
   const tr=e.target.closest('tr[data-id]'); if(!tr) return; const id=tr.dataset.id;
   if(e.target.classList.contains('rtW')){

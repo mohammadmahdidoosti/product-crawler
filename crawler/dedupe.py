@@ -108,9 +108,14 @@ def load_site_catalog(path, colmap: dict) -> pd.DataFrame:
                 return c
         return None
     cols = {k: pick(k) for k in ("id", "sku", "name", "price", "categories")}
-    if not cols["id"] or not cols["name"]:
-        raise ValueError(f"site export needs id and name columns; found {list(df.columns)[:15]}")
+    if not cols["name"] and len(df.columns) == 1:
+        cols["name"] = df.columns[0]                 # a plain list of product names
+    if not cols["name"]:
+        raise ValueError(f"site export needs a name column; found {list(df.columns)[:15]}")
     out = pd.DataFrame({k: df[c] if c else "" for k, c in cols.items()})
+    if not cols["id"]:                               # names only: products are matched, prices cannot be updated
+        out["id"] = [f"name-{i + 1}" for i in range(len(out))]
+    out = out[out["name"].str.strip() != ""].reset_index(drop=True)
     out["name_n"] = out["name"].map(norm_text)
     return out
 

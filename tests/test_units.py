@@ -119,6 +119,19 @@ class Dedupe(unittest.TestCase):
         self.assertEqual(len(new), 1)
 
 
+class NameOnlySiteExport(unittest.TestCase):
+    def test_names_only(self):
+        import tempfile
+        from crawler.dedupe import load_site_catalog
+        p = Path(tempfile.mkdtemp()) / "site.csv"
+        pd.DataFrame({"نام": ["درایو 1 اسب تک فاز مدل YD101-00P7-T2S برند یولیکو", ""]}).to_csv(p, index=False, encoding="utf-8-sig")
+        site = load_site_catalog(p, {"id": ["ID"], "name": ["Name"]})
+        self.assertEqual(list(site["id"]), ["name-1"])
+        site["name_n"] = site["name"].map(norm_text)
+        new, upd, rev = split_against_site(merge_crawl(Dedupe().rows()), site)
+        self.assertEqual(len(upd), 1)                       # recognised as already on the site
+
+
 if __name__ == "__main__":
     unittest.main()
 

@@ -559,6 +559,8 @@ def step_export(cfg: dict, run: str) -> list[Path]:
     out.append(write_csv(pd.DataFrame(rows), d / FILES["woo"]))
     upd = read_csv(d / FILES["updates"]) if (d / FILES["updates"]).exists() else pd.DataFrame()
     if len(upd):
+        upd = upd[~upd["site_product_id"].astype(str).str.startswith("name-")]   # name-only export: no IDs to update
+    if len(upd):
         u = pd.DataFrame({
             "ID": upd["site_product_id"],
             "Regular price": upd["price_toman"].map(lambda x: _round_price(x, step)),
