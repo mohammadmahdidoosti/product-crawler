@@ -213,9 +213,11 @@ def price_fields(rec: dict, rate: dict, cfg: dict) -> dict:
 
 def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
     """Fetch and read every found page. Pages are processed in parallel across sites
-    (each site keeps its own pace), and a page found for several categories is
-    fetched and read once; one row is still written per category for the filter."""
-    from concurrent.futures import ThreadPoolExecutor, as_completed
+    (each site keeps its own pace), a page found for several categories is fetched
+    and read once, and every row is written as soon as its page is done, so memory
+    stays flat and an interrupted run keeps what it already has."""
+    import gc
+    from concurrent.futures import FIRST_COMPLETED, ThreadPoolExecutor, wait
     d = run_dir(cfg, run)
     hits = read_csv(d / FILES["hits"]).to_dict("records")
     queue = {r["taxonomy_id"]: r for r in read_csv(d / FILES["queue"]).to_dict("records")}
@@ -231,101 +233,132 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
         from .llm import LLM
         llm = LLM(cfg)
     list_max = int(cfg.get("search", {}).get("listing_max", 12))
-    workers = max(1, int(cfg.get("http", {}).get("workers", 8)))
+    workers = max(1, int(cfg.get("http", {}).get("workers", 6)))
     mult = float(cfg.get("price", {}).get("foreign_multiplier", 1) or 1)
+
+    def slim(rec: dict) -> dict:
+        rec.pop("page_text", None)                     # the whole page text: the big memory user
+        rec["description"] = (rec.get("description") or "")[:4000]
+        return rec
 
     def process(h: dict) -> tuple[str, object]:
         """One page -> ('rec', record) | ('list', product links) | ('fail', reason)."""
         if h.get("prefilled_json"):
-            return "rec", from_store_api(json.loads(h["prefilled_json"]))
+            return "rec", slim(from_store_api(json.loads(h["prefilled_json"])))
         foreign = h["source_type"] == "foreign"
         res = f["foreign" if foreign else "iran"].get(h["url"])
         if not res or res.get("status") != 200:
             return "fail", f"http {res.get('status') if res else 'blocked/none'}"
+        html = res.pop("text", "")
         listing = not foreign and not h.get("from_listing") and is_listing_url(h["url"])
-        rec = None if listing else extract_page(res["text"], h["url"])
+        rec = None if listing else extract_page(html, h["url"])
         if not foreign and not h.get("from_listing") and (listing or not rec or not rec.get("price_amount")):
-            links = listing_links(res["text"], h["url"], list_max)
+            links = listing_links(html, h["url"], list_max)
             if links:            # a shop's category page: its products are crawled instead
                 return "list", links
         if rec is None and llm:
-            rec = _llm_record(llm, res["text"])
-        return ("rec", rec) if rec and rec.get("name") else ("fail", "no product data")
+            rec = _llm_record(llm, html)
+        return ("rec", slim(rec)) if rec and rec.get("name") else ("fail", "no product data")
 
     def ukey(h: dict) -> str:
         return f"{h['url']}|{'L' if h.get('from_listing') else ''}|{'P' if h.get('prefilled_json') else ''}"
 
     memo: dict[str, tuple[str, object]] = {}
-    ok = n_listing = 0
+    stats = {"ok": 0, "lists": 0, "pages": 0}
+
+    def write_rows(hs: list[dict], res: tuple[str, object], w, fail) -> list[dict]:
+        """Rows for every category that found this page; returns new listing hits."""
+        kind, val = res
+        nxt = []
+        for h in hs:
+            key = f"{h['taxonomy_id']}|{h['url']}"
+            if key in done:
+                continue
+            done.add(key)
+            if kind == "list":
+                stats["lists"] += 1
+                nxt += [{**h, "url": u, "title": "", "found_by": "listing", "prefilled_json": "",
+                         "from_listing": "1"} for u in val if f"{h['taxonomy_id']}|{u}" not in done]
+                continue
+            if kind == "fail":
+                fail.write({"taxonomy_id": h["taxonomy_id"], "url": h["url"], "reason": val})
+                continue
+            rec = val
+            dom = domain_of(h["url"])
+            s = sellers.get(dom, h["route"])
+            q = queue.get(h["taxonomy_id"], {})
+            row = {
+                "taxonomy_id": h["taxonomy_id"], "breadcrumb": q.get("breadcrumb", ""),
+                "query": h["query"], "route": h["route"],
+                "name": rec["name"], "brand": rec["brand"], "model": rec["model"],
+                "specs_json": json.dumps(rec["specs"], ensure_ascii=False) if rec["specs"] else "",
+                "short_description": rec["short_description"],
+                "sale_unit": rec["sale_unit"], "in_stock": rec["in_stock"],
+                "seller_name": rec.get("seller_name") or s["seller_name"],
+                "seller_phones": " | ".join(rec["seller_phones"] or s["seller_phones"]),
+                "claims_representative": rec["claims_representative"],
+                "source_domain": dom, "source_type": h["source_type"], "url": h["url"],
+                "image_urls": json.dumps(rec["image_urls"][:15], ensure_ascii=False),
+                "extracted_by": rec["extracted_by"], "supplier_badges": rec.get("supplier_badges", ""),
+                "description": rec.get("description", ""), "files": " | ".join(rec.get("files") or []),
+                "crawled_at": dt.datetime.now().isoformat(timespec="seconds"),
+                **price_fields(rec, rate, cfg),
+            }
+            if h["source_type"] == "foreign" and mult != 1 and row["price_toman"] != "":
+                # Made-in-China prices are ex-factory in China: shipping, customs and margin on top
+                row["price_toman"] = round(row["price_toman"] * mult)
+                row["price_usd"] = round(row["price_usd"] * mult, 2)
+                row["price_flags"] = " | ".join(x for x in (row["price_flags"], f"foreign_x{mult:g}") if x)
+            w.write(row)
+            stats["ok"] += 1
+        return nxt
+
     pending = [h for h in hits if f"{h['taxonomy_id']}|{h['url']}" not in done]
-    total, finished, stopped = len(pending), 0, False
+    total, stopped = len(pending), False
     with Appender(out, CRAWLED_COLS) as w, Appender(d / "03_failed.csv", ["taxonomy_id", "url", "reason"]) as fail:
         while pending and not stopped:
-            todo = {}
+            by_key: dict[str, list[dict]] = {}
             for h in pending:
-                todo.setdefault(ukey(h), h)
-            todo = {k: h for k, h in todo.items() if k not in memo}
+                by_key.setdefault(ukey(h), []).append(h)
+            nxt: list[dict] = []
+            for k in [k for k in by_key if k in memo]:          # pages already read in an earlier round
+                nxt += write_rows(by_key.pop(k), memo[k], w, fail)
+            todo = list(by_key)
             with ThreadPoolExecutor(workers) as ex:
-                futs = {ex.submit(process, h): k for k, h in todo.items()}
-                for fut in as_completed(futs):
-                    try:
-                        memo[futs[fut]] = fut.result()
-                    except Exception as e:                 # one bad page must not stop the run
-                        memo[futs[fut]] = ("fail", f"error {type(e).__name__}")
-                    finished += 1
-                    if _progress("crawl", finished, max(total, finished)):
-                        stopped = True
-                        ex.shutdown(wait=False, cancel_futures=True)
+                running, it = {}, iter(todo)
+                for k in it:                                    # keep only a few pages in flight at once
+                    running[ex.submit(process, by_key[k][0])] = k
+                    if len(running) >= workers * 2:
                         break
-                    if finished % 50 == 0:
-                        log.info("crawl %d pages read (%d unique so far)", finished, len(memo))
-            nxt = []
-            for h in pending:
-                key = f"{h['taxonomy_id']}|{h['url']}"
-                if key in done or ukey(h) not in memo:
-                    continue
-                done.add(key)
-                kind, val = memo[ukey(h)]
-                if kind == "list":
-                    n_listing += 1
-                    nxt += [{**h, "url": u, "title": "", "found_by": "listing", "prefilled_json": "",
-                             "from_listing": "1"} for u in val if f"{h['taxonomy_id']}|{u}" not in done]
-                    continue
-                if kind == "fail":
-                    fail.write({"taxonomy_id": h["taxonomy_id"], "url": h["url"], "reason": val})
-                    continue
-                rec = val
-                dom = domain_of(h["url"])
-                s = sellers.get(dom, h["route"])
-                q = queue.get(h["taxonomy_id"], {})
-                row = {
-                    "taxonomy_id": h["taxonomy_id"], "breadcrumb": q.get("breadcrumb", ""),
-                    "query": h["query"], "route": h["route"],
-                    "name": rec["name"], "brand": rec["brand"], "model": rec["model"],
-                    "specs_json": json.dumps(rec["specs"], ensure_ascii=False) if rec["specs"] else "",
-                    "short_description": rec["short_description"],
-                    "sale_unit": rec["sale_unit"], "in_stock": rec["in_stock"],
-                    "seller_name": rec.get("seller_name") or s["seller_name"],
-                    "seller_phones": " | ".join(rec["seller_phones"] or s["seller_phones"]),
-                    "claims_representative": rec["claims_representative"],
-                    "source_domain": dom, "source_type": h["source_type"], "url": h["url"],
-                    "image_urls": json.dumps(rec["image_urls"][:15], ensure_ascii=False),
-                    "extracted_by": rec["extracted_by"], "supplier_badges": rec.get("supplier_badges", ""),
-                    "description": rec.get("description", ""), "files": " | ".join(rec.get("files") or []),
-                    "crawled_at": dt.datetime.now().isoformat(timespec="seconds"),
-                    **price_fields(rec, rate, cfg),
-                }
-                if h["source_type"] == "foreign" and mult != 1 and row["price_toman"] != "":
-                    # Made-in-China prices are ex-factory in China: shipping, customs and margin on top
-                    row["price_toman"] = round(row["price_toman"] * mult)
-                    row["price_usd"] = round(row["price_usd"] * mult, 2)
-                    row["price_flags"] = " | ".join(x for x in (row["price_flags"], f"foreign_x{mult:g}") if x)
-                w.write(row)
-                ok += 1
+                while running:
+                    fin, _ = wait(running, return_when=FIRST_COMPLETED)
+                    for fut in fin:
+                        k = running.pop(fut)
+                        try:
+                            res = fut.result()
+                        except Exception as e:                  # one bad page must not stop the run
+                            res = ("fail", f"error {type(e).__name__}")
+                        memo[k] = res if res[0] != "rec" else ("rec", res[1])
+                        nxt += write_rows(by_key[k], res, w, fail)
+                        stats["pages"] += 1
+                        if stats["pages"] % 50 == 0:
+                            gc.collect()
+                            import resource
+                            log.info("crawl %d pages read, %d products (memory peak %d MB)", stats["pages"], stats["ok"],
+                                     resource.getrusage(resource.RUSAGE_SELF).ru_maxrss // 1024)
+                        if _progress("crawl", stats["pages"], max(total, stats["pages"])):
+                            stopped = True
+                        nk = next(it, None) if not stopped else None
+                        if nk is not None:
+                            running[ex.submit(process, by_key[nk][0])] = nk
+                    if stopped:
+                        for fut in running:
+                            fut.cancel()
+                        break
             total += len(nxt)
             pending = nxt
     log.info("crawl done: %d products from %d unique pages (%d shop list pages opened) -> %s",
-             ok, len(memo), n_listing, out.name)
+             stats["ok"], len(memo), stats["lists"], out.name)
     return out
 
 
