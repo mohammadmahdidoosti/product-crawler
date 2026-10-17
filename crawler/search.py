@@ -74,9 +74,11 @@ def search_store_api(f: Fetcher, src: dict, row: dict, n: int) -> list[dict]:
 
 
 def _links_from_page(html: str, base: str, selector: str, n: int) -> list[tuple[str, str]]:
-    soup = BeautifulSoup(html, "lxml")
+    from .extract import lighten
+    soup = BeautifulSoup(lighten(html), "lxml")
     seen, out = set(), []
-    for a in soup.select(selector):
+    anchors = soup.select(selector)
+    for a in anchors:
         href = a.get("href")
         if not href:
             continue
@@ -87,6 +89,7 @@ def _links_from_page(html: str, base: str, selector: str, n: int) -> list[tuple[
         out.append((url, a.get_text(" ", strip=True) or a.get("title", "")))
         if len(out) >= n:
             break
+    soup.decompose()
     return out
 
 
@@ -238,12 +241,14 @@ def _mic_page(f: Fetcher, row: dict, term: str, n: int, per_supplier: int, pages
         res = f.get(url)
         if not res or res.get("status") != 200:
             break
-        soup = BeautifulSoup(res["text"], "lxml")
-        for a in soup.find_all("a", href=True):
-            href = urljoin(url, a["href"]).split("?")[0].split("#")[0]
+        from .extract import lighten
+        soup = BeautifulSoup(lighten(res["text"]), "lxml")
+        anchors = [(a["href"], a.get("title") or a.get_text(" ", strip=True)) for a in soup.find_all("a", href=True)]
+        soup.decompose()
+        for raw, title in anchors:
+            href = urljoin(url, raw).split("?")[0].split("#")[0]
             if "made-in-china.com" not in href or "/product/" not in href or href in seen:
                 continue
-            title = a.get("title") or a.get_text(" ", strip=True)
             if not title or len(title) < 6 or re.match(r"US\$|\$|\d[\d,.]*\s*(Pieces?|Sets?|Units?|Pairs?)\b", title):
                 continue                              # price / MOQ links next to the product link
             seen.add(href)

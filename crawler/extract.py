@@ -195,7 +195,8 @@ def enrich_from_wpshop(rec: dict | None, html: str, url: str) -> dict | None:
     JSON-LD often lacks. Fills what is missing; JSON-LD values win on conflict."""
     try:
         from . import wpshop
-        w = wpshop.parse_product_page(html, url, wpshop.norm_host(urlparse(url).netloc), trust_as_product=rec is not None)
+        w = wpshop.parse_product_page(lighten(html), url, wpshop.norm_host(urlparse(url).netloc),
+                                      trust_as_product=rec is not None)
     except Exception as e:                       # never let the second parser break a crawl
         log.debug("wpshop parser failed on %s: %s", url, e)
         return rec
@@ -232,8 +233,25 @@ def enrich_from_wpshop(rec: dict | None, html: str, url: str) -> dict | None:
     return rec
 
 
+_SCRIPT = re.compile(r"<script(?![^>]*ld\+json)[^>]*>.*?</script>|<style[^>]*>.*?</style>|<svg[^>]*>.*?</svg>|"
+                     r"<noscript[^>]*>.*?</noscript>|<!--.*?-->", re.S | re.I)
+
+
+def lighten(html: str) -> str:
+    """Scripts (except JSON-LD), styles, inline SVG and comments are most of a modern
+    page and carry no product data; dropping them first makes the parse tree small."""
+    return _SCRIPT.sub("", html)
+
+
 def _extract_page(html: str) -> dict | None:
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(lighten(html), "lxml")
+    try:
+        return _extract_from(soup, html)
+    finally:
+        soup.decompose()                      # bs4 trees are cyclic: free them now, not at the next gc
+
+
+def _extract_from(soup: BeautifulSoup, html: str) -> dict | None:
     rec = from_jsonld(soup)
     woo = from_woo_html(soup)
     if rec is None:
@@ -253,7 +271,7 @@ def _extract_page(html: str) -> dict | None:
     rec["seller_name"] = site_name(soup)
     finalize(rec, text)
     if "made-in-china.com" in html[:30000]:
-        made_in_china(rec, BeautifulSoup(html, "lxml"))
+        made_in_china(rec, soup)
     return rec
 
 
@@ -431,11 +449,12 @@ def listing_links(html: str, page_url: str, limit: int = 12) -> list[str]:
     any same-site link that looks like a product page)."""
     from urllib.parse import unquote, urljoin, urlparse
     from . import wpshop
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(lighten(html), "lxml")
     host = urlparse(page_url).netloc.removeprefix("www.")
     cands = [a["href"] for a in soup.select("li.product a.woocommerce-LoopProduct-link, "
                                              ".products .product a[href], .product-item a[href]")]
     cands += [a["href"] for a in soup.find_all("a", href=True)]
+    soup.decompose()
     out = []
     for h in cands:
         u = urljoin(page_url, h).split("#")[0]

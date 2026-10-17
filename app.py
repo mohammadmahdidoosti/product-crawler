@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import base64
 import hmac
+import csv
 import io
 import json
 import logging
@@ -194,11 +195,28 @@ def run_path(run: str) -> Path:
     return DATA_DIR / "runs" / run
 
 
+_ROWS_CACHE: dict = {}
+
+
 def file_rows(p: Path) -> int:
+    """Row count of a CSV, cached by size and time: the status page asks often and the
+    crawl file grows large, so it is never parsed with pandas just to be counted."""
     try:
-        return len(pd.read_csv(p, encoding=ENCODING, dtype=str, usecols=[0]))
-    except Exception:
+        st = p.stat()
+    except OSError:
         return 0
+    key = (str(p), st.st_size, st.st_mtime)
+    hit = _ROWS_CACHE.get(str(p))
+    if hit and hit[0] == key:
+        return hit[1]
+    n = 0
+    try:
+        with p.open(encoding="utf-8-sig", newline="") as fh:
+            n = max(sum(1 for _ in csv.reader(fh)) - 1, 0)
+    except Exception:
+        n = 0
+    _ROWS_CACHE[str(p)] = (key, n)
+    return n
 
 
 def list_runs() -> list[dict]:

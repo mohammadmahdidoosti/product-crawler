@@ -178,11 +178,13 @@ class SellerInfo:
             res = self.f["iran"].get(base + "/")
             if res and res.get("text"):
                 from bs4 import BeautifulSoup
-                soup = BeautifulSoup(res["text"], "lxml")
+                from .extract import lighten
+                soup = BeautifulSoup(lighten(res["text"]), "lxml")
                 info["seller_phones"] = extract_phones(soup.get_text(" "))
                 if not info["seller_name"]:
                     m = soup.find("meta", attrs={"property": "og:site_name"})
                     info["seller_name"] = m["content"].strip() if m and m.get("content") else ""
+                soup.decompose()
         info["seller_name"] = info["seller_name"] or domain
         self.cache[domain] = info
         return info
@@ -235,6 +237,7 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
     list_max = int(cfg.get("search", {}).get("listing_max", 12))
     workers = max(1, int(cfg.get("http", {}).get("workers", 6)))
     mult = float(cfg.get("price", {}).get("foreign_multiplier", 1) or 1)
+    parse_slots = threading.Semaphore(int(cfg.get("http", {}).get("parse_slots", 2)))
 
     def slim(rec: dict) -> dict:
         rec.pop("page_text", None)                     # the whole page text: the big memory user
@@ -251,11 +254,12 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
             return "fail", f"http {res.get('status') if res else 'blocked/none'}"
         html = res.pop("text", "")
         listing = not foreign and not h.get("from_listing") and is_listing_url(h["url"])
-        rec = None if listing else extract_page(html, h["url"])
-        if not foreign and not h.get("from_listing") and (listing or not rec or not rec.get("price_amount")):
-            links = listing_links(html, h["url"], list_max)
-            if links:            # a shop's category page: its products are crawled instead
-                return "list", links
+        with parse_slots:                       # downloads run in parallel, parsing a few at a time (memory)
+            rec = None if listing else extract_page(html, h["url"])
+            if not foreign and not h.get("from_listing") and (listing or not rec or not rec.get("price_amount")):
+                links = listing_links(html, h["url"], list_max)
+                if links:            # a shop's category page: its products are crawled instead
+                    return "list", links
         if rec is None and llm:
             rec = _llm_record(llm, html)
         return ("rec", slim(rec)) if rec and rec.get("name") else ("fail", "no product data")
