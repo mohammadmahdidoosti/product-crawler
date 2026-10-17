@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import re
 import logging
 from pathlib import Path
 
@@ -114,7 +115,8 @@ def step_search(cfg: dict, run: str) -> Path:
             if h.get("title") and h.get("found_by") in ("woo_store_api", "made_in_china", "woo_search"):
                 v = judge(row["breadcrumb"], leaf, {"name": h["title"], "source_type": h["source_type"]},
                           row.get("english", ""), english_for(g, gl))
-                if not v["relevant"]:
+                # only clear cases: a short search-list title missing a category word may still fit
+                if not v["relevant"] and not re.match(r"(کمتر از|هیچ|واژه‌ی اصلی)", v["reason"]):
                     drop.append({**h, "reason": v["reason"]})
                     continue
             keep.append(h)
