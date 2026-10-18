@@ -30,6 +30,7 @@ from .fetch import Fetcher, domain_of
 from .io import FILES, read_csv, write_csv
 
 log = logging.getLogger(__name__)
+Image.MAX_IMAGE_PIXELS = 40_000_000                          # a 100-megapixel 'photo' is skipped, not loaded
 ROOT = Path(__file__).resolve().parent.parent
 LOGO = ROOT / "assets" / "caravan-logo.png"
 IMG_COLS = ["url", "key", "files", "source_images", "notes"]
@@ -64,7 +65,8 @@ def download(f: Fetcher, url: str, min_side: int = 250) -> bytes | None:
 
 def thumb(data: bytes) -> np.ndarray:
     with Image.open(io.BytesIO(data)) as im:
-        return np.asarray(flatten(im).resize((SIDE, SIDE)).convert("L"), dtype=np.float32)
+        im.draft("RGB", (SIDE * 2, SIDE * 2))               # JPEG: decode small, not the full picture
+        return np.asarray(flatten(im).resize((SIDE, SIDE)).convert("L"), dtype=np.uint8)
 
 
 def flatten(im: Image.Image) -> Image.Image:
@@ -87,7 +89,7 @@ def shop_mark(thumbs: list[np.ndarray], min_images: int = 4) -> np.ndarray | Non
     Returns a SIDE x SIDE boolean mask in relative coordinates, or None."""
     if len(thumbs) < min_images:
         return None
-    stack = np.stack(thumbs[:40])
+    stack = np.stack(thumbs[:40]).astype(np.float32)
     med = np.median(stack, axis=0)
     spread = np.median(np.abs(stack - med), axis=0)          # how much each pixel changes between photos
     mask = (spread < 6) & (med < 235)                        # constant and not background
@@ -343,9 +345,10 @@ def overlay_text(pic: Image.Image) -> bool:
 
 def make(im: Image.Image, mark: np.ndarray | None, size: int = 1000, cutout: bool = True) -> tuple[Image.Image, list[str]]:
     notes = []
-    im = flatten(im)
     if max(im.size) > 1200:                                   # the result is 1000px: big originals only cost memory
+        im.draft("RGB", (1200, 1200))                         # (JPEG decodes at reduced size)
         im.thumbnail((1200, 1200), Image.LANCZOS)
+    im = flatten(im)
     im, removed = remove_mark(im, mark)
     if removed:
         notes.append("shop_mark_removed")
@@ -445,10 +448,15 @@ def step_images(cfg: dict, run: str) -> Path | None:
     # a shop's own photos from the whole crawl help too, but downloading them all is slow: the
     # products of this run are usually enough (24 per category, several per shop)
     marks = {dom: shop_mark(ims) for dom, ims in by_shop.items()}
+    by_shop.clear()
+    got = [(r, urls, paths, None) for r, urls, paths, _ in got]   # thumbnails no longer needed
     log.info("images: shop marks found for %s", ", ".join(k for k, v in marks.items() if v is not None) or "none")
 
     # 2. make and save
+    from .io import Appender
     out = [] if done is None else done.to_dict("records")
+    sink = Appender(done_p, IMG_COLS)                      # row by row: a stopped run resumes where it was
+    sink.__enter__()
     quality = int(ic.get("quality", 85))
     search_left = int(ic.get("search_max", 40))
     cutout = bool(ic.get("remove_background", True))
@@ -467,7 +475,10 @@ def step_images(cfg: dict, run: str) -> Path | None:
                     src.unlink(missing_ok=True)
         return made
 
+    import gc
     for i, (r, urls, paths, _) in enumerate(got, 1):
+        if i % 20 == 0:
+            gc.collect()
         key = product_key(r["url"])
         folder = out_root / key
         made = build(paths, marks.get(r.get("source_domain", "")))
@@ -499,11 +510,13 @@ def step_images(cfg: dict, run: str) -> Path | None:
             pic.save(p, "WEBP", quality=quality, method=4)
             files.append(f"{key}/{p.name}")
             notes.update(nt)
-        out.append({"url": r["url"], "key": key, "files": " | ".join(files), "source_images": " | ".join(urls),
-                    "notes": " | ".join(sorted(notes)) or ("no_image" if not files else "")})
+        row = {"url": r["url"], "key": key, "files": " | ".join(files), "source_images": " | ".join(urls),
+               "notes": " | ".join(sorted(notes)) or ("no_image" if not files else "")}
+        out.append(row)
+        sink.write(row)
         _progress("images", len(rows) + i, len(rows) * 2)
+    sink.__exit__(None, None, None)
     free_models()
-    write_csv(__import__("pandas").DataFrame(out, columns=IMG_COLS), done_p)
     n_ok = sum(1 for x in out if x["files"])
     log.info("images: %d of %d products have photos (data/images)", n_ok, len(out))
     return done_p
