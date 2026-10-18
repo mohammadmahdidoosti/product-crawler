@@ -328,3 +328,24 @@ class StihlCase(unittest.TestCase):
         self.assertTrue(is_listing_url("https://ganjkala.com/product_brand/%D8%A7-stihl/"))
         self.assertTrue(is_listing_url("https://abzarhossein.com/product-tag/x/"))
         self.assertTrue(LISTING_TITLE.search("قیمت و خرید محصولات برند یا شرکت اشیتل STIHL"))
+
+
+class TopupHelpers(unittest.TestCase):
+    def test_next_page_and_retry(self):
+        import tempfile
+        from crawler.extract import listing_next
+        from crawler.topup import retry_failed
+        self.assertEqual(listing_next('<a class="next page-numbers" href="/shop/page/2/">›</a>', "https://x.ir/shop/"),
+                         "https://x.ir/shop/page/2/")
+        d = Path(tempfile.mkdtemp())
+        pd.DataFrame([{"taxonomy_id": "1", "url": "a", "reason": "http 500"},
+                      {"taxonomy_id": "1", "url": "b", "reason": "no product data"},
+                      {"taxonomy_id": "1", "url": "c", "reason": "http blocked/none"}]).to_csv(d / "03_failed.csv", index=False)
+        self.assertEqual(retry_failed({}, d), 2)
+        self.assertEqual(list(pd.read_csv(d / "03_failed.csv")["url"]), ["b"])
+
+    def test_brand_both_ways(self):
+        from crawler.routing import brand_in
+        self.assertTrue(brand_in("موتور آسانسور الکو 6.1", "elco"))
+        self.assertTrue(brand_in("موتور گیرلس ماتودرایو", "ماتو درایو"))
+        self.assertFalse(brand_in("موتور آسانسور بهران", "elco"))

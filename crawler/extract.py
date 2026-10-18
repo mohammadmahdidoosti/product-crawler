@@ -478,3 +478,12 @@ def listing_links(html: str, page_url: str, limit: int = 12) -> list[str]:
         if len(out) >= limit:
             break
     return out
+
+
+def listing_next(html: str, page_url: str) -> str:
+    """The next page of a shop's list (rel=next, WooCommerce 'next page-numbers')."""
+    from urllib.parse import urljoin
+    m = re.search(r'<link[^>]+rel=["\']next["\'][^>]*href=["\']([^"\']+)', html, re.I) or \
+        re.search(r'<a[^>]+class=["\'][^"\']*\bnext\b[^"\']*["\'][^>]*href=["\']([^"\']+)', html, re.I) or \
+        re.search(r'<a[^>]+href=["\']([^"\']+)["\'][^>]*class=["\'][^"\']*\bnext\b', html, re.I)
+    return urljoin(page_url, htmllib.unescape(m.group(1))) if m else ""

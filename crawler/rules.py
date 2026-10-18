@@ -103,13 +103,20 @@ def model_tokens(breadcrumb: str, leaf: str) -> list[str]:
     units = {"اینچ", "نفره", "اسب", "کیلو", "متری", "لیتری", "تن", "تنی", "فاز", "زمانه", "راهه", "پره"}
     words = [nums[w] if w in nums and i + 1 < len(words) and words[i + 1] in units else w
              for i, w in enumerate(words)]                      # 'یک اینچ' -> '1 اینچ'
-    out = []
-    for w in words:
+    measure_units = units | {"وات", "سانت", "سانتی", "سانتیمتر", "میلیمتر", "کیلووات", "ولت", "امپر", "آمپر", "لیتر",
+                             "متر", "w", "cm", "mm", "v", "kw"}
+    codes, measures = [], []
+    for i, w in enumerate(words):
         if re.search(r"\d", w) and w not in parents:
             t = re.sub(r"[^0-9a-z]", "", w)
-            if t and t not in out:
-                out.append(t)
-    return out
+            if not t:
+                continue
+            nxt = words[i + 1] if i + 1 < len(words) else ""
+            # a number followed by a unit (650 وات, 40 سانتی) is a size; '5056j', 'gta26', '8600' are model codes
+            is_measure = t.isdigit() and (nxt in measure_units or len(t) <= 2)
+            (measures if is_measure else codes).append(t)
+    out = codes or measures               # a model code is enough; sizes count only when there is no code
+    return list(dict.fromkeys(out))
 
 
 def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en: str = "") -> dict:

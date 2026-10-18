@@ -12,7 +12,8 @@ import pandas as pd
 from . import fx as fxmod
 from .config import ROOT, run_dir
 from .dedupe import load_site_catalog, merge_crawl, split_against_site
-from .extract import LISTING_TITLE, extract_page, from_store_api, is_listing_url, listing_links, resolve_price_unit
+from .extract import (LISTING_TITLE, extract_page, from_store_api, is_listing_url, listing_links, listing_next,
+                      resolve_price_unit)
 from .fetch import Fetcher, canon_url, domain_of
 from .io import (CRAWLED_COLS, FILES, FILTER_COLS, HITS_COLS, Appender, done_values,
                  read_csv, write_csv)
@@ -235,6 +236,7 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
         from .llm import LLM
         llm = LLM(cfg)
     list_max = int(cfg.get("search", {}).get("listing_max", 12))
+    list_pages = int(cfg.get("search", {}).get("listing_pages", 3))
     workers = max(1, int(cfg.get("http", {}).get("workers", 6)))
     mult = float(cfg.get("price", {}).get("foreign_multiplier", 1) or 1)
     parse_slots = threading.Semaphore(int(cfg.get("http", {}).get("parse_slots", 2)))
@@ -259,7 +261,8 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
             if not foreign and not h.get("from_listing") and (listing or not rec or not rec.get("price_amount")):
                 links = listing_links(html, h["url"], list_max)
                 if links:            # a shop's category page: its products are crawled instead
-                    return "list", links
+                    nxt_page = listing_next(html, h["url"]) if int(h.get("page_depth") or 0) < list_pages - 1 else ""
+                    return "list", (links, nxt_page)
         if rec is None and llm:
             rec = _llm_record(llm, html)
         if rec and rec.get("name") and (LISTING_TITLE.search(rec["name"]) or
@@ -284,8 +287,12 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
             done.add(key)
             if kind == "list":
                 stats["lists"] += 1
+                links, nxt_page = val
                 nxt += [{**h, "url": canon_url(u), "title": "", "found_by": "listing", "prefilled_json": "",
-                         "from_listing": "1"} for u in val if f"{h['taxonomy_id']}|{u}" not in done]
+                         "from_listing": "1"} for u in links if f"{h['taxonomy_id']}|{canon_url(u)}" not in done]
+                if nxt_page and f"{h['taxonomy_id']}|{canon_url(nxt_page)}" not in done:   # page 2, 3 of the list
+                    nxt.append({**h, "url": canon_url(nxt_page), "title": "", "found_by": "listing_page",
+                                "prefilled_json": "", "page_depth": str(int(h.get("page_depth") or 0) + 1)})
                 continue
             if kind == "fail":
                 fail.write({"taxonomy_id": h["taxonomy_id"], "url": h["url"], "reason": val})
@@ -504,14 +511,41 @@ def low_categories(cfg: dict, d: Path, kept: pd.DataFrame, need: pd.DataFrame) -
         ids += [t] + [x for x in str(extra or "").split(" | ") if x]      # extra categories count too
     n = pd.Series(ids).value_counts() if ids else pd.Series(dtype=int)
     m = need["taxonomy_id"].value_counts() if len(need) else pd.Series(dtype=int)
+    def counts(name, col="taxonomy_id"):
+        p_ = d / name
+        x = read_csv(p_) if p_.exists() else pd.DataFrame()
+        return (x[col].value_counts().to_dict() if len(x) and col in x.columns else {}), x
+    hits, _ = counts(FILES["hits"])
+    crawled, _ = counts(FILES["crawled"])
+    failed, _ = counts("03_failed.csv")
+    _, rej = counts(FILES["rejected"])
+    top_rej = {}
+    if len(rej):
+        for tid, g in rej.groupby("taxonomy_id"):
+            vc = g["relevance_reason"].str.split(":").str[0].value_counts()
+            top_rej[tid] = f"{vc.index[0]} ({vc.iloc[0]})"
     rows = []
     for r in q.to_dict("records"):
-        k, w = int(n.get(r["taxonomy_id"], 0)), int(m.get(r["taxonomy_id"], 0))
+        t = r["taxonomy_id"]
+        k, w = int(n.get(t, 0)), int(m.get(t, 0))
         if k < target:
-            rows.append({"taxonomy_id": r["taxonomy_id"], "breadcrumb": r["breadcrumb"], "route": r["route"],
+            h_, c_, f_ = int(hits.get(t, 0)), int(crawled.get(t, 0)), int(failed.get(t, 0))
+            if h_ == 0:
+                why = "جستجو هیچ صفحه‌ای پیدا نکرد"
+            elif c_ == 0 and f_:
+                why = f"{f_} صفحه پیدا شد ولی باز نشد (سایت کند یا خطا)"
+            elif k == 0 and w:
+                why = "محصول پیدا شد ولی قیمت ندارد"
+            elif k == 0:
+                why = "پیدا شد ولی همه رد شدند: " + top_rej.get(t, "")
+            else:
+                why = "بازار همین‌قدر محصول داشت" + (f"؛ بیشترین رد: {top_rej[t]}" if t in top_rej else "")
+            rows.append({"taxonomy_id": t, "breadcrumb": r["breadcrumb"], "route": r["route"],
                          "products": k, "without_price": w, "missing": target - k,
-                         "status": "خالی" if k == 0 and w == 0 else "فقط بی‌قیمت" if k == 0 else "کم‌محصول"})
-    out = pd.DataFrame(rows, columns=["taxonomy_id", "breadcrumb", "route", "products", "without_price", "missing", "status"])
+                         "status": "خالی" if k == 0 and w == 0 else "فقط بی‌قیمت" if k == 0 else "کم‌محصول",
+                         "found_links": h_, "crawled": c_, "failed": f_, "why": why})
+    out = pd.DataFrame(rows, columns=["taxonomy_id", "breadcrumb", "route", "products", "without_price", "missing",
+                                      "status", "found_links", "crawled", "failed", "why"])
     out = out.sort_values(["products", "breadcrumb"]) if len(out) else out
     log.info("categories below %d products: %d of %d (%d empty) -> 05_low_categories.csv", target, len(out), len(q),
              int((out["products"] == 0).sum()) if len(out) else 0)
@@ -553,57 +587,8 @@ def cross_assign(cfg: dict, d: Path, df: pd.DataFrame) -> pd.DataFrame:
 
 
 def step_topup(cfg: dict, run: str) -> Path | None:
-    """Second pass for categories still (nearly) empty after the filter: one Google search
-    with the category's exact name (what a person would type), its shop pages crawled and
-    filtered. Costs one Serper search per such category, capped by search.topup_max."""
-    from .config import secret
-    from .probe import classify_results, record_usage
-    from .search import SEARCHERS, _hit, detect_type
-    sc = cfg.get("search", {})
-    below, cap = int(sc.get("topup_below", 5)), int(sc.get("topup_max", 80))
-    d = run_dir(cfg, run)
-    key = secret("SERPER_API_KEY")
-    if not below or not key or not (d / FILES["filtered"]).exists():
-        log.info("top-up skipped (%s)", "no SERPER_API_KEY" if not key else "off or nothing filtered yet")
-        return None
-    q = read_csv(d / FILES["queue"]).to_dict("records")
-    fl = read_csv(d / FILES["filtered"])
-    cnt = fl.groupby("taxonomy_id")["url"].nunique().to_dict() if len(fl) else {}
-    mark = d / "02_topup_done.csv"
-    done = done_values(mark, "taxonomy_id")
-    low = [r for r in q if cnt.get(r["taxonomy_id"], 0) < below and r["route"] in ("iran", "both")
-           and r["taxonomy_id"] not in done][:cap]
-    log.info("top-up: %d categories under %d products get an exact web search", len(low), below)
-    f = _fetchers(cfg)["iran"]
-    n_hits = 0
-    with Appender(d / FILES["hits"], HITS_COLS) as w, Appender(mark, ["taxonomy_id", "query", "found"]) as m:
-        for i, r in enumerate(low, 1):
-            if _progress("topup", i - 1, len(low)):
-                break
-            res = f.post_json("https://google.serper.dev/search", {"q": f"{r['query']} قیمت", "gl": "ir", "hl": "fa", "num": 10},
-                              {"X-API-KEY": key, "Content-Type": "application/json"})
-            record_usage(cfg)
-            shops = classify_results((res or {}).get("json", {}).get("organic", []))["domains"] if res else []
-            hits = []
-            for sh in shops:
-                src = {"domain": sh["domain"], "kind": "iran"}
-                hits.append(_hit(r, src, sh["url"], sh.get("title", ""), "web_exact"))
-                t = detect_type(f, cfg, sh["domain"])
-                if t in SEARCHERS:
-                    try:
-                        hits += SEARCHERS[t](f, {**src, "type": t}, r, 8)
-                    except Exception as e:
-                        log.warning("top-up shop search failed on %s: %s", sh["domain"], e)
-            seen = set()
-            for h in hits:
-                if h["url"] not in seen:
-                    seen.add(h["url"])
-                    w.write(h)
-            n_hits += len(seen)
-            m.write({"taxonomy_id": r["taxonomy_id"], "query": r["query"], "found": len(seen)})
-    log.info("top-up: %d new links; crawling and filtering them", n_hits)
-    step_crawl(cfg, run)
-    return step_filter(cfg, run)
+    from .topup import step_topup as _t
+    return _t(cfg, run)
 
 
 def one_category_per_product(df: pd.DataFrame) -> pd.DataFrame:

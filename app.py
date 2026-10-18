@@ -403,7 +403,7 @@ def read_any_table(data: bytes, filename: str = "") -> tuple[pd.DataFrame, str]:
     raise ValueError(f"encoding not recognised ({last}); save the file from Excel as 'CSV UTF-8'")
 
 
-PEEK_DOMAINS = ("made-in-china.com",)
+PEEK_DOMAINS = ("made-in-china.com", "torob.com")
 
 
 def peek(url: str, find: list | None = None) -> dict:

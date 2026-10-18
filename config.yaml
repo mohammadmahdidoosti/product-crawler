@@ -35,10 +35,12 @@ search:
   max_hits_per_source: 12           # per Iranian shop and category
   synonyms_max: 2                  # extra shop searches with the taxonomy's synonyms
   topup_below: 5                   # after the filter: categories under N products get an exact web search
-  topup_max: 80                    # at most this many such searches per run
+  topup_max: 80                    # at most this many such categories per run
+  torob_directory: true            # Torob only to find which shops sell a model (its content is not used)
   foreign_candidates: 40           # Made-in-China candidates per category (best ones kept later)
   per_supplier: 2                  # at most this many products from one Chinese supplier
   listing_max: 12                  # products opened from one shop category page
+  listing_pages: 3                 # and the list's next pages, up to this many
 
 select:
   max_per_category: 24             # keep the best N products per category (quality score), 0 = all

@@ -54,18 +54,39 @@ LATIN = {  # Latin names of brands, to recognise them in product names (Persian 
     "پارکر": "parker", "امرون": "omron", "هیلتی": "hilti", "روزمونت": "rosemount", "تله مکانیک": "telemecanique",
     "چینت": "chint", "روتورک": "rotork", "ایمرگاس": "immergas", "لگراند": "legrand", "زیگلر": "ziegler",
     "ریوبی": "ryobi", "بلمو": "belimo", "بلیمو": "belimo", "فلوسرو": "flowserve", "auma": "auma", "آوما": "auma",
-    "اشتیل": "stihl", "اشیتل": "stihl", "هوسکوارنا": "husqvarna", "ماکیتا ": "makita",
+    "اشتیل": "stihl", "اشیتل": "stihl", "ماتو درایو": "mato drive", "متودرایو": "mato drive", "ماتودرایو": "mato drive",
+    "اس کی": "sk", "بوش ": "bosch", "رونیکس": "ronix", "توسن": "tosan", "ویوارکس": "vivarex", "پاپ": "pap", "هوسکوارنا": "husqvarna", "ماکیتا ": "makita",
     "زیلابگ": "ziehl-abegg", "مونتاناری": "montanari", "ویتور": "wittur", "الکو": "elco",
     "abb": "abb", "smc": "smc", "aeg": "aeg", "obo": "obo", "eti": "eti", "dca": "dca", "فلوسرو ": "flowserve",
 }
 
 
+def brand_aliases(brand: str) -> set[str]:
+    """Every way a brand is written: Persian, Latin, spellings ('الکو' = 'elco', 'اشتیل' = 'اشیتل' = 'stihl')."""
+    b = brand.strip().lower()
+    lat = LATIN.get(brand) or LATIN.get(b) or (b if b.isascii() else "")
+    names = {brand, b}
+    if lat:
+        names |= {lat} | {k for k, v in LATIN.items() if v == lat}
+    return {n.strip() for n in names if n and n.strip()}
+
+
 def brand_in(name: str, brand: str) -> bool:
-    """Is this brand (Persian or Latin name) in the product name?"""
+    """Is this brand (any of its spellings, with or without spaces) in the product name?"""
     t = f" {norm_text(name)} "
-    keys = {norm_text(brand)} | {norm_text(k) for k, v in LATIN.items() if v == LATIN.get(brand, "~")}
-    lat = LATIN.get(brand) or (brand if brand.isascii() else "")
-    return any(f" {k} " in t for k in keys if k) or bool(lat and re.search(rf"\b{re.escape(lat)}\b", name, re.I))
+    flat = re.sub(r"[\s\-_.]+", "", norm_text(name))
+    for a in brand_aliases(brand):
+        k = norm_text(a)
+        if not k:
+            continue
+        if a.isascii():
+            if re.search(rf"(?<![a-z0-9]){re.escape(a.lower())}(?![a-z0-9])", name.lower()):
+                return True
+        elif f" {k} " in t:
+            return True
+        if len(k.replace(" ", "")) >= 4 and k.replace(" ", "") in flat:   # 'ماتو درایو' = 'ماتودرایو'
+            return True
+    return False
 
 
 def foreign_brand_in(name: str) -> str | None:
