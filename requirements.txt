@@ -6,3 +6,7 @@ PyYAML>=6.0
 openpyxl>=3.1
 # optional, better and faster name matching in dedupe:
 rapidfuzz>=3.0
+# image step
+Pillow>=10.0
+numpy>=1.26
+opencv-python-headless>=4.8

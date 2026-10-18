@@ -116,3 +116,10 @@ site_catalog:
 export:
   published: 0                     # 0 = import as draft, check, then publish
   require_price: true
+
+images:
+  enabled: true
+  per_product: 3          # photos per product
+  size: 1000              # square, white background
+  quality: 85             # WebP
+  # public_base: https://caravan-crawler.onrender.com   # default: Render's own address

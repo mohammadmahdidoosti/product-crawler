@@ -45,7 +45,7 @@ DATA_DIR = Path(os.environ.get("DATA_DIR", ROOT / "data")).resolve()
 APP_PASSWORD = os.environ.get("APP_PASSWORD", "")
 STATIC = ROOT / "static"
 RUN_NAME = re.compile(r"^[\w\-]{1,60}$", re.UNICODE)
-STEPS = ["queue", "search", "crawl", "filter", "topup", "dedupe", "export"]
+STEPS = ["queue", "search", "crawl", "filter", "topup", "dedupe", "images", "export"]
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", datefmt="%H:%M:%S")
 logging.getLogger("urllib3").setLevel(logging.WARNING)
@@ -134,6 +134,9 @@ class Job:
             P.step_topup(cfg, run)
         elif step == "dedupe":
             P.step_dedupe(cfg, run, None, skip_filter=bool(opts.get("skip_filter")))
+        elif step == "images":
+            from crawler.images import step_images
+            step_images(cfg, run)
         elif step == "export":
             P.step_export(cfg, run)
         elif step == "probe":
@@ -158,7 +161,7 @@ class Job:
                 # top-up): their outputs are cleared, the others kept
                 steps = only or STEPS[STEPS.index(opts["from_step"]):]
                 prefixes = {"queue": "01_", "search": "02_", "crawl": "03_", "filter": "04_", "topup": "02_topup",
-                            "dedupe": "05_", "export": "06_"}
+                            "dedupe": "05_", "images": "05_images", "export": "06_"}
                 d = run_path(run)
                 for st in steps:
                     for f in d.glob(prefixes[st] + "*.csv"):
@@ -499,7 +502,8 @@ class Handler(BaseHTTPRequestHandler):
 
     # --- auth
     def _authed(self) -> bool:
-        if not APP_PASSWORD or self.path == "/healthz":
+        # product photos are public: the WooCommerce importer on the site fetches them
+        if not APP_PASSWORD or self.path == "/healthz" or self.path.startswith("/img/"):
             return True
         h = self.headers.get("Authorization", "")
         if h.startswith("Basic "):
@@ -556,6 +560,12 @@ class Handler(BaseHTTPRequestHandler):
         try:
             if u.path == "/healthz":
                 return self._send(200, b"ok", "text/plain")
+            if parts[:1] == ["img"] and len(parts) == 3 and re.fullmatch(r"[0-9a-f]{14}", parts[1]) \
+                    and re.fullmatch(r"\d{1,2}\.webp", parts[2]):
+                f = DATA_DIR / "images" / parts[1] / parts[2]
+                if f.exists():
+                    return self._send(200, f.read_bytes(), "image/webp")
+                return self._send(404, b"not found", "text/plain")
             if u.path in ("/", "/index.html"):
                 return self._send(200, (STATIC / "index.html").read_bytes(), "text/html; charset=utf-8")
             if parts[:2] == ["api", "state"]:

@@ -708,6 +708,10 @@ def step_export(cfg: dict, run: str) -> list[Path]:
     out = []
     new = read_csv(d / FILES["new"])
     new = new[new["price_toman"] != ""] if cfg.get("export", {}).get("require_price", True) else new
+    from .images import public_urls
+    imgs = {}
+    if (d / "05_images.csv").exists():
+        imgs = {r["url"]: public_urls(cfg, r["files"]) for r in read_csv(d / "05_images.csv").to_dict("records")}
     rows = []
     for r in new.to_dict("records"):
         rows.append({
@@ -718,7 +722,7 @@ def step_export(cfg: dict, run: str) -> list[Path]:
             "Regular price": _round_price(r["price_toman"], step),
             "Categories": ", ".join(dict.fromkeys(
                 [r["breadcrumb"]] + [b for b in str(r.get("extra_breadcrumbs") or "").split(" | ") if b])),
-            "Images": "",
+            "Images": imgs.get(r["url"], ""),
             "Attribute 1 name": "برند" if r.get("brand") else "", "Attribute 1 value(s)": r.get("brand", ""),
             "Attribute 1 visible": 1 if r.get("brand") else "", "Attribute 1 global": 1 if r.get("brand") else "",
             "Meta: _caravan_price_date": r.get("usd_rate_date", ""),
