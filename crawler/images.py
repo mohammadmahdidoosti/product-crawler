@@ -412,7 +412,12 @@ def step_images(cfg: dict, run: str) -> Path | None:
     done_p = d / "05_images.csv"
     done = read_csv(done_p) if done_p.exists() else None
     have = set(done["url"]) if done is not None and len(done) else set()
-    fx = _fetchers(cfg)
+    # photos are static files: a lighter pace than pages (still one at a time per site)
+    from copy import deepcopy
+    icfg = deepcopy({k: v for k, v in cfg.items() if k != "_data_dir"})
+    icfg["_data_dir"] = cfg["_data_dir"]
+    icfg.setdefault("http", {})["delay_seconds"] = float(ic.get("delay_seconds", 1))
+    fx = _fetchers(icfg)
     rows = [r for r in new.to_dict("records") if r["url"] not in have]
     log.info("images: %d products to do (%d done before)", len(rows), len(have))
 

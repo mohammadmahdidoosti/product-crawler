@@ -36,6 +36,7 @@ search:
   synonyms_max: 2                  # extra shop searches with the taxonomy's synonyms
   topup_below: 5                   # after the filter: categories under N products get an exact web search
   topup_max: 80                    # at most this many such categories per run
+  topup_shops_max: 25              # empty category: at most this many known shops searched (those selling in its area first)
   torob_directory: false           # Torob as a shop directory: off — from the server its API does not answer,
                                    # product pages return 490 and /search/ is disallowed by robots.txt
   foreign_candidates: 40           # Made-in-China candidates per category (best ones kept later)
@@ -125,4 +126,5 @@ images:
   quality: 85             # WebP
   remove_background: true # busy backgrounds -> white (free U2-Net model on the server)
   search_max: 40          # products with no usable photo: image search (Serper) per run
+  delay_seconds: 1        # between two photo downloads from one site (pages: http.delay_seconds)
   # public_base: https://caravan-crawler.onrender.com   # default: Render's own address

@@ -172,7 +172,11 @@ class Job:
                     break
                 if step == "all":
                     self.logs.append(f"—— {st} ——")
+                t0 = time.time()
                 self._one(cfg, st, run, opts)
+                took = time.time() - t0
+                self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
+                self.state.setdefault("timings", {})[st] = round(took)
             if step != "probe":
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)

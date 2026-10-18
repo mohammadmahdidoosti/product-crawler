@@ -135,6 +135,14 @@ def step_topup(cfg: dict, run: str) -> Path | None:
     fx = _fetchers(cfg)
     f, ff = fx["iran"], fx["foreign"]
     shops_all = all_woo_shops(cfg)
+    shops_max = int(sc.get("topup_shops_max", 25))
+    from collections import Counter
+    sells_in: Counter = Counter()                          # (level-1 category, shop) -> products crawled
+    if (d / FILES["crawled"]).exists():
+        cr = read_csv(d / FILES["crawled"])
+        if len(cr):
+            for b, dom in zip(cr["breadcrumb"].fillna(""), cr["source_domain"].fillna("")):
+                sells_in[(b.split(">")[0].strip(), dom)] += 1
     use_torob = bool(sc.get("torob_directory", True))
     n_hits = 0
     cols = ["taxonomy_id", "query", "found", "web", "all_shops", "made_in_china", "torob"]
@@ -167,15 +175,20 @@ def step_topup(cfg: dict, run: str) -> Path | None:
                                 hits += SEARCHERS[t](f, {**src, "type": t}, r, 8)
                             except Exception as e:
                                 log.warning("top-up shop search failed on %s: %s", sh["domain"], e)
-            # 2. empty category: every WooCommerce shop met so far
-            if cnt.get(r["taxonomy_id"], 0) == 0 and r["route"] in ("iran", "both") and shops_all:
+            # 2. empty category, and the web search found little: the WooCommerce shops met so far,
+            #    those that sell in this part of the catalogue first (not all of them: time)
+            if cnt.get(r["taxonomy_id"], 0) == 0 and r["route"] in ("iran", "both") and shops_all \
+                    and got["web"] < 3:
+                l1 = r["breadcrumb"].split(">")[0].strip()
+                rank = sorted(shops_all, key=lambda x: -sells_in.get((l1, x["domain"]), 0))
+                pick = [x for x in rank if sells_in.get((l1, x["domain"]), 0)][:shops_max] or rank[:shops_max // 2]
                 def one(src, r=r):
                     try:
                         return search_store_api(f, src, r, 5)
                     except Exception:
                         return []
                 with ThreadPoolExecutor(8) as ex:
-                    for hs in ex.map(one, shops_all[:60]):
+                    for hs in ex.map(one, pick):
                         hits += hs
                         got["all_shops"] += len(hs)
             # 3. generic category: Made-in-China too
