@@ -45,7 +45,7 @@ DATA_DIR = Path(os.environ.get("DATA_DIR", ROOT / "data")).resolve()
 APP_PASSWORD = os.environ.get("APP_PASSWORD", "")
 STATIC = ROOT / "static"
 RUN_NAME = re.compile(r"^[\w\-]{1,60}$", re.UNICODE)
-STEPS = ["queue", "search", "crawl", "filter", "dedupe", "export"]
+STEPS = ["queue", "search", "crawl", "filter", "topup", "dedupe", "export"]
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", datefmt="%H:%M:%S")
 logging.getLogger("urllib3").setLevel(logging.WARNING)
@@ -130,6 +130,8 @@ class Job:
             P.step_crawl(cfg, run, use_llm_fallback=bool(opts.get("llm_fallback")))
         elif step == "filter":
             P.step_filter(cfg, run)
+        elif step == "topup":
+            P.step_topup(cfg, run)
         elif step == "dedupe":
             P.step_dedupe(cfg, run, None, skip_filter=bool(opts.get("skip_filter")))
         elif step == "export":
@@ -153,7 +155,8 @@ class Job:
             if step == "all" and opts.get("from_step") in STEPS:
                 # re-run from a step: its outputs and the later ones are cleared, earlier ones kept
                 steps = STEPS[STEPS.index(opts["from_step"]):]
-                prefixes = {"queue": "01_", "search": "02_", "crawl": "03_", "filter": "04_", "dedupe": "05_", "export": "06_"}
+                prefixes = {"queue": "01_", "search": "02_", "crawl": "03_", "filter": "04_", "topup": "02_topup",
+                            "dedupe": "05_", "export": "06_"}
                 d = run_path(run)
                 for st in steps:
                     for f in d.glob(prefixes[st] + "*.csv"):

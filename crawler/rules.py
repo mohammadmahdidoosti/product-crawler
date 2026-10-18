@@ -92,8 +92,14 @@ def model_tokens(breadcrumb: str, leaf: str) -> list[str]:
     import re
     from .normalize import fa_digits_to_en
     parents = set(fa_digits_to_en(" ".join(breadcrumb.split(">")[:-1])).lower().split())
+    words = fa_digits_to_en(leaf).lower().split()
+    nums = {"یک": "1", "دو": "2", "سه": "3", "چهار": "4", "پنج": "5", "شش": "6", "هفت": "7", "هشت": "8",
+            "نه": "9", "ده": "10"}
+    units = {"اینچ", "نفره", "اسب", "کیلو", "متری", "لیتری", "تن", "تنی", "فاز", "زمانه", "راهه", "پره"}
+    words = [nums[w] if w in nums and i + 1 < len(words) and words[i + 1] in units else w
+             for i, w in enumerate(words)]                      # 'یک اینچ' -> '1 اینچ'
     out = []
-    for w in fa_digits_to_en(leaf).lower().split():
+    for w in words:
         if re.search(r"\d", w) and w not in parents:
             t = re.sub(r"[^0-9a-z]", "", w)
             if t and t not in out:

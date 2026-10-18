@@ -436,18 +436,19 @@ const STEPS = [
   {k:'crawl',  t:'کراول',  f:'03_crawled.csv',      d:'باز کردن صفحه‌ها و استخراج نام، برند، مدل، مشخصات، قیمت، فروشنده و تلفن.', net:true,
     opt:['llm_fallback','برای صفحه‌های بی‌ساختار از مدل زبانی کمک بگیر']},
   {k:'filter', t:'فیلتر',   f:'04_filtered.csv',     d:'بررسی اینکه هر محصول واقعاً مال همان دسته است؛ ردشده‌ها با دلیل در فایل جدا می‌روند.'},
+  {k:'topup', t:'تکمیل',   f:'02_topup_done.csv',   d:'دسته‌هایی که بعد از فیلتر خالی یا کم‌محصول ماندند، با نام دقیق خودشان در گوگل جستجو و دوباره کراول می‌شوند.'},
   {k:'dedupe', t:'ادغام',   f:'05_new_products.csv', d:'یک مدل از چند سایت یک محصول با قیمت میانه می‌شود. محصولاتی که روی سایت دارید به فایل به‌روزرسانی می‌روند.',
     opt:['skip_filter','از خروجی کراول استفاده کن (بدون فیلتر)']},
   {k:'export', t:'خروجی',   f:'06_woo_import.csv',   d:'فایل ایمپورت ووکامرس برای محصولات تازه (پیش‌نویس) و فایل به‌روزرسانی قیمت محصولات موجود.'},
 ];
 const STEP_FA = Object.fromEntries(STEPS.map(s=>[s.k,s.t])); STEP_FA.all='همه‌ی مرحله‌ها'; STEP_FA.probe='سنجش بازار';
 const FILES = [
-  ['صف',['01_queue.csv']], ['جستجو',['02_search_hits.csv','02_no_hits.csv','02_prefiltered.csv']], ['کراول',['03_crawled.csv','03_failed.csv']],
+  ['صف',['01_queue.csv']], ['جستجو',['02_search_hits.csv','02_no_hits.csv','02_prefiltered.csv','02_topup_done.csv']], ['کراول',['03_crawled.csv','03_failed.csv']],
   ['فیلتر',['04_filtered.csv','04_rejected.csv']], ['ادغام',['05_new_products.csv','05_updates_existing.csv','05_review.csv','05_not_selected.csv','05_needs_price.csv','05_low_categories.csv']],
   ['خروجی',['06_woo_import.csv','06_woo_update_prices.csv']]];
 const FILE_FA = {'01_queue.csv':'صف','02_search_hits.csv':'لینک‌های پیداشده','02_no_hits.csv':'بی‌نتیجه','03_crawled.csv':'کراول‌شده',
   '03_failed.csv':'ناموفق','04_filtered.csv':'تأییدشده','04_rejected.csv':'ردشده','05_new_products.csv':'محصولات تازه',
-  '05_updates_existing.csv':'به‌روزرسانی موجودها','05_review.csv':'بازبینی','06_woo_import.csv':'ایمپورت ووکامرس','06_woo_update_prices.csv':'به‌روزرسانی قیمت','05_not_selected.csv':'خارج از ۲۴ برتر','05_needs_price.csv':'نیازمند قیمت','02_prefiltered.csv':'ردشده از روی عنوان','05_low_categories.csv':'دسته‌های کم‌محصول'};
+  '05_updates_existing.csv':'به‌روزرسانی موجودها','05_review.csv':'بازبینی','06_woo_import.csv':'ایمپورت ووکامرس','06_woo_update_prices.csv':'به‌روزرسانی قیمت','05_not_selected.csv':'خارج از ۲۴ برتر','05_needs_price.csv':'نیازمند قیمت','02_prefiltered.csv':'ردشده از روی عنوان','02_topup_done.csv':'جستجوی تکمیلی','05_low_categories.csv':'دسته‌های کم‌محصول'};
 const COL_FA = {description:'توضیحات منبع (داخلی)',files:'فایل‌ها و کاتالوگ',products:'محصول',without_price:'بی‌قیمت',missing:'کسری تا ۲۴',status:'وضعیت',brand_source:'منبع برند',price_estimated:'روش قیمت',name_fa:'نام فارسی',source_name:'نام اصلی (انگلیسی)',quality_score:'امتیاز کیفیت',quality_why:'جزئیات امتیاز',supplier_badges:'نشان تأمین‌کننده',specs_fa_json:'مشخصات فارسی',taxonomy_id:'شناسه دسته',breadcrumb:'مسیر دسته',query:'عبارت جستجو',route:'مسیر',leaf:'دسته',level1:'دسته‌ی اصلی',
   site_product_count:'محصول روی سایت',priority:'اولویت',name:'نام',brand:'برند',model:'مدل',specs_json:'مشخصات',short_description:'توضیح',
   price_raw:'قیمت خام',price_unit_detected:'واحد',price_toman:'قیمت (تومان)',price_usd:'دلار',price_flags:'هشدار قیمت',sale_unit:'واحد فروش',

@@ -50,12 +50,17 @@ def search_store_api(f: Fetcher, src: dict, row: dict, n: int) -> list[dict]:
     base = _base(src)
     words = row["query"].split()
     b = leaf_brand(row["query"])
-    if b:   # a brand category: every try keeps the brand ('اکچویتور برقی روتورک' -> 'روتورک اکچویتور' -> 'روتورک')
-        bw = [w for w in words if norm_text(w) in norm_text(b[0]).split()] or [b[0]]
-        rest = [w for w in words if w not in bw]
-        tries = [words, bw + rest[:1], bw]
-    else:
-        tries = [words[:k] for k in range(len(words), 1, -1)] or [words]
+    # shorter tries keep what defines the product: its first word ('موتور'), the model
+    # numbers ('8', '6.1') and the brand; the bare brand alone is never searched
+    # (it returns the shop's every item of that brand: doors, cables, ...)
+    model = [w for w in words if re.search(r"[\d۰-۹]", w)]
+    bw = ([w for w in words if norm_text(w) in norm_text(b[0]).split()] or [b[0]]) if b else []
+    core = [w for w in words if w not in model and w not in bw]
+    tries = [words]
+    for k in range(len(core) - 1, 0, -1):
+        t = core[:k] + [w for w in bw if w not in core[:k]] + model
+        if len(t) >= 2 and t not in tries:
+            tries.append(t)
     items: list = []
     for t in tries:
         res = f.get(f"{base}/wp-json/wc/store/v1/products",
@@ -196,12 +201,24 @@ def discovered_hits(cfg: dict, f: Fetcher, row: dict, n: int, probes: dict, with
         pr = probes.get(key)
         if pr:
             doms += [d for d in _json.loads(pr.get("domains_json") or "[]") if d["domain"] not in {x["domain"] for x in doms}]
+    # shops found for sibling groups under the same parent ('… > موتور و گیربکس آسانسور') are
+    # searched too: asialift found for «گیرلس» also sells «بهران» motors
+    parent = " > ".join([p.strip() for p in g.split(">")][:2])
+    shared = []
+    for key, pr in probes.items():
+        kg = key.split(" || ")[0]
+        if kg != g and kg.startswith(parent):
+            for d in _json.loads(pr.get("domains_json") or "[]"):
+                if d["domain"] not in {x["domain"] for x in doms + shared}:
+                    shared.append({**d, "url": ""})            # their site search only, not their result page
+    top_shared = int(cfg.get("routing", {}).get("shared_shops", 6))
+    doms += sorted(shared, key=lambda d: -int(bool(d.get("priced"))))[:top_shared]
     if not doms:
         return []
     known = {s["domain"] for s in (cfg["sources"].get("iran_sites") or [])}
     out = []
     top = int(cfg.get("routing", {}).get("discovered_per_group", 5))
-    for d in doms[:top]:
+    for d in doms[:top + top_shared]:
         dom = d["domain"]
         src = {"domain": dom, "kind": "iran"}
         if d.get("url") and with_results:

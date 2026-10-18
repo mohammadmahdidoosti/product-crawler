@@ -292,3 +292,24 @@ class MultiCategory(unittest.TestCase):
         c = "ابزار > اره شارژی > اره شارژی ویوارکس 40 سانتی"
         self.assertFalse(judge(c, "اره شارژی ویوارکس 40 سانتی", {"name": "اره شارژی ویوارکس 30 سانتی"})["relevant"])
         self.assertTrue(judge(c, "اره شارژی ویوارکس 40 سانتی", {"name": "اره زنجیری شارژی ویوارکس ۴۰ سانت"})["relevant"])
+
+
+class SiblingsAndTopup(unittest.TestCase):
+    def test_product_joins_sibling_category(self):
+        import tempfile
+        from crawler.pipeline import cross_assign
+        d = Path(tempfile.mkdtemp())
+        base = "آسانسور > موتور و گیربکس آسانسور > موتور آسانسور بهران"
+        pd.DataFrame([{"taxonomy_id": "1", "breadcrumb": f"{base} > موتور آسانسور بهران گیرلس", "query": "q1", "route": "iran"},
+                      {"taxonomy_id": "2", "breadcrumb": f"{base} > موتور آسانسور بهران 8 نفره", "query": "q2", "route": "iran"},
+                      {"taxonomy_id": "3", "breadcrumb": f"{base} > موتور آسانسور بهران 6 نفره", "query": "q3", "route": "iran"}]
+                     ).to_csv(d / "01_queue.csv", index=False, encoding="utf-8-sig")
+        df = pd.DataFrame([{"taxonomy_id": "1", "breadcrumb": f"{base} > موتور آسانسور بهران گیرلس", "url": "u",
+                            "name": "موتور آسانسور گیرلس بهران 8 نفره", "source_type": "iran", "relevance_confidence": "1"}])
+        out = cross_assign({"dedupe": {}}, d, df)
+        self.assertEqual(sorted(out["taxonomy_id"]), ["1", "2"])          # 8 نفره yes, 6 نفره no
+
+    def test_number_words(self):
+        from crawler.rules import judge
+        c = "آسانسور > فلوتر آسانسوری > فلوتر آسانسوری یک اینچ"
+        self.assertFalse(judge(c, "فلوتر آسانسوری یک اینچ", {"name": "فلوتر آسانسوری ۳/۴ پلاستیکی"})["relevant"])

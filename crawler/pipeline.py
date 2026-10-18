@@ -392,8 +392,13 @@ def step_filter(cfg: dict, run: str) -> Path:
     d = run_dir(cfg, run)
     df = read_csv(d / FILES["crawled"])
     out, rej = d / FILES["filtered"], d / FILES["rejected"]
-    done = done_values(out, "url") | done_values(rej, "url")
-    todo = df[~df["url"].isin(done)] if len(df) else df
+    done = set()
+    for f_ in (out, rej):
+        if f_.exists():
+            x = read_csv(f_)
+            if len(x):
+                done |= set(x["taxonomy_id"] + "|" + x["url"])
+    todo = df[~(df["taxonomy_id"] + "|" + df["url"]).isin(done)] if len(df) else df
     lc = cfg.get("llm", {})
     use_rules = lc.get("provider", "rules") == "rules"
     min_conf = float(lc.get("min_confidence", 0.6)) if not use_rules else float(lc.get("rules_min_confidence", 0.5))
@@ -449,6 +454,7 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     src = d / (FILES["crawled"] if skip_filter else FILES["filtered"])
     df = read_csv(src)
     dd = cfg.get("dedupe", {})
+    df = cross_assign(cfg, d, df)
     df = one_category_per_product(df)
     merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)))
     merged = drop_price_outliers(merged, float(cfg.get("price", {}).get("outlier_factor", 6)))
@@ -507,6 +513,94 @@ def low_categories(cfg: dict, d: Path, kept: pd.DataFrame, need: pd.DataFrame) -
     log.info("categories below %d products: %d of %d (%d empty) -> 05_low_categories.csv", target, len(out), len(q),
              int((out["products"] == 0).sum()) if len(out) else 0)
     return write_csv(out, d / "05_low_categories.csv")
+
+
+def cross_assign(cfg: dict, d: Path, df: pd.DataFrame) -> pd.DataFrame:
+    """Every product is also checked against the other categories of its group: a page
+    found while searching «موتور آسانسور بهران گیرلس» that is a «بهران 8 نفره» joins that
+    category too. Stricter than the filter (most of the category's words must be in the name)."""
+    if df.empty:
+        return df
+    from .routing_state import english_for, group_of, load_glossary
+    from .rules import judge
+    min_conf = float(cfg.get("dedupe", {}).get("cross_assign_confidence", 0.9))
+    q = read_csv(d / FILES["queue"]).to_dict("records")
+    gl = load_glossary()
+    by_group: dict[str, list[dict]] = {}
+    for r in q:
+        by_group.setdefault(group_of(r["breadcrumb"]), []).append(r)
+    have = set(df["taxonomy_id"] + "|" + df["url"])
+    add = []
+    for r in df.drop_duplicates("url").to_dict("records"):
+        g = group_of(r["breadcrumb"])
+        for c in by_group.get(g, []):
+            if f"{c['taxonomy_id']}|{r['url']}" in have:
+                continue
+            leaf = c["breadcrumb"].split(">")[-1].strip()
+            v = judge(c["breadcrumb"], leaf, r, c.get("english", ""), english_for(g, gl))
+            if v["relevant"] and float(v["confidence"]) >= min_conf:
+                add.append({**r, "taxonomy_id": c["taxonomy_id"], "breadcrumb": c["breadcrumb"], "query": c["query"],
+                            "relevance_confidence": str(v["confidence"]),
+                            "relevance_reason": "از دسته‌ی هم‌خانواده: " + v["reason"]})
+                have.add(f"{c['taxonomy_id']}|{r['url']}")
+    if add:
+        log.info("sibling categories: %d more category matches for products found under a sibling", len(add))
+        df = pd.concat([df, pd.DataFrame(add)], ignore_index=True).fillna("")
+    return df
+
+
+def step_topup(cfg: dict, run: str) -> Path | None:
+    """Second pass for categories still (nearly) empty after the filter: one Google search
+    with the category's exact name (what a person would type), its shop pages crawled and
+    filtered. Costs one Serper search per such category, capped by search.topup_max."""
+    from .config import secret
+    from .probe import classify_results, record_usage
+    from .search import SEARCHERS, _hit, detect_type
+    sc = cfg.get("search", {})
+    below, cap = int(sc.get("topup_below", 5)), int(sc.get("topup_max", 80))
+    d = run_dir(cfg, run)
+    key = secret("SERPER_API_KEY")
+    if not below or not key or not (d / FILES["filtered"]).exists():
+        log.info("top-up skipped (%s)", "no SERPER_API_KEY" if not key else "off or nothing filtered yet")
+        return None
+    q = read_csv(d / FILES["queue"]).to_dict("records")
+    fl = read_csv(d / FILES["filtered"])
+    cnt = fl.groupby("taxonomy_id")["url"].nunique().to_dict() if len(fl) else {}
+    mark = d / "02_topup_done.csv"
+    done = done_values(mark, "taxonomy_id")
+    low = [r for r in q if cnt.get(r["taxonomy_id"], 0) < below and r["route"] in ("iran", "both")
+           and r["taxonomy_id"] not in done][:cap]
+    log.info("top-up: %d categories under %d products get an exact web search", len(low), below)
+    f = _fetchers(cfg)["iran"]
+    n_hits = 0
+    with Appender(d / FILES["hits"], HITS_COLS) as w, Appender(mark, ["taxonomy_id", "query", "found"]) as m:
+        for i, r in enumerate(low, 1):
+            if _progress("topup", i - 1, len(low)):
+                break
+            res = f.post_json("https://google.serper.dev/search", {"q": f"{r['query']} قیمت", "gl": "ir", "hl": "fa", "num": 10},
+                              {"X-API-KEY": key, "Content-Type": "application/json"})
+            record_usage(cfg)
+            shops = classify_results((res or {}).get("json", {}).get("organic", []))["domains"] if res else []
+            hits = []
+            for sh in shops:
+                src = {"domain": sh["domain"], "kind": "iran"}
+                hits.append(_hit(r, src, sh["url"], sh.get("title", ""), "web_exact"))
+                t = detect_type(f, cfg, sh["domain"])
+                if t in SEARCHERS:
+                    try:
+                        hits += SEARCHERS[t](f, {**src, "type": t}, r, 8)
+                    except Exception as e:
+                        log.warning("top-up shop search failed on %s: %s", sh["domain"], e)
+            seen = set()
+            for h in hits:
+                if h["url"] not in seen:
+                    seen.add(h["url"])
+                    w.write(h)
+            n_hits += len(seen)
+            m.write({"taxonomy_id": r["taxonomy_id"], "query": r["query"], "found": len(seen)})
+    log.info("top-up: %d new links; crawling and filtering them", n_hits)
+    step_crawl(cfg, run)
+    return step_filter(cfg, run)
 
 
 def one_category_per_product(df: pd.DataFrame) -> pd.DataFrame:
