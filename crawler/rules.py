@@ -26,6 +26,11 @@ NEGATIVE = [norm_text(w) for w in (
 )]
 
 
+ORIGIN_WORDS = {norm_text(w) for w in ("آلمان", "آلمانی", "اصل", "اصلی", "اورجینال", "ایتالیا", "ایتالیایی", "ژاپن", "ژاپنی",
+                                        "چین", "چینی", "ترکیه", "ترک", "کره", "کره‌ای", "تایوان", "تایوانی", "اروپایی",
+                                        "آمریکایی", "امریکایی", "فرانسه", "سوئیس", "انگلیس")}
+
+
 def _words(s: str) -> list[str]:
     return [w for w in norm_text(s).split() if len(w) > 1 and w not in STOP]
 
@@ -147,7 +152,15 @@ def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en
     if heads and not (heads & name_words):
         return {"relevant": False, "confidence": 0.7,
                 "reason": "هیچ‌کدام از کلمه‌های اصلی دسته در نام نیست: " + "، ".join(sorted(heads))}
-    lw = [w for w in _words(leaf) if len(w) > 1]
+    # origin words ('آلمان', 'اصل', 'چینی') are rarely in a product name: they are checked
+    # as a condition, not counted as words the name must contain
+    lw_all = [w for w in _words(leaf) if len(w) > 1]
+    origin = [w for w in lw_all if w in ORIGIN_WORDS]
+    if any(w in ("چینی", "چین") for w in origin) and not re.search(r"چین|طرح|کپی|china", name, re.I):
+        return {"relevant": False, "confidence": 0.7, "reason": "دسته‌ی نمونه‌ی چینی است ولی محصول چینی/طرح نیست"}
+    if any(w not in ("چینی", "چین") for w in origin) and re.search(r"ساخت چین|چینی|طرح|کپی|china", name, re.I):
+        return {"relevant": False, "confidence": 0.7, "reason": "دسته‌ی اصل/" + "، ".join(origin) + " است ولی محصول چینی/طرح است"}
+    lw = [w for w in lw_all if w not in ORIGIN_WORDS]
     share = sum(w in name_words for w in lw) / len(lw) if lw else 1.0
     return {"relevant": True, "confidence": round(0.5 + 0.5 * share, 2),
             "reason": f"{round(share * 100)}٪ کلمه‌های دسته در نام هست"}

@@ -12,11 +12,11 @@ import pandas as pd
 from . import fx as fxmod
 from .config import ROOT, run_dir
 from .dedupe import load_site_catalog, merge_crawl, split_against_site
-from .extract import extract_page, from_store_api, is_listing_url, listing_links, resolve_price_unit
+from .extract import LISTING_TITLE, extract_page, from_store_api, is_listing_url, listing_links, resolve_price_unit
 from .fetch import Fetcher, canon_url, domain_of
 from .io import (CRAWLED_COLS, FILES, FILTER_COLS, HITS_COLS, Appender, done_values,
                  read_csv, write_csv)
-from .normalize import extract_phones
+from .normalize import extract_phones, norm_text
 from .search import search_row
 from .taxonomy import build_queue, load_taxonomy
 
@@ -262,6 +262,9 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
                     return "list", links
         if rec is None and llm:
             rec = _llm_record(llm, html)
+        if rec and rec.get("name") and (LISTING_TITLE.search(rec["name"]) or
+                                        norm_text(rec["name"]) == norm_text(rec.get("seller_name") or "")):
+            return "fail", "list or brand page, not a product"     # 'محصولات برند اشتیل', a page titled with the shop's name
         return ("rec", slim(rec)) if rec and rec.get("name") else ("fail", "no product data")
 
     def ukey(h: dict) -> str:

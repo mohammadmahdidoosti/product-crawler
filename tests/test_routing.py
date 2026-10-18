@@ -313,3 +313,18 @@ class SiblingsAndTopup(unittest.TestCase):
         from crawler.rules import judge
         c = "آسانسور > فلوتر آسانسوری > فلوتر آسانسوری یک اینچ"
         self.assertFalse(judge(c, "فلوتر آسانسوری یک اینچ", {"name": "فلوتر آسانسوری ۳/۴ پلاستیکی"})["relevant"])
+
+
+class StihlCase(unittest.TestCase):
+    def test_origin_words_and_latin_brand(self):
+        from crawler.rules import judge
+        c = "ابزار > اره شارژی و برقی > اره شارژی اشتیل > اره شارژی اشتیل آلمان"
+        self.assertTrue(judge(c, "اره شارژی اشتیل آلمان", {"name": "اره شارژی 30 سانت اشتیل مدل MSA160C"})["relevant"])
+        self.assertTrue(judge(c, "اره شارژی اشتیل آلمان", {"name": "اره شارژی STIHL MSA 60"})["relevant"])
+        self.assertFalse(judge(c, "اره شارژی اشتیل آلمان", {"name": "اره شارژی اشتیل GTA-26 ساخت چین"})["relevant"])
+
+    def test_brand_pages_are_lists(self):
+        from crawler.extract import LISTING_TITLE, is_listing_url
+        self.assertTrue(is_listing_url("https://ganjkala.com/product_brand/%D8%A7-stihl/"))
+        self.assertTrue(is_listing_url("https://abzarhossein.com/product-tag/x/"))
+        self.assertTrue(LISTING_TITLE.search("قیمت و خرید محصولات برند یا شرکت اشیتل STIHL"))

@@ -440,7 +440,9 @@ def resolve_price_unit(rec: dict, default_unit: str = "toman") -> tuple[str, lis
 
 # ------------------------------------------------------------------ listing pages
 
-LISTING_PATH = re.compile(r"/(product-category|product_cat|pcat|category|categories|shop|tag|brand)/", re.I)
+LISTING_PATH = re.compile(r"/(product-category|product_cat|product_brand|product-brand|product-tag|product_tag|pcat|"
+                          r"category|categories|shop|tag|tags|brand|brands|pwb-brand)/", re.I)
+LISTING_TITLE = re.compile(r"^(قیمت و )?خرید (و قیمت )?(انواع|محصولات)|محصولات برند|^برند\s|^دسته‌?بندی", re.I)
 PRODUCT_LINK = re.compile(r"/(product|products|p|item|kala|محصول)/[^/?#]+", re.I)
 
 

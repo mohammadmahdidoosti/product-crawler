@@ -54,6 +54,7 @@ LATIN = {  # Latin names of brands, to recognise them in product names (Persian 
     "پارکر": "parker", "امرون": "omron", "هیلتی": "hilti", "روزمونت": "rosemount", "تله مکانیک": "telemecanique",
     "چینت": "chint", "روتورک": "rotork", "ایمرگاس": "immergas", "لگراند": "legrand", "زیگلر": "ziegler",
     "ریوبی": "ryobi", "بلمو": "belimo", "بلیمو": "belimo", "فلوسرو": "flowserve", "auma": "auma", "آوما": "auma",
+    "اشتیل": "stihl", "اشیتل": "stihl", "هوسکوارنا": "husqvarna", "ماکیتا ": "makita",
     "زیلابگ": "ziehl-abegg", "مونتاناری": "montanari", "ویتور": "wittur", "الکو": "elco",
     "abb": "abb", "smc": "smc", "aeg": "aeg", "obo": "obo", "eti": "eti", "dca": "dca", "فلوسرو ": "flowserve",
 }
