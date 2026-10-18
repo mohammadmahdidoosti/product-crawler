@@ -11,6 +11,8 @@ Weaker than a model, but free, instant, and the output is reviewed anyway.
 """
 from __future__ import annotations
 
+import re
+
 from .normalize import norm_text
 
 STOP = {norm_text(w) for w in (
@@ -23,6 +25,7 @@ NEGATIVE = [norm_text(w) for w in (
     "آموزش", "کتاب", "دوره", "فیلم", "نصب", "خدمات", "اجاره", "کاور", "قاب", "برچسب", "کاتالوگ",
     "پکیج آموزشی", "نرم افزار", "شارژ", "اشتراک", "کارت هدیه",
     "چرخدنده", "چرخ دنده", "مهره انتقال", "واشر", "بلبرینگ", "اورینگ", "کاسه نمد", "لنگ دارد", "معیوب", "ایراد دار",
+    "زنجیر", "فلکه", "پولی", "تسمه", "سوهان", "شمشیر", "پارچه",
 )]
 
 
@@ -31,15 +34,30 @@ ORIGIN_WORDS = {norm_text(w) for w in ("آلمان", "آلمانی", "اصل", "
                                         "آمریکایی", "امریکایی", "فرانسه", "سوئیس", "انگلیس")}
 
 
+COUNTRIES = [{norm_text(w) for w in g} for g in (
+    ("آلمان", "آلمانی"), ("ایتالیا", "ایتالیایی"), ("ژاپن", "ژاپنی"), ("ترکیه", "ترک"), ("کره", "کره‌ای"),
+    ("تایوان", "تایوانی"), ("اسپانیا", "اسپانیایی"), ("فرانسه", "فرانسوی"), ("سوئیس", "سوئیسی"),
+    ("انگلیس", "انگلیسی"), ("آمریکا", "آمریکایی", "امریکایی"), ("سوئد", "سوئدی"), ("اتریش", "اتریشی"))]
+
+
 def _words(s: str) -> list[str]:
     return [w for w in norm_text(s).split() if len(w) > 1 and w not in STOP]
+
+
+ADJ = {norm_text(w) for w in ("برقی", "شارژی", "دستی", "الکتریکی", "بادی", "پنوماتیک", "پنوماتیکی", "هیدرولیک",
+                               "هیدرولیکی", "دیجیتال", "اتوماتیک", "خانگی", "صنعتی", "موتوری", "بنزینی", "گازی")}
 
 
 def head_words(breadcrumb: str, leaf: str) -> set[str]:
     parts = [p.strip() for p in breadcrumb.split(">")]
     heads: set[str] = set()
     if len(parts) >= 2:
-        heads |= {w for w in _words(parts[1]) if len(w) > 2}
+        # the noun of each part of the level-2 title: 'درایو و اینورتر موتور' -> درایو, اینورتر;
+        # 'اره شارژی و برقی' -> اره only ('برقی' alone also matches a vacuum cleaner)
+        for seg in re.split(r"\s+و\s+|،|,", norm_text(parts[1])):
+            sw = [w for w in _words(seg) if len(w) > 2 and w not in ADJ]
+            if sw:
+                heads.add(sw[0])
     lw = _words(leaf)
     if lw:
         heads.add(lw[0])
@@ -49,9 +67,10 @@ def head_words(breadcrumb: str, leaf: str) -> set[str]:
 EN_ADJ = {"electric", "electrical", "electronic", "industrial", "automatic", "digital", "manual", "small", "mini",
           "large", "high", "low", "single", "three", "two", "phase", "way", "type", "heavy", "duty", "portable",
           "smart", "stainless", "steel", "plastic", "brass", "for", "and", "with", "the", "of", "machine", "system",
-          "equipment", "device", "unit", "set", "china", "price"}
+          "equipment", "device", "unit", "set", "china", "price", "italy", "italian", "germany", "german",
+          "japan", "japanese", "iran", "iranian", "turkey", "korea", "taiwan", "original"}
 EN_NEGATIVE = ["spare part", "spare parts", "repair", "used", "second hand", "refurbished", "toy", "course",
-               "auto parts", "car parts", "vw", "volkswagen", "toyota", "honda", "bmw", "audi", "hyundai", "kia",
+               "auto parts", "car parts", "puzzle", "vending", "game", "mat", "flooring", "scrubber", "vw", "volkswagen", "toyota", "honda", "bmw", "audi", "hyundai", "kia",
                "nissan", "mercedes", "peugeot", "fabia", "skoda", "certificate"]
 
 
@@ -80,6 +99,10 @@ def judge_en(english: str, group_en: str, product: dict) -> dict:
     if core and len(set(core) & name_words) < need:
         return {"relevant": False, "confidence": 0.7,
                 "reason": f"کمتر از {need} واژه‌ی اصلی دسته در نام هست: " + "، ".join(core)}
+    core_hit = len(set(core) & name_words) / len(set(core)) if core else 1.0
+    if len(set(core)) >= 4 and core_hit < 0.5:   # 'cable for roller shutter door' is not a 'shutter door control box'
+        return {"relevant": False, "confidence": 0.65,
+                "reason": f"فقط {round(core_hit * 100)}٪ واژه‌های اصلی دسته در نام هست: " + "، ".join(core)}
     want = [w for w in _en_words(english) if w not in {_stem(x) for x in EN_ADJ if x in ("for", "and", "with")}]
     share = sum(w in name_words for w in want) / len(want) if want else 1.0
     return {"relevant": True, "confidence": round(0.5 + 0.5 * share, 2),
@@ -87,9 +110,14 @@ def judge_en(english: str, group_en: str, product: dict) -> dict:
 
 
 def _flat(s: str) -> str:
-    import re
+    """Latin/digit runs of the name, each glued ('GTA 26' -> 'gta26', 'CCS-2141' -> 'ccs2141'),
+    separated by '|' wherever a Persian word stands between them, so '16 نفره سرعت 1.6' is '16|16', not '1616'."""
     from .normalize import fa_digits_to_en
-    return re.sub(r"[^0-9a-z]", "", fa_digits_to_en(str(s or "")).lower())
+    t = fa_digits_to_en(str(s or "")).lower()
+    t = re.sub(r"[\u0600-\u06FF\u200c]+", " | ", t)                       # a Persian word separates runs
+    t = re.sub(r"[^0-9a-z|\s]+", "", t)                                      # '1.6' -> '16', 'ccs-2141' -> 'ccs2141'
+    t = re.sub(r"(?<=[0-9a-z])\s+(?=[0-9a-z])", "", t)                       # 'gta 26' -> 'gta26'
+    return "|" + "|".join(t.replace(" ", "").split("|")) + "|"
 
 
 def model_tokens(breadcrumb: str, leaf: str) -> list[str]:
@@ -119,6 +147,13 @@ def model_tokens(breadcrumb: str, leaf: str) -> list[str]:
     return list(dict.fromkeys(out))
 
 
+def leaf_brand_word(w: str, leaf: str) -> bool:
+    """The brand word of a brand category is checked by its own rule (in any spelling), not counted here."""
+    from .routing import leaf_brand
+    b = leaf_brand(leaf)
+    return bool(b) and norm_text(b[0]) == w
+
+
 def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en: str = "") -> dict:
     import re
     from .routing import brand_in, foreign_brand_in, leaf_brand
@@ -146,6 +181,10 @@ def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en
             bad = next((o for o in other if norm_text(o) in nm.split() and norm_text(o) not in lf.split()), None)
             if bad:
                 return {"relevant": False, "confidence": 0.8, "reason": f"دسته «{k}» است ولی محصول «{bad}» است"}
+    if product.get("source_type") == "foreign" and re.search(
+            r"آلمان|ایتالیا|ژاپن|ایران|ترکیه|کره|تایوان|اسپانیا|فرانسه|سوئیس|انگلیس|آمریکا|امریکا|اصل|اورجینال", leaf):
+        return {"relevant": False, "confidence": 0.8,
+                "reason": "دسته‌ی ساخت کشور دیگر/اصل است؛ کالای مسیر چینی جای آن نیست"}
     if english and not re.search(r"[\u0600-\u06FF]", product.get("name") or ""):
         return judge_en(english, group_en, product)
     name = norm_text(f"{product.get('name', '')} {product.get('short_description', '')[:120]}")
@@ -153,9 +192,13 @@ def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en
     cat = norm_text(breadcrumb)
     heads = head_words(breadcrumb, leaf)
     only_name = norm_text(product.get("name", ""))           # negative words count in the name only, not the description
-    neg = next((n for n in NEGATIVE if f" {n} " in f" {only_name} " and n not in cat), None)
+    neg = next((n for n in NEGATIVE if f" {n} " in f" {only_name} " and f" {n} " not in f" {cat} "), None)
     if neg:
         return {"relevant": False, "confidence": 0.8, "reason": f"کلمه‌ی «{neg}» در نام هست (قطعه/خدمت/غیرمرتبط)"}
+    lw0 = _words(leaf)
+    if heads and not (heads & name_words) and len(lw0) > 1 and len(lw0[1]) > 2 and lw0[1] not in ADJ \
+            and lw0[1] not in ORIGIN_WORDS and lw0[1] in name_words:
+        heads = heads | {lw0[1]}                 # 'عمود بر توسن' is an 'اره عمود بر' without the word اره
     if heads and not (heads & name_words):
         return {"relevant": False, "confidence": 0.7,
                 "reason": "هیچ‌کدام از کلمه‌های اصلی دسته در نام نیست: " + "، ".join(sorted(heads))}
@@ -167,7 +210,20 @@ def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en
         return {"relevant": False, "confidence": 0.7, "reason": "دسته‌ی نمونه‌ی چینی است ولی محصول چینی/طرح نیست"}
     if any(w not in ("چینی", "چین") for w in origin) and re.search(r"ساخت چین|چینی|طرح|کپی|china", name, re.I):
         return {"relevant": False, "confidence": 0.7, "reason": "دسته‌ی اصل/" + "، ".join(origin) + " است ولی محصول چینی/طرح است"}
-    lw = [w for w in lw_all if w not in ORIGIN_WORDS]
-    share = sum(w in name_words for w in lw) / len(lw) if lw else 1.0
+    leaf_c = [g for g in COUNTRIES if g & set(norm_text(leaf).split())]
+    if leaf_c:
+        own = set(only_name.split())                   # the name only: descriptions mention other countries
+        other = next((w for g in COUNTRIES if g not in leaf_c for w in g if w in own), None)
+        if other:
+            return {"relevant": False, "confidence": 0.7, "reason": f"کشور دسته فرق دارد: محصول «{other}» است"}
+    lw = [w for w in lw_all if w not in ORIGIN_WORDS and not leaf_brand_word(w, leaf)]
+    flat = name.replace(" ", "")
+    hit = [w for w in lw if w in name_words or w in flat]                     # 'عمود بر' = 'عمودبر', 'تک فاز' = 'تکفاز'
+    if lw and lw[0] in heads and lw[0] not in hit and heads & name_words:
+        hit.append(lw[0])                         # the category's other name for the same thing (درایو = اینورتر)
+    share = len(hit) / len(lw) if lw else 1.0
+    if len(lw) >= 3 and share < 0.5 and not leaf_brand(leaf):   # a brand category already matched its brand
+        return {"relevant": False, "confidence": 0.6,
+                "reason": f"فقط {round(share * 100)}٪ کلمه‌های دسته در نام هست (نوع دیگری است)"}
     return {"relevant": True, "confidence": round(0.5 + 0.5 * share, 2),
             "reason": f"{round(share * 100)}٪ کلمه‌های دسته در نام هست"}

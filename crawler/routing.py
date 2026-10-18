@@ -55,7 +55,7 @@ LATIN = {  # Latin names of brands, to recognise them in product names (Persian 
     "چینت": "chint", "روتورک": "rotork", "ایمرگاس": "immergas", "لگراند": "legrand", "زیگلر": "ziegler",
     "ریوبی": "ryobi", "بلمو": "belimo", "بلیمو": "belimo", "فلوسرو": "flowserve", "auma": "auma", "آوما": "auma",
     "اشتیل": "stihl", "اشیتل": "stihl", "ماتو درایو": "mato drive", "متودرایو": "mato drive", "ماتودرایو": "mato drive",
-    "اس کی": "sk", "بوش ": "bosch", "رونیکس": "ronix", "توسن": "tosan", "ویوارکس": "vivarex", "پاپ": "pap", "هوسکوارنا": "husqvarna", "ماکیتا ": "makita",
+    "اس کی": "sk", "بوش ": "bosch", "رونیکس": "ronix", "توسن": "tosan", "ویوارکس": "vivarex", "پاپ": "pap", "پی ای پی": "pap", "پی‌ای‌پی": "pap", "پی.ای.پی": "pap", "هوسکوارنا": "husqvarna", "ماکیتا ": "makita",
     "زیلابگ": "ziehl-abegg", "مونتاناری": "montanari", "ویتور": "wittur", "الکو": "elco",
     "abb": "abb", "smc": "smc", "aeg": "aeg", "obo": "obo", "eti": "eti", "dca": "dca", "فلوسرو ": "flowserve",
 }
@@ -75,12 +75,14 @@ def brand_in(name: str, brand: str) -> bool:
     """Is this brand (any of its spellings, with or without spaces) in the product name?"""
     t = f" {norm_text(name)} "
     flat = re.sub(r"[\s\-_.]+", "", norm_text(name))
+    # 'P.A.P' = 'pap', 's.k' = 'sk' (initials written with dots)
+    low = re.sub(r"\b(?:[a-z]\.){1,4}[a-z]\b\.?", lambda m: m.group().replace(".", ""), name.lower())
     for a in brand_aliases(brand):
         k = norm_text(a)
         if not k:
             continue
         if a.isascii():
-            if re.search(rf"(?<![a-z0-9]){re.escape(a.lower())}(?![a-z0-9])", name.lower()):
+            if re.search(rf"(?<![a-z0-9]){re.escape(a.lower())}(?![a-z0-9])", low):
                 return True
         elif f" {k} " in t:
             return True

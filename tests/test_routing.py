@@ -349,3 +349,32 @@ class TopupHelpers(unittest.TestCase):
         self.assertTrue(brand_in("موتور آسانسور الکو 6.1", "elco"))
         self.assertTrue(brand_in("موتور گیرلس ماتودرایو", "ماتو درایو"))
         self.assertFalse(brand_in("موتور آسانسور بهران", "elco"))
+
+
+class DottedBrands(unittest.TestCase):
+    def test_initials_and_persian_spelling(self):
+        from crawler.routing import brand_in
+        self.assertTrue(brand_in("اره زنجیری شارژی پی ای پی مدل CCS-2141", "pap"))
+        self.assertTrue(brand_in("اره شارژی 20 سانتی P.A.P", "pap"))
+        self.assertTrue(brand_in("فلوتر آسانسوری ۱ اینچ مارک s.k", "sk"))
+        self.assertFalse(brand_in("فلوتر آسانسوری s.kh", "sk"))
+
+
+class TighterRules(unittest.TestCase):
+    def test_cases_from_batch_1(self):
+        from crawler.rules import judge
+        saw = "ابزار برقی و شارژی > اره شارژی و برقی > اره شارژی رونیکس > اره شارژی رونیکس 30 سانتی"
+        self.assertFalse(judge(saw, "اره شارژی رونیکس 30 سانتی",
+                               {"name": "جارو برقی صنعتی رونیکس 1400 وات 30 لیتری مدل 1230"})["relevant"])
+        tree = "ابزار برقی و شارژی > اره شارژی و برقی > اره برقی درخت بریدن"
+        self.assertFalse(judge(tree, "اره برقی درخت بریدن", {"name": "زنجیر اره درخت بر اکتیو مدل AC-3318"})["relevant"])
+        self.assertFalse(judge(tree, "اره برقی درخت بریدن", {"name": "اره فارسی بر ماکیتا 255 میلیمتر مدل LS1016"})["relevant"])
+        jig = "ابزار برقی و شارژی > اره عمود بر > اره عمود بر توسن > اره عمود بر توسن 5093"
+        self.assertTrue(judge(jig, "اره عمود بر توسن 5093", {"name": "عمود بر توسن 550 وات مدل 5093AF"})["relevant"])
+        it = "آسانسور > موتور و گیربکس آسانسور > موتور آسانسور گیرلس ایتالیایی"
+        self.assertFalse(judge(it, "موتور آسانسور گیرلس ایتالیایی", {"name": "موتور گیرلس فوردر اسپانیا 6نفره"})["relevant"])
+        self.assertFalse(judge(it, "موتور آسانسور گیرلس ایتالیایی",
+                               {"name": "Gearless Elevator Traction Machine", "source_type": "foreign"},
+                               "gearless elevator traction machine", "gearless elevator traction machine")["relevant"])
+        bah = "آسانسور > موتور آسانسور بهران > موتور آسانسور بهران 6.1"
+        self.assertFalse(judge(bah, "موتور آسانسور بهران 6.1", {"name": "موتور گیرلس بهران 16 نفره سرعت 1.6 متر"})["relevant"])
