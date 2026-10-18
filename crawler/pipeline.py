@@ -464,6 +464,10 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     src = d / (FILES["crawled"] if skip_filter else FILES["filtered"])
     df = read_csv(src)
     dd = cfg.get("dedupe", {})
+    crawled = read_csv(d / FILES["crawled"])
+    from .pricing import fix_units
+    crawled = fix_units(crawled)                         # rial read as toman (or the reverse), from other shops
+    df = fix_units(df, crawled)
     df = cross_assign(cfg, d, df)
     df = one_category_per_product(df)
     merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)))
@@ -473,9 +477,8 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     need = merged.iloc[0:0]
     if cfg.get("price", {}).get("estimate_missing", True) and len(merged):
         from .pricing import estimate
-        crawled = read_csv(d / FILES["crawled"])
         merged, need = estimate(cfg, merged, crawled, _fetchers(cfg)["iran"])
-    write_csv(need, d / "05_needs_price.csv")
+    (d / "05_needs_price.csv").unlink(missing_ok=True)   # no separate list: counted in 05_low_categories.csv
     from .ranking import select_top
     sel = cfg.get("select", {})
     n_all = len(merged)

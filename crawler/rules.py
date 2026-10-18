@@ -25,7 +25,7 @@ NEGATIVE = [norm_text(w) for w in (
     "آموزش", "کتاب", "دوره", "فیلم", "نصب", "خدمات", "اجاره", "کاور", "قاب", "برچسب", "کاتالوگ",
     "پکیج آموزشی", "نرم افزار", "شارژ", "اشتراک", "کارت هدیه",
     "چرخدنده", "چرخ دنده", "مهره انتقال", "واشر", "بلبرینگ", "اورینگ", "کاسه نمد", "لنگ دارد", "معیوب", "ایراد دار",
-    "زنجیر", "فلکه", "پولی", "تسمه", "سوهان", "شمشیر", "پارچه",
+    "زنجیر", "فلکه", "پولی", "تسمه", "سوهان", "شمشیر", "پارچه", "روغن", "گریس",
 )]
 
 
@@ -70,7 +70,8 @@ EN_ADJ = {"electric", "electrical", "electronic", "industrial", "automatic", "di
           "equipment", "device", "unit", "set", "china", "price", "italy", "italian", "germany", "german",
           "japan", "japanese", "iran", "iranian", "turkey", "korea", "taiwan", "original"}
 EN_NEGATIVE = ["spare part", "spare parts", "repair", "used", "second hand", "refurbished", "toy", "course",
-               "auto parts", "car parts", "puzzle", "vending", "game", "mat", "flooring", "scrubber", "vw", "volkswagen", "toyota", "honda", "bmw", "audi", "hyundai", "kia",
+               "auto parts", "car parts", "puzzle", "vending", "game", "mat", "flooring", "scrubber",
+               "blade", "blades", "bearing", "bearings", "contactor", "gear", "surgery", "surgical", "orthopedic", "medical", "accessories", "accessory", "vw", "volkswagen", "toyota", "honda", "bmw", "audi", "hyundai", "kia",
                "nissan", "mercedes", "peugeot", "fabia", "skoda", "certificate"]
 
 
@@ -91,7 +92,9 @@ def judge_en(english: str, group_en: str, product: dict) -> dict:
     """Foreign (English) product names against the category's English term."""
     name = f" {(product.get('name') or '').lower()} "
     name_words = set(_en_words(name))
-    neg = next((n for n in EN_NEGATIVE if f" {n} " in name.replace("/", " ").replace(",", " ")), None)
+    own = f" {(english or '').lower()} {(group_en or '').lower()} "
+    neg = next((n for n in EN_NEGATIVE if f" {n} " in name.replace("/", " ").replace(",", " ") and f" {n} " not in own),
+               None)                                    # 'blade' is a part, except in a saw-blade category
     if neg:
         return {"relevant": False, "confidence": 0.8, "reason": f"«{neg}» در نام هست (قطعه/غیرمرتبط)"}
     core = [w for w in _en_words(group_en or english) if w not in EN_ADJ] or _en_words(group_en or english)

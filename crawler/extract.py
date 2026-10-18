@@ -291,14 +291,16 @@ def _extract_from(soup: BeautifulSoup, html: str) -> dict | None:
         rec["price_unit_detected"] = woo["price_unit_detected"]
     if rec is None:
         return None
-    if woo and woo["price_amount"] and woo["price_unit_detected"] and rec["price_amount"] \
-            and rec is not woo and abs(rec["price_amount"] - woo["price_amount"]) > 1:
-        a, b = float(rec["price_amount"]), float(woo["price_amount"])
-        if min(abs(a - 10 * b), abs(a * 10 - b)) < 0.02 * max(a, b):
-            # JSON-LD in rial, page in toman (or the reverse): the price the buyer sees wins
-            rec["price_amount"], rec["price_unit_detected"] = woo["price_amount"], woo["price_unit_detected"]
-            rec["price_code"] = ""
-    if woo and woo["price_unit_detected"] and not rec["price_unit_detected"]:
+    if woo and woo["price_amount"] and woo["price_unit_detected"] and rec["price_amount"] and rec is not woo:
+        q = float(rec["price_amount"]) / float(woo["price_amount"])
+        if 0.8 <= q <= 1.25:                       # the same price: the visible unit holds for it
+            rec["price_unit_detected"] = rec["price_unit_detected"] or woo["price_unit_detected"]
+        elif 6 <= q <= 16 and woo["price_unit_detected"] == "toman":
+            rec["price_unit_detected"] = "rial"    # JSON-LD in rial, page in toman ('330,000,000 IRR' = '33,000,000 تومان')
+        elif 1 / 16 <= q <= 1 / 6 and woo["price_unit_detected"] == "rial":
+            rec["price_unit_detected"] = "toman"
+        # otherwise the two are different prices (a related product, a variant): the visible unit says nothing
+    elif woo and woo["price_unit_detected"] and not rec["price_unit_detected"] and rec is woo:
         rec["price_unit_detected"] = woo["price_unit_detected"]
     rec["specs"] = {**woo_attributes(soup), **rec["specs"]}
     for tag in soup(["script", "style", "noscript"]):
