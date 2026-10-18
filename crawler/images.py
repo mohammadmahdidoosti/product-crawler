@@ -502,6 +502,15 @@ def step_images(cfg: dict, run: str) -> Path | None:
                         break
         # 4. a photo with a shop banner / web address over it gives way to a clean one of the same product
         clean = [m for m in made if "text_overlay" not in m[1]]
+        if made and not clean and search_left > 0:          # every photo is an advert: look for a clean one
+            search_left -= 1
+            for u in search_images(cfg, fx["iran"], r):
+                data = download(fx["iran"], u, min_side=350)
+                got_clean = [m for m in build([data], None) if "text_overlay" not in m[1]] if data else []
+                if got_clean:
+                    clean = got_clean
+                    notes.add("found_by_search")
+                    break
         if clean and len(clean) < len(made):
             notes.add("text_photo_replaced")
             made = clean
