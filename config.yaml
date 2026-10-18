@@ -36,7 +36,8 @@ search:
   synonyms_max: 2                  # extra shop searches with the taxonomy's synonyms
   topup_below: 5                   # after the filter: categories under N products get an exact web search
   topup_max: 80                    # at most this many such categories per run
-  torob_directory: true            # Torob only to find which shops sell a model (its content is not used)
+  torob_directory: false           # Torob as a shop directory: off — from the server its API does not answer,
+                                   # product pages return 490 and /search/ is disallowed by robots.txt
   foreign_candidates: 40           # Made-in-China candidates per category (best ones kept later)
   per_supplier: 2                  # at most this many products from one Chinese supplier
   listing_max: 12                  # products opened from one shop category page
