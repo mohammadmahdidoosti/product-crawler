@@ -25,9 +25,13 @@ NEGATIVE = [norm_text(w) for w in (
     "آموزش", "کتاب", "دوره", "فیلم", "نصب", "خدمات", "اجاره", "کاور", "قاب", "برچسب", "کاتالوگ",
     "پکیج آموزشی", "نرم افزار", "شارژ", "اشتراک", "کارت هدیه",
     "چرخدنده", "چرخ دنده", "مهره انتقال", "واشر", "بلبرینگ", "اورینگ", "کاسه نمد", "لنگ دارد", "معیوب", "ایراد دار",
-    "زنجیر", "فلکه", "پولی", "تسمه", "سوهان", "شمشیر", "پارچه", "روغن", "گریس",
+    "زنجیر", "فلکه", "پولی", "تسمه", "سوهان", "شمشیر", "پارچه",
 )]
 
+
+# part words that make a part only when the name starts with them ('انکودر موتور ABB' is an encoder,
+# 'موتور بهران + انکودر' a motor with one)
+LEAD_PARTS = [norm_text(w) for w in ("انکودر", "ریموت", "تیغ", "تیغه", "پایه", "باتری", "برد", "کیت تعمیر", "روغن", "گریس")]
 
 ORIGIN_WORDS = {norm_text(w) for w in ("آلمان", "آلمانی", "اصل", "اصلی", "اورجینال", "ایتالیا", "ایتالیایی", "ژاپن", "ژاپنی",
                                         "چین", "چینی", "ترکیه", "ترک", "کره", "کره‌ای", "تایوان", "تایوانی", "اروپایی",
@@ -198,10 +202,19 @@ def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en
     neg = next((n for n in NEGATIVE if f" {n} " in f" {only_name} " and f" {n} " not in f" {cat} "), None)
     if neg:
         return {"relevant": False, "confidence": 0.8, "reason": f"کلمه‌ی «{neg}» در نام هست (قطعه/خدمت/غیرمرتبط)"}
+    lead = next((n for n in LEAD_PARTS if f" {only_name} ".startswith(f" {n} ") and f" {n} " not in f" {cat} "
+                 and n != norm_text("برد")), None)
+    if lead:
+        return {"relevant": False, "confidence": 0.8, "reason": f"نام با «{lead}» شروع می‌شود (قطعه است، نه خود دستگاه)"}
     lw0 = _words(leaf)
     if heads and not (heads & name_words) and len(lw0) > 1 and len(lw0[1]) > 2 and lw0[1] not in ADJ \
             and lw0[1] not in ORIGIN_WORDS and lw0[1] in name_words:
         heads = heads | {lw0[1]}                 # 'عمود بر توسن' is an 'اره عمود بر' without the word اره
+    # a leaf that names a new thing under its parent ('چشمی گرد' under 'کرکره برقی') needs that word itself
+    l2w = set(_words(re.sub(r"\s+و\s+|،", " ", breadcrumb.split(">")[1]))) if breadcrumb.count(">") >= 1 else set()
+    if lw0 and len(lw0) <= 3 and lw0[0] not in l2w and len(lw0[0]) > 2 and not (lw0[0] in name_words or lw0[0] in name.replace(" ", "")) \
+            and not (len(lw0) > 1 and lw0[1] in name_words and lw0[1] not in ADJ):
+        return {"relevant": False, "confidence": 0.7, "reason": f"نام اصلی دسته («{lw0[0]}») در نام محصول نیست"}
     if heads and not (heads & name_words):
         return {"relevant": False, "confidence": 0.7,
                 "reason": "هیچ‌کدام از کلمه‌های اصلی دسته در نام نیست: " + "، ".join(sorted(heads))}

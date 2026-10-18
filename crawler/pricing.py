@@ -36,7 +36,7 @@ def _p(x):
 
 
 SPECISH = re.compile(r"^(dn|pn|ac|dc|ip|m)?\d+([.,/-]\d+)*\s*(v|vac|vdc|w|kw|mm|cm|nm|n|bar|ma|hz|inch|a)?$|"
-                     r"\d+\s*v\b|\bdn\s?\d|\d+\s*(nm|mm|ma)\b|series|type", re.I)
+                     r"\d+\s*v\b|\bdn\s?\d|\d+\s*(nm|mm|ma)\b|series|type|vvvf|\dm/?s|kw|\d+(kg|cm|mm)$", re.I)
 
 
 def _model_keys(r: dict) -> list[str]:
@@ -71,14 +71,17 @@ class Estimator:
         self.woo_left = int(pc.get("woo_lookups_per_run", 300))
         from .routing_state import group_of
         self.by_model: dict[str, list[float]] = {}
+        self.urls: dict[str, set] = {}
         for r in crawled.to_dict("records"):          # A1: every real price in this crawl, by model
             v = _p(r.get("price_toman"))
             if v and "price_outlier" not in (r.get("price_flags") or ""):
                 for k in _model_keys(r):
                     self.by_model.setdefault(k, []).append(v)
+                    self.urls.setdefault(k, set()).add(r.get("url"))
                 g = group_of(r.get("breadcrumb") or "")
                 for c in _codes(r.get("name") or ""):          # codes in the name too ('GST 90 BE'), within the group
                     self.by_model.setdefault(f"{g}|{c}", []).append(v)
+                    self.urls.setdefault(f"{g}|{c}", set()).add(r.get("url"))
         self.shops = self._woo_shops()
         self.fails: dict[str, int] = {}                 # a shop whose API keeps failing is skipped for the run
 
@@ -103,6 +106,8 @@ class Estimator:
         g = group_of(r.get("breadcrumb") or "")
         for k in keys + [f"{g}|{c}" for c in _codes(r.get("name") or "")]:     # A1
             vals = self.by_model.get(k)
+            if vals and r.get("url") and self.urls.get(k) == {r.get("url")}:
+                continue                                   # only the product itself: no second opinion
             if vals and max(vals) / min(vals) <= 4:        # shops disagreeing 10x: unit error somewhere, skip
                 return float(pd.Series(vals).median()), f"same model {k.split('|')[-1]} in crawl ({len(vals)})"
         if not keys or not self.f or r.get("source_type") == "foreign":
@@ -238,7 +243,9 @@ class Neighbours:
 def _codes(name: str) -> list[str]:
     """Model codes in a name, glued: 'GST 8000 E' -> 'gst8000e', 'مدل 4165' -> '4165'."""
     from .rules import _flat
-    return [c for c in _flat(name).split("|") if len(c) >= 4 and re.search(r"\d", c) and not re.fullmatch(r"\d{5,}", c)]
+    # a whole English name glued together is not a code: 4-14 characters, letters/digits only
+    return [c for c in _flat(name).split("|") if 4 <= len(c) <= 14 and re.search(r"\d", c)
+            and not re.fullmatch(r"\d{5,}", c) and not SPECISH.search(c)]
 
 
 def fix_units(df: pd.DataFrame, ref: pd.DataFrame | None = None) -> pd.DataFrame:
@@ -311,6 +318,20 @@ def fix_units(df: pd.DataFrame, ref: pd.DataFrame | None = None) -> pd.DataFrame
     return df
 
 
+def _bounded(v: float, p: pd.Series, df: pd.DataFrame, groups: pd.Series, i, combo: pd.Series) -> float | None:
+    """An estimate must look like its category's (or group's) real prices: within half the cheapest and
+    twice the dearest; an estimate far outside is a wrong match, so the product gets none."""
+    same = (df["source_type"] == df.at[i, "source_type"]) & p.notna() & ~combo   # sets ('X with Y') are not like X
+    for m in ((df["taxonomy_id"] == df.at[i, "taxonomy_id"]) & same, (groups == groups[i]) & same):
+        vals = p[m]
+        if len(vals) >= 2:
+            lo, hi = float(vals.quantile(0.1)), float(vals.quantile(0.9))
+            if v < lo / 3 or v > hi * 3:
+                return None
+            return min(max(v, lo / 2), hi * 2)
+    return v
+
+
 def estimate(cfg: dict, df: pd.DataFrame, crawled: pd.DataFrame, fetcher=None) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Returns (with prices, needs_price)."""
     if df.empty:
@@ -340,6 +361,8 @@ def estimate(cfg: dict, df: pd.DataFrame, crawled: pd.DataFrame, fetcher=None) -
             if len(vals) >= 3 and shops >= 2 and vals.max() / vals.min() <= 3:
                 v, how, tier = vals.median(), f"median of {len(vals)} in category ({shops} shops)", "C"
         if v is not None:
+            v = _bounded(v, p, df, groups, i, combo)
+        if v is not None:
             df.at[i, "price_toman"] = str(round(v))
             if pd.notna(usd.get(i)) and usd[i]:
                 df.at[i, "price_usd"] = str(round(v / usd[i], 2))
@@ -358,8 +381,8 @@ def estimate(cfg: dict, df: pd.DataFrame, crawled: pd.DataFrame, fetcher=None) -
             vals = p[m]
             if vals.max() / vals.min() <= 4:
                 v, how, tier = float(vals.median()), f"category median of {len(vals)}", "E"
-        if v is not None and m.sum() >= 2:                  # stay within the category's own real prices
-            v = min(max(v, float(p[m].min()) / 2), float(p[m].max()) * 2)
+        if v is not None:
+            v = _bounded(v, p, df, groups, i, combo)       # stay within the category's / group's real prices
         if v is not None:
             df.at[i, "price_toman"] = str(round(v, -3) if v > 10000 else round(v))
             if pd.notna(usd.get(i)) and usd[i]:
