@@ -72,6 +72,7 @@ class Estimator:
                 for k in _model_keys(r):
                     self.by_model.setdefault(k, []).append(v)
         self.shops = self._woo_shops()
+        self.fails: dict[str, int] = {}                 # a shop whose API keeps failing is skipped for the run
 
     def _woo_shops(self) -> list[dict]:
         from .search import _base
@@ -100,10 +101,13 @@ class Estimator:
         for s in self.shops:                            # A2
             if self.woo_left <= 0:
                 break
+            if self.fails.get(s["domain"], 0) >= 2:
+                continue
             self.woo_left -= 1
             res = self.f.get(f"{s['base']}/wp-json/wc/store/v1/products", params={"search": model, "per_page": 5},
                              as_json=True)
             if not res or res.get("status") != 200 or not isinstance(res.get("json"), list):
+                self.fails[s["domain"]] = self.fails.get(s["domain"], 0) + 1
                 continue
             for it in res["json"]:
                 if keys[0] not in model_key(it.get("name", "")):
