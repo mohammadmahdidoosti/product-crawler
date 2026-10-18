@@ -141,6 +141,7 @@ def drop_loose_marks(im: Image.Image, band: float = 0.3, max_rel: float = 0.15) 
     mx, my, mw, mh = stats[main, :4]
     out = np.asarray(im).copy()
     removed = False
+    drop = np.zeros(n, bool)
     for i in range(1, n):
         if i == main:
             continue
@@ -150,8 +151,10 @@ def drop_loose_marks(im: Image.Image, band: float = 0.3, max_rel: float = 0.15) 
         near_edge = (x + bw < w * band or x > w * (1 - band) or y + bh < h * band or y > h * (1 - band))
         inside_main = x >= mx and y >= my and x + bw <= mx + mw and y + bh <= my + mh
         if near_edge and not inside_main:
-            out[lab == i] = 255
+            drop[i] = True
             removed = True
+    if removed:
+        out[drop[lab]] = 255                                  # one pass over the picture, not one per island
     return (Image.fromarray(out), True) if removed else (im, False)
 
 
@@ -211,6 +214,8 @@ def watermark(im: Image.Image, width_frac: float = 0.09, margin_frac: float = 0.
 def make(im: Image.Image, mark: np.ndarray | None, size: int = 1000) -> tuple[Image.Image, list[str]]:
     notes = []
     im = flatten(im)
+    if max(im.size) > 1600:                                   # the result is 1000px: big originals only cost memory
+        im.thumbnail((1600, 1600), Image.LANCZOS)
     im, removed = remove_mark(im, mark)
     if removed:
         notes.append("shop_mark_removed")
