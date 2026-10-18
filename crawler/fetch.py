@@ -62,6 +62,25 @@ class Fetcher:
         self.domain_delays = {k.lower(): float(v) for k, v in (h.get("domain_delays") or {}).items()}
         self._locks: dict[str, threading.Lock] = defaultdict(threading.Lock)
         self._glock = threading.Lock()
+        # a site that keeps timing out or failing is skipped for the rest of the run, instead of costing
+        # timeout x retries on every one of its pages
+        self.dead_after = int(h.get("dead_after_failures", 4))
+        self._fails: dict[str, int] = defaultdict(int)
+        self._dead: set[str] = set()
+
+    def _failed(self, dom: str) -> None:
+        k = self.site_key(dom)
+        with self._glock:
+            self._fails[k] += 1
+            if self.dead_after and self._fails[k] >= self.dead_after and k not in self._dead:
+                self._dead.add(k)
+                log.warning("site %s skipped for this run (%d failures in a row)", k, self._fails[k])
+
+    def _worked(self, dom: str) -> None:
+        self._fails[self.site_key(dom)] = 0
+
+    def is_dead(self, url: str) -> bool:
+        return self.site_key(domain_of(url)) in self._dead
 
     @staticmethod
     def site_key(dom: str) -> str:
@@ -90,6 +109,14 @@ class Fetcher:
             except requests.RequestException:
                 rp = None
             self._robots[base] = rp
+            if rp is not None:                                  # the site's own Crawl-delay is respected
+                try:
+                    cd = rp.crawl_delay(self.s.headers["User-Agent"])
+                except Exception:                               # noqa: BLE001
+                    cd = None
+                if cd:
+                    k = self.site_key(p.netloc.lower().removeprefix("www."))
+                    self.domain_delays[k] = max(float(cd), self.domain_delays.get(k, self.delay))
         rp = self._robots[base]
         return True if rp is None else rp.can_fetch(self.s.headers["User-Agent"], url)
 
@@ -129,22 +156,31 @@ class Fetcher:
         key = url + ("?" + json.dumps(params, sort_keys=True, ensure_ascii=False) if params else "")
         if use_cache and (hit := self._cached(key)):
             return hit
+        if self.is_dead(url):
+            return None
         if not self.allowed(url):
             log.info("robots.txt disallows %s", url)
             return None
         dom = domain_of(url)
         for attempt in range(self.retries + 1):
+            if self.is_dead(url):
+                return None
             self._wait(dom)
             try:
                 r = self.s.get(url, params=params, timeout=self.timeout)
             except requests.RequestException as e:
                 log.warning("fetch failed %s (%s)", url, e)
+                self._failed(dom)
                 time.sleep(2 * (attempt + 1))
                 continue
             if r.status_code in (429, 503) and attempt < self.retries:
                 time.sleep(10 * (attempt + 1))
                 continue
             data = {"url": r.url, "status": r.status_code}
+            if r.status_code >= 500:
+                self._failed(dom)
+            else:
+                self._worked(dom)
             if r.status_code != 200:
                 log.info("HTTP %s for %s", r.status_code, url)
                 return data

@@ -113,17 +113,15 @@ class Estimator:
         if not keys or not self.f or r.get("source_type") == "foreign":
             return None, ""
         model = r.get("model") or keys[0]
-        for s in self.shops:                            # A2
-            if self.woo_left <= 0:
-                break
-            if self.fails.get(s["domain"], 0) >= 2:
-                continue
-            self.woo_left -= 1
-            res = self.f.get(f"{s['base']}/wp-json/wc/store/v1/products", params={"search": model, "per_page": 5},
+        shops = [x for x in self.shops if self.fails.get(x["domain"], 0) < 2][:max(0, self.woo_left)]
+        self.woo_left -= len(shops)
+
+        def ask(x):                                     # A2: the shops are asked in parallel
+            res = self.f.get(f"{x['base']}/wp-json/wc/store/v1/products", params={"search": model, "per_page": 5},
                              as_json=True)
             if not res or res.get("status") != 200 or not isinstance(res.get("json"), list):
-                self.fails[s["domain"]] = self.fails.get(s["domain"], 0) + 1
-                continue
+                self.fails[x["domain"]] = self.fails.get(x["domain"], 0) + 1
+                return None
             for it in res["json"]:
                 if keys[0] not in model_key(it.get("name", "")):
                     continue
@@ -133,7 +131,14 @@ class Estimator:
                     amt = amt / (10 ** int(pr.get("currency_minor_unit") or 0))
                     rial = "ریال" in f"{pr.get('currency_suffix', '')}{pr.get('currency_symbol', '')}" \
                            or (pr.get("currency_code") or "").upper() == "IRR"
-                    return (amt / 10 if rial else amt), f"same model {model} at {s['domain']}"
+                    return (amt / 10 if rial else amt), f"same model {model} at {x['domain']}"
+            return None
+        if shops:
+            from concurrent.futures import ThreadPoolExecutor
+            with ThreadPoolExecutor(min(8, len(shops))) as ex:
+                for hit in ex.map(ask, shops):           # in shop order: the first shop with the model wins
+                    if hit:
+                        return hit
         if self.serper_left > 0:                       # A3
             self.serper_left -= 1
             try:

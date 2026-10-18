@@ -49,13 +49,14 @@ select:
   use_web_search: false            # true = also search the whole web (needs SERPER_API_KEY)
 
 http:
-  delay_seconds: 3                 # wait between two requests to the same site
+  delay_seconds: 2                 # wait between two requests to the same site
   domain_delays:                   # per-site exceptions (all subdomains of the site share it)
     made-in-china.com: 1
   workers: 10                      # sites fetched in parallel (each still at its own pace)
   parse_slots: 3                   # pages parsed at the same time (memory)
-  timeout_seconds: 25
-  retries: 2
+  timeout_seconds: 15
+  retries: 1
+  dead_after_failures: 4           # a site failing 4 times in a row is skipped for the rest of the run
   cache_days: 14                   # reruns within this window reuse saved pages
   respect_robots: true
   user_agent: "CaravanSanatBot/0.1 (+https://caravansanat.com)"
