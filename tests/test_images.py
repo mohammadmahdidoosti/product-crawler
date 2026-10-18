@@ -1,5 +1,8 @@
 import io
+import os
 import unittest
+
+os.environ["CARAVAN_NO_MODELS"] = "1"          # tests never download the open models
 
 import numpy as np
 from PIL import Image, ImageDraw

@@ -146,7 +146,8 @@ def drop_loose_marks(im: Image.Image, band: float = 0.3, max_rel: float = 0.15) 
         if i == main:
             continue
         x, y, bw, bh, area = stats[i]
-        if area > max_rel * stats[main, cv2.CC_STAT_AREA]:
+        banner = bw > 3 * bh                                    # a wide strip: a title banner or a web address
+        if area > (0.35 if banner else max_rel) * stats[main, cv2.CC_STAT_AREA]:
             continue                                          # a second product (a kit), not a mark
         near_edge = (x + bw < w * band or x > w * (1 - band) or y + bh < h * band or y > h * (1 - band))
         inside_main = x >= mx and y >= my and x + bw <= mx + mw and y + bh <= my + mh
@@ -211,7 +212,134 @@ def watermark(im: Image.Image, width_frac: float = 0.09, margin_frac: float = 0.
     return out
 
 
-def make(im: Image.Image, mark: np.ndarray | None, size: int = 1000) -> tuple[Image.Image, list[str]]:
+# ------------------------------------------------------------------ open models (free, run on the server)
+
+MODELS = {
+    # U^2-Net salient object model (Apache-2.0), the one rembg uses: background removal
+    "u2net": "https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net.onnx",
+    # PP-OCRv3 text detector from the OpenCV model zoo (Apache-2.0): finds text, does not read it
+    "textdet": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/text_detection_ppocr/"
+               "text_detection_en_ppocrv3_2023may.onnx",
+}
+_models: dict = {}
+
+
+def model_path(name: str) -> Path | None:
+    import os
+    import requests
+    folder = Path(os.environ.get("MODEL_DIR") or (Path(os.environ.get("DATA_DIR", ROOT / "data")) / "models"))
+    p = folder / f"{name}.onnx"
+    if p.exists() and p.stat().st_size > 1_000_000:
+        return p
+    folder.mkdir(parents=True, exist_ok=True)
+    try:
+        log.info("downloading model %s (once)", name)
+        with requests.get(MODELS[name], stream=True, timeout=120) as r:
+            r.raise_for_status()
+            tmp = p.with_suffix(".part")
+            with open(tmp, "wb") as fh:
+                for chunk in r.iter_content(1 << 20):
+                    fh.write(chunk)
+            tmp.rename(p)
+        return p
+    except Exception as e:                                   # noqa: BLE001 - no model: the step still works
+        log.warning("model %s not available: %s", name, e)
+        return None
+
+
+def _session(name: str):
+    import os
+    if os.environ.get("CARAVAN_NO_MODELS"):
+        return None
+    if name not in _models:
+        p = model_path(name)
+        if p is None:
+            _models[name] = None
+        elif name == "u2net":
+            import onnxruntime as ort
+            o = ort.SessionOptions()
+            o.intra_op_num_threads = 2
+            _models[name] = ort.InferenceSession(str(p), o, providers=["CPUExecutionProvider"])
+        else:
+            import cv2
+            m = cv2.dnn_TextDetectionModel_DB(str(p))
+            m.setBinaryThreshold(0.3)
+            m.setPolygonThreshold(0.5)
+            m.setUnclipRatio(2.0)
+            m.setMaxCandidates(200)
+            m.setInputParams(1.0 / 255.0, (736, 736), (122.67891434, 116.66876762, 104.00698793))
+            _models[name] = m
+    return _models[name]
+
+
+def free_models() -> None:
+    _models.clear()
+
+
+def _solidity(keep: np.ndarray) -> float:
+    import cv2
+    cs, _ = cv2.findContours(keep.astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    if not cs:
+        return 0.0
+    hull = cv2.convexHull(np.vstack(cs))
+    hm = np.zeros(keep.shape, np.uint8)
+    cv2.fillPoly(hm, [hull], 1)
+    return float(keep.sum()) / max(int(hm.sum()), 1)
+
+
+def remove_background(im: Image.Image) -> tuple[Image.Image, bool]:
+    """Product cut out and put on white. Kept only when the cut-out looks like one solid object
+    (a model that loses half the product is worse than a busy background)."""
+    from PIL import ImageFilter
+    sess = _session("u2net")
+    if sess is None:
+        return im, False
+    x = np.asarray(im.resize((320, 320), Image.LANCZOS), dtype=np.float32)
+    x = x / max(float(x.max()), 1e-6)
+    x = (x - np.array([0.485, 0.456, 0.406])) / np.array([0.229, 0.224, 0.225])
+    x = x.astype(np.float32).transpose(2, 0, 1)[None]
+    p = sess.run(None, {sess.get_inputs()[0].name: x})[0][0, 0]
+    p = (p - p.min()) / (p.max() - p.min() + 1e-6)
+    pm = np.asarray(Image.fromarray((p * 255).astype(np.uint8)).resize(im.size, Image.BILINEAR)) / 255.0
+    keep = pm > 0.08
+    if not (0.05 < keep.mean() < 0.9) or _solidity(keep) < 0.6:
+        return im, False
+    import cv2
+    keep = cv2.erode(keep.astype(np.uint8), np.ones((3, 3), np.uint8), iterations=2)   # no coloured fringe
+    m = Image.fromarray(keep * 255).filter(ImageFilter.GaussianBlur(1.5))
+    out = Image.new("RGB", im.size, (255, 255, 255))
+    out.paste(im, mask=m)
+    return out, True
+
+
+def overlay_text(pic: Image.Image) -> bool:
+    """A shop's banner or web address written over the photo: wide text near the top or bottom edge,
+    sitting on white (product labels sit on the product). Our own watermark corner is ignored."""
+    det = _session("textdet")
+    if det is None:
+        return False
+    import cv2
+    a = cv2.cvtColor(np.asarray(pic), cv2.COLOR_RGB2BGR)
+    h, w = a.shape[:2]
+    g = cv2.cvtColor(a, cv2.COLOR_BGR2GRAY)
+    boxes, _ = det.detect(a)
+    for b in boxes:
+        b = np.array(b)
+        x0, y0 = b.min(0)
+        x1, y1 = b.max(0)
+        if x0 > 0.85 * w and y0 > 0.88 * h:
+            continue                                         # the Caravan watermark
+        if (x1 - x0) < 0.12 * w or not (y1 < 0.22 * h or y0 > 0.8 * h):
+            continue
+        pad = int(max(6, (y1 - y0) * 0.5))
+        ring = np.concatenate([g[max(0, int(y0) - pad):max(0, int(y0)), int(x0):int(x1)].ravel(),
+                               g[int(y1):min(h, int(y1) + pad), int(x0):int(x1)].ravel()])
+        if ring.size and (ring > 235).mean() > 0.5:
+            return True
+    return False
+
+
+def make(im: Image.Image, mark: np.ndarray | None, size: int = 1000, cutout: bool = True) -> tuple[Image.Image, list[str]]:
     notes = []
     im = flatten(im)
     if max(im.size) > 1600:                                   # the result is 1000px: big originals only cost memory
@@ -219,14 +347,40 @@ def make(im: Image.Image, mark: np.ndarray | None, size: int = 1000) -> tuple[Im
     im, removed = remove_mark(im, mark)
     if removed:
         notes.append("shop_mark_removed")
-    if busy_background(im):
+    if busy_background(im) and cutout:
+        im, cut = remove_background(im)
+        notes.append("background_removed" if cut else "busy_background")
+    elif busy_background(im):
         notes.append("busy_background")
-    else:
+    if "busy_background" not in notes:
         im, loose = drop_loose_marks(im)
         if loose:
             notes.append("logo_text_removed")
         im = trim(im)
-    return watermark(square(im, size)), notes
+    pic = watermark(square(im, size))
+    if overlay_text(pic):
+        notes.append("text_overlay")
+    return pic, notes
+
+
+# ------------------------------------------------------------------ products with no usable photo
+
+def search_images(cfg: dict, f: Fetcher, r: dict, n: int = 6) -> list[str]:
+    """Google Images (Serper) by the product's name: photos from other pages, largest first."""
+    from .config import secret
+    from .probe import record_usage
+    key = secret("SERPER_API_KEY")
+    if not key:
+        return []
+    q = str(r.get("name") or "")[:120]
+    res = f.post_json("https://google.serper.dev/images", {"q": q, "gl": "ir", "num": 10},
+                      {"X-API-KEY": key, "Content-Type": "application/json"})
+    record_usage(cfg)
+    items = ((res or {}).get("json") or {}).get("images") or []
+    items = [it for it in items if it.get("imageUrl", "").startswith("http")
+             and int(it.get("imageWidth") or 0) >= 400 and "torob.com" not in it.get("imageUrl", "")]
+    items.sort(key=lambda it: -int(it.get("imageWidth") or 0) * int(it.get("imageHeight") or 0))
+    return [it["imageUrl"] for it in items[:n]]
 
 
 # ------------------------------------------------------------------ step
@@ -293,27 +447,60 @@ def step_images(cfg: dict, run: str) -> Path | None:
 
     # 2. make and save
     out = [] if done is None else done.to_dict("records")
+    quality = int(ic.get("quality", 85))
+    search_left = int(ic.get("search_max", 40))
+    cutout = bool(ic.get("remove_background", True))
+
+    def build(sources, mark):
+        """sources: open-able paths or raw bytes -> [(picture, notes)]"""
+        made = []
+        for src in sources:
+            try:
+                with Image.open(io.BytesIO(src) if isinstance(src, bytes) else src) as im:
+                    made.append(make(im, mark, size, cutout))
+            except Exception as e:                       # noqa: BLE001 - one broken photo is skipped
+                log.info("image failed: %s", e)
+            finally:
+                if isinstance(src, Path):
+                    src.unlink(missing_ok=True)
+        return made
+
     for i, (r, urls, paths, _) in enumerate(got, 1):
         key = product_key(r["url"])
         folder = out_root / key
-        files, notes = [], set()
-        for n, src_p in enumerate(paths):
-            try:
-                with Image.open(src_p) as im:
-                    pic, nt = make(im, marks.get(r.get("source_domain", "")), size)
-            except Exception as e:                       # noqa: BLE001 - one broken photo is skipped
-                log.info("image failed for %s: %s", r["url"], e)
-                continue
-            finally:
-                src_p.unlink(missing_ok=True)
+        made = build(paths, marks.get(r.get("source_domain", "")))
+        notes: set[str] = set()
+        if not made and search_left > 0:
+            # 3. no usable photo on the source page: the same product's photo from other pages
+            search_left -= 1
+            f = fx["iran"]
+            for u in search_images(cfg, f, r):
+                data = download(f, u, min_side=350)
+                if data:
+                    made = build([data], None)
+                    if made:
+                        urls = [u]
+                        notes.add("found_by_search")
+                        break
+        # 4. a photo with a shop banner / web address over it gives way to a clean one of the same product
+        clean = [m for m in made if "text_overlay" not in m[1]]
+        if clean and len(clean) < len(made):
+            notes.add("text_photo_replaced")
+            made = clean
+        if folder.exists():
+            for old in folder.glob("*.webp"):
+                old.unlink()
+        files = []
+        for n, (pic, nt) in enumerate(made):
             folder.mkdir(parents=True, exist_ok=True)
             p = folder / f"{n + 1}.webp"
-            pic.save(p, "WEBP", quality=int(ic.get("quality", 85)), method=4)
+            pic.save(p, "WEBP", quality=quality, method=4)
             files.append(f"{key}/{p.name}")
             notes.update(nt)
         out.append({"url": r["url"], "key": key, "files": " | ".join(files), "source_images": " | ".join(urls),
                     "notes": " | ".join(sorted(notes)) or ("no_image" if not files else "")})
         _progress("images", len(rows) + i, len(rows) * 2)
+    free_models()
     write_csv(__import__("pandas").DataFrame(out, columns=IMG_COLS), done_p)
     n_ok = sum(1 for x in out if x["files"])
     log.info("images: %d of %d products have photos (data/images)", n_ok, len(out))

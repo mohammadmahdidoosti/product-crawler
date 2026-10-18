@@ -122,4 +122,6 @@ images:
   per_product: 3          # photos per product
   size: 1000              # square, white background
   quality: 85             # WebP
+  remove_background: true # busy backgrounds -> white (free U2-Net model on the server)
+  search_max: 40          # products with no usable photo: image search (Serper) per run
   # public_base: https://caravan-crawler.onrender.com   # default: Render's own address
