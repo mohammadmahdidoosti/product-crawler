@@ -20,6 +20,17 @@ import requests
 log = logging.getLogger(__name__)
 
 
+def canon_url(url: str) -> str:
+    """One spelling per page: '%d9%85' and '%D9%85' (and raw Persian) are the same URL."""
+    from urllib.parse import quote, unquote, urlsplit, urlunsplit
+    try:
+        p = urlsplit(url.strip())
+        path = quote(unquote(p.path), safe="/:@-._~!$&'()*+,;=")
+        return urlunsplit((p.scheme.lower(), p.netloc.lower(), path, p.query, ""))
+    except Exception:
+        return url
+
+
 def domain_of(url: str) -> str:
     d = urlparse(url).netloc.lower()
     return d[4:] if d.startswith("www.") else d

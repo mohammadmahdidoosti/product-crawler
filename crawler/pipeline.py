@@ -13,7 +13,7 @@ from . import fx as fxmod
 from .config import ROOT, run_dir
 from .dedupe import load_site_catalog, merge_crawl, split_against_site
 from .extract import extract_page, from_store_api, is_listing_url, listing_links, resolve_price_unit
-from .fetch import Fetcher, domain_of
+from .fetch import Fetcher, canon_url, domain_of
 from .io import (CRAWLED_COLS, FILES, FILTER_COLS, HITS_COLS, Appender, done_values,
                  read_csv, write_csv)
 from .normalize import extract_phones
@@ -281,7 +281,7 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
             done.add(key)
             if kind == "list":
                 stats["lists"] += 1
-                nxt += [{**h, "url": u, "title": "", "found_by": "listing", "prefilled_json": "",
+                nxt += [{**h, "url": canon_url(u), "title": "", "found_by": "listing", "prefilled_json": "",
                          "from_listing": "1"} for u in val if f"{h['taxonomy_id']}|{u}" not in done]
                 continue
             if kind == "fail":

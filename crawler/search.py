@@ -18,7 +18,7 @@ from urllib.parse import quote_plus, urljoin
 from bs4 import BeautifulSoup
 
 from .config import secret
-from .fetch import Fetcher, domain_of
+from .fetch import Fetcher, canon_url, domain_of
 from .normalize import norm_text
 
 log = logging.getLogger(__name__)
@@ -37,7 +37,7 @@ def _hit(row: dict, src: dict, url: str, title: str, found_by: str, prefilled: d
     return {
         "taxonomy_id": row["taxonomy_id"], "query": row["query"], "route": row["route"],
         "source_domain": domain_of(url) or src.get("domain", ""),
-        "source_type": src.get("kind", "iran"), "url": url, "title": title,
+        "source_type": src.get("kind", "iran"), "url": canon_url(url), "title": title,
         "found_by": found_by,
         "prefilled_json": json.dumps(prefilled, ensure_ascii=False) if prefilled else "",
     }

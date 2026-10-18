@@ -366,6 +366,11 @@ def clean_name(name: str) -> str:
     """'محرک ... مدل ML7421B3003 &#8211; کد 2021' -> 'محرک ... مدل ML7421B3003' (the shop's own item code goes)."""
     import html as _html
     name = SHOP_CODE.sub("", _html.unescape(name or "")).strip()
+    # '… 8 نفره ( سرعت 1 ) - وست لیفت - پلتفرم خرید هوشمند' / '… BM360 - بانامیک سنتر': trailing shop names go
+    parts = re.split(r"\s+[-–—]\s+", name)
+    while len(parts) > 1 and re.search(r"پلتفرم|فروشگاه|خرید|آنلاین|سنتر|مرکز|بازار|گروه|شرکت|\.ir|\.com|لیفت$", parts[-1]):
+        parts = parts[:-1]
+    name = " - ".join(parts)
     if "|" in name:            # 'X | کنترل با ما' or 'CODE |قیمت ارزان خرید ...': drop shop name and sales wording
         parts = [p.strip() for p in name.split("|") if p.strip()]
         keep = [p for p in parts if not re.search(r"قیمت|خرید|فروش|ارزان|فروشگاه", p)]
