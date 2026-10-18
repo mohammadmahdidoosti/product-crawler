@@ -794,7 +794,7 @@ class Handler(BaseHTTPRequestHandler):
             "runs": list_runs(),
             "job": JOB.status(),
             # data on Render is lost on restart unless DATA_DIR is on a persistent disk
-            "ephemeral": bool(os.environ.get("RENDER")) and not os.environ.get("DATA_DIR"),
+            "ephemeral": bool(os.environ.get("RENDER")) and not os.path.ismount(DATA_DIR),
             "has_settings": paths()["settings"].exists(),
             "has_sources": paths()["sources"].exists(),
         }
