@@ -606,6 +606,9 @@ class Handler(BaseHTTPRequestHandler):
                 if len(parts) == 3:
                     return self._json({"name": parts[2], "files": {f.name: file_rows(f) for f in sorted(d.glob("*.csv"))},
                                        "kpi": run_kpi(d), "stats": P.stats(build_cfg(), parts[2]) if d.exists() else ""})
+                if parts[3] == "review":
+                    from crawler import review as RV
+                    return self._json(RV.items(build_cfg(), parts[2], q.get("filter", "issues")))
                 if parts[3] == "sellers":
                     rows = sellers_of(d)
                     if q.get("format") == "csv":
@@ -729,6 +732,10 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:3] == ["api", "job", "stop"]:
                 P.STOP.set()
                 return self._json({"ok": True})
+            if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "review":
+                from crawler import review as RV
+                run_path(parts[2])
+                return self._json(RV.save_decision(build_cfg(), parts[2], self._jbody()))
             if parts[:2] == ["api", "runs"] and len(parts) == 5 and parts[3] == "step":
                 run, step = parts[2], parts[4]
                 run_path(run)

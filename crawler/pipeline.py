@@ -712,8 +712,11 @@ def step_export(cfg: dict, run: str) -> list[Path]:
     imgs = {}
     if (d / "05_images.csv").exists():
         imgs = {r["url"]: public_urls(cfg, r["files"]) for r in read_csv(d / "05_images.csv").to_dict("records")}
+    from .review import apply as apply_review, issues_file
+    recs, imgs = apply_review(d, new.to_dict("records"), imgs)        # decisions taken on the review page
+    issues_file(cfg, d)
     rows = []
-    for r in new.to_dict("records"):
+    for r in recs:
         rows.append({
             "Type": "simple", "SKU": "", "Name": r.get("name_fa") or r["name"],
             "Published": cfg.get("export", {}).get("published", 0),

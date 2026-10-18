@@ -144,6 +144,25 @@ tr.wrong td{background:#fdf3f2}
 .batchchip.done{border-color:#bcdcc9;background:#f2f8f4}.batchchip.queued{border-color:#d8c49d;background:var(--sand-2)}
 .ev a{color:var(--gold-d);margin-left:6px}
 td select,td input{padding:3px 6px;font-size:12.5px}
+.rv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.rv{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.rv.st-ok{border-color:#9fd0b8}.rv.st-drop{opacity:.55;border-style:dashed}
+.rv .pics{display:flex;gap:6px;padding:10px;background:var(--sand-2);overflow-x:auto}
+.rv .pic{position:relative;flex:none;width:118px;height:118px;border-radius:8px;border:2px solid transparent;background:#fff;cursor:pointer;padding:0}
+.rv .pic img{width:100%;height:100%;object-fit:contain;border-radius:6px}
+.rv .pic.off{opacity:.3}.rv .pic.main{border-color:var(--gold)}
+.rv .pic b{position:absolute;top:4px;right:4px;background:var(--ink);color:#fff;font-size:11px;border-radius:5px;padding:0 6px}
+.rv .nopic{height:118px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;width:100%}
+.rv .body{padding:10px 14px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
+.rv .nm{font-weight:600;line-height:1.6}
+.rv .meta{font-size:12.5px;color:var(--muted)}
+.rv .iss{display:flex;gap:4px;flex-wrap:wrap}
+.rv .iss span{background:#fbeceb;color:var(--bad);border-radius:6px;padding:0 8px;font-size:12px}
+.rv .iss span.p{background:#fdf3e1;color:var(--warn)}
+.rv .pr{display:flex;align-items:center;gap:8px}
+.rv .pr input{width:150px;direction:ltr;text-align:left;border:1px solid var(--line);border-radius:7px;padding:3px 8px}
+.rv .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.rv .st{font-size:12px;font-weight:600}
 .toast{position:fixed;bottom:22px;left:22px;background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none;max-width:440px;z-index:9}
 .toast.show{opacity:1;transform:none}
 .toast.err{background:var(--bad)}
@@ -174,6 +193,7 @@ td select,td input{padding:3px 6px;font-size:12.5px}
     <button data-tab="run" class="on"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="12" r="2.5"/><path d="M7.5 12h9"/></svg>مسیر اجرا</button>
     <button data-tab="routing"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h7l3 6-3 6H4"/><path d="M14 12h6"/></svg>مسیریابی</button>
     <button data-tab="results"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg>نتایج</button>
+    <button data-tab="review"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/></svg>بازبینی</button>
     <button data-tab="sellers"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l2-6h12l2 6M4 10h16v10H4zM9 20v-5h6v5"/></svg>تأمین‌کننده‌ها</button>
     <button data-tab="sources"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>سایت‌های منبع</button>
     <button data-tab="setup"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>داده و تنظیمات</button>
@@ -285,6 +305,25 @@ td select,td input{padding:3px 6px;font-size:12.5px}
         <button class="btn ghost sm" id="resPrev">قبلی</button><button class="btn ghost sm" id="resNext">بعدی</button>
       </div>
     </div>
+  </section>
+
+  <!-- ===================== REVIEW ===================== -->
+  <section class="page" id="page-review">
+    <div class="ph">
+      <div class="grow"><h1>بازبینی</h1><p>محصولاتی که عکسشان مشکل دارد یا قیمتشان تخمینی است. روی عکس کنار گذاشته بزنید تا برگردد، روی عکس دیگر بزنید تا عکس اصلی (قاب طلایی) شود، روی عکس اصلی بزنید تا کنار برود. تصمیم‌ها بعد از «اعمال در فایل خروجی» در فایل ووکامرس می‌نشینند.</p></div>
+      <div class="field s" style="flex:0 0 190px"><label>اجرا</label><select id="rvRun"></select></div>
+      <button class="btn" id="rvApply">اعمال در فایل خروجی</button>
+    </div>
+    <div class="card">
+      <div class="chips" id="rvFilter">
+        <button class="chip on" data-f="images">عکس مشکل‌دار <small id="rvC-images"></small></button>
+        <button class="chip" data-f="price">قیمت تخمینی <small id="rvC-price"></small></button>
+        <button class="chip" data-f="issues">هر دو</button>
+        <button class="chip" data-f="all">همه‌ی محصولات <small id="rvC-all"></small></button>
+      </div>
+      <div class="muted" id="rvInfo" style="font-size:12.5px;margin-top:8px"></div>
+    </div>
+    <div class="rv-grid" id="rvGrid"></div>
   </section>
 
   <!-- ===================== SELLERS ===================== -->
@@ -483,6 +522,7 @@ $('#nav').addEventListener('click', e=>{
   document.querySelectorAll('.page').forEach(x=>x.classList.toggle('on', x.id==='page-'+b.dataset.tab));
   if(b.dataset.tab==='results') loadResults();
   if(b.dataset.tab==='sellers') loadSellers();
+  if(b.dataset.tab==='review') loadReview();
   if(b.dataset.tab==='routing') loadRouting();
   if(b.dataset.tab==='sources') loadSources();
 });
@@ -516,7 +556,7 @@ async function loadState(){
   else if(CUR_RUN && !STATE.runs.find(r=>r.name===CUR_RUN)) STATE.runs.unshift({name: CUR_RUN, files:{}});
   const names = STATE.runs.map(r=>r.name);
   if(!CUR_RUN || !names.includes(CUR_RUN)) CUR_RUN = names[0];
-  for(const sel of ['#runSel','#resRun','#selRun']){
+  for(const sel of ['#runSel','#resRun','#selRun','#rvRun']){
     const prev = $(sel).value, v = sel==='#runSel' ? CUR_RUN : (names.includes(prev) ? prev : CUR_RUN);
     $(sel).innerHTML = names.map(n=>`<option ${n===v?'selected':''}>${esc(n)}</option>`).join('');
   }
@@ -779,6 +819,73 @@ async function loadSellers(){
 }
 $('#selRun').onchange = loadSellers;
 $('#selDl').onclick = ()=>{ location.href=`/api/runs/${encodeURIComponent($('#selRun').value||CUR_RUN)}/sellers?format=csv`; };
+
+// ---------------- review
+let RV={filter:'images', items:[], sel:{}};
+async function loadReview(){
+  const run = $('#rvRun').value || CUR_RUN;
+  const r = await api(`/api/runs/${encodeURIComponent(run)}/review?filter=${RV.filter}`);
+  RV.items = r.items; RV.sel = {};
+  const c = r.counts||{};
+  $('#rvC-images').textContent = fa(c.images||0); $('#rvC-price').textContent = fa(c.price||0); $('#rvC-all').textContent = fa(c.all||0);
+  $('#rvInfo').textContent = r.items.length ? `${fa(r.items.length)} محصول در این فهرست؛ ${fa(c.reviewed||0)} محصول تا حالا بازبینی شده.` : 'موردی برای بازبینی نیست.';
+  renderReview();
+}
+function rvKeep(x){
+  if(RV.sel[x.url]) return RV.sel[x.url];
+  const d = x.decision && x.decision.images ? x.decision.images.split(',').map(Number) : x.images.map((_,i)=>i+1);
+  return RV.sel[x.url] = d;
+}
+function renderReview(){
+  $('#rvGrid').innerHTML = RV.items.map((x,i)=>{
+    const keep = rvKeep(x), st = x.decision ? x.decision.action : '';
+    const pics = x.images.length ? x.images.map((u,j)=>{ const n=j+1, k=keep.indexOf(n);
+      return `<button class="pic ${k<0?'off':''} ${k===0?'main':''}" data-i="${i}" data-n="${n}" title="${k<0?'برگرداندن':k===0?'کنار گذاشتن':'عکس اصلی شود'}">
+        <img loading="lazy" src="${esc(u)}" alt="">${k>=0?`<b>${fa(k+1)}</b>`:''}</button>`; }).join('')
+      : `<div class="nopic">بدون عکس</div>`;
+    const price = x.decision && x.decision.price ? x.decision.price : x.price;
+    return `<div class="rv ${st?'st-'+st:''}" id="rv-${i}">
+      <div class="pics">${pics}</div>
+      <div class="body">
+        <div class="nm">${esc(x.name)}</div>
+        <div class="meta">${esc(x.category)} · ${esc(x.seller)}${x.brand?' · '+esc(x.brand):''}</div>
+        <div class="iss">${x.issues.map(t=>`<span>${esc(t)}</span>`).join('')}${x.estimated?'<span class="p">قیمت تخمینی</span>':''}</div>
+        <div class="pr"><label class="meta">قیمت (تومان)</label><input data-i="${i}" class="rvPrice" value="${esc(price? Number(price).toLocaleString('en-US'):'')}"></div>
+        <div class="meta"><a href="${esc(x.url)}" target="_blank" rel="noopener">صفحه‌ی منبع</a>${x.source_images.length?` · <a href="${esc(x.source_images[0])}" target="_blank" rel="noopener">عکس اصلی</a>`:''}</div>
+        <div class="acts">
+          <button class="btn sm" data-act="ok" data-i="${i}">تأیید</button>
+          <button class="btn bad sm" data-act="drop" data-i="${i}">حذف از خروجی</button>
+          ${st?`<button class="btn ghost sm" data-act="reset" data-i="${i}">بازنشانی</button>`:''}
+          <span class="st ${st==='ok'?'ok':st==='drop'?'bad-t':'muted'}">${st==='ok'?'تأیید شد':st==='drop'?'حذف می‌شود':'بازبینی نشده'}</span>
+        </div>
+      </div></div>`;
+  }).join('');
+}
+$('#rvGrid').addEventListener('click', async e=>{
+  const p = e.target.closest('.pic');
+  if(p){ const x=RV.items[+p.dataset.i], n=+p.dataset.n, keep=rvKeep(x), k=keep.indexOf(n);
+    if(k<0) keep.push(n);                       // set aside -> back in
+    else if(k>0){ keep.splice(k,1); keep.unshift(n); }   // kept -> becomes the main photo
+    else keep.splice(0,1);                      // main -> set aside
+    renderReview(); return; }
+  const b = e.target.closest('[data-act]'); if(!b) return;
+  const x = RV.items[+b.dataset.i], act=b.dataset.act;
+  const price = ($(`#rv-${b.dataset.i} .rvPrice`).value||'').replace(/[^0-9۰-۹]/g,'').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+  const body = {url:x.url, action:act, images: x.images.length? rvKeep(x):[], price: price && price!==String(Math.round(+x.price||0)) ? price : ''};
+  if(act==='ok' && x.images.length && !rvKeep(x).length){ toast('دست‌کم یک عکس باید بماند؛ یا «حذف از خروجی» را بزنید', true); return; }
+  try{ await post(`/api/runs/${encodeURIComponent($('#rvRun').value||CUR_RUN)}/review`, body);
+    x.decision = act==='reset' ? null : {action:act, images: body.images.join(','), price: body.price};
+    if(act==='reset') delete RV.sel[x.url];
+    renderReview(); toast(act==='ok'?'تأیید شد':act==='drop'?'از خروجی حذف می‌شود':'بازنشانی شد');
+  }catch(err){ toast(err.message, true); }
+});
+$('#rvFilter').addEventListener('click', e=>{ const c=e.target.closest('.chip'); if(!c) return;
+  document.querySelectorAll('#rvFilter .chip').forEach(x=>x.classList.toggle('on', x===c)); RV.filter=c.dataset.f; loadReview(); });
+$('#rvRun').onchange = loadReview;
+$('#rvApply').onclick = async ()=>{
+  try{ await post(`/api/runs/${encodeURIComponent($('#rvRun').value||CUR_RUN)}/step/export`, {}); toast('فایل خروجی با تصمیم‌های بازبینی دوباره ساخته می‌شود'); }
+  catch(err){ toast(err.message, true); }
+};
 
 // ---------------- sources
 let SRC=null, SCATS=new Set();
