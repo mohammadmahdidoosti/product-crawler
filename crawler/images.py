@@ -258,7 +258,9 @@ def _session(name: str):
         elif name == "u2net":
             import onnxruntime as ort
             o = ort.SessionOptions()
-            o.intra_op_num_threads = 2
+            o.intra_op_num_threads = 1
+            o.enable_cpu_mem_arena = False                   # the arena doubled memory (1.2 GB -> 0.56 GB)
+            o.enable_mem_pattern = False
             _models[name] = ort.InferenceSession(str(p), o, providers=["CPUExecutionProvider"])
         else:
             import cv2
@@ -342,8 +344,8 @@ def overlay_text(pic: Image.Image) -> bool:
 def make(im: Image.Image, mark: np.ndarray | None, size: int = 1000, cutout: bool = True) -> tuple[Image.Image, list[str]]:
     notes = []
     im = flatten(im)
-    if max(im.size) > 1600:                                   # the result is 1000px: big originals only cost memory
-        im.thumbnail((1600, 1600), Image.LANCZOS)
+    if max(im.size) > 1200:                                   # the result is 1000px: big originals only cost memory
+        im.thumbnail((1200, 1200), Image.LANCZOS)
     im, removed = remove_mark(im, mark)
     if removed:
         notes.append("shop_mark_removed")
