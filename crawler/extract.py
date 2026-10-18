@@ -125,11 +125,41 @@ def from_jsonld(soup: BeautifulSoup) -> dict | None:
 
 # ------------------------------------------------------------------ Woo HTML
 
+_CARD = re.compile(r"(related|upsells?|cross-sells?|product-item|products-list|product-card|product-box|"
+                   r"related-products|products|product-detail-area|swiper[\w-]*|slick[\w-]*|owl-carousel|"
+                   r"carousel|widget|sidebar|product-grid|product-list)")   # whole class tokens only
+_PRICE_SEL = (".price ins .woocommerce-Price-amount, .price .woocommerce-Price-amount, "
+              "p.price .woocommerce-Price-amount, .price .amount")
+
+
+def in_product_card(el) -> bool:
+    """Inside a related / upsell / slider / listing card rather than the main product."""
+    for a in el.parents:
+        if a.name in (None, "[document]"):
+            break
+        cls = a.get("class") or []
+        if any(_CARD.fullmatch(c) for c in cls) or (a.name in ("li", "article") and "product" in cls):
+            return True
+    return False
+
+
+def main_price_el(soup: BeautifulSoup, title):
+    """The price box next to the product's own title; a related product's price never counts."""
+    node = title
+    for _ in range(7):                                    # nearest container holding title and price
+        node = node.parent if node is not None else None
+        if node is None or node.name in ("body", "[document]"):
+            break
+        els = [e for e in node.select(_PRICE_SEL) if not in_product_card(e)]
+        if els:
+            return els[0]
+    return next((e for e in soup.select(".summary " + _PRICE_SEL.split(", ")[0] + ", .summary .price "
+                                         ".woocommerce-Price-amount") if not in_product_card(e)), None)
+
+
 def from_woo_html(soup: BeautifulSoup) -> dict | None:
     title = soup.select_one("h1.product_title, h1.product-title, .product h1, h1")
-    price_el = soup.select_one(".summary .price ins .woocommerce-Price-amount, "
-                               ".summary .price .woocommerce-Price-amount, "
-                               "p.price .woocommerce-Price-amount, .price .amount")
+    price_el = main_price_el(soup, title) if title else None
     if not title or not price_el:
         return None
     rec = empty_record()
@@ -261,6 +291,13 @@ def _extract_from(soup: BeautifulSoup, html: str) -> dict | None:
         rec["price_unit_detected"] = woo["price_unit_detected"]
     if rec is None:
         return None
+    if woo and woo["price_amount"] and woo["price_unit_detected"] and rec["price_amount"] \
+            and rec is not woo and abs(rec["price_amount"] - woo["price_amount"]) > 1:
+        a, b = float(rec["price_amount"]), float(woo["price_amount"])
+        if min(abs(a - 10 * b), abs(a * 10 - b)) < 0.02 * max(a, b):
+            # JSON-LD in rial, page in toman (or the reverse): the price the buyer sees wins
+            rec["price_amount"], rec["price_unit_detected"] = woo["price_amount"], woo["price_unit_detected"]
+            rec["price_code"] = ""
     if woo and woo["price_unit_detected"] and not rec["price_unit_detected"]:
         rec["price_unit_detected"] = woo["price_unit_detected"]
     rec["specs"] = {**woo_attributes(soup), **rec["specs"]}

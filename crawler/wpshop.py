@@ -1068,7 +1068,9 @@ def _in_product_card(el) -> bool:
     """True for elements inside related/upsell/listing product cards (not the main product)."""
     for a in el.iterancestors():
         cls = f" {a.get('class', '')} "
-        if re.search(r"\s(related|upsells?|cross-sells?|product-item|products-list|product-card|product-box|related-products)\s", cls) \
+        if re.search(r"\s(related|upsells?|cross-sells?|product-item|products-list|product-card|product-box|"
+                     r"related-products|products|product-detail-area|swiper[\w-]*|slick[\w-]*|owl-carousel|"
+                     r"carousel|widget|sidebar|product-grid|product-list)\s", cls) \
                 or (a.tag == "li" and " product " in cls) or (a.tag == "article" and " product " in cls):
             return True
     return False
