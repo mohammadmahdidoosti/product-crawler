@@ -159,15 +159,24 @@ def _discovered_path(cfg):
     return cfg["_data_dir"] / "discovered.csv"
 
 
+_DETECT_LOCK = __import__("threading").Lock()
+
+
 def detect_type(f: Fetcher, cfg: dict, domain: str) -> str:
-    """woo_store_api | woo_search | none — tested once per domain and remembered."""
+    """woo_store_api | woo_search | none — tested once per domain and remembered (thread-safe:
+    the file is read and written under a lock, the site itself is tested outside it)."""
+    return _detect_type(f, cfg, domain)
+
+
+def _detect_type(f: Fetcher, cfg: dict, domain: str) -> str:
     import pandas as pd
     from .io import read_csv, write_csv
     p = _discovered_path(cfg)
-    df = read_csv(p) if p.exists() else pd.DataFrame(columns=["domain", "type", "checked_at"])
-    hit = df[df["domain"] == domain] if len(df) else df
-    if len(hit):
-        return hit.iloc[-1]["type"]
+    with _DETECT_LOCK:
+        df = read_csv(p) if p.exists() else pd.DataFrame(columns=["domain", "type", "checked_at"])
+        hit = df[df["domain"] == domain] if len(df) else df
+        if len(hit):
+            return hit.iloc[-1]["type"]
     t = "none"
     base = f"https://{domain}"
     if f.allowed(base + "/"):
@@ -179,9 +188,11 @@ def detect_type(f: Fetcher, cfg: dict, domain: str) -> str:
             if r2 and r2.get("status") == 200 and "woocommerce" in (r2.get("text") or "").lower():
                 t = "woo_search"
     import datetime as dt
-    df = pd.concat([df, pd.DataFrame([{"domain": domain, "type": t,
-                                       "checked_at": dt.datetime.now().isoformat(timespec="seconds")}])])
-    write_csv(df, p)
+    with _DETECT_LOCK:
+        df = read_csv(p) if p.exists() else pd.DataFrame(columns=["domain", "type", "checked_at"])
+        df = pd.concat([df, pd.DataFrame([{"domain": domain, "type": t,
+                                           "checked_at": dt.datetime.now().isoformat(timespec="seconds")}])])
+        write_csv(df, p)
     log.info("discovered source %s: %s", domain, t)
     return t
 

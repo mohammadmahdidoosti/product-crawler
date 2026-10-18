@@ -56,7 +56,15 @@ def load_probes(cfg) -> dict[str, dict]:
     return {r["group"]: r for r in read_csv(p).to_dict("records")}
 
 
+_USAGE_LOCK = __import__("threading").Lock()
+
+
 def record_usage(cfg, n: int = 1) -> int:
+    with _USAGE_LOCK:                                  # several threads count searches at once
+        return _record_usage(cfg, n)
+
+
+def _record_usage(cfg, n: int = 1) -> int:
     p = usage_file(cfg)
     df = read_csv(p) if p.exists() else pd.DataFrame(columns=["date", "searches"])
     today = dt.date.today().isoformat()

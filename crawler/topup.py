@@ -146,68 +146,73 @@ def step_topup(cfg: dict, run: str) -> Path | None:
     use_torob = bool(sc.get("torob_directory", True))
     n_hits = 0
     cols = ["taxonomy_id", "query", "found", "web", "all_shops", "made_in_china", "torob"]
-    with Appender(d / FILES["hits"], HITS_COLS) as w, Appender(mark, cols) as m:
-        for i, r in enumerate(low, 1):
-            if _progress("topup", i - 1, len(low)):
-                break
-            leaf = r["breadcrumb"].split(">")[-1].strip()
-            brand = leaf_brand(leaf)
-            got = {"web": 0, "all_shops": 0, "made_in_china": 0, "torob": 0}
-            hits: list[dict] = []
-            # 1. web search, a few forms
-            if key and r["route"] in ("iran", "both"):
-                queries = [f"{r['query']} قیمت"]
-                lq = latin_query(r)
-                if lq:
-                    queries.append(lq)
-                for k, qq in enumerate(queries + [f"خرید {r['query']}"]):
-                    if k == len(queries) and got["web"] >= 2:
-                        break                                   # 'خرید …' only when little was found
-                    shops = _serper(f, key, qq)
-                    record_usage(cfg)
-                    for sh in shops:
-                        src = {"domain": sh["domain"], "kind": "iran"}
-                        hits.append(_hit(r, src, sh["url"], sh.get("title", ""), "web_exact"))
-                        got["web"] += 1
-                        t = detect_type(f, cfg, sh["domain"])
-                        if t in SEARCHERS:
-                            try:
-                                hits += SEARCHERS[t](f, {**src, "type": t}, r, 8)
-                            except Exception as e:
-                                log.warning("top-up shop search failed on %s: %s", sh["domain"], e)
-            # 2. empty category, and the web search found little: the WooCommerce shops met so far,
-            #    those that sell in this part of the catalogue first (not all of them: time)
-            if cnt.get(r["taxonomy_id"], 0) == 0 and r["route"] in ("iran", "both") and shops_all \
-                    and got["web"] < 3:
-                l1 = r["breadcrumb"].split(">")[0].strip()
-                rank = sorted(shops_all, key=lambda x: -sells_in.get((l1, x["domain"]), 0))
-                pick = [x for x in rank if sells_in.get((l1, x["domain"]), 0)][:shops_max] or rank[:shops_max // 2]
-                def one(src, r=r):
-                    try:
-                        return search_store_api(f, src, r, 5)
-                    except Exception:
-                        return []
-                with ThreadPoolExecutor(8) as ex:
-                    for hs in ex.map(one, pick):
-                        hits += hs
-                        got["all_shops"] += len(hs)
-            # 3. generic category: Made-in-China too
-            if not brand and r.get("english"):
+    def gather(r):
+        """Everything the top-up finds for one category (categories are done a few at a time)."""
+        leaf = r["breadcrumb"].split(">")[-1].strip()
+        brand = leaf_brand(leaf)
+        got = {"web": 0, "all_shops": 0, "made_in_china": 0, "torob": 0}
+        hits: list[dict] = []
+        # 1. web search, a few forms
+        if key and r["route"] in ("iran", "both"):
+            queries = [f"{r['query']} قیمت"]
+            lq = latin_query(r)
+            if lq:
+                queries.append(lq)
+            for k, qq in enumerate(queries + [f"خرید {r['query']}"]):
+                if k == len(queries) and got["web"] >= 2:
+                    break                                   # 'خرید …' only when little was found
+                shops = _serper(f, key, qq)
+                record_usage(cfg)
+                for sh in shops:
+                    src = {"domain": sh["domain"], "kind": "iran"}
+                    hits.append(_hit(r, src, sh["url"], sh.get("title", ""), "web_exact"))
+                    got["web"] += 1
+                    t = detect_type(f, cfg, sh["domain"])
+                    if t in SEARCHERS:
+                        try:
+                            hits += SEARCHERS[t](f, {**src, "type": t}, r, 8)
+                        except Exception as e:
+                            log.warning("top-up shop search failed on %s: %s", sh["domain"], e)
+        # 2. empty category, and the web search found little: the WooCommerce shops met so far,
+        #    those that sell in this part of the catalogue first (not all of them: time)
+        if cnt.get(r["taxonomy_id"], 0) == 0 and r["route"] in ("iran", "both") and shops_all \
+                and got["web"] < 3:
+            l1 = r["breadcrumb"].split(">")[0].strip()
+            rank = sorted(shops_all, key=lambda x: -sells_in.get((l1, x["domain"]), 0))
+            pick = [x for x in rank if sells_in.get((l1, x["domain"]), 0)][:shops_max] or rank[:shops_max // 2]
+            def one(src, r=r):
                 try:
-                    hs = search_mic(ff, {**r, "route": "foreign"}, r["english"], 12,
-                                    int(sc.get("per_supplier", 2)))
+                    return search_store_api(f, src, r, 5)
+                except Exception:
+                    return []
+            with ThreadPoolExecutor(8) as ex:
+                for hs in ex.map(one, pick):
                     hits += hs
-                    got["made_in_china"] = len(hs)
-                except Exception as e:
-                    log.warning("top-up Made-in-China failed: %s", e)
-            # 4. Torob as a directory of shops
-            if use_torob and r["route"] in ("iran", "both"):
-                try:
-                    for url, shop in torob_shops(f, r["query"]):
-                        hits.append(_hit(r, {"domain": domain_of(url), "kind": "iran"}, url, shop, "torob_directory"))
-                        got["torob"] += 1
-                except Exception as e:
-                    log.warning("torob lookup failed: %s", e)
+                    got["all_shops"] += len(hs)
+        # 3. generic category: Made-in-China too
+        if not brand and r.get("english"):
+            try:
+                hs = search_mic(ff, {**r, "route": "foreign"}, r["english"], 12,
+                                int(sc.get("per_supplier", 2)))
+                hits += hs
+                got["made_in_china"] = len(hs)
+            except Exception as e:
+                log.warning("top-up Made-in-China failed: %s", e)
+        # 4. Torob as a directory of shops
+        if use_torob and r["route"] in ("iran", "both"):
+            try:
+                for url, shop in torob_shops(f, r["query"]):
+                    hits.append(_hit(r, {"domain": domain_of(url), "kind": "iran"}, url, shop, "torob_directory"))
+                    got["torob"] += 1
+            except Exception as e:
+                log.warning("torob lookup failed: %s", e)
+        return r, hits, got
+
+    workers = int(sc.get("topup_workers", 4))
+    with Appender(d / FILES["hits"], HITS_COLS) as w, Appender(mark, cols) as m, ThreadPoolExecutor(workers) as pool:
+        for i, (r, hits, got) in enumerate(pool.map(gather, low), 1):
+            if _progress("topup", i, len(low)):
+                break
             seen = set()
             for h in hits:
                 if h["url"] not in seen:

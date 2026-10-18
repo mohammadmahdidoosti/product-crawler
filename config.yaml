@@ -36,6 +36,7 @@ search:
   synonyms_max: 2                  # extra shop searches with the taxonomy's synonyms
   topup_below: 5                   # after the filter: categories under N products get an exact web search
   topup_max: 80                    # at most this many such categories per run
+  topup_workers: 4                 # categories topped up at the same time
   topup_shops_max: 25              # empty category: at most this many known shops searched (those selling in its area first)
   torob_directory: false           # Torob as a shop directory: off — from the server its API does not answer,
                                    # product pages return 490 and /search/ is disallowed by robots.txt
