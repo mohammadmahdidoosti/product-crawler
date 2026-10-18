@@ -327,12 +327,17 @@ def overlay_text(pic: Image.Image) -> bool:
     h, w = a.shape[:2]
     g = cv2.cvtColor(a, cv2.COLOR_BGR2GRAY)
     boxes, _ = det.detect(a)
+    wide_lines = 0
     for b in boxes:
         b = np.array(b)
         x0, y0 = b.min(0)
         x1, y1 = b.max(0)
         if x0 > 0.85 * w and y0 > 0.88 * h:
             continue                                         # the Caravan watermark
+        if (x1 - x0) >= 0.25 * w:
+            wide_lines += 1
+            if wide_lines >= 2:                               # advert lines / phone numbers, anywhere
+                return True
         if (x1 - x0) < 0.12 * w or not (y1 < 0.22 * h or y0 > 0.8 * h):
             continue
         pad = int(max(6, (y1 - y0) * 0.5))
