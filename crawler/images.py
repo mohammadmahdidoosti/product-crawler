@@ -91,6 +91,10 @@ def shop_mark(thumbs: list[np.ndarray], min_images: int = 4) -> np.ndarray | Non
     med = np.median(stack, axis=0)
     spread = np.median(np.abs(stack - med), axis=0)          # how much each pixel changes between photos
     mask = (spread < 6) & (med < 235)                        # constant and not background
+    band = np.ones((SIDE, SIDE), bool)                       # shops put marks near the edges; a 'mark'
+    c0, c1 = int(SIDE * 0.25), int(SIDE * 0.75)              # found in the middle is the product itself
+    band[c0:c1, c0:c1] = False
+    mask &= band
     frac = mask.mean()
     if frac < 0.0005 or frac > 0.12:                         # nothing, or the shop's photos are just alike
         return None
@@ -119,6 +123,38 @@ def remove_mark(im: Image.Image, mark: np.ndarray | None) -> tuple[Image.Image, 
 
 # ------------------------------------------------------------------ framing and watermark
 
+def drop_loose_marks(im: Image.Image, band: float = 0.3, max_rel: float = 0.15) -> tuple[Image.Image, bool]:
+    """On a white photo, a shop logo, a title banner or a '2300W' caption is a separate island near an
+    edge, apart from the product. Those islands are painted white; the product (the biggest island)
+    and anything close to it stay."""
+    import cv2
+    a = np.asarray(im.convert("L"))
+    h, w = a.shape
+    fg = (a < 235).astype(np.uint8)
+    k = max(3, int(min(w, h) * 0.02))
+    joined = cv2.dilate(fg, np.ones((k, k), np.uint8))       # parts of one product join up
+    n, lab, stats, _ = cv2.connectedComponentsWithStats(joined, 8)
+    if n <= 2:
+        return im, False
+    areas = stats[1:, cv2.CC_STAT_AREA]
+    main = 1 + int(np.argmax(areas))
+    mx, my, mw, mh = stats[main, :4]
+    out = np.asarray(im).copy()
+    removed = False
+    for i in range(1, n):
+        if i == main:
+            continue
+        x, y, bw, bh, area = stats[i]
+        if area > max_rel * stats[main, cv2.CC_STAT_AREA]:
+            continue                                          # a second product (a kit), not a mark
+        near_edge = (x + bw < w * band or x > w * (1 - band) or y + bh < h * band or y > h * (1 - band))
+        inside_main = x >= mx and y >= my and x + bw <= mx + mw and y + bh <= my + mh
+        if near_edge and not inside_main:
+            out[lab == i] = 255
+            removed = True
+    return (Image.fromarray(out), True) if removed else (im, False)
+
+
 def trim(im: Image.Image, tol: int = 245) -> Image.Image:
     """Cut the empty white margins so every product fills the frame the same way."""
     a = np.asarray(im.convert("L"))
@@ -132,10 +168,11 @@ def trim(im: Image.Image, tol: int = 245) -> Image.Image:
 
 
 def busy_background(im: Image.Image) -> bool:
-    """The photo is not on white (a scene, a coloured studio backdrop): framed as it is, flagged."""
+    """The photo is not on white (a scene, a coloured studio backdrop): framed as it is, flagged.
+    A banner or caption touching one edge does not make it busy: most of the border must be non-white."""
     a = np.asarray(im.convert("L"), dtype=np.float32)
     border = np.concatenate([a[:6].ravel(), a[-6:].ravel(), a[:, :6].ravel(), a[:, -6:].ravel()])
-    return float(np.median(border)) < 225 or float(border.std()) > 30
+    return float((border < 225).mean()) > 0.35
 
 
 def square(im: Image.Image, size: int = 1000, margin: float = 0.06) -> Image.Image:
@@ -180,6 +217,9 @@ def make(im: Image.Image, mark: np.ndarray | None, size: int = 1000) -> tuple[Im
     if busy_background(im):
         notes.append("busy_background")
     else:
+        im, loose = drop_loose_marks(im)
+        if loose:
+            notes.append("logo_text_removed")
         im = trim(im)
     return watermark(square(im, size)), notes
 
