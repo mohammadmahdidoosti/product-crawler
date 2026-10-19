@@ -128,7 +128,8 @@ images:
   remove_background: true # busy backgrounds -> white (free U2-Net model on the server)
   search_max: 40          # products with no usable photo: image search (Serper) per run
   delay_seconds: 1        # between two photo downloads from one site (pages: http.delay_seconds)
-  ai_model: qwen/qwen-image-2.1-turbo   # 'improve' button on the review page (OpenRouter)
+  ai_model: qwen/qwen-image-2.1-turbo   # 'improve' button on the review page (OpenRouter), ~$0.018/photo
+  ai_fallback_models: [black-forest-labs/flux-3-image-klein]   # when the first refuses or fails
   # public_base: https://caravan-crawler.onrender.com   # default: Render's own address
 
 describe:

@@ -43,7 +43,7 @@ def edit(model: str, img: Image.Image, key: str) -> tuple[Image.Image | None, st
     """Image models use OpenRouter's /images endpoint; chat models that can return images use chat."""
     headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json",
                "HTTP-Referer": "https://caravansanat.com", "X-Title": "Caravan crawler"}
-    body = {"model": model, "prompt": PROMPT, "n": 1, "output_format": "png",
+    body = {"model": model, "prompt": PROMPT, "n": 1,
             "input_references": [{"type": "image_url", "image_url": {"url": _data_url(img)}}]}
     try:
         r = requests.post(OPENROUTER_IMAGES, json=body, timeout=300, headers=headers)
@@ -101,7 +101,8 @@ def source_photo(row: dict, n: int, data_dir: Path) -> Image.Image | None:
     return Image.open(p).convert("RGB") if p.exists() else None
 
 
-def enhance(cfg: dict, run: str, urls: list[str], models: list[str], n: int = 1) -> Path:
+def enhance(cfg: dict, run: str, urls: list[str], models: list[str], n: int = 1, first_ok: bool = False) -> Path:
+    """first_ok: stop at the first model that returns a picture (the backups are for refusals/errors)."""
     key = secret("OPENROUTER_API_KEY")
     if not key:
         raise RuntimeError("OPENROUTER_API_KEY is not set")
@@ -133,6 +134,8 @@ def enhance(cfg: dict, run: str, urls: list[str], models: list[str], n: int = 1)
                 log.info("enhance %s with %s: %s (%.0fs)", url[-50:], m, status[:80], time.time() - t0)
                 a.write({"url": url, "key": k, "n": n, "model": m, "file": file,
                          "seconds": round(time.time() - t0), "status": status[:200]})
+                if first_ok and file:
+                    break
     return out_p
 
 

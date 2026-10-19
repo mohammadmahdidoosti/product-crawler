@@ -146,7 +146,9 @@ class Job:
             if not urls:
                 from crawler import review as RV
                 urls = [x["url"] for x in RV.items(cfg, run, "images")["items"]][:int(opts.get("limit") or 5)]
-            enhance(cfg, run, urls, opts.get("models") or [cfg.get("images", {}).get("ai_model")], int(opts.get("n") or 1))
+            ic = cfg.get("images", {})
+            models = opts.get("models") or [ic.get("ai_model")] + list(ic.get("ai_fallback_models") or [])
+            enhance(cfg, run, urls, models, int(opts.get("n") or 1), first_ok=not opts.get("models"))
         elif step == "describe_compare":
             from crawler.describe import compare
             compare(cfg, run, opts.get("models") or [cfg.get("describe", {}).get("model")], int(opts.get("n") or 10))
