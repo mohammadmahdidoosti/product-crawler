@@ -695,11 +695,11 @@ def _round_price(x, step: int) -> str:
 
 
 def _spec_html(r: dict) -> str:
-    """Description built only from extracted facts, never the source's text."""
-    specs = json.loads(r.get("specs_fa_json") or r.get("specs_json") or "{}")
-    facts = {"برند": r.get("brand"), "مدل": r.get("model"), **specs}
-    lis = "".join(f"<li><strong>{k}:</strong> {v}</li>" for k, v in facts.items() if v)
-    return f"<ul>{lis}</ul>" if lis else ""
+    """Specs table built only from extracted facts, never the source's text."""
+    from .describe import clean_specs
+    facts = {"برند": r.get("brand"), "مدل": r.get("model"), **clean_specs(r)}
+    rows = "".join(f"<tr><th>{k}</th><td>{v}</td></tr>" for k, v in facts.items() if v)
+    return f"<h3>مشخصات فنی</h3><table>{rows}</table>" if rows else ""
 
 
 def step_export(cfg: dict, run: str) -> list[Path]:
@@ -715,13 +715,17 @@ def step_export(cfg: dict, run: str) -> list[Path]:
     from .review import apply as apply_review, issues_file
     recs, imgs = apply_review(d, new.to_dict("records"), imgs)        # decisions taken on the review page
     issues_file(cfg, d)
+    desc = {}
+    if (d / "05_descriptions.csv").exists():
+        desc = {x["url"]: x for x in read_csv(d / "05_descriptions.csv").to_dict("records")}
     rows = []
     for r in recs:
+        ds = desc.get(r["url"]) or {}
         rows.append({
             "Type": "simple", "SKU": "", "Name": r.get("name_fa") or r["name"],
             "Published": cfg.get("export", {}).get("published", 0),
             "Visibility in catalog": "visible",
-            "Description": _spec_html(r), "Short description": "",
+            "Description": (ds.get("html") or "") + _spec_html(r), "Short description": ds.get("short", ""),
             "Regular price": _round_price(r["price_toman"], step),
             "Categories": ", ".join(dict.fromkeys(
                 [r["breadcrumb"]] + [b for b in str(r.get("extra_breadcrumbs") or "").split(" | ") if b])),

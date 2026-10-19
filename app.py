@@ -45,7 +45,7 @@ DATA_DIR = Path(os.environ.get("DATA_DIR", ROOT / "data")).resolve()
 APP_PASSWORD = os.environ.get("APP_PASSWORD", "")
 STATIC = ROOT / "static"
 RUN_NAME = re.compile(r"^[\w\-]{1,60}$", re.UNICODE)
-STEPS = ["queue", "search", "crawl", "filter", "topup", "dedupe", "images", "export"]
+STEPS = ["queue", "search", "crawl", "filter", "topup", "dedupe", "images", "describe", "export"]
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", datefmt="%H:%M:%S")
 logging.getLogger("urllib3").setLevel(logging.WARNING)
@@ -137,6 +137,12 @@ class Job:
         elif step == "images":
             from crawler.images import step_images
             step_images(cfg, run)
+        elif step == "describe":
+            from crawler.describe import step_describe
+            step_describe(cfg, run)
+        elif step == "describe_compare":
+            from crawler.describe import compare
+            compare(cfg, run, opts.get("models") or [cfg.get("describe", {}).get("model")], int(opts.get("n") or 10))
         elif step == "export":
             P.step_export(cfg, run)
         elif step == "probe":
@@ -161,7 +167,7 @@ class Job:
                 # top-up): their outputs are cleared, the others kept
                 steps = only or STEPS[STEPS.index(opts["from_step"]):]
                 prefixes = {"queue": "01_", "search": "02_", "crawl": "03_", "filter": "04_", "topup": "02_topup",
-                            "dedupe": "05_", "images": "05_images", "export": "06_"}
+                            "dedupe": "05_", "images": "05_images", "describe": "05_descriptions", "export": "06_"}
                 d = run_path(run)
                 for st in steps:
                     for f in d.glob(prefixes[st] + "*.csv"):
@@ -736,6 +742,11 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:3] == ["api", "job", "stop"]:
                 P.STOP.set()
                 return self._json({"ok": True})
+            if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "describe-compare":
+                run_path(parts[2])
+                b = self._jbody()
+                err = JOB.start("describe_compare", parts[2], {"models": b.get("models") or [], "n": b.get("n") or 10})
+                return self._err(err) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "review":
                 from crawler import review as RV
                 run_path(parts[2])

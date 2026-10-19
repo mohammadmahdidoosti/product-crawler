@@ -129,3 +129,9 @@ images:
   search_max: 40          # products with no usable photo: image search (Serper) per run
   delay_seconds: 1        # between two photo downloads from one site (pages: http.delay_seconds)
   # public_base: https://caravan-crawler.onrender.com   # default: Render's own address
+
+describe:
+  provider: auto          # auto: OpenRouter when OPENROUTER_API_KEY is set, otherwise the free template
+  model: deepseek/deepseek-v4.1-flash
+  workers: 4              # products written at the same time
+  max_tokens: 1400
