@@ -236,17 +236,23 @@ def step_describe(cfg: dict, run: str, limit: int | None = None) -> Path | None:
         return None
     new = read_csv(d / FILES["new"])
     out_p = d / "05_descriptions.csv"
-    have = set(read_csv(out_p)["url"]) if out_p.exists() else set()
-    rows = [r for r in new.to_dict("records") if r["url"] not in have][:limit]
     w = Writer(cfg)
     use_llm = dc.get("provider", "auto") in ("auto", "openrouter") and w.ok()
+    have = set()
+    if out_p.exists():
+        prev = read_csv(out_p)
+        # products that only got the template are tried again when a model is available
+        have = set(prev[prev["method"] != "template"]["url"]) if use_llm else set(prev["url"])
+    rows = [r for r in new.to_dict("records") if r["url"] not in have][:limit]
+    backups = [Writer(cfg, m) for m in (dc.get("fallback_models") or [])] if use_llm else []
     log.info("descriptions: %d products, %s", len(rows), f"OpenRouter {w.model}" if use_llm else "template (free)")
 
     def one(r):
         if use_llm:
-            res = w.write(r)
-            if res:
-                return {"url": r["url"], **res, "method": "ai", "model": w.model}
+            for x in [w] + backups:                    # the main model, then the backups, then the template
+                res = x.write(r)
+                if res:
+                    return {"url": r["url"], **res, "method": "ai", "model": x.model}
         html, short = template(r)
         return {"url": r["url"], "html": html, "short": short, "method": "template", "model": "",
                 "tokens_in": "", "tokens_out": ""}
@@ -258,8 +264,9 @@ def step_describe(cfg: dict, run: str, limit: int | None = None) -> Path | None:
                 break
     if use_llm:
         u = w.usage
-        log.info("descriptions: %d calls, %d failed (template used), tokens in %d / out %d",
-                 u["calls"], u["failed"], u["in"], u["out"])
+        log.info("descriptions: %s calls, %d failed, tokens in %d / out %d%s",
+                 u["calls"], u["failed"], u["in"], u["out"],
+                 "".join(f"; backup {b.model}: {b.usage['calls']} calls, {b.usage['failed']} failed" for b in backups))
     return out_p
 
 
