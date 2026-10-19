@@ -111,7 +111,11 @@ Rules:
 - Use only facts given in the input (name, brand, model, specs, source text). Never invent a number, spec,
   certificate, warranty or country of origin. If a fact is uncertain, leave it out.
 - No prices, no shop or seller names (other than the brand), no phone numbers, no links, no emojis.
-- 150 to 260 words.
+- Leave out trade terms of the source: minimum order (MOQ), packing, shipping, payment, sample, factory
+  capacity or the factory's own certificates and customers.
+- Translate technical terms into Persian (keep the Latin term in brackets only when it helps); numbers
+  with their units.
+- 180 to 300 words: a fuller introduction, the features as a list, and real uses of the product.
 Return JSON only: {"short": "<one or two sentences, max 220 characters>",
  "html": "<p>intro</p><h3>ویژگی‌ها</h3><ul><li>…</li></ul><h3>کاربردها</h3><p>…</p>"}
 Use only the tags p, h3, ul, li, strong."""
@@ -197,9 +201,9 @@ def check_why(out: dict, r: dict) -> str:
     if fa < 0.5 * max(1, len(re.sub(r"\s", "", text))):
         return "not Persian"
     words = len(text.split())
-    if words < 80 or words > 420:
+    if words < 100 or words > 450:
         return f"{words} words"
-    if re.search(r"https?://|www\.|\.ir\b|\.com\b|09\d{9}|۰۹[۰-۹]{9}|تومان|ریال", text):
+    if re.search(r"https?://|www\.|\.ir\b|\.com\b|09\d{9}|۰۹[۰-۹]{9}|تومان|ریال|حداقل سفارش|\bMOQ\b", text):
         return "link/phone/price"
     shop = str(r.get("seller_name") or r.get("source_name") or "").strip()
     if shop and len(shop) > 3 and shop in text and shop != str(r.get("brand") or ""):
