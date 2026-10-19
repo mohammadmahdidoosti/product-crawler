@@ -149,6 +149,9 @@ class Job:
             ic = cfg.get("images", {})
             models = opts.get("models") or [ic.get("ai_model")] + list(ic.get("ai_fallback_models") or [])
             enhance(cfg, run, urls, models, int(opts.get("n") or 1), first_ok=not opts.get("models"))
+        elif step == "vision_compare":
+            from crawler.vision import compare as vcompare
+            vcompare(cfg, run, opts.get("models") or [], int(opts.get("n") or 25), int(opts.get("n") or 25))
         elif step == "describe_compare":
             from crawler.describe import compare
             compare(cfg, run, opts.get("models") or [cfg.get("describe", {}).get("model")], int(opts.get("n") or 10))
@@ -751,6 +754,11 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:3] == ["api", "job", "stop"]:
                 P.STOP.set()
                 return self._json({"ok": True})
+            if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "vision-compare":
+                run_path(parts[2])
+                b = self._jbody()
+                err = JOB.start("vision_compare", parts[2], {"models": b.get("models") or [], "n": b.get("n") or 25})
+                return self._err(err) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "enhance":
                 run_path(parts[2])
                 b = self._jbody()
