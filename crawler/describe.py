@@ -208,6 +208,16 @@ def check_why(out: dict, r: dict) -> str:
     shop = str(r.get("seller_name") or r.get("source_name") or "").strip()
     if shop and len(shop) > 3 and shop in text and shop != str(r.get("brand") or ""):
         return "shop name"
+    # every number the model wrote (two digits or more, or a decimal) must be in the product's own facts
+    from .normalize import fa_digits_to_en
+    f = facts(r)
+    known = fa_digits_to_en(" ".join([f["name"], f["model"], json.dumps(f["specs"], ensure_ascii=False),
+                                      str(r.get("description") or ""), str(r.get("short_description") or ""),
+                                      str(r.get("specs_json") or ""), f["category"]]))
+    known_nums = set(re.findall(r"\d+(?:[.,/]\d+)?", known)) | set(re.findall(r"\d+", known))
+    for n in re.findall(r"\d+(?:[.,/]\d+)?", fa_digits_to_en(text)):
+        if (len(n) >= 2 or not n.isdigit()) and n not in known_nums and n.replace(",", ".") not in known_nums:
+            return f"number {n} not in the facts"
     src = re.sub(r"\s+", " ", str(r.get("description") or ""))
     for sent in re.split(r"[.!؟?\n]", text):               # no sentence copied from the source
         sent = sent.strip()
