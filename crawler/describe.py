@@ -122,7 +122,7 @@ class Writer:
         dc = cfg.get("describe", {})
         self.key = secret("OPENROUTER_API_KEY")
         self.model = model or dc.get("model", "deepseek/deepseek-v4.1-flash")
-        self.max_tokens = int(dc.get("max_tokens", 1400))
+        self.max_tokens = int(dc.get("max_tokens", 2500))
         self.s = requests.Session()
         self.usage = {"in": 0, "out": 0, "calls": 0, "failed": 0}
 
@@ -135,7 +135,8 @@ class Writer:
                           ensure_ascii=False)
         body = {"model": self.model, "max_tokens": self.max_tokens, "temperature": 0.6,
                 "messages": [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}],
-                "response_format": {"type": "json_object"}}
+                "response_format": {"type": "json_object"},
+                "reasoning": {"enabled": False}}                 # no hidden 'thinking' tokens: plain writing
         for attempt in range(3):
             try:
                 res = self.s.post(OPENROUTER, json=body, timeout=120, headers={
@@ -159,10 +160,12 @@ class Writer:
             self.usage["calls"] += 1
             text = ((data.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
             out = parse_answer(text)
-            if out and check(out, r):
+            why = "unparsable" if not out else check_why(out, r)
+            if out and not why:
                 out["tokens_in"], out["tokens_out"] = u.get("prompt_tokens", ""), u.get("completion_tokens", "")
                 return out
-            log.info("description rejected for %s", r.get("url"))
+            log.info("description rejected (%s, finish=%s) for %s", why,
+                     ((data.get("choices") or [{}])[0]).get("finish_reason"), r.get("url"))
             self.usage["failed"] += 1
             return None
         self.usage["failed"] += 1
@@ -184,25 +187,29 @@ def parse_answer(text: str) -> dict | None:
 
 
 def check(out: dict, r: dict) -> bool:
-    """The model's answer is used only when it keeps the rules."""
+    return not check_why(out, r)
+
+
+def check_why(out: dict, r: dict) -> str:
+    """'' when the model's answer keeps the rules, else the broken rule."""
     text = re.sub(r"<[^>]+>", " ", out["html"])
     fa = len(re.findall(r"[؀-ۿ]", text))
     if fa < 0.5 * max(1, len(re.sub(r"\s", "", text))):
-        return False                                       # not Persian
+        return "not Persian"
     words = len(text.split())
     if words < 80 or words > 420:
-        return False
+        return f"{words} words"
     if re.search(r"https?://|www\.|\.ir\b|\.com\b|09\d{9}|۰۹[۰-۹]{9}|تومان|ریال", text):
-        return False                                       # links, phones, prices
+        return "link/phone/price"
     shop = str(r.get("seller_name") or r.get("source_name") or "").strip()
     if shop and len(shop) > 3 and shop in text and shop != str(r.get("brand") or ""):
-        return False
+        return "shop name"
     src = re.sub(r"\s+", " ", str(r.get("description") or ""))
     for sent in re.split(r"[.!؟?\n]", text):               # no sentence copied from the source
         sent = sent.strip()
         if len(sent) > 60 and sent in src:
-            return False
-    return True
+            return "copied sentence"
+    return ""
 
 
 # ------------------------------------------------------------------ step
@@ -246,7 +253,10 @@ def compare(cfg: dict, run: str, models: list[str], n: int = 10) -> Path:
     """The same n products written by each model, side by side (06_describe_compare.csv)."""
     d = run_dir(cfg, run)
     new = read_csv(d / FILES["new"])
-    sample = new[new["description"].fillna("") != ""].head(n).to_dict("records") or new.head(n).to_dict("records")
+    has = new[new["description"].fillna("") != ""]
+    fa = has[has["source_type"] != "foreign"].head((n + 1) // 2)
+    fo = has[has["source_type"] == "foreign"].head(n - len(fa))
+    sample = pd.concat([fa, fo]).to_dict("records") or new.head(n).to_dict("records")
     rows = []
     for m in models:
         w = Writer(cfg, m)

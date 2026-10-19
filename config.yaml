@@ -134,4 +134,4 @@ describe:
   provider: auto          # auto: OpenRouter when OPENROUTER_API_KEY is set, otherwise the free template
   model: deepseek/deepseek-v4.1-flash
   workers: 4              # products written at the same time
-  max_tokens: 1400
+  max_tokens: 2500
