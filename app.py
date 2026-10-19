@@ -140,6 +140,13 @@ class Job:
         elif step == "describe":
             from crawler.describe import step_describe
             step_describe(cfg, run)
+        elif step == "enhance":
+            from crawler.enhance import enhance
+            urls = opts.get("urls") or []
+            if not urls:
+                from crawler import review as RV
+                urls = [x["url"] for x in RV.items(cfg, run, "images")["items"]][:int(opts.get("limit") or 5)]
+            enhance(cfg, run, urls, opts.get("models") or [cfg.get("images", {}).get("ai_model")], int(opts.get("n") or 1))
         elif step == "describe_compare":
             from crawler.describe import compare
             compare(cfg, run, opts.get("models") or [cfg.get("describe", {}).get("model")], int(opts.get("n") or 10))
@@ -571,7 +578,7 @@ class Handler(BaseHTTPRequestHandler):
             if u.path == "/healthz":
                 return self._send(200, b"ok", "text/plain")
             if parts[:1] == ["img"] and len(parts) == 3 and re.fullmatch(r"[0-9a-f]{14}", parts[1]) \
-                    and re.fullmatch(r"\d{1,2}\.webp", parts[2]):
+                    and re.fullmatch(r"(ai\d_)?\d{1,2}\.webp", parts[2]):
                 f = DATA_DIR / "images" / parts[1] / parts[2]
                 if f.exists():
                     return self._send(200, f.read_bytes(), "image/webp")
@@ -742,6 +749,11 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:3] == ["api", "job", "stop"]:
                 P.STOP.set()
                 return self._json({"ok": True})
+            if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "enhance":
+                run_path(parts[2])
+                b = self._jbody()
+                err = JOB.start("enhance", parts[2], {k: b.get(k) for k in ("urls", "models", "n", "limit")})
+                return self._err(err) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "describe-compare":
                 run_path(parts[2])
                 b = self._jbody()
