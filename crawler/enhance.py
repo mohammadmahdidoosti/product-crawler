@@ -24,6 +24,7 @@ from .io import Appender, read_csv
 
 log = logging.getLogger(__name__)
 OPENROUTER = "https://openrouter.ai/api/v1/chat/completions"
+OPENROUTER_IMAGES = "https://openrouter.ai/api/v1/images"
 PROMPT = ("Edit this product photo for an online store. Remove ALL text, captions, prices, phone numbers, web "
           "addresses, shop logos, watermarks, stickers and banners that are overlaid on the photo or placed around "
           "the product. Put the product alone on a plain pure white background, centered, with soft natural "
@@ -39,28 +40,51 @@ def _data_url(img: Image.Image) -> str:
 
 
 def edit(model: str, img: Image.Image, key: str) -> tuple[Image.Image | None, str]:
+    """Image models use OpenRouter's /images endpoint; chat models that can return images use chat."""
+    headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json",
+               "HTTP-Referer": "https://caravansanat.com", "X-Title": "Caravan crawler"}
+    body = {"model": model, "prompt": PROMPT, "n": 1, "output_format": "png",
+            "input_references": [{"type": "image_url", "image_url": {"url": _data_url(img)}}]}
+    try:
+        r = requests.post(OPENROUTER_IMAGES, json=body, timeout=300, headers=headers)
+    except requests.RequestException as e:
+        return None, f"error {e}"
+    if r.status_code == 404 and "chat" in r.text:              # a chat model with image output
+        return _edit_chat(model, img, headers)
+    if r.status_code != 200:
+        return None, f"HTTP {r.status_code}: {r.text[:300]}"
+    j = r.json()
+    cost = (j.get("usage") or {}).get("cost")
+    for it in j.get("data") or []:
+        try:
+            if it.get("b64_json"):
+                return Image.open(io.BytesIO(base64.b64decode(it["b64_json"]))), f"ok cost={cost}"
+            if it.get("url"):
+                return Image.open(io.BytesIO(requests.get(it["url"], timeout=60).content)), f"ok cost={cost}"
+        except Exception as e:                                # noqa: BLE001
+            return None, f"bad image: {e}"
+    return None, "no image in answer: " + r.text[:200]
+
+
+def _edit_chat(model: str, img: Image.Image, headers: dict) -> tuple[Image.Image | None, str]:
     body = {"model": model, "modalities": ["image", "text"],
             "messages": [{"role": "user", "content": [{"type": "text", "text": PROMPT},
                                                       {"type": "image_url", "image_url": {"url": _data_url(img)}}]}]}
     try:
-        r = requests.post(OPENROUTER, json=body, timeout=240, headers={
-            "Authorization": f"Bearer {key}", "Content-Type": "application/json",
-            "HTTP-Referer": "https://caravansanat.com", "X-Title": "Caravan crawler"})
+        r = requests.post(OPENROUTER, json=body, timeout=300, headers=headers)
     except requests.RequestException as e:
         return None, f"error {e}"
     if r.status_code != 200:
-        return None, f"HTTP {r.status_code}: {r.text[:200]}"
+        return None, f"HTTP {r.status_code}: {r.text[:300]}"
     msg = ((r.json().get("choices") or [{}])[0].get("message") or {})
     for im in msg.get("images") or []:
         u = (im.get("image_url") or {}).get("url") or ""
         try:
             if u.startswith("data:"):
                 return Image.open(io.BytesIO(base64.b64decode(u.split(",", 1)[1]))), "ok"
-            if u.startswith("http"):
-                return Image.open(io.BytesIO(requests.get(u, timeout=60).content)), "ok"
         except Exception as e:                                # noqa: BLE001
             return None, f"bad image: {e}"
-    return None, "no image in answer: " + str(msg.get("content") or "")[:200]
+    return None, "no image in answer"
 
 
 def source_photo(row: dict, n: int, data_dir: Path) -> Image.Image | None:
