@@ -32,6 +32,8 @@ def check(model: str, img_url: str, name: str, key: str) -> dict:
             "messages": [{"role": "user", "content": [{"type": "text", "text": ASK.format(name=name)},
                                                       {"type": "image_url", "image_url": {"url": img_url}}]}]}
     for attempt in range(2):
+        if attempt and "reasoning" in body:                  # some models cannot switch thinking off
+            pass
         try:
             r = requests.post(OPENROUTER, json=body, timeout=90, headers={
                 "Authorization": f"Bearer {key}", "Content-Type": "application/json",
@@ -42,6 +44,10 @@ def check(model: str, img_url: str, name: str, key: str) -> dict:
             continue
         if r.status_code != 200:
             err = f"HTTP {r.status_code}: {r.text[:150]}"
+            if "Reasoning is mandatory" in r.text:
+                body.pop("reasoning", None)
+                body["max_tokens"] = 2000
+                continue
             time.sleep(3)
             continue
         j = r.json()
