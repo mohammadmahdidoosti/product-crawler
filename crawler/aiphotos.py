@@ -79,10 +79,14 @@ def fix_photos(cfg: dict, run: str) -> dict:
             continue
         busy = "busy_background" in str(r.get("notes") or "")
         bad = [f for f in files if _bad(vis.get((r["url"], f), {}), busy)]
+        checked = all(not vis.get((r["url"], f), {}).get("_error") for f in files)
         if not bad:
+            if checked and r.get("notes"):              # the check found nothing: old flags go
+                r["notes"] = " | ".join(x for x in str(r["notes"]).split(" | ")
+                                        if x.strip() not in ("text_overlay", "busy_background"))
             continue
         stats["bad"] += len(bad)
-        notes = set(x.strip() for x in str(r.get("notes") or "").split("|") if x.strip())
+        notes = set(x.strip() for x in str(r.get("notes") or "").split("|") if x.strip()) - {"text_overlay", "busy_background"}
         clean = [f for f in files if f not in bad]
         if clean:                                            # 1. another photo is fine: drop the bad ones
             r["files"] = " | ".join(clean)
