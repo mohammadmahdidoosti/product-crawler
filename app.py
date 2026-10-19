@@ -786,7 +786,8 @@ class Handler(BaseHTTPRequestHandler):
             "site_export": {"rows": file_rows(site)} if site.exists() else None,
             "sources": {"iran_sites": len(src.get("iran_sites") or []),
                         "foreign_sites": len(src.get("foreign_sites") or [])},
-            "keys": {k: bool(os.environ.get(k)) for k in ("SERPER_API_KEY", "LLM_API_KEY", "FX_API_KEY")},
+            "keys": {k: bool(os.environ.get(k)) for k in ("SERPER_API_KEY", "LLM_API_KEY", "FX_API_KEY", "OPENROUTER_API_KEY",
+                                                          "WC_URL", "WC_KEY", "WC_SECRET", "WP_APP_PASSWORD")},
             "settings": {
                 "fx": {k: cfg["fx"].get(k) for k in ("provider", "manual_rate_toman", "rate_type", "url", "json_path", "unit")},
                 "search": {"use_web_search": cfg["search"].get("use_web_search", False),
