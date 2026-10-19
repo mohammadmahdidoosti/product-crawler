@@ -757,6 +757,10 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:3] == ["api", "job", "stop"]:
                 P.STOP.set()
                 return self._json({"ok": True})
+            if parts[:3] == ["api", "wc", "test"]:
+                from crawler.wc import WC
+                w = WC(timeout=40)
+                return self._json(w.test() if w.ok() else {"error": "WC_URL / WC_KEY / WC_SECRET not set"})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "photo-fix":
                 run_path(parts[2])
                 err = JOB.start("photo_fix", parts[2], {})
