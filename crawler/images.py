@@ -538,6 +538,11 @@ def step_images(cfg: dict, run: str) -> Path | None:
     free_models()
     n_ok = sum(1 for x in out if x["files"])
     log.info("images: %d of %d products have photos (data/images)", n_ok, len(out))
+    try:
+        from .aiphotos import fix_photos
+        fix_photos(cfg, run)                     # vision check + AI fix / replacement of bad photos
+    except Exception as e:                       # noqa: BLE001 - the photos already made stay usable
+        log.warning("photo check failed: %s", e)
     return done_p
 
 

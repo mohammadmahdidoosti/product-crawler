@@ -17,6 +17,7 @@ from .io import FILES, read_csv, write_csv
 
 DEC_COLS = ["url", "action", "images", "price", "note"]
 ISSUES = {"text_overlay": "عکس هنوز آگهی یا نوشته‌ی فروشگاه دارد",
+          "ai_fixed": "عکس با هوش مصنوعی اصلاح شد (با اصلی مقایسه کنید)",
           "busy_background": "پس‌زمینه سفید نشد",
           "no_image": "بدون عکس"}
 
@@ -55,7 +56,7 @@ def save_decision(cfg: dict, run: str, body: dict) -> dict:
 
 
 def _issues(notes: str) -> list[str]:
-    t = {x.strip() for x in str(notes or "").split("|")}
+    t = {x.strip().split(":")[0] for x in str(notes or "").split("|")}
     return [k for k in ISSUES if k in t]
 
 
@@ -83,11 +84,14 @@ def items(cfg: dict, run: str, which: str = "issues") -> dict:
                 or which == "issues" and not (iss or est):
             continue
         files = [f.strip() for f in str(im.get("files") or "").split("|") if f.strip()]
+        originals = [f.strip() for f in str(im.get("originals") or "").split("|") if f.strip()]
         out.append({
             "url": r["url"], "name": r.get("name_fa") or r.get("name", ""), "name_src": r.get("name", ""),
             "category": str(r.get("breadcrumb") or "").split(">")[-1].strip(), "breadcrumb": r.get("breadcrumb", ""),
             "price": r.get("price_toman", ""), "estimated": est, "brand": r.get("brand", ""),
-            "seller": r.get("source_domain", ""), "images": [f"/img/{f}" for f in files],
+            "seller": r.get("source_domain", ""), "images": [f"/img/{f}" for f in files + originals],
+            "default_keep": list(range(1, len(files) + 1)),
+            "ai": [f"/img/{f}" for f in files if f.split("/")[-1].startswith("ai")],
             "source_images": [u for u in str(im.get("source_images") or "").split(" | ") if u],
             "issues": [ISSUES[k] for k in iss], "issue_keys": iss, "notes": im.get("notes", ""),
             "decision": dec.get(r["url"]),

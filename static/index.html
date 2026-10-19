@@ -150,7 +150,9 @@ td select,td input{padding:3px 6px;font-size:12.5px}
 .rv .pics{display:flex;gap:6px;padding:10px;background:var(--sand-2);overflow-x:auto}
 .rv .pic{position:relative;flex:none;width:118px;height:118px;border-radius:8px;border:2px solid transparent;background:#fff;cursor:pointer;padding:0}
 .rv .pic img{width:100%;height:100%;object-fit:contain;border-radius:6px}
-.rv .pic.off{opacity:.3}.rv .pic.main{border-color:var(--gold)}
+.rv .pic.off{opacity:.3}
+.rv .pic .aitag{position:absolute;bottom:4px;left:4px;background:var(--gold);color:#fff;font-size:11px;font-style:normal;border-radius:5px;padding:0 6px}
+.rv .pic .aitag.orig{background:var(--muted)}.rv .pic.main{border-color:var(--gold)}
 .rv .pic b{position:absolute;top:4px;right:4px;background:var(--ink);color:#fff;font-size:11px;border-radius:5px;padding:0 6px}
 .rv .nopic{height:118px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;width:100%}
 .rv .body{padding:10px 14px 12px;display:flex;flex-direction:column;gap:6px;flex:1}
@@ -834,7 +836,7 @@ async function loadReview(){
 }
 function rvKeep(x){
   if(RV.sel[x.url]) return RV.sel[x.url];
-  const d = x.decision && x.decision.images ? x.decision.images.split(',').map(Number) : x.images.map((_,i)=>i+1);
+  const d = x.decision && x.decision.images ? x.decision.images.split(',').map(Number) : (x.default_keep || x.images.map((_,i)=>i+1)).slice();
   return RV.sel[x.url] = d;
 }
 function renderReview(){
@@ -842,7 +844,7 @@ function renderReview(){
     const keep = rvKeep(x), st = x.decision ? x.decision.action : '';
     const pics = x.images.length ? x.images.map((u,j)=>{ const n=j+1, k=keep.indexOf(n);
       return `<button class="pic ${k<0?'off':''} ${k===0?'main':''}" data-i="${i}" data-n="${n}" title="${k<0?'برگرداندن':k===0?'کنار گذاشتن':'عکس اصلی شود'}">
-        <img loading="lazy" src="${esc(u)}" alt="">${k>=0?`<b>${fa(k+1)}</b>`:''}</button>`; }).join('')
+        <img loading="lazy" src="${esc(u)}" alt="">${k>=0?`<b>${fa(k+1)}</b>`:''}${(x.ai||[]).includes(u)?'<i class="aitag">AI</i>':''}${j>=(x.default_keep||[]).length && (x.ai||[]).length?'<i class="aitag orig">اصلی</i>':''}</button>`; }).join('')
       : `<div class="nopic">بدون عکس</div>`;
     const price = x.decision && x.decision.price ? x.decision.price : x.price;
     return `<div class="rv ${st?'st-'+st:''}" id="rv-${i}">
