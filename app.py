@@ -639,6 +639,14 @@ class Handler(BaseHTTPRequestHandler):
                         p_ = pr.get(r["group"])
                         r["evidence"] = json.loads(p_["domains_json"])[:5] if p_ else []
                     return self._json({"rows": out})
+            if parts[:3] == ["api", "wc", "product"] and len(parts) == 4:    # check what the site holds for one SKU
+                from crawler.wc import WC
+                w = WC(timeout=40)
+                p_ = w.find_by_sku(parts[3]) if w.ok() else None
+                if not p_:
+                    return self._err("not found", 404)
+                return self._json({k: p_.get(k) for k in ("id", "name", "status", "sku", "regular_price", "price",
+                                                          "categories", "brands", "attributes", "images", "meta_data")})
             if parts[:3] == ["api", "wc", "brands"]:
                 from crawler.wc import WC
                 w = WC(timeout=40)
