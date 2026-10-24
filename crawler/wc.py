@@ -147,6 +147,8 @@ class WC:
                     j = r.json()
                     if name == "wc_products":
                         body = f"{len(j)} product(s) read" if isinstance(j, list) else body
+                    if name == "wp_media":
+                        body = "application password ok (media library readable)" if r.ok else body
                     if name == "wp_me":
                         if isinstance(j, dict) and r.ok:
                             caps = j.get("capabilities") or {}
@@ -171,7 +173,9 @@ class WC:
         if some:
             probe("wc_category", lambda: self._wc("GET", f"products/categories/{some}"))
         probe("wc_brands", lambda: self._wc("GET", "products/brands", params={"per_page": 1}))
-        probe("wp_me", lambda: self._wp("GET", "users/me", params={"context": "edit"}))
+        # the media library with the application password (what photo uploads need); users/me is
+        # often closed by the site's firewall, so it is not used for this check
+        probe("wp_media", lambda: self._wp("GET", "media", params={"per_page": 1, "context": "edit"}))
         out["ok"] = all((v.get("status") or 0) == 200 for k, v in out.items() if isinstance(v, dict))
         log.info("WC_TEST %s", {k: v.get("status") for k, v in out.items() if isinstance(v, dict)})
         return out

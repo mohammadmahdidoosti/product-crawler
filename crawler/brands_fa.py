@@ -65,6 +65,8 @@ For each item return:
   LS -> ال‌اس). Acronyms read letter by letter are written as the letters are said, joined with a
   half-space (SKF -> اس‌کا‌اف, ABB -> آ‌ب‌ب). Start with آ where the word starts with a long a sound.
   Pinyin: Antu -> آنتو, Aoer -> آئور, Huifeng -> هویفنگ, Xinda -> شین‌دا, Zhongtai -> جونگ‌تای.
+If "brand" is already in Persian letters (a foreign brand as Iranians write it, e.g. "مونتاناری"),
+return its original Latin name in "en" (Montanari) and keep the Persian spelling as given in "fa".
 Answer with JSON only: {"items":[{"i":0,"en":"Antu","fa":"آنتو"}]} with one entry per input item."""
 
 
@@ -93,10 +95,10 @@ def table(cfg: dict) -> dict[str, dict]:
     return {key(r["source"]): r for r in load(cfg).to_dict("records")}
 
 
-def save(cfg: dict, df: pd.DataFrame) -> Path:
+def save(cfg: dict, df: pd.DataFrame, normalized: bool = False) -> Path:
     df = df.reindex(columns=COLS).fillna("")
-    df["display"] = [d if k == "shop" and not (e or f) else display(f, e)
-                     for d, k, f, e in zip(df["display"], df["kind"], df["fa"], df["en"])]
+    if not normalized:
+        df = normalize(df)
     df = df.drop_duplicates("source", keep="last").sort_values(["kind", "source"])
     return write_csv(df, path(cfg))
 
@@ -213,7 +215,8 @@ class Namer:
             if stop and stop():
                 break
             chunk = rows[start:start + self.batch]
-            items = [{"i": i, "brand": r["source"], "company": r.get("from_company", False)} for i, r in enumerate(chunk)]
+            items = [{"i": i, "brand": r.get("ask") or r["source"], "company": r.get("from_company", False)}
+                     for i, r in enumerate(chunk)]
             got = self.ask(items)
             for i, r in enumerate(chunk):
                 if i in got:
@@ -245,17 +248,142 @@ def match_site(terms: list[dict], fa: str, en: str, disp: str) -> dict | None:
     return None
 
 
+# ---------------------------------------------------------------- one name per brand
+
+NONE_PHRASES = {norm_text(x) for x in ("تمامی محصولات", "همه محصولات", "محصولات", "موتور گیربکس آسانسور",
+                                        "لوازم آسانسور", "قطعات آسانسور", "متفرقه", "سایر", "عمومی")}
+PREFIXES = re.compile(r"^(گروه\s*صنعتی|گروه\s*تولیدی|شرکت|برند|مارک|کارخانه)\s+")
+
+
+def _fa_key(s: str) -> str:
+    return re.sub(r"[\s\u200c\-_.]+", "", key(s))
+
+
+def _en_key(s: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", str(s or "").casefold())
+
+
+def _latin_case(en: str) -> str:
+    en = str(en or "").strip()
+    if not en:
+        return ""
+    if len(re.sub(r"[^A-Za-z]", "", en)) <= 3:
+        return en.upper()                          # ABB, LS, AEG
+    if en == en.lower():                           # 'ziehl-abegg' -> 'Ziehl-Abegg', 'mato drive' -> 'Mato Drive'
+        return " ".join("-".join(p.capitalize() for p in w.split("-")) for w in en.split())
+    return en
+
+
+def known(text: str) -> tuple[str, str, str] | None:
+    """(Persian name, Latin name, origin) of a brand from brands.csv found in the text."""
+    from .routing import LATIN, find_brand
+    t = re.sub(r"[\-_]+", " ", str(text or ""))
+    t = re.sub(r"\d+", " ", t)
+    f = find_brand(t)
+    if not f:
+        return None
+    fa, origin = f
+    en = LATIN.get(fa) or LATIN.get(norm_text(fa)) or ""
+    return fa, _latin_case(en), origin or "unknown"
+
+
+def normalize(df: pd.DataFrame) -> pd.DataFrame:
+    """Every spelling of one brand gets one name on the site.
+
+    'RONIX', 'RONIX – رونیکس', 'رونیکس RONIX', 'رونیکس' and 'اره رونیکس' are one brand: rows are
+    grouped by their Persian and Latin names (brands.csv recognises a brand inside a longer text)
+    and the group shows one name: the brand's existing name on the site if it has one, else
+    Persian only for an Iranian brand and 'فارسی (English)' for a foreign one. A hand-edited row
+    sets the name of its whole group."""
+    df = df.reindex(columns=COLS).fillna("").reset_index(drop=True)
+    origin = [""] * len(df)
+    for i, r in df.iterrows():
+        if r["by"] == "manual":
+            continue
+        if r["kind"] == "iranian" or (r["kind"] == "foreign" and not r["en"] and FA_CHARS.search(r["source"])):
+            raw = PREFIXES.sub("", re.sub(r"[\-_]+", " ", r["source"]).strip()).strip()
+            if key(raw) in NONE_PHRASES:
+                df.loc[i, ["kind", "fa", "en", "display"]] = ["shop", "", "", ""]
+                continue
+            k = known(raw)
+            if k:
+                df.loc[i, ["fa", "en"]] = [k[0], k[1] or r["en"]]
+                origin[i] = k[2]
+            else:
+                fa_, en_ = split_display(raw)
+                df.loc[i, ["fa", "en"]] = [fa_ or raw, en_ or r["en"]]
+        elif r["fa"]:
+            k = known(r["fa"])
+            if k and _fa_key(k[0]) == _fa_key(r["fa"]):
+                origin[i] = k[2]
+        if origin[i] == "foreign" or (r["kind"] == "foreign" and origin[i] != "iranian"):
+            origin[i] = origin[i] or "foreign"
+    # group rows that share a Persian or a Latin name (union-find)
+    parent = list(range(len(df)))
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+    seen: dict[str, int] = {}
+    for i, r in df.iterrows():
+        if r["kind"] == "shop" and not (r["fa"] or r["en"]):
+            continue
+        for k in (("fa:" + _fa_key(r["fa"])) if _fa_key(r["fa"]) else "", ("en:" + _en_key(r["en"])) if _en_key(r["en"]) else ""):
+            if not k:
+                continue
+            if k in seen:
+                parent[find(i)] = find(seen[k])
+            else:
+                seen[k] = i
+    groups: dict[int, list[int]] = {}
+    for i in range(len(df)):
+        if df.at[i, "kind"] == "shop" and not (df.at[i, "fa"] or df.at[i, "en"]):
+            df.at[i, "display"] = ""
+            continue
+        groups.setdefault(find(i), []).append(i)
+    w = pd.to_numeric(df["products"], errors="coerce").fillna(0)
+    for members in groups.values():
+        manual = [i for i in members if df.at[i, "by"] == "manual"]
+        site = [df.at[i, "site"] for i in members if df.at[i, "site"]]
+        if manual:
+            m = max(manual, key=lambda i: df.at[i, "updated"])
+            fa_, en_ = df.at[m, "fa"], df.at[m, "en"]
+            disp = display(fa_, en_)
+        else:
+            def best(col):
+                votes: dict[str, float] = {}
+                for i in members:
+                    v = str(df.at[i, col]).strip()
+                    if v:
+                        votes[v] = votes.get(v, 0) + w[i] + (0.5 if col == "en" and v != v.upper() else 0)
+                return max(votes, key=votes.get) if votes else ""
+            fa_, en_ = best("fa"), _latin_case(best("en"))
+            iranian = any(origin[i] == "iranian" for i in members)
+            disp = site[0] if site else (fa_ if iranian else display(fa_, en_))
+            if site:
+                fa_, en_ = split_display(site[0])[0] or fa_, split_display(site[0])[1] or en_
+        for i in members:
+            df.at[i, "display"] = disp
+            if df.at[i, "by"] != "manual":
+                df.at[i, "fa"], df.at[i, "en"] = fa_, en_
+                if df.at[i, "kind"] == "shop":
+                    df.at[i, "kind"] = "iranian" if FA_CHARS.search(fa_) and not en_ else "foreign"
+    return df
+
+
 def build(cfg: dict, recs: list[dict], redo: bool = False, wc=None, progress=None, stop=None) -> dict:
     """Add the run's brands to the table: Persian ones as they are, shops without a brand, the
     rest named by DeepSeek. Existing rows are kept (all of them unless redo; manual ones always)."""
     have = load(cfg)
-    known = {key(s): r for s, r in zip(have["source"], have.to_dict("records"))}
+    prev = {key(s): r for s, r in zip(have["source"], have.to_dict("records"))}
     found = collect(recs)
     now = time.strftime("%Y-%m-%d %H:%M")
-    todo, out = [], dict(known)
+    todo, out = [], dict(prev)
     for r in found.to_dict("records"):
         k = key(r["source"])
-        old = known.get(k)
+        old = prev.get(k)
         row = {**(old or {}), "source": r["source"], "kind": (old or {}).get("kind") or r["kind"],
                "suppliers": r["suppliers"] or (old or {}).get("suppliers", ""), "products": r["products"],
                "example": r["example"]}
@@ -267,6 +395,10 @@ def build(cfg: dict, recs: list[dict], redo: bool = False, wc=None, progress=Non
             continue
         if row["kind"] == "iranian":
             fa, en = split_display(r["source"])
+            kn = known(r["source"])
+            if kn and kn[2] == "foreign" and not (kn[1] or en):
+                # a foreign brand written in Persian with no Latin name on file: DeepSeek gives it
+                todo.append({**row, "source": r["source"], "fa": kn[0], "from_company": False, "ask": kn[0]})
             row.update(fa=fa, en=en, display=display(fa, en), by="rule", updated=now)
         elif row["kind"] == "shop":
             row.update(fa="", en="", display="", by="rule", updated=now)
@@ -289,9 +421,13 @@ def build(cfg: dict, recs: list[dict], redo: bool = False, wc=None, progress=Non
         for t in todo:
             k = key(t["source"])
             g = named.get(k)
-            row = {kk: v for kk, v in t.items() if kk != "from_company"}
-            if g:
+            row = {kk: v for kk, v in t.items() if kk not in ("from_company", "ask")}
+            if g and t.get("ask"):                        # Persian foreign brand: only its Latin name was asked
+                row.update(en=g["en"], fa=t["fa"], display=display(t["fa"], g["en"]), by="deepseek", updated=now)
+            elif g:
                 row.update(en=g["en"], fa=g["fa"], display=display(g["fa"], g["en"]), by="deepseek", updated=now)
+            elif t.get("ask"):
+                row.update(fa=t["fa"], en=row.get("en", ""), by="rule", updated=now)
             else:
                 row.update(en=row.get("en") or t["source"], fa=row.get("fa", ""), by=row.get("by") or "",
                            display=row.get("display") or "")
@@ -299,9 +435,10 @@ def build(cfg: dict, recs: list[dict], redo: bool = False, wc=None, progress=Non
     df = pd.DataFrame(out.values()).reindex(columns=COLS).fillna("")
     terms = site_brands(wc) if wc is not None and wc.ok() else None
     if terms is not None:
-        df["site"] = [((match_site(terms, f, e, d) or {}).get("name", "") if d else "")
+        df["site"] = [((match_site(terms, f, e, d) or {}).get("name", "") if (d or f or e) else "")
                       for f, e, d in zip(df["fa"], df["en"], df["display"])]
-    save(cfg, df)
+    df = normalize(df)
+    save(cfg, df, normalized=True)
     missing = [t["source"] for t in todo if key(t["source"]) not in named]
     res = {"brands": len(found), "named": len(named), "failed": missing[:20], "site_brands": None if terms is None else len(terms)}
     log.info("brands: %s", res)

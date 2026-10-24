@@ -299,6 +299,42 @@ class Brands(unittest.TestCase):
             BF.build(self.cfg, self.recs(), redo=True)
         self.assertEqual(BF.table(self.cfg)[BF.key("FUEN")]["display"], "فوئِن (Fuen)")
 
+    def test_one_name_per_brand(self):
+        from crawler import brands_fa as BF
+        rows = [
+            {"source": "RONIX", "kind": "foreign", "en": "Ronix", "fa": "رونیکس", "by": "deepseek", "products": "1"},
+            {"source": "RONIX – رونیکس", "kind": "foreign", "en": "Ronix", "fa": "رونیکس", "by": "rule", "products": "6"},
+            {"source": "رونیکس", "kind": "iranian", "fa": "رونیکس", "by": "rule", "products": "19"},
+            {"source": "اره رونیکس", "kind": "iranian", "fa": "اره رونیکس", "by": "rule", "products": "5"},
+            {"source": "بوش", "kind": "iranian", "fa": "بوش", "by": "rule", "products": "9"},
+            {"source": "BOSCH", "kind": "foreign", "en": "Bosch", "fa": "بوش", "by": "deepseek", "products": "2"},
+            {"source": "NOVA", "kind": "foreign", "en": "NOVA", "fa": "نوا", "by": "deepseek", "products": "1"},
+            {"source": "Nova Elevator Parts", "kind": "foreign", "en": "Nova", "fa": "نوا", "by": "deepseek", "products": "4"},
+            {"source": "SKH", "kind": "foreign", "en": "SKH", "fa": "اس‌کا‌اچ", "by": "deepseek", "products": "1"},
+            {"source": "سناکوه (SKH)", "kind": "foreign", "en": "SKH", "fa": "سناکوه", "by": "rule", "products": "1",
+             "site": "سناکوه (SKH)"},
+            {"source": "تمامی محصولات", "kind": "iranian", "fa": "تمامی محصولات", "by": "rule", "products": "1"},
+            {"source": "موتور گیرلس بهران", "kind": "iranian", "fa": "موتور گیرلس بهران", "by": "rule", "products": "1"},
+            {"source": "مونتاناری", "kind": "iranian", "fa": "مونتاناری", "by": "rule", "products": "4"},
+            {"source": "Mega-Tek", "kind": "foreign", "en": "Mega-Tek", "fa": "مگاتک", "by": "manual", "products": "1",
+             "updated": "2026-10-24 12:00"},
+            {"source": "Mega-Tek Instrument (Chengdu)", "kind": "foreign", "en": "Megatek", "fa": "مگاتک",
+             "by": "deepseek", "products": "2"},
+        ]
+        out = BF.normalize(pd.DataFrame(rows))
+        d = dict(zip(out["source"], out["display"]))
+        for s in ("RONIX", "RONIX – رونیکس", "رونیکس", "اره رونیکس"):
+            self.assertEqual(d[s], "رونیکس")                    # Iranian brand (brands.csv): Persian only
+        self.assertEqual(d["بوش"], "بوش (Bosch)")
+        self.assertEqual(d["BOSCH"], "بوش (Bosch)")
+        self.assertEqual(d["NOVA"], d["Nova Elevator Parts"])
+        self.assertEqual(d["Nova Elevator Parts"], "نوا (Nova)")
+        self.assertEqual(d["SKH"], "سناکوه (SKH)")              # the name the site already uses
+        self.assertEqual(d["تمامی محصولات"], "")
+        self.assertEqual(d["موتور گیرلس بهران"], "بهران")
+        self.assertEqual(d["مونتاناری"], "مونتاناری (Montanari)")
+        self.assertEqual(d["Mega-Tek Instrument (Chengdu)"], "مگاتک (Mega-Tek)")   # a hand edit names its group
+
     def test_site_match(self):
         from crawler import brands_fa as BF
         terms = [{"id": 1, "name": "سناکوه (SKH)"}, {"id": 2, "name": "Makita"}, {"id": 3, "name": "ماکیتا"}]

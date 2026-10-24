@@ -639,6 +639,15 @@ class Handler(BaseHTTPRequestHandler):
                         p_ = pr.get(r["group"])
                         r["evidence"] = json.loads(p_["domains_json"])[:5] if p_ else []
                     return self._json({"rows": out})
+            if parts[:3] == ["api", "wc", "brands"]:
+                from crawler.wc import WC
+                w = WC(timeout=40)
+                if not w.ok():
+                    return self._err("WC_URL / WC_KEY / WC_SECRET not set")
+                terms = w.list_brands()
+                return self._json({"brands": None if terms is None else
+                                   [{"id": t.get("id"), "name": t.get("name"), "slug": t.get("slug"),
+                                     "count": t.get("count")} for t in terms]})
             if parts[:2] == ["api", "brands"] and parts[2:3] == ["download"]:
                 from crawler import brands_fa as BF
                 p_ = BF.path(build_cfg())
