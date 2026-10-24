@@ -181,7 +181,7 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             if brands is not None:
                 bid, new_brand = brands.id_for(br)
                 if bid:
-                    data["brands"] = [int(bid)]           # plain IDs: the form every Brands hook accepts
+                    data["brands"] = [{"id": int(bid)}]   # the product schema validates objects, not bare IDs
                 if new_brand:
                     res["brand"] += " (تازه)"
             if dry_run:
@@ -213,6 +213,10 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             log.info("publish %s %s -> #%s (%s)", res["action"], row["SKU"], res["product_id"], res["status"])
         except (WCError, OSError) as e:
             res.update(action="error", error=str(e)[:400])
+            prev = done[done["sku"] == row["SKU"]] if len(done) else done
+            if len(prev) and str(prev.iloc[-1].get("product_id") or ""):
+                res.update(product_id=prev.iloc[-1]["product_id"], edit_url=prev.iloc[-1]["edit_url"],
+                           status=prev.iloc[-1]["status"])
             counts["error"] += 1
             log.warning("publish error %s: %s", row["SKU"], e)
             if isinstance(e, WCError) and e.status in (401, 403):

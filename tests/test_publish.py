@@ -71,6 +71,8 @@ class FakeWoo(BaseHTTPRequestHandler):
             assert self._auth() == "ck_test:cs_test"
             d = json.loads(body)
             pid = 100 + len(FakeWoo.products)
+            if not all(isinstance(b, dict) and "id" in b for b in d.get("brands", [])):   # as the real site
+                return self._json({"code": "rest_invalid_param", "message": "brands"}, 400)
             d.update(id=pid, images=[{"id": i["id"]} for i in d.get("images", [])])
             FakeWoo.products[pid] = d
             return self._json(d, 201)
@@ -88,6 +90,8 @@ class FakeWoo(BaseHTTPRequestHandler):
         u = urlparse(self.path)
         d = json.loads(self._body())
         FakeWoo.calls.append(("PUT", u.path))
+        if not all(isinstance(b, dict) and "id" in b for b in d.get("brands", [])):
+            return self._json({"code": "rest_invalid_param", "message": "brands"}, 400)
         pid = int(u.path.rsplit("/", 1)[1])
         FakeWoo.products[pid].update({k: v for k, v in d.items() if k != "images"})
         if "images" in d:
@@ -172,7 +176,7 @@ class Publish(unittest.TestCase):
         self.assertEqual(p1["name"], "درایو 1 برند آنتو (Antu)")
         self.assertEqual(p2["name"], "درایو 2")              # no brand: name unchanged
         self.assertEqual(p1["attributes"][0]["options"], ["آنتو (Antu)"])
-        self.assertEqual(p1["brands"], [901])                # new brand term made on the site
+        self.assertEqual(p1["brands"], [{"id": 901}])        # new brand term made on the site
         self.assertEqual(FakeWoo.brands[-1]["name"], "آنتو (Antu)")
         self.assertNotIn("attributes", p2)
         self.assertIn({"key": "_caravan_supplier", "value": "Nanjing Antu Elevator Parts Co., Ltd."}, p1["meta_data"])
