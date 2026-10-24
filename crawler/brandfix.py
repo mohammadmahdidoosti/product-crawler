@@ -36,6 +36,8 @@ def clean_brand(brand: str, name: str = "") -> str:
         return ""
     if " | " in b:                                     # 'LINAK | لیناک' -> keep both readable forms once
         b = b.split(" | ")[0].strip()
+    if re.search(r"(^|\s)(www\.)?[\w\-]+\.(com|ir|net|org|co|shop|store|online|info|biz|io)(\.[a-z]{2})?($|[\s/])", b, re.I):
+        return ""                                      # 'kalayefani.com': the shop's website, not a brand
     nb = norm_text(b)
     if nb in COUNTRIES or nb in NOT_BRANDS or len(b) > 30 or len(b) < 2:
         return ""

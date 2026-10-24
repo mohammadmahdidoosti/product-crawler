@@ -101,8 +101,19 @@ def save(cfg: dict, df: pd.DataFrame) -> Path:
     return write_csv(df, path(cfg))
 
 
+DOMAIN = re.compile(r"(^|[\s(])(www\.)?[\w\-]+(\.[\w\-]+)*\.(com|ir|net|org|co|shop|store|online|info|biz|io|me|site)"
+                    r"(\.[a-z]{2})?($|[\s)/])", re.I)
+
+
+def is_domain(b: str) -> bool:
+    """'kalayefani.com', 'www.abzar.ir' or 'فروشگاه X (shop.ir)': a website, never a brand."""
+    return bool(DOMAIN.search(str(b or "").strip()))
+
+
 def kind_of(rec: dict) -> str:
     b = str(rec.get("brand") or "")
+    if is_domain(b):
+        return "shop"
     if rec.get("brand_source") in ("supplier", "domain") and rec.get("source_type") != "foreign":
         return "shop"                                   # an Iranian shop's name, not a brand
     if FA_CHARS.search(b) and not LAT_CHARS.search(b):
@@ -248,6 +259,9 @@ def build(cfg: dict, recs: list[dict], redo: bool = False, wc=None, progress=Non
         row = {**(old or {}), "source": r["source"], "kind": (old or {}).get("kind") or r["kind"],
                "suppliers": r["suppliers"] or (old or {}).get("suppliers", ""), "products": r["products"],
                "example": r["example"]}
+        if old and old.get("by") != "manual" and r["kind"] == "shop" and old.get("kind") != "shop":
+            old = None                                   # e.g. a website name the first build took for a brand
+            row["kind"] = "shop"
         if old and (old.get("by") == "manual" or (not redo and (old.get("display") or old.get("kind") == "shop"))):
             out[k] = row
             continue
@@ -336,8 +350,8 @@ def resolve(rec: dict, t: dict[str, dict]) -> dict:
     """{'status': ok | none | missing, 'display', 'fa', 'en', 'original'} for one product."""
     b = re.sub(r"\s+", " ", str(rec.get("brand") or "")).strip()
     original = (str(rec.get("sellers") or rec.get("seller_name") or "").split(" | ")[0]).strip()
-    if not b:
-        return {"status": "none", "display": "", "fa": "", "en": "", "original": original}
+    if not b or is_domain(b):                       # a website name is never sent as a brand
+        return {"status": "none", "display": "", "fa": "", "en": "", "original": original, "source": b}
     x = t.get(key(b))
     if not x:
         return {"status": "missing", "display": "", "fa": "", "en": "", "original": original, "source": b}

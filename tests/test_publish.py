@@ -248,6 +248,7 @@ class Brands(unittest.TestCase):
             {"brand": "رونیکس", "brand_source": "page", "source_type": "iran", "sellers": "ابزار آرین", "name": "دریل"},
             {"brand": "ابزار آرین", "brand_source": "supplier", "source_type": "iran", "sellers": "ابزار آرین", "name": "z"},
             {"brand": "سناکوه (SKH)", "brand_source": "page", "source_type": "iran", "sellers": "s", "name": "w"},
+            {"brand": "kalayefani.com", "brand_source": "page", "source_type": "iran", "sellers": "کالای فنی", "name": "v"},
         ]
 
     def test_build_and_apply(self):
@@ -261,7 +262,7 @@ class Brands(unittest.TestCase):
 
         with mock.patch.object(BF.Namer, "ask", fake_ask):
             res = BF.build(self.cfg, self.recs())
-        self.assertEqual(res["brands"], 5)
+        self.assertEqual(res["brands"], 6)
         self.assertEqual(sorted(a["brand"] for a in asked), ["FUEN", "Nanjing Antu Elevator Parts"])
         self.assertTrue(next(a for a in asked if a["brand"].startswith("Nanjing"))["company"])
         t = BF.table(self.cfg)
@@ -271,6 +272,20 @@ class Brands(unittest.TestCase):
         self.assertEqual(t[BF.key("رونیکس")]["display"], "رونیکس")                      # Persian: as it is
         self.assertEqual(t[BF.key("ابزار آرین")]["display"], "")                           # a shop is no brand
         self.assertEqual(t[BF.key("سناکوه (SKH)")]["display"], "سناکوه (SKH)")
+        self.assertEqual(t[BF.key("kalayefani.com")]["kind"], "shop")                     # a website is no brand
+        self.assertEqual(t[BF.key("kalayefani.com")]["display"], "")
+        self.assertNotIn("kalayefani.com", [x["brand"] for x in asked])
+        # a website the table already holds as a 'brand' (made before this rule) is turned into a shop
+        df = BF.load(self.cfg)
+        i = df.index[df["source"] == "kalayefani.com"][0]
+        df.loc[i, ["kind", "en", "fa", "by"]] = ["foreign", "Kalayefani", "کالایفانی", "deepseek"]
+        BF.save(self.cfg, df)
+        with mock.patch.object(BF.Namer, "ask", fake_ask):
+            BF.build(self.cfg, self.recs())
+        self.assertEqual(BF.table(self.cfg)[BF.key("kalayefani.com")]["display"], "")
+        from crawler.brandfix import clean_brand
+        self.assertEqual(clean_brand("kalayefani.com"), "")
+        self.assertEqual(clean_brand("FUEN"), "FUEN")
 
         br = BF.resolve(self.recs()[0], t)
         self.assertEqual(BF.name_with_brand("فلوتر آسانسوری یک اینچ", br), "فلوتر آسانسوری یک اینچ برند آنتو (Antu)")
