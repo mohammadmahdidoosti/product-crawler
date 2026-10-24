@@ -460,3 +460,22 @@ class Names(unittest.TestCase):
         self.assertEqual(BF.name_with_brand(n, BF.from_name(n, t)), n)        # not 'برند ماتو درایو' again
         br = {"status": "ok", "fa": "ماتو درایو", "en": "Mato Drive", "display": "ماتو درایو (Mato Drive)", "source": "x"}
         self.assertEqual(BF.name_with_brand(n, br), n)
+
+
+class PriceCheck(unittest.TestCase):
+    def test_held_back_never_changed(self):
+        from crawler.pipeline import price_sanity
+        base = {"breadcrumb": "ابزار > دریل > دریل بتن کن", "price_flags": "", "price_estimated": ""}
+        recs = [{**base, "url": str(i), "price_toman": str(p)} for i, p in
+                enumerate([18_000_000, 21_000_000, 25_000_000, 19_500_000, 519_000_000, 175_500, 4_000_000])]
+        recs.append({**base, "url": "f", "price_toman": "900000000", "price_flags": "foreign_x2"})
+        recs.append({**base, "url": "r", "price_toman": "300000000", "price_estimated": "reviewed"})
+        out = {r["url"]: r for r in price_sanity(recs)}
+        self.assertTrue(out["4"]["price_check"].startswith("suspicious"))     # 519M: out of range
+        self.assertIn("51,900,000", out["4"]["price_check"])                  # the hint, not a change
+        self.assertEqual(out["4"]["price_toman"], "519000000")
+        self.assertTrue(out["5"]["price_check"].startswith("suspicious"))     # 175,500: far below
+        self.assertNotIn("price_check", out["0"])
+        self.assertNotIn("price_check", out["6"])                             # 4M: within 8x of the median
+        self.assertNotIn("price_check", out["f"])                             # dollar prices: not checked
+        self.assertNotIn("price_check", out["r"])                             # set on the review page

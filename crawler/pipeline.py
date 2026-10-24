@@ -724,6 +724,56 @@ def _usd_price(r: dict) -> str:
     return f"{v:.2f}".rstrip("0").rstrip(".") if v > 0 else ""
 
 
+def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, high: float = 150_000_000) -> list[dict]:
+    """Prices that look 10x off (rial read as toman, or the reverse) are held back, never changed:
+    far from the median of the other products of the category in this run (else of its parent),
+    or outside an absolute range. The note says what /10 or x10 would give, for the review page,
+    where a person sets the right price (that price is then trusted). Foreign prices are left alone."""
+    from statistics import median
+
+    def num(x):
+        try:
+            v = float(x)
+            return v if v > 0 else None
+        except (TypeError, ValueError):
+            return None
+    groups: dict[str, list[float]] = {}
+    for r in recs:
+        v = num(r.get("price_toman"))
+        # the reference is made of ordinary toman prices only: no dollar prices, nothing out of range
+        if v and low <= v <= high and "foreign_x" not in str(r.get("price_flags") or "") \
+                and r.get("price_estimated") != "reviewed":
+            leaf = str(r.get("breadcrumb") or "")
+            groups.setdefault("leaf:" + leaf, []).append(v)
+            groups.setdefault("parent:" + leaf.rsplit(" > ", 1)[0], []).append(v)
+    out = []
+    for r in recs:
+        v = num(r.get("price_toman"))
+        if not v or "foreign_x" in str(r.get("price_flags") or "") or r.get("price_estimated") == "reviewed":
+            out.append(r)
+            continue
+        leaf = str(r.get("breadcrumb") or "")
+        ref = None
+        for g in ("leaf:" + leaf, "parent:" + leaf.rsplit(" > ", 1)[0]):
+            others = list(groups.get(g, []))
+            if v in others:
+                others.remove(v)
+            if len(others) >= 3:
+                ref = median(others)
+                break
+        why = ""
+        if v > high or v < low:
+            why = f"{v:,.0f} تومان بیرون از بازه‌ی {low:,.0f} تا {high:,.0f}"
+        elif ref and not (1 / factor <= v / ref <= factor):
+            why = f"{v:,.0f} تومان؛ میانه‌ی دسته {ref:,.0f}"
+        if why:
+            hint = f"شاید {v / 10:,.0f}" if (v > high or (ref and v > ref)) else f"شاید {v * 10:,.0f}"
+            r = {**r, "price_check": f"suspicious: {why} ({hint})"}
+            log.warning("price held back %s: %s", r.get("url"), r["price_check"])
+        out.append(r)
+    return out
+
+
 def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
     """(product record, WooCommerce row) for every new product, after the review page's decisions.
     Shared by the CSV export and direct publishing, so both send exactly the same thing."""
@@ -741,6 +791,10 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
         imgs = {r["url"]: public_urls(cfg, r["files"]) for r in read_csv(d / "05_images.csv").to_dict("records")}
     from .review import apply as apply_review
     recs, imgs = apply_review(d, new.to_dict("records"), imgs)        # decisions taken on the review page
+    pc = cfg.get("price", {})
+    if pc.get("category_check", True):
+        recs = price_sanity(recs, float(pc.get("check_factor", 8)), float(pc.get("check_min_toman", 150_000)),
+                            float(pc.get("check_max_toman", 150_000_000)))
     desc = {}
     if (d / "05_descriptions.csv").exists():
         desc = {x["url"]: x for x in read_csv(d / "05_descriptions.csv").to_dict("records")}
@@ -781,6 +835,7 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
             "Meta: _caravan_price_estimated": r.get("price_estimated", ""),
             "Meta: _caravan_source_url": r.get("url", ""),
             "Meta: _caravan_price_toman": r.get("price_toman", ""),
+            "Meta: _caravan_price_check": r.get("price_check", ""),
             "Meta: _caravan_brand_source": br.get("source", ""),
             "Meta: _caravan_supplier": br.get("original", ""),
         }))

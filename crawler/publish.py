@@ -173,6 +173,8 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             problems.append(f"دسته‌ی وردپرس برای شناسه‌ی {', '.join(missing) or '؟'} پیدا نشد")
         if not data["regular_price"]:
             problems.append("بدون قیمت دلاری")
+        if str(rec.get("price_check") or "").startswith("suspicious"):
+            problems.append("قیمت مشکوک (" + rec["price_check"].replace("suspicious: ", "") + ") — در صفحه‌ی بازبینی قیمت را تأیید کنید")
         if br.get("status") == "missing":
             problems.append(f"برند «{br.get('source')}» هنوز در جدول برندها نیست")
         if problems:

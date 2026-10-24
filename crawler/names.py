@@ -46,7 +46,9 @@ def _drop_shop_suffix(name: str, shops: list[str]) -> str:
         return name
     last = norm_text(parts[-1])
     keys = [norm_text(s) for s in shops if s]
-    if any(k and (k in last or last in k) for k in keys) or re.match(r"^(ابزار|فروشگاه|مرکز|بازار)\s", last):
+    shop_like = re.match(r"^(ابزار|فروشگاه|مرکز|بازار|کالا|شار)\S*(\s|$)", last) and len(last.split()) <= 3 \
+        and not re.search(r"\d", last)                    # '- ابزارت', '- شار ابزار ✔️'; never '- 720 وات'
+    if any(k and (k in last or last in k) for k in keys) or shop_like:
         return " - ".join(parts[:-1])
     return name
 
