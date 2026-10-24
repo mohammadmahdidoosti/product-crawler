@@ -50,6 +50,10 @@ class FakeWoo(BaseHTTPRequestHandler):
         if u.path == "/wp-json/wc/v3/products/brands":
             page = int(q.get("page", ["1"])[0])
             return self._json(FakeWoo.brands[(page - 1) * 100: page * 100])
+        if u.path == "/wp-json/wc/v3/products" and "brand" in q:
+            bid = int(q["brand"][0])
+            return self._json([dict(p, brands=[{"id": i} for i in p.get("_b", [])]) for p in FakeWoo.products.values()
+                               if bid in p.get("_b", [])])
         if u.path == "/wp-json/wc/v3/products":
             sku = q.get("sku", [""])[0]
             return self._json([p for p in FakeWoo.products.values() if p["sku"] == sku] if sku
@@ -86,6 +90,13 @@ class FakeWoo(BaseHTTPRequestHandler):
             return self._json({"id": int(u.path.rsplit("/", 1)[1])})
         return self._json({"code": "rest_no_route"}, 404)
 
+    def do_DELETE(self):
+        u = urlparse(self.path)
+        FakeWoo.calls.append(("DELETE", u.path))
+        tid = int(u.path.rsplit("/", 1)[1])
+        FakeWoo.brands = [t for t in FakeWoo.brands if t["id"] != tid]
+        return self._json({"deleted": True})
+
     def do_PUT(self):
         u = urlparse(self.path)
         d = json.loads(self._body())
@@ -93,6 +104,8 @@ class FakeWoo(BaseHTTPRequestHandler):
         if not all(isinstance(b, dict) and "id" in b for b in d.get("brands", [])):
             return self._json({"code": "rest_invalid_param", "message": "brands"}, 400)
         pid = int(u.path.rsplit("/", 1)[1])
+        if "brands" in d:
+            FakeWoo.products[pid]["_b"] = [x["id"] for x in d["brands"]]
         FakeWoo.products[pid].update({k: v for k, v in d.items() if k != "images"})
         if "images" in d:
             FakeWoo.products[pid]["images"] = d["images"]
@@ -222,6 +235,23 @@ class Publish(unittest.TestCase):
         res = PB.publish(self.cfg, "batch-1", limit=10, dry_run=True)
         self.assertEqual(res["counts"]["checked"], 2)        # products 2 and 4 have no brand at all
         self.assertTrue(any("جدول برندها" in r["error"] for r in res["rows"]))
+
+    def test_merge_site_brands(self):
+        FakeWoo.brands = [{"id": 1583, "name": "BSPOOL (بی اس پول)"}, {"id": 1584, "name": "BSPOOL(بی اس پول)"}]
+        FakeWoo.products = {1: {"id": 1, "sku": "a", "name": "x", "status": "publish", "_b": [1583]},
+                            2: {"id": 2, "sku": "b", "name": "y", "status": "publish", "_b": [1584]},
+                            3: {"id": 3, "sku": "c", "name": "z", "status": "draft", "_b": [1583, 77]}}
+        w = WCM.WC()
+        rep = w.merge_brands(1583, 1584)                     # dry run by default: nothing changes
+        self.assertEqual([p["id"] for p in rep["products"]], [1, 3])
+        self.assertFalse(rep["deleted"])
+        self.assertEqual(len(FakeWoo.brands), 2)
+        rep = w.merge_brands(1583, 1584, dry_run=False)
+        self.assertTrue(rep["deleted"])
+        self.assertEqual([t["id"] for t in FakeWoo.brands], [1584])
+        self.assertEqual(FakeWoo.products[1]["_b"], [1584])
+        self.assertEqual(FakeWoo.products[3]["_b"], [77, 1584])    # other brands of the product kept
+        self.assertEqual(FakeWoo.products[2]["_b"], [1584])
 
     def test_category_map_not_under_data(self):
         self.assertEqual(WCM.category_map().get("14339"), "1635")   # from assets/, DATA_DIR has none

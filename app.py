@@ -806,6 +806,11 @@ class Handler(BaseHTTPRequestHandler):
                 run_path(parts[2])
                 err = JOB.start("brands", parts[2], {"redo": bool(self._jbody().get("redo"))})
                 return self._err(err, 409) if err else self._json({"ok": True})
+            if parts[:4] == ["api", "wc", "brands", "merge"]:     # {"from": id, "to": id, "dry_run": true}
+                from crawler.wc import WC
+                b = self._jbody()
+                return self._json(WC(timeout=60).merge_brands(int(b["from"]), int(b["to"]),
+                                                              dry_run=b.get("dry_run", True) is not False))
             if parts[:2] == ["api", "brands"] and len(parts) == 2:
                 from crawler import brands_fa as BF
                 return self._json({"ok": True, "saved": BF.edit(build_cfg(), self._jbody().get("rows") or [])})

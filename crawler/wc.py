@@ -108,6 +108,44 @@ class WC:
                 return out
             page += 1
 
+    def products_of_brand(self, brand_id: int) -> list[dict]:
+        """Every product (any status) carrying a brand; refuses if the site ignores the brand filter."""
+        out, page = [], 1
+        while True:
+            j = self._call(lambda: self._wc("GET", "products", params={"brand": brand_id, "status": "any",
+                                                                       "per_page": 100, "page": page}), "products of brand")
+            if not isinstance(j, list) or not j:
+                return out
+            wrong = [p["id"] for p in j if brand_id not in [b.get("id") for b in p.get("brands") or []]]
+            if wrong:
+                raise WCError(f"the site ignored the brand filter (product {wrong[0]} lacks brand {brand_id})")
+            out += j
+            if len(j) < 100:
+                return out
+            page += 1
+
+    def merge_brands(self, src: int, dst: int, dry_run: bool = True) -> dict:
+        """Move every product of brand `src` to brand `dst`, then delete `src`."""
+        terms = {t["id"]: t for t in (self.list_brands() or [])}
+        if src not in terms or dst not in terms or src == dst:
+            raise WCError(f"brand IDs not found or equal: {src} -> {dst}")
+        prods = self.products_of_brand(src)
+        rep = {"from": terms[src]["name"], "to": terms[dst]["name"], "products": [
+            {"id": p["id"], "name": p.get("name"), "status": p.get("status")} for p in prods], "deleted": False}
+        if dry_run:
+            return rep
+        for p in prods:
+            ids = [b["id"] for b in p.get("brands") or [] if b.get("id") != src]
+            ids = ids + [dst] if dst not in ids else ids
+            self.update_product(p["id"], {"brands": [{"id": i} for i in ids]})
+        left = self.products_of_brand(src)
+        if left:
+            raise WCError(f"{len(left)} product(s) still on brand {src}; it was not deleted")
+        self._call(lambda: self._wc("DELETE", f"products/brands/{src}", params={"force": "true"}), f"delete brand {src}")
+        rep["deleted"] = True
+        log.info("brands merged: %s -> %s (%d products)", rep["from"], rep["to"], len(prods))
+        return rep
+
     def create_brand(self, name: str) -> dict:
         try:
             return self._call(lambda: self._wc("POST", "products/brands", json={"name": name}), f"brand {name}", tries=1)
