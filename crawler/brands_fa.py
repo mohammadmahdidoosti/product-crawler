@@ -498,6 +498,42 @@ def resolve(rec: dict, t: dict[str, dict]) -> dict:
             "original": original, "source": b}
 
 
+def _contains(text_key: str, w: str) -> bool:
+    w = key(w)
+    if len(re.sub(r"[\s\u200c]", "", w)) < 3:
+        return False
+    if LAT_CHARS.search(w):
+        return bool(re.search(rf"(?<![a-z0-9]){re.escape(w)}(?![a-z0-9])", text_key))
+    return bool(re.search(rf"(?<![\u0600-\u06FF]){re.escape(w)}(?![\u0600-\u06FF])", text_key))
+
+
+def from_name(name: str, t: dict[str, dict]) -> dict | None:
+    """A product with no brand whose name says it: 'موتور گیربکس abb' -> the table's ABB row.
+    The longest Persian or Latin name of a table brand found as a whole word wins."""
+    n = key(re.sub(r"[\-_]+", " ", str(name or "")))
+    n = re.sub(r"(?<=[^\d\s.])(?=\d)|(?<=\d)(?=[^\d\s.,/])", " ", n)      # 'ماتودرایو13' -> 'ماتودرایو 13'
+    best, size = None, 0
+    for x in t.values():
+        if not x.get("display") or x.get("kind") == "shop":
+            continue
+        for w in {x.get("fa", ""), x.get("en", ""), x.get("display", "")}:
+            if not w:
+                continue
+            for v in {w, w.replace(" ", ""), w.replace(" ", "\u200c")}:      # 'ماتو درایو' also as 'ماتودرایو'
+                if _contains(n, v) and len(w) > size:
+                    best, size = x, len(w)
+    if best is not None:
+        return {"status": "ok", "display": best["display"], "fa": best.get("fa", ""), "en": best.get("en", ""),
+                "source": best.get("source", ""), "from_name": True}
+    k = known(name)                                   # a brand the project's brands.csv knows (میلواکی …)
+    if k:
+        fa, en, origin = k
+        disp = fa if origin == "iranian" else display(fa, en)
+        return {"status": "ok", "display": disp, "fa": fa, "en": en if origin != "iranian" else "",
+                "source": fa, "from_name": True}
+    return None
+
+
 def has_brand(name: str, br: dict) -> bool:
     n = key(name)
     for w in (br.get("fa"), br.get("en"), br.get("source")):

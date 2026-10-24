@@ -378,3 +378,40 @@ class Brands(unittest.TestCase):
         self.assertEqual(BF.split_display("Mega-Tek Instrument (Chengdu)"), ("", "Mega-Tek Instrument (Chengdu)"))
         self.assertEqual(BF.split_display("فوئن (FUEN)"), ("فوئن", "FUEN"))
         self.assertEqual(BF.split_display("رونیکس"), ("رونیکس", ""))
+
+
+class Names(unittest.TestCase):
+    def test_clean_name(self):
+        from crawler.names import clean_name
+        cases = {
+            "پک 10 کاره ماکیتا مدل DCG405 (198 ولت) شارژی ا Pack of 10 pieces Makita DCG405 (( اقساط یک ساله ))":
+                "پک 10 کاره ماکیتا مدل DCG405 (198 ولت) شارژی",
+            "قیمت وخرید اره باغبانی 20 سانتی متری شارژی براشلس توسن مدل 9560 - ابزار توسن":
+                "اره باغبانی 20 سانتی متری شارژی براشلس توسن مدل 9560",
+            "خرید چکی اره زنجیری 30 سانتی براشلس ویوارکس مدل VR2412V-CS با چک صیادی در کرج و تهران":
+                "اره زنجیری 30 سانتی براشلس ویوارکس مدل VR2412V-CS",
+            "موتور آسانسور گیرلس بهران 10 نفره { قیمت + سرعت های 1 و 1.6 }":
+                "موتور آسانسور گیرلس بهران 10 نفره (سرعت های 1 و 1.6)",
+            "موتور آسانسور بهران 5.5 کیلووات { قیمت و موجودی روز }": "موتور آسانسور بهران 5.5 کیلووات",
+            "اره عمودبر بوش مدل GST 65 BE فروشگاه اینترنتی سیمین ابزار": "اره عمودبر بوش مدل GST 65 BE",
+            "خرید و قیمت اره عمودبر بوش مدل GST 8000 E اصل آلمان": "اره عمودبر بوش مدل GST 8000 E",
+            "موتور گیرلس آسانسور ویتور قیمت": "موتور گیرلس آسانسور ویتور",
+            "قیمت رسیور کرکره برقی ساید پاور POWER + مشخصات کامل": "رسیور کرکره برقی ساید پاور POWER",
+            # what the product is stays, including that it is not original
+            "قیمت و مشخصات اره موتوری اشتیل مدل MS 381 (های کپی)": "اره موتوری اشتیل مدل MS 381 (های کپی)",
+            "فلوتر آسانسوری یک اینچ، پلاستیک": "فلوتر آسانسوری یک اینچ، پلاستیک",
+            "موتور مونو درایو 16 نفره سرعت 1 متر بر ثانیه { دیسکی }": "موتور مونو درایو 16 نفره سرعت 1 متر بر ثانیه (دیسکی)",
+        }
+        for raw, want in cases.items():
+            self.assertEqual(clean_name(raw, ["ابزار توسن"]), want, raw)
+
+    def test_brand_from_name(self):
+        from crawler import brands_fa as BF
+        t = {BF.key("mato drive"): {"source": "mato drive", "kind": "foreign", "fa": "ماتو درایو", "en": "Mato Drive",
+                                     "display": "ماتو درایو (Mato Drive)"},
+             BF.key("ABB"): {"source": "ABB", "kind": "foreign", "fa": "ای‌بی‌بی", "en": "ABB", "display": "ای‌بی‌بی (ABB)"},
+             BF.key("x.com"): {"source": "x.com", "kind": "shop", "fa": "", "en": "", "display": ""}}
+        self.assertEqual(BF.from_name("موتور آسانسور گیرلس دیسکی ماتودرایو16 نفره", t)["display"], "ماتو درایو (Mato Drive)")
+        self.assertEqual(BF.from_name("موتور گیربکس abb", t)["display"], "ای‌بی‌بی (ABB)")
+        self.assertIsNone(BF.from_name("موتور گیربکس cabbage", t))         # whole words only
+        self.assertEqual(BF.from_name("اره برقی بوش مدل X", t)["display"], "بوش (Bosch)")   # brands.csv

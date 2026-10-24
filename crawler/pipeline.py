@@ -745,16 +745,24 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
     if (d / "05_descriptions.csv").exists():
         desc = {x["url"]: x for x in read_csv(d / "05_descriptions.csv").to_dict("records")}
     from . import brands_fa as BF
+    from .names import clean_name
     bt = BF.table(cfg)
     rows = []
     for r in recs:
         ds = desc.get(r["url"]) or {}
+        shops = [x.strip() for x in str(r.get("sellers") or r.get("seller_name") or "").split(" | ")] + \
+                [str(r.get("source_domain") or "")]
+        base = clean_name(r.get("name_fa") or r["name"], shops)          # no 'قیمت و خرید', '(( اقساط ))', shop names
         br = BF.resolve(r, bt)
+        if br["status"] == "none":                                      # no brand on file: the name may say it
+            fn = BF.from_name(base, bt)
+            if fn:
+                br = {**fn, "original": br.get("original", "")}
         r = {**r, "_brand": br}
         brand = br["display"] if br["status"] == "ok" else (r.get("brand", "") if br["status"] == "missing" else "")
         rows.append((r, {
             "Type": "simple", "SKU": caravan_sku(r["url"]),
-            "Name": BF.name_with_brand(r.get("name_fa") or r["name"], br),
+            "Name": BF.name_with_brand(base, br),
             "Published": cfg.get("export", {}).get("published", 0),
             "Visibility in catalog": "visible",
             "Description": (ds.get("html") or "") + _spec_html(r), "Short description": ds.get("short", ""),
