@@ -278,6 +278,7 @@ td select,td input{padding:3px 6px;font-size:12.5px}
         <button class="btn ink" id="pubBtn">ارسال به سایت</button>
         <button class="btn ghost" id="pubLive" title="همه‌ی محصولات ارسال‌شده‌ی این اجرا در سایت منتشر می‌شوند">انتشار همه در سایت</button>
       </div>
+      <div id="pubJob" class="muted" style="font-size:12.5px;margin-top:10px"></div>
       <div id="pubOut" style="margin-top:12px"></div>
     </div>
   </section>
@@ -711,13 +712,16 @@ async function poll(force){
     if(STATE) STATE.job=j;
     renderJob(j);
     if((was && !j.running) || force || stepChanged) await loadState(); else if(STATE) renderRoute();
-    if(LAST_END===null) LAST_END = j.ended||0;               // jobs that ended before this page opened
-    else if(!j.running && j.ended && j.ended!==LAST_END){      // a job finished (even between two polls)
-      LAST_END=j.ended;
-      if(j.step==='publish' || j.step==='status') loadPub();
-      if(j.step==='brands') loadBrands();
+    for(const [lane, x] of [['crawl', j], ['site', j.site||{}]]){   // two lanes: crawl, and the shop
+      if(!(lane in LAST_END)) LAST_END[lane] = x.ended||0;            // jobs that ended before this page opened
+      else if(!x.running && x.ended && x.ended!==LAST_END[lane]){     // a job finished (even between two polls)
+        LAST_END[lane]=x.ended;
+        if(x.step==='publish' || x.step==='status') loadPub();
+        if(x.step==='brands') loadBrands();
+      }
     }
-    pollTimer = setTimeout(poll, j.running ? 2000 : 15000);   // also keeps the free server awake
+    renderSiteJob(j.site||{});
+    pollTimer = setTimeout(poll, (j.running || (j.site && j.site.running)) ? 2000 : 15000);   // also keeps the free server awake
   }catch(e){ pollTimer=setTimeout(poll, 5000); }
 }
 // ---------------- publish to the site
@@ -741,7 +745,16 @@ $('#pubBtn').onclick = async ()=>{
 // brand table
 const BR_KIND = {foreign:'خارجی', iranian:'ایرانی', shop:'فروشگاه (بدون برند)'};
 const BR_BY = {deepseek:'DeepSeek', rule:'خودکار', manual:'دستی', '':'—'};
-let BR_ROWS = [], BR_DIRTY = {}, LAST_END = null;
+let BR_ROWS = [], BR_DIRTY = {}, LAST_END = {};
+function renderSiteJob(x){
+  const el=$('#pubJob'); if(!el) return;
+  if(!x.step){ el.innerHTML=''; return; }
+  const p=x.progress||{}, last=(x.logs||[]).slice(-1)[0]||'';
+  el.innerHTML = x.running
+    ? `<b>در حال اجرا (${esc(STEP_FA[x.current||x.step]||x.step)} · ${esc(x.run)}):</b> ${fa(p.done)} از ${fa(p.total)} <button class="btn ghost sm" id="siteStop">توقف</button><div class="ltr" style="font-size:11.5px">${esc(last)}</div>`
+    : `آخرین کار سایت: «${esc(STEP_FA[x.step]||x.step)}» روی ${esc(x.run)} — ${x.ok?'تمام شد':'متوقف شد یا خطا داد'}${x.error?': '+esc(x.error):''}`;
+}
+document.addEventListener('click', e=>{ if(e.target.closest('#siteStop')) post('/api/job/stop',{lane:'site'}).then(()=>toast('توقف بعد از محصول‌های در حال ارسال')); });
 const brDisp = (f,e)=>{ f=(f||'').trim(); e=(e||'').trim(); return f&&e&&f.toLowerCase()!==e.toLowerCase() ? `${f} (${e})` : (f||e); };
 async function loadBrands(){
   if(!CUR_RUN) return;

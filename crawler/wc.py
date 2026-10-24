@@ -12,6 +12,7 @@ from __future__ import annotations
 import logging
 import mimetypes
 import os
+import threading
 import time
 from pathlib import Path
 
@@ -34,8 +35,16 @@ class WC:
         self.wp_user = os.environ.get("WP_USER", "caravan-crawler")
         self.wp_pass = os.environ.get("WP_APP_PASSWORD", "")
         self.timeout = timeout
-        self.s = requests.Session()
-        self.s.headers.update({"User-Agent": "CaravanSanatCrawler/1.0 (+https://caravansanat.com)"})
+        self._local = threading.local()                # one HTTP session per thread (parallel publish)
+
+    @property
+    def s(self) -> requests.Session:
+        s = getattr(self._local, "s", None)
+        if s is None:
+            s = requests.Session()
+            s.headers.update({"User-Agent": "CaravanSanatCrawler/1.0 (+https://caravansanat.com)"})
+            self._local.s = s
+        return s
 
     def ok(self) -> bool:
         return bool(self.base and self.key and self.secret)
@@ -165,15 +174,11 @@ class WC:
     def upload_media(self, path: Path, filename: str, alt: str = "") -> dict:
         ctype = mimetypes.guess_type(filename)[0] or "image/webp"
         data = path.read_bytes()
-        j = self._call(lambda: self._wp("POST", "media", data=data, headers={
+        # alt text and title travel with the upload itself (query parameters): one request per photo
+        params = {"alt_text": alt, "title": alt} if alt else None
+        return self._call(lambda: self._wp("POST", "media", data=data, params=params, headers={
             "Content-Type": ctype, "Content-Disposition": f'attachment; filename="{filename}"'}),
             f"upload {filename}")
-        if alt and j.get("id"):
-            try:
-                self._wp("POST", f"media/{j['id']}", json={"alt_text": alt, "title": alt})
-            except requests.RequestException:
-                pass
-        return j
 
     # ------------------------------------------------------------------ checks
 

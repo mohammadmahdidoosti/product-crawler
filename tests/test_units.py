@@ -176,3 +176,27 @@ class Routing(unittest.TestCase):
         # the top-level title is not a brand, and "قطعات" in it is not a spare part
         self.assertEqual(rule_route("مصالح و شیمی ساختمان > چسب کاشی")["kind"], "local_category")
         self.assertEqual(rule_route("قطعات مکانیکی و انتقال قدرت > بلبرینگ")["decision"], "probe")
+
+
+
+class DeadSites(unittest.TestCase):
+    def test_dead_site_is_remembered_across_runs(self):
+        import tempfile, time as _t
+        from pathlib import Path
+        from crawler.fetch import Fetcher
+        with tempfile.TemporaryDirectory() as tmp:
+            cfg = {"_data_dir": Path(tmp), "http": {"dead_after_failures": 2, "dead_days": 3}}
+            f = Fetcher(cfg)
+            f._failed("slow.example.ir")
+            f._failed("slow.example.ir")
+            self.assertTrue(f.is_dead("https://slow.example.ir/p/1"))
+            g = Fetcher(cfg)                                   # the next run
+            self.assertTrue(g.is_dead("https://slow.example.ir/p/2"))
+            self.assertFalse(g.is_dead("https://ok-shop.ir/"))
+            cfg["http"]["dead_days"] = 0
+            import json
+            p = Path(tmp) / "dead_sites.json"
+            d = json.loads(p.read_text())
+            d["example.ir"]["until"] = _t.time() - 1      # expired: tried afresh
+            p.write_text(json.dumps(d))
+            self.assertFalse(Fetcher(cfg).is_dead("https://slow.example.ir/p/3"))

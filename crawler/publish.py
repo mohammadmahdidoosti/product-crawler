@@ -21,7 +21,9 @@ Results: data/runs/<run>/07_published.csv, one row per SKU, updated on every pub
 from __future__ import annotations
 
 import logging
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import pandas as pd
@@ -149,12 +151,16 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
     brands = SiteBrands(wc, dry_run) if (wc.ok() or not dry_run) else None
     if brands is not None and not brands.available:
         log.warning("the site has no WooCommerce Brands endpoint: brand kept as an attribute only")
-    out, counts = [], {"created": 0, "updated": 0, "skipped": 0, "error": 0, "checked": 0}
-    for i, (rec, row) in enumerate(items):
-        if stop and stop():
-            break
-        if progress:
-            progress(i, len(items))
+    known = {}                                       # SKU -> (product id, had photos) from earlier publishes
+    if len(done):
+        for r in done.to_dict("records"):
+            pid = str(r.get("product_id") or "").replace(".0", "")
+            if pid and r.get("action") in ("created", "updated"):
+                known[r["sku"]] = (int(pid), str(r.get("images") or "0") not in ("0", ""))
+
+    # 1. checks and brand terms, one after the other (cheap; a new brand is created exactly once)
+    out, counts, work = [], {"created": 0, "updated": 0, "skipped": 0, "error": 0, "checked": 0}, []
+    for rec, row in items:
         data, missing = payload(cfg, rec, row, cats)
         files = local_images(cfg, row.get("Images"))
         br = rec.get("_brand") or {}
@@ -184,48 +190,106 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
                     data["brands"] = [{"id": int(bid)}]   # the product schema validates objects, not bare IDs
                 if new_brand:
                     res["brand"] += " (تازه)"
-            if dry_run:
-                res.update(action="checked", status="draft")
-                counts["checked"] += 1
-                out.append(res)
-                continue
-            existing = wc.find_by_sku(row["SKU"])
-            need_images = files and (not existing or not existing.get("images"))
-            if need_images and wc.can_upload():
-                media = []
-                for n, f in enumerate(files, 1):
-                    m = wc.upload_media(f, f"{row['SKU'].lower()}-{n}{f.suffix}", alt=row["Name"])
-                    media.append({"id": m["id"]})
-                data["images"] = media
-            elif need_images:
-                data["images"] = [{"src": u.strip()} for u in str(row.get("Images") or "").split(",") if u.strip()]
-            if existing:
-                data.pop("status", None)              # never un-publish a product someone published
-                p = wc.update_product(existing["id"], data)
-                res["action"] = "updated"
-            else:
-                p = wc.create_product(data)
-                res["action"] = "created"
-            res.update(product_id=p.get("id", ""), status=p.get("status", ""),
-                       edit_url=f"{wc.base}/wp-admin/post.php?post={p.get('id')}&action=edit",
-                       images=len(p.get("images") or []))
-            counts[res["action"]] += 1
-            log.info("publish %s %s -> #%s (%s)", res["action"], row["SKU"], res["product_id"], res["status"])
         except (WCError, OSError) as e:
             res.update(action="error", error=str(e)[:400])
-            prev = done[done["sku"] == row["SKU"]] if len(done) else done
+            counts["error"] += 1
+            out.append(res)
+            if isinstance(e, WCError) and e.status in (401, 403):
+                log.warning("publish stopped: the site refused the key (%s)", e.status)
+                work = []
+                break
+            continue
+        if dry_run:
+            res.update(action="checked", status="draft")
+            counts["checked"] += 1
+            out.append(res)
+            continue
+        work.append((row, data, files, res))
+
+    # 2. photos + product, several products at the same time
+    lock, halt = threading.Lock(), threading.Event()
+    workers = max(1, int(cfg.get("publish", {}).get("workers", 6)))
+    state = {"n": 0, "since_save": 0}
+
+    def send(row, data, files, res):
+        if halt.is_set() or (stop and stop()):
+            return None
+        sku = row["SKU"]
+        try:
+            pid, had_photos = known.get(sku, (None, False))
+            if files and not had_photos and wc.can_upload():
+                data["images"] = [{"id": wc.upload_media(f, f"{sku.lower()}-{n}{f.suffix}", alt=row["Name"])["id"]}
+                                  for n, f in enumerate(files, 1)]
+            elif files and not had_photos:
+                data["images"] = [{"src": u.strip()} for u in str(row.get("Images") or "").split(",") if u.strip()]
+            p = None
+            if pid is None:
+                try:
+                    p = wc.create_product(data)
+                    res["action"] = "created"
+                except WCError as e:
+                    # the SKU is on the site already (an earlier run, or a create whose answer was lost
+                    # when the connection dropped): find it and update it instead of making a duplicate
+                    if e.status not in (None, 400, 500, 502, 503, 504):
+                        raise
+                    ex = wc.find_by_sku(sku)
+                    if ex is None:
+                        if e.status == 400:
+                            raise
+                        p = wc.create_product(data)          # nothing was made: try once more
+                        res["action"] = "created"
+                    else:
+                        pid = ex["id"]
+                        if ex.get("images"):
+                            data.pop("images", None)
+            if p is None:
+                status = data.pop("status", None)             # never un-publish a product someone published
+                try:
+                    p = wc.update_product(pid, data)
+                    res["action"] = "updated"
+                except WCError as e:
+                    if e.status != 404:
+                        raise
+                    log.info("publish %s: product #%s was deleted on the site, made again", sku, pid)
+                    data["status"] = status or "draft"
+                    if files and "images" not in data and wc.can_upload():
+                        data["images"] = [{"id": wc.upload_media(f, f"{sku.lower()}-{n}{f.suffix}", alt=row["Name"])["id"]}
+                                          for n, f in enumerate(files, 1)]
+                    p = wc.create_product(data)
+                    res["action"] = "created"
+            res.update(product_id=p.get("id", ""), status=p.get("status", ""),
+                       edit_url=f"{wc.base}/wp-admin/post.php?post={p.get('id')}&action=edit",
+                       images=len(p.get("images") or []) or res["images"])
+            log.info("publish %s %s -> #%s (%s)", res["action"], sku, res["product_id"], res["status"])
+        except (WCError, OSError) as e:
+            res.update(action="error", error=str(e)[:400])
+            prev = done[done["sku"] == sku] if len(done) else done
             if len(prev) and str(prev.iloc[-1].get("product_id") or ""):
                 res.update(product_id=prev.iloc[-1]["product_id"], edit_url=prev.iloc[-1]["edit_url"],
                            status=prev.iloc[-1]["status"])
-            counts["error"] += 1
-            log.warning("publish error %s: %s", row["SKU"], e)
+            log.warning("publish error %s: %s", sku, e)
             if isinstance(e, WCError) and e.status in (401, 403):
-                out.append(res)
                 log.warning("publish stopped: the site refused the key (%s)", e.status)
-                break
-        out.append(res)
+                halt.set()
+        with lock:
+            out.append(res)
+            counts[res["action"]] += 1
+            state["n"] += 1
+            state["since_save"] += 1
+            if progress:
+                progress(state["n"], len(work))
+            if state["since_save"] >= 20:                     # a restart mid-way loses at most 20 rows
+                _save(d, done, [x for x in out if x["action"] != "checked"])
+                state["since_save"] = 0
+        return res
+
+    if work:
+        log.info("publish: %d product(s) to the site, %d at a time", len(work), workers)
+        with ThreadPoolExecutor(workers) as ex:
+            for f in [ex.submit(send, *w) for w in work]:
+                f.result()
     if progress:
-        progress(len(items), len(items))
+        progress(len(work), len(work))
     if dry_run:
         write_csv(pd.DataFrame(out).reindex(columns=RESULT_COLS).fillna(""), d / "07_publish_check.csv")
     else:

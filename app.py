@@ -93,33 +93,94 @@ def build_cfg() -> dict:
 
 
 class Job:
-    def __init__(self):
+    """One lane of work. 'crawl' runs the crawl steps (and owns the pipeline's global STOP and
+    PROGRESS); 'site' runs the steps that talk to the shop (publish, status, brands) with its own,
+    so batch N can be published while batch N+1 is crawled. A lane's job is written to
+    DATA_DIR/jobs/<lane>.json while it runs: if the server restarts (a deploy, a crash) the job is
+    started again on boot and continues where it was (every step skips the rows it finished)."""
+
+    def __init__(self, lane: str = "crawl"):
+        self.lane = lane
         self.lock = threading.Lock()
         self.thread: threading.Thread | None = None
         self.state = {"running": False, "step": "", "run": "", "started": 0, "ended": 0,
-                      "ok": None, "error": ""}
+                      "ok": None, "error": "", "lane": lane}
         self.logs: deque[str] = deque(maxlen=400)
+        if lane == "crawl":
+            self.stop_ev, self.prog = P.STOP, P.PROGRESS      # the pipeline's own: its steps read them
+        else:
+            self.stop_ev, self.prog = threading.Event(), {"step": "", "done": 0, "total": 0}
         h = logging.Handler()
         h.emit = lambda r: self.logs.append(f"{time.strftime('%H:%M:%S')} {r.levelname} {r.getMessage()}")
         h.setLevel(logging.INFO)
+        site = ("crawler.publish", "crawler.brands_fa", "crawler.wc")
+        h.addFilter(lambda r: r.name.startswith(site) == (lane == "site"))
         logging.getLogger("crawler").addHandler(h)
 
-    def start(self, step: str, run: str, opts: dict) -> str | None:
+    def _saved(self) -> Path:
+        return DATA_DIR / "jobs" / f"{self.lane}.json"
+
+    def _persist(self, step: str, run: str, opts: dict, tries: int) -> None:
+        try:
+            self._saved().parent.mkdir(parents=True, exist_ok=True)
+            self._saved().write_text(json.dumps({"step": step, "run": run, "opts": opts, "tries": tries,
+                                                 "current": self.state.get("current", step)},
+                                                ensure_ascii=False), encoding="utf-8")
+        except OSError:
+            pass
+
+    def start(self, step: str, run: str, opts: dict, tries: int = 0) -> str | None:
+        other = JOBS["site" if self.lane == "crawl" else "crawl"] if "JOBS" in globals() else None
         with self.lock:
             if self.state["running"]:
                 return "یک مرحله در حال اجراست؛ صبر کنید یا متوقفش کنید."
-            P.STOP.clear()
-            P.PROGRESS.update(step=step, done=0, total=0)
+            if other is not None and other.state["running"] and other.state["run"] == run and run != "routing":
+                return f"اجرای «{run}» الان در خط دیگر در حال کار است؛ بعد از تمام شدنش دوباره بزنید."
+            self.stop_ev.clear()
+            self.prog.update(step=step, done=0, total=0)
             self.logs.clear()
             self.state = {"running": True, "step": step, "current": step, "run": run, "started": time.time(),
-                          "ended": 0, "ok": None, "error": ""}
+                          "ended": 0, "ok": None, "error": "", "lane": self.lane}
+            self._persist(step, run, opts, tries)
             self.thread = threading.Thread(target=self._run, args=(step, run, opts), daemon=True)
             self.thread.start()
         return None
 
+    def resume(self) -> None:
+        """After a restart: start the job that was running when the server stopped."""
+        p = self._saved()
+        if not p.exists():
+            return
+        try:
+            j = json.loads(p.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            p.unlink(missing_ok=True)
+            return
+        if int(j.get("tries", 0)) >= 2:                     # failed to finish twice: leave it to a person
+            log.warning("job %s/%s not resumed (already resumed twice)", j.get("step"), j.get("run"))
+            p.unlink(missing_ok=True)
+            return
+        opts = dict(j.get("opts") or {})
+        if j.get("step") == "all":
+            # continue from the step that was running; never clear files again
+            opts.pop("from_step", None)
+            opts.pop("steps", None)
+            if j.get("current") in STEPS:
+                opts["resume_from"] = j["current"]
+        log.info("resuming %s job %s on %s (from %s)", self.lane, j.get("step"), j.get("run"), j.get("current"))
+        self.start(j["step"], j["run"], opts, tries=int(j.get("tries", 0)) + 1)
+        self.logs.append(f"ادامه‌ی خودکار بعد از ری‌استارت سرور (از «{j.get('current')}»)")
+
     def _one(self, cfg: dict, step: str, run: str, opts: dict) -> None:
         self.state["current"] = step
-        P.PROGRESS.update(step=step, done=0, total=0)
+        if self._saved().exists():
+            try:
+                j = json.loads(self._saved().read_text(encoding="utf-8"))
+                j["current"] = step
+                self._saved().write_text(json.dumps(j, ensure_ascii=False), encoding="utf-8")
+            except (OSError, ValueError):
+                pass
+        self.prog.update(step=step, done=0, total=0)
         if step == "queue":
             P.step_queue(cfg, run, mode=opts.get("mode", "gap"), level1=opts.get("level1") or None,
                          path_contains=opts.get("path") or None,
@@ -166,7 +227,7 @@ class Job:
             from crawler.publish import set_status
             skus = [x for x in re.split(r"[\s,،]+", str(opts.get("skus") or "")) if x]
             res = set_status(cfg, run, opts.get("status") or "publish", skus=skus or None,
-                             progress=lambda d, t: P.PROGRESS.update(step="status", done=d, total=t), stop=P.STOP.is_set)
+                             progress=lambda d, t: self.prog.update(step="status", done=d, total=t), stop=self.stop_ev.is_set)
             self.logs.append(f"وضعیت «{opts.get('status') or 'publish'}»: {res['changed']} از {res['requested']} محصول"
                              + (f"، ناموفق: {len(res['failed'])}" if res["failed"] else ""))
         elif step == "brands":
@@ -174,7 +235,7 @@ class Job:
             from crawler.wc import WC
             recs = [r for r, _ in P.export_rows(cfg, run)]
             res = BF.build(cfg, recs, redo=bool(opts.get("redo")), wc=WC(timeout=40),
-                           progress=lambda d, t: P.PROGRESS.update(step="brands", done=d, total=t), stop=P.STOP.is_set)
+                           progress=lambda d, t: self.prog.update(step="brands", done=d, total=t), stop=self.stop_ev.is_set)
             self.logs.append(f"برندها: {res['brands']} برند در این اجرا، {res['named']} نام‌گذاری با DeepSeek"
                              + (f"، ناموفق: {', '.join(res['failed'])}" if res["failed"] else ""))
         elif step == "publish":
@@ -182,17 +243,17 @@ class Job:
             skus = [x for x in re.split(r"[\s,،]+", str(opts.get("skus") or "")) if x]
             res = publish(cfg, run, limit=int(opts.get("limit") or 0) if not skus else 0, skus=skus or None,
                           dry_run=bool(opts.get("dry_run")), republish=bool(opts.get("republish")),
-                          progress=lambda d, t: P.PROGRESS.update(step="publish", done=d, total=t),
-                          stop=P.STOP.is_set)
+                          progress=lambda d, t: self.prog.update(step="publish", done=d, total=t),
+                          stop=self.stop_ev.is_set)
             self.logs.append("نتیجه: " + "، ".join(f"{k} {v}" for k, v in res["counts"].items() if v))
         elif step == "probe":
             from crawler import routing_state as RS
             res = RS.probe_batch(cfg, int(opts["batch"]),
-                                 progress=lambda d, t: P.PROGRESS.update(step="probe", done=d, total=t),
-                                 stop=P.STOP.is_set)
+                                 progress=lambda d, t: self.prog.update(step="probe", done=d, total=t),
+                                 stop=self.stop_ev.is_set)
             log.info("probe batch %s: %s", opts["batch"], res)
-        if not P.STOP.is_set() and P.PROGRESS.get("total"):
-            P.PROGRESS["done"] = P.PROGRESS["total"]
+        if not self.stop_ev.is_set() and self.prog.get("total"):
+            self.prog["done"] = self.prog["total"]
 
     def _run(self, step: str, run: str, opts: dict) -> None:
         try:
@@ -201,6 +262,8 @@ class Job:
             steps = STEPS if step == "all" else [step]
             if step == "all" and opts.get("keep_queue"):
                 steps = [x for x in STEPS if x != "queue"]
+            if step == "all" and opts.get("resume_from") in steps:
+                steps = steps[steps.index(opts["resume_from"]):]
             only = [x for x in (opts.get("steps") or []) if x in STEPS]
             if step == "all" and (opts.get("from_step") in STEPS or only):
                 # re-run from a step (or only the listed steps, e.g. filter+dedupe+export without a new
@@ -214,7 +277,7 @@ class Job:
                         f.unlink()
                 self.logs.append(f"re-run of «{'، '.join(steps)}»: other files kept")
             for st in steps:
-                if P.STOP.is_set():
+                if self.stop_ev.is_set():
                     break
                 if step == "all":
                     self.logs.append(f"—— {st} ——")
@@ -226,7 +289,7 @@ class Job:
             if step not in ("probe", "publish", "brands", "status"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
-            self.state["ok"] = not P.STOP.is_set()
+            self.state["ok"] = not self.stop_ev.is_set()
         except Exception as e:
             self.state["ok"] = False
             self.state["error"] = str(e)
@@ -235,12 +298,19 @@ class Job:
         finally:
             self.state["running"] = False
             self.state["ended"] = time.time()
+            self._saved().unlink(missing_ok=True)
 
     def status(self) -> dict:
-        return {**self.state, "progress": dict(P.PROGRESS), "logs": list(self.logs)[-200:]}
+        return {**self.state, "progress": dict(self.prog), "logs": list(self.logs)[-200:]}
 
 
-JOB = Job()
+SITE_STEPS = {"publish", "status", "brands"}
+JOBS = {"crawl": Job("crawl"), "site": Job("site")}
+JOB = JOBS["crawl"]
+
+
+def start_job(step: str, run: str, opts: dict) -> str | None:
+    return JOBS["site" if step in SITE_STEPS else "crawl"].start(step, run, opts)
 _TAX_CACHE: dict = {"mtime": None, "df": None}
 
 
@@ -621,7 +691,9 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "state"]:
                 return self._json(self.state())
             if parts[:2] == ["api", "job"]:
-                return self._json(JOB.status())
+                if q.get("lane") in JOBS:
+                    return self._json(JOBS[q["lane"]].status())
+                return self._json({**JOB.status(), "site": JOBS["site"].status()})
             if parts[:2] == ["api", "sources"]:
                 txt = sources_text()
                 return self._json({"yaml": txt, "data": yaml.safe_load(txt) or {}})
@@ -778,7 +850,7 @@ class Handler(BaseHTTPRequestHandler):
                 if parts[2] == "probe" and len(parts) == 4:
                     if not os.environ.get("SERPER_API_KEY"):
                         return self._err("کلید SERPER_API_KEY روی سرور تنظیم نشده")
-                    err = JOB.start("probe", f"routing", {"batch": int(parts[3])})
+                    err = start_job("probe", f"routing", {"batch": int(parts[3])})
                     return self._err(err, 409) if err else self._json({"ok": True})
                 if parts[2] == "review" and len(parts) == 4:
                     return self._json(RS.review_batch(cfg, int(parts[3]), body.get("rows") or []))
@@ -786,7 +858,7 @@ class Handler(BaseHTTPRequestHandler):
                     run = f"batch-{int(parts[3])}"
                     res = RS.make_queue(cfg, int(parts[3]), run)
                     if body.get("start"):
-                        err = JOB.start("all", run, {"keep_queue": True})
+                        err = start_job("all", run, {"keep_queue": True})
                         res["started"] = not err
                     return self._json(res)
                 return self._err("not found", 404)
@@ -807,16 +879,19 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "queue-preview"]:
                 return self._json(self.queue_preview(self._jbody()))
             if parts[:3] == ["api", "job", "stop"]:
-                P.STOP.set()
+                lane = self._jbody().get("lane")
+                for k, j in JOBS.items():
+                    if lane in (None, "", k):
+                        j.stop_ev.set()
                 return self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "status":   # {"status": "publish"}
                 run_path(parts[2])
                 b = self._jbody()
-                err = JOB.start("status", parts[2], {"status": b.get("status") or "publish", "skus": b.get("skus")})
+                err = start_job("status", parts[2], {"status": b.get("status") or "publish", "skus": b.get("skus")})
                 return self._err(err, 409) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 5 and parts[3:] == ["brands", "build"]:
                 run_path(parts[2])
-                err = JOB.start("brands", parts[2], {"redo": bool(self._jbody().get("redo"))})
+                err = start_job("brands", parts[2], {"redo": bool(self._jbody().get("redo"))})
                 return self._err(err, 409) if err else self._json({"ok": True})
             if parts[:4] == ["api", "wc", "brands", "merge"]:     # {"from": id, "to": id, "dry_run": true}
                 from crawler.wc import WC
@@ -832,7 +907,7 @@ class Handler(BaseHTTPRequestHandler):
                 opts = {k: b.get(k) for k in ("limit", "dry_run", "skus", "republish")}
                 if not opts.get("skus") and not str(opts.get("limit") or "").isdigit():
                     return self._err("تعداد محصول را مشخص کنید")
-                err = JOB.start("publish", parts[2], opts)
+                err = start_job("publish", parts[2], opts)
                 return self._err(err, 409) if err else self._json({"ok": True})
             if parts[:3] == ["api", "wc", "test"]:
                 from crawler.wc import WC
@@ -840,22 +915,22 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(w.test() if w.ok() else {"error": "WC_URL / WC_KEY / WC_SECRET not set"})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "photo-fix":
                 run_path(parts[2])
-                err = JOB.start("photo_fix", parts[2], {})
+                err = start_job("photo_fix", parts[2], {})
                 return self._err(err) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "vision-compare":
                 run_path(parts[2])
                 b = self._jbody()
-                err = JOB.start("vision_compare", parts[2], {"models": b.get("models") or [], "n": b.get("n") or 25})
+                err = start_job("vision_compare", parts[2], {"models": b.get("models") or [], "n": b.get("n") or 25})
                 return self._err(err) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "enhance":
                 run_path(parts[2])
                 b = self._jbody()
-                err = JOB.start("enhance", parts[2], {k: b.get(k) for k in ("urls", "models", "n", "limit")})
+                err = start_job("enhance", parts[2], {k: b.get(k) for k in ("urls", "models", "n", "limit")})
                 return self._err(err) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "describe-compare":
                 run_path(parts[2])
                 b = self._jbody()
-                err = JOB.start("describe_compare", parts[2], {"models": b.get("models") or [], "n": b.get("n") or 10})
+                err = start_job("describe_compare", parts[2], {"models": b.get("models") or [], "n": b.get("n") or 10})
                 return self._err(err) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "review":
                 from crawler import review as RV
@@ -870,7 +945,7 @@ class Handler(BaseHTTPRequestHandler):
                     return self._err("اول مرحله‌ی «صف» را اجرا کنید.")
                 if step in ("queue", "all") and taxonomy_df() is None:
                     return self._err("اول فایل تاکسونومی را بارگذاری کنید.")
-                err = JOB.start(step, run, self._jbody())
+                err = start_job(step, run, self._jbody())
                 return self._err(err, 409) if err else self._json({"ok": True})
             return self._err("not found", 404)
         except ValueError as e:
@@ -884,7 +959,7 @@ class Handler(BaseHTTPRequestHandler):
             return self._deny()
         parts = [unquote(p) for p in urlparse(self.path).path.strip("/").split("/") if p]
         if parts[:2] == ["api", "runs"] and len(parts) == 3:
-            if JOB.state["running"] and JOB.state["run"] == parts[2]:
+            if any(j.state["running"] and j.state["run"] == parts[2] for j in JOBS.values()):
                 return self._err("این اجرا در حال کار است", 409)
             shutil.rmtree(run_path(parts[2]), ignore_errors=True)
             return self._json({"ok": True})
@@ -918,7 +993,7 @@ class Handler(BaseHTTPRequestHandler):
                 "llm": {k: cfg["llm"].get(k) for k in ("provider", "base_url", "model", "min_confidence")},
             },
             "runs": list_runs(),
-            "job": JOB.status(),
+            "job": {**JOB.status(), "site": JOBS["site"].status()},
             # data on Render is lost on restart unless DATA_DIR is on a persistent disk
             "ephemeral": bool(os.environ.get("RENDER")) and not os.path.ismount(DATA_DIR),
             "has_settings": paths()["settings"].exists(),
@@ -959,6 +1034,11 @@ def main():
     port = int(os.environ.get("PORT", "8000"))
     srv = ThreadingHTTPServer(("0.0.0.0", port), Handler)
     log.info("caravan crawler UI on :%d (data: %s, auth: %s)", port, DATA_DIR, "on" if APP_PASSWORD else "OFF")
+    for j in JOBS.values():                         # jobs cut short by a restart continue
+        try:
+            j.resume()
+        except Exception:                           # noqa: BLE001 - the UI must come up regardless
+            log.error(traceback.format_exc())
     srv.serve_forever()
 
 

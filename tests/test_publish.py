@@ -84,7 +84,11 @@ class FakeWoo(BaseHTTPRequestHandler):
         if u.path == "/wp-json/wc/v3/products":
             assert self._auth() == "ck_test:cs_test"
             d = json.loads(body)
+            if any(p.get("sku") == d.get("sku") for p in FakeWoo.products.values()):
+                return self._json({"code": "product_invalid_sku", "message": "SKU already in use"}, 400)
             pid = 100 + len(FakeWoo.products)
+            while pid in FakeWoo.products:
+                pid += 1
             if not all(isinstance(b, dict) and "id" in b for b in d.get("brands", [])):   # as the real site
                 return self._json({"code": "rest_invalid_param", "message": "brands"}, 400)
             d.update(id=pid, images=[{"id": i["id"]} for i in d.get("images", [])])
@@ -114,6 +118,8 @@ class FakeWoo(BaseHTTPRequestHandler):
         if not all(isinstance(b, dict) and "id" in b for b in d.get("brands", [])):
             return self._json({"code": "rest_invalid_param", "message": "brands"}, 400)
         pid = int(u.path.rsplit("/", 1)[1])
+        if pid not in FakeWoo.products:
+            return self._json({"code": "woocommerce_rest_product_invalid_id", "message": "invalid id"}, 404)
         if "brands" in d:
             FakeWoo.products[pid]["_b"] = [x["id"] for x in d["brands"]]
         FakeWoo.products[pid].update({k: v for k, v in d.items() if k != "images"})
@@ -191,7 +197,8 @@ class Publish(unittest.TestCase):
     def test_publish_creates_drafts_then_updates(self):
         res = PB.publish(self.cfg, "batch-1", limit=2)
         self.assertEqual(res["counts"]["created"], 2)
-        p1, p2 = FakeWoo.products[100], FakeWoo.products[101]
+        by_name = {p["name"].split(" برند")[0]: p for p in FakeWoo.products.values()}   # parallel: any order
+        p1, p2 = by_name["درایو 1"], by_name["درایو 2"]
         self.assertEqual(p1["status"], "draft")
         self.assertEqual(p1["categories"], [{"id": 1635}])
         self.assertEqual(p2["categories"], [{"id": 1635}, {"id": 1636}])  # extra category from a merged page
@@ -210,30 +217,46 @@ class Publish(unittest.TestCase):
         self.assertIn({"key": "_caravan_taxonomy_id", "value": "14339"}, p1["meta_data"])
         out = read_csv(self.d / PB.RESULT_FILE)
         self.assertEqual(list(out["action"]), ["created", "created"])
-        self.assertIn("post.php?post=100", out["edit_url"].iloc[0])
+        self.assertIn(f"post.php?post={p1['id']}", " ".join(out["edit_url"]))
 
         # next call continues with the products not yet sent
         res = PB.publish(self.cfg, "batch-1", limit=5)
         self.assertEqual(res["counts"], {"created": 1, "updated": 0, "skipped": 1, "error": 0, "checked": 0})
         self.assertEqual(len(FakeWoo.products), 3)
 
-        # someone publishes product 100 on the site; a republish updates it without un-publishing it
-        FakeWoo.products[100]["status"] = "publish"
+        # someone publishes product 1 on the site; a republish updates it without un-publishing it
+        p1["status"] = "publish"
         res = PB.publish(self.cfg, "batch-1", limit=1, republish=True)
         self.assertEqual(res["counts"]["updated"], 1)
-        self.assertEqual(FakeWoo.products[100]["status"], "publish")
+        self.assertEqual(p1["status"], "publish")
         self.assertEqual(len(FakeWoo.media), 2)              # it already had photos: none uploaded again
         self.assertEqual(len(FakeWoo.brands), 2)             # the brand term is reused, not made twice
         self.assertEqual(len(FakeWoo.products), 3)           # no duplicate
         self.assertEqual(len(read_csv(self.d / PB.RESULT_FILE)), 4)   # one row per SKU
 
+        # a product deleted on the site is made again; a lost answer to a create does not duplicate it
+        del FakeWoo.products[p1["id"]]
+        res = PB.publish(self.cfg, "batch-1", limit=1, republish=True)
+        self.assertEqual(res["counts"]["created"], 1)
+        self.assertEqual(len(FakeWoo.products), 3)
+
+    def test_existing_sku_is_updated_not_duplicated(self):
+        sku = caravan_sku("https://shop4.ir/product/4/")
+        FakeWoo.products[77] = {"id": 77, "sku": sku, "name": "old", "status": "publish", "images": [{"id": 1}]}
+        res = PB.publish(self.cfg, "batch-1", skus=[sku])      # no local record of it: create -> SKU taken -> update
+        self.assertEqual(res["counts"]["updated"], 1)
+        self.assertEqual(len(FakeWoo.products), 1)
+        self.assertEqual(FakeWoo.products[77]["name"], "درایو 4")
+        self.assertEqual(FakeWoo.products[77]["status"], "publish")
+
     def test_publish_by_sku(self):
         sku = caravan_sku("https://shop4.ir/product/4/")
         res = PB.publish(self.cfg, "batch-1", skus=[sku])
         self.assertEqual(res["counts"]["created"], 1)
-        self.assertEqual(FakeWoo.products[100]["sku"], sku)
+        self.assertEqual(next(iter(FakeWoo.products.values()))["sku"], sku)
 
     def test_refused_key_stops(self):
+        self.cfg["publish"] = {"workers": 1}
         FakeWoo.refuse = True
         res = PB.publish(self.cfg, "batch-1", limit=3)
         self.assertEqual(res["counts"]["error"], 1)          # stops after the first refusal

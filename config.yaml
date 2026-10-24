@@ -59,6 +59,7 @@ http:
   timeout_seconds: 15
   retries: 1
   dead_after_failures: 4           # a site failing 4 times in a row is skipped for the rest of the run
+  dead_days: 3                     # ... and for the next 3 days' runs too (data/dead_sites.json); 0 = this run only
   cache_days: 14                   # reruns within this window reuse saved pages
   respect_robots: true
   user_agent: "CaravanSanatBot/0.1 (+https://caravansanat.com)"
@@ -138,9 +139,12 @@ describe:
   provider: auto          # auto: OpenRouter when OPENROUTER_API_KEY is set, otherwise the free template
   model: deepseek/deepseek-v4.1-flash  # chosen after a blind comparison with MiMo V2.6 Flash (fuller Persian)
   fallback_models: [xiaomi/mimo-v2.6-flash]   # tried when the main model's text is rejected
-  workers: 8              # products written at the same time
+  workers: 16             # products written at the same time
   max_tokens: 2500
 
 brands:                   # brand names for the site: 'آنتو (Antu)' (crawler/brands_fa.py, table in data/brands_fa.csv)
   model: deepseek/deepseek-v4.1-flash   # short trade name + Persian spelling, through OpenRouter
   batch_size: 40          # brands per request
+
+publish:                  # direct publishing to the WooCommerce site (crawler/publish.py)
+  workers: 6              # products sent at the same time (photos + product); lower it if the site drops connections

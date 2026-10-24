@@ -36,6 +36,30 @@ def domain_of(url: str) -> str:
     return d[4:] if d.startswith("www.") else d
 
 
+_DEAD_LOCK = threading.Lock()
+
+
+def _read_dead(p: Path) -> dict:
+    try:
+        return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def _remember_dead(p: Path, site: str, days: float) -> None:
+    with _DEAD_LOCK:
+        d = _read_dead(p)
+        now = time.time()
+        d = {k: v for k, v in d.items() if v.get("until", 0) > now}          # expired ones drop out
+        d[site] = {"until": now + days * 86400, "since": time.strftime("%Y-%m-%d %H:%M"),
+                   "times": int(d.get(site, {}).get("times", 0)) + 1}
+        try:
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
+        except OSError:
+            pass
+
+
 class Fetcher:
     def __init__(self, cfg: dict, route: str = "iran"):
         h = cfg.get("http", {})
@@ -67,6 +91,14 @@ class Fetcher:
         self.dead_after = int(h.get("dead_after_failures", 4))
         self._fails: dict[str, int] = defaultdict(int)
         self._dead: set[str] = set()
+        # ... and remembered for `dead_days` across runs (DATA_DIR/dead_sites.json), so the next batch
+        # does not pay the same timeouts again; after that the site is tried afresh
+        self.dead_days = float(h.get("dead_days", 3))
+        self._dead_file: Path = cfg["_data_dir"] / "dead_sites.json"
+        now = time.time()
+        for k, v in _read_dead(self._dead_file).items():
+            if v.get("until", 0) > now:
+                self._dead.add(k)
 
     def _failed(self, dom: str) -> None:
         k = self.site_key(dom)
@@ -74,6 +106,8 @@ class Fetcher:
             self._fails[k] += 1
             if self.dead_after and self._fails[k] >= self.dead_after and k not in self._dead:
                 self._dead.add(k)
+                if self.dead_days > 0:
+                    _remember_dead(self._dead_file, k, self.dead_days)
                 log.warning("site %s skipped for this run (%d failures in a row)", k, self._fails[k])
 
     def _worked(self, dom: str) -> None:
