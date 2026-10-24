@@ -237,3 +237,48 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
 def results(cfg: dict, run: str) -> list[dict]:
     from .pipeline import run_dir
     return _results(run_dir(cfg, run)).to_dict("records")
+
+
+def set_status(cfg: dict, run: str, status: str = "publish", skus: list[str] | None = None,
+               wc: WC | None = None, progress=None, stop=None) -> dict:
+    """Publish (or return to draft) every product of a run that is on the site, 50 per request."""
+    from .pipeline import run_dir
+    if status not in ("publish", "draft", "pending", "private"):
+        raise ValueError("bad status")
+    wc = wc or WC()
+    if not wc.ok():
+        raise ValueError("WC_URL / WC_KEY / WC_SECRET روی سرور تنظیم نشده")
+    d = run_dir(cfg, run)
+    done = _results(d)
+    on_site = done[(done["product_id"].astype(str) != "") & done["action"].isin(["created", "updated"])]
+    if skus:
+        on_site = on_site[on_site["sku"].isin(skus)]
+    ids = [int(float(x)) for x in on_site["product_id"]]
+    log.info("status %s: %d product(s) of %s", status, len(ids), run)
+    changed, failed = {}, []
+    for start in range(0, len(ids), 50):
+        if stop and stop():
+            break
+        chunk = ids[start:start + 50]
+        try:
+            j = wc.batch_update([{"id": i, "status": status} for i in chunk])
+        except WCError as e:
+            failed += [{"id": i, "error": str(e)[:200]} for i in chunk]
+            log.warning("status batch failed: %s", e)
+            continue
+        for p in j.get("update") or []:
+            if p.get("error"):
+                failed.append({"id": p.get("id"), "error": str(p["error"].get("message", p["error"]))[:200]})
+            else:
+                changed[int(p["id"])] = p.get("status", "")
+        if progress:
+            progress(min(start + 50, len(ids)), len(ids))
+    if changed:
+        df = done.copy()
+        pid = df["product_id"].astype(str).str.replace(r"\.0$", "", regex=True)
+        for i, st in changed.items():
+            df.loc[pid == str(i), "status"] = st
+        write_csv(df.reindex(columns=RESULT_COLS).fillna(""), d / RESULT_FILE)
+    res = {"requested": len(ids), "changed": len(changed), "failed": failed[:20]}
+    log.info("status %s done: %s", status, {k: (v if k != "failed" else len(failed)) for k, v in res.items()})
+    return res

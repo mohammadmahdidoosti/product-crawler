@@ -162,6 +162,13 @@ class Job:
             compare(cfg, run, opts.get("models") or [cfg.get("describe", {}).get("model")], int(opts.get("n") or 10))
         elif step == "export":
             P.step_export(cfg, run)
+        elif step == "status":
+            from crawler.publish import set_status
+            skus = [x for x in re.split(r"[\s,،]+", str(opts.get("skus") or "")) if x]
+            res = set_status(cfg, run, opts.get("status") or "publish", skus=skus or None,
+                             progress=lambda d, t: P.PROGRESS.update(step="status", done=d, total=t), stop=P.STOP.is_set)
+            self.logs.append(f"وضعیت «{opts.get('status') or 'publish'}»: {res['changed']} از {res['requested']} محصول"
+                             + (f"، ناموفق: {len(res['failed'])}" if res["failed"] else ""))
         elif step == "brands":
             from crawler import brands_fa as BF
             from crawler.wc import WC
@@ -216,7 +223,7 @@ class Job:
                 took = time.time() - t0
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
-            if step not in ("probe", "publish", "brands"):
+            if step not in ("probe", "publish", "brands", "status"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
             self.state["ok"] = not P.STOP.is_set()
@@ -802,6 +809,11 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:3] == ["api", "job", "stop"]:
                 P.STOP.set()
                 return self._json({"ok": True})
+            if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "status":   # {"status": "publish"}
+                run_path(parts[2])
+                b = self._jbody()
+                err = JOB.start("status", parts[2], {"status": b.get("status") or "publish", "skus": b.get("skus")})
+                return self._err(err, 409) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 5 and parts[3:] == ["brands", "build"]:
                 run_path(parts[2])
                 err = JOB.start("brands", parts[2], {"redo": bool(self._jbody().get("redo"))})

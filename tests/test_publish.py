@@ -66,6 +66,16 @@ class FakeWoo(BaseHTTPRequestHandler):
         FakeWoo.calls.append(("POST", u.path))
         if FakeWoo.refuse:
             return self._json({"code": "woocommerce_rest_cannot_create", "message": "no"}, 401)
+        if u.path == "/wp-json/wc/v3/products/batch":
+            d = json.loads(body)
+            out = []
+            for it in d.get("update", []):
+                if it["id"] in FakeWoo.products:
+                    FakeWoo.products[it["id"]].update(it)
+                    out.append(FakeWoo.products[it["id"]])
+                else:
+                    out.append({"id": it["id"], "error": {"code": "invalid", "message": "no such product"}})
+            return self._json({"update": out})
         if u.path == "/wp-json/wc/v3/products/brands":
             d = json.loads(body)
             t = {"id": 900 + len(FakeWoo.brands), "name": d["name"]}
@@ -235,6 +245,14 @@ class Publish(unittest.TestCase):
         res = PB.publish(self.cfg, "batch-1", limit=10, dry_run=True)
         self.assertEqual(res["counts"]["checked"], 2)        # products 2 and 4 have no brand at all
         self.assertTrue(any("جدول برندها" in r["error"] for r in res["rows"]))
+
+    def test_publish_all(self):
+        PB.publish(self.cfg, "batch-1", limit=10)
+        self.assertEqual({p["status"] for p in FakeWoo.products.values()}, {"draft"})
+        res = PB.set_status(self.cfg, "batch-1", "publish")
+        self.assertEqual(res["changed"], 3)
+        self.assertEqual({p["status"] for p in FakeWoo.products.values()}, {"publish"})
+        self.assertEqual(set(read_csv(self.d / PB.RESULT_FILE)["status"]), {"publish", ""})   # '' = the skipped one
 
     def test_merge_site_brands(self):
         FakeWoo.brands = [{"id": 1583, "name": "BSPOOL (بی اس پول)"}, {"id": 1584, "name": "BSPOOL(بی اس پول)"}]

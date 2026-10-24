@@ -108,6 +108,10 @@ class WC:
                 return out
             page += 1
 
+    def batch_update(self, items: list[dict]) -> dict:
+        """POST products/batch {update: [...]} (WooCommerce takes up to 100 per call)."""
+        return self._call(lambda: self._wc("POST", "products/batch", json={"update": items}), "batch update")
+
     def products_of_brand(self, brand_id: int) -> list[dict]:
         """Every product (any status) carrying a brand; refuses if the site ignores the brand filter."""
         out, page = [], 1
