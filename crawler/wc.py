@@ -93,6 +93,9 @@ class WC:
                        f"find {sku}")
         return next((p for p in j if p.get("sku") == sku), None) if isinstance(j, list) else None
 
+    def get_product(self, pid: int) -> dict:
+        return self._call(lambda: self._wc("GET", f"products/{pid}"), f"product {pid}")
+
     def create_product(self, data: dict) -> dict:
         return self._call(lambda: self._wc("POST", "products", json=data), "create product", tries=1)
 

@@ -217,6 +217,7 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
         if halt.is_set() or (stop and stop()):
             return None
         sku = row["SKU"]
+        ex = None
         try:
             pid, had_photos = known.get(sku, (None, False))
             if files and not had_photos and wc.can_upload():
@@ -247,6 +248,12 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             if p is None:
                 status = data.pop("status", None)             # never un-publish a product someone published
                 try:
+                    # the product may sit in categories of another run (or ones set by hand): the new
+                    # categories are added to them, never put in their place
+                    cur = ex if (ex and ex.get("id") == pid) else wc.get_product(pid)
+                    have = [c["id"] for c in cur.get("categories") or []]
+                    new = [c["id"] for c in data.get("categories") or []]
+                    data["categories"] = [{"id": i} for i in dict.fromkeys(have + new)]
                     p = wc.update_product(pid, data)
                     res["action"] = "updated"
                 except WCError as e:

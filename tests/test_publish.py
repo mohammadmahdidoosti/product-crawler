@@ -50,6 +50,11 @@ class FakeWoo(BaseHTTPRequestHandler):
         if u.path == "/wp-json/wc/v3/products/brands":
             page = int(q.get("page", ["1"])[0])
             return self._json(FakeWoo.brands[(page - 1) * 100: page * 100])
+        if u.path.startswith("/wp-json/wc/v3/products/") and u.path.rsplit("/", 1)[1].isdigit():
+            pid = int(u.path.rsplit("/", 1)[1])
+            if pid not in FakeWoo.products:
+                return self._json({"code": "woocommerce_rest_product_invalid_id"}, 404)
+            return self._json(FakeWoo.products[pid])
         if u.path == "/wp-json/wc/v3/products" and "brand" in q:
             bid = int(q["brand"][0])
             return self._json([dict(p, brands=[{"id": i} for i in p.get("_b", [])]) for p in FakeWoo.products.values()
@@ -247,6 +252,10 @@ class Publish(unittest.TestCase):
         self.assertEqual(res["counts"]["updated"], 1)
         self.assertEqual(len(FakeWoo.products), 1)
         self.assertEqual(FakeWoo.products[77]["name"], "درایو 4")
+        # categories of the other run are kept, the new one added
+        FakeWoo.products[77]["categories"] = [{"id": 5490}]
+        PB.publish(self.cfg, "batch-1", skus=[sku], republish=True)
+        self.assertEqual([c["id"] for c in FakeWoo.products[77]["categories"]], [5490, 1635])
         self.assertEqual(FakeWoo.products[77]["status"], "publish")
 
     def test_publish_by_sku(self):
