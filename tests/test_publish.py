@@ -415,3 +415,7 @@ class Names(unittest.TestCase):
         self.assertEqual(BF.from_name("موتور گیربکس abb", t)["display"], "ای‌بی‌بی (ABB)")
         self.assertIsNone(BF.from_name("موتور گیربکس cabbage", t))         # whole words only
         self.assertEqual(BF.from_name("اره برقی بوش مدل X", t)["display"], "بوش (Bosch)")   # brands.csv
+        n = "موتور آسانسور گیرلس دیسکی ماتودرایو16 نفره"
+        self.assertEqual(BF.name_with_brand(n, BF.from_name(n, t)), n)        # not 'برند ماتو درایو' again
+        br = {"status": "ok", "fa": "ماتو درایو", "en": "Mato Drive", "display": "ماتو درایو (Mato Drive)", "source": "x"}
+        self.assertEqual(BF.name_with_brand(n, br), n)

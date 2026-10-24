@@ -535,7 +535,10 @@ def from_name(name: str, t: dict[str, dict]) -> dict | None:
 
 
 def has_brand(name: str, br: dict) -> bool:
+    if br.get("from_name"):                           # the brand was read from this very name
+        return True
     n = key(name)
+    glued = re.sub(r"[\s\u200c]", "", n)              # 'ماتودرایو13' still says 'ماتو درایو'
     for w in (br.get("fa"), br.get("en"), br.get("source")):
         w = key(w)
         if not w:
@@ -543,7 +546,7 @@ def has_brand(name: str, br: dict) -> bool:
         if LAT_CHARS.search(w):
             if re.search(rf"(?<![a-z0-9]){re.escape(w)}(?![a-z0-9])", n):
                 return True
-        elif w in n:
+        elif w in n or (len(w) >= 4 and re.sub(r"[\s\u200c]", "", w) in glued):
             return True
     return False
 
