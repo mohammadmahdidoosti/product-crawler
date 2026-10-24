@@ -702,27 +702,38 @@ def _spec_html(r: dict) -> str:
     return f"<h3>مشخصات فنی</h3><table>{rows}</table>" if rows else ""
 
 
-def step_export(cfg: dict, run: str) -> list[Path]:
+def caravan_sku(url: str) -> str:
+    """Stable SKU from the source page: the same product always gets the same SKU, so a second
+    import or publish updates it instead of creating a duplicate."""
+    import hashlib
+    return "CRV-" + hashlib.sha1(str(url).strip().encode("utf-8")).hexdigest()[:10].upper()
+
+
+def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
+    """(product record, WooCommerce row) for every new product, after the review page's decisions.
+    Shared by the CSV export and direct publishing, so both send exactly the same thing."""
     d = run_dir(cfg, run)
     step = int(cfg.get("price", {}).get("round_to_toman", 1000))
-    out = []
+    if not (d / FILES["new"]).exists():
+        return []
     new = read_csv(d / FILES["new"])
+    if new.empty:
+        return []
     new = new[new["price_toman"] != ""] if cfg.get("export", {}).get("require_price", True) else new
     from .images import public_urls
     imgs = {}
     if (d / "05_images.csv").exists():
         imgs = {r["url"]: public_urls(cfg, r["files"]) for r in read_csv(d / "05_images.csv").to_dict("records")}
-    from .review import apply as apply_review, issues_file
+    from .review import apply as apply_review
     recs, imgs = apply_review(d, new.to_dict("records"), imgs)        # decisions taken on the review page
-    issues_file(cfg, d)
     desc = {}
     if (d / "05_descriptions.csv").exists():
         desc = {x["url"]: x for x in read_csv(d / "05_descriptions.csv").to_dict("records")}
     rows = []
     for r in recs:
         ds = desc.get(r["url"]) or {}
-        rows.append({
-            "Type": "simple", "SKU": "", "Name": r.get("name_fa") or r["name"],
+        rows.append((r, {
+            "Type": "simple", "SKU": caravan_sku(r["url"]), "Name": r.get("name_fa") or r["name"],
             "Published": cfg.get("export", {}).get("published", 0),
             "Visibility in catalog": "visible",
             "Description": (ds.get("html") or "") + _spec_html(r), "Short description": ds.get("short", ""),
@@ -738,7 +749,18 @@ def step_export(cfg: dict, run: str) -> list[Path]:
             "Meta: _caravan_taxonomy_id": r.get("taxonomy_id", ""),
             "Meta: _caravan_source_name": r.get("source_name", ""),
             "Meta: _caravan_price_estimated": r.get("price_estimated", ""),
-        })
+            "Meta: _caravan_source_url": r.get("url", ""),
+        }))
+    return rows
+
+
+def step_export(cfg: dict, run: str) -> list[Path]:
+    d = run_dir(cfg, run)
+    step = int(cfg.get("price", {}).get("round_to_toman", 1000))
+    out = []
+    rows = [row for _, row in export_rows(cfg, run)]
+    from .review import issues_file
+    issues_file(cfg, d)
     out.append(write_csv(pd.DataFrame(rows), d / FILES["woo"]))
     upd = read_csv(d / FILES["updates"]) if (d / FILES["updates"]).exists() else pd.DataFrame()
     if len(upd):

@@ -7,6 +7,8 @@ Environment variables:
   DATA_DIR           where taxonomy, settings, cache and runs live default ./data
   LLM_API_KEY        key of an OpenAI-compatible model service (optional; filter, translation)
   SERPER_API_KEY     web-search API key (optional)
+  WC_URL, WC_KEY, WC_SECRET, WP_USER, WP_APP_PASSWORD
+                     direct publishing to the WooCommerce site (crawler/publish.py)
   FX_API_KEY         used inside the dollar-API URL as {FX_API_KEY} (optional)
 
 On Render's free plan the disk is wiped on every restart or deploy: download
@@ -160,6 +162,14 @@ class Job:
             compare(cfg, run, opts.get("models") or [cfg.get("describe", {}).get("model")], int(opts.get("n") or 10))
         elif step == "export":
             P.step_export(cfg, run)
+        elif step == "publish":
+            from crawler.publish import publish
+            skus = [x for x in re.split(r"[\s,،]+", str(opts.get("skus") or "")) if x]
+            res = publish(cfg, run, limit=int(opts.get("limit") or 0) if not skus else 0, skus=skus or None,
+                          dry_run=bool(opts.get("dry_run")), republish=bool(opts.get("republish")),
+                          progress=lambda d, t: P.PROGRESS.update(step="publish", done=d, total=t),
+                          stop=P.STOP.is_set)
+            self.logs.append("نتیجه: " + "، ".join(f"{k} {v}" for k, v in res["counts"].items() if v))
         elif step == "probe":
             from crawler import routing_state as RS
             res = RS.probe_batch(cfg, int(opts["batch"]),
@@ -198,7 +208,7 @@ class Job:
                 took = time.time() - t0
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
-            if step != "probe":
+            if step not in ("probe", "publish"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
             self.state["ok"] = not P.STOP.is_set()
@@ -757,6 +767,14 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:3] == ["api", "job", "stop"]:
                 P.STOP.set()
                 return self._json({"ok": True})
+            if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "publish":
+                run_path(parts[2])
+                b = self._jbody()
+                opts = {k: b.get(k) for k in ("limit", "dry_run", "skus", "republish")}
+                if not opts.get("skus") and not str(opts.get("limit") or "").isdigit():
+                    return self._err("تعداد محصول را مشخص کنید")
+                err = JOB.start("publish", parts[2], opts)
+                return self._err(err, 409) if err else self._json({"ok": True})
             if parts[:3] == ["api", "wc", "test"]:
                 from crawler.wc import WC
                 w = WC(timeout=40)

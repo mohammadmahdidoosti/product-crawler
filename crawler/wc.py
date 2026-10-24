@@ -2,18 +2,29 @@
 
 WC_URL, WC_KEY, WC_SECRET   WooCommerce REST API key (read/write) of the caravan-crawler user
 WP_USER, WP_APP_PASSWORD    the same user's WordPress application password (media uploads)
-data/wp_categories.csv      taxonomy ID -> WordPress product_cat term ID
+assets/wp_categories.csv    taxonomy ID -> WordPress product_cat term ID
+                            (a copy in DATA_DIR wins, so the map can be replaced without a deploy;
+                            not kept under data/ itself: on Render the disk is mounted there and
+                            hides whatever the repo has in that folder)
 """
 from __future__ import annotations
 
 import logging
+import mimetypes
 import os
+import time
 from pathlib import Path
 
 import requests
 
 log = logging.getLogger(__name__)
 ROOT = Path(__file__).resolve().parent.parent
+
+
+class WCError(Exception):
+    def __init__(self, msg: str, status: int | None = None):
+        super().__init__(msg)
+        self.status = status
 
 
 class WC:
@@ -29,6 +40,9 @@ class WC:
     def ok(self) -> bool:
         return bool(self.base and self.key and self.secret)
 
+    def can_upload(self) -> bool:
+        return bool(self.base and self.wp_user and self.wp_pass)
+
     def _wc(self, method: str, path: str, **kw):
         return self.s.request(method, f"{self.base}/wp-json/wc/v3/{path.lstrip('/')}", auth=(self.key, self.secret),
                               timeout=self.timeout, **kw)
@@ -36,6 +50,60 @@ class WC:
     def _wp(self, method: str, path: str, **kw):
         return self.s.request(method, f"{self.base}/wp-json/wp/v2/{path.lstrip('/')}",
                               auth=(self.wp_user, self.wp_pass.replace(" ", "")), timeout=self.timeout, **kw)
+
+    # ------------------------------------------------------------------ writes
+
+    def _call(self, fn, what: str, tries: int = 3):
+        """One REST call with retries on network errors and 5xx/429; a clear error otherwise."""
+        last = None
+        for i in range(tries):
+            try:
+                r = fn()
+            except requests.RequestException as e:
+                last = WCError(f"{what}: {e}")
+            else:
+                if r.ok:
+                    try:
+                        return r.json()
+                    except ValueError:
+                        raise WCError(f"{what}: not JSON ({r.text[:150]})", r.status_code)
+                msg = r.text[:300]
+                try:
+                    j = r.json()
+                    msg = f"{j.get('code', '')}: {j.get('message', '')}".strip(": ") or msg
+                except ValueError:
+                    pass
+                last = WCError(f"{what}: HTTP {r.status_code} {msg}", r.status_code)
+                if r.status_code < 500 and r.status_code != 429:
+                    raise last
+            time.sleep(2 * (i + 1))
+        raise last
+
+    def find_by_sku(self, sku: str) -> dict | None:
+        j = self._call(lambda: self._wc("GET", "products", params={"sku": sku, "status": "any", "per_page": 5}),
+                       f"find {sku}")
+        return next((p for p in j if p.get("sku") == sku), None) if isinstance(j, list) else None
+
+    def create_product(self, data: dict) -> dict:
+        return self._call(lambda: self._wc("POST", "products", json=data), "create product", tries=1)
+
+    def update_product(self, pid: int, data: dict) -> dict:
+        return self._call(lambda: self._wc("PUT", f"products/{pid}", json=data), f"update product {pid}")
+
+    def upload_media(self, path: Path, filename: str, alt: str = "") -> dict:
+        ctype = mimetypes.guess_type(filename)[0] or "image/webp"
+        data = path.read_bytes()
+        j = self._call(lambda: self._wp("POST", "media", data=data, headers={
+            "Content-Type": ctype, "Content-Disposition": f'attachment; filename="{filename}"'}),
+            f"upload {filename}")
+        if alt and j.get("id"):
+            try:
+                self._wp("POST", f"media/{j['id']}", json={"alt_text": alt, "title": alt})
+            except requests.RequestException:
+                pass
+        return j
+
+    # ------------------------------------------------------------------ checks
 
     def test(self) -> dict:
         """Read-only checks: the site answers, the WooCommerce key works, the app password works."""
@@ -50,7 +118,10 @@ class WC:
                     if name == "wc_products":
                         body = f"{len(j)} product(s) read" if isinstance(j, list) else body
                     if name == "wp_me":
-                        body = f"user: {j.get('name') or j.get('slug')}" if isinstance(j, dict) and r.ok else body
+                        if isinstance(j, dict) and r.ok:
+                            caps = j.get("capabilities") or {}
+                            body = (f"user: {j.get('name') or j.get('slug')}, upload_files: "
+                                    f"{bool(caps.get('upload_files'))}, edit_products: {bool(caps.get('edit_products'))}")
                     if name == "wc_category":
                         body = f"category: {j.get('name')}" if isinstance(j, dict) and r.ok else body
                 except ValueError:
@@ -62,17 +133,27 @@ class WC:
         probe("site", lambda: self.s.get(f"{self.base}/wp-json/", timeout=self.timeout))
         probe("wc_products", lambda: self._wc("GET", "products", params={"per_page": 1}))
         cats = category_map()
+        out["category_map"] = {"status": 200 if cats else None, "info": f"{len(cats)} taxonomy IDs mapped"}
         some = next(iter(cats.values()), None)
         if some:
             probe("wc_category", lambda: self._wc("GET", f"products/categories/{some}"))
         probe("wp_me", lambda: self._wp("GET", "users/me", params={"context": "edit"}))
+        out["ok"] = all((v.get("status") or 0) == 200 for k, v in out.items() if isinstance(v, dict))
+        log.info("WC_TEST %s", {k: v.get("status") for k, v in out.items() if isinstance(v, dict)})
         return out
+
+
+_CAT_CACHE: dict = {"key": None, "map": {}}
 
 
 def category_map() -> dict[str, str]:
     import pandas as pd
-    p = ROOT / "data" / "wp_categories.csv"
-    if not p.exists():
+    data_dir = Path(os.environ.get("DATA_DIR", ROOT / "data"))
+    p = next((x for x in (data_dir / "wp_categories.csv", ROOT / "assets" / "wp_categories.csv") if x.exists()), None)
+    if p is None:
         return {}
-    d = pd.read_csv(p, dtype=str).fillna("")
-    return {a: b for a, b in zip(d["ID"], d["wp_id"]) if b}
+    key = (str(p), p.stat().st_mtime)
+    if _CAT_CACHE["key"] != key:
+        d = pd.read_csv(p, dtype=str, encoding="utf-8-sig").fillna("")
+        _CAT_CACHE.update(key=key, map={a.strip(): b.strip() for a, b in zip(d["ID"], d["wp_id"]) if b.strip()})
+    return _CAT_CACHE["map"]

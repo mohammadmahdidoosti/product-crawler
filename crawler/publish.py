@@ -1,0 +1,188 @@
+"""Direct publishing to the Caravan Sanat WooCommerce site through its REST API.
+
+Takes exactly what the CSV export would send (pipeline.export_rows, so review decisions,
+descriptions and photos are the same) and creates each product as a draft:
+
+  * SKU from the source page (CRV-xxxxxxxxxx): a second publish finds the product by SKU and
+    updates it instead of creating a duplicate; its status is never changed on update, so a
+    product someone already published stays published
+  * categories: taxonomy ID (and the extra categories from merged pages) -> WordPress term ID
+    via wp_categories.csv; a product with no mapped category is skipped, never sent uncategorised
+  * photos: the local WebP files are uploaded to the media library (application password), so
+    the site does not need to reach this server; on update they are only sent if the product
+    has none yet
+  * brand as a product attribute, prices and sources as _caravan_* meta
+
+Results: data/runs/<run>/07_published.csv, one row per SKU, updated on every publish.
+"""
+from __future__ import annotations
+
+import logging
+import time
+from pathlib import Path
+
+import pandas as pd
+
+from .io import read_csv, write_csv
+from .wc import WC, WCError, category_map
+
+log = logging.getLogger(__name__)
+
+RESULT_FILE = "07_published.csv"
+RESULT_COLS = ["sku", "action", "product_id", "status", "name", "price", "categories", "images",
+               "edit_url", "error", "source_url", "published_at"]
+
+
+def _split(v) -> list[str]:
+    return [x.strip() for x in str(v or "").split("|") if x.strip()]
+
+
+def local_images(cfg: dict, images: str) -> list[Path]:
+    """'https://<server>/img/abc/1.webp, …' (export column) -> local files under data/images."""
+    root = Path(cfg["_data_dir"]) / "images"
+    out = []
+    for u in str(images or "").split(","):
+        u = u.strip()
+        if "/img/" not in u:
+            continue
+        p = root / u.split("/img/", 1)[1]
+        if p.exists():
+            out.append(p)
+    return out
+
+
+def payload(cfg: dict, rec: dict, row: dict, cats: dict[str, str]) -> tuple[dict, list[str]]:
+    """WooCommerce product JSON for one export row; second value lists the unmapped taxonomy IDs."""
+    tax_ids = list(dict.fromkeys([str(rec.get("taxonomy_id", "")).strip()] + _split(rec.get("extra_taxonomy_ids"))))
+    tax_ids = [t for t in tax_ids if t]
+    wp_ids = list(dict.fromkeys(cats[t] for t in tax_ids if t in cats))
+    missing = [t for t in tax_ids if t not in cats]
+    meta = [{"key": k[len("Meta: "):], "value": str(v)} for k, v in row.items()
+            if k.startswith("Meta: ") and str(v or "").strip()]
+    data = {
+        "name": row["Name"], "type": "simple", "status": "draft", "sku": row["SKU"],
+        "regular_price": str(row.get("Regular price") or ""),
+        "description": row.get("Description") or "", "short_description": row.get("Short description") or "",
+        "catalog_visibility": "visible",
+        "categories": [{"id": int(x)} for x in wp_ids],
+        "meta_data": meta,
+    }
+    if str(row.get("Attribute 1 value(s)") or "").strip():
+        data["attributes"] = [{"name": "برند", "options": [str(row["Attribute 1 value(s)"]).strip()],
+                               "visible": True, "variation": False}]
+    return data, missing
+
+
+def _results(d: Path) -> pd.DataFrame:
+    p = d / RESULT_FILE
+    return read_csv(p) if p.exists() else pd.DataFrame(columns=RESULT_COLS)
+
+
+def _save(d: Path, done: pd.DataFrame, new_rows: list[dict]) -> None:
+    if not new_rows:
+        return
+    df = pd.concat([done, pd.DataFrame(new_rows)], ignore_index=True)
+    df = df.drop_duplicates("sku", keep="last").reindex(columns=RESULT_COLS).fillna("")
+    write_csv(df, d / RESULT_FILE)
+
+
+def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, dry_run: bool = False,
+            republish: bool = False, wc: WC | None = None, progress=None, stop=None) -> dict:
+    """Send up to `limit` products of a run (the ones not yet sent first; `skus` picks exact ones).
+    dry_run: build and check every payload, upload nothing."""
+    from .pipeline import export_rows, run_dir
+    d = run_dir(cfg, run)
+    items = export_rows(cfg, run)
+    if not items:
+        raise ValueError("این اجرا محصول تازه‌ی قیمت‌دار ندارد (مرحله‌ی «ادغام» را ببینید).")
+    wc = wc or WC()
+    if not dry_run and not wc.ok():
+        raise ValueError("WC_URL / WC_KEY / WC_SECRET روی سرور تنظیم نشده")
+    cats = category_map()
+    if not cats:
+        raise ValueError("نگاشت دسته‌های وردپرس (wp_categories.csv) پیدا نشد")
+    done = _results(d)
+    sent = set(done.loc[done["action"].isin(["created", "updated"]), "sku"]) if len(done) else set()
+    if skus:
+        want = set(skus)
+        items = [x for x in items if x[1]["SKU"] in want]
+    elif not republish:
+        items = [x for x in items if x[1]["SKU"] not in sent]
+    items = items[:max(int(limit or 0), 0)] if limit else items
+    log.info("publish %s: %d product(s)%s", run, len(items), " (dry run)" if dry_run else "")
+
+    out, counts = [], {"created": 0, "updated": 0, "skipped": 0, "error": 0, "checked": 0}
+    for i, (rec, row) in enumerate(items):
+        if stop and stop():
+            break
+        if progress:
+            progress(i, len(items))
+        data, missing = payload(cfg, rec, row, cats)
+        files = local_images(cfg, row.get("Images"))
+        res = {"sku": row["SKU"], "name": row["Name"], "price": data["regular_price"],
+               "categories": ",".join(str(c["id"]) for c in data["categories"]),
+               "source_url": rec.get("url", ""), "published_at": time.strftime("%Y-%m-%d %H:%M"),
+               "images": len(files), "status": "", "product_id": "", "edit_url": "", "error": ""}
+        problems = []
+        if not data["categories"]:
+            problems.append(f"دسته‌ی وردپرس برای شناسه‌ی {', '.join(missing) or '؟'} پیدا نشد")
+        if not data["regular_price"]:
+            problems.append("بدون قیمت")
+        if problems:
+            res.update(action="skipped", error=" · ".join(problems))
+            counts["skipped"] += 1
+            log.warning("publish skip %s: %s", row["SKU"], res["error"])
+            out.append(res)
+            continue
+        if missing:
+            res["error"] = f"دسته‌های بدون نگاشت حذف شدند: {', '.join(missing)}"
+        if dry_run:
+            res.update(action="checked", status="draft")
+            counts["checked"] += 1
+            out.append(res)
+            continue
+        try:
+            existing = wc.find_by_sku(row["SKU"])
+            need_images = files and (not existing or not existing.get("images"))
+            if need_images and wc.can_upload():
+                media = []
+                for n, f in enumerate(files, 1):
+                    m = wc.upload_media(f, f"{row['SKU'].lower()}-{n}{f.suffix}", alt=row["Name"])
+                    media.append({"id": m["id"]})
+                data["images"] = media
+            elif need_images:
+                data["images"] = [{"src": u.strip()} for u in str(row.get("Images") or "").split(",") if u.strip()]
+            if existing:
+                data.pop("status", None)              # never un-publish a product someone published
+                p = wc.update_product(existing["id"], data)
+                res["action"] = "updated"
+            else:
+                p = wc.create_product(data)
+                res["action"] = "created"
+            res.update(product_id=p.get("id", ""), status=p.get("status", ""),
+                       edit_url=f"{wc.base}/wp-admin/post.php?post={p.get('id')}&action=edit",
+                       images=len(p.get("images") or []))
+            counts[res["action"]] += 1
+            log.info("publish %s %s -> #%s (%s)", res["action"], row["SKU"], res["product_id"], res["status"])
+        except (WCError, OSError) as e:
+            res.update(action="error", error=str(e)[:400])
+            counts["error"] += 1
+            log.warning("publish error %s: %s", row["SKU"], e)
+            if isinstance(e, WCError) and e.status in (401, 403):
+                out.append(res)
+                log.warning("publish stopped: the site refused the key (%s)", e.status)
+                break
+        out.append(res)
+    if progress:
+        progress(len(items), len(items))
+    if dry_run:
+        write_csv(pd.DataFrame(out).reindex(columns=RESULT_COLS).fillna(""), d / "07_publish_check.csv")
+    else:
+        _save(d, done, out)
+    log.info("publish %s done: %s", run, counts)
+    return {"counts": counts, "rows": out}
+
+
+def results(cfg: dict, run: str) -> list[dict]:
+    from .pipeline import run_dir
+    return _results(run_dir(cfg, run)).to_dict("records")
