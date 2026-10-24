@@ -11,7 +11,10 @@ descriptions and photos are the same) and creates each product as a draft:
   * photos: the local WebP files are uploaded to the media library (application password), so
     the site does not need to reach this server; on update they are only sent if the product
     has none yet
-  * brand as a product attribute, prices and sources as _caravan_* meta
+  * price in dollars (the site multiplies it by its own rate), the crawl's toman price kept as meta
+  * brand from brands_fa.csv ('آنتو (Antu)'): a WooCommerce Brands term (matched to an existing
+    one by Persian or Latin name, created if missing) and the same text as an attribute; products
+    whose brand is not in the table yet are skipped, so nothing goes out unreviewed
 
 Results: data/runs/<run>/07_published.csv, one row per SKU, updated on every publish.
 """
@@ -29,7 +32,7 @@ from .wc import WC, WCError, category_map
 log = logging.getLogger(__name__)
 
 RESULT_FILE = "07_published.csv"
-RESULT_COLS = ["sku", "action", "product_id", "status", "name", "price", "categories", "images",
+RESULT_COLS = ["sku", "action", "product_id", "status", "name", "brand", "price", "categories", "images",
                "edit_url", "error", "source_url", "published_at"]
 
 
@@ -73,6 +76,38 @@ def payload(cfg: dict, rec: dict, row: dict, cats: dict[str, str]) -> tuple[dict
     return data, missing
 
 
+class SiteBrands:
+    """Brand terms on the site, matched by Persian or Latin name; missing ones are created once."""
+
+    def __init__(self, wc: WC, dry_run: bool = False):
+        self.wc, self.dry = wc, dry_run
+        try:
+            self.terms = wc.list_brands() if wc.ok() else []
+        except WCError as e:
+            log.warning("site brands not read (%s): brand kept as an attribute only", e)
+            self.terms = None
+        self.made = 0
+
+    @property
+    def available(self) -> bool:
+        return self.terms is not None
+
+    def id_for(self, br: dict) -> tuple[int | None, bool]:
+        from .brands_fa import match_site
+        if not self.available or br.get("status") != "ok":
+            return None, False
+        t = match_site(self.terms, br.get("fa", ""), br.get("en", ""), br["display"])
+        if t:
+            return t["id"], False
+        if self.dry:
+            return None, True
+        t = self.wc.create_brand(br["display"])
+        self.terms.append({"id": t["id"], "name": br["display"]})
+        self.made += 1
+        log.info("brand created on the site: %s (#%s)", br["display"], t["id"])
+        return t["id"], True
+
+
 def _results(d: Path) -> pd.DataFrame:
     p = d / RESULT_FILE
     return read_csv(p) if p.exists() else pd.DataFrame(columns=RESULT_COLS)
@@ -111,6 +146,9 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
     items = items[:max(int(limit or 0), 0)] if limit else items
     log.info("publish %s: %d product(s)%s", run, len(items), " (dry run)" if dry_run else "")
 
+    brands = SiteBrands(wc, dry_run) if (wc.ok() or not dry_run) else None
+    if brands is not None and not brands.available:
+        log.warning("the site has no WooCommerce Brands endpoint: brand kept as an attribute only")
     out, counts = [], {"created": 0, "updated": 0, "skipped": 0, "error": 0, "checked": 0}
     for i, (rec, row) in enumerate(items):
         if stop and stop():
@@ -119,7 +157,8 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             progress(i, len(items))
         data, missing = payload(cfg, rec, row, cats)
         files = local_images(cfg, row.get("Images"))
-        res = {"sku": row["SKU"], "name": row["Name"], "price": data["regular_price"],
+        br = rec.get("_brand") or {}
+        res = {"sku": row["SKU"], "name": row["Name"], "price": data["regular_price"], "brand": br.get("display", ""),
                "categories": ",".join(str(c["id"]) for c in data["categories"]),
                "source_url": rec.get("url", ""), "published_at": time.strftime("%Y-%m-%d %H:%M"),
                "images": len(files), "status": "", "product_id": "", "edit_url": "", "error": ""}
@@ -127,7 +166,9 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
         if not data["categories"]:
             problems.append(f"دسته‌ی وردپرس برای شناسه‌ی {', '.join(missing) or '؟'} پیدا نشد")
         if not data["regular_price"]:
-            problems.append("بدون قیمت")
+            problems.append("بدون قیمت دلاری")
+        if br.get("status") == "missing":
+            problems.append(f"برند «{br.get('source')}» هنوز در جدول برندها نیست")
         if problems:
             res.update(action="skipped", error=" · ".join(problems))
             counts["skipped"] += 1
@@ -136,12 +177,18 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             continue
         if missing:
             res["error"] = f"دسته‌های بدون نگاشت حذف شدند: {', '.join(missing)}"
-        if dry_run:
-            res.update(action="checked", status="draft")
-            counts["checked"] += 1
-            out.append(res)
-            continue
         try:
+            if brands is not None:
+                bid, new_brand = brands.id_for(br)
+                if bid:
+                    data["brands"] = [int(bid)]           # plain IDs: the form every Brands hook accepts
+                if new_brand:
+                    res["brand"] += " (تازه)"
+            if dry_run:
+                res.update(action="checked", status="draft")
+                counts["checked"] += 1
+                out.append(res)
+                continue
             existing = wc.find_by_sku(row["SKU"])
             need_images = files and (not existing or not existing.get("images"))
             if need_images and wc.can_upload():

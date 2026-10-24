@@ -182,6 +182,7 @@ td select,td input{padding:3px 6px;font-size:12.5px}
   .stn:nth-child(4)::before{display:none}
   .detail{grid-template-columns:1fr}
 }
+  tr.warnrow td{background:rgba(220,150,40,.08)}
 </style>
 </head>
 <body>
@@ -253,11 +254,22 @@ td select,td input{padding:3px 6px;font-size:12.5px}
 
     <div class="card" id="pubCard">
       <div class="row" style="align-items:center;margin-bottom:8px">
-        <h2 style="margin:0;flex:1">انتشار در سایت کاروان <small>به‌صورت پیش‌نویس</small></h2>
+        <h2 style="margin:0;flex:1">انتشار در سایت کاروان <small>به‌صورت پیش‌نویس · قیمت دلاری</small></h2>
         <button class="btn ghost" id="wcTest">تست اتصال</button>
       </div>
       <p class="muted" style="font-size:12.5px;margin:0 0 10px">محصولات تازه‌ی همین اجرا (همان چیزی که در فایل ایمپورت می‌رود، با تصمیم‌های صفحه‌ی بازبینی) مستقیم در ووکامرس ساخته می‌شوند: پیش‌نویس، با دسته، قیمت، توضیحات، برند و عکس. هر محصول یک SKU ثابت دارد، پس انتشار دوباره همان محصول را به‌روز می‌کند و تکراری نمی‌سازد. محصولی که قبلاً منتشر شده، دوباره پیش‌نویس نمی‌شود.</p>
       <div id="wcOut"></div>
+      <div class="brandbox" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line, #e6e0d4)">
+        <div class="row" style="align-items:center;margin-bottom:6px">
+          <h3 style="margin:0;flex:1">۱. جدول برندها <small class="muted" id="brInfo"></small></h3>
+          <a class="btn ghost sm" id="brCsv" href="/api/brands/download">دانلود جدول کامل</a>
+          <button class="btn ghost sm" id="brBuild">ساختن / تکمیل جدول (DeepSeek)</button>
+          <button class="btn ink sm" id="brSave" disabled>ذخیره‌ی تغییرات</button>
+        </div>
+        <p class="muted" style="font-size:12.5px;margin:0 0 8px">نامی که در سایت دیده می‌شود: <b>فارسی (English)</b>. نام اصلی کارخانه یا فروشنده در ستون «نام اصلی» می‌ماند تا بعداً بدانید هر برند مال کیست. هر ردیف را می‌شود اصلاح کرد؛ ردیف اصلاح‌شده دیگر عوض نمی‌شود. اگر هر دو خانه خالی بماند، محصول بدون برند می‌رود. محصولی که برندش در این جدول نیست، ارسال نمی‌شود.</p>
+        <div class="tablewrap" style="max-height:420px"><table id="brTable"></table></div>
+      </div>
+      <h3 style="margin:16px 0 0">۲. ارسال محصولات</h3>
       <div class="row" style="align-items:flex-end;margin-top:10px">
         <div class="field s" style="flex:0 0 130px"><label>تعداد محصول</label><input id="pubLimit" type="number" min="1" value="3"></div>
         <div class="field"><label>یا فقط این SKUها (اختیاری)</label><input id="pubSkus" class="ltr" placeholder="CRV-0A1B2C3D4E, …"></div>
@@ -501,7 +513,7 @@ const STEPS = [
   {k:'describe', t:'توضیحات', f:'05_descriptions.csv', d:'برای هر محصول یک توضیح تازه‌ی فارسی؛ با کلید OpenRouter با هوش مصنوعی، بدون کلید با قالب. متن منبع کپی نمی‌شود.', net:true},
   {k:'export', t:'خروجی',   f:'06_woo_import.csv',   d:'فایل ایمپورت ووکامرس برای محصولات تازه (پیش‌نویس) و فایل به‌روزرسانی قیمت محصولات موجود.'},
 ];
-const STEP_FA = Object.fromEntries(STEPS.map(s=>[s.k,s.t])); STEP_FA.all='همه‌ی مرحله‌ها'; STEP_FA.probe='سنجش بازار'; STEP_FA.publish='انتشار در سایت';
+const STEP_FA = Object.fromEntries(STEPS.map(s=>[s.k,s.t])); STEP_FA.all='همه‌ی مرحله‌ها'; STEP_FA.probe='سنجش بازار'; STEP_FA.publish='انتشار در سایت'; STEP_FA.brands='جدول برندها';
 const FILES = [
   ['صف',['01_queue.csv']], ['جستجو',['02_search_hits.csv','02_no_hits.csv','02_prefiltered.csv','02_topup_done.csv']], ['کراول',['03_crawled.csv','03_failed.csv']],
   ['فیلتر',['04_filtered.csv','04_rejected.csv']], ['ادغام',['05_new_products.csv','05_updates_existing.csv','05_review.csv','05_not_selected.csv','05_low_categories.csv']], ['تصویر',['05_images.csv']], ['توضیحات',['05_descriptions.csv','06_describe_compare.csv']],
@@ -667,7 +679,7 @@ $('#qPreview').onclick = async ()=>{
       <div class="tablewrap" style="max-height:230px"><table><tr><th>شناسه</th><th>عبارت جستجو</th><th>مسیر منبع</th><th>محصول روی سایت</th></tr>${r.rows.map(x=>`<tr><td>${x.taxonomy_id}</td><td>${esc(x.query)}</td><td>${ROUTE_FA[x.route]||x.route}</td><td>${fa(x.site_product_count)}</td></tr>`).join('')}</table></div>`;
   }catch(err){ toast(err.message,true); }
 };
-$('#runSel').onchange = async e=>{ CUR_RUN=e.target.value; await loadRunKpi(); renderRoute(); loadPub(); };
+$('#runSel').onchange = async e=>{ CUR_RUN=e.target.value; await loadRunKpi(); renderRoute(); loadPub(); loadBrands(); };
 $('#runNewBtn').onclick = ()=>{
   const n = prompt('نام اجرای تازه (حروف انگلیسی، عدد، - و _):', 'run-'+(STATE.runs.length+1));
   if(!n) return;
@@ -698,13 +710,18 @@ async function poll(force){
     if(STATE) STATE.job=j;
     renderJob(j);
     if((was && !j.running) || force || stepChanged) await loadState(); else if(STATE) renderRoute();
-    if(was && !j.running && j.step==='publish') loadPub();
+    if(LAST_END===null) LAST_END = j.ended||0;               // jobs that ended before this page opened
+    else if(!j.running && j.ended && j.ended!==LAST_END){      // a job finished (even between two polls)
+      LAST_END=j.ended;
+      if(j.step==='publish') loadPub();
+      if(j.step==='brands') loadBrands();
+    }
     pollTimer = setTimeout(poll, j.running ? 2000 : 15000);   // also keeps the free server awake
   }catch(e){ pollTimer=setTimeout(poll, 5000); }
 }
 // ---------------- publish to the site
 const PUB_ACT = {created:'ساخته شد', updated:'به‌روز شد', skipped:'رد شد', error:'خطا', checked:'آماده'};
-const WC_PROBE = {site:'سایت', wc_products:'کلید ووکامرس', category_map:'نگاشت دسته‌ها', wc_category:'خواندن دسته', wp_me:'رمز برنامه (آپلود عکس)'};
+const WC_PROBE = {site:'سایت', wc_products:'کلید ووکامرس', category_map:'نگاشت دسته‌ها', wc_category:'خواندن دسته', wc_brands:'برندهای ووکامرس', wp_me:'رمز برنامه (آپلود عکس)'};
 $('#wcTest').onclick = async ()=>{
   $('#wcOut').innerHTML = '<span class="muted">در حال تست…</span>';
   try{
@@ -720,6 +737,41 @@ $('#pubBtn').onclick = async ()=>{
   try{ await post(`/api/runs/${encodeURIComponent(CUR_RUN)}/publish`, body); toast('شروع شد: انتشار در سایت'); $('#logwrap').open=true; poll(true); }
   catch(err){ toast(err.message, true); }
 };
+// brand table
+const BR_KIND = {foreign:'خارجی', iranian:'ایرانی', shop:'فروشگاه (بدون برند)'};
+const BR_BY = {deepseek:'DeepSeek', rule:'خودکار', manual:'دستی', '':'—'};
+let BR_ROWS = [], BR_DIRTY = {}, LAST_END = null;
+const brDisp = (f,e)=>{ f=(f||'').trim(); e=(e||'').trim(); return f&&e&&f.toLowerCase()!==e.toLowerCase() ? `${f} (${e})` : (f||e); };
+async function loadBrands(){
+  if(!CUR_RUN) return;
+  let r; try{ r = await api(`/api/runs/${encodeURIComponent(CUR_RUN)}/brands`); }catch(e){ $('#brTable').innerHTML=`<tr><td class="muted">${esc(e.message)}</td></tr>`; return; }
+  BR_ROWS = r.rows; BR_DIRTY = {}; $('#brSave').disabled = true;
+  const miss = BR_ROWS.filter(x=>!x.in_table).length, onSite = BR_ROWS.filter(x=>x.site).length;
+  $('#brInfo').textContent = BR_ROWS.length ? `${fa(BR_ROWS.length)} برند در این اجرا` + (miss?` · ${fa(miss)} هنوز در جدول نیست`:'') + (onSite?` · ${fa(onSite)} از قبل در سایت`:'') : '';
+  if(!BR_ROWS.length){ $('#brTable').innerHTML='<tr><td class="muted">این اجرا محصول تازه ندارد.</td></tr>'; return; }
+  $('#brTable').innerHTML = `<tr><th>برند در داده‌ها</th><th>نوع</th><th>English</th><th>فارسی</th><th>در سایت دیده می‌شود</th><th>نام اصلی (کارخانه / فروشنده)</th><th>محصول</th><th>منبع</th></tr>` +
+    BR_ROWS.map((x,i)=>`<tr class="${x.in_table?'':'warnrow'}"><td class="ltr" style="font-size:12px">${esc(x.source)}</td><td style="font-size:12px">${BR_KIND[x.kind]||esc(x.kind)}</td>
+      <td><input class="ltr" data-i="${i}" data-f="en" value="${esc(x.en)}" style="min-width:110px"></td>
+      <td><input data-i="${i}" data-f="fa" value="${esc(x.fa)}" style="min-width:110px"></td>
+      <td id="brd${i}"><b>${esc(x.display)||'<span class="muted">بدون برند</span>'}</b>${x.site?`<div class="muted" style="font-size:11.5px">در سایت: ${esc(x.site)}</div>`:''}</td>
+      <td class="ltr" style="font-size:11.5px;max-width:260px">${esc(x.suppliers)}</td><td>${fa(x.products)}</td><td style="font-size:12px">${x.in_table?(BR_BY[x.by]??esc(x.by)):'<span class="warn">در جدول نیست</span>'}</td></tr>`).join('');
+}
+$('#brTable').addEventListener('input', e=>{
+  const t=e.target.closest('input[data-i]'); if(!t) return;
+  const i=+t.dataset.i, x=BR_ROWS[i]; x[t.dataset.f]=t.value;
+  BR_DIRTY[x.source]={source:x.source, kind:x.kind, en:x.en, fa:x.fa};
+  $('#brd'+i).innerHTML = `<b>${esc(brDisp(x.fa,x.en))||'<span class="muted">بدون برند</span>'}</b>`;
+  $('#brSave').disabled=false;
+});
+$('#brSave').onclick = async ()=>{
+  try{ const r=await post('/api/brands', {rows:Object.values(BR_DIRTY)}); toast(`${fa(r.saved)} برند ذخیره شد`); loadBrands(); }
+  catch(err){ toast(err.message,true); }
+};
+$('#brBuild').onclick = async ()=>{
+  try{ await post(`/api/runs/${encodeURIComponent(CUR_RUN)}/brands/build`, {}); toast('ساختن جدول برندها شروع شد'); $('#logwrap').open=true; poll(true); }
+  catch(err){ toast(err.message,true); }
+};
+
 async function loadPub(){
   const box = $('#pubOut'); if(!box || !CUR_RUN) return;
   const miss = ['WC_URL','WC_KEY','WC_SECRET','WP_APP_PASSWORD'].filter(k=>STATE && STATE.keys && !STATE.keys[k]);
@@ -730,10 +782,10 @@ async function loadPub(){
     const c = n => r.columns.indexOf(n), rows = r.rows.slice().reverse();
     const n = {}; rows.forEach(x=>{ const a=x[c('action')]; n[a]=(n[a]||0)+1; });
     html += `<h3 style="margin:10px 0 6px">${title} <small class="muted">${Object.entries(n).map(([k,v])=>`${PUB_ACT[k]||k}: ${fa(v)}`).join('، ')}</small></h3>
-      <div class="tablewrap" style="max-height:380px"><table><tr><th>نام</th><th>نتیجه</th><th>قیمت</th><th>عکس</th><th>SKU</th><th>توضیح</th></tr>` +
+      <div class="tablewrap" style="max-height:380px"><table><tr><th>نام</th><th>نتیجه</th><th>برند</th><th>قیمت (دلار)</th><th>عکس</th><th>SKU</th><th>توضیح</th></tr>` +
       rows.map(x=>`<tr><td>${x[c('edit_url')]?`<a href="${esc(x[c('edit_url')])}" target="_blank" rel="noopener">${esc(x[c('name')])}</a>`:esc(x[c('name')])}</td>
         <td>${PUB_ACT[x[c('action')]]||esc(x[c('action')])}${x[c('product_id')]?` <span class="muted ltr">#${esc(x[c('product_id')])}</span>`:''}</td>
-        <td>${fa(x[c('price')])}</td><td>${fa(x[c('images')])}</td><td class="ltr" style="font-size:12px">${esc(x[c('sku')])}</td>
+        <td style="font-size:12.5px">${esc(c('brand')>=0?x[c('brand')]:'')}</td><td class="ltr">${esc(x[c('price')])}</td><td>${fa(x[c('images')])}</td><td class="ltr" style="font-size:12px">${esc(x[c('sku')])}</td>
         <td style="font-size:12px">${esc(x[c('error')])}</td></tr>`).join('') + '</table></div>';
   }
   box.innerHTML = warn + (html || '<span class="muted">هنوز چیزی از این اجرا به سایت ارسال نشده.</span>');
@@ -1024,7 +1076,7 @@ $('#restFile').onchange = async ()=>{
   try{ const r=await api('/api/restore',{method:'POST', body:f}); toast(`${fa(r.restored.length)} فایل بازگردانی شد`); loadState(); }catch(err){ toast(err.message,true); }
 };
 
-loadState().then(()=>{ poll(); loadPub(); });
+loadState().then(()=>{ poll(); loadPub(); loadBrands(); });
 </script>
 </body>
 </html>

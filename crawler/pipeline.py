@@ -709,6 +709,21 @@ def caravan_sku(url: str) -> str:
     return "CRV-" + hashlib.sha1(str(url).strip().encode("utf-8")).hexdigest()[:10].upper()
 
 
+def _usd_price(r: dict) -> str:
+    """The site stores prices in dollars and multiplies them by its own rate, so the dollar price
+    the crawl computed (its own rate; foreign prices already x the foreign multiplier) is sent."""
+    try:
+        v = float(r.get("price_usd") or "nan")
+    except (TypeError, ValueError):
+        v = float("nan")
+    if v != v:                                            # NaN: no dollar price, derive it
+        try:
+            v = float(r.get("price_toman")) / float(r.get("usd_rate_toman"))
+        except (TypeError, ValueError, ZeroDivisionError):
+            return ""
+    return f"{v:.2f}".rstrip("0").rstrip(".") if v > 0 else ""
+
+
 def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
     """(product record, WooCommerce row) for every new product, after the review page's decisions.
     Shared by the CSV export and direct publishing, so both send exactly the same thing."""
@@ -729,20 +744,27 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
     desc = {}
     if (d / "05_descriptions.csv").exists():
         desc = {x["url"]: x for x in read_csv(d / "05_descriptions.csv").to_dict("records")}
+    from . import brands_fa as BF
+    bt = BF.table(cfg)
     rows = []
     for r in recs:
         ds = desc.get(r["url"]) or {}
+        br = BF.resolve(r, bt)
+        r = {**r, "_brand": br}
+        brand = br["display"] if br["status"] == "ok" else (r.get("brand", "") if br["status"] == "missing" else "")
         rows.append((r, {
-            "Type": "simple", "SKU": caravan_sku(r["url"]), "Name": r.get("name_fa") or r["name"],
+            "Type": "simple", "SKU": caravan_sku(r["url"]),
+            "Name": BF.name_with_brand(r.get("name_fa") or r["name"], br),
             "Published": cfg.get("export", {}).get("published", 0),
             "Visibility in catalog": "visible",
             "Description": (ds.get("html") or "") + _spec_html(r), "Short description": ds.get("short", ""),
-            "Regular price": _round_price(r["price_toman"], step),
+            "Regular price": _usd_price(r),
             "Categories": ", ".join(dict.fromkeys(
                 [r["breadcrumb"]] + [b for b in str(r.get("extra_breadcrumbs") or "").split(" | ") if b])),
             "Images": imgs.get(r["url"], ""),
-            "Attribute 1 name": "برند" if r.get("brand") else "", "Attribute 1 value(s)": r.get("brand", ""),
-            "Attribute 1 visible": 1 if r.get("brand") else "", "Attribute 1 global": 1 if r.get("brand") else "",
+            "Brands": brand,
+            "Attribute 1 name": "برند" if brand else "", "Attribute 1 value(s)": brand,
+            "Attribute 1 visible": 1 if brand else "", "Attribute 1 global": 1 if brand else "",
             "Meta: _caravan_price_date": r.get("usd_rate_date", ""),
             "Meta: _caravan_usd_rate": r.get("usd_rate_toman", ""),
             "Meta: _caravan_price_usd": r.get("price_usd", ""),
@@ -750,6 +772,9 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
             "Meta: _caravan_source_name": r.get("source_name", ""),
             "Meta: _caravan_price_estimated": r.get("price_estimated", ""),
             "Meta: _caravan_source_url": r.get("url", ""),
+            "Meta: _caravan_price_toman": r.get("price_toman", ""),
+            "Meta: _caravan_brand_source": br.get("source", ""),
+            "Meta: _caravan_supplier": br.get("original", ""),
         }))
     return rows
 
@@ -768,7 +793,7 @@ def step_export(cfg: dict, run: str) -> list[Path]:
     if len(upd):
         u = pd.DataFrame({
             "ID": upd["site_product_id"],
-            "Regular price": upd["price_toman"].map(lambda x: _round_price(x, step)),
+            "Regular price": [_usd_price(x) for x in upd.to_dict("records")],
             "Meta: _caravan_price_date": upd["usd_rate_date"],
             "Meta: _caravan_usd_rate": upd["usd_rate_toman"],
             "Meta: _caravan_price_usd": upd["price_usd"],

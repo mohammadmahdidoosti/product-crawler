@@ -21,6 +21,7 @@ from crawler.pipeline import caravan_sku, export_rows
 
 class FakeWoo(BaseHTTPRequestHandler):
     products: dict = {}
+    brands: list = []
     media: list = []
     calls: list = []
     refuse = False
@@ -46,6 +47,9 @@ class FakeWoo(BaseHTTPRequestHandler):
         u = urlparse(self.path)
         q = parse_qs(u.query)
         FakeWoo.calls.append(("GET", u.path))
+        if u.path == "/wp-json/wc/v3/products/brands":
+            page = int(q.get("page", ["1"])[0])
+            return self._json(FakeWoo.brands[(page - 1) * 100: page * 100])
         if u.path == "/wp-json/wc/v3/products":
             sku = q.get("sku", [""])[0]
             return self._json([p for p in FakeWoo.products.values() if p["sku"] == sku] if sku
@@ -58,6 +62,11 @@ class FakeWoo(BaseHTTPRequestHandler):
         FakeWoo.calls.append(("POST", u.path))
         if FakeWoo.refuse:
             return self._json({"code": "woocommerce_rest_cannot_create", "message": "no"}, 401)
+        if u.path == "/wp-json/wc/v3/products/brands":
+            d = json.loads(body)
+            t = {"id": 900 + len(FakeWoo.brands), "name": d["name"]}
+            FakeWoo.brands.append(t)
+            return self._json(t, 201)
         if u.path == "/wp-json/wc/v3/products":
             assert self._auth() == "ck_test:cs_test"
             d = json.loads(body)
@@ -89,9 +98,10 @@ class FakeWoo(BaseHTTPRequestHandler):
 def product(i, tax="14339", extra="", price="1500000"):
     return {"url": f"https://shop{i}.ir/product/{i}/", "name": f"Drive {i}", "name_fa": f"درایو {i}",
             "price_toman": price, "breadcrumb": "برق > درایو", "extra_breadcrumbs": "",
-            "taxonomy_id": tax, "extra_taxonomy_ids": extra, "brand": "LS" if i % 2 else "",
+            "taxonomy_id": tax, "extra_taxonomy_ids": extra, "brand": "Nanjing Antu Elevator Parts" if i % 2 else "",
+            "brand_source": "supplier" if i % 2 else "", "source_type": "foreign", "sellers": "Nanjing Antu Elevator Parts Co., Ltd.",
             "model": f"M{i}", "specs_json": json.dumps({"توان": "2.2kW"}, ensure_ascii=False),
-            "usd_rate_date": "2026-10-20", "usd_rate_toman": "100000", "price_usd": "15",
+            "usd_rate_date": "2026-10-20", "usd_rate_toman": "100000", "price_usd": "15" if price else "",
             "source_name": "", "price_estimated": ""}
 
 
@@ -109,6 +119,7 @@ class Publish(unittest.TestCase):
 
     def setUp(self):
         FakeWoo.products, FakeWoo.media, FakeWoo.calls, FakeWoo.refuse = {}, [], [], False
+        FakeWoo.brands = [{"id": 800, "name": "سناکوه (SKH)"}]
         self.tmp = tempfile.TemporaryDirectory()
         data = Path(self.tmp.name)
         self.env = mock.patch.dict(os.environ, {
@@ -127,6 +138,8 @@ class Publish(unittest.TestCase):
             (data / "images" / "aaaaaaaaaaaaaa" / f"{n}.webp").write_bytes(b"RIFF....WEBPVP8 fake")
         write_csv(pd.DataFrame([{"url": rows[0]["url"], "files": "aaaaaaaaaaaaaa/1.webp | aaaaaaaaaaaaaa/2.webp"}]),
                   d / "05_images.csv")
+        from crawler import brands_fa as BF
+        BF.edit(self.cfg, [{"source": "Nanjing Antu Elevator Parts", "kind": "foreign", "en": "Antu", "fa": "آنتو"}])
         self.d = d
 
     def tearDown(self):
@@ -155,9 +168,15 @@ class Publish(unittest.TestCase):
         self.assertEqual(p1["status"], "draft")
         self.assertEqual(p1["categories"], [{"id": 1635}])
         self.assertEqual(p2["categories"], [{"id": 1635}, {"id": 1636}])  # extra category from a merged page
-        self.assertEqual(p1["regular_price"], "1500000")
-        self.assertEqual(p1["attributes"][0]["options"], ["LS"])
+        self.assertEqual(p1["regular_price"], "15")         # dollars: the site multiplies by its rate
+        self.assertEqual(p1["name"], "درایو 1 برند آنتو (Antu)")
+        self.assertEqual(p2["name"], "درایو 2")              # no brand: name unchanged
+        self.assertEqual(p1["attributes"][0]["options"], ["آنتو (Antu)"])
+        self.assertEqual(p1["brands"], [901])                # new brand term made on the site
+        self.assertEqual(FakeWoo.brands[-1]["name"], "آنتو (Antu)")
         self.assertNotIn("attributes", p2)
+        self.assertIn({"key": "_caravan_supplier", "value": "Nanjing Antu Elevator Parts Co., Ltd."}, p1["meta_data"])
+        self.assertIn({"key": "_caravan_price_toman", "value": "1500000"}, p1["meta_data"])
         self.assertEqual(len(p1["images"]), 2)               # local photos uploaded to the media library
         self.assertEqual(len(FakeWoo.media), 2)
         self.assertIn(p1["sku"].lower(), FakeWoo.media[0])
@@ -177,6 +196,7 @@ class Publish(unittest.TestCase):
         self.assertEqual(res["counts"]["updated"], 1)
         self.assertEqual(FakeWoo.products[100]["status"], "publish")
         self.assertEqual(len(FakeWoo.media), 2)              # it already had photos: none uploaded again
+        self.assertEqual(len(FakeWoo.brands), 2)             # the brand term is reused, not made twice
         self.assertEqual(len(FakeWoo.products), 3)           # no duplicate
         self.assertEqual(len(read_csv(self.d / PB.RESULT_FILE)), 4)   # one row per SKU
 
@@ -192,9 +212,84 @@ class Publish(unittest.TestCase):
         self.assertEqual(res["counts"]["error"], 1)          # stops after the first refusal
         self.assertIn("401", read_csv(self.d / PB.RESULT_FILE)["error"].iloc[0])
 
+    def test_brand_not_in_table_is_skipped(self):
+        from crawler import brands_fa as BF
+        BF.path(self.cfg).unlink()
+        res = PB.publish(self.cfg, "batch-1", limit=10, dry_run=True)
+        self.assertEqual(res["counts"]["checked"], 2)        # products 2 and 4 have no brand at all
+        self.assertTrue(any("جدول برندها" in r["error"] for r in res["rows"]))
+
     def test_category_map_not_under_data(self):
         self.assertEqual(WCM.category_map().get("14339"), "1635")   # from assets/, DATA_DIR has none
 
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Brands(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.cfg = load_config()
+        self.cfg["_data_dir"] = Path(self.tmp.name)
+        self.env = mock.patch.dict(os.environ, {"OPENROUTER_API_KEY": "k"})
+        self.env.start()
+
+    def tearDown(self):
+        self.env.stop()
+        self.tmp.cleanup()
+
+    def recs(self):
+        return [
+            {"brand": "Nanjing Antu Elevator Parts", "brand_source": "supplier", "source_type": "foreign",
+             "sellers": "Nanjing Antu Elevator Parts Co., Ltd.", "name": "Float switch"},
+            {"brand": "FUEN", "brand_source": "page", "source_type": "foreign", "sellers": "Fuen Co.", "name": "x"},
+            {"brand": "FUEN", "brand_source": "page", "source_type": "foreign", "sellers": "Fuen Co.", "name": "y"},
+            {"brand": "رونیکس", "brand_source": "page", "source_type": "iran", "sellers": "ابزار آرین", "name": "دریل"},
+            {"brand": "ابزار آرین", "brand_source": "supplier", "source_type": "iran", "sellers": "ابزار آرین", "name": "z"},
+            {"brand": "سناکوه (SKH)", "brand_source": "page", "source_type": "iran", "sellers": "s", "name": "w"},
+        ]
+
+    def test_build_and_apply(self):
+        from crawler import brands_fa as BF
+        asked = []
+
+        def fake_ask(self_, items):
+            asked.extend(items)
+            m = {"Nanjing Antu Elevator Parts": ("Antu", "آنتو"), "FUEN": ("FUEN", "فوئن")}
+            return {it["i"]: {"en": m[it["brand"]][0], "fa": m[it["brand"]][1]} for it in items}
+
+        with mock.patch.object(BF.Namer, "ask", fake_ask):
+            res = BF.build(self.cfg, self.recs())
+        self.assertEqual(res["brands"], 5)
+        self.assertEqual(sorted(a["brand"] for a in asked), ["FUEN", "Nanjing Antu Elevator Parts"])
+        self.assertTrue(next(a for a in asked if a["brand"].startswith("Nanjing"))["company"])
+        t = BF.table(self.cfg)
+        self.assertEqual(t[BF.key("Nanjing Antu Elevator Parts")]["display"], "آنتو (Antu)")
+        self.assertIn("Co., Ltd.", t[BF.key("Nanjing Antu Elevator Parts")]["suppliers"])   # who it really is
+        self.assertEqual(t[BF.key("FUEN")]["products"], "2")
+        self.assertEqual(t[BF.key("رونیکس")]["display"], "رونیکس")                      # Persian: as it is
+        self.assertEqual(t[BF.key("ابزار آرین")]["display"], "")                           # a shop is no brand
+        self.assertEqual(t[BF.key("سناکوه (SKH)")]["display"], "سناکوه (SKH)")
+
+        br = BF.resolve(self.recs()[0], t)
+        self.assertEqual(BF.name_with_brand("فلوتر آسانسوری یک اینچ", br), "فلوتر آسانسوری یک اینچ برند آنتو (Antu)")
+        self.assertEqual(BF.name_with_brand("فلوتر Antu یک اینچ", br), "فلوتر Antu یک اینچ")
+        self.assertEqual(BF.name_with_brand("فلوتر آنتو", br), "فلوتر آنتو")
+        self.assertEqual(BF.name_with_brand("دریل", BF.resolve(self.recs()[4], t)), "دریل")
+
+        # a hand edit survives a rebuild, even with redo
+        BF.edit(self.cfg, [{"source": "FUEN", "en": "Fuen", "fa": "فوئِن"}])
+        with mock.patch.object(BF.Namer, "ask", fake_ask):
+            BF.build(self.cfg, self.recs(), redo=True)
+        self.assertEqual(BF.table(self.cfg)[BF.key("FUEN")]["display"], "فوئِن (Fuen)")
+
+    def test_site_match(self):
+        from crawler import brands_fa as BF
+        terms = [{"id": 1, "name": "سناکوه (SKH)"}, {"id": 2, "name": "Makita"}, {"id": 3, "name": "ماکیتا"}]
+        self.assertEqual(BF.match_site(terms, "سناکوه", "SKH", "سناکوه (SKH)")["id"], 1)
+        self.assertEqual(BF.match_site(terms, "ماکیتا", "Makita", "ماکیتا (Makita)")["id"], 2)
+        self.assertIsNone(BF.match_site(terms, "آنتو", "Antu", "آنتو (Antu)"))
+        self.assertEqual(BF.split_display("Mega-Tek Instrument (Chengdu)"), ("", "Mega-Tek Instrument (Chengdu)"))
+        self.assertEqual(BF.split_display("فوئن (FUEN)"), ("فوئن", "FUEN"))
+        self.assertEqual(BF.split_display("رونیکس"), ("رونیکس", ""))

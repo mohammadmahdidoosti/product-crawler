@@ -90,6 +90,36 @@ class WC:
     def update_product(self, pid: int, data: dict) -> dict:
         return self._call(lambda: self._wc("PUT", f"products/{pid}", json=data), f"update product {pid}")
 
+    def list_brands(self) -> list[dict] | None:
+        """All WooCommerce brand terms (WooCommerce 9.6+ 'Brands'); None if the site has no such endpoint."""
+        out, page = [], 1
+        while True:
+            try:
+                j = self._call(lambda: self._wc("GET", "products/brands", params={"per_page": 100, "page": page,
+                                                                               "hide_empty": "false"}), "brands")
+            except WCError as e:
+                if e.status == 404:
+                    return None
+                raise
+            if not isinstance(j, list) or not j:
+                return out
+            out += j
+            if len(j) < 100:
+                return out
+            page += 1
+
+    def create_brand(self, name: str) -> dict:
+        try:
+            return self._call(lambda: self._wc("POST", "products/brands", json={"name": name}), f"brand {name}", tries=1)
+        except WCError as e:
+            # a term with this name exists already (e.g. made a moment ago): WordPress returns its ID
+            if e.status == 400 and "term_exists" in str(e):
+                r = self._wc("POST", "products/brands", json={"name": name})
+                tid = ((r.json() or {}).get("data") or {}).get("resource_id")
+                if tid:
+                    return {"id": tid, "name": name}
+            raise
+
     def upload_media(self, path: Path, filename: str, alt: str = "") -> dict:
         ctype = mimetypes.guess_type(filename)[0] or "image/webp"
         data = path.read_bytes()
@@ -122,6 +152,9 @@ class WC:
                             caps = j.get("capabilities") or {}
                             body = (f"user: {j.get('name') or j.get('slug')}, upload_files: "
                                     f"{bool(caps.get('upload_files'))}, edit_products: {bool(caps.get('edit_products'))}")
+                    if name == "wc_brands":
+                        body = (f"brands endpoint ok (total: {r.headers.get('X-WP-Total', '?')})"
+                                if isinstance(j, list) and r.ok else body)
                     if name == "wc_category":
                         body = f"category: {j.get('name')}" if isinstance(j, dict) and r.ok else body
                 except ValueError:
@@ -137,6 +170,7 @@ class WC:
         some = next(iter(cats.values()), None)
         if some:
             probe("wc_category", lambda: self._wc("GET", f"products/categories/{some}"))
+        probe("wc_brands", lambda: self._wc("GET", "products/brands", params={"per_page": 1}))
         probe("wp_me", lambda: self._wp("GET", "users/me", params={"context": "edit"}))
         out["ok"] = all((v.get("status") or 0) == 200 for k, v in out.items() if isinstance(v, dict))
         log.info("WC_TEST %s", {k: v.get("status") for k, v in out.items() if isinstance(v, dict)})

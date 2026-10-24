@@ -140,3 +140,7 @@ describe:
   fallback_models: [xiaomi/mimo-v2.6-flash]   # tried when the main model's text is rejected
   workers: 8              # products written at the same time
   max_tokens: 2500
+
+brands:                   # brand names for the site: 'آنتو (Antu)' (crawler/brands_fa.py, table in data/brands_fa.csv)
+  model: deepseek/deepseek-v4.1-flash   # short trade name + Persian spelling, through OpenRouter
+  batch_size: 40          # brands per request

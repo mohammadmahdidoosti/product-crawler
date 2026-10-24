@@ -162,6 +162,14 @@ class Job:
             compare(cfg, run, opts.get("models") or [cfg.get("describe", {}).get("model")], int(opts.get("n") or 10))
         elif step == "export":
             P.step_export(cfg, run)
+        elif step == "brands":
+            from crawler import brands_fa as BF
+            from crawler.wc import WC
+            recs = [r for r, _ in P.export_rows(cfg, run)]
+            res = BF.build(cfg, recs, redo=bool(opts.get("redo")), wc=WC(timeout=40),
+                           progress=lambda d, t: P.PROGRESS.update(step="brands", done=d, total=t), stop=P.STOP.is_set)
+            self.logs.append(f"برندها: {res['brands']} برند در این اجرا، {res['named']} نام‌گذاری با DeepSeek"
+                             + (f"، ناموفق: {', '.join(res['failed'])}" if res["failed"] else ""))
         elif step == "publish":
             from crawler.publish import publish
             skus = [x for x in re.split(r"[\s,،]+", str(opts.get("skus") or "")) if x]
@@ -208,7 +216,7 @@ class Job:
                 took = time.time() - t0
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
-            if step not in ("probe", "publish"):
+            if step not in ("probe", "publish", "brands"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
             self.state["ok"] = not P.STOP.is_set()
@@ -631,6 +639,12 @@ class Handler(BaseHTTPRequestHandler):
                         p_ = pr.get(r["group"])
                         r["evidence"] = json.loads(p_["domains_json"])[:5] if p_ else []
                     return self._json({"rows": out})
+            if parts[:2] == ["api", "brands"] and parts[2:3] == ["download"]:
+                from crawler import brands_fa as BF
+                p_ = BF.path(build_cfg())
+                if not p_.exists():
+                    return self._err("جدول برندها هنوز ساخته نشده", 404)
+                return self._download(p_.read_bytes(), "caravan-brands.csv", "text/csv; charset=utf-8")
             if parts[:2] == ["api", "backup"]:
                 return self._download(backup_zip(), f"caravan-backup-{time.strftime('%Y%m%d-%H%M')}.zip",
                                       "application/zip")
@@ -641,6 +655,10 @@ class Handler(BaseHTTPRequestHandler):
                 if len(parts) == 3:
                     return self._json({"name": parts[2], "files": {f.name: file_rows(f) for f in sorted(d.glob("*.csv"))},
                                        "kpi": run_kpi(d), "stats": P.stats(build_cfg(), parts[2]) if d.exists() else ""})
+                if parts[3] == "brands":
+                    from crawler import brands_fa as BF
+                    cfg = build_cfg()
+                    return self._json({"rows": BF.for_run(cfg, [r for r, _ in P.export_rows(cfg, parts[2])])})
                 if parts[3] == "review":
                     from crawler import review as RV
                     return self._json(RV.items(build_cfg(), parts[2], q.get("filter", "issues")))
@@ -767,6 +785,13 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:3] == ["api", "job", "stop"]:
                 P.STOP.set()
                 return self._json({"ok": True})
+            if parts[:2] == ["api", "runs"] and len(parts) == 5 and parts[3:] == ["brands", "build"]:
+                run_path(parts[2])
+                err = JOB.start("brands", parts[2], {"redo": bool(self._jbody().get("redo"))})
+                return self._err(err, 409) if err else self._json({"ok": True})
+            if parts[:2] == ["api", "brands"] and len(parts) == 2:
+                from crawler import brands_fa as BF
+                return self._json({"ok": True, "saved": BF.edit(build_cfg(), self._jbody().get("rows") or [])})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "publish":
                 run_path(parts[2])
                 b = self._jbody()

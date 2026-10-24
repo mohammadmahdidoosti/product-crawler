@@ -158,7 +158,8 @@ class EndToEnd(unittest.TestCase):
         woo = read_csv(self.tmp / "runs" / run / FILES["woo"])
         self.assertEqual(len(woo), 1)
         valve_row = woo.iloc[0]
-        self.assertEqual(valve_row["Regular price"], "1850000")
+        self.assertEqual(valve_row["Regular price"], "18.5")     # dollars (1,850,000 toman at 100,000)
+        self.assertEqual(valve_row["Meta: _caravan_price_toman"], "1850000")
         self.assertEqual(valve_row["Categories"], "شیرآلات > شیر برقی > شیر برقی 24 ولت")
         self.assertEqual(valve_row["Published"], "0")
         self.assertIn("یونی", valve_row["Description"])
