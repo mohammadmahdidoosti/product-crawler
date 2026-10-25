@@ -542,6 +542,26 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     return paths
 
 
+def category_kind(cfg: dict, breadcrumb: str, target: int) -> tuple[str, int]:
+    """What a category can hold: one model ('اره عمود بر بوش gst 75 be': the same model from twenty
+    shops is merged into one product, so 1 is full), one brand, or a general kind (24)."""
+    from .routing import leaf_brand
+    from .rules import model_tokens
+    leaf = breadcrumb.split(">")[-1].strip()
+    from .normalize import fa_digits_to_en
+    if model_tokens(breadcrumb, leaf):
+        lf = fa_digits_to_en(leaf).lower()
+        unit = r"\s*(وات|ولت|سانت|سانتی|کیلو|کیلویی|نفره|اینچ|میلی|متر|لیتر|تن|حالته|کاره)"
+        model = re.search(r"[a-z]", lf) or any(not re.match(unit, lf[m.end():])
+                                                for m in re.finditer(r"\d{3,}", lf))
+        if model:                                        # 'gst 75 be', 'hr2630t', 'رونیکس 4111'
+            return "مدل", int(cfg.get("select", {}).get("model_target", 1))
+        return "اندازه/توان", int(cfg.get("select", {}).get("size_target", 6))   # '1200 وات', '30 سانتی'
+    if leaf_brand(leaf):
+        return "برند", target
+    return "عمومی", target
+
+
 def low_categories(cfg: dict, d: Path, kept: pd.DataFrame, need: pd.DataFrame) -> Path:
     """Categories below the target count: the list for finding and inviting suppliers."""
     target = int(cfg.get("select", {}).get("max_per_category", 24))
@@ -568,7 +588,8 @@ def low_categories(cfg: dict, d: Path, kept: pd.DataFrame, need: pd.DataFrame) -
     for r in q.to_dict("records"):
         t = r["taxonomy_id"]
         k, w = int(n.get(t, 0)), int(m.get(t, 0))
-        if k < target:
+        kind, goal = category_kind(cfg, r["breadcrumb"], target)
+        if k < goal:
             h_, c_, f_ = int(hits.get(t, 0)), int(crawled.get(t, 0)), int(failed.get(t, 0))
             if h_ == 0:
                 why = "جستجو هیچ صفحه‌ای پیدا نکرد"
@@ -581,13 +602,15 @@ def low_categories(cfg: dict, d: Path, kept: pd.DataFrame, need: pd.DataFrame) -
             else:
                 why = "بازار همین‌قدر محصول داشت" + (f"؛ بیشترین رد: {top_rej[t]}" if t in top_rej else "")
             rows.append({"taxonomy_id": t, "breadcrumb": r["breadcrumb"], "route": r["route"],
-                         "products": k, "without_price": w, "missing": target - k,
+                         "kind": kind, "target": goal, "products": k, "without_price": w, "missing": goal - k,
                          "status": "خالی" if k == 0 and w == 0 else "فقط بی‌قیمت" if k == 0 else "کم‌محصول",
                          "found_links": h_, "crawled": c_, "failed": f_, "why": why})
-    out = pd.DataFrame(rows, columns=["taxonomy_id", "breadcrumb", "route", "products", "without_price", "missing",
+    out = pd.DataFrame(rows, columns=["taxonomy_id", "breadcrumb", "route", "kind", "target", "products",
+                                      "without_price", "missing",
                                       "status", "found_links", "crawled", "failed", "why"])
     out = out.sort_values(["products", "breadcrumb"]) if len(out) else out
-    log.info("categories below %d products: %d of %d (%d empty) -> 05_low_categories.csv", target, len(out), len(q),
+    log.info("categories below their target (model 1, brand/general %d): %d of %d (%d empty) -> 05_low_categories.csv",
+             target, len(out), len(q),
              int((out["products"] == 0).sum()) if len(out) else 0)
     return write_csv(out, d / "05_low_categories.csv")
 

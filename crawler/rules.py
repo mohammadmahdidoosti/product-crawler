@@ -150,6 +150,14 @@ def model_tokens(breadcrumb: str, leaf: str) -> list[str]:
     from .normalize import fa_digits_to_en
     parents = set(fa_digits_to_en(" ".join(breadcrumb.split(">")[:-1])).lower().split())
     words = fa_digits_to_en(leaf).lower().split()
+    # '6 1' in a category name is '6.1' with its dot lost ('الکو پلاس 6 1' = 6.1 kW)
+    merged = []
+    for w in words:
+        if merged and re.fullmatch(r"\d", w) and re.fullmatch(r"\d{1,2}", merged[-1]) and not re.fullmatch(r"\d", merged[-1] + "x"):
+            merged[-1] = merged[-1] + w
+        else:
+            merged.append(w)
+    words = merged
     nums = {"یک": "1", "دو": "2", "سه": "3", "چهار": "4", "پنج": "5", "شش": "6", "هفت": "7", "هشت": "8",
             "نه": "9", "ده": "10"}
     units = {"اینچ", "نفره", "اسب", "کیلو", "متری", "لیتری", "تن", "تنی", "فاز", "زمانه", "راهه", "پره"}
@@ -318,6 +326,10 @@ def check_added(breadcrumb: str, leaf: str, product: dict) -> dict | None:
             by_brand = any(country in g or country + "ی" in g or country + "یی" in g for g in leaf_c)
         else:                                              # only "Iranian or not": enough for 'ایرانی' only
             by_brand = iran_cat and origin == "iranian"
+        copy_cat = any(any("چین" in w for w in g) for g in leaf_c) and re.search(
+            r"طرح|کپی|چینی|china|های ?کپی", f"{name} {product.get('short_description') or ''}", re.I)
+        if copy_cat:                                       # 'اره شارژی اشتیل چینی': a Chinese-made copy of a
+            by_brand = True                                # foreign brand, the name says طرح/کپی/چینی
         if fb and country and not by_brand:                # the brand's country wins over a page's words
             return {"relevant": False, "confidence": 0.8,
                     "reason": f"دسته‌ی ساخت {'/'.join(sorted(leaf_c[0]))} است ولی برند «{fb[0]}» ساخت {country_fa} است"}
