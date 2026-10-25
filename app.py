@@ -40,7 +40,7 @@ import yaml
 from crawler import pipeline as P
 from crawler.config import ROOT, load_config
 from crawler.fetch import Fetcher
-from crawler.io import ENCODING, FILES
+from crawler.io import ENCODING, FILES, read_csv
 from crawler.taxonomy import build_queue, load_taxonomy
 
 DATA_DIR = Path(os.environ.get("DATA_DIR", ROOT / "data")).resolve()
@@ -211,7 +211,12 @@ class Job:
                 urls = [x["url"] for x in RV.items(cfg, run, "images")["items"]][:int(opts.get("limit") or 5)]
             ic = cfg.get("images", {})
             models = opts.get("models") or [ic.get("ai_model")] + list(ic.get("ai_fallback_models") or [])
-            enhance(cfg, run, urls, models, int(opts.get("n") or 1), first_ok=not opts.get("models"))
+            if opts.get("compare") and not opts.get("urls"):     # products whose photo needed an edit
+                im = read_csv(P.run_dir(cfg, run) / "05_images.csv")
+                urls = [r["url"] for r in im.to_dict("records") if "ai_fixed" in str(r.get("notes") or "")
+                        or "text_overlay" in str(r.get("notes") or "")][:int(opts.get("limit") or 15)]
+            enhance(cfg, run, urls, models, int(opts.get("n") or 1), first_ok=not opts.get("models"),
+                    compare=bool(opts.get("compare")))
         elif step == "photo_fix":
             from crawler.aiphotos import fix_photos
             fix_photos(cfg, run)
@@ -953,7 +958,7 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "enhance":
                 run_path(parts[2])
                 b = self._jbody()
-                err = start_job("enhance", parts[2], {k: b.get(k) for k in ("urls", "models", "n", "limit")})
+                err = start_job("enhance", parts[2], {k: b.get(k) for k in ("urls", "models", "n", "limit", "compare")})
                 return self._err(err) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "describe-compare":
                 run_path(parts[2])

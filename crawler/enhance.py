@@ -11,6 +11,7 @@ from __future__ import annotations
 import base64
 import io
 import logging
+import re
 import time
 from pathlib import Path
 
@@ -101,7 +102,8 @@ def source_photo(row: dict, n: int, data_dir: Path) -> Image.Image | None:
     return Image.open(p).convert("RGB") if p.exists() else None
 
 
-def enhance(cfg: dict, run: str, urls: list[str], models: list[str], n: int = 1, first_ok: bool = False) -> Path:
+def enhance(cfg: dict, run: str, urls: list[str], models: list[str], n: int = 1, first_ok: bool = False,
+            compare: bool = False) -> Path:
     """first_ok: stop at the first model that returns a picture (the backups are for refusals/errors)."""
     key = secret("OPENROUTER_API_KEY")
     if not key:
@@ -127,9 +129,11 @@ def enhance(cfg: dict, run: str, urls: list[str], models: list[str], n: int = 1,
                 file = ""
                 if out is not None:
                     pic, _ = make(out, None, int(cfg.get("images", {}).get("size", 1000)), cutout=False)
-                    folder = cfg["_data_dir"] / "images" / k
-                    folder.mkdir(parents=True, exist_ok=True)
-                    file = f"{k}/ai{mi}_{n}.webp"
+                    if compare:                      # a model test: never over a product's own photos
+                        file = f"_compare/{k}/{re.sub(r'[^a-z0-9]+', '-', m.lower())}_{n}.webp"
+                    else:
+                        file = f"{k}/ai{mi}_{n}.webp"
+                    (cfg["_data_dir"] / "images" / file).parent.mkdir(parents=True, exist_ok=True)
                     pic.save(cfg["_data_dir"] / "images" / file, "WEBP", quality=88, method=4)
                 log.info("enhance %s with %s: %s (%.0fs)", url[-50:], m, status[:80], time.time() - t0)
                 a.write({"url": url, "key": k, "n": n, "model": m, "file": file,
