@@ -66,6 +66,10 @@ class GapIndex:
 LEAD_SKIP = {norm_text(w) for w in ("ست", "پک", "مجموعه", "کیت", "بسته", "جفت", "عدد", "عددی", "دستگاه", "خرید", "قیمت", "و")}
 
 
+# shop words for the same thing as a category word ('اره زنجیری' is an 'اره موتوری')
+SAME = {norm_text(a): {norm_text(x) for x in b} for a, b in (("موتوری", ("زنجیری",)), ("زنجیری", ("موتوری",)))}
+
+
 def starts_as(name: str, node: dict) -> bool:
     """The product IS the node's thing: its name starts with the node's first word (after 'کیت',
     'ست', counts…), or with the second when the first is implied ('بتن کن' for 'دریل بتن کن').
@@ -74,11 +78,13 @@ def starts_as(name: str, node: dict) -> bool:
     if not ws:
         return False
     lw = norm_text(node["leaf"]).split()
+    if ws[0] == norm_text("اره") and lw[0] != ws[0] and len(ws) > 1:   # 'اره پروفیل بر …' is a 'پروفیل بر'
+        ws = ws[1:]
     return ws[0] == lw[0] or (len(lw) > 1 and ws[0] == lw[1])
 
 
 UNSURE = {norm_text(w) for w in ("قدیمی", "جدید", "اصل", "اصلی", "اورجینال", "کپی", "طرح", "درجه", "ارزان", "باکیفیت")}
-POWER = {norm_text(w) for w in ("بنزینی", "برقی", "دیزلی", "گازی", "پنوماتیک", "پنوماتیکی", "بادی", "هیدرولیک", "هیدرولیکی")}
+POWER = {norm_text(w) for w in ("موتوری", "شارژی", "بنزینی", "برقی", "دیزلی", "گازی", "پنوماتیک", "پنوماتیکی", "بادی", "هیدرولیک", "هیدرولیکی")}
 
 
 def type_ok(node: dict, name: str) -> bool:
@@ -122,10 +128,13 @@ def strict(node: dict, r: dict) -> str | None:
     need = [w for w in lw if w not in STOP and w not in ADJ and w not in UNITS and w not in ORIGIN_WORDS
             and not re.search(r"\d", w) and not leaf_brand_word(w, node["leaf"])]
     implied = lw[:1] if len(lw) > 1 and nmn.split()[:1] == lw[1:2] else []     # 'عمود بر …' is an 'اره عمود بر'
-    missing = [w for w in need if w not in nm and w not in flat and w not in implied]
-    if len(missing) > (0 if len(need) <= 2 else 1):   # 'اره افق بر' is not an 'اره عمود بر'
+    missing = [w for w in need if w not in nm and w not in flat and w not in implied
+               and not (SAME.get(w, set()) & nm)]
+    # the first two words name the thing ('اره عمود', 'موتور گیربکس'): both must be there; of the
+    # rest one may be left out ('موتور و گیربکس آسانسور' takes 'موتور گیربکس بهران')
+    if any(w in missing for w in need[:2]) or len(missing) > 1:   # 'اره افقی بر' is not an 'اره عمود بر'
         return f"«{' '.join(missing)}» در نام نیست"
-    missing_power = [w for w in lf & POWER if w not in nm]
+    missing_power = [w for w in lf & POWER if w not in nm and not (SAME.get(w, set()) & nm)]
     if missing_power:
         return f"«{missing_power[0]}» در نام نیست"
     if _mode(node["leaf"]) and _mode(name) != _mode(node["leaf"]):
@@ -233,7 +242,9 @@ def place_up(cfg: dict, df: pd.DataFrame, crawled: pd.DataFrame, min_conf: float
                 if n["breadcrumb"].count(">") < 1:          # not a whole top-level section
                     continue
                 v = judge(n["breadcrumb"], n["leaf"], r)
-                if v["relevant"] and float(v["confidence"]) >= 0.85 and strict(n, r) is None:
+                # every word of the category is in the name (strict): judge's share may be lower
+                # when the shop uses another word for the same thing ('زنجیری' for 'موتوری')
+                if v["relevant"] and float(v["confidence"]) >= min_conf and strict(n, r) is None:
                     fits.append((n, v))
             deep = _deepest([n for n, _ in fits])
             if deep:
