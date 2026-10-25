@@ -62,6 +62,7 @@ def _remember_dead(p: Path, site: str, days: float) -> None:
 
 class Fetcher:
     def __init__(self, cfg: dict, route: str = "iran"):
+        self._cfg = cfg
         h = cfg.get("http", {})
         self.delay = float(h.get("delay_seconds", 3))
         self.timeout = float(h.get("timeout_seconds", 25))
@@ -245,4 +246,10 @@ class Fetcher:
             return None
         data = {"url": url, "status": 200, "json": r.json()}
         self._store(key, data)
+        if "serper.dev" in url:                         # a paid search really made (a cached answer is free)
+            try:
+                from .probe import _count
+                _count(self._cfg)
+            except Exception:                             # noqa: BLE001
+                pass
         return data

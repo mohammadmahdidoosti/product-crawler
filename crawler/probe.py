@@ -60,14 +60,23 @@ _USAGE_LOCK = __import__("threading").Lock()
 
 
 def record_usage(cfg, n: int = 1) -> int:
+    """Searches used so far. Counting happens where a search is really sent (Fetcher.post_json:
+    a cached answer costs nothing), so the callers' own +1 is no longer added."""
+    with _USAGE_LOCK:
+        return _record_usage(cfg, 0)
+
+
+def _count(cfg) -> int:
     with _USAGE_LOCK:                                  # several threads count searches at once
-        return _record_usage(cfg, n)
+        return _record_usage(cfg, 1)
 
 
 def _record_usage(cfg, n: int = 1) -> int:
     p = usage_file(cfg)
     df = read_csv(p) if p.exists() else pd.DataFrame(columns=["date", "searches"])
     today = dt.date.today().isoformat()
+    if not n:
+        return int(pd.to_numeric(df["searches"]).sum()) if len(df) else 0
     if len(df) and df.iloc[-1]["date"] == today:
         df.loc[df.index[-1], "searches"] = str(int(df.iloc[-1]["searches"]) + n)
     else:
