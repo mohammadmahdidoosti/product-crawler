@@ -776,6 +776,15 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
             leaf = str(r.get("breadcrumb") or "")
             groups.setdefault("leaf:" + leaf, []).append(v)
             groups.setdefault("parent:" + leaf.rsplit(" > ", 1)[0], []).append(v)
+    # every price of a category, in range or not: a category where most prices are above the
+    # range (elevator motors: 200-600 million) is expensive, not wrong
+    above: dict[str, list[float]] = {}
+    for r in recs:
+        v = num(r.get("price_toman"))
+        if v and "foreign_x" not in str(r.get("price_flags") or ""):
+            lf = str(r.get("breadcrumb") or "")
+            above.setdefault(lf, []).append(v)
+            above.setdefault("parent:" + lf.rsplit(" > ", 1)[0], []).append(v)
     out = []
     for r in recs:
         v = num(r.get("price_toman"))
@@ -792,7 +801,17 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
                 ref = median(others)
                 break
         why = ""
-        if v > high or v < low:
+        dear = False
+        for g in (leaf, "parent:" + leaf.rsplit(" > ", 1)[0]):     # the category, else its parent
+            peers = list(above.get(g, []))
+            if v in peers:
+                peers.remove(v)
+            if len(peers) >= 3:
+                dear = median(peers) > high / 3 and 1 / factor <= v / median(peers) <= factor
+                break
+        if v > high and dear:
+            pass                                         # an expensive category: in line with the others
+        elif v > high or v < low:
             why = f"{v:,.0f} تومان بیرون از بازه‌ی {low:,.0f} تا {high:,.0f}"
         elif ref and not (1 / factor <= v / ref <= factor):
             why = f"{v:,.0f} تومان؛ میانه‌ی دسته {ref:,.0f}"

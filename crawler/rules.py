@@ -25,13 +25,14 @@ NEGATIVE = [norm_text(w) for w in (
     "آموزش", "کتاب", "دوره", "فیلم", "نصب", "خدمات", "اجاره", "کاور", "قاب", "برچسب", "کاتالوگ",
     "پکیج آموزشی", "نرم افزار", "شارژ", "اشتراک", "کارت هدیه",
     "چرخدنده", "چرخ دنده", "مهره انتقال", "واشر", "بلبرینگ", "اورینگ", "کاسه نمد", "لنگ دارد", "معیوب", "ایراد دار",
-    "زنجیر", "فلکه", "پولی", "تسمه", "سوهان", "شمشیر", "پارچه",
+    "زنجیر", "فلکه", "پولی", "تسمه", "سوهان", "شمشیر", "پارچه", "آرمیچر", "ارمیچر", "جاروبک",
 )]
 
 
 # part words that make a part only when the name starts with them ('انکودر موتور ABB' is an encoder,
 # 'موتور بهران + انکودر' a motor with one)
-LEAD_PARTS = [norm_text(w) for w in ("انکودر", "ریموت", "تیغ", "تیغه", "پایه", "باتری", "برد", "کیت تعمیر", "روغن", "گریس")]
+LEAD_PARTS = [norm_text(w) for w in ("انکودر", "ریموت", "تیغ", "تیغه", "پایه", "باتری", "برد", "کیت تعمیر", "روغن", "گریس",
+                                                 "چراغ", "کمان", "مته")]   # 'چراغ چشمی …' is a lamp, 'مته گردبر' a drill bit
 
 ORIGIN_WORDS = {norm_text(w) for w in ("آلمان", "آلمانی", "اصل", "اصلی", "اورجینال", "ایتالیا", "ایتالیایی", "ژاپن", "ژاپنی",
                                         "چین", "چینی", "ترکیه", "ترک", "کره", "کره‌ای", "تایوان", "تایوانی", "اروپایی",
@@ -317,7 +318,7 @@ def check_added(breadcrumb: str, leaf: str, product: dict) -> dict | None:
             by_brand = any(country in g or country + "ی" in g or country + "یی" in g for g in leaf_c)
         else:                                              # only "Iranian or not": enough for 'ایرانی' only
             by_brand = iran_cat and origin == "iranian"
-        if fb and country and not by_brand and not said:
+        if fb and country and not by_brand:                # the brand's country wins over a page's words
             return {"relevant": False, "confidence": 0.8,
                     "reason": f"دسته‌ی ساخت {'/'.join(sorted(leaf_c[0]))} است ولی برند «{fb[0]}» ساخت {country_fa} است"}
         if not said and not by_brand:
