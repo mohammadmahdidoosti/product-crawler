@@ -351,6 +351,7 @@ td select,td input{padding:3px 6px;font-size:12.5px}
       <div class="chips" id="rvFilter">
         <button class="chip on" data-f="images">عکس مشکل‌دار <small id="rvC-images"></small></button>
         <button class="chip" data-f="price">قیمت تخمینی <small id="rvC-price"></small></button>
+        <button class="chip" data-f="suspicious">قیمت مشکوک (ارسال نشده) <small id="rvC-suspicious"></small></button>
         <button class="chip" data-f="issues">هر دو</button>
         <button class="chip" data-f="all">همه‌ی محصولات <small id="rvC-all"></small></button>
       </div>
@@ -957,6 +958,7 @@ async function loadReview(){
   RV.items = r.items; RV.sel = {};
   const c = r.counts||{};
   $('#rvC-images').textContent = fa(c.images||0); $('#rvC-price').textContent = fa(c.price||0); $('#rvC-all').textContent = fa(c.all||0);
+  $('#rvC-suspicious').textContent = fa(c.suspicious||0);
   $('#rvInfo').textContent = r.items.length ? `${fa(r.items.length)} محصول در این فهرست؛ ${fa(c.reviewed||0)} محصول تا حالا بازبینی شده.` : 'موردی برای بازبینی نیست.';
   renderReview();
 }
@@ -979,6 +981,9 @@ function renderReview(){
         <div class="nm">${esc(x.name)}</div>
         <div class="meta">${esc(x.category)} · ${esc(x.seller)}${x.brand?' · '+esc(x.brand):''}</div>
         <div class="iss">${x.issues.map(t=>`<span>${esc(t)}</span>`).join('')}${x.estimated?'<span class="p">قیمت تخمینی</span>':''}</div>
+        ${x.check?`<div class="warn" style="font-size:12.5px;margin:4px 0">قیمت مشکوک: ${esc(x.check)}</div>
+          <div class="acts" style="margin:2px 0 6px">${x.suggest.map(v=>`<button class="btn ghost sm" data-fix="${v}" data-i="${i}">${v<+x.price?'÷۱۰':'×۱۰'} ← ${fa(v)}</button>`).join('')}
+          <span class="meta">یا قیمت درست را بنویسید و «تأیید» بزنید. «تأیید» بدون تغییر یعنی همین قیمت درست است.</span></div>`:''}
         <div class="pr"><label class="meta">قیمت (تومان)</label><input data-i="${i}" class="rvPrice" value="${esc(price? Number(price).toLocaleString('en-US'):'')}"></div>
         <div class="meta"><a href="${esc(x.url)}" target="_blank" rel="noopener">صفحه‌ی منبع</a>${x.source_images.length?` · <a href="${esc(x.source_images[0])}" target="_blank" rel="noopener">عکس اصلی</a>`:''}</div>
         <div class="acts">
@@ -991,6 +996,8 @@ function renderReview(){
   }).join('');
 }
 $('#rvGrid').addEventListener('click', async e=>{
+  const fx = e.target.closest('[data-fix]');
+  if(fx){ $(`#rv-${fx.dataset.i} .rvPrice`).value = Number(fx.dataset.fix).toLocaleString('en-US'); return; }
   const p = e.target.closest('.pic');
   if(p){ const x=RV.items[+p.dataset.i], n=+p.dataset.n, keep=rvKeep(x), k=keep.indexOf(n);
     if(k<0) keep.push(n);                       // set aside -> back in
@@ -1000,7 +1007,9 @@ $('#rvGrid').addEventListener('click', async e=>{
   const b = e.target.closest('[data-act]'); if(!b) return;
   const x = RV.items[+b.dataset.i], act=b.dataset.act;
   const price = ($(`#rv-${b.dataset.i} .rvPrice`).value||'').replace(/[^0-9۰-۹]/g,'').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
-  const body = {url:x.url, action:act, images: x.images.length? rvKeep(x):[], price: price && price!==String(Math.round(+x.price||0)) ? price : ''};
+  // a held-back price is confirmed even when unchanged: the decision is what lets it be published
+  const body = {url:x.url, action:act, images: x.images.length? rvKeep(x):[],
+                price: price && (x.check || price!==String(Math.round(+x.price||0))) ? price : ''};
   if(act==='ok' && x.images.length && !rvKeep(x).length){ toast('دست‌کم یک عکس باید بماند؛ یا «حذف از خروجی» را بزنید', true); return; }
   try{ await post(`/api/runs/${encodeURIComponent($('#rvRun').value||CUR_RUN)}/review`, body);
     x.decision = act==='reset' ? null : {action:act, images: body.images.join(','), price: body.price};

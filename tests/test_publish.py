@@ -488,3 +488,29 @@ class PriceCheck(unittest.TestCase):
         self.assertNotIn("price_check", out["6"])                             # 4M: within 8x of the median
         self.assertNotIn("price_check", out["f"])                             # dollar prices: not checked
         self.assertNotIn("price_check", out["r"])                             # set on the review page
+
+
+class SuspiciousReview(unittest.TestCase):
+    def test_review_page_lists_and_releases(self):
+        from crawler import review as RV
+        from crawler.pipeline import export_rows
+        with tempfile.TemporaryDirectory() as tmp:
+            cfg = load_config()
+            cfg["_data_dir"] = Path(tmp)
+            d = Path(tmp) / "runs" / "b"
+            d.mkdir(parents=True)
+            rows = [dict(product(i, price=p), breadcrumb="ابزار > دریل > دریل بتن کن") for i, p in
+                    enumerate(["18000000", "21000000", "25000000", "19500000", "519000000"], 1)]
+            write_csv(pd.DataFrame(rows), d / FILES["new"])
+            r = RV.items(cfg, "b", "suspicious")
+            self.assertEqual(r["counts"]["suspicious"], 1)
+            x = r["items"][0]
+            self.assertEqual(x["suggest"], [51900000, 5190000000])
+            held = {rec["url"]: rec for rec, _ in export_rows(cfg, "b")}
+            self.assertTrue(held[x["url"]]["price_check"].startswith("suspicious"))
+            RV.save_decision(cfg, "b", {"url": x["url"], "action": "ok", "price": "51900000"})
+            rec, row = {rec["url"]: (rec, row) for rec, row in export_rows(cfg, "b")}[x["url"]]
+            self.assertNotIn("price_check", rec)                     # released: the person set the price
+            self.assertEqual(row["Regular price"], "519")              # dollars from the new price (rate 100,000)
+            self.assertEqual(rec["price_toman"], "51900000")
+            self.assertEqual(RV.items(cfg, "b", "suspicious")["counts"]["suspicious"], 0)

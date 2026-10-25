@@ -61,7 +61,8 @@ def _issues(notes: str) -> list[str]:
 
 
 def items(cfg: dict, run: str, which: str = "issues") -> dict:
-    """which: 'images' (photo problems), 'price' (estimated prices), 'issues' (either), 'all'."""
+    """which: 'images' (photo problems), 'price' (estimated prices), 'suspicious' (prices held back
+    from publishing because they look 10x off), 'issues' (photos or estimated price), 'all'."""
     d = run_dir(cfg, run)
     if not (d / FILES["new"]).exists():
         return {"items": [], "counts": {}}
@@ -69,7 +70,15 @@ def items(cfg: dict, run: str, which: str = "issues") -> dict:
     imgs = {r["url"]: r for r in read_csv(d / "05_images.csv").to_dict("records")} \
         if (d / "05_images.csv").exists() else {}
     dec = decisions(d)
-    out, counts = [], {"images": 0, "price": 0, "reviewed": 0, "all": 0}
+    # prices held back from publishing (look 10x off): the same check the export runs
+    from .pipeline import price_sanity
+    pc = cfg.get("price", {})
+    priced = [r for r in new.to_dict("records") if str(r.get("price_toman") or "")]
+    held = {r["url"]: r["price_check"] for r in price_sanity(priced, float(pc.get("check_factor", 8)),
+                                                               float(pc.get("check_min_toman", 150_000)),
+                                                               float(pc.get("check_max_toman", 150_000_000)))
+            if str(r.get("price_check") or "").startswith("suspicious")}
+    out, counts = [], {"images": 0, "price": 0, "suspicious": 0, "reviewed": 0, "all": 0}
     for r in new.to_dict("records"):
         im = imgs.get(r["url"], {})
         iss = _issues(im.get("notes", "")) if im else []
@@ -78,11 +87,17 @@ def items(cfg: dict, run: str, which: str = "issues") -> dict:
         est = str(r.get("price_estimated") or "")
         counts["all"] += 1
         counts["images"] += bool(iss)
+        sus = held.get(r["url"], "")
         counts["price"] += bool(est)
+        counts["suspicious"] += bool(sus) and not (dec.get(r["url"]) or {}).get("price")
         counts["reviewed"] += r["url"] in dec
         if which == "images" and not iss or which == "price" and not est \
-                or which == "issues" and not (iss or est):
+                or which == "issues" and not (iss or est) or which == "suspicious" and not sus:
             continue
+        try:
+            v = float(r.get("price_toman") or 0)
+        except ValueError:
+            v = 0
         files = [f.strip() for f in str(im.get("files") or "").split("|") if f.strip()]
         originals = [f.strip() for f in str(im.get("originals") or "").split("|") if f.strip()]
         out.append({
@@ -95,6 +110,8 @@ def items(cfg: dict, run: str, which: str = "issues") -> dict:
             "source_images": [u for u in str(im.get("source_images") or "").split(" | ") if u],
             "issues": [ISSUES[k] for k in iss], "issue_keys": iss, "notes": im.get("notes", ""),
             "decision": dec.get(r["url"]),
+            "check": sus.replace("suspicious: ", ""),
+            "suggest": [round(v / 10), round(v * 10)] if sus and v else [],
         })
     return {"items": out, "counts": counts}
 
@@ -113,7 +130,8 @@ def apply(d: Path, rows: list[dict], imgs: dict[str, str]) -> tuple[list[dict], 
         if x.get("action") == "drop":
             continue
         if x.get("price"):
-            r = {**r, "price_toman": x["price"], "price_estimated": "reviewed"}
+            # the dollar price (what the site stores) is derived again from the price set here
+            r = {**r, "price_toman": x["price"], "price_usd": "", "price_estimated": "reviewed"}
         if x.get("images") and imgs.get(r["url"]):
             have = [u.strip() for u in imgs[r["url"]].split(",") if u.strip()]
             order = [int(n) for n in str(x["images"]).split(",") if n.strip().isdigit()]
