@@ -807,6 +807,16 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
     from .publish import category_drops
     bt = BF.table(cfg)
     drops = category_drops(d)
+    dropped_bc: dict[str, set[str]] = {}                    # the same drops, as breadcrumbs for the CSV
+    if drops:
+        bc_of = {}
+        for r0 in recs:
+            ids_ = _split_ids(r0.get("extra_taxonomy_ids"))
+            bcs_ = [b.strip() for b in str(r0.get("extra_breadcrumbs") or "").split(" | ") if b.strip()]
+            if len(ids_) == len(bcs_):
+                bc_of.update(zip(ids_, bcs_))
+        for u, ts in drops.items():
+            dropped_bc[u] = {bc_of[t] for t in ts if t in bc_of}
     rows = []
     for r in recs:
         ds = desc.get(r["url"]) or {}
@@ -831,7 +841,8 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
             "Description": (ds.get("html") or "") + _spec_html(r), "Short description": ds.get("short", ""),
             "Regular price": _usd_price(r),
             "Categories": ", ".join(dict.fromkeys(
-                [r["breadcrumb"]] + [b for b in str(r.get("extra_breadcrumbs") or "").split(" | ") if b])),
+                [r["breadcrumb"]] + [b for b in str(r.get("extra_breadcrumbs") or "").split(" | ")
+                                     if b and b not in dropped_bc.get(r["url"], set())])),
             "Images": imgs.get(r["url"], ""),
             "Brands": brand,
             "Attribute 1 name": "برند" if brand else "", "Attribute 1 value(s)": brand,
