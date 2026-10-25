@@ -103,6 +103,10 @@ llm:
   rules_min_confidence: 0.5
   max_tokens: 4000
 
+pool:                              # every page read is kept for later runs (data/crawl_pool.csv)
+  enabled: true
+  max_age_days: 30                 # older pages are not offered (prices change)
+
 dedupe:
   crawl_name_threshold: 0.9        # same product inside the crawl (by name, when no model number)
   same_threshold: 0.92             # >= this vs a site product -> "update existing"
@@ -130,6 +134,8 @@ images:
   search_max: 40          # products with no usable photo: image search (Serper) per run
   delay_seconds: 1        # between two photo downloads from one site (pages: http.delay_seconds)
   ai_fix: true            # check every photo with a vision model and fix the bad ones (OpenRouter)
+  vision_workers: 24      # photos checked at the same time (a photo checked before is not sent again)
+  fix_workers: 6          # bad photos fixed at the same time (an image-model edit takes 20-40 s)
   vision_model: deepseek/deepseek-v4.1-flash   # 11 of 12 bad photos found in the batch-1 test (~$0.0002/photo)
   ai_model: qwen/qwen-image-2.1-turbo   # 'improve' button on the review page (OpenRouter), ~$0.018/photo
   ai_fallback_models: [krea/k3-edit]   # when Qwen refuses (~$0.05; may change the product more: review it)

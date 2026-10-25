@@ -223,6 +223,13 @@ class Job:
             compare(cfg, run, opts.get("models") or [cfg.get("describe", {}).get("model")], int(opts.get("n") or 10))
         elif step == "export":
             P.step_export(cfg, run)
+        elif step == "resync":
+            from crawler.publish import resync
+            res = resync(cfg, run, dry_run=bool(opts.get("dry_run", True)),
+                         progress=lambda d, t: self.prog.update(step="resync", done=d, total=t), stop=self.stop_ev.is_set)
+            self.logs.append(f"هماهنگی دسته‌ها: {res['to_change']} محصول تغییر دارد؛ {res['lose_a_category']} دسته‌ی نادرست، "
+                             f"{res['gain_a_category']} دسته‌ی تازه، {res['out_of_run']} بیرون از اجرا"
+                             + ("" if opts.get("dry_run", True) else f"؛ اعمال شد روی {res['changed']}"))
         elif step == "status":
             from crawler.publish import set_status
             skus = [x for x in re.split(r"[\s,،]+", str(opts.get("skus") or "")) if x]
@@ -286,7 +293,7 @@ class Job:
                 took = time.time() - t0
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
-            if step not in ("probe", "publish", "brands", "status"):
+            if step not in ("probe", "publish", "brands", "status", "resync"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
             self.state["ok"] = not self.stop_ev.is_set()
@@ -304,7 +311,7 @@ class Job:
         return {**self.state, "progress": dict(self.prog), "logs": list(self.logs)[-200:]}
 
 
-SITE_STEPS = {"publish", "status", "brands"}
+SITE_STEPS = {"publish", "status", "brands", "resync"}
 JOBS = {"crawl": Job("crawl"), "site": Job("site")}
 JOB = JOBS["crawl"]
 
@@ -884,6 +891,10 @@ class Handler(BaseHTTPRequestHandler):
                     if lane in (None, "", k):
                         j.stop_ev.set()
                 return self._json({"ok": True})
+            if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "resync":       # {"dry_run": true}
+                run_path(parts[2])
+                err = start_job("resync", parts[2], {"dry_run": self._jbody().get("dry_run", True) is not False})
+                return self._err(err, 409) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "recategorize":
                 # {"drops": [{url, taxonomy_id}], "fallback": {taxonomy_id: wp_id}, "dry_run": true}
                 from crawler.publish import recategorize

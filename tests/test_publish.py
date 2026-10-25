@@ -341,6 +341,20 @@ class Publish(unittest.TestCase):
                         fallback={"14339": "1600"}, dry_run=False)
         self.assertEqual([c["id"] for c in p1["categories"]], [1600])
 
+    def test_resync_takes_away_only_what_we_sent(self):
+        PB.publish(self.cfg, "batch-1", limit=10)
+        p2 = next(p for p in FakeWoo.products.values() if p["name"] == "درایو 2")
+        p2["categories"].append({"id": 4242})                                  # set by hand on the site
+        rows = read_csv(self.d / FILES["new"])
+        rows.loc[rows["url"] == "https://shop2.ir/product/2/", "extra_taxonomy_ids"] = ""   # the rules say: not 7067
+        write_csv(rows, self.d / FILES["new"])
+        plan = PB.resync(self.cfg, "batch-1")
+        self.assertEqual(plan["lose_a_category"], 1)
+        self.assertEqual([c["id"] for c in p2["categories"]], [1635, 1636, 4242])  # plan only
+        PB.resync(self.cfg, "batch-1", dry_run=False)
+        self.assertEqual([c["id"] for c in p2["categories"]], [1635, 4242])     # 1636 gone, the hand-set one kept
+        self.assertEqual(PB.resync(self.cfg, "batch-1")["to_change"], 0)        # nothing left to do
+
     def test_category_map_not_under_data(self):
         self.assertEqual(WCM.category_map().get("14339"), "1635")   # from assets/, DATA_DIR has none
 

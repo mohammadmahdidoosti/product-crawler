@@ -61,22 +61,42 @@ def fix_photos(cfg: dict, run: str) -> dict:
         for f in [x.strip() for x in str(r.get("files") or "").split("|") if x.strip()]:
             p0 = new.get(r["url"], {})
             jobs.append((r["url"], f, p0.get("name_fa") or p0.get("name", "")))
-    log.info("photo check: %d photos with %s", len(jobs), vmodel)
-    with ThreadPoolExecutor(int(ic.get("vision_workers", 8))) as ex:
-        res = list(ex.map(lambda j: check(vmodel, f"{base}/img/{j[1]}", j[2], key), jobs))
-    vis = {(j[0], j[1]): v for j, v in zip(jobs, res)}
-    write_csv(pd.DataFrame([{"url": j[0], "file": j[1], **{k: v.get(k, "") for k in VIS_COLS[2:8]},
-                             "cost": v.get("_cost", ""), "error": v.get("_error", "")} for j, v in zip(jobs, res)],
-                           columns=VIS_COLS), d / "05_vision.csv")
+    # a photo checked before (same product, same file) is not sent again: re-runs check only new photos
+    vp = d / "05_vision.csv"
+    old = read_csv(vp) if vp.exists() else pd.DataFrame(columns=VIS_COLS)
+    known = {}
+    for o in old.to_dict("records"):
+        if not str(o.get("error") or ""):
+            known[(o["url"], o["file"])] = {**{k: (True if o.get(k) == "True" else False if o.get(k) == "False" else o.get(k))
+                                              for k in VIS_COLS[2:8]}, "_cost": 0}
+    todo = [j for j in jobs if (j[0], j[1]) not in known]
+    log.info("photo check: %d photos with %s (%d checked before)", len(todo), vmodel, len(jobs) - len(todo))
+    with ThreadPoolExecutor(int(ic.get("vision_workers", 24))) as ex:
+        fresh = list(ex.map(lambda j: check(vmodel, f"{base}/img/{j[1]}", j[2], key), todo))
+    vis = {**known, **{(j[0], j[1]): v for j, v in zip(todo, fresh)}}
+    res = fresh
+    redo = {(j[0], j[1]) for j in todo}
+    keep_old = old[[(u, f) not in redo for u, f in zip(old["url"], old["file"])]] if len(old) else old
+    write_csv(pd.concat([keep_old, pd.DataFrame([{"url": j[0], "file": j[1], **{k: v.get(k, "") for k in VIS_COLS[2:8]},
+                                                   "cost": v.get("_cost", ""), "error": v.get("_error", "")}
+                                                  for j, v in zip(todo, fresh)], columns=VIS_COLS)], ignore_index=True),
+              vp)
 
     # 2-4. fix
     models = [ic.get("ai_model", "qwen/qwen-image-2.1-turbo")] + list(ic.get("ai_fallback_models") or [])
     stats = {"checked": len(jobs), "bad": 0, "dropped": 0, "edited": 0, "searched": 0, "left": 0}
     rows = im.to_dict("records")
-    for r in rows:
+    import threading
+    lock = threading.Lock()
+
+    def bump(k, n=1):
+        with lock:
+            stats[k] += n
+
+    def fix_one(r):
         files = [x.strip() for x in str(r.get("files") or "").split("|") if x.strip()]
         if not files:
-            continue
+            return
         busy = "busy_background" in str(r.get("notes") or "")
         bad = [f for f in files if _bad(vis.get((r["url"], f), {}), busy)]
         checked = all(not vis.get((r["url"], f), {}).get("_error") for f in files)
@@ -84,15 +104,15 @@ def fix_photos(cfg: dict, run: str) -> dict:
             if checked and r.get("notes"):              # the check found nothing: old flags go
                 r["notes"] = " | ".join(x for x in str(r["notes"]).split(" | ")
                                         if x.strip() not in ("text_overlay", "busy_background"))
-            continue
-        stats["bad"] += len(bad)
+            return
+        bump("bad", len(bad))
         notes = set(x.strip() for x in str(r.get("notes") or "").split("|") if x.strip()) - {"text_overlay", "busy_background"}
         clean = [f for f in files if f not in bad]
         if clean:                                            # 1. another photo is fine: drop the bad ones
             r["files"] = " | ".join(clean)
             r["originals"] = " | ".join(bad)
             notes.add("bad_photo_dropped")
-            stats["dropped"] += len(bad)
+            bump("dropped", len(bad))
         else:                                                # 2. edit the main photo
             k = product_key(r["url"])
             n = int(files[0].split("/")[-1].split(".")[0])
@@ -126,16 +146,19 @@ def fix_photos(cfg: dict, run: str) -> dict:
                     if not _bad(v, False) and v.get("matches_name") is not False:
                         fixed = rel
                         notes.add("found_by_search")
-                        stats["searched"] += 1
+                        bump("searched")
                         break
             if fixed:
                 r["files"] = " | ".join([fixed] + files[1:])
                 r["originals"] = files[0]
-                stats["edited"] += fixed.split("/")[-1].startswith("ai") and "found_by_search" not in notes
+                bump("edited", int(fixed.split("/")[-1].startswith("ai") and "found_by_search" not in notes))
             else:
                 notes.add("text_overlay")
-                stats["left"] += 1
+                bump("left")
         r["notes"] = " | ".join(sorted(notes))
+    # products are fixed side by side: an image-model edit takes 20-40 s each
+    with ThreadPoolExecutor(int(ic.get("fix_workers", 6))) as ex:
+        list(ex.map(fix_one, rows))
     cols = list(im.columns)
     write_csv(pd.DataFrame(rows, columns=cols), p)
     cost = sum(float(v.get("_cost") or 0) for v in res)

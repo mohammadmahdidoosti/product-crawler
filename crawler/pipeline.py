@@ -373,6 +373,25 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
             pending = nxt
     log.info("crawl done: %d products from %d unique pages (%d shop list pages opened) -> %s",
              stats["ok"], len(memo), stats["lists"], out.name)
+    if not stopped and cfg.get("pool", {}).get("enabled", True):
+        # pages earlier runs read (other models, brands, types) that fit this run's categories,
+        # then this run's pages go to the pool for the runs after it
+        from .pool import add_to_pool, from_pool, pool_path
+        if not pool_path(cfg).exists():                  # first time: the pool starts with every earlier run
+            for other in sorted((cfg["_data_dir"] / "runs").glob("*/03_crawled.csv")):
+                if other.parent.name != run:
+                    add_to_pool(cfg, read_csv(other))
+        mine = read_csv(out) if out.exists() else pd.DataFrame(columns=CRAWLED_COLS)
+        have = set(mine["taxonomy_id"] + "|" + mine["url"]) if len(mine) else set()
+        extra = from_pool(cfg, list(queue.values()), have)
+        if extra:
+            with Appender(out, CRAWLED_COLS) as w:
+                for r in extra:
+                    w.write(r)
+            log.info("crawl pool: %d page-category row(s) from earlier runs (%d pages)",
+                     len(extra), len({r["url"] for r in extra}))
+        n = add_to_pool(cfg, mine)
+        log.info("crawl pool: %d page(s) of this run kept for later runs", n)
     return out
 
 
@@ -469,6 +488,9 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     crawled = fix_units(crawled)                         # rial read as toman (or the reverse), from other shops
     df = fix_units(df, crawled)
     df = cross_assign(cfg, d, df)
+    if dd.get("harvest", True):                          # second chance across the whole site tree
+        from .harvest import harvest
+        df = harvest(cfg, df, crawled, progress=lambda a, b: _progress("dedupe", a, b))
     df = one_category_per_product(df)
     merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)))
     merged = drop_price_outliers(merged, float(cfg.get("price", {}).get("outlier_factor", 6)))
@@ -774,6 +796,28 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
     return out
 
 
+def keep_published_url(d: Path, new: pd.DataFrame) -> pd.DataFrame:
+    """After the merge is run again, a product already on the site may come out with another of
+    its pages as the main one; the page it was published with is put back as the main page, so
+    its SKU (made from that page) stays the same and no second copy is made on the site."""
+    p = d / "07_published.csv"
+    if not p.exists() or "urls" not in new.columns:
+        return new
+    pub = read_csv(p)
+    sent = set(pub.loc[pub["action"].isin(["created", "updated"]) & (pub["product_id"].astype(str) != ""), "source_url"])
+    if not sent:
+        return new
+    new = new.copy()
+    for i, r in new.iterrows():
+        if r["url"] in sent:
+            continue
+        members = [u.strip() for u in str(r.get("urls") or "").split(" | ") if u.strip()]
+        hit = next((u for u in members if u in sent), None)
+        if hit:
+            new.at[i, "url"] = hit
+    return new
+
+
 def _split_ids(v) -> list[str]:
     return [x.strip() for x in str(v or "").split("|") if x.strip()]
 
@@ -788,6 +832,7 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
     new = read_csv(d / FILES["new"])
     if new.empty:
         return []
+    new = keep_published_url(d, new)
     new = new[new["price_toman"] != ""] if cfg.get("export", {}).get("require_price", True) else new
     from .images import public_urls
     imgs = {}

@@ -91,8 +91,13 @@ def load(cfg: dict) -> pd.DataFrame:
     return df.reindex(columns=COLS).fillna("")
 
 
+_TABLE_CACHE: dict = {"rows": []}
+
+
 def table(cfg: dict) -> dict[str, dict]:
-    return {key(r["source"]): r for r in load(cfg).to_dict("records")}
+    rows = load(cfg).to_dict("records")
+    _TABLE_CACHE["rows"] = rows                     # also read by the filter for Latin brand spellings
+    return {key(r["source"]): r for r in rows}
 
 
 def save(cfg: dict, df: pd.DataFrame, normalized: bool = False) -> Path:

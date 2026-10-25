@@ -207,6 +207,89 @@ def recategorize(cfg: dict, run: str, drops: list[dict], fallback: dict[str, str
     return {"products": len(by_url), "changed": changed, "failed": failed, "report": report}
 
 
+def resync(cfg: dict, run: str, dry_run: bool = True, wc: WC | None = None, progress=None, stop=None) -> dict:
+    """After the filter or the merge changed (new rules, second chance): the run's products on the
+    site get the categories the run gives them now. Categories we sent before that no longer fit
+    are taken away (a product left with none goes to its old category's parent); new categories
+    and new products come with a normal publish (republish). Categories set by hand on the site
+    (never sent by us) are never touched. The plan is written to 07_resync_plan.csv."""
+    from .pipeline import export_rows, run_dir
+    from .taxonomy import load_taxonomy
+    d = run_dir(cfg, run)
+    wc = wc or WC()
+    cats = category_map()
+    inv = {}
+    for t, w in cats.items():
+        inv.setdefault(int(w), t)
+    parent_of = {}
+    tp = Path(cfg.get("taxonomy", {}).get("file") or "")
+    if tp.exists():
+        tx = load_taxonomy(tp)
+        parent_of = dict(zip(tx["taxonomy_id"], tx["parent_id"]))
+    done = _results(d)
+    on_site = done[done["action"].isin(["created", "updated"]) & (done["product_id"].astype(str) != "")]
+    now: dict[str, set[int]] = {}
+    for rec, row in export_rows(cfg, run):
+        data, _ = payload(cfg, rec, row, cats)
+        now[row["SKU"]] = {c["id"] for c in data["categories"]}
+    plan = []
+    for r in on_site.to_dict("records"):
+        before = {int(x) for x in str(r.get("categories") or "").split(",") if x.strip().isdigit()}
+        after = now.get(r["sku"], set())
+        remove = sorted(before - after)
+        add = sorted(after - before)
+        fallback = []
+        if not after and before:                          # out of the run now: its old category's parent
+            for w in before:
+                pt = parent_of.get(inv.get(w, ""), "")
+                if pt and pt in cats:
+                    fallback.append(int(cats[pt]))
+        if remove or add:
+            plan.append({"sku": r["sku"], "product_id": int(float(r["product_id"])), "name": r.get("name", ""),
+                         "remove": " ".join(map(str, remove)), "add": " ".join(map(str, add)),
+                         "fallback": " ".join(map(str, dict.fromkeys(fallback))), "in_run": bool(after)})
+    write_csv(pd.DataFrame(plan, columns=["sku", "product_id", "name", "remove", "add", "fallback", "in_run"]),
+              d / "07_resync_plan.csv")
+    res = {"products_on_site": len(on_site), "to_change": len(plan),
+           "lose_a_category": sum(1 for x in plan if x["remove"]), "gain_a_category": sum(1 for x in plan if x["add"]),
+           "out_of_run": sum(1 for x in plan if not x["in_run"]), "changed": 0, "failed": []}
+    if dry_run:
+        log.info("resync %s (plan only): %s", run, res)
+        return res
+    lock = threading.Lock()
+
+    def one(x):
+        if stop and stop():
+            return
+        rm = {int(v) for v in x["remove"].split()}
+        try:
+            cur = wc.get_product(x["product_id"])
+            have = [c["id"] for c in cur.get("categories") or []]
+            keep = [c for c in have if c not in rm]
+            if not keep:
+                keep = [int(v) for v in x["fallback"].split()] or have
+            if keep != have:
+                wc.update_product(x["product_id"], {"categories": [{"id": c} for c in keep]})
+                with lock:
+                    res["changed"] += 1
+        except WCError as e:
+            with lock:
+                res["failed"].append({"id": x["product_id"], "error": str(e)[:200]})
+    todo = [x for x in plan if x["remove"]]
+    with ThreadPoolExecutor(max(1, int(cfg.get("publish", {}).get("workers", 6)))) as ex:
+        for i, f in enumerate([ex.submit(one, x) for x in todo]):
+            f.result()
+            if progress:
+                progress(i + 1, len(todo))
+    # the record now holds what the site holds, so the next resync starts from here
+    if len(done):
+        for x in plan:
+            done.loc[done["sku"] == x["sku"], "categories"] = ",".join(str(c) for c in sorted(now.get(x["sku"], set())))
+        write_csv(done.reindex(columns=RESULT_COLS).fillna(""), d / RESULT_FILE)
+    log.info("resync %s: %s", run, {k: (v if k != "failed" else len(v)) for k, v in res.items()})
+    return res
+
+
 def _results(d: Path) -> pd.DataFrame:
     p = d / RESULT_FILE
     return read_csv(p) if p.exists() else pd.DataFrame(columns=RESULT_COLS)

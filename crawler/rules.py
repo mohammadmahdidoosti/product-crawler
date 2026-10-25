@@ -44,6 +44,9 @@ COUNTRIES = [{norm_text(w) for w in g} for g in (
     ("انگلیس", "انگلیسی"), ("آمریکا", "آمریکایی", "امریکایی"), ("سوئد", "سوئدی"), ("اتریش", "اتریشی"))]
 
 
+COUNTRIES_ALL = COUNTRIES + [{norm_text(w) for w in ("ایران", "ایرانی")}, {norm_text(w) for w in ("چین", "چینی")}]
+
+
 def _words(s: str) -> list[str]:
     return [w for w in norm_text(s).split() if len(w) > 1 and w not in STOP]
 
@@ -127,6 +130,19 @@ def _flat(s: str) -> str:
     return "|" + "|".join(t.replace(" ", "").split("|")) + "|"
 
 
+def code_in(t: str, k: str) -> bool:
+    """'8020' is in '8020h', 'gst8000e', '61kw' (letters around it are fine) but '17' is not in
+    'ct18173m' and '6' is not in '16': a number must not run on into more digits."""
+    i = k.find(t)
+    while i >= 0:
+        before = k[i - 1] if i > 0 else ""
+        after = k[i + len(t)] if i + len(t) < len(k) else ""
+        if not (before.isdigit() and t[0].isdigit()) and not (after.isdigit() and t[-1].isdigit()):
+            return True
+        i = k.find(t, i + 1)
+    return False
+
+
 def model_tokens(breadcrumb: str, leaf: str) -> list[str]:
     """Number/code words that only the leaf has ('2008', '6.1', 'sr5', '40'), not its parents."""
     import re
@@ -161,6 +177,156 @@ def leaf_brand_word(w: str, leaf: str) -> bool:
     return bool(b) and norm_text(b[0]) == w
 
 
+# ---------------------------------------------------------------- what a sub-category adds to its parent
+
+MODE = re.compile(r"(?<!\S)(دو|سه|چهار|پنج|شش|[2-6])\s*(حالته|کاره|منظوره)")
+_N = {"دو": "2", "سه": "3", "چهار": "4", "پنج": "5", "شش": "6"}
+CORDLESS = re.compile(r"شارژی|شارژ|باتری|باطری|براشلس|cordless|battery|li-?ion|\d+(\.\d+)?\s*(ولت|v)\b", re.I)
+UNITS = {norm_text(w) for w in ("اینچ", "نفره", "نفر", "اسب", "کیلو", "کیلویی", "متری", "متر", "لیتری", "لیتر", "تن", "تنی",
+                                 "فاز", "وات", "کیلووات", "ولت", "آمپر", "امپر", "سانت", "سانتی", "سانتیمتر", "میلیمتر",
+                                 "میلی", "سرعت", "مدل", "سایز", "شیار", "حالته", "کاره", "منظوره")}
+NUM_WORDS = {norm_text(w) for w in ("یک", "دو", "سه", "چهار", "پنج", "شش", "هفت", "هشت", "نه", "ده",
+                                     # words no product name says, so they cannot be checked
+                                     "قدیمی", "جدید", "اصل", "اصلی", "اورجینال", "کپی", "طرح", "درجه", "یک", "باکیفیت",
+                                     "ارزان", "حرفه", "حرفه‌ای", "خانگی", "نیمه")}
+DECISIVE = {norm_text(w) for w in ("شارژی", "برقی", "بنزینی", "دیزلی", "گازی", "دستی", "بادی", "پنوماتیک", "پنوماتیکی",
+                                    "هیدرولیک", "هیدرولیکی")}
+
+
+UNIT_CLASS = [("cm", ("سانت", "سانتی", "سانتیمتر", "سانتی متر", "سانتی‌متر", "cm")),
+              ("mm", ("میلیمتر", "میلی متر", "میلی‌متر", "میل", "mm")),
+              ("v", ("ولت", "v")), ("w", ("وات", "w")), ("kw", ("کیلووات", "کیلو وات", "kw")),
+              ("kg", ("کیلویی", "کیلوگرم", "کیلو", "kg")), ("inch", ("اینچ", "inch")), ("person", ("نفره", "نفر")),
+              ("l", ("لیتری", "لیتر", "l")), ("hp", ("اسب",)), ("bar", ("بار", "bar")), ("a", ("آمپر", "امپر", "a"))]
+UNIT_FA = {"cm": "سانتی", "mm": "میلیمتر", "v": "ولت", "w": "وات", "kw": "کیلووات", "kg": "کیلو", "inch": "اینچ",
+           "person": "نفره", "l": "لیتر", "hp": "اسب", "bar": "بار", "a": "آمپر"}
+_UNIT_RE = sorted(((u, c) for c, us in UNIT_CLASS for u in us), key=lambda x: -len(x[0]))
+
+
+def measures(text: str) -> set[tuple[str, str]]:
+    """{('20', 'v'), ('25', 'cm')} from '20 ولت 25 سانتی' (numbers as written, Persian digits too)."""
+    from .normalize import fa_digits_to_en
+    t = fa_digits_to_en(norm_text(str(text or ""))).lower()
+    out = set()
+    for m in re.finditer(r"(\d+(?:[.,/]\d+)?)\s*([^\d\s]+(?:\s[^\d\s]+)?)", t):
+        num, rest = m.group(1).replace(",", "."), m.group(2)
+        for u, c in _UNIT_RE:
+            if rest == u or rest.startswith(u + " ") or (rest.startswith(u) and not re.match(r"[a-z\u0600-\u06FF]", rest[len(u):len(u) + 1] or " ")):
+                out.add((num, c))
+                break
+    return out
+
+
+def _mode(text: str) -> str | None:
+    m = MODE.search(norm_text(text))
+    return _N.get(m.group(1), m.group(1)) if m else None
+
+
+def _latin_of(phrase: str) -> list[str]:
+    """Latin spellings of a Persian brand word, from the routing list and the brand table."""
+    from .routing import LATIN
+    out = []
+    p = norm_text(phrase)
+    for k, v in LATIN.items():
+        if norm_text(k) == p or norm_text(k).replace(" ", "") == p.replace(" ", ""):
+            out.append(v.lower())
+    try:
+        from . import brands_fa as BF
+        for x in BF._TABLE_CACHE.get("rows", []):
+            if x.get("en") and (BF.key(x.get("fa")) == BF.key(phrase) or _fa_key(x.get("fa")) == _fa_key(phrase)):
+                out.append(str(x["en"]).lower())
+    except Exception:                       # noqa: BLE001 - the table is optional here
+        pass
+    return [o for o in dict.fromkeys(out) if len(o) >= 2]
+
+
+def _fa_key(s) -> str:
+    return re.sub(r"[\s\u200c\-_.]+", "", norm_text(str(s or "")))
+
+
+def added_words(breadcrumb: str, leaf: str) -> list[str]:
+    """The words a sub-category adds to its parent: 'دریل بتن کن شارژی توتال' under 'دریل بتن کن شارژی'
+    -> ['توتال']; 'فلوتر آسانسوری کولر آبی' -> ['کولر', 'آبی']. Sizes, model numbers, origin and
+    power-source words have rules of their own. Empty when the leaf does not extend its parent's name."""
+    parts = [p.strip() for p in breadcrumb.split(">")]
+    if len(parts) < 2:
+        return []
+    pw = set(norm_text(parts[-2]).split())
+    lw = norm_text(leaf).split()
+    core = [w for w in pw if w not in STOP and len(w) > 1]
+    if not core or not all(w in lw for w in core):
+        return []
+    return [w for w in lw if w not in pw and w not in STOP and w not in UNITS and w not in DECISIVE
+            and w not in ORIGIN_WORDS and w not in NUM_WORDS and not re.search(r"\d", w) and len(w) > 1
+            and not re.fullmatch(r"[a-z]{1,3}", w)]
+
+
+def check_added(breadcrumb: str, leaf: str, product: dict) -> dict | None:
+    """A sub-category takes only products that are what it adds: its brand ('توتال'), its use
+    ('کولر آبی'), its power source (شارژی), its number of modes (دو حالته). None when it fits."""
+    name = str(product.get("name") or "")
+    nm = norm_text(f"{name} {product.get('brand') or ''}")
+    words, flat, low = set(nm.split()), nm.replace(" ", ""), nm.lower()
+    lf = set(norm_text(leaf).split())
+    # power source: a cordless category takes battery tools only, a corded one no battery tools
+    if "شارژی" in lf and not CORDLESS.search(name):
+        return {"relevant": False, "confidence": 0.8, "reason": "دسته‌ی شارژی است ولی محصول شارژی نیست (برقی/سیمی)"}
+    if "برقی" in lf and "شارژی" not in lf and "شارژی" in words and "برقی" not in words:
+        return {"relevant": False, "confidence": 0.8, "reason": "دسته‌ی برقی (سیمی) است ولی محصول شارژی است"}
+    if "دستی" in lf and not ({"برقی", "شارژی", "بنزینی"} & lf) and ({"شارژی", "بنزینی", "موتوری"} & words):
+        return {"relevant": False, "confidence": 0.8, "reason": "دسته‌ی دستی است ولی محصول موتوری/شارژی است"}
+    if "بنزینی" in lf and ({"برقی", "شارژی"} & words) and "بنزینی" not in words:
+        return {"relevant": False, "confidence": 0.8, "reason": "دسته‌ی بنزینی است ولی محصول برقی/شارژی است"}
+    if ({"برقی", "شارژی"} & lf) and "بنزینی" in words and "بنزینی" not in lf:
+        return {"relevant": False, "confidence": 0.8, "reason": "دسته‌ی برقی/شارژی است ولی محصول بنزینی است"}
+    # the same number with another unit: '20 ولت' is not '20 سانتی'
+    lmes, pmes = measures(leaf), measures(name)
+    for n_, u_ in lmes:
+        others = {u for n2, u in pmes if n2 == n_ and u != u_}
+        if others and (n_, u_) not in pmes:
+            return {"relevant": False, "confidence": 0.8,
+                    "reason": f"«{n_} {UNIT_FA.get(u_, u_)}» دسته با «{n_} {UNIT_FA.get(next(iter(others)), '')}» محصول فرق دارد"}
+    # number of modes: 'دو حالته' does not take a 'چهار حالته'
+    lm, pm = _mode(leaf), _mode(name)
+    if lm and pm and lm != pm:
+        return {"relevant": False, "confidence": 0.8, "reason": f"دسته‌ی {lm} حالته است ولی محصول {pm} حالته است"}
+    # country of make: 'موتور آسانسور گیرلس ایتالیایی' takes what the page says is Italian
+    # (or, for 'ایرانی', a brand known to be Iranian)
+    leaf_c = [g for g in COUNTRIES_ALL if g & lf]
+    if leaf_c:
+        from .routing import find_brand
+        text = norm_text(f"{name} {product.get('short_description') or ''} {str(product.get('description') or '')[:600]}")
+        tw = set(text.split())
+        said = any(w in tw or w in text for g in leaf_c for w in g)
+        origin = (find_brand(name) or ("", ""))[1]          # brands.csv: iranian | foreign | unknown
+        if not origin:                                     # a Latin brand name: 'STIHL' -> اشتیل
+            from .routing import LATIN
+            low = name.lower()
+            for fa_, en_ in LATIN.items():
+                if len(en_) >= 3 and re.search(rf"(?<![a-z]){re.escape(en_)}(?![a-z])", low):
+                    origin = (find_brand(fa_) or ("", ""))[1]
+                    if origin:
+                        break
+        iran_cat = any(any("ایران" in w for w in g) for g in leaf_c)
+        by_brand = (iran_cat and origin == "iranian") or (not iran_cat and origin == "foreign")
+        if not said and not by_brand:
+            return {"relevant": False, "confidence": 0.75,
+                    "reason": f"دسته‌ی ساخت {'/'.join(sorted(leaf_c[0]))} است ولی صفحه‌ی محصول کشور را نمی‌گوید"}
+    # what the sub-category adds to its parent must be in the name (any spelling)
+    add = added_words(breadcrumb, leaf)
+    if add:
+        found = [w for w in add if w in words or w in flat]
+        need = len(add) if len(add) <= 2 else len(add) - 1   # 'سقفی مربع' needs مربع too; 'دی سی ای' two of three
+        if len(found) < need:
+            phrase = " ".join(add)
+            alts = _latin_of(phrase) + [x for w in add for x in _latin_of(w)]
+            if not any(re.search(rf"(?<![a-z]){re.escape(a)}(?![a-z])", low) for a in alts):
+                miss = [w for w in add if w not in found]
+                return {"relevant": False, "confidence": 0.8,
+                        "reason": f"«{' '.join(miss)}» (آنچه این دسته به دسته‌ی بالاتر اضافه می‌کند) در نام محصول نیست"}
+    return None
+
+
 def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en: str = "") -> dict:
     import re
     from .routing import brand_in, foreign_brand_in, leaf_brand
@@ -168,7 +334,8 @@ def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en
     need = model_tokens(breadcrumb, leaf)
     if need:
         flat = _flat(name)
-        miss = [t for t in need if t not in flat]
+        toks = [t for t in flat.split("|") if t]
+        miss = [t for t in need if not any(code_in(t, k) for k in toks)]
         if miss:                     # 'اره شارژی ویوارکس 2008' takes only the 2008, not every Vivarex saw
             return {"relevant": False, "confidence": 0.8,
                     "reason": "مدل یا اندازه‌ی دسته در نام نیست: " + "، ".join(miss)}
@@ -176,6 +343,9 @@ def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en
     if b and not brand_in(name, b[0]):
         # a brand category (e.g. «محرک الکتریکی شیر سه طرفه بوتان») takes only that brand
         return {"relevant": False, "confidence": 0.8, "reason": f"دسته‌ی برند «{b[0]}» است ولی برند در نام محصول نیست"}
+    added = check_added(breadcrumb, leaf, product)
+    if added:
+        return added
     if not b and product.get("source_type") == "foreign":
         fb = foreign_brand_in(name)
         if fb:
@@ -213,7 +383,9 @@ def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en
     # a leaf that names a new thing under its parent ('چشمی گرد' under 'کرکره برقی') needs that word itself
     l2w = set(_words(re.sub(r"\s+و\s+|،", " ", breadcrumb.split(">")[1]))) if breadcrumb.count(">") >= 1 else set()
     if lw0 and len(lw0) <= 3 and lw0[0] not in l2w and len(lw0[0]) > 2 and not (lw0[0] in name_words or lw0[0] in name.replace(" ", "")) \
-            and not (len(lw0) > 1 and lw0[1] in name_words and lw0[1] not in ADJ):
+            and not (len(lw0) > 1 and lw0[1] not in ADJ and only_name.split()[:1] == [lw0[1]]):
+        # the first word may be implied only when the name starts with the second ('بتن کن …' is a
+        # 'دریل بتن کن'); 'اره گرد بر' is not a 'چشمی گرد'
         return {"relevant": False, "confidence": 0.7, "reason": f"نام اصلی دسته («{lw0[0]}») در نام محصول نیست"}
     if heads and not (heads & name_words):
         return {"relevant": False, "confidence": 0.7,
