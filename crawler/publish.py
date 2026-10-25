@@ -110,6 +110,48 @@ class SiteBrands:
         return t["id"], True
 
 
+def _is_shop_name(name: str, shops: list[str], domain: str = "") -> bool:
+    """'نید صنعت' for a needsanat.com page: the page's title was the site's name, not the product's."""
+    from .normalize import norm_text
+    n = norm_text(name)
+    if not n:
+        return True
+    if any(n == norm_text(s) or (len(n) >= 4 and norm_text(s).startswith(n)) for s in shops if s):
+        return True
+    return len(n.split()) <= 2 and not any(ch.isdigit() for ch in n) and domain and \
+        n.replace(" ", "").replace("\u200c", "") in {norm_text(s).replace(" ", "") for s in shops}
+
+
+def remove(cfg: dict, run: str, urls: list[str], wc: WC | None = None) -> dict:
+    """Take products out of a run for good: dropped on the review page (never exported or published
+    again) and, if already on the site, moved to the WordPress trash."""
+    from . import review as RV
+    from .pipeline import run_dir
+    d = run_dir(cfg, run)
+    wc = wc or WC()
+    done = _results(d)
+    trashed, failed = [], []
+    for u in urls:
+        RV.save_decision(cfg, run, {"url": u, "action": "drop", "note": "removed"})
+        rows = done[(done["source_url"] == u) & (done["product_id"].astype(str) != "")] if len(done) else done
+        for _, r in rows.iterrows():
+            pid = int(float(r["product_id"]))
+            try:
+                wc.trash_product(pid)
+                trashed.append(pid)
+            except WCError as e:
+                if e.status == 404:
+                    trashed.append(pid)
+                else:
+                    failed.append({"id": pid, "error": str(e)[:200]})
+        if len(done):
+            done.loc[done["source_url"] == u, ["action", "status", "error"]] = ["removed", "trash", "حذف شد"]
+    if len(done):
+        write_csv(done.reindex(columns=RESULT_COLS).fillna(""), d / RESULT_FILE)
+    log.info("removed from %s: %d product(s), %d trashed on the site", run, len(urls), len(trashed))
+    return {"removed": len(urls), "trashed": trashed, "failed": failed}
+
+
 def _results(d: Path) -> pd.DataFrame:
     p = d / RESULT_FILE
     return read_csv(p) if p.exists() else pd.DataFrame(columns=RESULT_COLS)
@@ -175,6 +217,10 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             problems.append("بدون قیمت دلاری")
         if str(rec.get("price_check") or "").startswith("suspicious"):
             problems.append("قیمت مشکوک (" + rec["price_check"].replace("suspicious: ", "") + ") — در صفحه‌ی بازبینی قیمت را تأیید کنید")
+        shops = [x.strip() for x in str(rec.get("sellers") or rec.get("seller_name") or "").split(" | ") if x.strip()]
+        bare = row["Name"].split(" برند ")[0].strip()
+        if _is_shop_name(bare, shops, str(rec.get("source_domain") or "")):
+            problems.append("نام محصول اسم فروشگاه است (عنوان صفحه درست خوانده نشد)")
         if br.get("status") == "missing":
             problems.append(f"برند «{br.get('source')}» هنوز در جدول برندها نیست")
         if problems:

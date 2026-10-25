@@ -113,6 +113,11 @@ class FakeWoo(BaseHTTPRequestHandler):
         u = urlparse(self.path)
         FakeWoo.calls.append(("DELETE", u.path))
         tid = int(u.path.rsplit("/", 1)[1])
+        if "/products/brands/" not in u.path:                  # a product: to the trash
+            if tid not in FakeWoo.products:
+                return self._json({"code": "woocommerce_rest_product_invalid_id"}, 404)
+            FakeWoo.products[tid]["status"] = "trash"
+            return self._json(FakeWoo.products[tid])
         FakeWoo.brands = [t for t in FakeWoo.brands if t["id"] != tid]
         return self._json({"deleted": True})
 
@@ -302,6 +307,21 @@ class Publish(unittest.TestCase):
         self.assertEqual(FakeWoo.products[1]["_b"], [1584])
         self.assertEqual(FakeWoo.products[3]["_b"], [77, 1584])    # other brands of the product kept
         self.assertEqual(FakeWoo.products[2]["_b"], [1584])
+
+    def test_shop_name_is_not_a_product_and_remove(self):
+        rows = read_csv(self.d / FILES["new"])
+        rows.loc[3, ["name", "name_fa", "sellers"]] = ["نید صنعت", "نید صنعت", "نید صنعت (نیکو دیدبان صنعت)"]
+        write_csv(rows, self.d / FILES["new"])
+        res = PB.publish(self.cfg, "batch-1", limit=10)
+        bad = [r for r in res["rows"] if r["name"].startswith("نید صنعت")][0]
+        self.assertEqual(bad["action"], "skipped")
+        self.assertIn("اسم فروشگاه", bad["error"])
+        good = [r for r in res["rows"] if r["action"] == "created"][0]
+        out = PB.remove(self.cfg, "batch-1", [good["source_url"]])
+        self.assertEqual(out["trashed"], [int(good["product_id"])])
+        self.assertEqual(FakeWoo.products[int(good["product_id"])]["status"], "trash")
+        again = PB.publish(self.cfg, "batch-1", limit=10, republish=True)
+        self.assertNotIn(good["sku"], [r["sku"] for r in again["rows"]])   # dropped for good
 
     def test_category_map_not_under_data(self):
         self.assertEqual(WCM.category_map().get("14339"), "1635")   # from assets/, DATA_DIR has none

@@ -93,6 +93,10 @@ class WC:
                        f"find {sku}")
         return next((p for p in j if p.get("sku") == sku), None) if isinstance(j, list) else None
 
+    def trash_product(self, pid: int) -> dict:
+        """Move a product to the WordPress trash (it can be restored from there)."""
+        return self._call(lambda: self._wc("DELETE", f"products/{pid}"), f"trash product {pid}")
+
     def get_product(self, pid: int) -> dict:
         return self._call(lambda: self._wc("GET", f"products/{pid}"), f"product {pid}")
 

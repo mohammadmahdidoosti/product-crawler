@@ -884,6 +884,12 @@ class Handler(BaseHTTPRequestHandler):
                     if lane in (None, "", k):
                         j.stop_ev.set()
                 return self._json({"ok": True})
+            if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "remove":   # {"urls": [...]}
+                from crawler.publish import remove
+                urls = [u for u in (self._jbody().get("urls") or []) if u]
+                if not urls:
+                    return self._err("urls missing")
+                return self._json(remove(build_cfg(), parts[2], urls))
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "status":   # {"status": "publish"}
                 run_path(parts[2])
                 b = self._jbody()
