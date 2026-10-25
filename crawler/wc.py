@@ -216,7 +216,11 @@ class WC:
                         body = f"category: {j.get('name')}" if isinstance(j, dict) and r.ok else body
                 except ValueError:
                     pass
-                out[name] = {"status": r.status_code, "info": body, "seconds": round(time.time() - t0, 2)}
+                out[name] = {"status": r.status_code, "info": body, "seconds": round(time.time() - t0, 2),
+                             "first_byte": round(r.elapsed.total_seconds(), 2), "kb": len(r.content) // 1024,
+                             "server": {k: v for k, v in r.headers.items()
+                                        if k.lower() in ("server", "x-cache", "cf-cache-status", "x-litespeed-cache",
+                                                         "x-powered-by", "cache-control", "age", "x-ar-cache")}}
             except requests.RequestException as e:
                 out[name] = {"status": None, "info": str(e)[:200], "seconds": round(time.time() - t0, 2)}
 
