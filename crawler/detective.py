@@ -42,12 +42,13 @@ def _num(x) -> float | None:
 
 
 def _same_model(ours: dict, name: str) -> bool:
+    from .names import clean_name
     from .pipeline import _codes
     from .rules import code_in
-    a, b = norm_text(str(ours.get("name") or "")), norm_text(name)
+    a, b = norm_text(clean_name(str(ours.get("name") or ""))), norm_text(clean_name(name))
     if not a or not b or a.split()[0] != b.split()[0]:
         return False
-    ca, cb = _codes(ours.get("name", "")), _codes(name)
+    ca, cb = _codes(a), _codes(b)
     if ca:
         return any(code_in(x, y) or code_in(y, x) for x in ca for y in cb if min(len(x), len(y)) >= 3)
     wa = {w for w in a.split() if len(w) > 2}
@@ -63,10 +64,16 @@ def _search_prices(cfg: dict, f, rec: dict, rate: dict, max_pages: int = 6) -> l
     key = secret("SERPER_API_KEY")
     if not key:
         return []
-    codes = sorted(_codes(rec.get("name", "")), key=len, reverse=True)
+    from .names import clean_name
+    name = clean_name(str(rec.get("name") or ""))           # 'قیمت و خرید … - ابزار بیات' -> the product
+    codes = sorted(_codes(name), key=len, reverse=True)
     brand = str(rec.get("brand") or "").strip()
-    words = " ".join(norm_text(rec.get("name", "")).split()[:3])
-    q = f"قیمت {words} {brand} {codes[0] if codes else ''}".strip()
+    if codes:                                               # the model is the best key: type + brand + code
+        head = " ".join(w for w in name.split()[:2] if not any(c in w.lower() for c in codes))
+        q = f"{head} {brand if brand and brand not in name else ''} {codes[0]} قیمت"
+    else:
+        q = f"{name} قیمت"
+    q = re.sub(r"\s+", " ", q).strip()
     res = f.post_json("https://google.serper.dev/search", {"q": q, "gl": "ir", "hl": "fa", "num": 10},
                       {"X-API-KEY": key, "Content-Type": "application/json"})
     out, seen = [], set()
