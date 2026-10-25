@@ -298,6 +298,8 @@ def check_added(breadcrumb: str, leaf: str, product: dict) -> dict | None:
         text = norm_text(f"{name} {product.get('short_description') or ''} {str(product.get('description') or '')[:600]}")
         tw = set(text.split())
         said = any(w in tw or w in text for g in leaf_c for w in g)
+        if product.get("source_type") == "foreign" and any(any("چین" in w for w in g) for g in leaf_c):
+            said = True                                    # a Made-in-China supplier's own product
         origin = (find_brand(name) or ("", ""))[1]          # brands.csv: iranian | foreign | unknown
         if not origin:                                     # a Latin brand name: 'STIHL' -> اشتیل
             from .routing import LATIN
@@ -313,7 +315,8 @@ def check_added(breadcrumb: str, leaf: str, product: dict) -> dict | None:
             return {"relevant": False, "confidence": 0.75,
                     "reason": f"دسته‌ی ساخت {'/'.join(sorted(leaf_c[0]))} است ولی صفحه‌ی محصول کشور را نمی‌گوید"}
     # what the sub-category adds to its parent must be in the name (any spelling)
-    add = added_words(breadcrumb, leaf)
+    # (a Latin-only name, from the Chinese route, is checked against the category's English term instead)
+    add = added_words(breadcrumb, leaf) if re.search(r"[\u0600-\u06FF]", name) else []
     if add:
         found = [w for w in add if w in words or w in flat]
         need = len(add) if len(add) <= 2 else len(add) - 1   # 'سقفی مربع' needs مربع too; 'دی سی ای' two of three
