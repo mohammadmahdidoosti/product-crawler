@@ -237,6 +237,8 @@ class Publish(unittest.TestCase):
         # someone publishes product 1 on the site; a republish updates it without un-publishing it
         p1["status"] = "publish"
         res = PB.publish(self.cfg, "batch-1", limit=1, republish=True)
+        self.assertEqual(res["counts"].get("unchanged"), 1)  # same content: not sent again
+        res = PB.publish(self.cfg, "batch-1", skus=[p1["sku"]], republish=True)
         self.assertEqual(res["counts"]["updated"], 1)
         self.assertEqual(p1["status"], "publish")
         self.assertEqual(len(FakeWoo.media), 2)              # it already had photos: none uploaded again
@@ -246,7 +248,7 @@ class Publish(unittest.TestCase):
 
         # a product deleted on the site is made again; a lost answer to a create does not duplicate it
         del FakeWoo.products[p1["id"]]
-        res = PB.publish(self.cfg, "batch-1", limit=1, republish=True)
+        res = PB.publish(self.cfg, "batch-1", skus=[p1["sku"]], republish=True)
         self.assertEqual(res["counts"]["created"], 1)
         self.assertEqual(len(FakeWoo.products), 3)
 

@@ -153,4 +153,5 @@ brands:                   # brand names for the site: 'آنتو (Antu)' (crawler
   batch_size: 40          # brands per request
 
 publish:                  # direct publishing to the WooCommerce site (crawler/publish.py)
-  workers: 6              # products sent at the same time (photos + product); lower it if the site drops connections
+  workers: 3              # products sent at the same time (photos + product); the shop's own visitors share the server
+  pause_seconds: 0.5      # wait before each product, per worker

@@ -20,6 +20,8 @@ Results: data/runs/<run>/07_published.csv, one row per SKU, updated on every pub
 """
 from __future__ import annotations
 
+import hashlib
+import json
 import logging
 import threading
 import time
@@ -36,7 +38,7 @@ log = logging.getLogger(__name__)
 RESULT_FILE = "07_published.csv"
 PARKED = "پیش‌نویس: بی‌دسته؛ وضعیت قبلی"      # resync put the product back to draft; its old status follows
 RESULT_COLS = ["sku", "action", "product_id", "status", "name", "brand", "price", "categories", "images",
-               "edit_url", "error", "source_url", "published_at"]
+               "edit_url", "error", "source_url", "published_at", "payload_hash"]
 
 
 def _split(v) -> list[str]:
@@ -393,6 +395,8 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
         log.warning("the site has no WooCommerce Brands endpoint: brand kept as an attribute only")
     known = {}                                       # SKU -> (product id, had photos) from earlier publishes
     parked = {}                                      # SKU -> status it had before resync parked it in draft
+    prev = {r["sku"]: r for r in done.to_dict("records")
+            if r.get("action") in ("created", "updated") and str(r.get("product_id") or "").strip()} if len(done) else {}
     if len(done):
         for r in done.to_dict("records"):
             if str(r.get("error") or "").startswith(PARKED):
@@ -457,6 +461,16 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             out.append(res)
             continue
         dropped_of[row["SKU"]] = set(rec.get("_dropped_tax") or set())
+        # what the site would receive; a product on the site with the same content is not sent again
+        # (every update is heavy work for WordPress: a re-run must not touch a thousand products)
+        h = hashlib.sha1(json.dumps({k: v for k, v in data.items() if k not in ("images", "status")},
+                                    sort_keys=True, ensure_ascii=False, default=str).encode()).hexdigest()[:16]
+        res["payload_hash"] = h
+        old = prev.get(row["SKU"])
+        if old and old.get("payload_hash") == h and row["SKU"] not in parked and not dropped_of[row["SKU"]] \
+                and not skus:                            # products asked for by SKU are always sent
+            counts["unchanged"] = counts.get("unchanged", 0) + 1
+            continue
         work.append((row, data, files, res))
 
     # 2. photos + product, several products at the same time
@@ -464,9 +478,13 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
     workers = max(1, int(cfg.get("publish", {}).get("workers", 6)))
     state = {"n": 0, "since_save": 0}
 
+    pause = float(cfg.get("publish", {}).get("pause_seconds", 0.5))
+
     def send(row, data, files, res):
         if halt.is_set() or (stop and stop()):
             return None
+        if pause:
+            time.sleep(pause)                            # a breath between products for the shop's server
         sku = row["SKU"]
         ex = None
         try:
