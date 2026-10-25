@@ -138,7 +138,7 @@ images:
   fix_workers: 6          # bad photos fixed at the same time (an image-model edit takes 20-40 s)
   vision_model: deepseek/deepseek-v4.1-flash   # 11 of 12 bad photos found in the batch-1 test (~$0.0002/photo)
   ai_model: qwen/qwen-image-2.1-turbo   # 'improve' button on the review page (OpenRouter), ~$0.018/photo
-  ai_fallback_models: [krea/k3-edit]   # when Qwen refuses (~$0.05; may change the product more: review it)
+  ai_fallback_models: [openai/gpt-image-2]   # when Qwen refuses (~$0.033, ~19 s; Krea K3 was ~$0.05)
   # public_base: https://caravan-crawler.onrender.com   # default: Render's own address
 
 describe:
