@@ -99,6 +99,35 @@ def foreign_brand_in(name: str) -> str | None:
     return None
 
 
+_COUNTRY_CACHE: dict = {"key": None, "map": {}}
+
+
+def brand_countries() -> dict[str, str]:
+    """canonical brand -> country (Persian: ایران, ایتالیا, چین, آلمان …): the brand table's own
+    'country' column (an Iranian brand is ایران), then what earlier crawls learned
+    (DATA_DIR/brand_countries.csv, see crawler/origins.py) for brands the table leaves open."""
+    import os
+    data_dir = Path(os.environ.get("DATA_DIR", ROOT / "data"))
+    learned_p = data_dir / "brand_countries.csv"
+    key = tuple((str(x), x.stat().st_mtime) for x in (BRANDS_FILE, learned_p) if x.exists())
+    if _COUNTRY_CACHE["key"] == key:
+        return _COUNTRY_CACHE["map"]
+    out: dict[str, str] = {}
+    if learned_p.exists():
+        with learned_p.open(encoding="utf-8-sig") as f:
+            for r in csv.DictReader(f):
+                if r.get("brand") and r.get("country"):
+                    out[r["brand"]] = r["country"]
+    if BRANDS_FILE.exists():
+        with BRANDS_FILE.open(encoding="utf-8-sig") as f:
+            for r in csv.DictReader(f):
+                c = (r.get("country") or "").strip() or ("ایران" if r.get("origin") == "iranian" else "")
+                if c:
+                    out[r.get("canonical") or r["brand"]] = c
+    _COUNTRY_CACHE.update(key=key, map=out)
+    return out
+
+
 def find_brand(text: str) -> tuple[str, str] | None:
     t = f" {norm_text(text)} "
     for n, display, origin in brands():

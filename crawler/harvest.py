@@ -115,6 +115,16 @@ def strict(node: dict, r: dict) -> str | None:
         return "دسته‌ای که از روی نام قابل تشخیص نیست (قدیمی/اصل/…)"
     if not starts_as(name, node) or not type_ok(node, name):
         return "نوع محصول با دسته فرق دارد"
+    from .rules import ADJ, ORIGIN_WORDS, STOP, UNITS, leaf_brand_word
+    nmn = norm_text(name)
+    flat = nmn.replace(" ", "")
+    lw = [w for w in norm_text(node["leaf"]).split()]
+    need = [w for w in lw if w not in STOP and w not in ADJ and w not in UNITS and w not in ORIGIN_WORDS
+            and not re.search(r"\d", w) and not leaf_brand_word(w, node["leaf"])]
+    implied = lw[:1] if len(lw) > 1 and nmn.split()[:1] == lw[1:2] else []     # 'عمود بر …' is an 'اره عمود بر'
+    missing = [w for w in need if w not in nm and w not in flat and w not in implied]
+    if len(missing) > (0 if len(need) <= 2 else 1):   # 'اره افق بر' is not an 'اره عمود بر'
+        return f"«{' '.join(missing)}» در نام نیست"
     missing_power = [w for w in lf & POWER if w not in nm]
     if missing_power:
         return f"«{missing_power[0]}» در نام نیست"
@@ -173,5 +183,53 @@ def harvest(cfg: dict, df: pd.DataFrame, crawled: pd.DataFrame, index: GapIndex 
     if add:
         log.info("second chance: %d page(s) placed in %d more category match(es) across the site tree",
                  len(placed), len(add))
+        df = pd.concat([df, pd.DataFrame(add)], ignore_index=True).fillna("")
+    return df
+
+
+UP = "دسته‌ی بالاتر: "
+
+
+def place_up(cfg: dict, df: pd.DataFrame, crawled: pd.DataFrame, min_conf: float = 0.75) -> pd.DataFrame:
+    """Nothing good is thrown away: a page that fits no category after the filter and the second
+    chance (an elevator motor whose country no page states, a corded saw found under a cordless
+    one) goes to the nearest category above the one it was found for that it really is, with the
+    same strict checks. Not the top level ('ابزار برقی و شارژی' is too broad to be useful)."""
+    from .rules import judge
+    from .taxonomy import load_taxonomy
+    p = Path(cfg.get("taxonomy", {}).get("file") or "")
+    if crawled is None or crawled.empty or not p.exists():
+        return df
+    t = load_taxonomy(p)
+    parent = dict(zip(t["taxonomy_id"], t["parent_id"]))
+    node = {r["taxonomy_id"]: r for r in t.to_dict("records")}
+    placed = set(df["url"]) if len(df) else set()
+    pages = crawled[(crawled["price_toman"] != "") & (crawled["image_urls"] != "")
+                    & crawled["name"].map(lambda n: bool(FA.search(str(n))))
+                    & (crawled.get("source_type", "") != "foreign") & ~crawled["url"].isin(placed)]
+    add = []
+    for url, rows in pages.groupby("url", sort=False):
+        r = rows.iloc[0].to_dict()
+        best = None
+        for tid in dict.fromkeys(rows["taxonomy_id"]):
+            pt, depth = parent.get(tid, ""), 0
+            while pt and pt in node and depth < 4:
+                n = node[pt]
+                if n["breadcrumb"].count(">") < 1:
+                    break
+                nd = {"taxonomy_id": pt, "breadcrumb": n["breadcrumb"], "leaf": n["leaf"]}
+                v = judge(n["breadcrumb"], n["leaf"], r)
+                if v["relevant"] and float(v["confidence"]) >= min_conf and strict(nd, r) is None:
+                    if best is None or n["breadcrumb"].count(">") > best[0]["breadcrumb"].count(">"):
+                        best = (nd, v)
+                    break
+                pt, depth = parent.get(pt, ""), depth + 1
+        if best:
+            nd, v = best
+            add.append({**r, "taxonomy_id": nd["taxonomy_id"], "breadcrumb": nd["breadcrumb"], "query": nd["leaf"],
+                        "relevant": True, "relevance_confidence": str(v["confidence"]),
+                        "relevance_reason": UP + v["reason"]})
+    if add:
+        log.info("one level up: %d page(s) that fit no category placed in the nearest category above", len(add))
         df = pd.concat([df, pd.DataFrame(add)], ignore_index=True).fillna("")
     return df

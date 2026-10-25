@@ -420,6 +420,11 @@ def step_filter(cfg: dict, run: str) -> Path:
     from .rules import judge
     d = run_dir(cfg, run)
     df = read_csv(d / FILES["crawled"])
+    try:                                    # brand countries the shops' pages state, for 'ایتالیایی' etc.
+        from .origins import learn
+        learn(cfg, df)
+    except Exception as e:                  # noqa: BLE001 - the filter works without it
+        log.warning("brand countries not learned: %s", e)
     out, rej = d / FILES["filtered"], d / FILES["rejected"]
     done = set()
     for f_ in (out, rej):
@@ -491,6 +496,9 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     if dd.get("harvest", True):                          # second chance across the whole site tree
         from .harvest import harvest
         df = harvest(cfg, df, crawled, progress=lambda a, b: _progress("dedupe", a, b))
+    if dd.get("place_up", True):                         # what still fits nowhere: the nearest category above
+        from .harvest import place_up
+        df = place_up(cfg, df, crawled)
     df = one_category_per_product(df)
     merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)))
     merged = drop_price_outliers(merged, float(cfg.get("price", {}).get("outlier_factor", 6)))

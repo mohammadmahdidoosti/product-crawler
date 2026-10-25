@@ -294,23 +294,32 @@ def check_added(breadcrumb: str, leaf: str, product: dict) -> dict | None:
     # (or, for 'ایرانی', a brand known to be Iranian)
     leaf_c = [g for g in COUNTRIES_ALL if g & lf]
     if leaf_c:
-        from .routing import find_brand
+        from .routing import brand_countries, find_brand
         text = norm_text(f"{name} {product.get('short_description') or ''} {str(product.get('description') or '')[:600]}")
         tw = set(text.split())
         said = any(w in tw or w in text for g in leaf_c for w in g)
         if product.get("source_type") == "foreign" and any(any("چین" in w for w in g) for g in leaf_c):
             said = True                                    # a Made-in-China supplier's own product
-        origin = (find_brand(name) or ("", ""))[1]          # brands.csv: iranian | foreign | unknown
-        if not origin:                                     # a Latin brand name: 'STIHL' -> اشتیل
+        fb = find_brand(name)                               # brands.csv: (brand, iranian | foreign | unknown)
+        if not fb:                                         # a Latin brand name: 'STIHL' -> اشتیل
             from .routing import LATIN
-            low = name.lower()
+            low_ = name.lower()
             for fa_, en_ in LATIN.items():
-                if len(en_) >= 3 and re.search(rf"(?<![a-z]){re.escape(en_)}(?![a-z])", low):
-                    origin = (find_brand(fa_) or ("", ""))[1]
-                    if origin:
+                if len(en_) >= 3 and re.search(rf"(?<![a-z]){re.escape(en_)}(?![a-z])", low_):
+                    fb = find_brand(fa_)
+                    if fb:
                         break
+        origin = fb[1] if fb else ""
+        country_fa = brand_countries().get(fb[0], "") if fb else ""
+        country = norm_text(country_fa)
         iran_cat = any(any("ایران" in w for w in g) for g in leaf_c)
-        by_brand = (iran_cat and origin == "iranian") or (not iran_cat and origin == "foreign")
+        if country:                                        # the brand's country is known: it decides
+            by_brand = any(country in g or country + "ی" in g or country + "یی" in g for g in leaf_c)
+        else:                                              # only "Iranian or not": enough for 'ایرانی' only
+            by_brand = iran_cat and origin == "iranian"
+        if fb and country and not by_brand and not said:
+            return {"relevant": False, "confidence": 0.8,
+                    "reason": f"دسته‌ی ساخت {'/'.join(sorted(leaf_c[0]))} است ولی برند «{fb[0]}» ساخت {country_fa} است"}
         if not said and not by_brand:
             return {"relevant": False, "confidence": 0.75,
                     "reason": f"دسته‌ی ساخت {'/'.join(sorted(leaf_c[0]))} است ولی صفحه‌ی محصول کشور را نمی‌گوید"}
