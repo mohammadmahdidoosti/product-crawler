@@ -499,6 +499,13 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     if dd.get("place_up", True):                         # what still fits nowhere: the nearest category above
         from .harvest import place_up
         df = place_up(cfg, df, crawled)
+    try:                                                 # what fits nowhere: the waiting list for new categories
+        from .nocat import write as no_category
+        pub = d / "07_published.csv"
+        on_site = set(read_csv(pub)["source_url"]) if pub.exists() else set()
+        no_category(cfg, d, run, df, crawled, on_site)
+    except Exception as e:                               # noqa: BLE001
+        log.warning("no-category list not written: %s", e)
     df = one_category_per_product(df)
     merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)))
     merged = drop_price_outliers(merged, float(cfg.get("price", {}).get("outlier_factor", 6)))

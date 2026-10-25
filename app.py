@@ -742,6 +742,11 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json({"brands": None if terms is None else
                                    [{"id": t.get("id"), "name": t.get("name"), "slug": t.get("slug"),
                                      "count": t.get("count")} for t in terms]})
+            if parts[:2] == ["api", "no-category"] and parts[2:3] == ["download"]:   # the shared waiting list
+                f = build_cfg()["_data_dir"] / "no_category.csv"
+                if not f.exists():
+                    return self._err("هنوز فهرستی ساخته نشده", 404)
+                return self._download(f.read_bytes(), "caravan-no-category.csv", "text/csv; charset=utf-8")
             if parts[:2] == ["api", "brands"] and parts[2:3] == ["download"]:
                 from crawler import brands_fa as BF
                 p_ = BF.path(build_cfg())
