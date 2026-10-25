@@ -89,6 +89,7 @@ def fix_photos(cfg: dict, run: str) -> dict:
     rows = im.to_dict("records")
     import threading
     lock = threading.Lock()
+    model_lock = threading.Lock()
 
     def bump(k, n=1):
         with lock:
@@ -126,7 +127,8 @@ def fix_photos(cfg: dict, run: str) -> dict:
                 if out is None:
                     log.info("photo fix %s with %s: %s", r["url"][-40:], m, status[:80])
                     continue
-                pic, _ = make(out, None, int(ic.get("size", 1000)), cutout=False)
+                with model_lock:                         # the local image models are not thread-safe
+                    pic, _ = make(out, None, int(ic.get("size", 1000)), cutout=False)
                 rel = f"{k}/ai{mi}_{n}.webp"
                 pic.save(root / rel, "WEBP", quality=88, method=4)
                 fixed = rel
@@ -140,7 +142,8 @@ def fix_photos(cfg: dict, run: str) -> dict:
                     if not data:
                         continue
                     with Image.open(io.BytesIO(data)) as one:
-                        pic, _ = make(one, None, int(ic.get("size", 1000)))
+                        with model_lock:
+                            pic, _ = make(one, None, int(ic.get("size", 1000)))
                     rel = f"{k}/ai9_{n}.webp"
                     pic.save(root / rel, "WEBP", quality=85, method=4)
                     v = check(vmodel, f"{base}/img/{rel}", new.get(r["url"], {}).get("name", ""), key)
