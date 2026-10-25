@@ -70,6 +70,8 @@ def fix_photos(cfg: dict, run: str) -> dict:
         if not str(o.get("error") or ""):
             known[(o["url"], o["file"])] = {**{k: (True if o.get(k) == "True" else False if o.get(k) == "False" else o.get(k))
                                               for k in VIS_COLS[2:8]}, "_cost": 0}
+    # an AI-edited photo judged bad may have been edited again since (same file name): check again
+    known = {k: v for k, v in known.items() if not (k[1].split("/")[-1].startswith("ai") and _bad(v, True))}
     todo = [j for j in jobs if (j[0], j[1]) not in known]
     log.info("photo check: %d photos with %s (%d checked before)", len(todo), vmodel, len(jobs) - len(todo))
     with ThreadPoolExecutor(int(ic.get("vision_workers", 24))) as ex:
@@ -90,6 +92,8 @@ def fix_photos(cfg: dict, run: str) -> dict:
     import threading
     lock = threading.Lock()
     model_lock = threading.Lock()
+
+    rewritten: set[tuple[str, str]] = set()
 
     def bump(k, n=1):
         with lock:
@@ -120,6 +124,8 @@ def fix_photos(cfg: dict, run: str) -> dict:
             n = int(re.findall(r"\d+", files[0].split("/")[-1].split(".")[0])[-1])   # '2.webp', 'ai1_2.webp
             src = source_photo(r, n, cfg["_data_dir"])
             fixed = ""
+            if any(x.startswith("ai_fixed") for x in notes):   # edited before and still not clean: no second edit
+                src = None
             for mi, m in enumerate(models, 1):
                 if src is None:
                     break
@@ -153,7 +159,9 @@ def fix_photos(cfg: dict, run: str) -> dict:
                         bump("searched")
                         break
             if fixed:
-                r["files"] = " | ".join([fixed] + files[1:])
+                r["files"] = " | ".join([fixed] + [f for f in files[1:] if f not in bad])
+                with lock:
+                    rewritten.add((r["url"], fixed))             # same file name, new picture: check it again
                 r["originals"] = files[0]
                 bump("edited", int(fixed.split("/")[-1].startswith("ai") and "found_by_search" not in notes))
             else:
@@ -170,6 +178,9 @@ def fix_photos(cfg: dict, run: str) -> dict:
         list(ex.map(safe, rows))
     cols = list(im.columns)
     write_csv(pd.DataFrame(rows, columns=cols), p)
+    if rewritten and vp.exists():                        # the old verdict on a rewritten file is stale
+        vv = read_csv(vp)
+        write_csv(vv[[(u, f) not in rewritten for u, f in zip(vv["url"], vv["file"])]], vp)
     cost = sum(float(v.get("_cost") or 0) for v in res)
     log.info("photo check: %s; vision cost $%.3f", stats, cost)
     return stats
