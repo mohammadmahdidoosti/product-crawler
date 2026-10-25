@@ -48,6 +48,10 @@ def _same_model(ours: dict, name: str) -> bool:
     a, b = norm_text(clean_name(str(ours.get("name") or ""))), norm_text(clean_name(name))
     if not a or not b or a.split()[0] != b.split()[0]:
         return False
+    import re as _re
+    variant = r"بدون باتری|بدون باطری|تک باتری|دو باتری|بدون شارژر|کیت|ست |پک |مجموعه|بدنه|\bbare\b|\bkit\b"
+    if bool(_re.search(variant, a)) != bool(_re.search(variant, b)):   # a kit is not the bare tool
+        return False
     ca, cb = _codes(a), _codes(b)
     if ca:
         return any(code_in(x, y) or code_in(y, x) for x in ca for y in cb if min(len(x), len(y)) >= 3)
@@ -115,35 +119,35 @@ def _fresh_price(cfg: dict, f, rec: dict, rate: dict) -> float | None:
 
 
 def decide(v: float, others: list[tuple[str, float]], fresh: float | None, tol: float = 0.25) -> tuple[float | None, str]:
-    near = lambda a, b: b and abs(a / b - 1) <= tol           # noqa: E731
+    """Our price (or its 10x slip, or the page's fresh price) is accepted when it falls inside what
+    the other shops ask for the same model; a price is never invented from a median of two."""
     by_shop: dict[str, list[float]] = {}
     for dom, p in others:
         by_shop.setdefault(dom, []).append(p)
-    vals = [median(x) for x in by_shop.values()]
+    vals = sorted(median(x) for x in by_shop.values())
     if not vals:
-        if fresh and fresh != v:
-            return None, f"فقط صفحه‌ی خود فروشگاه: {fresh:,.0f} (منبع دیگری پیدا نشد)"
-        return None, "منبع دیگری پیدا نشد"
-    ref, n = median(vals), len(vals)
-    if n >= 2 or near(v, ref) or near(v / 10, ref) or near(v * 10, ref):
-        for cand, how in ((v, "قیمت ما تأیید شد"), (v / 10, "قیمت ما ÷۱۰"), (v * 10, "قیمت ما ×۱۰")):
-            if near(cand, ref):
-                return round(cand), f"{how} با {n} فروشگاه (میانه {ref:,.0f})"
-        if fresh and near(fresh, ref):
-            return round(fresh), f"قیمت تازه‌ی صفحه با {n} فروشگاه می‌خواند (میانه {ref:,.0f})"
-        if n >= 2:
-            return round(ref), f"میانه‌ی {n} فروشگاه (قیمت ما {v:,.0f} با همه فرق داشت)"
-    if fresh and near(fresh, ref):
-        return round(fresh), f"قیمت تازه‌ی صفحه با ۱ فروشگاه می‌خواند ({ref:,.0f})"
-    return None, f"فقط ۱ فروشگاه ({ref:,.0f}) و با قیمت ما ({v:,.0f}) نمی‌خواند"
+        return None, "منبع دیگری پیدا نشد" + (f" (قیمت تازه‌ی صفحه {fresh:,.0f})" if fresh and fresh != v else "")
+    n = len(vals)
+    lo, hi = vals[0] * (1 - tol), vals[-1] * (1 + tol)       # the market's range for this model
+    rng = f"{vals[0]:,.0f} تا {vals[-1]:,.0f}" if n > 1 else f"{vals[0]:,.0f}"
+    for cand, how in ((v, "قیمت ما"), (v / 10, "قیمت ما ÷۱۰"), (v * 10, "قیمت ما ×۱۰"), (fresh, "قیمت تازه‌ی صفحه")):
+        if cand and lo <= cand <= hi:
+            return round(cand), f"{how} در بازه‌ی {n} فروشگاه دیگر ({rng})"
+    if n >= 3:                                               # many shops, all far from ours: their middle
+        return round(median(vals)), f"میانه‌ی {n} فروشگاه ({rng})؛ قیمت ما {v:,.0f} بیرون از بازه بود"
+    return None, f"قیمت ما ({v:,.0f}) با {n} فروشگاه ({rng}) نمی‌خواند؛ برای بررسی"
 
 
-def run_detective(cfg: dict, run: str, apply: bool = True, progress=None) -> dict:
+def run_detective(cfg: dict, run: str, apply: bool = True, progress=None, redo: bool = False) -> dict:
     from . import fx as fxmod
     from .config import run_dir
     from .pipeline import _fetchers, export_rows, price_peers
     from .review import save_decision
     d = run_dir(cfg, run)
+    if redo:                                                 # decide again under the current rules
+        from .review import DEC_COLS, _dec_path, decisions
+        dec = {u: x for u, x in decisions(d).items() if not str(x.get("note") or "").startswith("کارآگاه")}
+        write_csv(pd.DataFrame(list(dec.values()), columns=DEC_COLS), _dec_path(d))
     recs = [rec for rec, _ in export_rows(cfg, run) if str(rec.get("price_check") or "").startswith("suspicious")]
     log.info("price detective %s: %d doubtful price(s)", run, len(recs))
     rate = fxmod.today_rate(cfg)
@@ -164,7 +168,7 @@ def run_detective(cfg: dict, run: str, apply: bool = True, progress=None) -> dic
         # 1. free evidence first: shops already crawled, and what earlier checks remembered
         others = [(p["dom"] or p["url"], p["price"]) for p in pool
                   if p["url"] != rec["url"] and p["dom"] != dom_own and _same_model(rec, p["name"])]
-        mem = [(dm, pr) for dm, pr in recall(cfg, rec.get("name", "")) if dm != dom_own]
+        mem = [(dm, pr) for dm, pr, nm in recall(cfg, rec.get("name", "")) if dm != dom_own and _same_model(rec, nm)]
         others += [x for x in mem if x[0] not in {o[0] for o in others}]
         h = habit(cfg, dom_own)
         how = "free"
@@ -185,7 +189,7 @@ def run_detective(cfg: dict, run: str, apply: bool = True, progress=None) -> dic
         new, why = decide(v, others, fresh)
         if not new and h:                                    # the shop's known slip, nothing against it
             new, why = round(v / 10 if h == "d10" else v * 10), f"عادت این فروشگاه: قیمت‌هایش {'۱۰ برابر' if h == 'd10' else 'یک‌دهم'} نوشته می‌شود"
-        if new:                                              # what this teaches about the shop
+        if new and len({o[0] for o in others}) >= 2:         # what this teaches (only from 2+ shops)
             ratio = v / new
             learn_habit(cfg, dom_own, "ok" if abs(ratio - 1) <= 0.25 else "d10" if abs(ratio / 10 - 1) <= 0.25
                         else "x10" if abs(ratio * 10 - 1) <= 0.25 else "other")

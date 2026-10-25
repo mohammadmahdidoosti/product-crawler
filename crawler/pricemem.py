@@ -42,7 +42,7 @@ def remember(cfg: dict, items: list[dict]) -> None:
     today = dt.date.today().isoformat()
     for it in items:
         k = model_key(it.get("name", ""))
-        if k and it.get("price"):
+        if k and it.get("price") and it.get("source") != "settled":   # only prices shops really ask
             rows.append({"key": k, "name": it["name"][:120], "dom": it.get("dom", ""),
                          "price": str(round(float(it["price"]))), "date": today, "source": it.get("source", "")})
     if not rows:
@@ -55,7 +55,7 @@ def remember(cfg: dict, items: list[dict]) -> None:
         write_csv(allr, p)
 
 
-def recall(cfg: dict, name: str, days: int = 45) -> list[tuple[str, float]]:
+def recall(cfg: dict, name: str, days: int = 45) -> list[tuple[str, float, str]]:
     k = model_key(name)
     p = _p(cfg, "price_memory.csv")
     if not k or not p.exists():
@@ -63,7 +63,7 @@ def recall(cfg: dict, name: str, days: int = 45) -> list[tuple[str, float]]:
     m = read_csv(p)
     cut = (dt.date.today() - dt.timedelta(days=days)).isoformat()
     m = m[(m["key"] == k) & (m["date"] >= cut)]
-    return [(r["dom"], float(r["price"])) for r in m.to_dict("records") if r["price"]]
+    return [(r["dom"], float(r["price"]), r["name"]) for r in m.to_dict("records") if r["price"]]
 
 
 def learn_habit(cfg: dict, dom: str, verdict: str) -> None:
@@ -96,3 +96,15 @@ def habit(cfg: dict, dom: str) -> str:
         if n >= 3 and n > ok:
             return k
     return ""
+
+
+def forget_learning(cfg: dict) -> None:
+    """Start the shop habits and the settled prices again (after the decision rules changed)."""
+    for n in ("shop_habits.csv",):
+        p = _p(cfg, n)
+        if p.exists():
+            p.unlink()
+    p = _p(cfg, "price_memory.csv")
+    if p.exists():
+        m = read_csv(p)
+        write_csv(m[m["source"] != "settled"], p)

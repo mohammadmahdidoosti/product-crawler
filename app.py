@@ -205,7 +205,10 @@ class Job:
             step_describe(cfg, run)
         elif step == "prices":                       # doubtful prices settled from evidence (detective)
             from crawler.detective import run_detective
-            res = run_detective(cfg, run, apply=opts.get("apply", True) is not False,
+            if opts.get("forget"):
+                from crawler.pricemem import forget_learning
+                forget_learning(cfg)
+            res = run_detective(cfg, run, apply=opts.get("apply", True) is not False, redo=bool(opts.get("redo")),
                                 progress=lambda d_, t_: self.prog.update(step="prices", done=d_, total=t_))
             self.logs.append(f"کارآگاه قیمت: {res['doubtful']} قیمت مشکوک؛ {res['settled']} حل شد، "
                              f"{res['left']} ماند؛ {res['searches']} جستجو")
