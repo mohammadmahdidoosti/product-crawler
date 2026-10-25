@@ -102,7 +102,8 @@ def fix_photos(cfg: dict, run: str) -> dict:
 
     # 2-4. fix
     models = [ic.get("ai_model", "qwen/qwen-image-2.1-turbo")] + list(ic.get("ai_fallback_models") or [])
-    stats = {"checked": len(jobs), "bad": 0, "dropped": 0, "edited": 0, "searched": 0, "left": 0}
+    stats = {"checked": len(jobs), "bad": 0, "dropped": 0, "edited": 0, "searched": 0, "left": 0,
+             "wrong": 0, "wrong_left": 0}
     rows = im.to_dict("records")
     import threading
     lock = threading.Lock()
@@ -119,6 +120,20 @@ def fix_photos(cfg: dict, run: str) -> dict:
         if not files:
             return
         busy = "busy_background" in str(r.get("notes") or "")
+        # a photo of something else (a supplier's factory, a spec table, another product) goes when
+        # the product has another photo; when all are like that the product is marked for a look
+        wrong = [f for f in files if vis.get((r["url"], f), {}).get("matches_name") is False]
+        if wrong and len(wrong) < len(files):
+            files = [f for f in files if f not in wrong]
+            r["files"] = " | ".join(files)
+            r["originals"] = " | ".join(x for x in (str(r.get("originals") or ""), " | ".join(wrong)) if x.strip())
+            r["notes"] = " | ".join(sorted(set(x.strip() for x in str(r.get("notes") or "").split("|") if x.strip())
+                                           | {"wrong_photo_dropped"}))
+            bump("wrong", len(wrong))
+        elif wrong:
+            r["notes"] = " | ".join(sorted(set(x.strip() for x in str(r.get("notes") or "").split("|") if x.strip())
+                                           | {"wrong_photo"}))
+            bump("wrong_left", len(wrong))
         bad = [f for f in files if _bad(vis.get((r["url"], f), {}), busy)]
         checked = all(not vis.get((r["url"], f), {}).get("_error") for f in files)
         if not bad:
