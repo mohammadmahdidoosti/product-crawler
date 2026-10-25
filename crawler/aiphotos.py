@@ -11,6 +11,7 @@ review page can switch back. 05_vision.csv keeps every check; 05_images.csv is u
 from __future__ import annotations
 
 import io
+import re
 import logging
 import os
 from concurrent.futures import ThreadPoolExecutor
@@ -115,7 +116,7 @@ def fix_photos(cfg: dict, run: str) -> dict:
             bump("dropped", len(bad))
         else:                                                # 2. edit the main photo
             k = product_key(r["url"])
-            n = int(files[0].split("/")[-1].split(".")[0])
+            n = int(re.findall(r"\d+", files[0].split("/")[-1].split(".")[0])[-1])   # '2.webp', 'ai1_2.webp
             src = source_photo(r, n, cfg["_data_dir"])
             fixed = ""
             for mi, m in enumerate(models, 1):
@@ -157,8 +158,13 @@ def fix_photos(cfg: dict, run: str) -> dict:
                 bump("left")
         r["notes"] = " | ".join(sorted(notes))
     # products are fixed side by side: an image-model edit takes 20-40 s each
+    def safe(r):
+        try:
+            fix_one(r)
+        except Exception as e:                       # noqa: BLE001 - one product must not stop the rest
+            log.warning("photo fix %s: %s", r.get("url", "")[-50:], e)
     with ThreadPoolExecutor(int(ic.get("fix_workers", 6))) as ex:
-        list(ex.map(fix_one, rows))
+        list(ex.map(safe, rows))
     cols = list(im.columns)
     write_csv(pd.DataFrame(rows, columns=cols), p)
     cost = sum(float(v.get("_cost") or 0) for v in res)
