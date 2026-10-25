@@ -30,7 +30,7 @@ PREFIX = "شانس دوم: "
 class GapIndex:
     """Empty taxonomy nodes, found by the first word of their name."""
 
-    def __init__(self, cfg: dict):
+    def __init__(self, cfg: dict, empty_only: bool = True):
         from .rules import STOP
         from .taxonomy import load_taxonomy
         p = Path(cfg.get("taxonomy", {}).get("file") or "")
@@ -40,7 +40,7 @@ class GapIndex:
             return
         t = load_taxonomy(p)
         skip = {norm_text(x) for x in cfg.get("taxonomy", {}).get("exclude_level1", [])}
-        t = t[(t["site_product_count"] == 0) & ~t["level1"].map(norm_text).isin(skip) & (t["leaf"] != "")]
+        t = t[((t["site_product_count"] == 0) | (not empty_only)) & ~t["level1"].map(norm_text).isin(skip) & (t["leaf"] != "")]
         for r in t.to_dict("records"):
             words = [w for w in norm_text(r["leaf"]).split() if w not in STOP and len(w) > 1]
             if not words:
@@ -194,7 +194,8 @@ def place_up(cfg: dict, df: pd.DataFrame, crawled: pd.DataFrame, min_conf: float
     """Nothing good is thrown away: a page that fits no category after the filter and the second
     chance (an elevator motor whose country no page states, a corded saw found under a cordless
     one) goes to the nearest category above the one it was found for that it really is, with the
-    same strict checks. Not the top level ('ابزار برقی و شارژی' is too broad to be useful)."""
+    same strict checks; when nothing above fits (a petrol chainsaw found under 'اره شارژی'), to
+    the deepest category anywhere in the site tree that fits it. Never a whole top-level section."""
     from .rules import judge
     from .taxonomy import load_taxonomy
     p = Path(cfg.get("taxonomy", {}).get("file") or "")
@@ -207,7 +208,7 @@ def place_up(cfg: dict, df: pd.DataFrame, crawled: pd.DataFrame, min_conf: float
     pages = crawled[(crawled["price_toman"] != "") & (crawled["image_urls"] != "")
                     & crawled["name"].map(lambda n: bool(FA.search(str(n))))
                     & (crawled.get("source_type", "") != "foreign") & ~crawled["url"].isin(placed)]
-    add = []
+    add, full = [], None
     for url, rows in pages.groupby("url", sort=False):
         r = rows.iloc[0].to_dict()
         best = None
@@ -224,11 +225,25 @@ def place_up(cfg: dict, df: pd.DataFrame, crawled: pd.DataFrame, min_conf: float
                         best = (nd, v)
                     break
                 pt, depth = parent.get(pt, ""), depth + 1
+        why = UP
+        if best is None:                     # nothing above fits: the best category anywhere in the tree
+            full = full or GapIndex(cfg, empty_only=False)
+            fits = []
+            for n in full.candidates(r.get("name", "")):
+                if n["breadcrumb"].count(">") < 1:          # not a whole top-level section
+                    continue
+                v = judge(n["breadcrumb"], n["leaf"], r)
+                if v["relevant"] and float(v["confidence"]) >= 0.85 and strict(n, r) is None:
+                    fits.append((n, v))
+            deep = _deepest([n for n, _ in fits])
+            if deep:
+                n = max(deep, key=lambda x: x["breadcrumb"].count(">"))
+                best, why = (n, next(v for m, v in fits if m is n)), "جای دیگر درخت: "
         if best:
             nd, v = best
             add.append({**r, "taxonomy_id": nd["taxonomy_id"], "breadcrumb": nd["breadcrumb"], "query": nd["leaf"],
                         "relevant": True, "relevance_confidence": str(v["confidence"]),
-                        "relevance_reason": UP + v["reason"]})
+                        "relevance_reason": why + v["reason"]})
     if add:
         log.info("one level up: %d page(s) that fit no category placed in the nearest category above", len(add))
         df = pd.concat([df, pd.DataFrame(add)], ignore_index=True).fillna("")

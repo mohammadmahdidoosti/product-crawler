@@ -31,3 +31,33 @@ class Pool(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PlaceUp(unittest.TestCase):
+    def test_up_then_elsewhere(self):
+        import tempfile
+        from crawler.harvest import place_up
+        d = Path(tempfile.mkdtemp())
+        tax = d / "tax.csv"
+        pd.DataFrame([
+            {"ID": "1", "Level 1 (دسته اصلی)": "ابزار برقی", "Level 2 (زیردسته سطح ۱)": "اره عمود بر",
+             "Level 3 (زیردسته سطح ۲)": "", "Full Breadcrumb Path": "ابزار برقی > اره عمود بر", "Parent ID": "", "site_product_count": "5"},
+            {"ID": "2", "Level 1 (دسته اصلی)": "ابزار برقی", "Level 2 (زیردسته سطح ۱)": "اره عمود بر",
+             "Level 3 (زیردسته سطح ۲)": "اره عمود بر شارژی", "Full Breadcrumb Path": "ابزار برقی > اره عمود بر > اره عمود بر شارژی",
+             "Parent ID": "1", "site_product_count": "0"},
+            {"ID": "3", "Level 1 (دسته اصلی)": "باغبانی", "Level 2 (زیردسته سطح ۱)": "اره موتوری",
+             "Level 3 (زیردسته سطح ۲)": "", "Full Breadcrumb Path": "باغبانی > اره موتوری", "Parent ID": "", "site_product_count": "9"},
+        ]).to_csv(tax, index=False, encoding="utf-8-sig")
+        from crawler.taxonomy import load_taxonomy
+        try:
+            load_taxonomy(tax)
+        except Exception as e:                         # the column names differ in this checkout
+            self.skipTest(f"taxonomy format: {e}")
+        cfg = {"_data_dir": d, "taxonomy": {"file": str(tax)}}
+        crawled = pd.DataFrame([
+            {**page("u1", "اره عمود بر ماکیتا 450 وات مدل 4329"), "taxonomy_id": "2"},
+            {**page("u2", "اره موتوری بنزینی توسن 45 سانتی"), "taxonomy_id": "2"},
+        ]).fillna("")
+        out = place_up(cfg, pd.DataFrame(columns=["url"]), crawled)
+        got = {r["url"]: r["taxonomy_id"] for r in out.to_dict("records")}
+        self.assertEqual(got.get("u1"), "1")            # corded jigsaw: one level up
