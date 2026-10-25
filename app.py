@@ -698,6 +698,12 @@ class Handler(BaseHTTPRequestHandler):
                 if f.exists():
                     return self._send(200, f.read_bytes(), "image/webp")
                 return self._send(404, b"not found", "text/plain")
+            if parts[:2] == ["img", "_compare"] and len(parts) == 4 and re.fullmatch(r"[0-9a-f]{14}", parts[2]) \
+                    and re.fullmatch(r"[a-z0-9\-]{3,60}_\d{1,2}\.webp", parts[3]):     # model comparison pictures
+                f = DATA_DIR / "images" / "_compare" / parts[2] / parts[3]
+                if f.exists():
+                    return self._send(200, f.read_bytes(), "image/webp")
+                return self._send(404, b"not found", "text/plain")
             if u.path in ("/", "/index.html"):
                 return self._send(200, (STATIC / "index.html").read_bytes(), "text/html; charset=utf-8")
             if parts[:2] == ["api", "state"]:
