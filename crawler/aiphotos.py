@@ -56,6 +56,19 @@ def fix_photos(cfg: dict, run: str) -> dict:
     vmodel = ic.get("vision_model", "deepseek/deepseek-v4.1-flash")
     root = cfg["_data_dir"] / "images"
 
+    # 0. photos dropped earlier as 'bad' come back to be judged again (the checker used to take our
+    #    own watermark for a shop's logo); the bad ones are dropped again below
+    for i, r in im.iterrows():
+        if "bad_photo_dropped" in str(r.get("notes") or "") and str(r.get("originals") or "").strip():
+            back = [f.strip() for f in str(r["originals"]).split("|")
+                    if f.strip() and not f.strip().split("/")[-1].startswith("ai") and (root / f.strip()).exists()]
+            files = [f.strip() for f in str(r.get("files") or "").split("|") if f.strip()]
+            if back:
+                im.at[i, "files"] = " | ".join(files + [f for f in back if f not in files])
+                im.at[i, "originals"] = ""
+                im.at[i, "notes"] = " | ".join(x.strip() for x in str(r["notes"]).split("|")
+                                               if x.strip() and x.strip() != "bad_photo_dropped")
+
     # 1. check every photo
     jobs = []
     for r in im.to_dict("records"):
@@ -70,8 +83,10 @@ def fix_photos(cfg: dict, run: str) -> dict:
         if not str(o.get("error") or ""):
             known[(o["url"], o["file"])] = {**{k: (True if o.get(k) == "True" else False if o.get(k) == "False" else o.get(k))
                                               for k in VIS_COLS[2:8]}, "_cost": 0}
-    # an AI-edited photo judged bad may have been edited again since (same file name): check again
-    known = {k: v for k, v in known.items() if not (k[1].split("/")[-1].startswith("ai") and _bad(v, True))}
+    # an AI-edited photo judged bad may have been edited again since (same file name): check again;
+    # a 'shop logo' with no text was mostly our own watermark (asked again with the clearer question)
+    known = {k: v for k, v in known.items() if not (k[1].split("/")[-1].startswith("ai") and _bad(v, True))
+             and not (v.get("shop_logo") is True and v.get("overlay_text") is not True)}
     todo = [j for j in jobs if (j[0], j[1]) not in known]
     log.info("photo check: %d photos with %s (%d checked before)", len(todo), vmodel, len(jobs) - len(todo))
     with ThreadPoolExecutor(int(ic.get("vision_workers", 24))) as ex:

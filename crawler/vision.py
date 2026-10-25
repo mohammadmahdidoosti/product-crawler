@@ -22,7 +22,9 @@ ASK = ("You check product photos for an online store. The small 'Caravan Sanat' 
        "corner is the store's own watermark: ignore it. Product name: {name}\n"
        "Answer JSON only: {{\"overlay_text\": true/false (advert text, prices, phone numbers, web addresses or "
        "captions added over or around the photo; text printed on the product itself does not count), "
-       "\"shop_logo\": true/false (another shop's logo or watermark), \"white_background\": true/false, "
+       "\"shop_logo\": true/false (another shop's logo or watermark ANYWHERE EXCEPT the bottom-right corner; "
+       "anything in the bottom-right corner is our own watermark and is never a shop logo; the brand printed "
+       "on the product itself is not a shop logo either), \"white_background\": true/false, "
        "\"product_whole\": true/false (the whole product is visible, not cut off), \"matches_name\": true/false "
        "(the photo shows the product named), \"note\": \"<few words>\"}}")
 
@@ -57,6 +59,9 @@ def check(model: str, img_url: str, name: str, key: str) -> dict:
             out = json.loads(m.group(0)) if m else {}
         except ValueError:
             out = {}
+        note = str(out.get("note") or "").lower()
+        if out.get("shop_logo") is True and re.search(r"caravan|camel|bottom[- ]right|کاروان", note):
+            out["shop_logo"] = False                     # our own watermark, named in the model's note
         out["_cost"] = (j.get("usage") or {}).get("cost", "")
         return out or {"_error": "unparsable: " + text[:100]}
     return {"_error": err}
