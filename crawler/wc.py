@@ -194,6 +194,7 @@ class WC:
         out = {}
 
         def probe(name, fn):
+            t0 = time.time()
             try:
                 r = fn()
                 body = r.text[:200]
@@ -215,10 +216,11 @@ class WC:
                         body = f"category: {j.get('name')}" if isinstance(j, dict) and r.ok else body
                 except ValueError:
                     pass
-                out[name] = {"status": r.status_code, "info": body}
+                out[name] = {"status": r.status_code, "info": body, "seconds": round(time.time() - t0, 2)}
             except requests.RequestException as e:
-                out[name] = {"status": None, "info": str(e)[:200]}
+                out[name] = {"status": None, "info": str(e)[:200], "seconds": round(time.time() - t0, 2)}
 
+        probe("home_page", lambda: self.s.get(f"{self.base}/", timeout=self.timeout))       # what a visitor waits for
         probe("site", lambda: self.s.get(f"{self.base}/wp-json/", timeout=self.timeout))
         probe("wc_products", lambda: self._wc("GET", "products", params={"per_page": 1}))
         cats = category_map()
