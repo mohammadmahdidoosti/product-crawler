@@ -346,7 +346,19 @@ def _results(d: Path) -> pd.DataFrame:
 def _save(d: Path, done: pd.DataFrame, new_rows: list[dict]) -> None:
     if not new_rows:
         return
-    df = pd.concat([done, pd.DataFrame(new_rows)], ignore_index=True)
+    # a product already on the site that is skipped this time keeps its record (its ID and the
+    # categories it has); only the reason is noted, so resync and later publishes still find it
+    on = {}
+    if len(done):
+        for r in done.to_dict("records"):
+            if str(r.get("product_id") or "").strip() and r.get("action") in ("created", "updated"):
+                on[r["sku"]] = r
+    rows = []
+    for r in new_rows:
+        if r.get("action") in ("skipped", "error") and r["sku"] in on:
+            r = {**on[r["sku"]], "error": r.get("error", "")}
+        rows.append(r)
+    df = pd.concat([done, pd.DataFrame(rows)], ignore_index=True)
     df = df.drop_duplicates("sku", keep="last").reindex(columns=RESULT_COLS).fillna("")
     write_csv(df, d / RESULT_FILE)
 
@@ -392,6 +404,7 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
                 known[r["sku"]] = (int(pid), str(r.get("images") or "0") not in ("0", ""))
 
     # 1. checks and brand terms, one after the other (cheap; a new brand is created exactly once)
+    dropped_of: dict[str, set] = {}                  # SKU -> taxonomy IDs found wrong for it
     out, counts, work = [], {"created": 0, "updated": 0, "skipped": 0, "error": 0, "checked": 0}, []
     for rec, row in items:
         data, missing = payload(cfg, rec, row, cats)
@@ -443,6 +456,7 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             counts["checked"] += 1
             out.append(res)
             continue
+        dropped_of[row["SKU"]] = set(rec.get("_dropped_tax") or set())
         work.append((row, data, files, res))
 
     # 2. photos + product, several products at the same time
@@ -490,7 +504,9 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
                     # the product may sit in categories of another run (or ones set by hand): the new
                     # categories are added to them, never put in their place
                     cur = ex if (ex and ex.get("id") == pid) else wc.get_product(pid)
-                    have = [c["id"] for c in cur.get("categories") or []]
+                    # categories found wrong for this product (05_category_drops) never stay on it
+                    wrong = {int(cats[t]) for t in dropped_of.get(sku, set()) if t in cats}
+                    have = [c["id"] for c in cur.get("categories") or [] if c["id"] not in wrong]
                     new = [c["id"] for c in data.get("categories") or []]
                     data["categories"] = [{"id": i} for i in dict.fromkeys(have + new)]
                     p = wc.update_product(pid, data)

@@ -44,6 +44,7 @@ def brands(path: str = str(BRANDS_FILE)) -> list[tuple[str, str, str]]:
 
 
 LATIN = {  # Latin names of brands, to recognise them in product names (Persian or English)
+    "دی سی ای": "dca", "ماساکی": "masaki", "ورکس": "worx",
     "اشنایدر": "schneider", "هیوندای": "hyundai", "پنتاکس": "pentax", "ماکیتا": "makita", "ابارا": "ebara",
     "زیمنس": "siemens", "بوش": "bosch", "هوندا": "honda", "کرون": "crown", "رکسروت": "rexroth", "ال جی": "lg",
     "هیوکی": "hioki", "فستو": "festo", "فیندر": "finder", "یورک": "york", "دلتا": "delta", "پیمتاش": "pimtas",
