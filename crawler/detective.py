@@ -128,7 +128,9 @@ def decide(v: float, others: list[tuple[str, float]], fresh: float | None, tol: 
     if not vals:
         return None, "منبع دیگری پیدا نشد" + (f" (قیمت تازه‌ی صفحه {fresh:,.0f})" if fresh and fresh != v else "")
     n = len(vals)
-    lo, hi = vals[0] * (1 - tol), vals[-1] * (1 + tol)       # the market's range for this model
+    mid = median(vals)                                       # the market's range for this model, without
+    lo = max(vals[0] * (1 - tol), mid / 2)                   # one shop's odd price stretching it
+    hi = min(vals[-1] * (1 + tol), mid * 2)
     rng = f"{vals[0]:,.0f} تا {vals[-1]:,.0f}" if n > 1 else f"{vals[0]:,.0f}"
     for cand, how in ((v, "قیمت ما"), (v / 10, "قیمت ما ÷۱۰"), (v * 10, "قیمت ما ×۱۰"), (fresh, "قیمت تازه‌ی صفحه")):
         if cand and lo <= cand <= hi:
