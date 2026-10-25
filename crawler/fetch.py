@@ -158,11 +158,15 @@ class Fetcher:
     # ------------------------------------------------------------ cache
     def _cache_path(self, key: str) -> Path:
         h = hashlib.sha1(key.encode()).hexdigest()
-        return self.cache_dir / h[:2] / f"{h}.json"
+        # paid searches are kept on the persistent disk: a page cache in CACHE_DIR (/tmp on the
+        # server) is wiped by every deploy, and each re-run then paid for the same searches again
+        root = self._cfg["_data_dir"] / "search_cache" if "serper.dev" in key else self.cache_dir
+        return root / h[:2] / f"{h}.json"
 
     def _cached(self, key: str) -> dict | None:
         p = self._cache_path(key)
-        if p.exists() and (time.time() - p.stat().st_mtime) < self.cache_days * 86400:
+        days = 30 if "serper.dev" in key else self.cache_days
+        if p.exists() and (time.time() - p.stat().st_mtime) < days * 86400:
             return json.loads(p.read_text(encoding="utf-8"))
         return None
 
