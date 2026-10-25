@@ -228,7 +228,7 @@ class Job:
             res = resync(cfg, run, dry_run=bool(opts.get("dry_run", True)),
                          progress=lambda d, t: self.prog.update(step="resync", done=d, total=t), stop=self.stop_ev.is_set)
             self.logs.append(f"هماهنگی دسته‌ها: {res['to_change']} محصول تغییر دارد؛ {res['lose_a_category']} دسته‌ی نادرست، "
-                             f"{res['gain_a_category']} دسته‌ی تازه، {res['out_of_run']} بیرون از اجرا"
+                             f"{res['gain_a_category']} دسته‌ی تازه، {res['out_of_run']} بیرون از اجرا ({res.get('to_draft', 0)} به پیش‌نویس)"
                              + ("" if opts.get("dry_run", True) else f"؛ اعمال شد روی {res['changed']}"))
         elif step == "status":
             from crawler.publish import set_status

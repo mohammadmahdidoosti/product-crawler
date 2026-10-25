@@ -221,11 +221,27 @@ def resync(cfg: dict, run: str, dry_run: bool = True, wc: WC | None = None, prog
     inv = {}
     for t, w in cats.items():
         inv.setdefault(int(w), t)
-    parent_of = {}
+    parent_of, crumb_of = {}, {}
     tp = Path(cfg.get("taxonomy", {}).get("file") or "")
     if tp.exists():
         tx = load_taxonomy(tp)
         parent_of = dict(zip(tx["taxonomy_id"], tx["parent_id"]))
+        crumb_of = dict(zip(tx["taxonomy_id"], tx["breadcrumb"]))
+
+    def fitting_ancestor(tid: str, name: str) -> str:
+        """The nearest category above `tid` the product really is (same filter rules): a corded
+        Makita jigsaw out of 'اره عمود بر شارژی ماکیتا' goes up to 'اره عمود بر ماکیتا', not to
+        'اره عمود بر شارژی'. '' when nothing above fits (a hacksaw under 'اره گردبر')."""
+        from .rules import judge
+        pt = parent_of.get(tid, "")
+        while pt:
+            cr = crumb_of.get(pt, "")
+            if pt in cats and cr.count(">") >= 1:
+                v = judge(cr, cr.split(">")[-1].strip(), {"name": name, "source_type": "iran"})
+                if v["relevant"]:
+                    return pt
+            pt = parent_of.get(pt, "")
+        return ""
     done = _results(d)
     on_site = done[done["action"].isin(["created", "updated"]) & (done["product_id"].astype(str) != "")]
     now: dict[str, set[int]] = {}
@@ -239,20 +255,23 @@ def resync(cfg: dict, run: str, dry_run: bool = True, wc: WC | None = None, prog
         remove = sorted(before - after)
         add = sorted(after - before)
         fallback = []
-        if not after and before:                          # out of the run now: its old category's parent
+        if not after and before:                          # out of the run now: the nearest category above that fits
             for w in before:
-                pt = parent_of.get(inv.get(w, ""), "")
-                if pt and pt in cats:
+                pt = fitting_ancestor(inv.get(w, ""), str(r.get("name") or ""))
+                if pt:
                     fallback.append(int(cats[pt]))
         if remove or add:
+            # nothing fits any more: the product goes back to draft (kept, not deleted) for a look
             plan.append({"sku": r["sku"], "product_id": int(float(r["product_id"])), "name": r.get("name", ""),
                          "remove": " ".join(map(str, remove)), "add": " ".join(map(str, add)),
-                         "fallback": " ".join(map(str, dict.fromkeys(fallback))), "in_run": bool(after)})
-    write_csv(pd.DataFrame(plan, columns=["sku", "product_id", "name", "remove", "add", "fallback", "in_run"]),
+                         "fallback": " ".join(map(str, dict.fromkeys(fallback))), "in_run": bool(after),
+                         "to_draft": bool(not after and before and not fallback)})
+    write_csv(pd.DataFrame(plan, columns=["sku", "product_id", "name", "remove", "add", "fallback", "in_run", "to_draft"]),
               d / "07_resync_plan.csv")
     res = {"products_on_site": len(on_site), "to_change": len(plan),
            "lose_a_category": sum(1 for x in plan if x["remove"]), "gain_a_category": sum(1 for x in plan if x["add"]),
-           "out_of_run": sum(1 for x in plan if not x["in_run"]), "changed": 0, "failed": []}
+           "out_of_run": sum(1 for x in plan if not x["in_run"]), "to_draft": sum(1 for x in plan if x["to_draft"]),
+           "changed": 0, "failed": []}
     if dry_run:
         log.info("resync %s (plan only): %s", run, res)
         return res
@@ -266,10 +285,13 @@ def resync(cfg: dict, run: str, dry_run: bool = True, wc: WC | None = None, prog
             cur = wc.get_product(x["product_id"])
             have = [c["id"] for c in cur.get("categories") or []]
             keep = [c for c in have if c not in rm]
+            data = {}
             if not keep:
                 keep = [int(v) for v in x["fallback"].split()] or have
-            if keep != have:
-                wc.update_product(x["product_id"], {"categories": [{"id": c} for c in keep]})
+                if x["to_draft"]:
+                    data["status"] = "draft"
+            if keep != have or data:
+                wc.update_product(x["product_id"], {**data, "categories": [{"id": c} for c in keep]})
                 with lock:
                     res["changed"] += 1
         except WCError as e:
