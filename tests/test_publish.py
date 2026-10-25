@@ -323,6 +323,24 @@ class Publish(unittest.TestCase):
         again = PB.publish(self.cfg, "batch-1", limit=10, republish=True)
         self.assertNotIn(good["sku"], [r["sku"] for r in again["rows"]])   # dropped for good
 
+    def test_recategorize_removes_and_never_adds_back(self):
+        PB.publish(self.cfg, "batch-1", limit=10)
+        p2 = next(p for p in FakeWoo.products.values() if p["name"] == "درایو 2")
+        self.assertEqual(p2["categories"], [{"id": 1635}, {"id": 1636}])
+        url = "https://shop2.ir/product/2/"
+        dry = PB.recategorize(self.cfg, "batch-1", [{"url": url, "taxonomy_id": "7067"}])
+        self.assertEqual(dry["report"][0]["to"], [1635])
+        self.assertEqual(p2["categories"], [{"id": 1635}, {"id": 1636}])          # dry run: unchanged
+        PB.recategorize(self.cfg, "batch-1", [{"url": url, "taxonomy_id": "7067"}], dry_run=False)
+        self.assertEqual(p2["categories"], [{"id": 1635}])
+        PB.publish(self.cfg, "batch-1", limit=10, republish=True)                     # not added back
+        self.assertEqual([c["id"] for c in p2["categories"]], [1635])
+        # the only category taken away: the parent category is given instead
+        p1 = next(p for p in FakeWoo.products.values() if p["name"].startswith("درایو 1"))
+        PB.recategorize(self.cfg, "batch-1", [{"url": "https://shop1.ir/product/1/", "taxonomy_id": "14339"}],
+                        fallback={"14339": "1600"}, dry_run=False)
+        self.assertEqual([c["id"] for c in p1["categories"]], [1600])
+
     def test_category_map_not_under_data(self):
         self.assertEqual(WCM.category_map().get("14339"), "1635")   # from assets/, DATA_DIR has none
 
@@ -534,3 +552,4 @@ class SuspiciousReview(unittest.TestCase):
             self.assertEqual(row["Regular price"], "519")              # dollars from the new price (rate 100,000)
             self.assertEqual(rec["price_toman"], "51900000")
             self.assertEqual(RV.items(cfg, "b", "suspicious")["counts"]["suspicious"], 0)
+

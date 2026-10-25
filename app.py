@@ -884,6 +884,12 @@ class Handler(BaseHTTPRequestHandler):
                     if lane in (None, "", k):
                         j.stop_ev.set()
                 return self._json({"ok": True})
+            if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "recategorize":
+                # {"drops": [{url, taxonomy_id}], "fallback": {taxonomy_id: wp_id}, "dry_run": true}
+                from crawler.publish import recategorize
+                b = self._jbody()
+                return self._json(recategorize(build_cfg(), parts[2], b.get("drops") or [], b.get("fallback") or {},
+                                               dry_run=b.get("dry_run", True) is not False))
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "remove":   # {"urls": [...]}
                 from crawler.publish import remove
                 urls = [u for u in (self._jbody().get("urls") or []) if u]

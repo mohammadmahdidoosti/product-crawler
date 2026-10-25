@@ -59,7 +59,7 @@ def local_images(cfg: dict, images: str) -> list[Path]:
 def payload(cfg: dict, rec: dict, row: dict, cats: dict[str, str]) -> tuple[dict, list[str]]:
     """WooCommerce product JSON for one export row; second value lists the unmapped taxonomy IDs."""
     tax_ids = list(dict.fromkeys([str(rec.get("taxonomy_id", "")).strip()] + _split(rec.get("extra_taxonomy_ids"))))
-    tax_ids = [t for t in tax_ids if t]
+    tax_ids = [t for t in tax_ids if t and t not in (rec.get("_dropped_tax") or set())]
     wp_ids = list(dict.fromkeys(cats[t] for t in tax_ids if t in cats))
     missing = [t for t in tax_ids if t not in cats]
     meta = [{"key": k[len("Meta: "):], "value": str(v)} for k, v in row.items()
@@ -150,6 +150,61 @@ def remove(cfg: dict, run: str, urls: list[str], wc: WC | None = None) -> dict:
         write_csv(done.reindex(columns=RESULT_COLS).fillna(""), d / RESULT_FILE)
     log.info("removed from %s: %d product(s), %d trashed on the site", run, len(urls), len(trashed))
     return {"removed": len(urls), "trashed": trashed, "failed": failed}
+
+
+DROPS_FILE = "05_category_drops.csv"
+
+
+def category_drops(d: Path) -> dict[str, set[str]]:
+    """url -> taxonomy IDs taken away from that product by a person (or a repair): never sent again."""
+    p = d / DROPS_FILE
+    if not p.exists():
+        return {}
+    out: dict[str, set[str]] = {}
+    for r in read_csv(p).to_dict("records"):
+        out.setdefault(r["url"], set()).add(str(r["taxonomy_id"]))
+    return out
+
+
+def recategorize(cfg: dict, run: str, drops: list[dict], fallback: dict[str, str] | None = None,
+                 wc: WC | None = None, dry_run: bool = True) -> dict:
+    """drops: [{url, taxonomy_id}] -> that category is removed from the product, in the run (so a
+    later publish does not add it back) and on the site (its other categories are kept; a product
+    left with none gets `fallback[taxonomy_id]`, the parent category's WordPress ID)."""
+    from .pipeline import run_dir
+    d = run_dir(cfg, run)
+    wc = wc or WC()
+    cats = category_map()
+    done = _results(d)
+    pid_of = {r["source_url"]: int(float(r["product_id"])) for r in done.to_dict("records")
+              if str(r.get("product_id") or "") and r.get("action") in ("created", "updated")}
+    by_url: dict[str, set[str]] = {}
+    for x in drops:
+        by_url.setdefault(x["url"], set()).add(str(x["taxonomy_id"]))
+    changed, failed, report = 0, [], []
+    for url, taxes in by_url.items():
+        pid = pid_of.get(url)
+        if pid is None:
+            continue
+        rm = {int(cats[t]) for t in taxes if t in cats}
+        try:
+            cur = wc.get_product(pid)
+            have = [c["id"] for c in cur.get("categories") or []]
+            keep = [c for c in have if c not in rm]
+            if not keep:
+                keep = list(dict.fromkeys(int(fallback[t]) for t in taxes if fallback and fallback.get(t)))
+            report.append({"id": pid, "name": cur.get("name"), "from": have, "to": keep})
+            if not dry_run and keep != have and keep:
+                wc.update_product(pid, {"categories": [{"id": c} for c in keep]})
+                changed += 1
+        except WCError as e:
+            failed.append({"id": pid, "error": str(e)[:200]})
+    if not dry_run:
+        old = read_csv(d / DROPS_FILE) if (d / DROPS_FILE).exists() else pd.DataFrame(columns=["url", "taxonomy_id"])
+        new = pd.DataFrame([{"url": u, "taxonomy_id": t} for u, ts in by_url.items() for t in ts])
+        write_csv(pd.concat([old, new]).drop_duplicates(), d / DROPS_FILE)
+    log.info("recategorize %s: %d product(s), %d changed%s", run, len(by_url), changed, " (dry run)" if dry_run else "")
+    return {"products": len(by_url), "changed": changed, "failed": failed, "report": report}
 
 
 def _results(d: Path) -> pd.DataFrame:

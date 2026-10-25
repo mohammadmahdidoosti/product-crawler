@@ -774,6 +774,10 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
     return out
 
 
+def _split_ids(v) -> list[str]:
+    return [x.strip() for x in str(v or "").split("|") if x.strip()]
+
+
 def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
     """(product record, WooCommerce row) for every new product, after the review page's decisions.
     Shared by the CSV export and direct publishing, so both send exactly the same thing."""
@@ -800,7 +804,9 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
         desc = {x["url"]: x for x in read_csv(d / "05_descriptions.csv").to_dict("records")}
     from . import brands_fa as BF
     from .names import clean_name
+    from .publish import category_drops
     bt = BF.table(cfg)
+    drops = category_drops(d)
     rows = []
     for r in recs:
         ds = desc.get(r["url"]) or {}
@@ -812,7 +818,10 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
             fn = BF.from_name(base, bt)
             if fn:
                 br = {**fn, "original": br.get("original", "")}
-        r = {**r, "_brand": br}
+        r = {**r, "_brand": br, "_dropped_tax": drops.get(r["url"], set())}
+        if r["_dropped_tax"]:                                        # categories taken away by a person / repair
+            r["extra_taxonomy_ids"] = " | ".join(t for t in _split_ids(r.get("extra_taxonomy_ids"))
+                                                 if t not in r["_dropped_tax"])
         brand = br["display"] if br["status"] == "ok" else (r.get("brand", "") if br["status"] == "missing" else "")
         rows.append((r, {
             "Type": "simple", "SKU": caravan_sku(r["url"]),
