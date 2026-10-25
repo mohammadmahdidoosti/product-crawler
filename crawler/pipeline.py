@@ -764,7 +764,71 @@ def _usd_price(r: dict) -> str:
     return f"{v:.2f}".rstrip("0").rstrip(".") if v > 0 else ""
 
 
-def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, high: float = 150_000_000) -> list[dict]:
+def price_peers(cfg: dict, d: Path) -> list[dict]:
+    """Priced pages of Iranian shops (this run's crawl and the crawl pool): other shops' prices for
+    the same model, to settle a price that looks wrong without a person."""
+    parts = []
+    for p in (d / FILES["crawled"], cfg["_data_dir"] / "crawl_pool.csv"):
+        if p.exists():
+            x = read_csv(p)
+            parts.append(x[["url", "name", "price_toman", "source_type", "source_domain"]])
+    if not parts:
+        return []
+    allp = pd.concat(parts, ignore_index=True).drop_duplicates("url")
+    allp = allp[(allp["price_toman"] != "") & (allp["source_type"] != "foreign")]
+    out = []
+    for r in allp.to_dict("records"):
+        try:
+            v = float(r["price_toman"])
+        except ValueError:
+            continue
+        if v > 0:
+            out.append({"url": r["url"], "dom": r.get("source_domain", ""), "price": v, "codes": _codes(r["name"]),
+                        "head": (norm_text(r["name"]).split() or [""])[0]})
+    return out
+
+
+def _codes(name: str) -> set[str]:
+    """Model codes of a name ('HR2630T' -> 'hr2630t', 'مدل 5403' -> '5403'): Latin/digit runs
+    with a digit, 3+ characters, sizes like '650' followed by وات left out."""
+    from .rules import _flat
+    toks = [t for t in _flat(name).split("|") if t]
+    units = re.compile(r"(وات|ولت|سانت|میلی|متر|کیلو|اینچ|نفره|آمپر|لیتر)")
+    nm = norm_text(name)
+    out = set()
+    for t in toks:
+        if len(t) >= 3 and re.search(r"\d", t) and not re.search(rf"{re.escape(t)}\s*{units.pattern}", nm.lower()):
+            out.add(t)
+    return out
+
+
+def confirm_price(r: dict, v: float, peers: list[dict], tol: float = 0.35) -> tuple[float, str] | None:
+    """Other shops' prices for the same model (a shared model code, the same kind of thing):
+    (price, note) when they settle it — the price itself, or a 10x slip of it — else None."""
+    codes = _codes(str(r.get("name") or ""))
+    if not codes or not peers:
+        return None
+    head = (norm_text(str(r.get("name") or "")).split() or [""])[0]
+    from statistics import median
+    from .rules import code_in
+    others = {}
+    for p in peers:
+        if p["url"] == r.get("url") or p["head"] != head:
+            continue
+        if any(code_in(c, k) or code_in(k, c) for c in codes for k in p["codes"] if min(len(c), len(k)) >= 3):
+            others.setdefault(p["dom"] or p["url"], []).append(p["price"])
+    if not others:
+        return None
+    ref = median([median(v_) for v_ in others.values()])
+    n = len(others)
+    for cand, how in ((v, "همین قیمت"), (v / 10, "قیمت ÷۱۰"), (v * 10, "قیمت ×۱۰")):
+        if abs(cand / ref - 1) <= tol:
+            return cand, f"تأیید خودکار با {n} فروشگاه دیگر ({how}؛ میانه‌ی آن‌ها {ref:,.0f} تومان)"
+    return None
+
+
+def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, high: float = 150_000_000,
+                 peers: list[dict] | None = None) -> list[dict]:
     """Prices that look 10x off (rial read as toman, or the reverse) are held back, never changed:
     far from the median of the other products of the category in this run (else of its parent),
     or outside an absolute range. The note says what /10 or x10 would give, for the review page,
@@ -815,11 +879,11 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
             why = f"{v:,.0f} تومان؛ خیلی دور از قیمت بقیه‌ی دسته"
         dear = False
         for g in (leaf, "parent:" + leaf.rsplit(" > ", 1)[0]):     # the category, else its parent
-            peers = list(above.get(g, []))
-            if v in peers:
-                peers.remove(v)
-            if len(peers) >= 3:
-                dear = median(peers) > high / 3 and 1 / factor <= v / median(peers) <= factor
+            same = list(above.get(g, []))
+            if v in same:
+                same.remove(v)
+            if len(same) >= 3:
+                dear = median(same) > high / 3 and 1 / factor <= v / median(same) <= factor
                 break
         if why:
             pass
@@ -829,6 +893,16 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
             why = f"{v:,.0f} تومان بیرون از بازه‌ی {low:,.0f} تا {high:,.0f}"
         elif ref and not (1 / factor <= v / ref <= factor):
             why = f"{v:,.0f} تومان؛ میانه‌ی دسته {ref:,.0f}"
+        if why and peers:                    # other shops sell the same model: they decide
+            ok = confirm_price(r, v, peers)
+            if ok:
+                newv, note = ok
+                if newv != v:
+                    r = {**r, "price_toman": str(round(newv)), "price_usd": ""}
+                r = {**r, "price_check": "auto: " + note}
+                log.info("price settled %s: %s", r.get("url"), note)
+                out.append(r)
+                continue
         if why:
             hint = f"شاید {v / 10:,.0f}" if (v > high or (ref and v > ref)) else f"شاید {v * 10:,.0f}"
             r = {**r, "price_check": f"suspicious: {why} ({hint})"}
@@ -884,7 +958,7 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
     pc = cfg.get("price", {})
     if pc.get("category_check", True):
         recs = price_sanity(recs, float(pc.get("check_factor", 8)), float(pc.get("check_min_toman", 150_000)),
-                            float(pc.get("check_max_toman", 150_000_000)))
+                            float(pc.get("check_max_toman", 150_000_000)), peers=price_peers(cfg, d))
     desc = {}
     if (d / "05_descriptions.csv").exists():
         desc = {x["url"]: x for x in read_csv(d / "05_descriptions.csv").to_dict("records")}

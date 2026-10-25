@@ -440,8 +440,11 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             problems.append(f"دسته‌ی وردپرس برای شناسه‌ی {', '.join(missing) or '؟'} پیدا نشد")
         if not data["regular_price"]:
             problems.append("بدون قیمت دلاری")
+        doubt = ""
         if str(rec.get("price_check") or "").startswith("suspicious"):
-            problems.append("قیمت مشکوک (" + rec["price_check"].replace("suspicious: ", "") + ") — در صفحه‌ی بازبینی قیمت را تأیید کنید")
+            doubt = "قیمت مشکوک (" + rec["price_check"].replace("suspicious: ", "") + ")"
+            if row["SKU"] in known:                  # on the site already: its price is not touched
+                problems.append(doubt + " — در صفحه‌ی بازبینی قیمت را تأیید کنید")
         shops = [x.strip() for x in str(rec.get("sellers") or rec.get("seller_name") or "").split(" | ") if x.strip()]
         bare = row["Name"].split(" برند ")[0].strip()
         if _is_shop_name(bare, shops, str(rec.get("source_domain") or "")):
@@ -456,6 +459,12 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             continue
         if missing:
             res["error"] = f"دسته‌های بدون نگاشت حذف شدند: {', '.join(missing)}"
+        if doubt:
+            # a new product with a doubtful price goes to the site as 'pending review' (در انتظار
+            # بررسی): it is checked there with the other new products, price fixed in place, and the
+            # bulk 'publish all' leaves it alone
+            data["status"] = "pending"
+            res["error"] = " · ".join(x for x in (doubt + " — در وردپرس «در انتظار بررسی»", res["error"]) if x)
         try:
             if brands is not None:
                 bid, new_brand = brands.id_for(br)
@@ -616,6 +625,14 @@ def set_status(cfg: dict, run: str, status: str = "publish", skus: list[str] | N
     on_site = done[(done["product_id"].astype(str) != "") & done["action"].isin(["created", "updated"])]
     if skus:
         on_site = on_site[on_site["sku"].isin(skus)]
+    elif status == "publish":
+        # 'publish all' leaves out what waits for a person: a doubtful price (pending review) and
+        # products parked in draft for want of a category
+        err = on_site["error"].astype(str)
+        held = err.str.startswith("قیمت مشکوک") | err.str.startswith(PARKED) | (on_site["status"] == "pending")
+        if held.any():
+            log.info("status publish: %d product(s) left as they are (doubtful price / no category)", int(held.sum()))
+        on_site = on_site[~held]
     ids = [int(float(x)) for x in on_site["product_id"]]
     log.info("status %s: %d product(s) of %s", status, len(ids), run)
     changed, failed = {}, []

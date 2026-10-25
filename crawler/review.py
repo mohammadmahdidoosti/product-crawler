@@ -71,12 +71,13 @@ def items(cfg: dict, run: str, which: str = "issues") -> dict:
         if (d / "05_images.csv").exists() else {}
     dec = decisions(d)
     # prices held back from publishing (look 10x off): the same check the export runs
-    from .pipeline import price_sanity
+    from .pipeline import price_peers, price_sanity
     pc = cfg.get("price", {})
     priced = [r for r in new.to_dict("records") if str(r.get("price_toman") or "")]
     held = {r["url"]: r["price_check"] for r in price_sanity(priced, float(pc.get("check_factor", 8)),
                                                                float(pc.get("check_min_toman", 150_000)),
-                                                               float(pc.get("check_max_toman", 150_000_000)))
+                                                               float(pc.get("check_max_toman", 150_000_000)),
+                                                               peers=price_peers(cfg, d))
             if str(r.get("price_check") or "").startswith("suspicious")}
     out, counts = [], {"images": 0, "price": 0, "suspicious": 0, "reviewed": 0, "all": 0}
     for r in new.to_dict("records"):
