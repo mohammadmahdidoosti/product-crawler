@@ -125,8 +125,13 @@ def strict(node: dict, r: dict) -> str | None:
     nmn = norm_text(name)
     flat = nmn.replace(" ", "")
     lw = [w for w in norm_text(node["leaf"]).split()]
+    # a word the top section already says is implied: under 'آسانسور، درب و کرکره برقی' a
+    # 'موتور گیرلس فوردر' is a 'موتور آسانسور گیرلس'
+    top = set(re.split(r"[\s،,]+", norm_text(node["breadcrumb"].split(">")[0])))
     need = [w for w in lw if w not in STOP and w not in ADJ and w not in UNITS and w not in ORIGIN_WORDS
             and not re.search(r"\d", w) and not leaf_brand_word(w, node["leaf"])]
+    if len([w for w in need if w not in top]) >= 2:      # only when two words still say what it is
+        need = [w for w in need if w not in top]         # ('اینورتر برق' keeps 'برق': a welding inverter is not one)
     implied = lw[:1] if len(lw) > 1 and nmn.split()[:1] == lw[1:2] else []     # 'عمود بر …' is an 'اره عمود بر'
     missing = [w for w in need if w not in nm and w not in flat and w not in implied
                and not (SAME.get(w, set()) & nm)]
@@ -142,7 +147,9 @@ def strict(node: dict, r: dict) -> str | None:
     if "دستی" in lf and "دستی" not in nm:
         return "«دستی» در نام نیست"
     parts = [p.strip() for p in node["breadcrumb"].split(">")]
-    if len(parts) >= 3:                       # it must also be what the parent category is
+    # it must also be what the parent category is (a parent of several things, 'موتور و گیربکس
+    # آسانسور', is met by any of them: type_ok above checked that)
+    if len(parts) >= 3 and not re.search(r"\s+و\s+|،|,", parts[-2]):
         pv = judge(" > ".join(parts[:-1]), parts[-2], r)
         if not pv["relevant"] or float(pv["confidence"]) < 0.75:
             return "با دسته‌ی بالاتر هم نمی‌خواند: " + pv["reason"]
