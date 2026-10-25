@@ -656,8 +656,8 @@ def one_category_per_product(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def drop_price_outliers(df: pd.DataFrame, factor: float = 6) -> pd.DataFrame:
-    """A price far from the others in its category (e.g. a 'US$1' bait price) is removed;
-    the product then has no price and is not exported until it gets a real one."""
+    """A price far from the others in its category (e.g. a 'US$1' bait price) is flagged; the
+    export holds it back until a person confirms or corrects it on the review page."""
     if df.empty or not factor:
         return df
     df = df.copy()
@@ -670,12 +670,15 @@ def drop_price_outliers(df: pd.DataFrame, factor: float = 6) -> pd.DataFrame:
         med = vals.median()
         bad = [i for i in vals.index if vals[i] < med / factor or vals[i] > med * factor]
         for i in bad:
+            # kept, not emptied: the product stays (nothing good is thrown away) and its price is
+            # held back for the review page at export (price_sanity), where a person decides
             df.at[i, "price_flags"] = " | ".join(x for x in (str(df.at[i, "price_flags"]), "price_outlier") if x)
-            df.at[i, "price_toman"] = ""
-            df.at[i, "price_usd"] = ""
+            if df.at[i, "source_type"] == "foreign":      # a supplier's 'US$1' bait price: no price at all
+                df.at[i, "price_toman"] = ""
+                df.at[i, "price_usd"] = ""
         n += len(bad)
     if n:
-        log.info("price outliers removed: %d (far from their category's median)", n)
+        log.info("price outliers flagged for review: %d (far from their category's median)", n)
     return df
 
 
@@ -808,6 +811,8 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
                 ref = median(others)
                 break
         why = ""
+        if "price_outlier" in str(r.get("price_flags") or "") and r.get("price_estimated") != "reviewed":
+            why = f"{v:,.0f} تومان؛ خیلی دور از قیمت بقیه‌ی دسته"
         dear = False
         for g in (leaf, "parent:" + leaf.rsplit(" > ", 1)[0]):     # the category, else its parent
             peers = list(above.get(g, []))
@@ -816,7 +821,9 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
             if len(peers) >= 3:
                 dear = median(peers) > high / 3 and 1 / factor <= v / median(peers) <= factor
                 break
-        if v > high and dear:
+        if why:
+            pass
+        elif v > high and dear:
             pass                                         # an expensive category: in line with the others
         elif v > high or v < low:
             why = f"{v:,.0f} تومان بیرون از بازه‌ی {low:,.0f} تا {high:,.0f}"

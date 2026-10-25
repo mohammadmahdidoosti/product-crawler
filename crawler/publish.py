@@ -249,6 +249,23 @@ def resync(cfg: dict, run: str, dry_run: bool = True, wc: WC | None = None, prog
     # products an earlier resync put back to draft (no category fitted): their old categories are
     # still on the site, so the record keeps them (a later resync takes them away once a right
     # category is found) and the marker keeps the status they had (publish restores it)
+    # a record that lost its product ID (an older publish wrote 'skipped' over it) is looked up
+    # on the site by SKU, so the product is not forgotten there
+    if len(done) and not dry_run and wc.ok():
+        lost = done[(done["action"] == "skipped") & (done["product_id"].astype(str).str.strip() == "")]
+        healed = 0
+        for i, r in lost.iterrows():
+            try:
+                ex = wc.find_by_sku(r["sku"])
+            except WCError:
+                continue
+            if ex:
+                done.loc[i, ["action", "product_id", "status", "categories"]] = [
+                    "updated", str(ex["id"]), ex.get("status", ""), ",".join(str(c["id"]) for c in ex.get("categories") or [])]
+                healed += 1
+        if healed:
+            write_csv(done.reindex(columns=RESULT_COLS).fillna(""), d / RESULT_FILE)
+            log.info("resync %s: %d product record(s) found again on the site by SKU", run, healed)
     pp = d / "07_resync_plan.csv"
     if len(done) and pp.exists():
         oldp = read_csv(pp)

@@ -88,7 +88,7 @@ price:
   serper_lookup: true              # same model in a web search (1 search each, capped below)
   serper_lookups_per_run: 60
   woo_lookups_per_run: 300
-  outlier_factor: 6                # price < median/6 or > median*6 in its category -> dropped
+  outlier_factor: 6                # price < median/6 or > median*6 in its category -> held for review
 
 llm:
   # rules             free rule-based filter, no model (default)
