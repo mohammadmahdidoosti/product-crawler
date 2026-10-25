@@ -70,6 +70,8 @@ class Detective(unittest.TestCase):
         from crawler.pricemem import habit, learn_habit, recall, remember
         self.assertEqual(decide(638000, [("a", 6200000), ("b", 5900000)], None)[0], 6380000)
         self.assertIsNone(decide(15268000, [("a", 5000000), ("b", 5500000)], None)[0])     # 2 shops: no invented price
+        self.assertEqual(decide(658000000, [("a", 65800000), ("b", 204000000)], None)[0], 65800000)
+        self.assertEqual(decide(240000000, [("a", 2800000), ("b", 2263970)], None)[0], 2400000)
         self.assertEqual(decide(185000000, [("a", 12300000), ("b", 19700000), ("c", 24800000)], None)[0], 18500000)
         self.assertIsNone(decide(15268000, [], None)[0])
         cfg = {"_data_dir": Path(tempfile.mkdtemp())}

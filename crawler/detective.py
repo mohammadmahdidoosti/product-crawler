@@ -118,28 +118,35 @@ def _fresh_price(cfg: dict, f, rec: dict, rate: dict) -> float | None:
     return _num(price_fields(got, rate, cfg).get("price_toman")) if got and got.get("price_amount") else None
 
 
-def decide(v: float, others: list[tuple[str, float]], fresh: float | None, tol: float = 0.25) -> tuple[float | None, str]:
-    """Our price (or its 10x slip, or the page's fresh price) is accepted when it falls inside what
-    the other shops ask for the same model; a price is never invented from a median of two."""
+def decide(v: float, others: list[tuple[str, float]], fresh: float | None, tol: float = 0.3) -> tuple[float | None, str]:
+    """Each way our price could really read — as it is, a 10x or 100x slip, or what the page shows
+    today — is checked against the other shops for the same model; the reading most shops back
+    wins. A price is only invented (their median) when 3+ shops agree among themselves and none
+    of our readings fits."""
     by_shop: dict[str, list[float]] = {}
     for dom, p in others:
         by_shop.setdefault(dom, []).append(p)
-    vals = sorted(median(x) for x in by_shop.values())
-    if not vals:
+    if not by_shop:
         return None, "منبع دیگری پیدا نشد" + (f" (قیمت تازه‌ی صفحه {fresh:,.0f})" if fresh and fresh != v else "")
-    n = len(vals)
-    if n < 4 and vals[-1] / vals[0] > 2.5:                    # the shops disagree among themselves
-        return None, f"فروشگاه‌ها با هم نمی‌خوانند ({vals[0]:,.0f} تا {vals[-1]:,.0f})؛ برای بررسی"
-    mid = median(vals)                                       # the market's range for this model, without
-    lo = max(vals[0] * (1 - tol), mid / 2)                   # one shop's odd price stretching it
-    hi = min(vals[-1] * (1 + tol), mid * 2)
-    rng = f"{vals[0]:,.0f} تا {vals[-1]:,.0f}" if n > 1 else f"{vals[0]:,.0f}"
-    for cand, how in ((v, "قیمت ما"), (v / 10, "قیمت ما ÷۱۰"), (v * 10, "قیمت ما ×۱۰"), (fresh, "قیمت تازه‌ی صفحه")):
-        if cand and lo <= cand <= hi:
-            return round(cand), f"{how} در بازه‌ی {n} فروشگاه دیگر ({rng})"
-    if n >= 3:                                               # many shops, all far from ours: their middle
-        return round(median(vals)), f"میانه‌ی {n} فروشگاه ({rng})؛ قیمت ما {v:,.0f} بیرون از بازه بود"
-    return None, f"قیمت ما ({v:,.0f}) با {n} فروشگاه ({rng}) نمی‌خواند؛ برای بررسی"
+    near = lambda a, b: abs(a / b - 1) <= tol                 # noqa: E731
+    readings = [(v, "قیمت ما"), (v / 10, "قیمت ما ÷۱۰"), (v * 10, "قیمت ما ×۱۰"), (v / 100, "قیمت ما ÷۱۰۰")]
+    if fresh and fresh != v:
+        readings.insert(1, (fresh, "قیمت تازه‌ی صفحه"))
+    support = []
+    for cand, how in readings:
+        shops = [dom for dom, ps in by_shop.items() if any(near(cand, p) for p in ps)]
+        support.append((len(shops), cand, how, shops))
+    best = max(support, key=lambda x: x[0])
+    rivals = [x for x in support if x[0] and x is not best and x[0] >= best[0]]
+    n = len(by_shop)
+    # enough: two shops back the reading, or the only one or two shops found both back it alone
+    if best[0] and not rivals and (best[0] >= 2 or n <= 2):
+        return round(best[1]), f"{best[2]} با {best[0]} فروشگاه از {n} می‌خواند ({', '.join(best[3][:3])})"
+    vals = sorted(median(ps) for ps in by_shop.values())
+    if n >= 3 and vals[-1] / vals[0] <= 2.5:                  # several shops agree, our price fits none
+        return round(median(vals)), f"میانه‌ی {n} فروشگاه ({vals[0]:,.0f} تا {vals[-1]:,.0f})؛ قیمت ما {v:,.0f} نمی‌خواند"
+    hint = f"؛ پیشنهاد: {best[1]:,.0f} ({best[2]})" if best[0] else ""
+    return None, f"قیمت ما ({v:,.0f}) با {n} فروشگاه ({vals[0]:,.0f} تا {vals[-1]:,.0f}) روشن نشد{hint}؛ برای بررسی"
 
 
 def run_detective(cfg: dict, run: str, apply: bool = True, progress=None, redo: bool = False) -> dict:
