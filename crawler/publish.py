@@ -34,6 +34,7 @@ from .wc import WC, WCError, category_map
 log = logging.getLogger(__name__)
 
 RESULT_FILE = "07_published.csv"
+PARKED = "پیش‌نویس: بی‌دسته؛ وضعیت قبلی"      # resync put the product back to draft; its old status follows
 RESULT_COLS = ["sku", "action", "product_id", "status", "name", "brand", "price", "categories", "images",
                "edit_url", "error", "source_url", "published_at"]
 
@@ -243,6 +244,24 @@ def resync(cfg: dict, run: str, dry_run: bool = True, wc: WC | None = None, prog
             pt = parent_of.get(pt, "")
         return ""
     done = _results(d)
+    # products an earlier resync put back to draft (no category fitted): their old categories are
+    # still on the site, so the record keeps them (a later resync takes them away once a right
+    # category is found) and the marker keeps the status they had (publish restores it)
+    pp = d / "07_resync_plan.csv"
+    if len(done) and pp.exists():
+        oldp = read_csv(pp)
+        fixed_record = False
+        if "to_draft" in oldp.columns:
+            for x in oldp[oldp["to_draft"].astype(str) == "True"].to_dict("records"):
+                m = done["sku"] == x["sku"]
+                if m.any() and not str(done.loc[m, "categories"].iloc[0]).strip():
+                    done.loc[m, "categories"] = ",".join(str(x.get("remove") or "").split())
+                    if not str(done.loc[m, "error"].iloc[0]).startswith(PARKED):
+                        done.loc[m, "error"] = f"{PARKED} {done.loc[m, 'status'].iloc[0]}"
+                    done.loc[m, "status"] = "draft"
+                    fixed_record = True
+            if fixed_record:                             # kept even when this call is a plan only
+                write_csv(done.reindex(columns=RESULT_COLS).fillna(""), d / RESULT_FILE)
     on_site = done[done["action"].isin(["created", "updated"]) & (done["product_id"].astype(str) != "")]
     now: dict[str, set[int]] = {}
     for rec, row in export_rows(cfg, run):
@@ -287,7 +306,7 @@ def resync(cfg: dict, run: str, dry_run: bool = True, wc: WC | None = None, prog
             keep = [c for c in have if c not in rm]
             data = {}
             if not keep:
-                keep = [int(v) for v in x["fallback"].split()] or have
+                keep = [int(v) for v in x["add"].split()] or [int(v) for v in x["fallback"].split()] or have
                 if x["to_draft"]:
                     data["status"] = "draft"
             if keep != have or data:
@@ -306,7 +325,14 @@ def resync(cfg: dict, run: str, dry_run: bool = True, wc: WC | None = None, prog
     # the record now holds what the site holds, so the next resync starts from here
     if len(done):
         for x in plan:
-            done.loc[done["sku"] == x["sku"], "categories"] = ",".join(str(c) for c in sorted(now.get(x["sku"], set())))
+            m = done["sku"] == x["sku"]
+            if x["to_draft"]:                    # parked: the site still has its old categories
+                done.loc[m, "categories"] = ",".join(x["remove"].split())
+                if not str(done.loc[m, "error"].iloc[0]).startswith(PARKED):
+                    done.loc[m, "error"] = f"{PARKED} {done.loc[m, 'status'].iloc[0]}"
+                done.loc[m, "status"] = "draft"
+            else:
+                done.loc[m, "categories"] = ",".join(str(c) for c in sorted(now.get(x["sku"], set())))
         write_csv(done.reindex(columns=RESULT_COLS).fillna(""), d / RESULT_FILE)
     log.info("resync %s: %s", run, {k: (v if k != "failed" else len(v)) for k, v in res.items()})
     return res
@@ -354,6 +380,11 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
     if brands is not None and not brands.available:
         log.warning("the site has no WooCommerce Brands endpoint: brand kept as an attribute only")
     known = {}                                       # SKU -> (product id, had photos) from earlier publishes
+    parked = {}                                      # SKU -> status it had before resync parked it in draft
+    if len(done):
+        for r in done.to_dict("records"):
+            if str(r.get("error") or "").startswith(PARKED):
+                parked[r["sku"]] = str(r["error"])[len(PARKED):].strip()
     if len(done):
         for r in done.to_dict("records"):
             pid = str(r.get("product_id") or "").replace(".0", "")
@@ -453,6 +484,8 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
                             data.pop("images", None)
             if p is None:
                 status = data.pop("status", None)             # never un-publish a product someone published
+                if parked.get(sku) == "publish" and data.get("categories"):
+                    data["status"] = "publish"                    # parked for want of a category: it has one now
                 try:
                     # the product may sit in categories of another run (or ones set by hand): the new
                     # categories are added to them, never put in their place
