@@ -66,7 +66,7 @@ class Lanes(unittest.TestCase):
         A.JOBS["crawl"].resume()
         self.assertTrue(self.wait(lambda: not A.JOBS["crawl"].state["running"] and self.seen))
         # continued from the step that was cut short; from_step dropped so no file was cleared
-        self.assertEqual([s for _, s, _ in self.seen], ["images", "describe", "export"])
+        self.assertEqual([s for _, s, _ in self.seen], ["images", "describe", "prices", "export"])
 
     def test_no_endless_resume(self):
         A = self.app

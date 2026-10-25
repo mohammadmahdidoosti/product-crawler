@@ -61,3 +61,20 @@ class PlaceUp(unittest.TestCase):
         out = place_up(cfg, pd.DataFrame(columns=["url"]), crawled)
         got = {r["url"]: r["taxonomy_id"] for r in out.to_dict("records")}
         self.assertEqual(got.get("u1"), "1")            # corded jigsaw: one level up
+
+
+class Detective(unittest.TestCase):
+    def test_decide_and_memory(self):
+        import tempfile
+        from crawler.detective import decide
+        from crawler.pricemem import habit, learn_habit, recall, remember
+        self.assertEqual(decide(638000, [("a", 6200000), ("b", 5900000)], None)[0], 6380000)
+        self.assertEqual(decide(15268000, [("a", 5000000), ("b", 5500000)], None)[0], 5250000)
+        self.assertIsNone(decide(15268000, [], None)[0])
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        remember(cfg, [{"name": "بلوور رونیکس مدل 1202", "dom": "a.ir", "price": 5000000, "source": "search"}])
+        self.assertEqual(recall(cfg, "بلوور دمنده رونیکس 1202"), [("a.ir", 5000000.0)])
+        for _ in range(3):
+            learn_habit(cfg, "b.ir", "d10")
+        self.assertEqual(habit(cfg, "b.ir"), "d10")
+        self.assertEqual(habit(cfg, "a.ir"), "")

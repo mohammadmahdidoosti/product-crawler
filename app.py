@@ -47,7 +47,7 @@ DATA_DIR = Path(os.environ.get("DATA_DIR", ROOT / "data")).resolve()
 APP_PASSWORD = os.environ.get("APP_PASSWORD", "")
 STATIC = ROOT / "static"
 RUN_NAME = re.compile(r"^[\w\-]{1,60}$", re.UNICODE)
-STEPS = ["queue", "search", "crawl", "filter", "topup", "dedupe", "images", "describe", "export"]
+STEPS = ["queue", "search", "crawl", "filter", "topup", "dedupe", "images", "describe", "prices", "export"]
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s", datefmt="%H:%M:%S")
 logging.getLogger("urllib3").setLevel(logging.WARNING)
@@ -203,6 +203,12 @@ class Job:
         elif step == "describe":
             from crawler.describe import step_describe
             step_describe(cfg, run)
+        elif step == "prices":                       # doubtful prices settled from evidence (detective)
+            from crawler.detective import run_detective
+            res = run_detective(cfg, run, apply=opts.get("apply", True) is not False,
+                                progress=lambda d_, t_: self.prog.update(step="prices", done=d_, total=t_))
+            self.logs.append(f"کارآگاه قیمت: {res['doubtful']} قیمت مشکوک؛ {res['settled']} حل شد، "
+                             f"{res['left']} ماند؛ {res['searches']} جستجو")
         elif step == "enhance":
             from crawler.enhance import enhance
             urls = opts.get("urls") or []
@@ -282,7 +288,8 @@ class Job:
                 # top-up): their outputs are cleared, the others kept
                 steps = only or STEPS[STEPS.index(opts["from_step"]):]
                 prefixes = {"queue": "01_", "search": "02_", "crawl": "03_", "filter": "04_", "topup": "02_topup",
-                            "dedupe": "05_", "images": "05_images", "describe": "05_descriptions", "export": "06_"}
+                            "dedupe": "05_", "images": "05_images", "describe": "05_descriptions", "prices": "05_price_detective",
+                            "export": "06_"}
                 d = run_path(run)
                 for st in steps:
                     for f in d.glob(prefixes[st] + "*.csv"):

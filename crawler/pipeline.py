@@ -797,6 +797,12 @@ def price_peers(cfg: dict, d: Path) -> list[dict]:
             parts.append(x[["url", "name", "price_toman", "source_type", "source_domain"]])
     if not parts:
         return []
+    mem_p = cfg["_data_dir"] / "price_memory.csv"            # prices earlier checks confirmed or found
+    if mem_p.exists():
+        m = read_csv(mem_p)
+        if len(m):
+            parts.append(pd.DataFrame({"url": "mem:" + m["dom"] + ":" + m["key"], "name": m["name"],
+                                       "price_toman": m["price"], "source_type": "iran", "source_domain": m["dom"]}))
     allp = pd.concat(parts, ignore_index=True).drop_duplicates("url")
     allp = allp[(allp["price_toman"] != "") & (allp["source_type"] != "foreign")]
     out = []
@@ -807,6 +813,7 @@ def price_peers(cfg: dict, d: Path) -> list[dict]:
             continue
         if v > 0:
             out.append({"url": r["url"], "dom": r.get("source_domain", ""), "price": v, "codes": _codes(r["name"]),
+                        "name": r["name"],
                         "head": (norm_text(r["name"]).split() or [""])[0]})
     return out
 
