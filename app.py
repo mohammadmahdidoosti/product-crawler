@@ -194,7 +194,7 @@ class Job:
         elif step == "filter":
             P.step_filter(cfg, run)
         elif step == "topup":
-            P.step_topup(cfg, run)
+            P.step_topup(cfg, run, round_=int(opts.get("round") or 1))
         elif step == "dedupe":
             P.step_dedupe(cfg, run, None, skip_filter=bool(opts.get("skip_filter")))
         elif step == "images":

@@ -649,9 +649,9 @@ def cross_assign(cfg: dict, d: Path, df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def step_topup(cfg: dict, run: str) -> Path | None:
+def step_topup(cfg: dict, run: str, round_: int = 1) -> Path | None:
     from .topup import step_topup as _t
-    return _t(cfg, run)
+    return _t(cfg, run, round_=round_)
 
 
 def one_category_per_product(df: pd.DataFrame) -> pd.DataFrame:

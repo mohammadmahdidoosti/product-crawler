@@ -51,6 +51,36 @@ def latin_query(row: dict) -> str:
     return f"{lat.upper()} {' '.join(codes)}".strip() if lat and codes else ""
 
 
+def code_forms(row: dict) -> list[str]:
+    """Other ways shops write the category's model: 'gst 75 be' -> 'GST75BE', 'GST 75 BE',
+    'GST-75-BE'; 'vr 1240-rh' -> 'VR1240-RH', 'VR 1240 RH' — each with the brand's Latin name."""
+    from .normalize import fa_digits_to_en
+    from .routing import LATIN, leaf_brand
+    leaf = fa_digits_to_en(row["breadcrumb"].split(">")[-1].strip())
+    words = leaf.split()
+    keep = set()
+    for i, w in enumerate(words):                  # a code: Latin with digits, or digits beside Latin
+        if re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9.\-/]*", w) and re.search(r"[A-Za-z]", w):
+            keep.add(i)
+            for j in (i - 1, i + 1):
+                if 0 <= j < len(words) and re.fullmatch(r"\d+[A-Za-z0-9.\-/]*", words[j]):
+                    keep.add(j)
+    toks = [words[i] for i in sorted(keep)]
+    if not toks or not any(re.search(r"\d", t) for t in toks):
+        return []
+    b = leaf_brand(leaf)
+    lat = (LATIN.get(b[0]) or (b[0] if b[0].isascii() else "")).upper() if b else ""
+    parts = [t.upper() for t in toks if t.lower() != lat.lower()]
+    forms = {" ".join(parts), "".join(p.replace("-", "") for p in parts), "-".join(parts),
+             " ".join(re.sub(r"[-/]", " ", p) for p in parts)}
+    out = []
+    for f_ in sorted(forms, key=len):
+        q = f"{lat} {f_}".strip() if lat else f_
+        if q and q not in out:
+            out.append(q)
+    return out[:3]
+
+
 def all_woo_shops(cfg: dict) -> list[dict]:
     from .search import _base
     shops = [s for s in (cfg["sources"].get("iran_sites") or []) if s.get("type") == "woo_store_api"]
@@ -113,7 +143,10 @@ def retry_failed(cfg: dict, d: Path) -> int:
     return int(again.sum())
 
 
-def step_topup(cfg: dict, run: str) -> Path | None:
+def step_topup(cfg: dict, run: str, round_: int = 1) -> Path | None:
+    """round 1: every category under topup_below. round 2: categories still empty after round 1,
+    their target counted by kind (a model category is full with one product), searched with
+    the other ways shops write the model (code_forms) — nothing else repeated."""
     from .pipeline import _fetchers, _progress, step_crawl, step_filter
     from .probe import record_usage
     from .routing import leaf_brand
@@ -128,9 +161,20 @@ def step_topup(cfg: dict, run: str) -> Path | None:
     q = read_csv(d / FILES["queue"]).to_dict("records")
     fl = read_csv(d / FILES["filtered"])
     cnt = fl.groupby("taxonomy_id")["url"].nunique().to_dict() if len(fl) else {}
-    mark = d / "02_topup_done.csv"
+    mark = d / ("02_topup_done.csv" if round_ == 1 else f"02_topup{round_}_done.csv")
     done = done_values(mark, "taxonomy_id")
-    low = [r for r in q if cnt.get(r["taxonomy_id"], 0) < below and r["taxonomy_id"] not in done][:cap]
+    if round_ == 1:
+        low = [r for r in q if cnt.get(r["taxonomy_id"], 0) < below and r["taxonomy_id"] not in done][:cap]
+    else:
+        from .pipeline import category_kind
+        kept = {}
+        if (d / FILES["new"]).exists():
+            nw = read_csv(d / FILES["new"])
+            for t, extra in zip(nw.get("taxonomy_id", []), nw.get("extra_taxonomy_ids", [""] * len(nw))):
+                for x in [t] + [y for y in str(extra or "").split(" | ") if y]:
+                    kept[x] = kept.get(x, 0) + 1
+        low = [r for r in q if r["taxonomy_id"] not in done and kept.get(r["taxonomy_id"], 0) == 0
+               and cnt.get(r["taxonomy_id"], 0) == 0][:cap]
     log.info("top-up: %d categories under %d products", len(low), below)
     fx = _fetchers(cfg)
     f, ff = fx["iran"], fx["foreign"]
@@ -158,7 +202,9 @@ def step_topup(cfg: dict, run: str) -> Path | None:
             lq = latin_query(r)
             if lq:
                 queries.append(lq)
-            for k, qq in enumerate(queries + [f"خرید {r['query']}"]):
+            if round_ > 1:                                  # only what round 1 did not try
+                queries = [x for x in code_forms(r) if x != lq] or [r["query"]]
+            for k, qq in enumerate(queries + ([f"خرید {r['query']}"] if round_ == 1 else [])):
                 if k == len(queries) and got["web"] >= 2:
                     break                                   # 'خرید …' only when little was found
                 shops = _serper(f, key, qq)
@@ -175,7 +221,7 @@ def step_topup(cfg: dict, run: str) -> Path | None:
                             log.warning("top-up shop search failed on %s: %s", sh["domain"], e)
         # 2. empty category, and the web search found little: the WooCommerce shops met so far,
         #    those that sell in this part of the catalogue first (not all of them: time)
-        if cnt.get(r["taxonomy_id"], 0) == 0 and r["route"] in ("iran", "both") and shops_all \
+        if round_ == 1 and cnt.get(r["taxonomy_id"], 0) == 0 and r["route"] in ("iran", "both") and shops_all \
                 and got["web"] < 3:
             l1 = r["breadcrumb"].split(">")[0].strip()
             rank = sorted(shops_all, key=lambda x: -sells_in.get((l1, x["domain"]), 0))
@@ -190,7 +236,7 @@ def step_topup(cfg: dict, run: str) -> Path | None:
                     hits += hs
                     got["all_shops"] += len(hs)
         # 3. generic category: Made-in-China too
-        if not brand and r.get("english"):
+        if round_ == 1 and not brand and r.get("english"):
             try:
                 hs = search_mic(ff, {**r, "route": "foreign"}, r["english"], 12,
                                 int(sc.get("per_supplier", 2)))
@@ -199,7 +245,7 @@ def step_topup(cfg: dict, run: str) -> Path | None:
             except Exception as e:
                 log.warning("top-up Made-in-China failed: %s", e)
         # 4. Torob as a directory of shops
-        if use_torob and r["route"] in ("iran", "both"):
+        if round_ == 1 and use_torob and r["route"] in ("iran", "both"):
             try:
                 for url, shop in torob_shops(f, r["query"]):
                     hits.append(_hit(r, {"domain": domain_of(url), "kind": "iran"}, url, shop, "torob_directory"))
