@@ -221,3 +221,13 @@ class CrossCategoryMerge(unittest.TestCase):
         gun = m[m["n_sources"] == 2].iloc[0]
         self.assertIn("5652", gun["extra_taxonomy_ids"] + gun["taxonomy_id"])
         self.assertIn("5660", gun["extra_taxonomy_ids"] + gun["taxonomy_id"])
+
+
+class MergedName(unittest.TestCase):
+    def test_features_of_other_titles_are_kept(self):
+        from crawler.dedupe import merged_name
+        n = merged_name("اره عمودبر رونیکس مدل 4101",
+                        ["اره عمود بر رونیکس مشتی 550 وات مدل 4101", "اره عمود بر 550 وات رونیکس مدل 4101",
+                         "اره عمودبر 4 دور رونیکس 4101"])
+        self.assertEqual(n, "اره عمودبر رونیکس مدل 4101، 550 وات، مشتی، 4 دور")
+        self.assertEqual(merged_name("سشوار بوش GHG 20-63", ["سشوار بوش GHG 20-63"]), "سشوار بوش GHG 20-63")

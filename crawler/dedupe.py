@@ -119,9 +119,46 @@ def _num(x) -> float | None:
         return None
 
 
+_FEATURES = [r"\d+(?:[.,/]\d+)?\s*(?:وات|ولت|دور|آمپر|کیلووات|اسب|میلی ?متری?|میلیمتری?|سانتی ?متری?|سانتی?|اینچ|"
+             r"کیلویی|کیلوگرم|لیتری?|بار|ژول|نفره|تیغ)",
+             r"مشتی|گیربکسی|دیمردار|دیمر دار|براشلس|اتوماتیک|چکشی|ضربه ای|سه حالته|دو حالته|دوکاره|دو کاره|صنعتی|"
+             r"دو سرعته|دور متغیر|لیزری|چراغ دار|کشویی|رومیزی|مینی|سنگین"]
+
+
+def merged_name(best: str, others: list[str], most: int = 3) -> str:
+    """The kept product's title also carries what the other shops' titles told a buyer ('مشتی',
+    '550 وات', '4 دور'), so a search for any of them still finds it."""
+    import re as _re
+    have = norm_text(best)
+    add: list[str] = []
+    for n in others:
+        for pat in _FEATURES:
+            for m in _re.finditer(pat, str(n)):
+                f = " ".join(m.group(0).split())
+                if norm_text(f) not in have and all(norm_text(f) != norm_text(a) for a in add):
+                    add.append(f)
+    return best if not add else f"{best}، " + "، ".join(add[:most])
+
+
 def _aggregate(g: list[dict]) -> dict:
     best = max(g, key=lambda r: (len(r.get("specs_json") or ""), len(r.get("name") or "")))
     out = dict(best)
+    others = [str(r.get("name") or "") for r in g if r is not best]
+    if others:
+        out["name"] = merged_name(str(best.get("name") or ""), others)
+        out["alt_names"] = " | ".join(dict.fromkeys(o for o in others if o and o != best.get("name")))
+        specs: dict = {}
+        for r in g:                                        # every shop's specs; the best page wins a clash
+            try:
+                specs.update({k: v for k, v in json.loads(r.get("specs_json") or "{}").items() if k not in specs})
+            except (ValueError, AttributeError):
+                pass
+        try:
+            specs = {**specs, **json.loads(best.get("specs_json") or "{}")}
+        except (ValueError, AttributeError):
+            pass
+        if specs:
+            out["specs_json"] = json.dumps(specs, ensure_ascii=False)
     good = [r for r in g if not any(f in (r.get("price_flags") or "") for f in BAD_PRICE_FLAGS)]
     prices = [_num(r.get("price_toman")) for r in good]
     prices = [p for p in prices if p]
