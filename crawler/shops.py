@@ -298,7 +298,7 @@ def probe(f: Fetcher, domain: str) -> dict:
 # ------------------------------------------------------------------ the report
 
 def score_of(r: dict) -> float:
-    """0-100: how worth a full crawl the shop looks (ranking is by missing_priced_photo first)."""
+    """0-100: how worth a full crawl the shop looks (ranking: doubtful last, then missing_priced_photo, then score)."""
     s = 40 * min(r["missing_priced_photo"] / 50, 1)                  # volume of usable products we lack
     s += 20 * (r["missing"] / r["seen"] if r["seen"] else 0)         # how much of what it sells we lack
     s += 15 * (r["missing_priced_photo"] / r["missing"] if r["missing"] else 0)   # quality of those pages
@@ -312,7 +312,7 @@ def score_of(r: dict) -> float:
 SCORE_TEXT = ("امتیاز ۰ تا ۱۰۰: ۴۰ برای تعداد محصولات نداشته‌ی قیمت‌دار و عکس‌دار (۵۰ به بالا = کامل)، "
               "۲۰ برای سهم نداشته‌ها از کل دیده‌شده‌ها، ۱۵ برای سهم قیمت‌دار و عکس‌دار در نداشته‌ها، "
               "۱۰ برای تکرار در اجراها (۳ اجرا = کامل)، ۱۵ برای Store API (۸ برای جستجوی ووکامرس)، "
-              "۳۰- برای مشکوک. رتبه اول با تعداد نداشته‌ی قیمت‌دار و عکس‌دار است، بعد امتیاز.")
+              "۳۰- برای مشکوک. مشکوک‌ها همیشه پایین فهرست‌اند؛ بقیه اول با تعداد نداشته‌ی قیمت‌دار و عکس‌دار رتبه می‌گیرند، بعد امتیاز.")
 
 
 def report(cfg: dict, progress=None, stop=None, check: bool = True, now: datetime | None = None,
@@ -394,7 +394,8 @@ def report(cfg: dict, progress=None, stop=None, check: bool = True, now: datetim
         r["doubt"] = "yes" if hard else ""
         r["note"] = "؛ ".join(r.pop("_notes"))
         r["score"] = score_of(r)
-    rows.sort(key=lambda r: (-r["missing_priced_photo"], -r["score"], r["domain"]))
+    # doubtful shops (marketplaces, foreign, robots refusal, mostly unknown) go below every clear one
+    rows.sort(key=lambda r: (r["doubt"] == "yes", -r["missing_priced_photo"], -r["score"], r["domain"]))
     for i, r in enumerate(rows, 1):
         r["rank"] = i
     out_df = pd.DataFrame(rows).reindex(columns=COLS).fillna("")
