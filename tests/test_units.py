@@ -200,3 +200,24 @@ class DeadSites(unittest.TestCase):
             d["example.ir"]["until"] = _t.time() - 1      # expired: tried afresh
             p.write_text(json.dumps(d))
             self.assertFalse(Fetcher(cfg).is_dead("https://slow.example.ir/p/3"))
+
+
+class CrossCategoryMerge(unittest.TestCase):
+    def test_same_model_in_two_categories_is_one_product(self):
+        base = {"specs_json": "", "price_flags": "", "usd_rate_toman": "100000", "image_urls": "[]",
+                "seller_phones": "", "brand": "کرون", "model": ""}
+        df = pd.DataFrame([
+            {**base, "taxonomy_id": "5660", "breadcrumb": "a > سشوار", "name": "سشوار صنعتی کرون مدل CT19017",
+             "price_toman": "5954000", "url": "u1", "seller_name": "A"},
+            {**base, "taxonomy_id": "5652", "breadcrumb": "a > سشوار کرون", "name": "سشوار صنعتی کرون مدل CT19017",
+             "price_toman": "10244000", "url": "u2", "seller_name": "B"},
+            {**base, "taxonomy_id": "5652", "breadcrumb": "a > سشوار کرون", "name": "نازل سشوار کرون CT19017",
+             "price_toman": "300000", "url": "u3", "seller_name": "C"},
+            {**base, "taxonomy_id": "5653", "breadcrumb": "a > سشوار طرح", "name": "سشوار طرح کرون CT19017",
+             "price_toman": "900000", "url": "u4", "seller_name": "D"},
+        ])
+        m = merge_crawl(df)
+        self.assertEqual(len(m), 3)                  # the two shops' heat gun merge; the nozzle and the copy stay apart
+        gun = m[m["n_sources"] == 2].iloc[0]
+        self.assertIn("5652", gun["extra_taxonomy_ids"] + gun["taxonomy_id"])
+        self.assertIn("5660", gun["extra_taxonomy_ids"] + gun["taxonomy_id"])

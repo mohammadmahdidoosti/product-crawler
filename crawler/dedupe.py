@@ -36,7 +36,26 @@ except ImportError:  # pragma: no cover
 BAD_PRICE_FLAGS = ("too_low", "too_high", "no_price")
 
 
+_VARIANT = ("بدون باتری", "بدون باطری", "تک باتری", "دو باتری", "بدنه", "کیت", "مجموعه", "طرح", "کپی")
+
+
+def _flags(name: str) -> str:
+    """Kit / bare tool / copy: the same code in two of these is two products."""
+    return "".join(str(i) for i, w in enumerate(_VARIANT) if w in name)
+
+
+def _model(row: dict, name: str) -> str:
+    mk = model_key(row.get("model"))
+    if len(mk) < 4:
+        from .pipeline import _codes
+        codes = sorted((c for c in _codes(name) if len(c) >= 4 and any(ch.isdigit() for ch in c)),
+                       key=len, reverse=True)
+        mk = codes[0] if codes else ""
+    return mk if len(mk) >= 4 else ""
+
+
 def _cluster_key(row: dict) -> str:
+    """Inside one category: the model code ('درایو YD101…' and 'اینورتر yd101…' are one product)."""
     mk = model_key(row.get("model"))
     if len(mk) >= 4:
         # brand left out on purpose: sites spell it differently (پولیکو / Pulico)
@@ -44,8 +63,19 @@ def _cluster_key(row: dict) -> str:
     return ""
 
 
+def _cross_key(row: dict) -> str:
+    """Across categories: the kind of thing (first word) + the model code + kit/bare/copy. Two shops'
+    'سشوار صنعتی کرون مدل CT19017' became two products on the site when they sat in two categories."""
+    name = norm_text(row.get("name"))
+    head = (name.split() or [""])[0]
+    mk = _model(row, name)
+    return f"{head}|{mk}|{_flags(name)}" if mk and head else ""
+
+
 def merge_crawl(df: pd.DataFrame, name_threshold: float = 0.9) -> pd.DataFrame:
-    """Group rows that are the same product; one output row per group."""
+    """Group rows that are the same product; one output row per group. Inside a category: the model
+    code, else a similar name. Then groups of different categories with the same kind + model code
+    become one product, listed in all those categories."""
     groups: list[list[dict]] = []
     for _, part in df.groupby("taxonomy_id", sort=False):
         by_key: dict[str, list[dict]] = defaultdict(list)
@@ -63,7 +93,17 @@ def merge_crawl(df: pd.DataFrame, name_threshold: float = 0.9) -> pd.DataFrame:
             else:
                 loose.append([r])
         groups += list(by_key.values()) + loose
-    return pd.DataFrame([_aggregate(g) for g in groups])
+    joined: dict[str, list[dict]] = {}
+    out: list[list[dict]] = []
+    for g in groups:
+        k = _cross_key(g[0])
+        if k and k in joined and g[0].get("taxonomy_id") != joined[k][0].get("taxonomy_id"):
+            joined[k] += g
+            continue
+        if k and k not in joined:
+            joined[k] = g
+        out.append(g)
+    return pd.DataFrame([_aggregate(g) for g in out])
 
 
 def _num(x) -> float | None:
@@ -85,8 +125,11 @@ def _aggregate(g: list[dict]) -> dict:
     usd = _num(out.get("usd_rate_toman"))
     out["price_usd"] = round(out["price_toman"] / usd, 2) if prices and usd else ""
     out["n_sources"] = len({r.get("url") for r in g})
-    for col in ("extra_taxonomy_ids", "extra_breadcrumbs"):     # categories of every merged page
-        vals = [x for r in g for x in str(r.get(col) or "").split(" | ") if x and x != "nan"]
+    for col, main in (("extra_taxonomy_ids", "taxonomy_id"), ("extra_breadcrumbs", "breadcrumb")):
+        # categories of every merged page: its main one and its extra ones
+        vals = [str(r.get(main) or "") for r in g] + \
+               [x for r in g for x in str(r.get(col) or "").split(" | ")]
+        vals = [x for x in vals if x and x != "nan"]
         out[col] = " | ".join(dict.fromkeys(v for v in vals if v not in (out.get("taxonomy_id"), out.get("breadcrumb"))))
     out["n_priced"] = len(prices)
     brands = Counter(r.get("brand") for r in g if r.get("brand"))
