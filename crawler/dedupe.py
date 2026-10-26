@@ -48,8 +48,10 @@ def _model(row: dict, name: str) -> str:
     mk = model_key(row.get("model"))
     if len(mk) < 4:
         from .pipeline import _codes
-        codes = sorted((c for c in _codes(name) if len(c) >= 4 and any(ch.isdigit() for ch in c)),
-                       key=len, reverse=True)
+        import re as _re
+        unit = _re.compile(r"^\d+(kw|w|v|hp|mm|cm|l|lit|bar|a|ah|kg|rpm|nm)$")   # '61kw' is a power, not a model
+        codes = sorted((c for c in _codes(name) if len(c) >= 4 and any(ch.isdigit() for ch in c)
+                        and not unit.match(c)), key=len, reverse=True)
         mk = codes[0] if codes else ""
     return mk if len(mk) >= 4 else ""
 
