@@ -231,3 +231,13 @@ class MergedName(unittest.TestCase):
                          "اره عمودبر 4 دور رونیکس 4101"])
         self.assertEqual(n, "اره عمودبر رونیکس مدل 4101، 550 وات، مشتی، 4 دور")
         self.assertEqual(merged_name("سشوار بوش GHG 20-63", ["سشوار بوش GHG 20-63"]), "سشوار بوش GHG 20-63")
+
+
+class FeatureSpelling(unittest.TestCase):
+    def test_one_feature_whatever_the_spelling(self):
+        from crawler.dedupe import merged_name
+        n = merged_name("اره گرد بر شارژی 125 میلی متری دستی رونیکس مدل 8650",
+                        ["اره گردبر شارژی رونیکس 125 میلیمتر مدل 8650", "اره دیسکی شارژی 125 میلیمتری 20 ولت"])
+        self.assertEqual(n, "اره گرد بر شارژی 125 میلی متری دستی رونیکس مدل 8650، 20 ولت")
+        self.assertEqual(merged_name("اره زنجیری 15 سانتیمتر رونیکس 8600", ["اره زنجیری 15 سانتی متری رونیکس 8600"]),
+                         "اره زنجیری 15 سانتیمتر رونیکس 8600")

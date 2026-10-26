@@ -121,25 +121,48 @@ def _num(x) -> float | None:
         return None
 
 
-_FEATURES = [r"\d+(?:[.,/]\d+)?\s*(?:وات|ولت|دور|آمپر|کیلووات|اسب|میلی ?متری?|میلیمتری?|سانتی ?متری?|سانتی?|اینچ|"
-             r"کیلویی|کیلوگرم|لیتری?|بار|ژول|نفره|تیغ)",
-             r"مشتی|گیربکسی|دیمردار|دیمر دار|براشلس|اتوماتیک|چکشی|ضربه ای|سه حالته|دو حالته|دوکاره|دو کاره|صنعتی|"
-             r"دو سرعته|دور متغیر|لیزری|چراغ دار|کشویی|رومیزی|مینی|سنگین"]
+_UNITS = [  # every spelling of a unit -> one name, so '125 میلی متری' and '125 میلیمتر' are one feature
+    ("میلی‌متر", r"میلی ?‌?متری?|میلیمتری?|mm"), ("سانتی‌متر", r"سانتی ?‌?متری?|سانتیمتری?|سانتی|سانت|cm"),
+    ("اینچ", r"اینچی?"), ("وات", r"وات|w"), ("کیلووات", r"کیلو ?وات|kw"), ("ولت", r"ولتی?|v"),
+    ("دور", r"دور"), ("آمپر", r"آمپر"), ("اسب", r"اسب"), ("کیلوگرم", r"کیلویی|کیلوگرمی?|کیلو|kg"),
+    ("لیتر", r"لیتری?"), ("بار", r"بار"), ("ژول", r"ژول"), ("نفره", r"نفره"), ("تیغ", r"تیغه?")]
+_NUM = r"(\d+(?:[.,/]\d+)?)\s*"
+_WORDS = (r"مشتی|گیربکسی|دیمردار|دیمر دار|براشلس|براش لس|اتوماتیک|چکشی|ضربه ای|سه حالته|دو حالته|دوکاره|دو کاره|"
+          r"دو سرعته|دور متغیر|لیزری|چراغ دار|کشویی|رومیزی|مینی|سنگین")
+_SAME = {"دیمر دار": "دیمردار", "براش لس": "براشلس", "دو کاره": "دوکاره"}
+
+
+def features(name: str) -> dict[str, str]:
+    """{key: text} of the buyer-facing features in a title: a number with its unit (one key per
+    unit, whatever the spelling) and the descriptive words ('مشتی', 'گیربکسی')."""
+    import re as _re
+    from .normalize import fa_digits_to_en
+    t = fa_digits_to_en(norm_text(name))
+    out: dict[str, str] = {}
+    for unit, pat in _UNITS:
+        for m in _re.finditer(_NUM + rf"(?:{pat})(?![\w])", t):
+            n = m.group(1).replace(",", ".")
+            out.setdefault(f"{n}|{unit}", f"{n} {unit}")
+    for m in _re.finditer(_WORDS, t):
+        w = _SAME.get(m.group(0), m.group(0))
+        out.setdefault(w, w)
+    return out
 
 
 def merged_name(best: str, others: list[str], most: int = 3) -> str:
     """The kept product's title also carries what the other shops' titles told a buyer ('مشتی',
-    '550 وات', '4 دور'), so a search for any of them still finds it."""
-    import re as _re
-    have = norm_text(best)
-    add: list[str] = []
+    '550 وات', '4 دور'), so a search for any of them still finds it. A feature the title already
+    has, in any spelling, is not added again; nor a second value of a unit it already states."""
+    have = features(best)
+    units = {k.split("|")[1] for k in have if "|" in k}
+    add: dict[str, str] = {}
     for n in others:
-        for pat in _FEATURES:
-            for m in _re.finditer(pat, str(n)):
-                f = " ".join(m.group(0).split())
-                if norm_text(f) not in have and all(norm_text(f) != norm_text(a) for a in add):
-                    add.append(f)
-    return best if not add else f"{best}، " + "، ".join(add[:most])
+        for k, v in features(n).items():
+            unit = k.split("|")[1] if "|" in k else ""
+            if k in have or k in add or (unit and (unit in units or any(a.endswith("|" + unit) for a in add))):
+                continue
+            add[k] = v
+    return best if not add else f"{best}، " + "، ".join(list(add.values())[:most])
 
 
 def _aggregate(g: list[dict]) -> dict:
