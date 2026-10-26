@@ -168,7 +168,7 @@ def run_detective(cfg: dict, run: str, apply: bool = True, progress=None, redo: 
     from .pricemem import habit, learn_habit, recall, remember
     budget = int(cfg.get("price", {}).get("detective_searches", 2)) * max(1, len(recs))
     budget = min(budget, int(cfg.get("price", {}).get("detective_max_searches", 150)))
-    rows, settled, searched, from_memory = [], 0, 0, 0
+    rows, settled, searched, from_memory, with_search = [], 0, 0, 0, 0
     for i, rec in enumerate(recs):
         if progress:
             progress(i, len(recs))
@@ -205,6 +205,7 @@ def run_detective(cfg: dict, run: str, apply: bool = True, progress=None, redo: 
                 remember(cfg, [{"name": rec.get("name", ""), "dom": dm, "price": pr, "source": "search"}
                                for dm, pr in found])
                 how = "search"
+                with_search += 1
             except Exception as e:                            # noqa: BLE001
                 log.warning("detective search failed for %s: %s", rec["url"][-50:], e)
         elif mem:
@@ -232,6 +233,6 @@ def run_detective(cfg: dict, run: str, apply: bool = True, progress=None, redo: 
         log.info("detective %s: %s", rec.get("name", "")[:40], why)
     write_csv(pd.DataFrame(rows, columns=COLS), d / "05_price_detective.csv")
     res = {"doubtful": len(recs), "settled": settled, "left": len(recs) - settled, "searches": searched,
-           "decided_without_search": len(rows) - searched}
+           "decided_without_search": len(rows) - with_search}
     log.info("price detective %s: %s", run, res)
     return res
