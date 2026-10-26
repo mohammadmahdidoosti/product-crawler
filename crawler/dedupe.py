@@ -127,8 +127,12 @@ _UNITS = [  # every spelling of a unit -> one name, so '125 میلی متری' a
     ("دور", r"دور"), ("آمپر", r"آمپر"), ("اسب", r"اسب"), ("کیلوگرم", r"کیلویی|کیلوگرمی?|کیلو|kg"),
     ("لیتر", r"لیتری?"), ("بار", r"بار"), ("ژول", r"ژول"), ("نفره", r"نفره"), ("تیغ", r"تیغه?")]
 _NUM = r"(?<![\w.])(\d+(?:[.,/]\d+)?)\s*"   # not inside a model code (VR2016V)
-_WORDS = (r"مشتی|گیربکسی|دیمردار|دیمر دار|براشلس|براش لس|اتوماتیک|چکشی|ضربه ای|سه حالته|دو حالته|دوکاره|دو کاره|"
-          r"دو سرعته|دور متغیر|لیزری|چراغ دار|کشویی|رومیزی|مینی|سنگین")
+# words that describe a feature; words that name the kind of tool (کشویی، رومیزی، مینی، چکشی) are left
+# out: one shop calling a fixed mitre saw 'کشویی' must not rename ours
+_WORDS = (r"مشتی|گیربکسی|دیمردار|دیمر دار|براشلس|براش لس|اتوماتیک|سه حالته|دو حالته|دوکاره|دو کاره|"
+          r"دو سرعته|دور متغیر|لیزری|چراغ دار")
+_DIM = {"میلی‌متر": "length", "سانتی‌متر": "length", "اینچ": "length", "وات": "power", "کیلووات": "power",
+        "اسب": "power"}
 _SAME = {"دیمر دار": "دیمردار", "براش لس": "براشلس", "دو کاره": "دوکاره"}
 
 
@@ -158,12 +162,16 @@ def merged_name(best: str, others: list[str], most: int = 3) -> str:
     '550 وات', '4 دور'), so a search for any of them still finds it. A feature the title already
     has, in any spelling, is not added again; nor a second value of a unit it already states."""
     have = features(best)
-    units = {k.split("|")[1] for k in have if "|" in k}
+    dim = lambda u: _DIM.get(u, u)                       # 255 میلی‌متر and 25 سانتی‌متر: one length
+    units = {dim(k.split("|")[1]) for k in have if "|" in k}
+    if "تیغ" in str(best):                               # 'دو تیغ' written in words
+        units.add("تیغ")
     add: dict[str, str] = {}
     for n in others:
         for k, v in features(n).items():
-            unit = k.split("|")[1] if "|" in k else ""
-            if k in have or k in add or (unit and (unit in units or any(a.endswith("|" + unit) for a in add))):
+            unit = dim(k.split("|")[1]) if "|" in k else ""
+            if k in have or k in add or (unit and (unit in units or any("|" in a and dim(a.split("|")[1]) == unit
+                                                                            for a in add))):
                 continue
             add[k] = v
     return best if not add else f"{best}، " + "، ".join(list(add.values())[:most])
