@@ -115,3 +115,16 @@ class SameModel(unittest.TestCase):
         self.assertTrue(_same_model(ours, "مینی فرز آهنگری 125 میلی متری ماکیتا مدل 9555HNG"))
         self.assertTrue(_same_model(ours, "مینی فرز ماکیتا 9555HN"))
         self.assertTrue(_same_model({"name": "اره عمودبر رونیکس مدل 4111"}, "اره عمود بر رونیکس 750 وات مدل 4111"))
+
+
+class OnSiteElsewhere(unittest.TestCase):
+    def test_only_earlier_batches_count(self):
+        from crawler.pipeline import on_site_from_other_runs
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        for run, url in (("batch-2", "u2"), ("batch-10", "u10"), ("batch-3", "u3")):
+            (cfg["_data_dir"] / "runs" / run).mkdir(parents=True)
+            pd.DataFrame([{"source_url": url, "product_id": "5"}]).to_csv(
+                cfg["_data_dir"] / "runs" / run / "07_published.csv", index=False)
+        self.assertEqual(on_site_from_other_runs(cfg, "batch-3"), {"u2"})
+        self.assertEqual(on_site_from_other_runs(cfg, "batch-11"), {"u2", "u3", "u10"})
+        self.assertEqual(on_site_from_other_runs(cfg, "batch-1"), set())

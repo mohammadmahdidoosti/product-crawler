@@ -483,6 +483,24 @@ def step_filter(cfg: dict, run: str) -> Path:
 
 # ------------------------------------------------------------------ 5 dedupe
 
+def on_site_from_other_runs(cfg: dict, run: str) -> set[str]:
+    """Source pages an EARLIER batch has already put on the site (batch-2 before batch-10). A later
+    batch never takes a product away from an earlier one, so re-running batch-1 changes nothing."""
+    def order(name: str):
+        return [int(t) if t.isdigit() else t for t in re.split(r"(\d+)", name)]
+    out: set[str] = set()
+    for p in (cfg["_data_dir"] / "runs").glob("*/07_published.csv"):
+        if order(p.parent.name) >= order(run):
+            continue
+        try:
+            x = read_csv(p)
+        except Exception:                                # noqa: BLE001
+            continue
+        if "source_url" in x and "product_id" in x:
+            out |= set(x.loc[x["product_id"].astype(str) != "", "source_url"])
+    return out
+
+
 def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool = False) -> list[Path]:
     d = run_dir(cfg, run)
     src = d / (FILES["crawled"] if skip_filter else FILES["filtered"])
@@ -509,6 +527,17 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     df = one_category_per_product(df)
     merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)))
     merged = drop_price_outliers(merged, float(cfg.get("price", {}).get("outlier_factor", 6)))
+    elsewhere = on_site_from_other_runs(cfg, run)
+    own = d / "07_published.csv"                         # what this run itself already put on the site stays
+    if elsewhere and own.exists():                       # (a re-run must not take it away and park it)
+        x = read_csv(own)
+        elsewhere -= set(x.loc[x["product_id"].astype(str) != "", "source_url"])
+    if elsewhere and len(merged):                       # already on the site from an earlier batch: no second
+        again = merged["url"].isin(elsewhere)           # photo work, description or slot (35 in batch-3)
+        if again.any():
+            write_csv(merged[again], d / "05_on_site_already.csv")
+            log.info("dedupe: %d product(s) already on the site from another batch, left out", int(again.sum()))
+            merged = merged[~again]
     from .brandfix import clean_brand
     merged["brand"] = [clean_brand(b, n) for b, n in zip(merged.get("brand", ""), merged["name"])]
     need = merged.iloc[0:0]
