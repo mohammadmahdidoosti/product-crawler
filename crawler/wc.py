@@ -106,6 +106,24 @@ class WC:
     def update_product(self, pid: int, data: dict) -> dict:
         return self._call(lambda: self._wc("PUT", f"products/{pid}", json=data), f"update product {pid}")
 
+    def list_variations(self, pid: int) -> list[dict]:
+        out, page = [], 1
+        while True:
+            j = self._call(lambda: self._wc("GET", f"products/{pid}/variations",
+                                            params={"per_page": 100, "page": page}), f"variations of {pid}")
+            if not isinstance(j, list) or not j:
+                return out
+            out += j
+            if len(j) < 100:
+                return out
+            page += 1
+
+    def batch_variations(self, pid: int, create: list[dict] | None = None, update: list[dict] | None = None) -> dict:
+        """POST products/<id>/variations/batch (up to 100 creates + updates per call)."""
+        body = {k: v for k, v in (("create", create), ("update", update)) if v}
+        return self._call(lambda: self._wc("POST", f"products/{pid}/variations/batch", json=body),
+                          f"variations of {pid}")
+
     def list_brands(self) -> list[dict] | None:
         """All WooCommerce brand terms (WooCommerce 9.6+ 'Brands'); None if the site has no such endpoint."""
         out, page = [], 1
