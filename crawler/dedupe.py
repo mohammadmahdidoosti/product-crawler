@@ -144,6 +144,8 @@ def features(name: str) -> dict[str, str]:
         pat = pat.replace("‌", "")
         for m in _re.finditer(_NUM + rf"(?:{pat})(?![\w])", raw):
             n = m.group(1).replace(",", ".")
+            if unit == "ولت" and float(n.split("/")[0]) > 400:   # 'VR 1610V' is a model, not 1610 volts
+                continue
             out.setdefault(f"{n}|{unit}", f"{n} {unit}")
     for m in _re.finditer(_WORDS, t):
         w = _SAME.get(m.group(0), m.group(0))
