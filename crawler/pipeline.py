@@ -501,6 +501,29 @@ def on_site_from_other_runs(cfg: dict, run: str) -> set[str]:
     return out
 
 
+def models_on_site_from_other_runs(cfg: dict, run: str) -> dict[str, str]:
+    """{kind+model key: product id} of what EARLIER batches put on the site, so a later batch does not
+    add the same model again from another shop (129 such groups had to be merged by hand)."""
+    from .dedupe import _cross_key
+
+    def order(name: str):
+        return [int(t) if t.isdigit() else t for t in re.split(r"(\d+)", name)]
+    out: dict[str, str] = {}
+    for p in (cfg["_data_dir"] / "runs").glob("*/07_published.csv"):
+        if order(p.parent.name) >= order(run):
+            continue
+        try:
+            x = read_csv(p)
+        except Exception:                                # noqa: BLE001
+            continue
+        for r in x.to_dict("records"):
+            if str(r.get("product_id") or "").strip() and r.get("action") in ("created", "updated"):
+                k = _cross_key({"name": r.get("name", ""), "model": "", "brand": r.get("brand", "")})
+                if k:
+                    out.setdefault(k, str(r["product_id"]))
+    return out
+
+
 def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool = False) -> list[Path]:
     d = run_dir(cfg, run)
     src = d / (FILES["crawled"] if skip_filter else FILES["filtered"])
@@ -527,6 +550,18 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     df = one_category_per_product(df)
     merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)))
     merged = drop_price_outliers(merged, float(cfg.get("price", {}).get("outlier_factor", 6)))
+    same = models_on_site_from_other_runs(cfg, run)
+    if same and len(merged):                            # the same model, from another shop, already on the site
+        from .dedupe import _cross_key
+        keys = [_cross_key(r) for r in merged.to_dict("records")]
+        again = pd.Series([bool(k) and k in same for k in keys], index=merged.index)
+        if again.any():
+            x = merged[again].copy()
+            x["on_site_as"] = [same[k] for k, a in zip(keys, again) if a]
+            write_csv(x, d / "05_same_model_on_site.csv")
+            log.info("dedupe: %d product(s) are a model an earlier batch already put on the site, left out",
+                     int(again.sum()))
+            merged = merged[~again]
     elsewhere = on_site_from_other_runs(cfg, run)
     own = d / "07_published.csv"                         # what this run itself already put on the site stays
     if elsewhere and own.exists():                       # (a re-run must not take it away and park it)
@@ -857,6 +892,9 @@ def _codes(name: str) -> set[str]:
     out = set()
     for t in toks:
         if len(t) >= 3 and re.search(r"\d", t) and not re.search(rf"{re.escape(t)}\s*{units.pattern}", nm.lower()):
+            # an English word glued after the code is not part of it:
+            # '5425 Sliding Miter' -> '5425', 'GHG 16-50 Professional' -> 'ghg1650'
+            t = re.sub(r"(?<=\d)[a-z]{5,}$", "", t)
             out.add(t)
     return out
 

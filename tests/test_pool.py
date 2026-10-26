@@ -128,3 +128,14 @@ class OnSiteElsewhere(unittest.TestCase):
         self.assertEqual(on_site_from_other_runs(cfg, "batch-3"), {"u2"})
         self.assertEqual(on_site_from_other_runs(cfg, "batch-11"), {"u2", "u3", "u10"})
         self.assertEqual(on_site_from_other_runs(cfg, "batch-1"), set())
+
+
+class SameModelOnSite(unittest.TestCase):
+    def test_earlier_batch_models(self):
+        from crawler.pipeline import models_on_site_from_other_runs
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        (cfg["_data_dir"] / "runs" / "batch-1").mkdir(parents=True)
+        pd.DataFrame([{"name": "سشوار صنعتی بوش مدل GHG 23-66", "brand": "بوش", "product_id": "7", "action": "created"}]
+                     ).to_csv(cfg["_data_dir"] / "runs" / "batch-1" / "07_published.csv", index=False)
+        self.assertEqual(models_on_site_from_other_runs(cfg, "batch-4"), {"سشوار|ghg2366|": "7"})
+        self.assertEqual(models_on_site_from_other_runs(cfg, "batch-1"), {})
