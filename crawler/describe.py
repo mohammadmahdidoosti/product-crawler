@@ -129,6 +129,8 @@ class Writer:
         self.max_tokens = int(dc.get("max_tokens", 2500))
         self.s = requests.Session()
         self.usage = {"in": 0, "out": 0, "calls": 0, "failed": 0}
+        import threading
+        self._tl = threading.local()           # .last = 'rejected' when the model answered but broke a rule
 
     def ok(self) -> bool:
         return bool(self.key)
@@ -168,6 +170,7 @@ class Writer:
             if out and not why:
                 out["tokens_in"], out["tokens_out"] = u.get("prompt_tokens", ""), u.get("completion_tokens", "")
                 return out
+            self._tl.last = "rejected"
             log.info("description rejected (%s, finish=%s) for %s", why,
                      ((data.get("choices") or [{}])[0]).get("finish_reason"), r.get("url"))
             self.usage["failed"] += 1
@@ -255,19 +258,24 @@ def step_describe(cfg: dict, run: str, limit: int | None = None) -> Path | None:
     log.info("descriptions: %d products, %s", len(rows), f"OpenRouter {w.model}" if use_llm else "template (free)")
 
     def one(r):
+        tried = False
         if use_llm:
             for x in [w] + backups:                    # the main model, then the backups, then the template
+                x._tl.last = ""
                 res = x.write(r)
                 if res:
                     return {"url": r["url"], **res, "method": "ai", "model": x.model}
+                tried |= getattr(x._tl, "last", "") == "rejected"
         html, short = template(r)
+        # only a model's rejected answer counts as a try; an outage or a spent key does not
         return {"url": r["url"], "html": html, "short": short, "method": "template", "model": "",
-                "tokens_in": "", "tokens_out": ""}
+                "tokens_in": "", "tokens_out": "", "_tried": tried}
 
     with Appender(out_p, DESC_COLS) as a, ThreadPoolExecutor(int(dc.get("workers", 4)) if use_llm else 1) as ex:
         for i, res in enumerate(ex.map(one, rows), 1):
+            tried = res.pop("_tried", False)
             a.write(res)
-            if use_llm and res["method"] == "template":
+            if use_llm and res["method"] == "template" and tried:
                 tries[res["url"]] = tries.get(res["url"], 0) + 1
             if _progress("describe", i, len(rows)):
                 break
