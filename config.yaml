@@ -167,3 +167,9 @@ health:                   # site health (crawler/health.py): a read-only nightly
   max_usd: 100000         # prices are stored in dollars: a bigger number is probably toman, flagged for a person
   keep_reports: 30        # older reports are deleted (DATA_DIR/health/)
   uncategorized: [uncategorized, بدون-دسته-بندی, دسته-بندی-نشده]   # slugs of the default category
+
+shops:                    # promising shops (crawler/shops.py): read-only; built only with the button, never at night
+  # min_missing: 10       # shops with fewer products we do not have are left out of the list
+  # check_top: 30         # the top N shops get a read-only crawlability check (robots, Store API, Woo search)
+  # keep_reports: 20      # older reports are deleted (DATA_DIR/shops/)
+  # unknown_doubt_share: 0.5   # more than this share of a shop's products with an unknown match -> doubt

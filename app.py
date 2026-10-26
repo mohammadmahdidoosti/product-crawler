@@ -113,7 +113,7 @@ class Job:
         h = logging.Handler()
         h.emit = lambda r: self.logs.append(f"{time.strftime('%H:%M:%S')} {r.levelname} {r.getMessage()}")
         h.setLevel(logging.INFO)
-        own = {"site": ("crawler.publish", "crawler.brands_fa", "crawler.wc"), "health": ("crawler.health",)}
+        own = {"site": ("crawler.publish", "crawler.brands_fa", "crawler.wc"), "health": ("crawler.health", "crawler.shops")}
         others = tuple(x for k, v in own.items() if k != lane for x in v)
         h.addFilter(lambda r: (r.name.startswith(own[lane]) if lane in own else True) and not r.name.startswith(others))
         logging.getLogger("crawler").addHandler(h)
@@ -284,6 +284,13 @@ class Job:
                              f"بی‌توضیح {c['no_description']}، بی‌دسته {c['no_category']}؛ "
                              f"{res['doubtful_only']} مورد مشکوک برای بررسی شما"
                              + ("" if res["complete"] else " (ناقص: متوقف شد)"))
+        elif step == "shops":                      # read-only: past crawls on disk + GET checks of the top shops
+            from crawler.shops import report as shops_report
+            res = shops_report(cfg, progress=lambda d, t: self.prog.update(step="shops", done=d, total=t),
+                               stop=self.stop_ev.is_set, check=opts.get("check", True) is not False)
+            self.logs.append(f"فروشگاه‌های مستعد: {res['listed']} فروشگاه از {res['shops_seen']}؛ "
+                             f"{res['missing']} محصول نداریم، {res['unknown']} نامعلوم؛ {res['checked']} فروشگاه بررسی شد"
+                             + ("" if res["complete"] else " (ناقص: متوقف شد)"))
         elif step == "probe":
             from crawler import routing_state as RS
             res = RS.probe_batch(cfg, int(opts["batch"]),
@@ -325,7 +332,7 @@ class Job:
                 took = time.time() - t0
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
-            if step not in ("probe", "publish", "brands", "status", "resync", "health"):
+            if step not in ("probe", "publish", "brands", "status", "resync", "health", "shops"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
             self.state["ok"] = not self.stop_ev.is_set()
@@ -349,7 +356,7 @@ JOB = JOBS["crawl"]
 
 
 def start_job(step: str, run: str, opts: dict) -> str | None:
-    lane = "health" if step == "health" else "site" if step in SITE_STEPS else "crawl"
+    lane = "health" if step in ("health", "shops") else "site" if step in SITE_STEPS else "crawl"
     return JOBS[lane].start(step, run, opts)
 
 
@@ -814,6 +821,36 @@ class Handler(BaseHTTPRequestHandler):
                     off, lim = int(q.get("offset") or 0), min(int(q.get("limit") or 100), 500)
                     return self._json({"rows": df.iloc[off:off + lim].to_dict("records"), "matched": len(df), "offset": off})
                 return self._err("not found", 404)
+            if parts[:2] == ["api", "shops"]:           # promising shops (read-only report)
+                from crawler import shops as S
+                cfg = build_cfg()
+                if len(parts) == 2:
+                    names = S.reports(cfg)
+                    return self._json({"reports": [{"name": n, **{k: (S.summary_of(cfg, n) or {}).get(k) for k in
+                                                     ("listed", "missing", "complete")}} for n in names],
+                                       "latest": S.summary_of(cfg, names[0]) if names else None,
+                                       "settings": {k: S.settings(cfg)[k] for k in ("min_missing", "check_top")},
+                                       "job": JOBS["health"].status()})
+                if len(parts) == 4 and S.REPORT.match(parts[2]) and parts[3] == "summary":
+                    sm = S.summary_of(cfg, parts[2])
+                    return self._json(sm) if sm else self._err("گزارش پیدا نشد", 404)
+                if len(parts) == 4 and S.REPORT.match(parts[2]) and parts[3] in ("rows", "download"):
+                    which = q.get("filter") or "all"
+                    if which not in S.FILTERS:
+                        return self._err("bad filter")
+                    try:
+                        df = S.rows_of(cfg, parts[2], which, q.get("q") or "")
+                    except FileNotFoundError:
+                        return self._err("گزارش پیدا نشد", 404)
+                    if parts[3] == "download":
+                        buf = io.StringIO()
+                        df.to_csv(buf, index=False)
+                        return self._download(("\ufeff" + buf.getvalue()).encode("utf-8"),
+                                              f"shops-{parts[2]}{'-' + which if which != 'all' else ''}.csv",
+                                              "text/csv; charset=utf-8")
+                    off, lim = int(q.get("offset") or 0), min(int(q.get("limit") or 100), 500)
+                    return self._json({"rows": df.iloc[off:off + lim].to_dict("records"), "matched": len(df), "offset": off})
+                return self._err("not found", 404)
             if parts[:3] == ["api", "wc", "product"] and len(parts) == 4:    # check what the site holds for one SKU
                 from crawler.wc import WC
                 w = WC(timeout=40)
@@ -1028,6 +1065,9 @@ class Handler(BaseHTTPRequestHandler):
                 return self._err(err, 409) if err else self._json({"ok": True})
             if parts == ["api", "health", "scan"]:      # read-only: nothing on the site changes
                 err = start_job("health", "health", {})
+                return self._err(err, 409) if err else self._json({"ok": True})
+            if parts == ["api", "shops", "scan"]:       # read-only: no crawl starts, nothing on the site changes
+                err = start_job("shops", "shops", {"check": self._jbody().get("check", True) is not False})
                 return self._err(err, 409) if err else self._json({"ok": True})
             if parts[:3] == ["api", "wc", "test"]:
                 from crawler.wc import WC
