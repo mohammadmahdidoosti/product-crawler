@@ -113,8 +113,9 @@ class Job:
         h = logging.Handler()
         h.emit = lambda r: self.logs.append(f"{time.strftime('%H:%M:%S')} {r.levelname} {r.getMessage()}")
         h.setLevel(logging.INFO)
-        site = ("crawler.publish", "crawler.brands_fa", "crawler.wc")
-        h.addFilter(lambda r: r.name.startswith(site) == (lane == "site"))
+        own = {"site": ("crawler.publish", "crawler.brands_fa", "crawler.wc"), "health": ("crawler.health",)}
+        others = tuple(x for k, v in own.items() if k != lane for x in v)
+        h.addFilter(lambda r: (r.name.startswith(own[lane]) if lane in own else True) and not r.name.startswith(others))
         logging.getLogger("crawler").addHandler(h)
 
     def _saved(self) -> Path:
@@ -274,6 +275,15 @@ class Job:
                               stop=self.stop_ev.is_set)
             self.logs.append(f"ادغام تکراری‌ها: {res['groups']} گروه انجام شد، {len(res['failed'])} ناموفق"
                              + (f" ({res['failed'][:3]})" if res["failed"] else ""))
+        elif step == "health":                     # read-only scan of every product on the site
+            from crawler.health import scan
+            res = scan(cfg, progress=lambda d, t: self.prog.update(step="health", done=d, total=t),
+                       stop=self.stop_ev.is_set)
+            c = res["counts"]
+            self.logs.append(f"سلامت سایت: {res['products_read']} محصول خوانده شد؛ بی‌عکس {c['no_image']}، "
+                             f"بی‌توضیح {c['no_description']}، بی‌دسته {c['no_category']}؛ "
+                             f"{res['doubtful_only']} مورد مشکوک برای بررسی شما"
+                             + ("" if res["complete"] else " (ناقص: متوقف شد)"))
         elif step == "probe":
             from crawler import routing_state as RS
             res = RS.probe_batch(cfg, int(opts["batch"]),
@@ -315,7 +325,7 @@ class Job:
                 took = time.time() - t0
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
-            if step not in ("probe", "publish", "brands", "status", "resync"):
+            if step not in ("probe", "publish", "brands", "status", "resync", "health"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
             self.state["ok"] = not self.stop_ev.is_set()
@@ -334,12 +344,28 @@ class Job:
 
 
 SITE_STEPS = {"publish", "status", "brands", "resync", "merge"}
-JOBS = {"crawl": Job("crawl"), "site": Job("site")}
+JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health")}
 JOB = JOBS["crawl"]
 
 
 def start_job(step: str, run: str, opts: dict) -> str | None:
-    return JOBS["site" if step in SITE_STEPS else "crawl"].start(step, run, opts)
+    lane = "health" if step == "health" else "site" if step in SITE_STEPS else "crawl"
+    return JOBS[lane].start(step, run, opts)
+
+
+def nightly_loop() -> None:
+    """Starts the read-only site-health scan once a night (config: health.at, Tehran time)."""
+    from crawler import health as H
+    while True:
+        time.sleep(60)
+        try:
+            cfg = build_cfg()
+            if H.due(cfg) and not JOBS["health"].state["running"]:
+                H.mark_nightly(cfg)                 # once a day, even if the scan fails (a person looks at it)
+                err = start_job("health", "health", {"nightly": True})
+                log.info("nightly site-health scan %s", "started" if not err else f"not started: {err}")
+        except Exception:                           # noqa: BLE001 - the loop must survive
+            log.error(traceback.format_exc())
 _TAX_CACHE: dict = {"mtime": None, "df": None}
 
 
@@ -728,7 +754,7 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "job"]:
                 if q.get("lane") in JOBS:
                     return self._json(JOBS[q["lane"]].status())
-                return self._json({**JOB.status(), "site": JOBS["site"].status()})
+                return self._json({**JOB.status(), "site": JOBS["site"].status(), "health": JOBS["health"].status()})
             if parts[:2] == ["api", "sources"]:
                 txt = sources_text()
                 return self._json({"yaml": txt, "data": yaml.safe_load(txt) or {}})
@@ -753,6 +779,41 @@ class Handler(BaseHTTPRequestHandler):
                         p_ = pr.get(r["group"])
                         r["evidence"] = json.loads(p_["domains_json"])[:5] if p_ else []
                     return self._json({"rows": out})
+            if parts[:2] == ["api", "health"]:          # site-health reports (read-only scans)
+                from crawler import health as H
+                cfg = build_cfg()
+                if len(parts) == 2:
+                    names = H.reports(cfg)
+                    st = H.settings(cfg)
+                    return self._json({"reports": [{"name": n, **{k: (H.summary_of(cfg, n) or {}).get(k) for k in
+                                                     ("products_read", "with_problems", "complete")}} for n in names],
+                                       "latest": H.summary_of(cfg, names[0]) if names else None,
+                                       "schedule": {k: st[k] for k in ("nightly", "at", "timezone")},
+                                       "job": JOBS["health"].status()})
+                if len(parts) == 4 and H.REPORT.match(parts[2]) and parts[3] == "summary":
+                    sm = H.summary_of(cfg, parts[2])
+                    return self._json(sm) if sm else self._err("گزارش پیدا نشد", 404)
+                if len(parts) == 4 and H.REPORT.match(parts[2]) and parts[3] in ("rows", "download"):
+                    f = H.health_dir(cfg) / parts[2] / "products.csv"
+                    if not f.exists():
+                        return self._err("گزارش پیدا نشد", 404)
+                    df = pd.read_csv(f, encoding=ENCODING, dtype=str, keep_default_na=False)
+                    prob = q.get("problem") or ""
+                    if prob == "doubt":
+                        df = df[df["doubt"] == "yes"]
+                    elif prob:
+                        df = df[df["problems"].str.split("|").map(lambda xs: prob in xs)]
+                    if q.get("q"):
+                        needle = q["q"].strip().lower()
+                        df = df[df.apply(lambda r: needle in " ".join(r.values).lower(), axis=1)]
+                    if parts[3] == "download":
+                        buf = io.StringIO()
+                        df.to_csv(buf, index=False)
+                        return self._download(("\ufeff" + buf.getvalue()).encode("utf-8"),
+                                              f"health-{parts[2]}{'-' + prob if prob else ''}.csv", "text/csv; charset=utf-8")
+                    off, lim = int(q.get("offset") or 0), min(int(q.get("limit") or 100), 500)
+                    return self._json({"rows": df.iloc[off:off + lim].to_dict("records"), "matched": len(df), "offset": off})
+                return self._err("not found", 404)
             if parts[:3] == ["api", "wc", "product"] and len(parts) == 4:    # check what the site holds for one SKU
                 from crawler.wc import WC
                 w = WC(timeout=40)
@@ -965,6 +1026,9 @@ class Handler(BaseHTTPRequestHandler):
                     return self._err("تعداد محصول را مشخص کنید")
                 err = start_job("publish", parts[2], opts)
                 return self._err(err, 409) if err else self._json({"ok": True})
+            if parts == ["api", "health", "scan"]:      # read-only: nothing on the site changes
+                err = start_job("health", "health", {})
+                return self._err(err, 409) if err else self._json({"ok": True})
             if parts[:3] == ["api", "wc", "test"]:
                 from crawler.wc import WC
                 w = WC(timeout=40)
@@ -1107,6 +1171,7 @@ def main():
             j.resume()
         except Exception:                           # noqa: BLE001 - the UI must come up regardless
             log.error(traceback.format_exc())
+    threading.Thread(target=nightly_loop, daemon=True, name="nightly").start()
     srv.serve_forever()
 
 

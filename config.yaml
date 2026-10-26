@@ -155,3 +155,15 @@ brands:                   # brand names for the site: 'آنتو (Antu)' (crawler
 publish:                  # direct publishing to the WooCommerce site (crawler/publish.py)
   workers: 3              # products sent at the same time (photos + product); the shop's own visitors share the server
   pause_seconds: 0.5      # wait before each product, per worker
+
+health:                   # site health (crawler/health.py): a read-only nightly look at every product on the site
+  nightly: true           # scan once a night; nothing on the site is changed by the scan
+  at: "03:30"             # local time (below); a server that was down then scans within window_hours, not later
+  window_hours: 4
+  timezone: Asia/Tehran
+  per_page: 100           # products per API request
+  pause_seconds: 0.5      # wait between two pages (the shop's visitors share the server)
+  min_description_chars: 150   # shorter descriptions are flagged as doubtful, not as missing
+  max_usd: 100000         # prices are stored in dollars: a bigger number is probably toman, flagged for a person
+  keep_reports: 30        # older reports are deleted (DATA_DIR/health/)
+  uncategorized: [uncategorized, بدون-دسته-بندی, دسته-بندی-نشده]   # slugs of the default category

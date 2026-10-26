@@ -106,6 +106,31 @@ class WC:
     def update_product(self, pid: int, data: dict) -> dict:
         return self._call(lambda: self._wc("PUT", f"products/{pid}", json=data), f"update product {pid}")
 
+    def products_page(self, page: int, per_page: int = 100, fields: str = "", status: str = "any") -> tuple[list, int, int]:
+        """One page of the catalog (read-only): (products, total, total_pages). Retries like _call."""
+        params = {"per_page": per_page, "page": page, "status": status, "orderby": "id", "order": "asc"}
+        if fields:
+            params["_fields"] = fields
+        last = None
+        for i in range(4):
+            try:
+                r = self._wc("GET", "products", params=params)
+            except requests.RequestException as e:
+                last = WCError(f"products page {page}: {e}")
+            else:
+                if r.ok:
+                    try:
+                        j = r.json()
+                    except ValueError:
+                        raise WCError(f"products page {page}: not JSON ({r.text[:150]})", r.status_code)
+                    return (j if isinstance(j, list) else [], int(r.headers.get("X-WP-Total") or 0),
+                            int(r.headers.get("X-WP-TotalPages") or 0))
+                last = WCError(f"products page {page}: HTTP {r.status_code} {r.text[:200]}", r.status_code)
+                if r.status_code < 500 and r.status_code != 429:
+                    raise last
+            time.sleep(3 * (i + 1))
+        raise last
+
     def list_brands(self) -> list[dict] | None:
         """All WooCommerce brand terms (WooCommerce 9.6+ 'Brands'); None if the site has no such endpoint."""
         out, page = [], 1
