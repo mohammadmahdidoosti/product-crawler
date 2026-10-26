@@ -74,7 +74,8 @@ def _cross_key(row: dict) -> str:
 
 def merge_crawl(df: pd.DataFrame, name_threshold: float = 0.9) -> pd.DataFrame:
     """Group rows that are the same product; one output row per group. Inside a category: the model
-    code, else a similar name. Then groups of different categories with the same kind + model code
+    code, else a similar name. Then groups with the same kind + model code (worded differently:
+    'سشوار صنعتی GHG 23-66 بوش اصلی' / 'سشوار صنعتی بوش مدل GHG 23-66'), in one category or several,
     become one product, listed in all those categories."""
     groups: list[list[dict]] = []
     for _, part in df.groupby("taxonomy_id", sort=False):
@@ -97,7 +98,7 @@ def merge_crawl(df: pd.DataFrame, name_threshold: float = 0.9) -> pd.DataFrame:
     out: list[list[dict]] = []
     for g in groups:
         k = _cross_key(g[0])
-        if k and k in joined and g[0].get("taxonomy_id") != joined[k][0].get("taxonomy_id"):
+        if k and k in joined:                 # same kind + code: one product (same category or not)
             joined[k] += g
             continue
         if k and k not in joined:
