@@ -243,6 +243,13 @@ def step_describe(cfg: dict, run: str, limit: int | None = None) -> Path | None:
         prev = read_csv(out_p)
         # products that only got the template are tried again when a model is available
         have = set(prev[prev["method"] != "template"]["url"]) if use_llm else set(prev["url"])
+    tries_p = d / "05_describe_tries.csv"                 # template-only products: how often the models failed
+    tries = {}
+    if tries_p.exists():
+        t = read_csv(tries_p)
+        tries = {u: int(n or 0) for u, n in zip(t["url"], t["tries"])}
+    if use_llm:                                         # after 2 failed rounds the template stays: no more spend
+        have |= {u for u, n in tries.items() if n >= int(dc.get("max_tries", 2))}
     rows = [r for r in new.to_dict("records") if r["url"] not in have][:limit]
     backups = [Writer(cfg, m) for m in (dc.get("fallback_models") or [])] if use_llm else []
     log.info("descriptions: %d products, %s", len(rows), f"OpenRouter {w.model}" if use_llm else "template (free)")
@@ -260,8 +267,12 @@ def step_describe(cfg: dict, run: str, limit: int | None = None) -> Path | None:
     with Appender(out_p, DESC_COLS) as a, ThreadPoolExecutor(int(dc.get("workers", 4)) if use_llm else 1) as ex:
         for i, res in enumerate(ex.map(one, rows), 1):
             a.write(res)
+            if use_llm and res["method"] == "template":
+                tries[res["url"]] = tries.get(res["url"], 0) + 1
             if _progress("describe", i, len(rows)):
                 break
+    if tries:
+        write_csv(pd.DataFrame({"url": list(tries), "tries": [str(n) for n in tries.values()]}), tries_p)
     if use_llm:
         u = w.usage
         log.info("descriptions: %s calls, %d failed, tokens in %d / out %d%s",

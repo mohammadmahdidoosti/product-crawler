@@ -104,3 +104,14 @@ class Checked(unittest.TestCase):
         out = price_sanity(recs)
         self.assertFalse(str(out[4].get("price_check") or "").startswith("suspicious"))
         self.assertTrue(str(out[5].get("price_check") or "").startswith("suspicious"))
+
+
+class SameModel(unittest.TestCase):
+    def test_copies_and_short_codes(self):
+        from crawler.detective import _same_model
+        ours = {"name": "مینی فرز آهنگری ماکیتا مدل 9555HNG"}
+        self.assertFalse(_same_model(ours, "مینی فرز طرح ماکیتا 9555HNG"))
+        self.assertFalse(_same_model(ours, "مینی فرز ماکیتا 9555"))
+        self.assertTrue(_same_model(ours, "مینی فرز آهنگری 125 میلی متری ماکیتا مدل 9555HNG"))
+        self.assertTrue(_same_model(ours, "مینی فرز ماکیتا 9555HN"))
+        self.assertTrue(_same_model({"name": "اره عمودبر رونیکس مدل 4111"}, "اره عمود بر رونیکس 750 وات مدل 4111"))

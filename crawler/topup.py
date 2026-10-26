@@ -27,7 +27,7 @@ from .fetch import Fetcher, canon_url, domain_of
 from .io import FILES, HITS_COLS, Appender, done_values, read_csv, write_csv
 
 log = logging.getLogger(__name__)
-RETRY = re.compile(r"http (5\d\d|blocked/none)|error", re.I)
+RETRY = re.compile(r"http (?:5\d\d|blocked/none)|error", re.I)
 
 
 def _serper(f: Fetcher, key: str, q: str, num: int = 10) -> list[dict]:
@@ -128,15 +128,18 @@ def torob_shops(f: Fetcher, query: str, n: int = 5) -> list[tuple[str, str]]:
     return out
 
 
-def retry_failed(cfg: dict, d: Path) -> int:
-    """Pages that timed out or got a server error get one more try (the crawl re-reads them)."""
+def retry_failed(cfg: dict, d: Path, only: set | None = None) -> int:
+    """Pages that timed out or got a server error get one more try (the crawl re-reads them);
+    with `only`, just the pages of those categories (the ones being topped up)."""
     p = d / "03_failed.csv"
     if not p.exists():
         return 0
     fl = read_csv(p)
     if fl.empty:
         return 0
-    again = fl["reason"].str.contains(RETRY)
+    again = fl["reason"].str.contains(RETRY, regex=True)
+    if only is not None:
+        again &= fl["taxonomy_id"].isin(only)
     if not again.any():
         return 0
     write_csv(fl[~again], p, ["taxonomy_id", "url", "reason"])
@@ -266,7 +269,7 @@ def step_topup(cfg: dict, run: str, round_: int = 1) -> Path | None:
                     w.write(h)
             n_hits += len(seen)
             m.write({"taxonomy_id": r["taxonomy_id"], "query": r["query"], "found": len(seen), **got})
-    n_retry = retry_failed(cfg, d)
+    n_retry = retry_failed(cfg, d, {r["taxonomy_id"] for r in low})
     log.info("top-up: %d new links, %d failed pages to retry; crawling and filtering", n_hits, n_retry)
     cfg2 = deepcopy({k: v for k, v in cfg.items() if k != "_data_dir"})
     cfg2["_data_dir"] = cfg["_data_dir"]

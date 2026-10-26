@@ -52,9 +52,15 @@ def _same_model(ours: dict, name: str) -> bool:
     variant = r"بدون باتری|بدون باطری|تک باتری|دو باتری|بدون شارژر|کیت|ست |پک |مجموعه|بدنه|\bbare\b|\bkit\b"
     if bool(_re.search(variant, a)) != bool(_re.search(variant, b)):   # a kit is not the bare tool
         return False
+    copy = r"طرح|کپی|های ?کپی|چینی|replica"            # a copy is not the original tool (9555HNG: 2.4m vs 24m)
+    if bool(_re.search(copy, a)) != bool(_re.search(copy, b)):
+        return False
     ca, cb = _codes(a), _codes(b)
     if ca:
-        return any(code_in(x, y) or code_in(y, x) for x in ca for y in cb if min(len(x), len(y)) >= 3)
+        # the same code, or one inside the other only when the shorter has 5+ characters
+        # ('9555hn' ~ '9555hng'; a bare '9555' is a family, not the model)
+        return any(x == y or (min(len(x), len(y)) >= 5 and (code_in(x, y) or code_in(y, x)))
+                   for x in ca for y in cb)
     wa = {w for w in a.split() if len(w) > 2}
     wb = set(b.split())
     return bool(wa) and len(wa & wb) / len(wa) >= 0.8
