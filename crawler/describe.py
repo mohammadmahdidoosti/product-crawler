@@ -24,7 +24,7 @@ import pandas as pd
 import requests
 
 from .config import run_dir, secret
-from .io import FILES, Appender, read_csv
+from .io import FILES, Appender, read_csv, write_csv
 
 log = logging.getLogger(__name__)
 OPENROUTER = "https://openrouter.ai/api/v1/chat/completions"
