@@ -103,7 +103,7 @@ def fix_photos(cfg: dict, run: str) -> dict:
     # 2-4. fix
     models = [ic.get("ai_model", "qwen/qwen-image-2.1-turbo")] + list(ic.get("ai_fallback_models") or [])
     stats = {"checked": len(jobs), "bad": 0, "dropped": 0, "edited": 0, "searched": 0, "left": 0,
-             "wrong": 0, "wrong_left": 0}
+             "wrong": 0, "wrong_left": 0, "search_tried": 0, "edit_tried": 0}
     rows = im.to_dict("records")
     import threading
     lock = threading.Lock()
@@ -149,15 +149,40 @@ def fix_photos(cfg: dict, run: str) -> dict:
             r["originals"] = " | ".join(bad)
             notes.add("bad_photo_dropped")
             bump("dropped", len(bad))
-        else:                                                # 2. edit the main photo
+        else:                                                # 2. a photo from another shop, 3. an AI edit
             k = product_key(r["url"])
             n = int(re.findall(r"\d+", files[0].split("/")[-1].split(".")[0])[-1])   # '2.webp', 'ai1_2.webp
             src = source_photo(r, n, cfg["_data_dir"])
             fixed = ""
             if any(x.startswith("ai_fixed") for x in notes):   # edited before and still not clean: no second edit
                 src = None
+            if not fixed and int(ic.get("search_max", 40)) > 0:   # 2. a clean photo from another shop first:
+                bump("search_tried")                              # a real photo, and cheaper than an AI edit
+                from .pipeline import _fetchers
+                f = _fetchers(cfg)["iran"]
+                looked = 0
+                for u in search_images(cfg, f, {**new.get(r["url"], {}), "name": new.get(r["url"], {}).get("name", "")}):
+                    if looked >= int(ic.get("search_checks", 4)):   # each look is a vision call: past 4 an
+                        break                                      # AI edit is the cheaper way
+                    data = download(f, u, min_side=350)
+                    if not data:
+                        continue
+                    with Image.open(io.BytesIO(data)) as one:
+                        with model_lock:
+                            pic, _ = make(one, None, int(ic.get("size", 1000)))
+                    rel = f"{k}/ai9_{n}.webp"
+                    pic.save(root / rel, "WEBP", quality=85, method=4)
+                    v = check(vmodel, f"{base}/img/{rel}", new.get(r["url"], {}).get("name", ""), key)
+                    looked += 1
+                    if not _bad(v, False) and v.get("matches_name") is not False:
+                        fixed = rel
+                        notes.add("found_by_search")
+                        bump("searched")
+                        break
+            if not fixed and src is not None:
+                bump("edit_tried")
             for mi, m in enumerate(models, 1):
-                if src is None:
+                if fixed or src is None:
                     break
                 out, status = edit(m, src, key)
                 if out is None:
@@ -170,24 +195,6 @@ def fix_photos(cfg: dict, run: str) -> dict:
                 fixed = rel
                 notes.add(f"ai_fixed:{m.split('/')[-1]}")
                 break
-            if not fixed and int(ic.get("search_max", 40)) > 0:   # 3. a clean photo from elsewhere
-                from .pipeline import _fetchers
-                f = _fetchers(cfg)["iran"]
-                for u in search_images(cfg, f, {**new.get(r["url"], {}), "name": new.get(r["url"], {}).get("name", "")}):
-                    data = download(f, u, min_side=350)
-                    if not data:
-                        continue
-                    with Image.open(io.BytesIO(data)) as one:
-                        with model_lock:
-                            pic, _ = make(one, None, int(ic.get("size", 1000)))
-                    rel = f"{k}/ai9_{n}.webp"
-                    pic.save(root / rel, "WEBP", quality=85, method=4)
-                    v = check(vmodel, f"{base}/img/{rel}", new.get(r["url"], {}).get("name", ""), key)
-                    if not _bad(v, False) and v.get("matches_name") is not False:
-                        fixed = rel
-                        notes.add("found_by_search")
-                        bump("searched")
-                        break
             if fixed:
                 r["files"] = " | ".join([fixed] + [f for f in files[1:] if f not in bad])
                 with lock:
