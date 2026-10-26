@@ -69,6 +69,11 @@ def _cross_key(row: dict) -> str:
     name = norm_text(row.get("name"))
     head = (name.split() or [""])[0]
     mk = _model(row, name)
+    if mk.isdigit():                 # a bare number ('1500' rpm, '4111'): only with the same brand
+        brand = norm_text(row.get("brand"))
+        if not brand:
+            return ""
+        mk = f"{mk}|{brand}"
     return f"{head}|{mk}|{_flags(name)}" if mk and head else ""
 
 
