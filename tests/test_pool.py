@@ -81,3 +81,26 @@ class Detective(unittest.TestCase):
             learn_habit(cfg, "b.ir", "d10")
         self.assertEqual(habit(cfg, "b.ir"), "d10")
         self.assertEqual(habit(cfg, "a.ir"), "")
+
+
+class Checked(unittest.TestCase):
+    def test_checked_prices_and_parts(self):
+        from crawler.pipeline import is_part, price_sanity
+        from crawler.pricemem import checked, habit, import_checked, verdict
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        self.assertEqual(verdict(229300000, 22930000), "d10")
+        self.assertEqual(verdict(787000, 7870000), "x10")
+        rows = [{"name": f"اره عمود بر رونیکس مدل 41{i}", "url": "https://x.ir/p", "old": 10 * (i + 5) * 1000000,
+                 "new": (i + 5) * 1000000} for i in range(10, 13)]
+        res = import_checked(cfg, rows)
+        self.assertEqual(res["remembered"], 3)
+        self.assertEqual(checked(cfg, "اره عمودبر رونیکس 4111"), 16000000.0)
+        self.assertEqual(habit(cfg, "x.ir"), "d10")
+        self.assertTrue(is_part("کلید بلوور رونیکس 1205"))
+        self.assertFalse(is_part("بلوور دیمردار رونیکس 1206"))
+        recs = [{"name": f"بلوور رونیکس مدل 12{i}", "price_toman": "6000000", "breadcrumb": "a > b"} for i in range(4)]
+        recs.append({"name": "کلید بلوور رونیکس 1205", "price_toman": "700000", "breadcrumb": "a > b"})
+        recs.append({"name": "بلوور رونیکس 1209", "price_toman": "600000", "breadcrumb": "a > b"})
+        out = price_sanity(recs)
+        self.assertFalse(str(out[4].get("price_check") or "").startswith("suspicious"))
+        self.assertTrue(str(out[5].get("price_check") or "").startswith("suspicious"))

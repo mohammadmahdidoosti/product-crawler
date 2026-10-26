@@ -857,6 +857,17 @@ def confirm_price(r: dict, v: float, peers: list[dict], tol: float = 0.35) -> tu
     return None
 
 
+PRICE_PART_LEADS = ("دیمر", "کلید", "آرمیچر", "ارمیچر", "محافظ تیغ", "پوسته", "دنده", "ذغال", "زغال",
+                    "قطعه", "یدکی", "درب", "کاربراتور", "سیلندر", "اگزوز", "کوئل", "لنت")
+
+
+def is_part(name: str) -> bool:
+    """'کلید بلوور رونیکس 1205' is a part of a tool: its price is not held against the whole tools of
+    the category it sits in (the dimmer was flagged next to 6-million blowers)."""
+    n = " " + " ".join(str(name or "").split()) + " "
+    return any(n.startswith(f" {w} ") for w in PRICE_PART_LEADS)
+
+
 def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, high: float = 150_000_000,
                  peers: list[dict] | None = None) -> list[dict]:
     """Prices that look 10x off (rial read as toman, or the reverse) are held back, never changed:
@@ -921,7 +932,7 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
             pass                                         # an expensive category: in line with the others
         elif v > high or v < low:
             why = f"{v:,.0f} تومان بیرون از بازه‌ی {low:,.0f} تا {high:,.0f}"
-        elif ref and not (1 / factor <= v / ref <= factor):
+        elif ref and not (1 / factor <= v / ref <= factor) and not (v < ref and is_part(r.get("name", ""))):
             why = f"{v:,.0f} تومان؛ میانه‌ی دسته {ref:,.0f}"
         if why and peers:                    # other shops sell the same model: they decide
             ok = confirm_price(r, v, peers)

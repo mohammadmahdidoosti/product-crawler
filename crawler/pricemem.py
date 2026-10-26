@@ -4,6 +4,8 @@ price_memory.csv   every shop price seen for a model (model code + kind of thing
                    the detective's search results, the prices it settled. A later doubtful price
                    for the same model is decided from memory first (free); a search is made only
                    when memory and the crawl give fewer than two shops.
+                   'checked' rows are prices a person confirmed (market checked by hand, e.g. on Torob
+                   through the person's browser): trusted first by the next check of the same model.
 shop_habits.csv    per shop: how often its prices turned out right, x10 or /10 (rial shown as
                    toman, or the reverse). A shop with a clear habit has its slip fixed without
                    asking anyone.
@@ -64,6 +66,53 @@ def recall(cfg: dict, name: str, days: int = 45) -> list[tuple[str, float, str]]
     cut = (dt.date.today() - dt.timedelta(days=days)).isoformat()
     m = m[(m["key"] == k) & (m["date"] >= cut)]
     return [(r["dom"], float(r["price"]), r["name"]) for r in m.to_dict("records") if r["price"]]
+
+
+def checked(cfg: dict, name: str, days: int = 120) -> float | None:
+    """The newest price a person confirmed for this model, if any."""
+    k = model_key(name)
+    p = _p(cfg, "price_memory.csv")
+    if not k or not p.exists():
+        return None
+    m = read_csv(p)
+    cut = (dt.date.today() - dt.timedelta(days=days)).isoformat()
+    m = m[(m["key"] == k) & (m["source"] == "checked") & (m["date"] >= cut) & (m["price"] != "")]
+    return float(m.sort_values("date").iloc[-1]["price"]) if len(m) else None
+
+
+def verdict(old: float, new: float, tol: float = 0.25) -> str:
+    """What our price turned out to be next to the right one: ok | d10 (10x too high) | x10 | other."""
+    if not old or not new:
+        return ""
+    r = old / new
+    return ("ok" if abs(r - 1) <= tol else "d10" if abs(r / 10 - 1) <= tol
+            else "x10" if abs(r * 10 - 1) <= tol else "other")
+
+
+def import_checked(cfg: dict, rows: list[dict]) -> dict:
+    """rows: {name, url, old, new}: prices a person confirmed. Each is remembered as 'checked' for
+    its model (the next doubtful price of that model is settled from it, no search), and teaches
+    the habit of the shop it came from (rial written as toman and the like)."""
+    from .fetch import domain_of
+    mem, habits = [], 0
+    for r in rows:
+        try:
+            new = float(str(r.get("new") or "").replace(",", ""))
+        except ValueError:
+            continue
+        if new <= 0:
+            continue
+        mem.append({"name": str(r.get("name") or ""), "dom": "checked", "price": new, "source": "checked"})
+        try:
+            old = float(str(r.get("old") or "").replace(",", ""))
+        except ValueError:
+            old = 0
+        v = verdict(old, new)
+        if v and r.get("url"):
+            learn_habit(cfg, domain_of(str(r["url"])), v)
+            habits += 1
+    remember(cfg, mem)
+    return {"remembered": sum(bool(model_key(x["name"])) for x in mem), "habits": habits, "rows": len(rows)}
 
 
 def learn_habit(cfg: dict, dom: str, verdict: str) -> None:

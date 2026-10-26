@@ -149,6 +149,11 @@ def decide(v: float, others: list[tuple[str, float]], fresh: float | None, tol: 
     return None, f"قیمت ما ({v:,.0f}) با {n} فروشگاه ({vals[0]:,.0f} تا {vals[-1]:,.0f}) روشن نشد{hint}؛ برای بررسی"
 
 
+def _decs(d):
+    from .review import decisions
+    return decisions(d)
+
+
 def run_detective(cfg: dict, run: str, apply: bool = True, progress=None, redo: bool = False) -> dict:
     from . import fx as fxmod
     from .config import run_dir
@@ -165,7 +170,7 @@ def run_detective(cfg: dict, run: str, apply: bool = True, progress=None, redo: 
     f = _fetchers(cfg)["iran"]
     pool = price_peers(cfg, d)
     from .fetch import domain_of
-    from .pricemem import habit, learn_habit, recall, remember
+    from .pricemem import checked, habit, learn_habit, recall, remember
     budget = int(cfg.get("price", {}).get("detective_searches", 2)) * max(1, len(recs))
     budget = min(budget, int(cfg.get("price", {}).get("detective_max_searches", 150)))
     rows, settled, searched, from_memory, with_search = [], 0, 0, 0, 0
@@ -176,6 +181,20 @@ def run_detective(cfg: dict, run: str, apply: bool = True, progress=None, redo: 
         if not v:
             continue
         dom_own = domain_of(rec["url"])
+        ck = checked(cfg, rec.get("name", ""))
+        if ck:                                     # a person confirmed this model's price before: no search
+            near = [x for x in (v, v / 10, v * 10, v / 100) if abs(x / ck - 1) <= 0.3]
+            new = round(near[0]) if near else round(ck)
+            rows.append({"url": rec["url"], "name": rec.get("name", ""), "old_price": round(v), "new_price": new,
+                         "decision": "قیمت تأییدشده‌ی قبلی همین مدل" + (" (قیمت خود فروشگاه نزدیک بود)" if near else ""),
+                         "shops": 0, "evidence": f"checked: {ck:,.0f}", "fresh_price": ""})
+            if apply:
+                old = _decs(d).get(rec["url"], {})
+                save_decision(cfg, run, {"url": rec["url"], "action": "ok", "images": old.get("images", ""),
+                                         "price": str(new), "note": "کارآگاه قیمت: تأییدشده‌ی قبلی"})
+            settled += 1
+            from_memory += 1
+            continue
         # 1. free evidence first: shops already crawled, and what earlier checks remembered
         others = [(p["dom"] or p["url"], p["price"]) for p in pool
                   if p["url"] != rec["url"] and p["dom"] != dom_own and _same_model(rec, p["name"])]

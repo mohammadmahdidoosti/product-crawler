@@ -981,6 +981,10 @@ class Handler(BaseHTTPRequestHandler):
                 b = self._jbody()
                 err = start_job("describe_compare", parts[2], {"models": b.get("models") or [], "n": b.get("n") or 10})
                 return self._err(err) if err else self._json({"ok": True})
+            if parts == ["api", "prices", "learn"]:          # prices a person confirmed (checked by hand)
+                from crawler.pricemem import import_checked
+                rows = self._jbody().get("rows") or []
+                return self._json(import_checked(build_cfg(), rows if isinstance(rows, list) else []))
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "review":
                 from crawler import review as RV
                 run_path(parts[2])
