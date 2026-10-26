@@ -137,10 +137,12 @@ def features(name: str) -> dict[str, str]:
     unit, whatever the spelling) and the descriptive words ('مشتی', 'گیربکسی')."""
     import re as _re
     from .normalize import fa_digits_to_en
+    raw = " ".join(fa_digits_to_en(str(name or "")).replace("\u200c", " ").lower().split())
     t = fa_digits_to_en(norm_text(name))
     out: dict[str, str] = {}
-    for unit, pat in _UNITS:
-        for m in _re.finditer(_NUM + rf"(?:{pat})(?![\w])", t):
+    for unit, pat in _UNITS:                  # on the raw title: norm_text splits 'VR1610V' into 'vr 1610 v'
+        pat = pat.replace("‌", "")
+        for m in _re.finditer(_NUM + rf"(?:{pat})(?![\w])", raw):
             n = m.group(1).replace(",", ".")
             out.setdefault(f"{n}|{unit}", f"{n} {unit}")
     for m in _re.finditer(_WORDS, t):
