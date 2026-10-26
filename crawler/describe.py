@@ -129,6 +129,7 @@ class Writer:
         self.max_tokens = int(dc.get("max_tokens", 2500))
         self.s = requests.Session()
         self.usage = {"in": 0, "out": 0, "calls": 0, "failed": 0}
+        self.spent = False
         import threading
         self._tl = threading.local()           # .last = 'rejected' when the model answered but broke a rule
 
@@ -136,6 +137,8 @@ class Writer:
         return bool(self.key)
 
     def write(self, r: dict) -> dict | None:
+        if self.spent:                           # the key or the account has no money left: no more calls
+            return None
         f = facts(r)
         user = json.dumps({k: f[k] for k in ("name", "path", "brand", "model", "specs", "source_text")},
                           ensure_ascii=False)
@@ -156,7 +159,13 @@ class Writer:
                 time.sleep(5 * (attempt + 1))
                 continue
             if res.status_code != 200:
-                log.warning("openrouter HTTP %s: %s", res.status_code, res.text[:300])
+                if res.status_code in (402, 403) and ("limit" in res.text.lower() or "credit" in res.text.lower()):
+                    # the key's spending limit or the account's credit is spent: every other call would
+                    # fail the same way, so stop asking and say it plainly
+                    if not self.spent:
+                        log.error("OpenRouter: سقف کلید یا اعتبار حساب تمام شده (%s) — سقف کلید را در "
+                                  "openrouter.ai/settings/keys بالا ببرید یا حساب را شارژ کنید", res.text[:160])
+                    self.spent = True
                 self.usage["failed"] += 1
                 return None
             data = res.json()
