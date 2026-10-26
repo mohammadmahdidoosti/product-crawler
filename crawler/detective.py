@@ -183,11 +183,24 @@ def run_detective(cfg: dict, run: str, apply: bool = True, progress=None, redo: 
         others += [x for x in mem if x[0] not in {o[0] for o in others}]
         h = habit(cfg, dom_own)
         how = "free"
-        # 2. a search only when the free evidence is thin (fewer than 2 shops), within the budget
+        # 2. Torob's offers for the same model (free, no search credit)
+        if len({o[0] for o in others}) < 2 and cfg.get("price", {}).get("detective_torob", True):
+            try:
+                from .aggregators import torob_offers
+                tb = torob_offers(f, rec, _same_model)
+                others += tb
+                remember(cfg, [{"name": rec.get("name", ""), "dom": dm, "price": pr, "source": "torob"} for dm, pr in tb])
+            except Exception as e:                            # noqa: BLE001
+                log.warning("torob lookup failed for %s: %s", rec["url"][-50:], e)
+        # 3. a search only when the free evidence is still thin (fewer than 2 shops), within the budget
         if len({o[0] for o in others}) < 2 and searched < budget:
             try:
                 found = _search_prices(cfg, f, rec, rate)
                 searched += 1
+                if len({o[0] for o in others + found}) < 2:      # Emalls' price line, one more search
+                    from .aggregators import emalls_range
+                    found += emalls_range(cfg, f, rec)
+                    searched += 1
                 others += found
                 remember(cfg, [{"name": rec.get("name", ""), "dom": dm, "price": pr, "source": "search"}
                                for dm, pr in found])
