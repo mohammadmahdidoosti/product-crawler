@@ -267,6 +267,13 @@ class Job:
                           progress=lambda d, t: self.prog.update(step="publish", done=d, total=t),
                           stop=self.stop_ev.is_set)
             self.logs.append("نتیجه: " + "، ".join(f"{k} {v}" for k, v in res["counts"].items() if v))
+        elif step == "merge":
+            from crawler.merge_site import apply as merge_apply
+            res = merge_apply(cfg, opts.get("groups") or [], dry_run=bool(opts.get("dry_run")),
+                              progress=lambda d, t: self.prog.update(step="merge", done=d, total=t),
+                              stop=self.stop_ev.is_set)
+            self.logs.append(f"ادغام تکراری‌ها: {res['groups']} گروه انجام شد، {len(res['failed'])} ناموفق"
+                             + (f" ({res['failed'][:3]})" if res["failed"] else ""))
         elif step == "probe":
             from crawler import routing_state as RS
             res = RS.probe_batch(cfg, int(opts["batch"]),
@@ -326,7 +333,7 @@ class Job:
         return {**self.state, "progress": dict(self.prog), "logs": list(self.logs)[-200:]}
 
 
-SITE_STEPS = {"publish", "status", "brands", "resync"}
+SITE_STEPS = {"publish", "status", "brands", "resync", "merge"}
 JOBS = {"crawl": Job("crawl"), "site": Job("site")}
 JOB = JOBS["crawl"]
 
@@ -981,6 +988,14 @@ class Handler(BaseHTTPRequestHandler):
                 b = self._jbody()
                 err = start_job("describe_compare", parts[2], {"models": b.get("models") or [], "n": b.get("n") or 10})
                 return self._err(err) if err else self._json({"ok": True})
+            if parts == ["api", "merge", "apply"]:            # merge duplicates already on the site
+                b = self._jbody()
+                err = start_job("merge", "merge", {"groups": b.get("groups") or [], "dry_run": bool(b.get("dry_run"))})
+                return self._err(err, 409) if err else self._json({"ok": True})
+            if parts == ["api", "merge", "check"]:
+                from crawler.merge_site import check as merge_check
+                b = self._jbody()
+                return self._json(merge_check(build_cfg(), int(b["keep"]), int(b["dup"])))
             if parts == ["api", "prices", "learn"]:          # prices a person confirmed (checked by hand)
                 from crawler.pricemem import import_checked
                 rows = self._jbody().get("rows") or []

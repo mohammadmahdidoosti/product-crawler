@@ -282,6 +282,10 @@ def resync(cfg: dict, run: str, dry_run: bool = True, wc: WC | None = None, prog
             if fixed_record:                             # kept even when this call is a plan only
                 write_csv(done.reindex(columns=RESULT_COLS).fillna(""), d / RESULT_FILE)
     on_site = done[done["action"].isin(["created", "updated"]) & (done["product_id"].astype(str) != "")]
+    from .merge_site import registry
+    merged = registry(cfg)
+    if merged:                                         # merged products keep the categories the merge gave them
+        on_site = on_site[~on_site["sku"].isin(set(merged))]
     now: dict[str, set[int]] = {}
     for rec, row in export_rows(cfg, run):
         data, _ = payload(cfg, rec, row, cats)
@@ -427,8 +431,23 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
     # 1. checks and brand terms, one after the other (cheap; a new brand is created exactly once)
     dropped_of: dict[str, set] = {}                  # SKU -> taxonomy IDs found wrong for it
     out, counts, work = [], {"created": 0, "updated": 0, "skipped": 0, "error": 0, "checked": 0}, []
+    from .merge_site import registry
+    merged = registry(cfg)                            # products merged on the site: never undone here
     for rec, row in items:
         data, missing = payload(cfg, rec, row, cats)
+        m = merged.get(row["SKU"])
+        if m and m.get("role") == "dup":              # a hidden duplicate of another product: not sent again
+            out.append({"sku": row["SKU"], "name": row["Name"], "action": "skipped", "product_id": m.get("product_id", ""),
+                        "error": f"ادغام‌شده در محصول {m.get('keep_id')}", "source_url": rec.get("url", ""),
+                        "published_at": time.strftime("%Y-%m-%d %H:%M")})
+            counts["skipped"] += 1
+            continue
+        if m and m.get("role") == "keep":             # the merged title, price and categories stay
+            data["name"] = m.get("name") or data["name"]
+            data["regular_price"] = m.get("price_usd") or data["regular_price"]
+            ids = {c["id"] for c in data["categories"]} | {int(x) for x in str(m.get("categories") or "").split(",")
+                                                          if x.strip().isdigit()}
+            data["categories"] = [{"id": c} for c in sorted(ids)]
         files = local_images(cfg, row.get("Images"))
         br = rec.get("_brand") or {}
         res = {"sku": row["SKU"], "name": row["Name"], "price": data["regular_price"], "brand": br.get("display", ""),
