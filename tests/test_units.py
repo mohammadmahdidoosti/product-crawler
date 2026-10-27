@@ -241,3 +241,16 @@ class FeatureSpelling(unittest.TestCase):
         self.assertEqual(n, "اره گرد بر شارژی 125 میلی متری دستی رونیکس مدل 8650، 20 ولت")
         self.assertEqual(merged_name("اره زنجیری 15 سانتیمتر رونیکس 8600", ["اره زنجیری 15 سانتی متری رونیکس 8600"]),
                          "اره زنجیری 15 سانتیمتر رونیکس 8600")
+
+
+class SameCodeOtherWording(unittest.TestCase):
+    def test_tool_joined_accessory_not(self):
+        from crawler.dedupe import merge_crawl
+        base = {"specs_json": "", "price_flags": "", "usd_rate_toman": "100000", "image_urls": "[]",
+                "seller_phones": "", "brand": "رونیکس", "model": "", "price_toman": "49000000", "seller_name": "A"}
+        names = ["تفنگ میخ کوب بتن رونیکس مدل RH-0450", "RH-0450 تفنگ میخکوب چاشنی‌خور رونیکس",
+                 "چاشنی تفنگ میخکوب رونیکس RH-0450"]
+        df = pd.DataFrame([{**base, "taxonomy_id": str(i), "breadcrumb": "a > b", "name": n, "url": f"u{i}"}
+                           for i, n in enumerate(names)])
+        m = merge_crawl(df)
+        self.assertEqual(sorted(m["n_sources"].astype(int).tolist()), [1, 2])

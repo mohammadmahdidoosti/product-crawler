@@ -29,9 +29,41 @@ ASK = ("You check product photos for an online store. The small 'Caravan Sanat' 
        "(the photo shows the product named), \"note\": \"<few words>\"}}")
 
 
-def check(model: str, img_url: str, name: str, key: str) -> dict:
+# a photo found by search is someone else's photo of maybe another thing: it must prove itself
+ASK_FOUND = ("You check a photo found on another shop's site before it is used for this product in our store. "
+             "Product name: {name}\n"
+             "Be strict: when unsure, answer against the photo. Answer JSON only: {{"
+             "\"overlay_text\": true/false (any added text, price, phone, web address, caption, banner or label "
+             "strip over or around the photo; text printed on the product itself does not count), "
+             "\"shop_logo\": true/false (any shop's logo or watermark anywhere), "
+             "\"frame\": true/false (a border, frame, coloured band, badge or other added graphic), "
+             "\"diagram\": true/false (an exploded view, parts drawing, line drawing, spec sheet or collage "
+             "instead of a plain photo of one product), "
+             "\"white_background\": true/false, \"product_whole\": true/false, "
+             "\"is_part\": true/false (the product NAMED is a spare part or accessory of a tool, e.g. a brush "
+             "holder, switch, armature, blade, gear), "
+             "\"shows_whole_tool\": true/false (the photo shows a whole tool or machine), "
+             "\"matches_name\": true/false (true only if the photo clearly shows exactly the product named: same "
+             "kind of item, same brand and model when they are visible; a part named must be shown as that part "
+             "alone, not the tool it belongs to), \"note\": \"<few words>\"}}")
+
+
+def found_ok(v: dict) -> bool:
+    """A searched photo is used only when the strict check is sure of it."""
+    if v.get("_error"):
+        return False
+    if any(v.get(k) is True for k in ("overlay_text", "shop_logo", "frame", "diagram")):
+        return False
+    if v.get("white_background") is False or v.get("product_whole") is False:
+        return False
+    if v.get("is_part") is True and v.get("shows_whole_tool") is True:
+        return False
+    return v.get("matches_name") is True
+
+
+def check(model: str, img_url: str, name: str, key: str, ask: str = ASK) -> dict:
     body = {"model": model, "max_tokens": 300, "temperature": 0, "reasoning": {"enabled": False},
-            "messages": [{"role": "user", "content": [{"type": "text", "text": ASK.format(name=name)},
+            "messages": [{"role": "user", "content": [{"type": "text", "text": ask.format(name=name)},
                                                       {"type": "image_url", "image_url": {"url": img_url}}]}]}
     for attempt in range(2):
         if attempt and "reasoning" in body:                  # some models cannot switch thinking off

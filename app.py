@@ -113,7 +113,8 @@ class Job:
         h = logging.Handler()
         h.emit = lambda r: self.logs.append(f"{time.strftime('%H:%M:%S')} {r.levelname} {r.getMessage()}")
         h.setLevel(logging.INFO)
-        own = {"site": ("crawler.publish", "crawler.brands_fa", "crawler.wc"), "health": ("crawler.health", "crawler.shops")}
+        own = {"site": ("crawler.publish", "crawler.brands_fa", "crawler.wc", "crawler.catalog_publish"),
+               "health": ("crawler.health", "crawler.shops")}
         others = tuple(x for k, v in own.items() if k != lane for x in v)
         h.addFilter(lambda r: (r.name.startswith(own[lane]) if lane in own else True) and not r.name.startswith(others))
         logging.getLogger("crawler").addHandler(h)
@@ -229,7 +230,9 @@ class Job:
                     compare=bool(opts.get("compare")))
         elif step == "photo_fix":
             from crawler.aiphotos import fix_photos
-            fix_photos(cfg, run)
+            if opts.get("redo_found"):                   # photos found by search are looked for again (strict)
+                cfg = {**cfg, "images": {**cfg.get("images", {}), "redo_found": True}}
+            self.logs.append(f"photo check: {fix_photos(cfg, run)}")
         elif step == "vision_compare":
             from crawler.vision import compare as vcompare
             vcompare(cfg, run, opts.get("models") or [], int(opts.get("n") or 25), int(opts.get("n") or 25))
@@ -291,6 +294,20 @@ class Job:
             self.logs.append(f"فروشگاه‌های مستعد: {res['listed']} فروشگاه از {res['shops_seen']}؛ "
                              f"{res['missing']} محصول نداریم، {res['unknown']} نامعلوم؛ {res['checked']} فروشگاه بررسی شد"
                              + ("" if res["complete"] else " (ناقص: متوقف شد)"))
+        elif step == "catalog":                     # a supplier's price list -> products (crawler/catalog.py)
+            from crawler import catalog as C
+            res = C.run_steps(cfg, run, opts.get("steps") or None,
+                              progress=lambda s_, d_, t_: self.prog.update(step=f"catalog {s_}", done=d_, total=t_))
+            self.logs.append(f"کاتالوگ: {res['products']} محصول، {res['variations']} تنوع، {res['priced']} با قیمت دلاری، "
+                             f"{res['held']} نیازمند بررسی، {res['with_category']} با دسته، {res['with_photos']} با عکس")
+        elif step == "catalog_publish":
+            from crawler.catalog_publish import publish as cpublish
+            pk = [x for x in (opts.get("pkeys") or []) if x]
+            res = cpublish(cfg, run, limit=int(opts.get("limit") or 0), pkeys=pk or None, dry_run=bool(opts.get("dry_run")),
+                           republish=bool(opts.get("republish")),
+                           progress=lambda d, t: self.prog.update(step="catalog_publish", done=d, total=t),
+                           stop=self.stop_ev.is_set)
+            self.logs.append("نتیجه: " + "، ".join(f"{k} {v}" for k, v in res["counts"].items() if v))
         elif step == "probe":
             from crawler import routing_state as RS
             res = RS.probe_batch(cfg, int(opts["batch"]),
@@ -332,7 +349,7 @@ class Job:
                 took = time.time() - t0
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
-            if step not in ("probe", "publish", "brands", "status", "resync", "health", "shops"):
+            if step not in ("probe", "publish", "brands", "status", "resync", "health", "shops", "catalog", "catalog_publish"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
             self.state["ok"] = not self.stop_ev.is_set()
@@ -350,7 +367,7 @@ class Job:
         return {**self.state, "progress": dict(self.prog), "logs": list(self.logs)[-200:]}
 
 
-SITE_STEPS = {"publish", "status", "brands", "resync", "merge"}
+SITE_STEPS = {"publish", "status", "brands", "resync", "merge", "catalog_publish"}
 JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health")}
 JOB = JOBS["crawl"]
 
@@ -636,6 +653,41 @@ def peek(url: str, find: list | None = None) -> dict:
             "extracted": rec, "tables": tables, "snippets": snippets, "head": html[:3000]}
 
 
+def catalog_view(run: str) -> dict:
+    """Everything the catalog page shows: settings, products with their variations, last results."""
+    from crawler import catalog as C
+    from crawler.catalog_publish import CHECK, RESULT
+    from crawler.images import public_urls
+    cfg = build_cfg()
+    d = run_path(run)
+    if not d.exists():
+        return {"exists": False}
+    prods = C.products(cfg, run)
+    pub = {}
+    for name in (CHECK, RESULT):                     # the real result wins over a check
+        if (d / name).exists():
+            pub.update({r["pkey"]: r for r in read_csv(d / name).to_dict("records")})
+    out = []
+    for p in prods:
+        out.append({"pkey": p["pkey"], "family": p["family"], "brand": p["brand"], "page": p["page"],
+                    "method": p["method"], "attributes": p["attributes"], "common": p["common"],
+                    "variants": [{"attributes": v["attributes"], "specs": v["specs"], "price_raw": v["price_raw"],
+                                  "price_unit": v["price_unit"], "price_usd": v["price_usd"],
+                                  "price_toman": v["price_toman"], "check": v["price_check"]} for v in p["variants"]],
+                    "category": p["category"], "photos": public_urls(cfg, p["images"].get("files", "")).split(", ")
+                    if p["images"].get("files") else [], "photos_from": p["images"].get("how", ""),
+                    "description": p["description"].get("method", ""), "publish": pub.get(p["pkey"], {})})
+    rd = d / C.READ
+    read_info = {}
+    if rd.exists():
+        j = json.loads(rd.read_text(encoding="utf-8"))
+        read_info = {"pages": j.get("pages"), "tables": len(j.get("tables") or []), "reversed": j.get("reversed"),
+                     "kind": j.get("kind"), "own_pictures": sum(1 for x in j.get("images") or [] if x.get("file"))}
+    src = C.source_file(cfg, run)
+    return {"exists": True, "settings": C.settings(cfg, run), "source": src.name if src else "",
+            "read": read_info, "summary": C.summary(cfg, run) if prods else {}, "products": out}
+
+
 def backup_zip() -> bytes:
     buf = io.BytesIO()
     with zipfile.ZipFile(buf, "w", zipfile.ZIP_DEFLATED) as z:
@@ -916,6 +968,8 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "backup"]:
                 return self._download(backup_zip(), f"caravan-backup-{time.strftime('%Y%m%d-%H%M')}.zip",
                                       "application/zip")
+            if parts[:2] == ["api", "catalog"] and len(parts) == 3:        # one catalog run: products and results
+                return self._json(catalog_view(parts[2]))
             if parts[:2] == ["api", "runs"] and len(parts) == 2:
                 return self._json(list_runs())
             if parts[:2] == ["api", "runs"] and len(parts) >= 3:
@@ -1034,6 +1088,35 @@ class Handler(BaseHTTPRequestHandler):
                         res["started"] = not err
                     return self._json(res)
                 return self._err("not found", 404)
+            if parts[:2] == ["api", "catalog"] and len(parts) == 4:
+                from crawler import catalog as C
+                run, what = parts[2], parts[3]
+                run_path(run)
+                cfg = build_cfg()
+                if what == "upload":                    # the price list itself (PDF / xlsx / csv), raw body
+                    data = self._body()
+                    if not data:
+                        return self._err("فایل خالی است")
+                    p_ = C.add_source(cfg, run, data, unquote(self.headers.get("X-Filename", "")))
+                    return self._json({"ok": True, "file": p_.name, "bytes": len(data)})
+                if what == "settings":
+                    return self._json({"ok": True, "settings": C.save_settings(cfg, run, self._jbody())})
+                if what == "run":                       # {"steps": [...]} or all steps
+                    if C.source_file(cfg, run) is None:
+                        return self._err("اول فایل کاتالوگ را بارگذاری کنید.")
+                    steps = [x for x in (self._jbody().get("steps") or []) if x in C.STEPS]
+                    err = start_job("catalog", run, {"steps": steps})
+                    return self._err(err, 409) if err else self._json({"ok": True})
+                if what == "category":                  # {"pkey", "taxonomy_id"}
+                    b = self._jbody()
+                    return self._json({"ok": True, "row": C.set_category(cfg, run, str(b.get("pkey") or ""),
+                                                                         str(b.get("taxonomy_id") or ""))})
+                if what == "publish":                   # {"limit", "dry_run", "pkeys", "republish"}
+                    b = self._jbody()
+                    opts = {k: b.get(k) for k in ("limit", "dry_run", "pkeys", "republish")}
+                    err = start_job("catalog_publish", run, opts)
+                    return self._err(err, 409) if err else self._json({"ok": True})
+                return self._err("not found", 404)
             if parts[:2] == ["api", "debug"] and parts[2:3] == ["peek"]:
                 b = self._jbody(); return self._json(peek(b.get("url", ""), b.get("find")))
             if parts[:2] == ["api", "settings"]:
@@ -1126,7 +1209,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(w.test() if w.ok() else {"error": "WC_URL / WC_KEY / WC_SECRET not set"})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "photo-fix":
                 run_path(parts[2])
-                err = start_job("photo_fix", parts[2], {})
+                err = start_job("photo_fix", parts[2], {"redo_found": bool((self._jbody() or {}).get("redo_found"))})
                 return self._err(err) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "vision-compare":
                 run_path(parts[2])
