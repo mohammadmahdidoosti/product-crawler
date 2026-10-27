@@ -38,10 +38,13 @@ from .io import FILES, read_csv, write_csv
 from .normalize import extract_models, model_key, norm_text
 
 log = logging.getLogger(__name__)
+alog = logging.getLogger(__name__ + ".apply")     # the apply runs on the site lane: its log is shown there
 TZ = ZoneInfo("Asia/Tehran")
+_LOCK = __import__("threading").Lock()          # decisions and apply write the same preview file
 KINDS = ("photo", "text")
 RUN = re.compile(r"^fix-(photo|text)-\d{8}-\d{4,6}$")
-FIELDS = "id,name,status,type,sku,permalink,description,short_description,categories,images,brands,attributes,regular_price"
+FIELDS = ("id,name,status,type,sku,permalink,description,short_description,categories,images,brands,attributes,"
+          "regular_price,catalog_visibility")
 NEW_COLS = ["url", "product_id", "status", "name", "breadcrumb", "brand", "model", "specs_json", "description",
             "short_description", "image_urls", "source_domain", "source_type", "seller_name", "source_url",
             "found_by", "site_images", "site_desc_chars", "site_short", "problems"]
@@ -54,6 +57,8 @@ STOP_WORDS = {norm_text(w) for w in ("خرید", "قیمت", "و", "با", "بر
 def settings(cfg: dict) -> dict:
     return {"min_description_chars": int((cfg.get("health") or {}).get("min_description_chars", 150)),
             "web_search": True, "web_results": 5, "pages_per_product": 3, "workers": 4,
+            "max_products": 100,          # one fix run at most (each costs searches and model calls)
+            "web_misses_stop": 8,         # this many web searches in a row with no result: no more (credit?)
             **(cfg.get("sitefix") or {})}
 
 
@@ -87,7 +92,10 @@ def same_product(ours: str, theirs: str, their_model: str = "") -> tuple[bool, s
         return False, ""
     codes = _codes_of(ours)
     if codes:
-        page = model_key(theirs + " " + their_model)
+        # whole codes only: 'PM45' is not 'PM450', 'LC1D09' is not 'LC1D095' ('LC1-D09' and 'PM 45' still are)
+        toks = [model_key(t) for t in re.split(r"[^\w]+", norm_text(theirs + " " + their_model)) if t]
+        toks = [t for t in toks if t]
+        page = set(toks) | {a_ + b_ for a_, b_ in zip(toks, toks[1:])} | {a_ + b_ + c_ for a_, b_, c_ in zip(toks, toks[1:], toks[2:])}
         forms = {c for c in codes} | {re.sub(r"^[a-z]{4,}", "", c) for c in codes}   # 'scenery3520v' -> '3520v'
         if any(len(c) >= 3 and re.search(r"\d", c) and c in page for c in forms):
             return similarity(a, b) >= 0.6, "model"
@@ -181,12 +189,19 @@ def candidates(cfg: dict, kind: str, report: str | None = None) -> pd.DataFrame:
     report = report or (names[0] if names else None)
     if not report:
         raise ValueError("اول یک گزارش سلامت سایت بسازید")
+    if report not in names:
+        raise ValueError(f"گزارش {report} پیدا نشد")
     f = H.health_dir(cfg) / report / "products.csv"
     if not f.exists():
         raise ValueError(f"گزارش {report} پیدا نشد")
     d = read_csv(f)
     want = {"photo": ("no_image",), "text": ("no_description", "short_description")}[kind]
     d = d[d["problems"].str.split("|").map(lambda xs: any(w in xs for w in want))]
+    # duplicates merged into another product (hidden, canonical to it) are not fixed: nobody sees them
+    from .merge_site import registry
+    dups = {str(r.get("product_id")) for r in registry(cfg).values() if r.get("role") == "dup"}
+    if dups:
+        d = d[~d["id"].astype(str).isin(dups)]
     d = d.assign(_pub=(d["status"] != "publish").astype(int), _id=pd.to_numeric(d["id"], errors="coerce"))
     return d.sort_values(["_pub", "_id"], ascending=[True, False]).drop(columns=["_pub", "_id"])
 
@@ -231,7 +246,9 @@ def prepare(cfg: dict, kind: str, limit: int = 20, report: str | None = None, id
     cand = candidates(cfg, kind, report)
     if ids:
         cand = cand[cand["id"].isin({str(i) for i in ids})]
-    chosen = [int(x) for x in cand["id"].head(int(limit) if limit else len(cand))]
+    cap = int(st["max_products"])
+    limit = min(int(limit or cap), cap)
+    chosen = [int(x) for x in cand["id"].head(limit)]
     if not chosen:
         raise ValueError("محصولی برای این اصلاح در گزارش نیست")
     run = run or run_name(kind)
@@ -241,20 +258,25 @@ def prepare(cfg: dict, kind: str, limit: int = 20, report: str | None = None, id
     pool = Pool(cfg)
     f = Fetcher(cfg, "iran")
     rows, found = [], {"pool": 0, "web": 0, "none": 0}
+    misses, web_on = 0, bool(st.get("web_search"))
     problems = dict(zip(cand["id"], cand["problems"]))
     for n, pid in enumerate(chosen, 1):
         if stop and stop():
             break
         p = prods.get(pid)
-        if not p:
+        if not p or p.get("catalog_visibility") == "hidden":
             continue
         need_photo = kind == "photo"
         name = htmllib.unescape(p.get("name") or "")
         src = pool.find(name, need_photo)
         how = "pool"
-        if not src and st.get("web_search"):
+        if not src and web_on:
             src = find_on_web(cfg, f, name, need_photo)
             how = "web"
+            misses = 0 if src else misses + 1
+            if misses >= int(st["web_misses_stop"]):
+                web_on = False                   # out of search credit, or the search is down
+                log.warning("site fix %s: %d web searches in a row found nothing; web search stopped", run, misses)
         found["none" if not src else how] += 1
         cats = p.get("categories") or []
         bc = next((crumbs[str(c["id"])] for c in cats if str(c.get("id")) in crumbs), "")
@@ -295,7 +317,8 @@ def prepare(cfg: dict, kind: str, limit: int = 20, report: str | None = None, id
         icfg = deepcopy({k: v for k, v in cfg.items() if k != "_data_dir"})
         icfg["_data_dir"] = cfg["_data_dir"]
         # every product here has no photo on the site: image search may be needed for each one
-        icfg.setdefault("images", {})["search_max"] = max(int(icfg["images"].get("search_max", 40)), len(rows))
+        icfg.setdefault("images", {})["search_max"] = min(max(int(icfg["images"].get("search_max", 40)), len(rows)),
+                                                          int(st["max_products"]))
         step_images(icfg, run)
     else:
         from .describe import step_describe
@@ -392,6 +415,11 @@ def decide(cfg: dict, run: str, items: list[dict]) -> dict:
     if not RUN.match(run):
         raise ValueError("bad run")
     d = run_dir(cfg, run)
+    with _LOCK:
+        return _decide(cfg, run, d, items)
+
+
+def _decide(cfg: dict, run: str, d, items: list[dict]) -> dict:
     pv = preview(cfg, run)
     now = datetime.now(TZ).isoformat(timespec="seconds")
     by = {str(i.get("key")): i.get("decision") for i in items}
@@ -406,6 +434,25 @@ def decide(cfg: dict, run: str, items: list[dict]) -> dict:
 
 
 # ------------------------------------------------------------------ apply (only approved rows)
+
+def _mark(cfg: dict, run: str, d, key: str, res: str, note: str) -> None:
+    """One row's result written into the current file (decisions made meanwhile are kept)."""
+    with _LOCK:
+        pv = preview(cfg, run)
+        m = pv["key"] == key
+        pv.loc[m, "applied"], pv.loc[m, "applied_note"] = res, note
+        write_csv(pv, d / "08_fix_preview.csv", PREVIEW_COLS)
+
+
+def _backup(d, pid: int, cur: dict) -> None:
+    """The product's description, short description and photos before the change (08_fix_backup.csv)."""
+    p = d / "08_fix_backup.csv"
+    row = pd.DataFrame([{"product_id": pid, "at": datetime.now(TZ).isoformat(timespec="seconds"),
+                         "description": cur.get("description") or "", "short_description": cur.get("short_description") or "",
+                         "images": json.dumps([i.get("id") for i in cur.get("images") or []])}])
+    old = read_csv(p) if p.exists() else pd.DataFrame(columns=row.columns)
+    write_csv(pd.concat([old, row], ignore_index=True), p)
+
 
 def _price(p: dict) -> str:
     return str(p.get("regular_price") or "")
@@ -429,7 +476,7 @@ def apply(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
     pv = preview(cfg, run)
     todo = [i for i in range(len(pv)) if pv.loc[i, "decision"] == "approved" and pv.loc[i, "applied"] == ""
             and pv.loc[i, "proposal"] != ""]
-    log.info("site fix apply %s: %d approved", run, len(todo))
+    alog.info("site fix apply %s: %d approved", run, len(todo))
     halted = ""
     for n, i in enumerate(todo, 1):
         if stop and stop():
@@ -437,6 +484,12 @@ def apply(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
         r = pv.loc[i]
         pid = int(r["product_id"])
         res, note = "skipped", ""
+        with _LOCK:                                  # a person may have taken the approval back meanwhile
+            fresh = preview(cfg, run)
+            now_dec = fresh.loc[fresh["key"] == r["key"], "decision"]
+        if now_dec.empty or now_dec.iloc[0] != "approved":
+            _mark(cfg, run, d, r["key"], "skipped", "تأیید در این فاصله برداشته شد؛ ارسال نشد")
+            continue
         try:
             cur = wc._call(lambda: wc._wc("GET", f"products/{pid}", params={"context": "edit"}), f"product {pid}")
             before = _price(cur)
@@ -463,6 +516,7 @@ def apply(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
                     if not plain(cur.get("short_description")) and r["short"]:
                         data["short_description"] = r["short"]
             if data:
+                _backup(d, pid, cur)                 # what the product had, to put it back by hand if needed
                 wc.update_product(pid, data)
                 after = _price(wc._call(lambda: wc._wc("GET", f"products/{pid}", params={"context": "edit"}),
                                         f"product {pid}"))
@@ -474,14 +528,14 @@ def apply(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
         except Exception as e:                            # noqa: BLE001 - one product's failure is recorded
             res, note = "error", str(e)[:200]
         pv.loc[i, "applied"], pv.loc[i, "applied_note"] = res, note
-        write_csv(pv, d / "08_fix_preview.csv", PREVIEW_COLS)
+        _mark(cfg, run, d, r["key"], res, note)
         if progress:
             progress(n, len(todo))
         if halted:
-            log.error("SITE_FIX_HALT %s", halted)
+            alog.error("SITE_FIX_HALT %s", halted)
             break
         time.sleep(float((cfg.get("publish") or {}).get("pause_seconds", 0.5)))
-    out = summary(pv, meta)
+    out = summary(preview(cfg, run), meta)
     out["halted"] = halted
-    log.info("SITE_FIX_APPLY %s %s", run, {k: out[k] for k in ("applied", "skipped", "failed")})
+    alog.info("SITE_FIX_APPLY %s %s", run, {k: out[k] for k in ("applied", "skipped", "failed")})
     return out

@@ -211,6 +211,12 @@ class EndToEnd(unittest.TestCase):
         self.assertEqual(p["attributes"], ["سایز"])
         self.assertEqual(p["category"]["taxonomy_id"], "901")
         self.assertEqual([v["price_usd"] for v in p["variants"]], ["120.00", "155.00", "210.00"])
+        # the unit was only guessed from the file's words: nothing goes until a person confirms it
+        self.assertTrue(all("unit_unconfirmed" in v["price_check"] for v in p["variants"]))
+        self.assertEqual(CP.publish(self.cfg, run)["counts"]["skipped"], 1)
+        self.assertEqual(FakeWoo.products, {})
+        C.save_settings(self.cfg, run, {"unit": "toman"})
+        C.step_prices(self.cfg, run)
 
         res = CP.publish(self.cfg, run)
         self.assertEqual(res["counts"]["created"], 1)
@@ -273,7 +279,7 @@ class EndToEnd(unittest.TestCase):
         (d / "C1_read.json").write_text(json.dumps({"kind": "pdf", "pages": 1, "tables": [], "images": [],
                                                     "lines": [{"page": 1, "n": 1, "y": 1, "text": "پمپ 2,000,000 تومان"}]},
                                                    ensure_ascii=False), encoding="utf-8")
-        C.save_settings(self.cfg, run, {"category": "پمپ استخر"})
+        C.save_settings(self.cfg, run, {"category": "پمپ استخر", "unit": "toman"})
         answer = {"currency": "toman", "products": [{"family": "پمپ استخر", "attributes": ["سایز"], "common": {},
                                                       "variants": [{"values": {"سایز": "1 اینچ"}, "price": "2,000,000"},
                                                                    {"values": {"سایز": "2 اینچ"}, "price": "3,500,000"}]}]}
@@ -288,6 +294,52 @@ class EndToEnd(unittest.TestCase):
         self.assertEqual(problems, [])
         self.assertEqual(data["status"], "pending")
         self.assertEqual([v["regular_price"] for v in variations], ["20", "35"])
+
+    def test_live_product_keeps_type_and_doubtful_prices_and_stale_sizes_go_out_of_stock(self):
+        x = self.dir / "list.xlsx"
+        make_xlsx(x, ["12,000,000", "15,500,000", "21,000,000"])
+        run = "catalog-live"
+        C.add_source(self.cfg, run, x.read_bytes(), "list.xlsx")
+        C.save_settings(self.cfg, run, {"brand": "آکوا", "supplier": "آکوا", "category": "تجهیزات استخر", "unit": "toman"})
+        C.run_steps(self.cfg, run)
+        CP.publish(self.cfg, run)
+        (pid, prod), = FakeWoo.products.items()
+        prod.update(status="publish", type="variable")
+        # next month two sizes say 'call us': one priced row left -> would be 'simple'; the site keeps variable
+        make_xlsx(x, ["13,000,000", "تماس بگیرید", "تماس بگیرید"])
+        C.add_source(self.cfg, run, x.read_bytes(), "list.xlsx")
+        C.run_steps(self.cfg, run, ["read", "structure", "category"])
+        res = CP.publish(self.cfg, run, republish=True)
+        self.assertEqual(res["counts"]["updated"], 1)
+        put = [c[2] for c in FakeWoo.calls if c[0] == "PUT"][-1]
+        self.assertEqual(put.get("type"), "variable")
+        self.assertNotIn("regular_price", put)
+        self.assertNotIn("attributes", put)
+        self.assertEqual(sorted(float(v["regular_price"]) for v in FakeWoo.variations[pid].values()), [120, 155, 210])
+        # a three-size list again with one size held: that size goes out of stock, the rest updated
+        make_xlsx(x, ["13,000,000", "16,000,000", "abc"])
+        C.add_source(self.cfg, run, x.read_bytes(), "list.xlsx")
+        C.run_steps(self.cfg, run, ["read", "structure", "category"])
+        CP.publish(self.cfg, run, republish=True)
+        vs = sorted(FakeWoo.variations[pid].values(), key=lambda v: float(v["regular_price"]))
+        self.assertEqual([float(v["regular_price"]) for v in vs], [130, 160, 210])
+        self.assertEqual([v.get("stock_status") for v in vs], ["instock", "instock", "outofstock"])
+
+    def test_toman_list_with_dollar_footer_is_held(self):
+        x = self.dir / "list.csv"
+        x.write_text("سایز,قیمت\n1 اینچ,45000\n2 اینچ,65000\nقیمت ها بر اساس نرخ دلار روز است,\n", encoding="utf-8-sig")
+        run = "catalog-footer"
+        C.add_source(self.cfg, run, x.read_bytes(), "list.csv")
+        C.save_settings(self.cfg, run, {"category": "پمپ استخر"})
+        C.run_steps(self.cfg, run, ["read", "structure", "category"])
+        self.assertEqual(CP.publish(self.cfg, run)["counts"]["created"], 0)
+        self.assertEqual(FakeWoo.products, {})
+
+    def test_dollar_list_small_prices(self):
+        self.assertTrue(C.looks_price("12.5", usd=True))
+        self.assertTrue(C.looks_price("$450", usd=True))
+        self.assertFalse(C.looks_price("12.5"))
+        self.assertEqual(C.parse_price("$450"), 450)
 
 
 if __name__ == "__main__":

@@ -150,6 +150,22 @@ class Health(unittest.TestCase):
         self.assertFalse(res["complete"])
         self.assertEqual(FakeShop.methods, [])
 
+    def test_a_failing_page_keeps_what_was_read(self):
+        from crawler.wc import WC
+        real = WC.products_page
+
+        def flaky(self_, page, *a, **k):
+            if page == 2:
+                raise RuntimeError("HTTP 502")
+            return real(self_, page, *a, **k)
+        with mock.patch.object(WC, "products_page", flaky):
+            self.cfg["health"]["per_page"] = 100
+            res = H.scan(self.cfg, now=datetime(2026, 10, 27, 3, 30, tzinfo=TEH))
+        self.assertFalse(res["complete"])
+        self.assertIn("page 2", res["failed"])
+        self.assertEqual(res["products_read"], 100)
+        self.assertIn(res["report"], H.reports(self.cfg))
+
     def test_nightly_window(self):
         at = lambda h, m=0, d=27: datetime(2026, 10, d, h, m, tzinfo=TEH)   # noqa: E731
         self.assertFalse(H.due(self.cfg, at(3, 0)))

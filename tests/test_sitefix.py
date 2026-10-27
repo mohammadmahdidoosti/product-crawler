@@ -230,6 +230,34 @@ class SiteFix(unittest.TestCase):
         put = [c for c in FakeWoo.calls if c[0] == "PUT"][0][2]
         self.assertTrue(set(put) <= {"description", "short_description"})
 
+    def test_backup_and_approval_taken_back_during_apply(self):
+        res = self.prepare("text")
+        run = res["run"]
+        SF.decide(self.cfg, run, [{"key": "21", "decision": "approved"}, {"key": "22", "decision": "approved"}])
+        real = SF._backup
+
+        gone = []
+
+        def take_back(d, pid, cur):                  # the person rejects the other one while this is sent
+            real(d, pid, cur)
+            if not gone:
+                gone.append("22" if str(pid) == "21" else "21")
+                SF._decide(self.cfg, run, d, [{"key": gone[0], "decision": "rejected"}])
+        with mock.patch.object(SF, "_backup", side_effect=take_back):
+            SF.apply(self.cfg, run)
+        puts = [c for c in FakeWoo.calls if c[0] == "PUT"]
+        self.assertEqual(len(puts), 1)
+        pv = SF.preview(self.cfg, run).set_index("key")
+        self.assertEqual(pv.loc[gone[0], "decision"], "rejected")
+        self.assertNotEqual(pv.loc[gone[0], "applied"], "yes")
+        b = (Path(self.cfg["_data_dir"]) / "runs" / run / "08_fix_backup.csv")
+        self.assertTrue(b.exists())
+
+    def test_model_code_must_be_whole(self):
+        self.assertFalse(SF.same_product("پمپ آب پنتاکس PM45", "پمپ آب پنتاکس PM450")[0])
+        self.assertFalse(SF.same_product("کنتاکتور اشنایدر LC1D09", "کنتاکتور اشنایدر LC1D095")[0])
+        self.assertTrue(SF.same_product("کنتاکتور اشنایدر LC1D09", "کنتاکتور 9 آمپر اشنایدر LC1-D09")[0])
+
     def test_routes_and_lanes(self):
         import app as A
         self.assertIn("sitefix_apply", A.SITE_STEPS)

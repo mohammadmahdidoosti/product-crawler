@@ -123,7 +123,7 @@ def parse_price(s) -> float | None:
     """'3,400,000' / '9,200.000' / '8500,000' / '11.000.000' -> 3400000 …; '12.5' (dollars) -> 12.5."""
     if s is None:
         return None
-    t = fa_digits_to_en(str(s)).replace("٬", ",").replace("٫", ".").strip()
+    t = fa_digits_to_en(str(s)).replace("٬", ",").replace("٫", ".").replace("$", "").strip()
     m = re.search(r"\d[\d,. ]*\d|\d", t)
     if not m:
         return None
@@ -137,9 +137,18 @@ def parse_price(s) -> float | None:
     return None
 
 
-def looks_price(s) -> bool:
+SMALL_USD = re.compile(r"^(\$|usd)?\s*\d{1,6}([.,]\d{1,2})?\s*(\$|usd)?$", re.I)
+
+
+def looks_price(s, usd: bool = False) -> bool:
+    """A price cell. Toman/rial prices are big numbers with thousands separators; a dollar list
+    (the person set the unit to dollars) also has '12.5', '850', '$450', Excel's 1250.5."""
     t = fa_digits_to_en(str(s or "")).strip()
-    return bool(t) and bool(PRICE_CELL.match(t)) and (parse_price(t) or 0) >= 1000
+    if not t:
+        return False
+    if PRICE_CELL.match(t) and (parse_price(t) or 0) >= 1000:
+        return True
+    return usd and bool(SMALL_USD.match(t)) and (parse_price(t.replace("$", "")) or 0) > 0
 
 
 FRACTIONS = {"½": " 1/2", "¼": " 1/4", "¾": " 3/4", "⅓": " 1/3", "⅔": " 2/3"}
@@ -250,11 +259,11 @@ def product_key(brand: str, family: str, supplier: str = "") -> str:
 
 # ------------------------------------------------------------------ rule-based structure
 
-def _headers(rows: list[list]) -> tuple[list[str], list[str], int]:
+def _headers(rows: list[list], usd: bool = False) -> tuple[list[str], list[str], int]:
     """(group header, sub header, first data row) per column: the leading rows without a price are the
     header; the last of them names the columns, the ones above group them (a merged cell, None to its
     right, covers the columns after it)."""
-    first = next((i for i, r in enumerate(rows) if any(looks_price(c) for c in r if c)), len(rows))
+    first = next((i for i, r in enumerate(rows) if any(looks_price(c, usd) for c in r if c)), len(rows))
     width = max(len(r) for r in rows)
     head_rows = [list(r) + [None] * (width - len(r)) for r in rows[:first]]
     group, sub = [""] * width, [""] * width
@@ -335,7 +344,8 @@ def rule_products(table: dict, st: dict) -> list[dict]:
         return []
     width = max(len(r) for r in rows)
     rows = [r + [None] * (width - len(r)) for r in rows]
-    group, sub, first = _headers(rows)
+    usd = st.get("unit") == "usd"
+    group, sub, first = _headers(rows, usd)
     full = [f"{g} {x}".strip() for g, x in zip(group, sub)]
     data = rows[first:]
     ys = (table.get("row_y") or [])[first:]
@@ -352,9 +362,9 @@ def rule_products(table: dict, st: dict) -> list[dict]:
             h = "اندازه" if any(re.search(r"\d\s*(cm|mm|متر|اینچ)", fa_digits_to_en(str(v))) for v in vals) else f"ستون {j + 1}"
         cols.append({"j": j, "header": h, "group": group[j], "sub": sub[j] if len(re.sub(r"\s", "", full[j])) > 1 else h})
     price_cols = [c for c in cols if any(w in norm_text(c["header"]) for w in PRICE_WORDS)
-                  and sum(1 for r in data if looks_price(r[c["j"]])) >= max(1, len(data) // 3)]
+                  and sum(1 for r in data if looks_price(r[c["j"]], usd)) >= max(1, len(data) // 3)]
     if not price_cols:
-        price_cols = [c for c in cols if sum(1 for r in data if looks_price(r[c["j"]])) >= max(1, len(data) // 2)]
+        price_cols = [c for c in cols if sum(1 for r in data if looks_price(r[c["j"]], usd)) >= max(1, len(data) // 2)]
     if not price_cols:
         return []
     whole = [c for c in price_cols if not PER_UNIT.search(" " + norm_text(c["header"]) + " ")]
@@ -399,7 +409,7 @@ def rule_products(table: dict, st: dict) -> list[dict]:
                     v = last.get(name, "")                # a cell merged down: same as the row above
                 vals[name] = norm_value(v, unit, inch=unit == "اینچ") if v else ""
             last = {k: v for k, v in vals.items()}
-            if not looks_price(raw):
+            if not looks_price(raw, usd):
                 continue
             recs.append({"price_raw": str(raw).strip(), "vals": vals,
                          "name": str(r[name_col["j"]] or "").strip() if name_col else "",
@@ -508,26 +518,37 @@ def vision_products(cfg: dict, d: Path, page: int, lines: list[dict], st: dict) 
            {"role": "user", "content": [
                {"type": "text", "text": f"Page {page}. Text read from the page (may be broken):\n{text[:5000]}"},
                {"type": "image_url", "image_url": {"url": "data:image/png;base64," + base64.b64encode(png.read_bytes()).decode()}}]}]
-    j = _openrouter(cfg, msg)
-    if not j:
+    try:
+        j = _openrouter(cfg, msg)
+    except Exception as e:                               # noqa: BLE001 - one page never stops the run
+        log.warning("catalog model page %d: %s", page, e)
+        return [], ""
+    if not isinstance(j, dict):
         return [], ""
     page_digits = re.sub(r"\D", "", fa_digits_to_en(text))
     out = []
     for p in j.get("products") or []:
-        attrs = [str(a) for a in (p.get("attributes") or [])][:3]
+        if not isinstance(p, dict):
+            continue
+        attrs = [str(a) for a in (p.get("attributes") or []) if isinstance(a, (str, int, float))][:3]
         variants = []
         for v in p.get("variants") or []:
+            if not isinstance(v, dict):
+                continue
             raw = re.sub(r"\D", "", fa_digits_to_en(str(v.get("price") or "")))
             if not raw:
                 continue
             seen = raw in page_digits
-            variants.append({"attributes": {a: norm_value((v.get("values") or {}).get(a, "")) for a in attrs},
-                             "specs": {str(k): str(x) for k, x in (v.get("specs") or {}).items() if x},
+            vals = v.get("values") if isinstance(v.get("values"), dict) else {}
+            specs = v.get("specs") if isinstance(v.get("specs"), dict) else {}
+            variants.append({"attributes": {a: norm_value(vals.get(a, "")) for a in attrs},
+                             "specs": {str(k): str(x) for k, x in specs.items() if x},
                              "price_raw": raw, "row_y": "",
                              "check": "" if seen else "vision: price read from the page image, check it"})
         if variants:
             out.append({"family": _clean_title(p.get("family", "")), "brand": p.get("brand") or st.get("brand", ""),
-                        "model": "", "attributes": attrs, "common": {str(k): str(x) for k, x in (p.get("common") or {}).items() if x},
+                        "model": "", "attributes": attrs,
+                        "common": {str(k): str(x) for k, x in (p.get("common") if isinstance(p.get("common"), dict) else {}).items() if x},
                         "variants": variants, "page": page, "title": "", "method": "vision"})
     return out, str(j.get("currency") or "")
 
@@ -631,15 +652,24 @@ def step_structure(cfg: dict, run: str) -> Path:
     vocab = _vocab(cfg)
     for prod in products:
         prod["family"] = unglue(prod["family"], vocab)
-    rows, seen_keys = [], {}
+    # the same name twice (two tables): numbered in the order of what they hold (their first size),
+    # not the order of the file, so a table added in front next month does not move the numbers
+    base: dict[str, list[dict]] = {}
     for prod in products:
-        fam = prod["family"] or "محصول"
+        prod["family"] = prod["family"] or "محصول"
+        base.setdefault(product_key(prod.get("brand") or st.get("brand", ""), prod["family"],
+                                    st.get("supplier", "")), []).append(prod)
+
+    def _sig(prod):
+        return json.dumps([sorted(v["attributes"].items()) for v in prod["variants"]], ensure_ascii=False)
+    for same in base.values():
+        if len(same) > 1:
+            for n, prod in enumerate(sorted(same, key=_sig)[1:], 2):
+                prod["family"] = f"{prod['family']} - {n}"
+    rows = []
+    for prod in products:
+        fam = prod["family"]
         k = product_key(prod.get("brand") or st.get("brand", ""), fam, st.get("supplier", ""))
-        if k in seen_keys:                         # the same name twice (two tables): second gets a number
-            seen_keys[k] += 1
-            fam = f"{fam} - {seen_keys[k]}"
-            k = product_key(prod.get("brand") or st.get("brand", ""), fam, st.get("supplier", ""))
-        seen_keys.setdefault(k, 1)
         # variations with the same values but different prices cannot be told apart: held for a person
         combos: dict[tuple, int] = {}
         for v in prod["variants"]:
@@ -686,7 +716,8 @@ def step_prices(cfg: dict, run: str) -> Path | None:
     except (TypeError, ValueError):
         factor = 1.0
     max_usd = float(cfg.get("catalog", {}).get("max_usd", 100_000))
-    if st.get("unit") in ("rial", "toman", "usd"):
+    confirmed = st.get("unit") in ("rial", "toman", "usd")
+    if confirmed:                                    # a person chose the unit: it is used for every row
         df["price_unit"] = st["unit"]
         df["price_check"] = df["price_check"].str.replace(r"(; )?unit_unknown:[^;]*", "", regex=True).str.strip("; ")
     need_rate = (df["price_unit"].isin(["rial", "toman"])).any()
@@ -701,10 +732,19 @@ def step_prices(cfg: dict, run: str) -> Path | None:
         elif raw and unit == "usd":
             usd = raw * factor
             toman = usd * float(rate["usd_rate_toman"]) if rate.get("usd_rate_toman") else None
-        checks = [x for x in str(r["price_check"]).split("; ") if x and not x.startswith("too_high")]
+        checks = [x for x in str(r["price_check"]).split("; ")
+                  if x and not x.startswith(("too_high", "too_low", "unit_unconfirmed", "usd_doubt"))]
         if usd is not None and usd > max_usd:            # a toman figure would land here: never sent
             checks.append(f"too_high: {usd:,.0f} USD — check the unit (rial/toman/dollar)")
             usd = None
+        if usd is not None and not confirmed:
+            # the unit was guessed from words in the file ('بر اساس نرخ دلار روز' in a toman list):
+            # nothing is sent until a person sets it in the settings
+            checks.append(f"unit_unconfirmed: unit guessed as {unit} from the catalog text — confirm it in the settings")
+        if usd is not None and unit == "usd" and raw and raw >= 20_000 and float(raw).is_integer():
+            checks.append(f"usd_doubt: {raw:,.0f} as dollars is unusual — a toman/rial figure?")
+        if usd is not None and unit in ("rial", "toman") and usd < 0.5:
+            checks.append(f"too_low: {usd:.2f} USD — rial read as toman, or a per-unit price?")
         df.at[i, "price_toman"] = "" if toman is None else str(int(round(toman)))
         df.at[i, "price_usd"] = "" if usd is None else f"{usd:.2f}"
         df.at[i, "usd_rate_toman"] = str(rate.get("usd_rate_toman") or "") if unit in ("rial", "toman") else ""
@@ -974,9 +1014,12 @@ def step_photos(cfg: dict, run: str, redo: bool = False) -> Path | None:
                 x.unlink()
         files = []
         for n, (pic, _) in enumerate(made[:per], 1):
-            folder.mkdir(parents=True, exist_ok=True)
-            pic.save(folder / f"{n}.webp", "WEBP", quality=quality, method=4)
-            files.append(f"{key}/{n}.webp")
+            try:
+                folder.mkdir(parents=True, exist_ok=True)
+                pic.save(folder / f"{n}.webp", "WEBP", quality=quality, method=4)
+                files.append(f"{key}/{n}.webp")
+            except Exception as e:                       # noqa: BLE001 - a photo that cannot be saved is skipped
+                log.info("catalog photo save %s: %s", p["family"], e)
         rows.append({"pkey": p["pkey"], "key": key, "files": " | ".join(files), "sources": " | ".join(sources[:per]),
                      "how": how or "none"})
         if _progress("catalog photos", i, len(prods)):
@@ -1004,15 +1047,16 @@ def _record(p: dict) -> dict:
 
 def spec_html(p: dict) -> str:
     """The specs table and the variations table (sizes and their own specs, never prices)."""
+    from html import escape as E
     facts = {"برند": p.get("brand_display") or p["brand"], **p["common"]}
-    rows = "".join(f"<tr><th>{k}</th><td>{v}</td></tr>" for k, v in facts.items() if v)
+    rows = "".join(f"<tr><th>{E(str(k))}</th><td>{E(str(v))}</td></tr>" for k, v in facts.items() if v)
     html = f"<h3>مشخصات فنی</h3><table>{rows}</table>" if rows else ""
     cols = p["attributes"] + list(dict.fromkeys(k for v in p["variants"] for k in v["specs"]))
     if len(p["variants"]) > 1 and cols:
-        head = "".join(f"<th>{c}</th>" for c in cols)
-        body = "".join("<tr>" + "".join(f"<td>{v['attributes'].get(c) or v['specs'].get(c, '')}</td>" for c in cols)
+        head = "".join(f"<th>{E(str(c))}</th>" for c in cols)
+        body = "".join("<tr>" + "".join(f"<td>{E(str(v['attributes'].get(c) or v['specs'].get(c, '')))}</td>" for c in cols)
                        + "</tr>" for v in p["variants"] if not str(v.get("price_check", "")).startswith("duplicate"))
-        html += f"<h3>مدل‌ها و {p['attributes'][0] if p['attributes'] else 'اندازه'}‌ها</h3><table><tr>{head}</tr>{body}</table>"
+        html += f"<h3>مدل‌ها و {E(str(p['attributes'][0])) if p['attributes'] else 'اندازه'}‌ها</h3><table><tr>{head}</tr>{body}</table>"
     return html
 
 

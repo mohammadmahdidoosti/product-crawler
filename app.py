@@ -113,7 +113,8 @@ class Job:
         h = logging.Handler()
         h.emit = lambda r: self.logs.append(f"{time.strftime('%H:%M:%S')} {r.levelname} {r.getMessage()}")
         h.setLevel(logging.INFO)
-        own = {"site": ("crawler.publish", "crawler.brands_fa", "crawler.wc", "crawler.catalog_publish"),
+        own = {"site": ("crawler.publish", "crawler.brands_fa", "crawler.wc", "crawler.catalog_publish",
+                        "crawler.merge_site", "crawler.sitefix.apply"),
                "health": ("crawler.health", "crawler.shops")}
         others = tuple(x for k, v in own.items() if k != lane for x in v)
         h.addFilter(lambda r: (r.name.startswith(own[lane]) if lane in own else True) and not r.name.startswith(others))
@@ -163,6 +164,12 @@ class Job:
             p.unlink(missing_ok=True)
             return
         opts = dict(j.get("opts") or {})
+        if j.get("step") == "health" and opts.get("nightly"):
+            from crawler import health as H
+            if not H.in_window(build_cfg()):              # a night scan cut by a restart is not run by day
+                log.warning("nightly health scan not resumed: outside its night window")
+                p.unlink(missing_ok=True)
+                return
         if j.get("step") == "all":
             # continue from the step that was running; never clear files again
             opts.pop("from_step", None)
@@ -1136,6 +1143,10 @@ class Handler(BaseHTTPRequestHandler):
                 run, what = parts[2], parts[3]
                 run_path(run)
                 cfg = build_cfg()
+                busy = any(j.state["running"] and j.state["run"] == run for j in JOBS.values())
+                if busy and what in ("upload", "settings", "category"):
+                    # the file, the settings and the categories are being read by a running step
+                    return self._err("این کاتالوگ الان در حال پردازش یا ارسال است؛ بعد از تمام شدنش دوباره بزنید.", 409)
                 if what == "upload":                    # the price list itself (PDF / xlsx / csv), raw body
                     data = self._body()
                     if not data:

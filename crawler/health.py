@@ -159,16 +159,27 @@ def scan(cfg: dict, wc=None, progress=None, stop=None, now: datetime | None = No
     t0 = now or datetime.now(tz)
     name = t0.strftime("%Y-%m-%d_%H%M")
     out = health_dir(cfg) / name
+    # folders of scans that never finished (no summary.json) and are over a day old are cleared
+    for old_dir in health_dir(cfg).iterdir():
+        if old_dir.is_dir() and REPORT.match(old_dir.name) and not (old_dir / "summary.json").exists() \
+                and time.time() - old_dir.stat().st_mtime > 86400:
+            shutil.rmtree(old_dir, ignore_errors=True)
     out.mkdir(parents=True, exist_ok=True)
     mapped = {str(v) for v in category_map().values()}
     rows, seen, page, pages, total = [], 0, 1, 1, 0
     by_status: dict[str, int] = {}
-    stopped = False
+    stopped, failed = False, ""
     while page <= max(pages, 1):
         if stop and stop():
             stopped = True
             break
-        items, total, pages = wc.products_page(page, int(st["per_page"]), FIELDS)
+        try:
+            items, total, pages = wc.products_page(page, int(st["per_page"]), FIELDS)
+        except Exception as e:                       # noqa: BLE001 - what was read is still reported
+            failed = f"page {page}: {str(e)[:200]}"
+            log.warning("health: reading %s failed after its retries; the report covers what was read", failed)
+            stopped = True
+            break
         if not items:
             break
         for p in items:
@@ -196,6 +207,7 @@ def scan(cfg: dict, wc=None, progress=None, stop=None, now: datetime | None = No
         new_since["fixed"] = len({i for i, _ in old} - {i for i, _ in cur})
     summ = {"report": name, "started": t0.isoformat(timespec="seconds"),
             "ended": datetime.now(tz).isoformat(timespec="seconds"), "complete": not stopped and seen >= total,
+            "failed": failed,
             "products_read": seen, "products_on_site": total, "with_problems": len(df),
             "clear_problems": int((df["doubt"] != "yes").sum()) if len(df) else 0,
             "doubtful_only": int((df["doubt"] == "yes").sum()) if len(df) else 0,
@@ -209,6 +221,15 @@ def scan(cfg: dict, wc=None, progress=None, stop=None, now: datetime | None = No
     log.info("HEALTH_SCAN %s", json.dumps({k: summ[k] for k in ("report", "products_read", "with_problems", "counts",
                                                                  "complete")}, ensure_ascii=False))
     return summ
+
+
+def in_window(cfg: dict, now: datetime | None = None) -> bool:
+    """Inside tonight's scan window (health.at … + window_hours)?"""
+    st = settings(cfg)
+    now = now or datetime.now(ZoneInfo(st["timezone"]))
+    hh, mm = (int(x) for x in str(st["at"]).split(":"))
+    start = now.replace(hour=hh, minute=mm, second=0, microsecond=0)
+    return start <= now < start + timedelta(hours=float(st["window_hours"]))
 
 
 def due(cfg: dict, now: datetime | None = None) -> bool:

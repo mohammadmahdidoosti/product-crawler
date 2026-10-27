@@ -225,8 +225,10 @@ def clean(term: str, voc: Vocab) -> tuple[str, list[str]]:
 def _clean(term: str, voc: Vocab) -> tuple[str, list[str]]:
     notes: list[str] = []
     raw = norm_text(term)
-    if re.fullmatch(r"[a-z;',\[\]]+", raw.replace(" ", "")) and not voc.known(raw) and raw not in voc.brands:
-        fa = "".join(LAYOUT.get(c, c) for c in raw)
+    # the keys of ک گ و ج چ are ; ' , [ ] — punctuation norm_text drops, so the typed text is read as is
+    typed = re.sub(r"\s+", " ", str(term).strip().lower())
+    if re.fullmatch(r"[a-z;',\[\]]+", typed.replace(" ", "")) and not voc.known(raw) and raw not in voc.brands:
+        fa = "".join(LAYOUT.get(c, c) for c in typed)
         if all(w in voc.words for w in fa.split()):
             notes.append(f"با صفحه‌کلید انگلیسی تایپ شده بود: «{fa}»")
             return fa, notes
@@ -492,17 +494,29 @@ def rebuild(cfg: dict) -> dict:
     return summary(cfg)
 
 
+def _dec_key(row: dict, dec: dict) -> str:
+    """The decision that belongs to a review row: its own key, else one made for another spelling
+    of the same search (a member of its group) before the list was rebuilt; '' when none."""
+    k = row["key"]
+    if k in dec:
+        return k
+    return next((_flat(t) for t in str(row.get("members") or "").split(" | ") if _flat(t) in dec), "")
+
+
+DEC_FIELDS = ["decision", "query", "decided_taxonomy_id", "decided_breadcrumb", "decided_at", "queued_run"]
+
+
 def review(cfg: dict) -> pd.DataFrame:
     p = sdir(cfg) / "review.csv"
     if not p.exists():
         return pd.DataFrame(columns=REVIEW_COLS)
     r = read_csv(p).reindex(columns=REVIEW_COLS, fill_value="").fillna("")
-    dec = decisions(cfg)                         # decisions may be newer than the list
-    for i, k in enumerate(r["key"]):
-        d = dec.get(k)
-        if d:
-            r.loc[i, ["decision", "query", "decided_taxonomy_id", "decided_breadcrumb", "decided_at", "queued_run"]] = \
-                [d["decision"], d["query"], d["taxonomy_id"], d["breadcrumb"], d["decided_at"], d["queued_run"]]
+    dec = decisions(cfg)                         # the decisions file is the truth: an undo clears the row
+    for i, row in enumerate(r.to_dict("records")):
+        dk = _dec_key(row, dec)
+        d = dec.get(dk) if dk else None
+        r.loc[i, DEC_FIELDS] = ([d["decision"], d["query"], d["taxonomy_id"], d["breadcrumb"], d["decided_at"],
+                                 d["queued_run"]] if d else [""] * len(DEC_FIELDS))
     return r
 
 
@@ -548,12 +562,15 @@ def decide(cfg: dict, items: list[dict]) -> dict:
             skipped.append(k)
             continue
         row = r.loc[k]
-        if dec.get(k, {}).get("queued_run"):
+        dk = _dec_key(row.to_dict(), dec)              # the decision may sit under another spelling
+        if dk and dec.get(dk, {}).get("queued_run"):
             skipped.append(k)
             continue
         what = it.get("decision")
         if what not in ("approved", "rejected", ""):
             raise ValueError(f"decision نامعتبر: {what}")
+        if dk and dk != k:
+            dec.pop(dk, None)                          # moved to this row's own key (or undone)
         if what == "":
             dec.pop(k, None)
             changed += 1
@@ -587,14 +604,20 @@ def make_queue(cfg: dict, run: str | None = None) -> dict:
     ready = r[(r["decision"] == "approved") & (r["queued_run"] == "") & (r["decided_taxonomy_id"] != "")].copy()
     if ready.empty:
         raise ValueError("ردیف تأییدشده‌ی دسته‌داری برای کراول نیست")
-    run = run or "search-" + datetime.now(TZ).strftime("%Y%m%d-%H%M")
+    if not run:                                  # two queues in one minute: -2, -3 … never overwrite
+        base = "search-" + datetime.now(TZ).strftime("%Y%m%d-%H%M")
+        run, n = base, 1
+        while (run_dir(cfg, run) / "01_queue.csv").exists():
+            n += 1
+            run = f"{base}-{n}"
     by_id = tax.set_index("taxonomy_id")
     rules = cfg.get("routes") or {}
     ready["_n"] = pd.to_numeric(ready["searches"], errors="coerce").fillna(0)
-    rows = []
+    rows, queued = [], []
     for tid, g in ready.sort_values("_n", ascending=False).groupby("decided_taxonomy_id", sort=False):
-        if tid not in by_id.index:
+        if tid not in by_id.index:             # the category left the taxonomy: stays approved, not queued
             continue
+        queued += list(g["key"])
         t = by_id.loc[tid].copy()
         t["taxonomy_id"] = tid
         qs = list(dict.fromkeys(g["query"]))
@@ -603,13 +626,16 @@ def make_queue(cfg: dict, run: str | None = None) -> dict:
                      "site_product_count": int(t["site_product_count"]), "priority": len(rows),
                      "extra_queries": " | ".join(qs[1:int(st["max_queries_per_category"])]),
                      "from_searches": " | ".join(g["term"]), "searches": int(g["_n"].sum())})
+    if not rows:
+        raise ValueError("دسته‌ی هیچ‌کدام از ردیف‌های تأییدشده در تکسونومی نیست")
     q = pd.DataFrame(rows)
     d = run_dir(cfg, run)
     write_csv(q, d / "01_queue.csv", QUEUE_COLS + ["extra_queries", "from_searches", "searches"])
     dec = decisions(cfg)
-    for k in ready["key"]:
-        if k in dec:
-            dec[k]["queued_run"] = run
+    for row in ready[ready["key"].isin(queued)].to_dict("records"):
+        dk = _dec_key(row, dec)
+        if dk:
+            dec[dk]["queued_run"] = run
     write_csv(pd.DataFrame(list(dec.values()), columns=DECISION_COLS), sdir(cfg) / "decisions.csv", DECISION_COLS)
-    log.info("SEARCHES_QUEUE %s: %d categories from %d approved searches", run, len(q), len(ready))
-    return {"run": run, "categories": len(q), "searches": len(ready)}
+    log.info("SEARCHES_QUEUE %s: %d categories from %d approved searches", run, len(q), len(queued))
+    return {"run": run, "categories": len(q), "searches": len(queued)}

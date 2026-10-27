@@ -123,6 +123,24 @@ class Searches(unittest.TestCase):
         S.upload(self.cfg, EXPORT, "again.csv")
         self.assertEqual(S.review(self.cfg).set_index("key").loc[key, "decision"], "rejected")
 
+    def test_undo_after_a_rebuild_is_kept_and_nothing_is_queued_twice(self):
+        k = self.row("برقو")["key"]
+        S.decide(self.cfg, [{"key": k, "decision": "approved"}])
+        S.rebuild(self.cfg)                                    # the decision is copied into review.csv
+        S.decide(self.cfg, [{"key": k, "decision": ""}])       # undo
+        self.assertEqual(S.review(self.cfg).set_index("key").loc[k, "decision"], "")
+        S.decide(self.cfg, [{"key": k, "decision": "approved"}])
+        a = S.make_queue(self.cfg)
+        self.assertEqual(S.review(self.cfg).set_index("key").loc[k, "queued_run"], a["run"])
+        with self.assertRaises(ValueError):                    # already queued: not again
+            S.make_queue(self.cfg)
+
+    def test_english_keyboard_letters_with_punctuation_keys(self):
+        voc = S.Vocab(self.cfg, S.load_tax(self.cfg))
+        voc.words.add("کنتاکتور")
+        cleaned, notes = S._clean(";kjh;j,v", voc)
+        self.assertEqual(cleaned, "کنتاکتور")
+
     def test_category_picker_search(self):
         idx = S.TaxIndex(S.load_tax(self.cfg), self.cfg)
         self.assertEqual([x["taxonomy_id"] for x in idx.search("فیوز")], ["4", "5"])
