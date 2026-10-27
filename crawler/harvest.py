@@ -251,7 +251,9 @@ def place_up(cfg: dict, df: pd.DataFrame, crawled: pd.DataFrame, min_conf: float
                 v = judge(n["breadcrumb"], n["leaf"], r)
                 # every word of the category is in the name (strict): judge's share may be lower
                 # when the shop uses another word for the same thing ('زنجیری' for 'موتوری')
-                if v["relevant"] and float(v["confidence"]) >= min_conf and strict(n, r) is None:
+                # anywhere in the tree only a full match counts: 'مولتی کوکر' half-matched 'مولتی متر'
+                # and 'نوار چسب تحریری' 'نوار چسب برق' in batch 5
+                if v["relevant"] and float(v["confidence"]) >= 0.99 and strict(n, r) is None:
                     fits.append((n, v))
             deep = _deepest([n for n, _ in fits])
             if deep:
