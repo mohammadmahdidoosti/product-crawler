@@ -404,6 +404,9 @@ def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en
     if lead:
         return {"relevant": False, "confidence": 0.8, "reason": f"نام با «{lead}» شروع می‌شود (قطعه است، نه خود دستگاه)"}
     lw0 = _words(leaf)
+    # a head word written joined to the next one ('میخکوب' for 'میخ کوب', 'عمودبر') is still there
+    glued = {h for h in heads if len(h) >= 3 and any(w.startswith(h) and len(w) > len(h) for w in name_words)}
+    name_words = name_words | glued
     if heads and not (heads & name_words) and len(lw0) > 1 and len(lw0[1]) > 2 and lw0[1] not in ADJ \
             and lw0[1] not in ORIGIN_WORDS and lw0[1] in name_words:
         heads = heads | {lw0[1]}                 # 'عمود بر توسن' is an 'اره عمود بر' without the word اره
