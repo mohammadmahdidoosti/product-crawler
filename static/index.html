@@ -1390,7 +1390,14 @@ $('#hlScan').onclick = async ()=>{
 };
 // ---------------- catalog
 const CT_ACT = {created:'ساخته شد', updated:'به‌روز شد', skipped:'ارسال نشد', error:'خطا', checked:'بررسی شد'};
-const ctRun = ()=> ($('#ctRun').value.trim() || LS.get('ctRun') || '');
+// run name: what is typed (spaces -> '-'), else the last catalog run, else a new one by date; the
+// field is filled in so the name in use is always visible (the grey text is only an example)
+function ctName(){
+  let v = $('#ctRun').value.trim().replace(/\s+/g,'-');
+  if(!v) v = LS.get('ctRun') || ('catalog-' + new Date().toISOString().slice(0,10));
+  $('#ctRun').value = v; return v;
+}
+const ctRun = ()=> ($('#ctRun').value.trim() ? ctName() : (LS.get('ctRun') || ''));
 function ctFill(st){ if(!st) return;
   $('#ctBrand').value=st.brand||''; $('#ctSupplier').value=st.supplier||''; $('#ctUnit').value=st.unit||'auto';
   $('#ctCat').value=st.category||''; $('#ctMaker').value=st.maker_site||''; $('#ctFactor').value=st.price_factor||1; }
@@ -1427,9 +1434,10 @@ async function ctSettings(run){
   return post(`/api/catalog/${encodeURIComponent(run)}/settings`, {brand:$('#ctBrand').value, supplier:$('#ctSupplier').value,
     unit:$('#ctUnit').value, category:$('#ctCat').value, maker_site:$('#ctMaker').value, price_factor:Number($('#ctFactor').value)||1});
 }
-$('#ctOpen').onclick = ()=>{ LS.set('ctRun', $('#ctRun').value.trim()); loadCatalog(); };
+$('#ctOpen').onclick = ()=>{ if(!$('#ctRun').value.trim() && !LS.get('ctRun')){ toast('نام اجرا را بنویسید', true); return; } LS.set('ctRun', ctName()); loadCatalog(); };
 $('#ctGo').onclick = async ()=>{
-  const run=$('#ctRun').value.trim(); if(!/^[\w\-]{1,60}$/.test(run)){ toast('نام اجرا: حروف انگلیسی، عدد و خط تیره (مثل catalog-garoosi)', true); return; }
+  const run=ctName(); if(!/^[\p{L}\p{N}_\-]{1,60}$/u.test(run)){ toast('نام اجرا فقط حرف، عدد و خط تیره (مثل catalog-garoosi)', true); return; }
+  if(!$('#ctFile').files[0] && !LS.get('ctRun')){ toast('فایل کاتالوگ را انتخاب کنید', true); return; }
   LS.set('ctRun', run);
   try{
     await ctSettings(run);
