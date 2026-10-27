@@ -375,6 +375,11 @@ def make(im: Image.Image, mark: np.ndarray | None, size: int = 1000, cutout: boo
 
 # ------------------------------------------------------------------ products with no usable photo
 
+def _iq(r: dict) -> str:
+    from .aiphotos import image_query
+    return image_query(r)
+
+
 def search_images(cfg: dict, f: Fetcher, r: dict, n: int = 6) -> list[str]:
     """Google Images (Serper) by the product's name: photos from other pages, largest first."""
     from .config import secret
@@ -382,7 +387,7 @@ def search_images(cfg: dict, f: Fetcher, r: dict, n: int = 6) -> list[str]:
     key = secret("SERPER_API_KEY")
     if not key:
         return []
-    q = str(r.get("name") or "")[:120]
+    q = str(r.get("image_query") or r.get("name") or "")[:120]
     res = f.post_json("https://google.serper.dev/images", {"q": q, "gl": "ir", "num": 10},
                       {"X-API-KEY": key, "Content-Type": "application/json"})
     record_usage(cfg)
@@ -497,7 +502,7 @@ def step_images(cfg: dict, run: str) -> Path | None:
             # 3. no usable photo on the source page: the same product's photo from other pages
             search_left -= 1
             f = fx["iran"]
-            for u in search_images(cfg, f, r):
+            for u in search_images(cfg, f, {**r, "image_query": _iq(r)}):
                 data = download(f, u, min_side=350)
                 if data:
                     made = build([data], None)
@@ -509,7 +514,7 @@ def step_images(cfg: dict, run: str) -> Path | None:
         clean = [m for m in made if "text_overlay" not in m[1]]
         if made and not clean and search_left > 0:          # every photo is an advert: look for a clean one
             search_left -= 1
-            for u in search_images(cfg, fx["iran"], r):
+            for u in search_images(cfg, fx["iran"], {**r, "image_query": _iq(r)}):
                 data = download(fx["iran"], u, min_side=350)
                 got_clean = [m for m in build([data], None) if "text_overlay" not in m[1]] if data else []
                 if got_clean:

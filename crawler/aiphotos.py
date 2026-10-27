@@ -36,6 +36,41 @@ def _bad(v: dict, busy: bool) -> bool:
     return v.get("overlay_text") is True or v.get("shop_logo") is True or (busy and v.get("white_background") is False)
 
 
+def image_query(p: dict) -> str:
+    """'دریل رونیکس 2513T' finds the maker's clean photo more often than a shop's whole title."""
+    from .pipeline import _codes
+    name = str(p.get("name_fa") or p.get("name") or "")
+    codes = [c for c in _codes(name) if re.search(r"\d", c) and re.search(r"[a-z]", c)]
+    brand = str(p.get("brand") or "").split("/")[0].strip()
+    if codes and brand:
+        return f"{name.split()[0]} {brand} {codes[0]}"
+    return name
+
+
+def _candidates(cfg: dict, f, p: dict, per: int):
+    """Photos to try, cheapest first: the other shops' photos of the same product (merged rows: no
+    search, nothing to pay), then an image search by kind + brand + model code, then by full name."""
+    import json as _j
+    try:
+        own = [u for u in _j.loads(p.get("image_urls") or "[]") if isinstance(u, str)]
+    except ValueError:
+        own = []
+    seen = set(own[:per])
+    for u in own[per:]:
+        seen.add(u)
+        yield u, False
+    from .images import search_images
+    q = image_query(p)
+    for qq in dict.fromkeys([q, str(p.get("name") or "")]):
+        hits = search_images(cfg, f, {**p, "image_query": qq})
+        for u in hits:
+            if u not in seen:
+                seen.add(u)
+                yield u, True
+        if hits:                                      # the full-name search only when the short one found nothing
+            break
+
+
 def fix_photos(cfg: dict, run: str) -> dict:
     from .enhance import edit, source_photo
     from .images import download, make, product_key, search_images
@@ -190,7 +225,7 @@ def fix_photos(cfg: dict, run: str) -> dict:
                 from .pipeline import _fetchers
                 f = _fetchers(cfg)["iran"]
                 looked = 0
-                for u in search_images(cfg, f, {**new.get(r["url"], {}), "name": new.get(r["url"], {}).get("name", "")}):
+                for u, paid in _candidates(cfg, f, new.get(r["url"], {}), int(ic.get("per_product", 3))):
                     if looked >= int(ic.get("search_checks", 4)):   # each look is a vision call: past 4 an
                         break                                      # AI edit is the cheaper way
                     data = download(f, u, min_side=350)
@@ -205,7 +240,7 @@ def fix_photos(cfg: dict, run: str) -> dict:
                     looked += 1
                     if found_ok(v):                      # strict: unsure is a no (batch 5: 8 of 44 were wrong)
                         fixed = rel
-                        notes.add("found_by_search")
+                        notes.add("found_by_search" if paid else "found_other_source")
                         bump("searched")
                         break
             if not fixed and src is not None:
