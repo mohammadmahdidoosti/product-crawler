@@ -237,7 +237,10 @@ def run_detective(cfg: dict, run: str, apply: bool = True, progress=None, redo: 
             from_memory += 1
         fresh = _fresh_price(cfg, f, rec, rate) if len({o[0] for o in others}) < 2 else None
         new, why = decide(v, others, fresh)
-        if not new and h:                                    # the shop's known slip, nothing against it
+        # the shop's known slip, nothing against it — and only in the direction the price is off:
+        # a cheap disc of a shop that writes its prices ×10 is not divided again (batch 6: 5,785 toman)
+        low = f"{v * 10:,.0f}" in str(rec.get("price_check") or "")
+        if not new and h and ((h == "d10" and not low) or (h != "d10" and low)):
             new, why = round(v / 10 if h == "d10" else v * 10), f"عادت این فروشگاه: قیمت‌هایش {'۱۰ برابر' if h == 'd10' else 'یک‌دهم'} نوشته می‌شود"
         if new and len({o[0] for o in others}) >= 2:         # what this teaches (only from 2+ shops)
             ratio = v / new
