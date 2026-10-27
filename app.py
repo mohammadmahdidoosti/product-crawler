@@ -308,6 +308,19 @@ class Job:
                            progress=lambda d, t: self.prog.update(step="catalog_publish", done=d, total=t),
                            stop=self.stop_ev.is_set)
             self.logs.append("نتیجه: " + "، ".join(f"{k} {v}" for k, v in res["counts"].items() if v))
+        elif step == "sitefix":                    # crawl lane: photos / descriptions for site products (preview only)
+            from crawler import sitefix as SF
+            res = SF.prepare(cfg, opts.get("kind") or "photo", int(opts.get("limit") or 20), opts.get("report") or None,
+                             run=run, progress=lambda d, t: self.prog.update(step="sitefix", done=d, total=t),
+                             stop=self.stop_ev.is_set)
+            self.logs.append(f"پیش‌نمایش اصلاح ({res['kind']}): {res['rows']} محصول، {res['with_proposal']} پیشنهاد، "
+                             f"{res['doubt']} مشکوک؛ منبع: {res['found']} — هنوز چیزی به سایت نرفته")
+        elif step == "sitefix_apply":              # site lane: only the rows a person approved
+            from crawler import sitefix as SF
+            res = SF.apply(cfg, run, progress=lambda d, t: self.prog.update(step="sitefix_apply", done=d, total=t),
+                           stop=self.stop_ev.is_set)
+            self.logs.append(f"اصلاح در سایت: {res['applied']} انجام شد، {res['skipped']} دست نخورد، {res['failed']} خطا"
+                             + (f" — {res['halted']}" if res.get("halted") else ""))
         elif step == "probe":
             from crawler import routing_state as RS
             res = RS.probe_batch(cfg, int(opts["batch"]),
@@ -349,7 +362,8 @@ class Job:
                 took = time.time() - t0
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
-            if step not in ("probe", "publish", "brands", "status", "resync", "health", "shops", "catalog", "catalog_publish"):
+            if step not in ("probe", "publish", "brands", "status", "resync", "health", "shops", "catalog", "catalog_publish",
+                            "sitefix", "sitefix_apply"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
             self.state["ok"] = not self.stop_ev.is_set()
@@ -367,12 +381,15 @@ class Job:
         return {**self.state, "progress": dict(self.prog), "logs": list(self.logs)[-200:]}
 
 
-SITE_STEPS = {"publish", "status", "brands", "resync", "merge", "catalog_publish"}
+SITE_STEPS = {"publish", "status", "brands", "resync", "merge", "catalog_publish", "sitefix_apply"}
 JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health")}
 JOB = JOBS["crawl"]
 
 
 def start_job(step: str, run: str, opts: dict) -> str | None:
+    # a site-fix run holds products already on the site: the crawl / publish steps must never take it
+    if run.startswith("fix-") and step not in ("sitefix", "sitefix_apply"):
+        return "این اجرا مال «اصلاح سایت» است؛ از صفحه‌ی سلامت سایت با آن کار کنید."
     lane = "health" if step in ("health", "shops") else "site" if step in SITE_STEPS else "crawl"
     return JOBS[lane].start(step, run, opts)
 
@@ -838,6 +855,32 @@ class Handler(BaseHTTPRequestHandler):
                         p_ = pr.get(r["group"])
                         r["evidence"] = json.loads(p_["domains_json"])[:5] if p_ else []
                     return self._json({"rows": out})
+            if parts[:2] == ["api", "fix"]:             # site fix: previews of photos / descriptions for site products
+                from crawler import sitefix as SF
+                cfg = build_cfg()
+                if len(parts) == 2:
+                    cnt = {}
+                    for k in SF.KINDS:
+                        try:
+                            cnt[k] = len(SF.candidates(cfg, k))
+                        except ValueError:
+                            cnt[k] = None
+                    return self._json({"runs": SF.runs(cfg), "candidates": cnt})
+                if len(parts) == 3 and SF.RUN.match(parts[2]):
+                    pv = SF.preview(cfg, parts[2])
+                    f = q.get("filter") or "all"
+                    if f == "doubt":
+                        pv = pv[pv["doubt"] == "yes"]
+                    elif f == "clear":
+                        pv = pv[(pv["doubt"] != "yes") & (pv["proposal"] != "")]
+                    elif f in ("approved", "rejected"):
+                        pv = pv[pv["decision"] == f]
+                    elif f == "undecided":
+                        pv = pv[(pv["decision"] == "") & (pv["proposal"] != "")]
+                    meta = json.loads((run_path(parts[2]) / "fix.json").read_text(encoding="utf-8"))
+                    sm = SF.summary(SF.preview(cfg, parts[2]), meta)
+                    return self._json({**sm, "total": sm["rows"], "run": parts[2], "rows": pv.to_dict("records")})
+                return self._err("not found", 404)
             if parts[:2] == ["api", "health"]:          # site-health reports (read-only scans)
                 from crawler import health as H
                 cfg = build_cfg()
@@ -1179,6 +1222,23 @@ class Handler(BaseHTTPRequestHandler):
                 if not opts.get("skus") and not str(opts.get("limit") or "").isdigit():
                     return self._err("تعداد محصول را مشخص کنید")
                 err = start_job("publish", parts[2], opts)
+                return self._err(err, 409) if err else self._json({"ok": True})
+            if parts == ["api", "fix", "prepare"]:      # {"kind": "photo"|"text", "limit": 20}: a preview, nothing sent
+                from crawler import sitefix as SF
+                b = self._jbody()
+                kind = b.get("kind") if b.get("kind") in SF.KINDS else "photo"
+                SF.candidates(build_cfg(), kind, b.get("report") or None)        # a clear error before the job
+                run = SF.run_name(kind)
+                err = start_job("sitefix", run, {"kind": kind, "limit": int(b.get("limit") or 20),
+                                                 "report": b.get("report") or ""})
+                return self._err(err, 409) if err else self._json({"ok": True, "run": run})
+            if parts[:2] == ["api", "fix"] and len(parts) == 4 and parts[3] in ("decide", "apply"):
+                from crawler import sitefix as SF
+                if not SF.RUN.match(parts[2]):
+                    return self._err("bad run")
+                if parts[3] == "decide":
+                    return self._json(SF.decide(build_cfg(), parts[2], self._jbody().get("rows") or []))
+                err = start_job("sitefix_apply", parts[2], {})
                 return self._err(err, 409) if err else self._json({"ok": True})
             if parts == ["api", "health", "scan"]:      # read-only: nothing on the site changes
                 err = start_job("health", "health", {})

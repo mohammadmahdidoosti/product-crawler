@@ -183,6 +183,14 @@ tr.wrong td{background:#fdf3f2}
 .batchchip.done{border-color:#bcdcc9;background:#f2f8f4}.batchchip.queued{border-color:#d8c49d;background:var(--sand-2)}
 .ev a{color:var(--gold-d);margin-left:6px}
 td select,td input{padding:3px 6px;font-size:12.5px}
+.fx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.fx-item{border:1px solid var(--line);border-radius:10px;padding:12px;background:#fff;display:flex;flex-direction:column;gap:6px}
+.fx-item.doubt{border-color:#e7d1a8;background:#fffcf6}
+.fx-item.approved{box-shadow:inset 0 0 0 2px var(--ok)}.fx-item.rejected{opacity:.6}
+.fx-item h4{margin:0;font-size:13.5px;line-height:1.6}
+.fx-imgs{display:flex;gap:6px;flex-wrap:wrap}.fx-imgs img{width:92px;height:92px;object-fit:contain;border:1px solid var(--line);border-radius:8px;background:#fff}
+.fx-html{max-height:190px;overflow:auto;font-size:12.5px;border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:#fafbfc}
+.fx-html h3{font-size:13px;margin:6px 0 2px}.fx-html p,.fx-html ul{margin:4px 0}
 .rv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
 .rv{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
 .rv.st-ok{border-color:#9fd0b8}.rv.st-drop{opacity:.55;border-style:dashed}
@@ -478,6 +486,32 @@ td select,td input{padding:3px 6px;font-size:12.5px}
         <button class="btn ghost sm" id="hlPrev">قبلی</button><button class="btn ghost sm" id="hlNext">بعدی</button>
       </div>
     </div>
+    <div class="card" id="fxCard">
+      <h3 style="margin:0 0 4px">اصلاح: عکس و توضیح برای محصولات سایت</h3>
+      <p class="muted" style="margin:0 0 12px;font-size:13px">همان محصول در کراول‌های قبلی یا با یک جستجوی وب پیدا می‌شود و عکس و توضیحش با همان مراحل کراول (پس‌زمینه‌ی سفید، واترمارک، بررسی تصویر، قوانین نوشتن) ساخته می‌شود. اول فقط پیش‌نمایش ساخته می‌شود؛ تنها ردیف‌هایی که شما تأیید کنید به سایت می‌روند و به قیمت، نام، دسته و وضعیت محصول دست زده نمی‌شود.</p>
+      <div class="row" style="align-items:flex-end">
+        <div class="field s" style="flex:0 0 260px"><label>چه چیزی</label><select id="fxKind"><option value="photo">عکس برای محصولات بی‌عکس</option><option value="text">توضیح برای بی‌توضیح‌ها و توضیح کوتاه‌ها</option></select></div>
+        <div class="field s" style="flex:0 0 110px"><label>تعداد</label><input id="fxLimit" type="number" min="1" value="20"></div>
+        <button class="btn" id="fxPrepare">ساختن پیش‌نمایش</button>
+        <span class="muted" id="fxCand" style="font-size:12.5px"></span>
+      </div>
+      <div class="row" style="margin-top:14px;align-items:flex-end" id="fxRunRow" hidden>
+        <div class="field s" style="flex:0 0 280px"><label>پیش‌نمایش</label><select id="fxRun"></select></div>
+        <div class="summary grow" id="fxSummary" style="margin:0"></div>
+      </div>
+      <div id="fxBody" hidden>
+        <div class="chips" id="fxFilter" style="margin:12px 0">
+          <button class="chip on" data-f="all">همه</button><button class="chip" data-f="clear">بی‌شک</button>
+          <button class="chip" data-f="doubt">مشکوک</button><button class="chip" data-f="undecided">منتظر تصمیم</button>
+          <button class="chip" data-f="approved">تأییدشده</button><button class="chip" data-f="rejected">ردشده</button>
+        </div>
+        <div class="row" style="margin-bottom:10px">
+          <button class="btn ghost" id="fxBulk">تأیید همه‌ی بی‌شک‌ها</button>
+          <button class="btn" id="fxApply">ارسال تأییدشده‌ها به سایت</button>
+        </div>
+        <div class="fx-grid" id="fxGrid"></div>
+      </div>
+    </div>
   </section>
 
   <!-- ===================== PROMISING SHOPS ===================== -->
@@ -747,7 +781,7 @@ $('#nav').addEventListener('click', e=>{
   if(b.dataset.tab==='routing') loadRouting();
   if(b.dataset.tab==='catalog') loadCatalog();
   if(b.dataset.tab==='sources') loadSources();
-  if(b.dataset.tab==='health') loadHealth();
+  if(b.dataset.tab==='health'){ loadHealth(); loadFix(); }
   if(b.dataset.tab==='shops') loadShops();
   if(b.dataset.tab==='searches') loadSearches();
 });
@@ -1420,6 +1454,70 @@ $('#ctPub').onclick = async ()=>{
   try{ await post(`/api/catalog/${encodeURIComponent(ctRun())}/publish`, {limit:Number($('#ctLimit').value)||0, dry_run:dry, republish:$('#ctAgain').checked});
        toast(dry?'بررسی شروع شد':'ارسال شروع شد'); ctWait('site'); }
   catch(err){ toast(err.message,true); }
+};
+
+// ---------------- site fix: photos / descriptions for site products (preview -> approval -> site)
+const FX = {run:'', filter:'all', data:null, waiting:false};
+const FX_KIND = {photo:'عکس', text:'توضیح'};
+function fxSafe(html){   // only the tags the description step itself allows
+  return String(html||'').replace(/<(?!\/?(p|h3|ul|li|strong)>)[^>]*>/gi,'');
+}
+async function loadFix(){
+  let r; try{ r = await api('/api/fix'); }catch(e){ return; }
+  const c = r.candidates||{};
+  $('#fxCand').textContent = c.photo===null ? 'اول یک گزارش سلامت بسازید' : `در آخرین گزارش: ${fa(c.photo)} بی‌عکس، ${fa(c.text)} بی‌توضیح یا توضیح کوتاه`;
+  const runs = r.runs||[];
+  $('#fxRunRow').hidden = !runs.length;
+  if(!runs.length){ $('#fxBody').hidden=true; return; }
+  if(!FX.run || !runs.some(x=>x.run===FX.run)) FX.run = runs[0].run;
+  $('#fxRun').innerHTML = runs.map(x=>`<option value="${esc(x.run)}">${esc(FX_KIND[x.kind]||x.kind)} · ${esc(x.run.replace(/^fix-\w+-/,''))} · ${fa(x.rows)} محصول</option>`).join('');
+  $('#fxRun').value = FX.run;
+  loadFixRun();
+}
+async function loadFixRun(){
+  if(!FX.run) return;
+  let r; try{ r = await api(`/api/fix/${encodeURIComponent(FX.run)}?filter=${FX.filter}`); }catch(e){ toast(e.message,true); return; }
+  FX.data = r;
+  const sj = (STATE && STATE.job) || {};
+  const making = sj.running && sj.run===FX.run;
+  $('#fxBody').hidden = false;
+  $('#fxSummary').innerHTML = making ? `<span class="warn">در حال ساختن پیش‌نمایش… ${fa((sj.progress||{}).done)} از ${fa((sj.progress||{}).total)}</span>` :
+    `<span><b>${fa(r.total)}</b> محصول</span><span><b>${fa(r.with_proposal)}</b> با پیشنهاد</span><span><b>${fa(r.doubt)}</b> مشکوک</span>`+
+    `<span>منبع: کراول قبلی <b>${fa((r.found||{}).pool)}</b>، وب <b>${fa((r.found||{}).web)}</b>، پیدا نشد <b>${fa((r.found||{}).none)}</b></span>`+
+    `<span><b>${fa(r.approved)}</b> تأیید، <b>${fa(r.applied)}</b> در سایت</span>`+(r.failed?`<span class="bad-t">${fa(r.failed)} خطا</span>`:'');
+  $('#fxApply').textContent = `ارسال تأییدشده‌ها به سایت (${fa(r.ready)})`;
+  $('#fxApply').disabled = !r.ready;
+  $('#fxGrid').innerHTML = r.rows.length ? r.rows.map(x=>{
+    const imgs = x.kind==='photo' ? `<div class="fx-imgs">${String(x.files||'').split('|').map(f=>f.trim()).filter(Boolean).map(f=>`<img src="/img/${esc(f)}" loading="lazy">`).join('')||'<span class="muted">عکسی ساخته نشد</span>'}</div>` : '';
+    const txt = x.kind==='text' ? (x.html?`<div class="fx-html">${fxSafe(x.html)}</div>`:'<span class="muted">توضیحی نوشته نشد</span>') : '';
+    const done = x.applied ? `<div class="${x.applied==='yes'?'ok':x.applied==='error'?'bad-t':'muted'}" style="font-size:12.5px">${x.applied==='yes'?'✓ در سایت ثبت شد':x.applied==='error'?'خطا: '+esc(x.applied_note):'دست نخورد: '+esc(x.applied_note)}</div>` : '';
+    return `<div class="fx-item ${x.doubt?'doubt':''} ${x.decision}">
+      <h4><a href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.name)}</a></h4>
+      <div class="muted" style="font-size:12px">الان: ${esc(x.now)} · ${x.status==='publish'?'منتشر':esc(x.status)}${x.edit_link?` · <a href="${esc(x.edit_link)}" target="_blank" rel="noopener">ویرایش</a>`:''}</div>
+      ${imgs}${txt}
+      <div style="font-size:12px" class="muted">${x.source_url?`منبع: <a href="${esc(x.source_url)}" target="_blank" rel="noopener">${esc((x.source_url.split('/')[2]||''))}</a>`:'بدون صفحه‌ی منبع'}${x.method?` · ${x.method==='ai'?'مدل زبانی':'قالب ساده'}`:''}</div>
+      ${x.note?`<div class="warn" style="font-size:12.5px">${esc(x.note)}</div>`:''}
+      ${done || (x.proposal?`<div class="sr-act"><button class="yes${x.decision==='approved'?' on':''}" data-fx="approved" data-k="${esc(x.key)}">تأیید</button><button class="no${x.decision==='rejected'?' on':''}" data-fx="rejected" data-k="${esc(x.key)}">رد</button>${x.decision?`<button data-fx="" data-k="${esc(x.key)}">↺</button>`:''}</div>`:'')}
+    </div>`; }).join('') : '<div class="muted">ردیفی نیست.</div>';
+  if(making){ setTimeout(()=>{ if($('#page-health').classList.contains('on')) loadFixRun(); }, 4000); }
+}
+async function fxDecide(rows){ try{ await post(`/api/fix/${encodeURIComponent(FX.run)}/decide`, {rows}); loadFixRun(); }catch(e){ toast(e.message,true); } }
+$('#fxGrid').addEventListener('click', e=>{ const b=e.target.closest('[data-fx]'); if(b) fxDecide([{key:b.dataset.k, decision:b.dataset.fx}]); });
+$('#fxBulk').onclick = ()=>{ const rows=(FX.data&&FX.data.rows||[]).filter(x=>!x.doubt && x.proposal && !x.decision && !x.applied).map(x=>({key:x.key, decision:'approved'}));
+  if(!rows.length){ toast('ردیف بی‌شکِ بی‌تصمیمی در این فهرست نیست'); return; } fxDecide(rows); };
+$('#fxFilter').addEventListener('click', e=>{ const c=e.target.closest('.chip'); if(!c) return;
+  document.querySelectorAll('#fxFilter .chip').forEach(x=>x.classList.toggle('on', x===c)); FX.filter=c.dataset.f; loadFixRun(); });
+$('#fxRun').onchange = ()=>{ FX.run=$('#fxRun').value; loadFixRun(); };
+$('#fxPrepare').onclick = async ()=>{
+  try{ const r = await post('/api/fix/prepare', {kind:$('#fxKind').value, limit:Number($('#fxLimit').value)||20});
+       FX.run = r.run; toast('ساختن پیش‌نمایش شروع شد؛ چیزی به سایت فرستاده نمی‌شود'); poll(true); setTimeout(loadFix, 1500); }
+  catch(e){ toast(e.message,true); }
+};
+$('#fxApply').onclick = async ()=>{
+  const n = (FX.data||{}).ready||0; if(!n) return;
+  if(!confirm(`${n} محصول تأییدشده در سایت به‌روز شوند؟ فقط ${(FX.data.kind==='photo')?'عکس':'توضیح'} فرستاده می‌شود.`)) return;
+  try{ await post(`/api/fix/${encodeURIComponent(FX.run)}/apply`); toast('ارسال شروع شد'); setTimeout(loadFixRun, 3000); setTimeout(loadFixRun, 12000); }
+  catch(e){ toast(e.message,true); }
 };
 
 // ---------------- failed site searches (WebiSearch CSV) -> approval -> crawl queue

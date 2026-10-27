@@ -8,8 +8,10 @@ nothing on the site is changed here) and every product with a problem gets one r
   no_category          no category, or only the default "uncategorized" one
   short_description    [doubt] a description shorter than health.min_description_chars
   outside_taxonomy     [doubt] categories exist, but none of them is in assets/wp_categories.csv
-  price_toman_suspect  [doubt] a price above health.max_usd: the site stores dollars, so this is
-                       probably a toman (or rial) number typed into the price field
+  price_toman_suspect  [doubt] a stored price above health.max_usd: the site stores dollars, so this is
+                       probably a toman (or rial) number typed into the price field. Prices are read with
+                       context=edit, as stored; the API's normal view returns them already multiplied by
+                       the dollar rate by the currency plugin (WebiCurrency), which looks like toman.
   no_price             a simple product with no price
 
 Doubtful rows are only flagged for a person; the later stages (photos, descriptions,
