@@ -25,12 +25,14 @@ from .io import read_csv, write_csv
 
 log = logging.getLogger(__name__)
 VIS_COLS = ["url", "file", "overlay_text", "shop_logo", "white_background", "product_whole", "matches_name", "note",
-            "cost", "error"]
+            "cost", "error", "found_ok"]
 
 
 def _bad(v: dict, busy: bool) -> bool:
     if v.get("_error"):
         return False
+    if v.get("found_ok") is False:                 # a searched photo the strict check is not sure of
+        return True
     return v.get("overlay_text") is True or v.get("shop_logo") is True or (busy and v.get("white_background") is False)
 
 
@@ -83,11 +85,15 @@ def fix_photos(cfg: dict, run: str) -> dict:
                 im.at[i, "notes"] = " | ".join(x for x in nts if x != "found_by_search")
 
     # 1. check every photo
-    jobs = []
+    jobs, found = [], set()
     for r in im.to_dict("records"):
-        for f in [x.strip() for x in str(r.get("files") or "").split("|") if x.strip()]:
+        fs = [x.strip() for x in str(r.get("files") or "").split("|") if x.strip()]
+        for f in fs:
             p0 = new.get(r["url"], {})
             jobs.append((r["url"], f, p0.get("name_fa") or p0.get("name", "")))
+        # the image step may have put a photo found by search first: it gets the strict check too
+        if "found_by_search" in str(r.get("notes") or "") and fs:
+            found.add((r["url"], fs[0]))
     # a photo checked before (same product, same file) is not sent again: re-runs check only new photos
     vp = d / "05_vision.csv"
     old = read_csv(vp) if vp.exists() else pd.DataFrame(columns=VIS_COLS)
@@ -95,21 +101,28 @@ def fix_photos(cfg: dict, run: str) -> dict:
     for o in old.to_dict("records"):
         if not str(o.get("error") or ""):
             known[(o["url"], o["file"])] = {**{k: (True if o.get(k) == "True" else False if o.get(k) == "False" else o.get(k))
-                                              for k in VIS_COLS[2:8]}, "_cost": 0}
+                                              for k in VIS_COLS[2:8] + ["found_ok"]}, "_cost": 0}
     # an AI-edited photo judged bad may have been edited again since (same file name): check again;
     # a 'shop logo' with no text was mostly our own watermark (asked again with the clearer question)
     known = {k: v for k, v in known.items() if not (k[1].split("/")[-1].startswith("ai") and _bad(v, True))
              and not (v.get("shop_logo") is True and v.get("overlay_text") is not True)}
+    known = {k: v for k, v in known.items() if k not in found or v.get("found_ok") in (True, False)}
     todo = [j for j in jobs if (j[0], j[1]) not in known]
     log.info("photo check: %d photos with %s (%d checked before)", len(todo), vmodel, len(jobs) - len(todo))
     with ThreadPoolExecutor(int(ic.get("vision_workers", 24))) as ex:
-        fresh = list(ex.map(lambda j: check(vmodel, f"{base}/img/{j[1]}", j[2], key), todo))
+        def look(j):
+            if (j[0], j[1]) not in found:
+                return check(vmodel, f"{base}/img/{j[1]}", j[2], key)
+            v = check(vmodel, f"{base}/img/{j[1]}", j[2], key, ASK_FOUND)
+            return {**v, "found_ok": found_ok(v)} if not v.get("_error") else v
+        fresh = list(ex.map(look, todo))
     vis = {**known, **{(j[0], j[1]): v for j, v in zip(todo, fresh)}}
     res = fresh
     redo = {(j[0], j[1]) for j in todo}
     keep_old = old[[(u, f) not in redo for u, f in zip(old["url"], old["file"])]] if len(old) else old
     write_csv(pd.concat([keep_old, pd.DataFrame([{"url": j[0], "file": j[1], **{k: v.get(k, "") for k in VIS_COLS[2:8]},
-                                                   "cost": v.get("_cost", ""), "error": v.get("_error", "")}
+                                                   "cost": v.get("_cost", ""), "error": v.get("_error", ""),
+                                                   "found_ok": v.get("found_ok", "")}
                                                   for j, v in zip(todo, fresh)], columns=VIS_COLS)], ignore_index=True),
               vp)
 
