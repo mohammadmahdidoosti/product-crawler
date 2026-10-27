@@ -256,6 +256,12 @@ def fix_photos(cfg: dict, run: str) -> dict:
                     pic, _ = make(out, None, int(ic.get("size", 1000)), cutout=False)
                 rel = f"{k}/ai{mi}_{n}.webp"
                 pic.save(root / rel, "WEBP", quality=88, method=4)
+                # the edit is looked at before it is used: an edit of a 'فروخته شد' stamp is still a stamp
+                v = check(vmodel, f"{base}/img/{rel}", new.get(r["url"], {}).get("name", ""), key)
+                if _bad(v, False) or v.get("matches_name") is False:
+                    log.info("photo fix %s with %s: the edit still fails the check (%s)", r["url"][-40:], m,
+                             str(v.get("note") or "")[:60])
+                    continue
                 fixed = rel
                 notes.add(f"ai_fixed:{m.split('/')[-1]}")
                 break
