@@ -107,8 +107,11 @@ class WC:
         return self._call(lambda: self._wc("PUT", f"products/{pid}", json=data), f"update product {pid}")
 
     def products_page(self, page: int, per_page: int = 100, fields: str = "", status: str = "any") -> tuple[list, int, int]:
-        """One page of the catalog (read-only): (products, total, total_pages). Retries like _call."""
-        params = {"per_page": per_page, "page": page, "status": status, "orderby": "id", "order": "asc"}
+        """One page of the catalog (read-only): (products, total, total_pages). Retries like _call.
+        context=edit: the prices as stored (dollars). In the default 'view' context the site's
+        currency plugin (WebiCurrency) returns them already multiplied by the dollar rate (toman)."""
+        params = {"per_page": per_page, "page": page, "status": status, "orderby": "id", "order": "asc",
+                  "context": "edit"}
         if fields:
             params["_fields"] = fields
         last = None

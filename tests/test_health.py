@@ -53,6 +53,9 @@ class FakeShop(BaseHTTPRequestHandler):
         assert q.get("status") == "any" and q.get("_fields")
         per, page = int(q["per_page"]), int(q["page"])
         items = FakeShop.products[(page - 1) * per: page * per]
+        if q.get("context") != "edit":       # like the site's currency plugin: view prices come back in toman
+            items = [{**p, "regular_price": float(p["regular_price"] or 0) * 200000 or "",
+                      "price": float(p["price"] or 0) * 200000 or ""} for p in items]
         b = json.dumps(items, ensure_ascii=False).encode("utf-8")
         self.send_response(200)
         self.send_header("Content-Type", "application/json")
