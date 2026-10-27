@@ -32,7 +32,9 @@ NEGATIVE = [norm_text(w) for w in (
 # part words that make a part only when the name starts with them ('انکودر موتور ABB' is an encoder,
 # 'موتور بهران + انکودر' a motor with one)
 LEAD_PARTS = [norm_text(w) for w in ("انکودر", "ریموت", "تیغ", "تیغه", "پایه", "باتری", "برد", "کیت تعمیر", "روغن", "گریس",
-                                                 "چراغ", "کمان", "مته")]   # 'چراغ چشمی …' is a lamp, 'مته گردبر' a drill bit
+                                                 "چراغ", "کمان", "مته", "جاذغالی", "جا ذغالی", "جازغالی",
+                                                 "جا زغالی", "کشویی اتصال")]   # 'چراغ چشمی …' is a lamp, 'مته گردبر' a drill bit;
+# 'جاذغالی مینی فرز رونیکس 3112' is a part, not the grinder (batch 5)
 
 ORIGIN_WORDS = {norm_text(w) for w in ("آلمان", "آلمانی", "اصل", "اصلی", "اورجینال", "ایتالیا", "ایتالیایی", "ژاپن", "ژاپنی",
                                         "چین", "چینی", "ترکیه", "ترک", "کره", "کره‌ای", "تایوان", "تایوانی", "اروپایی",

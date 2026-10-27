@@ -202,6 +202,7 @@ td select,td input{padding:3px 6px;font-size:12.5px}
   </div>
   <nav class="nav" id="nav">
     <button data-tab="run" class="on"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="12" r="2.5"/><path d="M7.5 12h9"/></svg>مسیر اجرا</button>
+    <button data-tab="catalog"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 12h7M9 16h7"/></svg>کاتالوگ تأمین‌کننده</button>
     <button data-tab="routing"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h7l3 6-3 6H4"/><path d="M14 12h6"/></svg>مسیریابی</button>
     <button data-tab="results"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg>نتایج</button>
     <button data-tab="review"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/></svg>بازبینی</button>
@@ -289,6 +290,46 @@ td select,td input{padding:3px 6px;font-size:12.5px}
       </div>
       <div id="pubJob" class="muted" style="font-size:12.5px;margin-top:10px"></div>
       <div id="pubOut" style="margin-top:12px"></div>
+    </div>
+  </section>
+
+  <!-- ===================== CATALOG ===================== -->
+  <section class="page" id="page-catalog">
+    <div class="ph">
+      <div class="grow"><h1>کاتالوگ تأمین‌کننده</h1><p>لیست قیمت (PDF یا اکسل) را بدهید: هر جدول یک محصول می‌شود و ردیف‌هایی که فقط در سایز (یا ظرفیت، طول، …) فرق دارند، تنوع‌های همان محصول. مشخصات از خود جدول، عکس از سایت سازنده یا کاتالوگ یا جستجو، دسته و توضیحات، و ارسال به‌صورت پیش‌نویس. قیمت فقط به دلار در فیلد قیمت می‌رود؛ عدد تومانی فقط در متا می‌ماند.</p></div>
+    </div>
+    <div class="card">
+      <div class="row" style="align-items:flex-end">
+        <div class="field s" style="flex:0 0 200px"><label>نام اجرا</label><input id="ctRun" class="ltr" placeholder="catalog-garoosi"></div>
+        <div class="field"><label>فایل کاتالوگ (PDF / xlsx / csv)</label><input id="ctFile" type="file" accept=".pdf,.xlsx,.xlsm,.csv"></div>
+        <button class="btn ghost" id="ctOpen">باز کردن اجرای موجود</button>
+      </div>
+      <div class="row" style="align-items:flex-end;margin-top:10px">
+        <div class="field"><label>برند (سازنده)</label><input id="ctBrand" placeholder="گروسی"></div>
+        <div class="field"><label>تأمین‌کننده</label><input id="ctSupplier" placeholder="گروسی"></div>
+        <div class="field s" style="flex:0 0 140px"><label>واحد قیمت‌های کاتالوگ</label><select id="ctUnit"><option value="auto">از روی کاتالوگ</option><option value="toman">تومان</option><option value="rial">ریال</option><option value="usd">دلار</option></select></div>
+        <div class="field"><label>دسته (شناسه یا بخشی از مسیر؛ اختیاری)</label><input id="ctCat" placeholder="تجهیزات استخر"></div>
+        <div class="field"><label>سایت سازنده (برای عکس)</label><input id="ctMaker" class="ltr" placeholder="از روی کاتالوگ"></div>
+        <div class="field s" style="flex:0 0 110px"><label>ضریب قیمت</label><input id="ctFactor" type="number" step="0.01" value="1"></div>
+        <button class="btn ink" id="ctGo">ذخیره و پردازش</button>
+      </div>
+      <div id="ctMsg" class="muted" style="font-size:12.5px;margin-top:8px"></div>
+    </div>
+    <div class="card" id="ctCard" hidden>
+      <div class="row" style="align-items:center;margin-bottom:8px">
+        <h2 style="margin:0;flex:1">محصولات <small id="ctInfo"></small></h2>
+        <button class="btn ghost sm" data-ctsteps="structure,prices,category,describe">ساختار و قیمت دوباره</button>
+        <button class="btn ghost sm" data-ctsteps="photos">عکس‌ها</button>
+      </div>
+      <div class="tablewrap" style="max-height:640px"><table id="ctTable"></table></div>
+      <h3 style="margin:16px 0 0">ارسال به سایت <small class="muted">پیش‌نویس · قیمت دلاری · محصول متغیر</small></h3>
+      <div class="row" style="align-items:flex-end;margin-top:10px">
+        <div class="field s" style="flex:0 0 130px"><label>تعداد محصول</label><input id="ctLimit" type="number" min="0" value="3"></div>
+        <label class="cb"><input type="checkbox" id="ctDry" checked> فقط بررسی (چیزی ارسال نمی‌شود)</label>
+        <label class="cb"><input type="checkbox" id="ctAgain"> ارسال‌شده‌ها هم دوباره (به‌روزرسانی قیمت)</label>
+        <button class="btn ink" id="ctPub">ارسال</button>
+      </div>
+      <div id="ctJob" class="muted" style="font-size:12.5px;margin-top:10px"></div>
     </div>
   </section>
 
@@ -593,6 +634,7 @@ $('#nav').addEventListener('click', e=>{
   if(b.dataset.tab==='sellers') loadSellers();
   if(b.dataset.tab==='review') loadReview();
   if(b.dataset.tab==='routing') loadRouting();
+  if(b.dataset.tab==='catalog') loadCatalog();
   if(b.dataset.tab==='sources') loadSources();
   if(b.dataset.tab==='health') loadHealth();
 });
@@ -1198,6 +1240,73 @@ $('#hlDl').onclick = ()=>{ if(HL.report) location.href = `/api/health/${encodeUR
 $('#hlScan').onclick = async ()=>{
   try{ await post('/api/health/scan'); toast('بررسی شروع شد؛ فقط خواندن است و سایت تغییری نمی‌کند'); HL.report=''; HL.wasRunning=true; setTimeout(loadHealth, 1500); }
   catch(e){ toast(e.message,true); }
+};
+// ---------------- catalog
+const CT_ACT = {created:'ساخته شد', updated:'به‌روز شد', skipped:'ارسال نشد', error:'خطا', checked:'بررسی شد'};
+const ctRun = ()=> ($('#ctRun').value.trim() || LS.get('ctRun') || '');
+function ctFill(st){ if(!st) return;
+  $('#ctBrand').value=st.brand||''; $('#ctSupplier').value=st.supplier||''; $('#ctUnit').value=st.unit||'auto';
+  $('#ctCat').value=st.category||''; $('#ctMaker').value=st.maker_site||''; $('#ctFactor').value=st.price_factor||1; }
+async function loadCatalog(){
+  const run = ctRun(); if(!run) return; $('#ctRun').value = run;
+  let r; try{ r = await api('/api/catalog/'+encodeURIComponent(run)); }catch(e){ $('#ctMsg').textContent=e.message; return; }
+  if(!r.exists){ $('#ctCard').hidden=true; $('#ctMsg').textContent='این اجرا هنوز ساخته نشده؛ فایل را انتخاب و «ذخیره و پردازش» را بزنید.'; return; }
+  ctFill(r.settings);
+  const sm=r.summary||{}, rd=r.read||{};
+  $('#ctMsg').innerHTML = r.source ? `فایل: <b>${esc(r.settings.source||r.source)}</b>` + (rd.pages?` · ${fa(rd.pages)} صفحه، ${fa(rd.tables)} جدول`+(rd.reversed?' · متن فارسی PDF برعکس ذخیره شده بود و اصلاح شد':''):'') : 'فایلی بارگذاری نشده';
+  $('#ctCard').hidden = !r.products.length;
+  $('#ctInfo').textContent = r.products.length ? `${fa(sm.products)} محصول · ${fa(sm.variations)} تنوع · ${fa(sm.priced)} با قیمت دلاری · ${fa(sm.held)} نیازمند بررسی · ${fa(sm.with_category)} با دسته · ${fa(sm.with_photos)} با عکس` : '';
+  $('#ctTable').innerHTML = `<tr><th>محصول</th><th>تنوع‌ها (قیمت دلاری)</th><th>مشخصات مشترک</th><th>دسته</th><th>عکس</th><th>ارسال</th></tr>` + r.products.map(p=>{
+    const vs = p.variants.map(v=>`<div style="font-size:12px${v.check?';color:#a5571b':''}">${esc(Object.values(v.attributes).join(' · ')||'—')}: <b class="ltr">${v.price_usd?'$'+esc(v.price_usd):'—'}</b> <span class="muted ltr">(${esc(v.price_raw)} ${esc(v.price_unit)})</span>${v.check?` <span title="${esc(v.check)}">⚠</span>`:''}</div>`).join('');
+    const pub = p.publish||{};
+    return `<tr><td><b>${esc(p.family)}</b><div class="muted" style="font-size:11.5px">${esc(p.brand)} · صفحه ${fa(p.page)} · ${esc(p.attributes.join('، ')||'بدون تنوع')}</div></td>
+      <td>${vs}</td><td style="font-size:12px">${Object.entries(p.common).map(([k,v])=>`${esc(k)}: ${esc(v)}`).join('<br>')}</td>
+      <td style="font-size:12px">${esc(p.category.breadcrumb||'—')}<div class="muted">${esc(p.category.note||'')}</div>
+        <input class="ltr" data-ctcat="${esc(p.pkey)}" placeholder="شناسه دسته" style="width:110px;margin-top:4px"></td>
+      <td>${p.photos.slice(0,3).map(u=>`<img src="${esc(u)}" style="width:54px;height:54px;object-fit:contain;border:1px solid #ddd;border-radius:6px">`).join(' ')||'<span class="muted">—</span>'}<div class="muted" style="font-size:11px">${esc(p.photos_from||'')}</div></td>
+      <td style="font-size:12px">${pub.action?`${CT_ACT[pub.action]||esc(pub.action)}${pub.edit_url?` <a href="${esc(pub.edit_url)}" target="_blank" rel="noopener">#${esc(pub.product_id)}</a>`:''}<div class="muted">${esc((pub.error||'').slice(0,160))}</div>`:'<span class="muted">—</span>'}</td></tr>`;
+  }).join('');
+}
+async function ctWait(lane){
+  const t=setInterval(async ()=>{
+    let j; try{ j=await api('/api/job?lane='+lane); }catch(e){ return; }
+    const p=j.progress||{}, last=(j.logs||[]).slice(-1)[0]||'';
+    $('#ctJob').innerHTML = j.running ? `<b>در حال اجرا:</b> ${esc(p.step||j.step)} ${p.total?fa(p.done)+' از '+fa(p.total):''}<div class="ltr" style="font-size:11.5px">${esc(last)}</div>` :
+      `${j.ok?'تمام شد':'متوقف شد یا خطا داد'}${j.error?': '+esc(j.error):''}<div style="font-size:11.5px">${esc(last)}</div>`;
+    if(!j.running){ clearInterval(t); loadCatalog(); }
+  }, 2500);
+}
+async function ctSettings(run){
+  return post(`/api/catalog/${encodeURIComponent(run)}/settings`, {brand:$('#ctBrand').value, supplier:$('#ctSupplier').value,
+    unit:$('#ctUnit').value, category:$('#ctCat').value, maker_site:$('#ctMaker').value, price_factor:Number($('#ctFactor').value)||1});
+}
+$('#ctOpen').onclick = ()=>{ LS.set('ctRun', $('#ctRun').value.trim()); loadCatalog(); };
+$('#ctGo').onclick = async ()=>{
+  const run=$('#ctRun').value.trim(); if(!/^[\w\-]{1,60}$/.test(run)){ toast('نام اجرا: حروف انگلیسی، عدد و خط تیره (مثل catalog-garoosi)', true); return; }
+  LS.set('ctRun', run);
+  try{
+    await ctSettings(run);
+    const f=$('#ctFile').files[0];
+    if(f){ $('#ctMsg').textContent='در حال بارگذاری…'; await api(`/api/catalog/${encodeURIComponent(run)}/upload`, {method:'POST', body:f, headers:{'X-Filename':encodeURIComponent(f.name)}}); }
+    await post(`/api/catalog/${encodeURIComponent(run)}/run`, {}); toast('پردازش کاتالوگ شروع شد'); ctWait('crawl');
+  }catch(err){ toast(err.message,true); }
+};
+document.addEventListener('click', async e=>{
+  const b=e.target.closest('[data-ctsteps]'); if(!b) return;
+  try{ await ctSettings(ctRun()); await post(`/api/catalog/${encodeURIComponent(ctRun())}/run`, {steps:b.dataset.ctsteps.split(',')}); toast('شروع شد'); ctWait('crawl'); }
+  catch(err){ toast(err.message,true); }
+});
+document.addEventListener('change', async e=>{
+  const i=e.target.closest('[data-ctcat]'); if(!i) return;
+  try{ await post(`/api/catalog/${encodeURIComponent(ctRun())}/category`, {pkey:i.dataset.ctcat, taxonomy_id:i.value.trim()}); toast('دسته ذخیره شد'); loadCatalog(); }
+  catch(err){ toast(err.message,true); }
+});
+$('#ctPub').onclick = async ()=>{
+  const dry=$('#ctDry').checked;
+  if(!dry && !confirm('محصولات به‌صورت پیش‌نویس در سایت ساخته / به‌روز شوند؟')) return;
+  try{ await post(`/api/catalog/${encodeURIComponent(ctRun())}/publish`, {limit:Number($('#ctLimit').value)||0, dry_run:dry, republish:$('#ctAgain').checked});
+       toast(dry?'بررسی شروع شد':'ارسال شروع شد'); ctWait('site'); }
+  catch(err){ toast(err.message,true); }
 };
 
 loadState().then(()=>{ poll(); loadPub(); loadBrands(); });

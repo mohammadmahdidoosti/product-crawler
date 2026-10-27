@@ -8,6 +8,8 @@ page). Unsure matches go to a review file for a person to decide.
 """
 from __future__ import annotations
 
+import re
+
 import difflib
 import json
 from collections import Counter, defaultdict
@@ -111,7 +113,61 @@ def merge_crawl(df: pd.DataFrame, name_threshold: float = 0.9) -> pd.DataFrame:
         if k and k not in joined:
             joined[k] = g
         out.append(g)
-    return pd.DataFrame([_aggregate(g) for g in out])
+    return pd.DataFrame([_aggregate(g) for g in _join_same_code(out)])
+
+
+def _join_same_code(groups: list[list[dict]]) -> list[list[dict]]:
+    """The same maker code worded from another end: 'تفنگ میخ کوب رونیکس RH-0450', 'RH-0450 تفنگ
+    میخکوب رونیکس', 'میخ کوب رونیکس RH-0450' (batch 5: three products). A group joins another when
+    its first word is in a name there and a first word there is in its name (a first word that is the
+    code itself fits anything). 'نازل سشوار … CT19017' does not join the heat gun ('نازل' is not in
+    its name), and a name starting with an accessory or part word ('چاشنی …') never joins."""
+    out: list[list[dict]] = []
+    seen: dict[str, list[int]] = {}
+    info: dict[int, list[tuple[str, str]]] = {}          # index in out -> (head, flat name) of its members
+    for g in groups:
+        k = _cross_key(g[0])
+        parts = k.split("|") if k else []
+        mk = parts[1] if len(parts) >= 3 else ""
+        code = "|".join(parts[1:]) if mk else ""
+        name = norm_text(g[0].get("name"))
+        head = (name.split() or [""])[0]
+        flat = name.replace(" ", "")
+        strong = bool(mk and re.search(r"[a-z]", mk) and re.search(r"\d", mk) and len(mk) >= 5
+                      and not _accessory(name))
+        if strong:
+            latin = bool(re.match(r"[a-z0-9]", head))
+            def fits(i):
+                mine = latin or any(head in f for _, f in info[i])
+                theirs = latin or any(re.match(r"[a-z0-9]", h) or h in flat for h, _ in info[i])
+                return mine and theirs
+            hit = next((i for i in seen.get(code, []) if fits(i)), None)
+            if hit is not None:
+                out[hit] += g
+                info[hit].append((head, flat))
+                continue
+            seen.setdefault(code, []).append(len(out))
+            info[len(out)] = [(head, flat)]
+        out.append(g)
+    return out
+
+
+ACCESSORY = ("چاشنی", "میخ", "یدکی", "قطعه", "شارژر", "کیف", "جعبه", "سری", "کارتریج", "فیلتر", "پد", "تسمه",
+             "نازل", "سوزن")
+
+
+def _accessory(name: str) -> bool:
+    """'چاشنی تفنگ میخ کوب رونیکس RH-0450' or 'میخ تفنگ …' is for the tool, not the tool itself;
+    'میخ کوب …' is the tool."""
+    from .pipeline import PRICE_PART_LEADS
+    from .rules import LEAD_PARTS
+    w = name.split()
+    if not w:
+        return False
+    if w[0] == norm_text("میخ") and (w[1:2] or [""])[0] in (norm_text("کوب"), norm_text("کوبی")):
+        return False
+    lead = {norm_text(x) for x in ACCESSORY + PRICE_PART_LEADS} | set(LEAD_PARTS)
+    return any(name == x or name.startswith(x + " ") for x in lead)
 
 
 def _num(x) -> float | None:

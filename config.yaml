@@ -152,6 +152,13 @@ brands:                   # brand names for the site: 'آنتو (Antu)' (crawler
   model: deepseek/deepseek-v4.1-flash   # short trade name + Persian spelling, through OpenRouter
   batch_size: 40          # brands per request
 
+catalog:                  # a supplier's price list (PDF / Excel) -> variable products (crawler/catalog.py)
+  max_usd: 100000         # a variation priced above this many dollars is held (a toman figure that slipped through)
+  photos_from: maker,catalog,search   # in this order: the maker's own site, the catalog's pictures, image search
+  vision: true            # pages with no readable table: read by the vision model (OpenRouter), prices then checked by a person
+  category_model: true    # the language model picks the category among the closest taxonomy leaves (needs OPENROUTER_API_KEY)
+  # vision_model: deepseek/deepseek-v4.1-flash   # default: images.vision_model
+
 publish:                  # direct publishing to the WooCommerce site (crawler/publish.py)
   workers: 3              # products sent at the same time (photos + product); the shop's own visitors share the server
   pause_seconds: 0.5      # wait before each product, per worker
