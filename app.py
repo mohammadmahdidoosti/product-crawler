@@ -730,6 +730,36 @@ def backup_zip() -> bytes:
     return buf.getvalue()
 
 
+_EXPORT: dict[str, float] = {}          # one-time tokens for moving the whole data folder to another server
+
+
+def export_token() -> str:
+    """A token (2 hours) that lets another server download the whole data folder once, so no
+    password has to be typed on that server."""
+    import secrets
+    t = secrets.token_urlsafe(32)
+    _EXPORT.clear()
+    _EXPORT[t] = time.time() + 7200
+    return t
+
+
+def export_ok(token: str) -> bool:
+    exp = _EXPORT.get(token or "")
+    return bool(exp and exp > time.time())
+
+
+def stream_data_tar(wfile, skip_cache: bool = True) -> None:
+    """The whole DATA_DIR as tar.gz, written as it is read (photos included; the download cache
+    and the models are left out: they come back by themselves)."""
+    import tarfile
+    skip = {"cache", "models", "tmp", "__pycache__"} if skip_cache else set()
+    with tarfile.open(fileobj=wfile, mode="w|gz", compresslevel=1) as tar:
+        for p in sorted(DATA_DIR.iterdir()):
+            if p.name in skip:
+                continue
+            tar.add(p, arcname=p.name)
+
+
 def restore_zip(data: bytes) -> list[str]:
     names = []
     with zipfile.ZipFile(io.BytesIO(data)) as z:
@@ -755,7 +785,7 @@ class Handler(BaseHTTPRequestHandler):
     server_version = "CaravanCrawler/0.1"
 
     def log_message(self, fmt, *args):
-        if not self.path.startswith(("/api/job", "/healthz")):
+        if not self.path.startswith(("/api/job", "/healthz", "/api/export-data")):   # no token in the log
             log.info("%s %s", self.command, self.path)
 
     # --- auth
@@ -763,6 +793,8 @@ class Handler(BaseHTTPRequestHandler):
         # product photos are public: the WooCommerce importer on the site fetches them
         if not APP_PASSWORD or self.path == "/healthz" or self.path.startswith("/img/"):
             return True
+        if self.path.startswith("/api/export-data?") and self.command == "GET":
+            return export_ok(parse_qs(urlparse(self.path).query).get("token", [""])[0])
         h = self.headers.get("Authorization", "")
         if h.startswith("Basic "):
             try:
@@ -1015,6 +1047,20 @@ class Handler(BaseHTTPRequestHandler):
                 if not p_.exists():
                     return self._err("جدول برندها هنوز ساخته نشده", 404)
                 return self._download(p_.read_bytes(), "caravan-brands.csv", "text/csv; charset=utf-8")
+            if parts[:2] == ["api", "export-data"]:     # the whole data folder (moving to another server)
+                if not export_ok(q.get("token", "")):
+                    return self._deny()
+                if any(j.state["running"] for j in JOBS.values()):
+                    return self._err("یک کار در حال اجراست؛ بعد از تمام شدنش دوباره بزنید.", 409)
+                self.send_response(200)
+                self.send_header("Content-Type", "application/gzip")
+                self.send_header("Content-Disposition", "attachment; filename=caravan-data.tar.gz")
+                self.send_header("Connection", "close")
+                self.end_headers()
+                _EXPORT.clear()                              # one download per token
+                stream_data_tar(self.wfile)
+                self.close_connection = True
+                return None
             if parts[:2] == ["api", "backup"]:
                 return self._download(backup_zip(), f"caravan-backup-{time.strftime('%Y%m%d-%H%M')}.zip",
                                       "application/zip")
@@ -1068,6 +1114,8 @@ class Handler(BaseHTTPRequestHandler):
         u = urlparse(self.path)
         parts = [unquote(p) for p in u.path.strip("/").split("/") if p]
         try:
+            if parts == ["api", "export-token"]:      # see stream_data_tar: one download, 2 hours
+                return self._json({"token": export_token(), "valid_seconds": 7200})
             if parts[:2] == ["api", "upload"] and len(parts) == 3:
                 kind = parts[2]
                 if kind not in ("taxonomy", "site"):
