@@ -355,6 +355,7 @@ td select,td input{padding:3px 6px;font-size:12.5px}
         <button class="btn ink" id="ctGo">ذخیره و پردازش</button>
       </div>
       <div id="ctMsg" class="muted" style="font-size:12.5px;margin-top:8px"></div>
+      <div id="ctJob" class="muted" style="font-size:12.5px;margin-top:6px"></div>
     </div>
     <div class="card" id="ctCard" hidden>
       <div class="row" style="align-items:center;margin-bottom:8px">
@@ -370,7 +371,6 @@ td select,td input{padding:3px 6px;font-size:12.5px}
         <label class="cb"><input type="checkbox" id="ctAgain"> ارسال‌شده‌ها هم دوباره (به‌روزرسانی قیمت)</label>
         <button class="btn ink" id="ctPub">ارسال</button>
       </div>
-      <div id="ctJob" class="muted" style="font-size:12.5px;margin-top:10px"></div>
     </div>
   </section>
 
@@ -1389,6 +1389,7 @@ $('#hlScan').onclick = async ()=>{
   catch(e){ toast(e.message,true); }
 };
 // ---------------- catalog
+let CT_FILLED = '';
 const CT_ACT = {created:'ساخته شد', updated:'به‌روز شد', skipped:'ارسال نشد', error:'خطا', checked:'بررسی شد'};
 // run name: what is typed (spaces -> '-'), else the last catalog run, else a new one by date; the
 // field is filled in so the name in use is always visible (the grey text is only an example)
@@ -1405,7 +1406,7 @@ async function loadCatalog(){
   const run = ctRun(); if(!run) return; $('#ctRun').value = run;
   let r; try{ r = await api('/api/catalog/'+encodeURIComponent(run)); }catch(e){ $('#ctMsg').textContent=e.message; return; }
   if(!r.exists){ $('#ctCard').hidden=true; $('#ctMsg').textContent='این اجرا هنوز ساخته نشده؛ فایل را انتخاب و «ذخیره و پردازش» را بزنید.'; return; }
-  ctFill(r.settings);
+  if(CT_FILLED !== run){ ctFill(r.settings); CT_FILLED = run; }      // not while someone is typing in them
   const sm=r.summary||{}, rd=r.read||{};
   $('#ctMsg').innerHTML = r.source ? `فایل: <b>${esc(r.settings.source||r.source)}</b>` + (rd.pages?` · ${fa(rd.pages)} صفحه، ${fa(rd.tables)} جدول`+(rd.reversed?' · متن فارسی PDF برعکس ذخیره شده بود و اصلاح شد':''):'') : 'فایلی بارگذاری نشده';
   $('#ctCard').hidden = !r.products.length;
@@ -1421,13 +1422,18 @@ async function loadCatalog(){
       <td style="font-size:12px">${pub.action?`${CT_ACT[pub.action]||esc(pub.action)}${pub.edit_url?` <a href="${esc(pub.edit_url)}" target="_blank" rel="noopener">#${esc(pub.product_id)}</a>`:''}<div class="muted">${esc((pub.error||'').slice(0,160))}</div>`:'<span class="muted">—</span>'}</td></tr>`;
   }).join('');
 }
+const CT_STEP = {read:'خواندن فایل', structure:'ساختار و تنوع‌ها', prices:'قیمت دلاری', category:'دسته', photos:'عکس‌ها (سایت سازنده، کاتالوگ، جستجو)', describe:'توضیحات'};
 async function ctWait(lane){
   const t=setInterval(async ()=>{
     let j; try{ j=await api('/api/job?lane='+lane); }catch(e){ return; }
     const p=j.progress||{}, last=(j.logs||[]).slice(-1)[0]||'';
-    $('#ctJob').innerHTML = j.running ? `<b>در حال اجرا:</b> ${esc(p.step||j.step)} ${p.total?fa(p.done)+' از '+fa(p.total):''}<div class="ltr" style="font-size:11.5px">${esc(last)}</div>` :
+    const st=String(p.step||j.step||'').replace(/^catalog\s*/,'');
+    const stFa = CT_STEP[st] || (st==='catalog photos' || st==='photos' ? CT_STEP.photos : st);
+    const secs = j.started ? Math.round(Date.now()/1000 - j.started) : 0;
+    $('#ctJob').innerHTML = j.running ? `<b>در حال اجرا:</b> ${esc(stFa)} ${p.total&&st.includes('photo')?fa(p.done)+' از '+fa(p.total)+' محصول':''} <span class="muted">(${fa(secs)} ثانیه)</span><div class="ltr" style="font-size:11.5px">${esc(last)}</div>` :
       `${j.ok?'تمام شد':'متوقف شد یا خطا داد'}${j.error?': '+esc(j.error):''}<div style="font-size:11.5px">${esc(last)}</div>`;
     if(!j.running){ clearInterval(t); loadCatalog(); }
+    else if((t._n=(t._n||0)+1) % 4 === 0) loadCatalog();     // products show up as soon as they are made
   }, 2500);
 }
 async function ctSettings(run){
@@ -1442,8 +1448,8 @@ $('#ctGo').onclick = async ()=>{
   try{
     await ctSettings(run);
     const f=$('#ctFile').files[0];
-    if(f){ $('#ctMsg').textContent='در حال بارگذاری…'; await api(`/api/catalog/${encodeURIComponent(run)}/upload`, {method:'POST', body:f, headers:{'X-Filename':encodeURIComponent(f.name)}}); }
-    await post(`/api/catalog/${encodeURIComponent(run)}/run`, {}); toast('پردازش کاتالوگ شروع شد'); ctWait('crawl');
+    if(f){ $('#ctMsg').textContent='در حال بارگذاری فایل…'; await api(`/api/catalog/${encodeURIComponent(run)}/upload`, {method:'POST', body:f, headers:{'X-Filename':encodeURIComponent(f.name)}}); }
+    await post(`/api/catalog/${encodeURIComponent(run)}/run`, {}); $('#ctMsg').textContent='فایل بارگذاری شد؛ پردازش شروع شد.'; toast('پردازش کاتالوگ شروع شد'); ctWait('crawl');
   }catch(err){ toast(err.message,true); }
 };
 document.addEventListener('click', async e=>{
