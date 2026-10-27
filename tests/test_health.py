@@ -137,6 +137,14 @@ class Health(unittest.TestCase):
         self.assertEqual(res["new_since_previous"]["fixed"], 1)
         self.assertEqual(H.reports(self.cfg), ["2026-10-28_0330", "2026-10-27_0330"])
 
+    def test_running_scan_is_not_listed(self):
+        H.scan(self.cfg, now=datetime(2026, 10, 27, 3, 30, tzinfo=TEH))
+        seen = []
+        H.scan(self.cfg, now=datetime(2026, 10, 28, 3, 30, tzinfo=TEH),
+               progress=lambda d, t: seen.append(H.reports(self.cfg)))
+        self.assertTrue(seen and all(r == ["2026-10-27_0330"] for r in seen))   # while scanning: the last finished one
+        self.assertEqual(H.reports(self.cfg)[0], "2026-10-28_0330")
+
     def test_stop_marks_incomplete(self):
         res = H.scan(self.cfg, stop=lambda: True, now=datetime(2026, 10, 27, 3, 30, tzinfo=TEH))
         self.assertFalse(res["complete"])

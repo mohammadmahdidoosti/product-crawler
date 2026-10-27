@@ -126,8 +126,10 @@ def row_of(p: dict, base: str, probs: list[str], notes: list[str]) -> dict:
 
 
 def reports(cfg: dict) -> list[str]:
-    """Report folders, newest first."""
-    return sorted((d.name for d in health_dir(cfg).iterdir() if d.is_dir() and REPORT.match(d.name)), reverse=True)
+    """Finished reports, newest first. The folder of a scan still running has no summary.json yet:
+    it is not offered (the page asked for its summary and showed «گزارش پیدا نشد»)."""
+    return sorted((d.name for d in health_dir(cfg).iterdir()
+                   if d.is_dir() and REPORT.match(d.name) and (d / "summary.json").exists()), reverse=True)
 
 
 def summary_of(cfg: dict, name: str) -> dict | None:
