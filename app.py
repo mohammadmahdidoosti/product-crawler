@@ -821,6 +821,40 @@ class Handler(BaseHTTPRequestHandler):
                     off, lim = int(q.get("offset") or 0), min(int(q.get("limit") or 100), 500)
                     return self._json({"rows": df.iloc[off:off + lim].to_dict("records"), "matched": len(df), "offset": off})
                 return self._err("not found", 404)
+            if parts[:2] == ["api", "searches"]:        # the site's failed searches (WebiSearch CSV), for approval
+                from crawler import searches as SR
+                cfg = build_cfg()
+                if len(parts) == 2:
+                    r = SR.review(cfg)
+                    f = q.get("filter") or "all"
+                    if f in ("approve", "check", "reject"):
+                        r = r[r["proposal"] == f]
+                    elif f == "doubt":
+                        r = r[r["doubt"] == "yes"]
+                    elif f == "undecided":
+                        r = r[r["decision"] == ""]
+                    elif f == "approved":
+                        r = r[r["decision"] == "approved"]
+                    elif f == "rejected":
+                        r = r[r["decision"] == "rejected"]
+                    elif f == "no_category":
+                        r = r[(r["taxonomy_id"] == "") & (r["decision"] != "rejected")]
+                    if q.get("q"):
+                        needle = q["q"].strip().lower()
+                        r = r[r.apply(lambda x: needle in " ".join(map(str, x.values)).lower(), axis=1)]
+                    off, lim = int(q.get("offset") or 0), min(int(q.get("limit") or 100), 500)
+                    sm = SR.summary(cfg)
+                    return self._json({**sm, "total": sm["rows"], "matched": len(r), "offset": off,
+                                       "rows": r.iloc[off:off + lim].to_dict("records")})
+                if parts[2] == "taxonomy":
+                    tax = SR.load_tax(cfg)
+                    return self._json({"rows": SR.TaxIndex(tax, cfg).search(q.get("q") or "") if tax is not None else []})
+                if parts[2] == "download":
+                    buf = io.StringIO()
+                    SR.review(cfg).to_csv(buf, index=False)
+                    return self._download(("\ufeff" + buf.getvalue()).encode("utf-8"), "caravan-failed-searches.csv",
+                                          "text/csv; charset=utf-8")
+                return self._err("not found", 404)
             if parts[:2] == ["api", "shops"]:           # promising shops (read-only report)
                 from crawler import shops as S
                 cfg = build_cfg()
@@ -1066,6 +1100,23 @@ class Handler(BaseHTTPRequestHandler):
             if parts == ["api", "health", "scan"]:      # read-only: nothing on the site changes
                 err = start_job("health", "health", {})
                 return self._err(err, 409) if err else self._json({"ok": True})
+            if parts[:2] == ["api", "searches"] and len(parts) == 3:
+                from crawler import searches as SR
+                cfg = build_cfg()
+                if parts[2] == "upload":                 # the plugin's CSV: nothing on the site is touched
+                    return self._json(SR.upload(cfg, self._body(), unquote(self.headers.get("X-Filename", "")),
+                                                read_table=read_any_table))
+                if parts[2] == "rebuild":
+                    return self._json(SR.rebuild(cfg))
+                if parts[2] == "decide":                 # [{key, decision, query?, taxonomy_id?}]
+                    return self._json(SR.decide(cfg, self._jbody().get("rows") or []))
+                if parts[2] == "queue":                  # approved rows -> a crawl run; {"start": true} also starts it
+                    res = SR.make_queue(cfg)
+                    if self._jbody().get("start"):
+                        err = start_job("all", res["run"], {"keep_queue": True})
+                        res["started"], res["start_error"] = not err, err or ""
+                    return self._json(res)
+                return self._err("not found", 404)
             if parts == ["api", "shops", "scan"]:       # read-only: no crawl starts, nothing on the site changes
                 err = start_job("shops", "shops", {"check": self._jbody().get("check", True) is not False})
                 return self._err(err, 409) if err else self._json({"ok": True})

@@ -173,3 +173,9 @@ shops:                    # promising shops (crawler/shops.py): read-only; built
   # check_top: 30         # the top N shops get a read-only crawlability check (robots, Store API, Woo search)
   # keep_reports: 20      # older reports are deleted (DATA_DIR/shops/)
   # unknown_doubt_share: 0.5   # more than this share of a shop's products with an unknown match -> doubt
+
+searches:                 # failed site searches (crawler/searches.py): WebiSearch CSV -> approval -> crawl queue
+  match_min: 0.75         # category match at or above this: proposed for approval
+  match_doubt: 0.5        # between this and match_min: shown, but marked weak; below it: no category
+  typing_minutes: 5       # alike searches within these minutes are one search typed several ways
+  max_queries_per_category: 3   # approved terms searched per category (the first + 2 more)
