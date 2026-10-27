@@ -129,6 +129,43 @@ tr:hover td{background:#fbf8f1}
 .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 .chip small{color:var(--muted);margin-right:5px}
 .chip.on small{color:#c5ccd6}
+.hl-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.hl-tile{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:#fff;cursor:pointer;text-align:right;font:inherit;color:var(--text)}
+.hl-tile:hover{border-color:#d8c49d}
+.hl-tile.on{border-color:var(--ink);box-shadow:inset 0 -3px 0 var(--gold)}
+.hl-tile b{display:block;font-size:22px;font-weight:800;line-height:1.4}
+.hl-tile span{font-size:12.5px;color:var(--muted)}
+.hl-tile em{font-style:normal;font-size:11.5px;color:var(--warn);display:block}
+.hl-tile.doubt b{color:var(--warn)}
+.sr-q{width:100%;min-width:110px;max-width:220px;border:1px solid var(--line);border-radius:6px;padding:3px 8px;font-size:13px}
+.sr-act{display:flex;gap:4px;white-space:nowrap}
+.sr-act button{border:1px solid var(--line);background:#fff;border-radius:6px;padding:2px 9px;cursor:pointer;font-size:13px}
+.sr-act button.yes.on{background:var(--ok);border-color:var(--ok);color:#fff}
+.sr-act button.no.on{background:var(--bad);border-color:var(--bad);color:#fff}
+.sr-cat{font-size:12.5px}
+.sr-cat button{border:0;background:none;color:var(--gold-d);cursor:pointer;padding:0;font-size:12px;text-decoration:underline}
+.sr-mem{display:block;font-size:11.5px;color:var(--muted)}
+.tag{display:inline-block;border-radius:999px;padding:0 8px;font-size:11.5px;border:1px solid var(--line);color:var(--muted);white-space:nowrap}
+.tag.approve{color:var(--ok);border-color:#b9d8c9}.tag.reject{color:var(--bad);border-color:#e3bdb9}.tag.check{color:var(--warn);border-color:#e7d1a8}
+.picker{position:fixed;inset:0;background:rgba(29,40,54,.35);display:flex;align-items:flex-start;justify-content:center;padding:60px 16px;z-index:50}
+.picker[hidden]{display:none}
+.picker .box{background:#fff;border-radius:12px;width:min(620px,100%);max-height:80vh;overflow:auto;padding:16px 18px}
+.picker .opt{display:block;width:100%;text-align:right;border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;margin-top:6px;cursor:pointer;font-size:13px}
+.picker .opt:hover{border-color:var(--gold)}
+.sh-num{text-align:center;white-space:nowrap}
+.sh-num b{font-weight:800}
+.sh-tag{display:inline-block;border-radius:999px;padding:0 9px;font-size:12px;line-height:1.9;white-space:nowrap;border:1px solid var(--line);background:#fff}
+.sh-tag.ok{color:var(--ok);border-color:#bcdcc9;background:#f2f8f4}
+.sh-tag.no{color:var(--bad);border-color:#e3b4ae;background:#fbf3f2}
+.sh-tag.src{color:var(--gold-d);border-color:#d8c49d;background:var(--sand-2)}
+#shTable td{vertical-align:top}
+#srTable td{white-space:normal;vertical-align:top;max-width:260px}
+#srTable td:last-child{white-space:nowrap}
+#shTable .cats{font-size:12.5px;min-width:140px;max-width:200px;white-space:normal}
+#shTable .shop{min-width:190px;max-width:280px;white-space:normal}
+#shTable .note{font-size:12px;line-height:1.6;margin-top:4px}
+#shTable th.sh-num{white-space:normal;min-width:68px;line-height:1.4}
+.sh-tag.doubt{color:var(--warn);border-color:#e6cf9f;background:#fbf6ea}
 .drop{display:block;border:2px dashed #d8c49d;border-radius:12px;padding:20px;text-align:center;color:var(--gold-d);cursor:pointer;background:var(--sand-2);font-weight:500}
 .drop:hover{background:var(--sand)}
 .drop input{display:none}
@@ -199,6 +236,9 @@ td select,td input{padding:3px 6px;font-size:12.5px}
     <button data-tab="results"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg>نتایج</button>
     <button data-tab="review"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/></svg>بازبینی</button>
     <button data-tab="sellers"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l2-6h12l2 6M4 10h16v10H4zM9 20v-5h6v5"/></svg>تأمین‌کننده‌ها</button>
+    <button data-tab="health"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l2-5 4 10 2-5h6"/></svg>سلامت سایت</button>
+    <button data-tab="shops"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l1.5-5h15L21 9M3 9h18v2a3 3 0 01-6 0 3 3 0 01-6 0 3 3 0 01-6 0zM5 13v7h14v-7"/></svg>فروشگاه‌های مستعد</button>
+    <button data-tab="searches"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L20 20M8 8l4 4M12 8l-4 4"/></svg>جستجوهای بی‌جواب</button>
     <button data-tab="sources"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg>سایت‌های منبع</button>
     <button data-tab="setup"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>داده و تنظیمات</button>
   </nav>
@@ -414,6 +454,108 @@ td select,td input{padding:3px 6px;font-size:12.5px}
     </div>
   </section>
 
+  <!-- ===================== HEALTH ===================== -->
+  <section class="page" id="page-health">
+    <div class="ph">
+      <div class="grow"><h1>سلامت سایت</h1><p>هر شب همه‌ی محصولات سایت خوانده می‌شوند و محصولات بی‌عکس، بی‌توضیح و بی‌دسته فهرست می‌شوند. این بررسی فقط می‌خواند و هیچ چیزی را در سایت تغییر نمی‌دهد. موارد نارنجی مشکوک‌اند و تصمیمشان با شماست.</p></div>
+      <div class="field s" style="flex:0 0 200px"><label>گزارش</label><select id="hlReport"></select></div>
+      <button class="btn" id="hlScan">بررسی همین حالا</button>
+    </div>
+    <div class="card">
+      <div class="summary" id="hlSummary" style="margin:0 0 14px"></div>
+      <div class="hl-tiles" id="hlTiles"></div>
+    </div>
+    <div class="card">
+      <div class="row" style="margin:0 0 10px">
+        <div class="field"><input id="hlQ" placeholder="جستجو در فهرست: نام، SKU، دسته…"></div>
+        <button class="btn ghost" id="hlDl">دانلود این فهرست</button>
+      </div>
+      <div class="muted" id="hlInfo" style="font-size:12.5px;margin-bottom:8px"></div>
+      <div class="tablewrap"><table id="hlTable"></table></div>
+      <div class="row" style="margin-top:12px;justify-content:center">
+        <button class="btn ghost sm" id="hlPrev">قبلی</button><button class="btn ghost sm" id="hlNext">بعدی</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROMISING SHOPS ===================== -->
+  <section class="page" id="page-shops">
+    <div class="ph">
+      <div class="grow"><h1>فروشگاه‌های مستعد</h1><p>فروشگاه‌هایی که در کراول‌های قبلی دیده شده‌اند و محصولات زیادی دارند که در سایت ما نیست. این گزارش فقط داده‌های روی سرور را می‌خواند (و برای فروشگاه‌های بالای فهرست فقط بررسی می‌کند که خواندنشان ممکن است)؛ کراول کامل یک فروشگاه فقط بعد از تأیید شما در مرحله‌ی بعد انجام می‌شود.</p></div>
+      <div class="field s" style="flex:0 0 200px"><label>گزارش</label><select id="shReport"></select></div>
+      <button class="btn" id="shScan">ساختن گزارش</button>
+    </div>
+    <div class="card">
+      <div class="summary" id="shSummary" style="margin:0 0 12px"></div>
+      <div class="chips" id="shFilter">
+        <button class="chip on" data-f="all">همه <small id="shC-all"></small></button>
+        <button class="chip" data-f="crawlable">قابل کراول <small id="shC-crawlable"></small></button>
+        <button class="chip" data-f="doubt">مشکوک <small id="shC-doubt"></small></button>
+        <button class="chip" data-f="source">همین حالا منبع است <small id="shC-source"></small></button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row" style="margin:0 0 10px">
+        <div class="field"><input id="shQ" placeholder="جستجو: دامنه، فروشنده، دسته…"></div>
+        <button class="btn ghost" id="shDl">دانلود این فهرست</button>
+      </div>
+      <div class="muted" id="shInfo" style="font-size:12.5px;margin-bottom:8px"></div>
+      <div class="tablewrap"><table id="shTable"></table></div>
+      <div class="row" style="margin-top:12px;justify-content:center">
+        <button class="btn ghost sm" id="shPrev">قبلی</button><button class="btn ghost sm" id="shNext">بعدی</button>
+      </div>
+      <div class="muted" id="shFormula" style="font-size:12px;margin-top:10px"></div>
+    </div>
+  </section>
+
+  <!-- ===================== FAILED SEARCHES ===================== -->
+  <section class="page" id="page-searches">
+    <div class="ph">
+      <div class="grow"><h1>جستجوهای بی‌جواب</h1><p>چیزهایی که مشتری‌ها در سایت جستجو کردند و پیدا نکردند. فایل CSV را از پیشخوان وردپرس بگیرید: ثبت کننده جستجو ← جستجوهای بی‌نتیجه ← «در محصولات شما نیست» ← «خروجی همین فهرست (CSV)». فهرست اینجا پاک‌سازی می‌شود و هر ردیف منتظر تصمیم شماست؛ فقط ردیف‌های تأییدشده به کراول می‌روند و به سایت دست زده نمی‌شود.</p></div>
+      <label class="btn">بارگذاری فایل CSV<input type="file" id="srFile" accept=".csv,.xlsx,.txt" hidden></label>
+      <button class="btn ghost" id="srDl">دانلود فهرست</button>
+    </div>
+    <div class="card">
+      <div class="summary" id="srSummary" style="margin:0 0 12px"></div>
+      <div class="chips" id="srFilter">
+        <button class="chip on" data-f="all">همه <small id="srC-all"></small></button>
+        <button class="chip" data-f="undecided">منتظر تصمیم <small id="srC-undecided"></small></button>
+        <button class="chip" data-f="approve">پیشنهاد: تأیید <small id="srC-approve"></small></button>
+        <button class="chip" data-f="check">بررسی لازم <small id="srC-check"></small></button>
+        <button class="chip" data-f="reject">پیشنهاد: رد <small id="srC-reject"></small></button>
+        <button class="chip" data-f="no_category">بی‌دسته <small></small></button>
+        <button class="chip" data-f="approved">تأییدشده <small id="srC-approved"></small></button>
+        <button class="chip" data-f="rejected">ردشده <small id="srC-rejected"></small></button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row" style="margin:0 0 10px">
+        <div class="field"><input id="srQ" placeholder="جستجو در فهرست…"></div>
+        <button class="btn ghost" id="srBulk">تأیید پیشنهادهای «تأیید» در این صفحه</button>
+      </div>
+      <div class="muted" id="srInfo" style="font-size:12.5px;margin-bottom:8px"></div>
+      <div class="tablewrap"><table id="srTable"></table></div>
+      <div class="row" style="margin-top:12px;justify-content:center">
+        <button class="btn ghost sm" id="srPrev">قبلی</button><button class="btn ghost sm" id="srNext">بعدی</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="margin:0 0 6px">ساختن صف کراول</h3>
+      <p class="muted" style="margin:0 0 10px;font-size:13px" id="srQueueInfo"></p>
+      <div class="row">
+        <button class="btn ghost" id="srQueue">ساختن صف (بدون شروع)</button>
+        <button class="btn" id="srQueueRun">ساختن صف و شروع کراول</button>
+      </div>
+      <p class="muted" style="margin:10px 0 0;font-size:12.5px">کراول فقط محصول پیدا می‌کند و فایل‌ها را می‌سازد؛ انتشار در سایت مثل همیشه کار جداگانه‌ای است که خودتان در «مسیر اجرا» می‌زنید.</p>
+    </div>
+    <div class="picker" id="srPicker" hidden><div class="box">
+      <div class="row" style="margin:0 0 8px;align-items:center"><b class="grow" id="srPickTitle">انتخاب دسته</b><button class="btn ghost sm" id="srPickClose">بستن</button></div>
+      <div class="field"><input id="srPickQ" placeholder="نام دسته را بنویسید…"></div>
+      <div id="srPickList"></div>
+      <button class="opt" id="srPickNone" style="color:var(--bad)">بدون دسته (فعلاً کراول نمی‌شود)</button>
+    </div></div>
+  </section>
+
   <!-- ===================== SOURCES ===================== -->
   <section class="page" id="page-sources">
     <div class="ph"><div class="grow"><h1>سایت‌های منبع</h1><p>کراولر فقط در همین سایت‌ها جستجو می‌کند. هر سایت را اول تست کنید تا نوعش خودکار معلوم شود.</p></div></div>
@@ -603,6 +745,9 @@ $('#nav').addEventListener('click', e=>{
   if(b.dataset.tab==='routing') loadRouting();
   if(b.dataset.tab==='catalog') loadCatalog();
   if(b.dataset.tab==='sources') loadSources();
+  if(b.dataset.tab==='health') loadHealth();
+  if(b.dataset.tab==='shops') loadShops();
+  if(b.dataset.tab==='searches') loadSearches();
 });
 document.addEventListener('click', e=>{ const a=e.target.closest('[data-go]'); if(a){ e.preventDefault(); go(a.dataset.go); } });
 
@@ -1147,6 +1292,66 @@ $('#restFile').onchange = async ()=>{
   try{ const r=await api('/api/restore',{method:'POST', body:f}); toast(`${fa(r.restored.length)} فایل بازگردانی شد`); loadState(); }catch(err){ toast(err.message,true); }
 };
 
+// ---------------- site health (read-only scans)
+const HL = {report:'', problem:'', offset:0, data:null, wasRunning:false};
+const HL_STATUS = {publish:'منتشر', draft:'پیش‌نویس', pending:'در انتظار', private:'خصوصی'};
+async function loadHealth(){
+  let r; try{ r = await api('/api/health'); }catch(e){ toast(e.message,true); return; }
+  HL.data = r;
+  const j = r.job||{};
+  $('#hlScan').disabled = !!j.running;
+  $('#hlScan').textContent = j.running ? `در حال بررسی… ${fa((j.progress||{}).done)} از ${fa((j.progress||{}).total)}` : 'بررسی همین حالا';
+  const sel = $('#hlReport');
+  sel.innerHTML = (r.reports||[]).map(x=>`<option value="${esc(x.name)}">${esc(x.name.replace('_',' ساعت '))}${x.complete===false?' (ناقص)':''}</option>`).join('');
+  if(!(r.reports||[]).length){
+    $('#hlSummary').innerHTML = `<span>هنوز گزارشی نیست. بررسی شبانه ساعت <b>${esc((r.schedule||{}).at)}</b> به وقت تهران اجرا می‌شود؛ یا «بررسی همین حالا» را بزنید.</span>`;
+    $('#hlTiles').innerHTML=''; $('#hlTable').innerHTML=''; $('#hlInfo').textContent=''; return;
+  }
+  if(!HL.report || !r.reports.some(x=>x.name===HL.report)) HL.report = r.reports[0].name;
+  sel.value = HL.report;
+  await renderHealthSummary();
+  if(j.running){ HL.wasRunning=true; setTimeout(()=>{ if($('#page-health').classList.contains('on')) loadHealth(); }, 3000); }
+  else if(HL.wasRunning){ HL.wasRunning=false; toast(j.ok?'بررسی سلامت تمام شد':'بررسی سلامت کامل نشد', !j.ok); }
+}
+async function renderHealthSummary(){
+  const s = HL.report===((HL.data||{}).latest||{}).report ? HL.data.latest : await fetchHealthSummary(HL.report);
+  const sched = (HL.data||{}).schedule||{};
+  const ns = s.new_since_previous||{};
+  $('#hlSummary').innerHTML = `<span><b>${fa(s.products_read)}</b> محصول خوانده شد</span><span><b>${fa(s.with_problems)}</b> با مشکل</span>`+
+    `<span><b>${fa(s.doubtful_only)}</b> فقط مشکوک</span>`+(s.previous?`<span>نسبت به بررسی قبل: <b>${fa(ns.fixed)}</b> محصول درست شد</span>`:'')+
+    `<span>بررسی شبانه: ${sched.nightly?`ساعت <b>${esc(sched.at)}</b> تهران`:'<b>خاموش</b>'}</span>`+(s.complete===false?'<span class="warn">این گزارش ناقص است (وسط کار متوقف شد)</span>':'');
+  const labels = s.labels||{}, doubtful = new Set(s.doubtful||[]), counts = s.counts||{};
+  const tile = (k, n, label, extra) => `<button class="hl-tile${HL.problem===k?' on':''}${doubtful.has(k)||k==='doubt'?' doubt':''}" data-p="${k}"><b>${fa(n)}</b><span>${esc(label)}</span>${extra||''}</button>`;
+  const statusLine = k => { const b=(s.by_problem_status||{})[k]||{}; const pub=b.publish||0, rest=Object.values(b).reduce((a,x)=>a+x,0)-pub; return rest?`<em>${fa(pub)} منتشر، ${fa(rest)} غیرمنتشر</em>`:''; };
+  $('#hlTiles').innerHTML = tile('', s.with_problems, 'همه‌ی مشکل‌ها') +
+    Object.keys(labels).map(k=>tile(k, counts[k], labels[k], (ns[k]?`<em>${fa(ns[k])} تازه</em>`:'')+statusLine(k))).join('') +
+    tile('doubt', s.doubtful_only, 'فقط مشکوک (تصمیم با شما)');
+  HL.offset = 0; loadHealthRows();
+}
+async function loadHealthRows(){
+  if(!HL.report) return;
+  const qs = new URLSearchParams({problem:HL.problem, offset:HL.offset, limit:100, q:$('#hlQ').value.trim()});
+  let r; try{ r = await api(`/api/health/${encodeURIComponent(HL.report)}/rows?${qs}`); }catch(e){ toast(e.message,true); return; }
+  $('#hlInfo').textContent = r.matched ? `${fa(r.offset+1)} تا ${fa(Math.min(r.offset+100, r.matched))} از ${fa(r.matched)} محصول` : '';
+  if(!r.rows.length){ $('#hlTable').innerHTML = `<tr><td class="empty">محصولی در این دسته نیست.</td></tr>`; return; }
+  $('#hlTable').innerHTML = `<tr><th>شناسه</th><th>نام</th><th>وضعیت</th><th>مشکل</th><th>توضیح</th><th>دسته</th><th>عکس</th><th>قیمت (دلار)</th><th></th></tr>` +
+    r.rows.map(x=>`<tr><td class="ltr">${esc(x.id)}</td><td>${x.link?`<a href="${esc(x.link)}" target="_blank" rel="noopener">${esc(x.name)}</a>`:esc(x.name)}</td>`+
+      `<td>${esc(HL_STATUS[x.status]||x.status)}</td><td class="${x.doubt==='yes'?'warn':'bad-t'}">${esc(x.problems_fa)}${x.note?`<div class="muted" style="font-size:12px">${esc(x.note)}</div>`:''}</td>`+
+      `<td>${fa(x.description_chars)} نویسه</td><td style="font-size:12.5px">${esc(x.categories)||'—'}</td><td>${fa(x.images)}</td><td class="ltr">${esc(x.price)||'—'}</td>`+
+      `<td>${x.edit_link?`<a class="btn ghost sm" href="${esc(x.edit_link)}" target="_blank" rel="noopener">ویرایش</a>`:''}</td></tr>`).join('');
+}
+$('#hlTiles').addEventListener('click', e=>{ const t=e.target.closest('.hl-tile'); if(!t) return;
+  HL.problem = t.dataset.p; document.querySelectorAll('#hlTiles .hl-tile').forEach(x=>x.classList.toggle('on', x===t)); HL.offset=0; loadHealthRows(); });
+$('#hlReport').onchange = ()=>{ HL.report=$('#hlReport').value; HL.problem=''; renderHealthSummary(); };
+async function fetchHealthSummary(name){ return api(`/api/health/${encodeURIComponent(name)}/summary`).catch(()=>({})); }
+$('#hlQ').oninput = ()=>{ clearTimeout(HL._t); HL._t=setTimeout(()=>{ HL.offset=0; loadHealthRows(); }, 350); };
+$('#hlPrev').onclick = ()=>{ HL.offset=Math.max(0, HL.offset-100); loadHealthRows(); };
+$('#hlNext').onclick = ()=>{ HL.offset+=100; loadHealthRows(); };
+$('#hlDl').onclick = ()=>{ if(HL.report) location.href = `/api/health/${encodeURIComponent(HL.report)}/download?problem=${encodeURIComponent(HL.problem)}`; };
+$('#hlScan').onclick = async ()=>{
+  try{ await post('/api/health/scan'); toast('بررسی شروع شد؛ فقط خواندن است و سایت تغییری نمی‌کند'); HL.report=''; HL.wasRunning=true; setTimeout(loadHealth, 1500); }
+  catch(e){ toast(e.message,true); }
+};
 // ---------------- catalog
 const CT_ACT = {created:'ساخته شد', updated:'به‌روز شد', skipped:'ارسال نشد', error:'خطا', checked:'بررسی شد'};
 const ctRun = ()=> ($('#ctRun').value.trim() || LS.get('ctRun') || '');
@@ -1213,6 +1418,176 @@ $('#ctPub').onclick = async ()=>{
   try{ await post(`/api/catalog/${encodeURIComponent(ctRun())}/publish`, {limit:Number($('#ctLimit').value)||0, dry_run:dry, republish:$('#ctAgain').checked});
        toast(dry?'بررسی شروع شد':'ارسال شروع شد'); ctWait('site'); }
   catch(err){ toast(err.message,true); }
+};
+
+// ---------------- failed site searches (WebiSearch CSV) -> approval -> crawl queue
+const SR = {filter:'all', offset:0, rows:[], pick:null};
+const SR_KIND = {product:'محصول', model:'کد مدل', brand:'فقط برند', not_product:'محصول نیست', unclear:'نامفهوم'};
+const SR_PROP = {approve:'تأیید', check:'بررسی', reject:'رد'};
+async function loadSearches(){
+  const qs = new URLSearchParams({filter:SR.filter, offset:SR.offset, limit:100, q:$('#srQ').value.trim()});
+  let r; try{ r = await api('/api/searches?'+qs); }catch(e){ toast(e.message,true); return; }
+  SR.rows = r.rows; SR.sum = r;
+  const m = r.meta||{};
+  if(!m.uploaded){
+    $('#srSummary').innerHTML = '<span>هنوز فایلی بارگذاری نشده.</span>';
+  } else {
+    $('#srSummary').innerHTML = `<span><b>${fa(m.terms)}</b> عبارت در فایل</span><span><b>${fa(r.total)}</b> ردیف بعد از یکی کردن</span>`+
+      `<span><b>${fa(r.searches)}</b> بار جستجو شده</span><span><b>${fa(r.doubt)}</b> مورد مشکوک</span>`+
+      `<span>بارگذاری: <b class="ltr">${esc((m.uploaded||'').replace('_',' '))}</b></span>`+(m.taxonomy===false?'<span class="bad-t">تاکسونومی بارگذاری نشده؛ دسته‌ای پیشنهاد نمی‌شود</span>':'');
+  }
+  const p = r.proposal||{};
+  for(const [k,v] of Object.entries({all:r.total, approve:p.approve, check:p.check, reject:p.reject, approved:r.approved, rejected:r.rejected, undecided:r.total-r.decided}))
+    { const el=$('#srC-'+k); if(el) el.textContent = fa(v||0); }
+  $('#srQueueInfo').innerHTML = `<b>${fa(r.ready)}</b> ردیف تأییدشده‌ی دسته‌دار آماده‌ی کراول است`+
+    (r.approved_no_category?`؛ <span class="warn">${fa(r.approved_no_category)} ردیف تأییدشده دسته ندارد و کراول نمی‌شود</span>`:'')+
+    (r.queued?`؛ ${fa(r.queued)} ردیف قبلاً به صف رفته`:'') + '.';
+  $('#srQueue').disabled = $('#srQueueRun').disabled = !r.ready;
+  $('#srInfo').textContent = r.matched ? `${fa(r.offset+1)} تا ${fa(Math.min(r.offset+100, r.matched))} از ${fa(r.matched)} ردیف` : '';
+  if(!r.rows.length){ $('#srTable').innerHTML = `<tr><td class="empty">ردیفی نیست.</td></tr>`; return; }
+  $('#srTable').innerHTML = `<tr><th>عبارت مشتری</th><th>عبارت برای کراول</th><th>دسته</th><th>توضیح</th><th>تصمیم شما</th></tr>` +
+    r.rows.map((x,i)=>{
+      const queued = !!x.queued_run, dec = x.decision;
+      const tid = dec==='approved' ? x.decided_taxonomy_id : x.taxonomy_id;
+      const crumb = dec==='approved' ? x.decided_breadcrumb : x.breadcrumb;
+      const mem = x.members.includes('|') ? `<span class="sr-mem">با: ${esc(x.members.split(' | ').filter(t=>t!==x.term).join('، '))}</span>` : '';
+      return `<tr data-i="${i}"><td style="min-width:130px"><b><bdi>${esc(x.term)}</bdi></b> <span class="muted" style="font-size:12px;white-space:nowrap">· ${fa(x.searches)} بار</span>${mem}</td>`+
+        `<td><input class="sr-q" value="${esc(dec==='approved'?x.query:x.cleaned)}" ${queued?'disabled':''}></td>`+
+        `<td class="sr-cat" style="min-width:150px">${crumb?esc(crumb.split('>').slice(-2).join(' › ')):'<span class="muted">بدون دسته</span>'}${x.match_score&&dec!=='approved'?` <span class="muted">(${fa(Math.round(x.match_score*100))}٪)</span>`:''}`+
+          `${queued?'':`<br><button data-pick="${i}">${tid?'تغییر دسته':'انتخاب دسته'}</button>`}</td>`+
+        `<td style="font-size:12.5px;min-width:180px"><span class="tag">${esc(SR_KIND[x.kind]||x.kind)}</span> <span class="${x.doubt?'warn':'muted'}">${esc(x.note)||''}</span></td>`+
+        `<td><div class="muted" style="font-size:11.5px;margin-bottom:3px">پیشنهاد: <span class="tag ${x.proposal}">${SR_PROP[x.proposal]||''}</span></div>`+
+          `${queued?`<span class="ok">در صف ${esc(x.queued_run)}</span>`:`<div class="sr-act"><button class="yes${dec==='approved'?' on':''}" data-d="approved" data-i="${i}">تأیید</button><button class="no${dec==='rejected'?' on':''}" data-d="rejected" data-i="${i}">رد</button>${dec?`<button data-d="" data-i="${i}" title="برگرداندن">↺</button>`:''}</div>`}</td></tr>`;
+    }).join('');
+}
+async function srDecide(items){
+  try{ const r = await post('/api/searches/decide', {rows:items}); if(r.skipped && r.skipped.length) toast(`${fa(r.skipped.length)} ردیف تغییر نکرد (در صف است)`, true); loadSearches(); }
+  catch(e){ toast(e.message,true); }
+}
+function srRowItem(i, decision, extra){
+  const x = SR.rows[i], tr = document.querySelector(`#srTable tr[data-i="${i}"]`);
+  const q = tr ? tr.querySelector('.sr-q').value.trim() : '';
+  const it = {key:x.key, decision};
+  if(decision==='approved'){ it.query = q || x.cleaned; it.taxonomy_id = (extra&&'taxonomy_id' in extra) ? extra.taxonomy_id : (x.decision==='approved' ? x.decided_taxonomy_id : x.taxonomy_id); }
+  return it;
+}
+$('#srTable').addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(!b) return;
+  if(b.dataset.pick!==undefined){ srOpenPicker(+b.dataset.pick); return; }
+  if(b.dataset.d!==undefined) srDecide([srRowItem(+b.dataset.i, b.dataset.d)]);
+});
+$('#srBulk').onclick = ()=>{
+  const items = SR.rows.map((x,i)=>[x,i]).filter(([x])=>x.proposal==='approve' && !x.decision && !x.queued_run).map(([x,i])=>srRowItem(i,'approved'));
+  if(!items.length){ toast('در این صفحه پیشنهاد «تأیید» بی‌تصمیمی نیست'); return; }
+  srDecide(items);
+};
+function srOpenPicker(i){
+  const x = SR.rows[i]; SR.pick = i;
+  $('#srPickTitle').textContent = `دسته برای «${x.term}»`;
+  $('#srPickQ').value = '';
+  let alts = []; try{ alts = JSON.parse(x.alternatives||'[]'); }catch(e){}
+  srPickRender(alts, 'پیشنهادها');
+  $('#srPicker').hidden = false; $('#srPickQ').focus();
+}
+function srPickRender(rows, title){
+  $('#srPickList').innerHTML = (title?`<div class="muted" style="font-size:12px;margin-top:8px">${esc(title)}</div>`:'') +
+    (rows.length ? rows.map(c=>`<button class="opt" data-t="${esc(c.taxonomy_id)}">${esc(c.breadcrumb)}${c.score!==undefined?` <span class="muted">(${fa(Math.round(c.score*100))}٪)</span>`:''}${+c.count?` <span class="muted">· ${fa(c.count)} محصول در سایت</span>`:''}</button>`).join('')
+                 : '<div class="muted" style="margin-top:8px;font-size:13px">چیزی پیدا نشد.</div>');
+}
+$('#srPickQ').oninput = ()=>{ clearTimeout(SR._pt); SR._pt = setTimeout(async ()=>{
+  const q = $('#srPickQ').value.trim(); if(q.length<2) return;
+  try{ const r = await api('/api/searches/taxonomy?q='+encodeURIComponent(q)); srPickRender(r.rows, ''); }catch(e){ toast(e.message,true); }
+}, 300); };
+$('#srPickList').addEventListener('click', e=>{ const b=e.target.closest('.opt'); if(!b) return;
+  $('#srPicker').hidden = true; srDecide([srRowItem(SR.pick, 'approved', {taxonomy_id:b.dataset.t})]); });
+$('#srPickNone').onclick = ()=>{ $('#srPicker').hidden = true; srDecide([srRowItem(SR.pick, 'approved', {taxonomy_id:''})]); };
+$('#srPickClose').onclick = ()=>{ $('#srPicker').hidden = true; };
+$('#srPicker').addEventListener('click', e=>{ if(e.target.id==='srPicker') $('#srPicker').hidden = true; });
+$('#srFilter').addEventListener('click', e=>{ const c=e.target.closest('.chip'); if(!c) return;
+  document.querySelectorAll('#srFilter .chip').forEach(x=>x.classList.toggle('on', x===c)); SR.filter=c.dataset.f; SR.offset=0; loadSearches(); });
+$('#srQ').oninput = ()=>{ clearTimeout(SR._t); SR._t=setTimeout(()=>{ SR.offset=0; loadSearches(); }, 350); };
+$('#srPrev').onclick = ()=>{ SR.offset=Math.max(0, SR.offset-100); loadSearches(); };
+$('#srNext').onclick = ()=>{ if(SR.sum && SR.offset+100 < SR.sum.matched){ SR.offset+=100; loadSearches(); } };
+$('#srDl').onclick = ()=>{ location.href = '/api/searches/download'; };
+$('#srFile').onchange = async ()=>{
+  const f = $('#srFile').files[0]; if(!f) return;
+  try{ const r = await api('/api/searches/upload', {method:'POST', body:f, headers:{'X-Filename':encodeURIComponent(f.name)}});
+       $('#srFile').value=''; toast(`${fa((r.meta||{}).terms)} عبارت خوانده شد · ${fa(r.rows)} ردیف`); SR.offset=0; loadSearches(); }
+  catch(e){ $('#srFile').value=''; toast(e.message,true); }
+};
+async function srQueue(start){
+  try{ const r = await post('/api/searches/queue', {start});
+       toast(`صف «${r.run}» ساخته شد: ${fa(r.categories)} دسته از ${fa(r.searches)} جستجو` + (start ? (r.started?'؛ کراول شروع شد':'؛ کراول شروع نشد: '+(r.start_error||'')) : ''), start && !r.started);
+       loadSearches(); if(start) poll(true); }
+  catch(e){ toast(e.message,true); }
+}
+$('#srQueue').onclick = ()=>srQueue(false);
+$('#srQueueRun').onclick = ()=>srQueue(true);
+
+// ---------------- promising shops (read-only report)
+const SH = {report:'', filter:'all', offset:0, data:null, wasRunning:false};
+const SH_SRC = {configured:'منبع تنظیم‌شده', discovered:'منبع کشف‌شده'};
+async function loadShops(){
+  let r; try{ r = await api('/api/shops'); }catch(e){ toast(e.message,true); return; }
+  SH.data = r;
+  const j = r.job||{}, mine = j.running && j.step==='shops';
+  $('#shScan').disabled = !!j.running;
+  $('#shScan').textContent = mine ? `در حال ساختن… ${fa((j.progress||{}).done)} از ${fa((j.progress||{}).total)}` : (j.running ? 'خط بررسی مشغول است' : 'ساختن گزارش');
+  const sel = $('#shReport');
+  sel.innerHTML = (r.reports||[]).map(x=>`<option value="${esc(x.name)}">${esc(x.name.replace('_',' ساعت '))}${x.complete===false?' (ناقص)':''}</option>`).join('');
+  if(!(r.reports||[]).length){
+    $('#shSummary').innerHTML = '<span>هنوز گزارشی نیست؛ «ساختن گزارش» را بزنید. فقط داده‌های کراول‌های قبلی خوانده می‌شود.</span>';
+    $('#shTable').innerHTML=''; $('#shInfo').textContent=''; $('#shFormula').textContent='';
+  } else {
+    if(!SH.report || !r.reports.some(x=>x.name===SH.report)) SH.report = r.reports[0].name;
+    sel.value = SH.report;
+    await renderShopsSummary();
+  }
+  if(j.running){ SH.wasRunning=true; setTimeout(()=>{ if($('#page-shops').classList.contains('on')) loadShops(); }, 3000); }
+  else if(SH.wasRunning){ SH.wasRunning=false; toast(j.ok?'گزارش فروشگاه‌ها ساخته شد':'گزارش کامل نشد', !j.ok); }
+}
+async function renderShopsSummary(){
+  const s = SH.report===((SH.data||{}).latest||{}).report ? SH.data.latest : await api(`/api/shops/${encodeURIComponent(SH.report)}/summary`).catch(()=>({}));
+  const m = s.match||{}, se = m.site_export;
+  $('#shSummary').innerHTML = `<span><b>${fa(s.pages)}</b> صفحه‌ی محصول از <b>${fa(s.shops_seen)}</b> فروشگاه</span>`+
+    `<span><b>${fa(s.listed)}</b> فروشگاه با دست‌کم ${fa((s.settings||{}).min_missing)} محصول که نداریم</span>`+
+    `<span>در سایت ما: <b>${fa(s.on_site)}</b></span><span>نداریم: <b class="ok">${fa(s.missing)}</b></span><span>نامعلوم: <b class="warn">${fa(s.unknown)}</b></span>`+
+    `<span>نداشته‌ی قیمت‌دار و عکس‌دار: <b>${fa(s.missing_priced_photo)}</b></span>`+
+    `<span>${se?`مقایسه با خروجی سایت (${fa(se.rows)} محصول)`:'خروجی سایت بارگذاری نشده: فقط نتیجه‌ی اجراها'}</span>`+
+    (s.complete===false?'<span class="warn">این گزارش ناقص است (وسط کار متوقف شد)</span>':'');
+  const c = s.counts||{};
+  for(const k of ['all','crawlable','doubt','source']) $('#shC-'+k).textContent = fa(c[k]||0);
+  $('#shFormula').textContent = s.score_formula||'';
+  SH.offset = 0; loadShopRows();
+}
+function shTag(v, yes, no){ return v==='yes'?`<span class="sh-tag ok">${yes}</span>`:v==='no'?`<span class="sh-tag no">${no}</span>`:''; }
+async function loadShopRows(){
+  if(!SH.report) return;
+  const qs = new URLSearchParams({filter:SH.filter, offset:SH.offset, limit:100, q:$('#shQ').value.trim()});
+  let r; try{ r = await api(`/api/shops/${encodeURIComponent(SH.report)}/rows?${qs}`); }catch(e){ toast(e.message,true); return; }
+  $('#shInfo').textContent = r.matched ? `${fa(r.offset+1)} تا ${fa(Math.min(r.offset+100, r.matched))} از ${fa(r.matched)} فروشگاه` : '';
+  if(!r.rows.length){ $('#shTable').innerHTML = `<tr><td class="empty">فروشگاهی در این فهرست نیست.</td></tr>`; return; }
+  $('#shTable').innerHTML = `<tr><th>#</th><th>فروشگاه</th><th class="sh-num">دیده‌شده</th><th class="sh-num">در سایت ما</th><th class="sh-num">نداریم</th><th class="sh-num">نامعلوم</th><th class="sh-num" title="محصولاتی که نداریم و قیمت و عکس دارند">نداریم، با قیمت و عکس</th><th>دسته‌ها</th><th>منبع؟</th><th>قابل کراول</th><th class="sh-num">امتیاز</th></tr>` +
+    r.rows.map(x=>`<tr><td class="num">${fa(x.rank)}</td>`+
+      `<td class="shop"><b>${esc(x.seller)}</b>${x.doubt==='yes'?' <span class="sh-tag doubt">مشکوک</span>':''}<div class="ltr muted" style="font-size:12.5px">${esc(x.domain)}</div>`+
+      `<div class="muted" style="font-size:12px">${fa(x.runs_count)} اجرا${+x.phones_count?` · ${fa(x.phones_count)} تلفن`:''}${x.sample_missing_url?` · <a href="${esc(x.sample_missing_url)}" target="_blank" rel="noopener">نمونه</a>`:''}</div>${x.note?`<div class="note ${x.doubt==='yes'?'warn':'muted'}">${esc(x.note)}</div>`:''}</td>`+
+      `<td class="sh-num">${fa(x.seen)}</td><td class="sh-num">${fa(x.on_site)}</td><td class="sh-num"><b class="ok">${fa(x.missing)}</b></td>`+
+      `<td class="sh-num warn">${fa(x.unknown)}</td><td class="sh-num"><b>${fa(x.missing_priced_photo)}</b></td>`+
+      `<td class="cats">${esc(x.categories)||'—'}</td>`+
+      `<td>${x.source?`<span class="sh-tag src">${esc(SH_SRC[x.source]||x.source)}</span>`:''}</td>`+
+      `<td>${x.checked==='yes'?`${shTag(x.crawlable,'بله','نه')}<div style="font-size:12px;margin-top:3px;line-height:1.6">${x.store_api==='yes'?'<bdi>Store API</bdi>':x.woo_search==='yes'?'جستجوی ووکامرس':''}${x.catalog_size?`<div class="muted">حدود ${fa(x.catalog_size)} محصول</div>`:''}${x.robots_ok==='no'?'<span class="bad-t">robots.txt اجازه نمی‌دهد</span>':''}</div>`:'<span class="muted" style="font-size:12px">بررسی نشده</span>'}</td>`+
+      `<td class="sh-num"><b>${fa(x.score)}</b></td></tr>`).join('');
+}
+$('#shFilter').addEventListener('click', e=>{ const c=e.target.closest('.chip'); if(!c) return;
+  SH.filter=c.dataset.f; document.querySelectorAll('#shFilter .chip').forEach(x=>x.classList.toggle('on', x===c)); SH.offset=0; loadShopRows(); });
+$('#shReport').onchange = ()=>{ SH.report=$('#shReport').value; renderShopsSummary(); };
+$('#shQ').oninput = ()=>{ clearTimeout(SH._t); SH._t=setTimeout(()=>{ SH.offset=0; loadShopRows(); }, 350); };
+$('#shPrev').onclick = ()=>{ SH.offset=Math.max(0, SH.offset-100); loadShopRows(); };
+$('#shNext').onclick = ()=>{ SH.offset+=100; loadShopRows(); };
+$('#shDl').onclick = ()=>{ if(SH.report) location.href = `/api/shops/${encodeURIComponent(SH.report)}/download?filter=${encodeURIComponent(SH.filter)}&q=${encodeURIComponent($('#shQ').value.trim())}`; };
+$('#shScan').onclick = async ()=>{
+  try{ await post('/api/shops/scan', {check:true}); toast('ساختن گزارش شروع شد؛ فقط خواندن است، کراولی شروع نمی‌شود'); SH.report=''; SH.wasRunning=true; setTimeout(loadShops, 1500); }
+  catch(e){ toast(e.message,true); }
 };
 
 loadState().then(()=>{ poll(); loadPub(); loadBrands(); });

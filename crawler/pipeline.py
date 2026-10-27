@@ -95,7 +95,8 @@ def step_search(cfg: dict, run: str) -> Path:
     gl = load_glossary()
     syn = _synonyms(cfg)
     for r in queue:
-        r["synonyms"] = syn.get(r["taxonomy_id"], "")
+        # a run made from the site's failed searches searches its approved terms first
+        r["synonyms"] = " | ".join(x for x in (r.get("extra_queries", ""), syn.get(r["taxonomy_id"], "")) if x)
     for r in queue:           # English term for Made-in-China from the glossary when missing
         if not r.get("english"):
             g = r.get("group") or group_of(r["breadcrumb"])

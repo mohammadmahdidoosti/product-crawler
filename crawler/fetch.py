@@ -216,6 +216,8 @@ class Fetcher:
                 time.sleep(10 * (attempt + 1))
                 continue
             data = {"url": r.url, "status": r.status_code}
+            if r.headers.get("X-WP-Total"):              # WordPress lists: the catalog's size (crawler/shops.py)
+                data["wp_total"] = r.headers["X-WP-Total"]
             if r.status_code >= 500:
                 self._failed(dom)
             else:

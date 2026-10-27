@@ -12,3 +12,4 @@ Pillow>=10.0
 numpy>=1.26
 opencv-python-headless>=4.8
 onnxruntime>=1.17
+tzdata>=2024.1          # time zones for the nightly site-health scan (Asia/Tehran)
