@@ -141,9 +141,12 @@ def fix_photos(cfg: dict, run: str) -> dict:
         with lock:
             stats[k] += n
 
+    from .review import decisions
+    dropped = {u for u, x in decisions(d).items() if x.get("action") == "drop"}
+
     def fix_one(r):
         files = [x.strip() for x in str(r.get("files") or "").split("|") if x.strip()]
-        if not files:
+        if not files or r["url"] in dropped:         # a product taken out on review gets no paid fix
             return
         busy = "busy_background" in str(r.get("notes") or "")
         # a photo of something else (a supplier's factory, a spec table, another product) goes when
