@@ -173,12 +173,18 @@ def _merge_options(cur: dict, data: dict) -> None:
     mine = {a["name"] for a in data.get("attributes") or []}
     for a in data.get("attributes") or []:
         old = have.get(a["name"])
+        if old and old.get("id"):
+            a["id"] = old["id"]                     # a global (pa_) attribute stays the same attribute
         if old and a.get("variation"):
             a["options"] = list(dict.fromkeys(list(old.get("options") or []) + a["options"]))
-    keep = [{k: a[k] for k in ("name", "options", "visible", "variation") if k in a}
+    keep = [{k: a[k] for k in ("id", "name", "options", "visible", "variation") if k in a and (k != "id" or a[k])}
             for a in cur.get("attributes") or [] if a.get("name") not in mine]
     if keep:
         data["attributes"] = list(data.get("attributes") or []) + keep
+
+
+def _auto_out(v: dict) -> bool:
+    return any(m.get("key") == "_caravan_auto_out" and str(m.get("value")) == "1" for m in v.get("meta_data") or [])
 
 
 def _opts(attrs) -> frozenset:
@@ -194,15 +200,25 @@ def _match_vars(site: list[dict], mine: list[dict]) -> dict[str, int]:
     for v in site:
         by_opts.setdefault(_opts(v.get("attributes")), []).append(v["id"])
     out, used = {}, set()
-    for v in mine:
-        if v["sku"] in by_sku:
+    for v in mine:                                   # 1. SKU
+        if v["sku"] in by_sku and by_sku[v["sku"]] not in used:
             out[v["sku"]] = by_sku[v["sku"]]
-        else:
-            ids = [i for i in by_opts.get(_opts(v["attributes"]), []) if i not in used]
-            if len(ids) == 1:
-                out[v["sku"]] = ids[0]
-        if v["sku"] in out:
             used.add(out[v["sku"]])
+    for v in mine:                                   # 2. the same values
+        if v["sku"] in out:
+            continue
+        ids = [i for i in by_opts.get(_opts(v["attributes"]), []) if i not in used]
+        if len(ids) == 1:
+            out[v["sku"]] = ids[0]
+            used.add(ids[0])
+    for v in mine:                                   # 3. a column started or stopped varying: one holds the other
+        if v["sku"] in out:
+            continue
+        o = _opts(v["attributes"])
+        ids = [i for k, xs in by_opts.items() if o and k and (o <= k or k <= o) for i in xs if i not in used]
+        if len(ids) == 1:
+            out[v["sku"]] = ids[0]
+            used.add(ids[0])
     return out
 
 
@@ -210,6 +226,8 @@ def _earlier_products(cfg: dict, run: str) -> dict[str, int]:
     """Products this supplier's earlier lists put on the site: {normalized name: product id}; a name
     two products share is left out (no guessing)."""
     sup = norm_text(C.settings(cfg, run).get("supplier") or "")
+    if not sup:                                   # no supplier named: no earlier list to compare with
+        return {}
     seen: dict[str, set[int]] = {}
     root = run_dir(cfg, run).parent
     for f in root.glob(f"*/{RESULT}"):
@@ -222,16 +240,12 @@ def _earlier_products(cfg: dict, run: str) -> dict[str, int]:
     return {k: next(iter(v)) for k, v in seen.items() if k and len(v) == 1}
 
 
-def _twin(earlier: dict[str, int], name: str, least: float = 0.92) -> int | None:
-    """The one earlier product whose name is this name, or nearly (one clearly best match)."""
-    from .dedupe import similarity
-    n = norm_text(name)
-    if n in earlier:
-        return earlier[n]
-    hits = sorted(((similarity(n, k), i) for k, i in earlier.items()), reverse=True)
-    if hits and hits[0][0] >= least and (len(hits) == 1 or hits[1][0] < hits[0][0] - 0.03):
-        return hits[0][1]
-    return None
+def _twin(earlier: dict[str, int], name: str, claimed: set[int]) -> int | None:
+    """The earlier product with exactly this name (normalized, spacing ignored) not already taken in
+    this run. A near name is not enough: 'پارما 24' and 'پارما 28' are 0.97 alike and two products."""
+    n = norm_text(name).replace(" ", "")
+    hit = next((i for k, i in earlier.items() if k.replace(" ", "") == n), None)
+    return hit if hit is not None and hit not in claimed else None
 
 
 def publish(cfg: dict, run: str, limit: int = 0, pkeys: list[str] | None = None, dry_run: bool = False,
@@ -257,6 +271,7 @@ def publish(cfg: dict, run: str, limit: int = 0, pkeys: list[str] | None = None,
     from .publish import SiteBrands
     brands = SiteBrands(wc, dry_run) if wc.ok() else None
     earlier = _earlier_products(cfg, run)
+    claimed: set[int] = set(known.values())
     out, counts = [], {"created": 0, "updated": 0, "skipped": 0, "error": 0, "checked": 0}
     for n, p in enumerate(prods, 1):
         if stop and stop():
@@ -301,7 +316,7 @@ def publish(cfg: dict, run: str, limit: int = 0, pkeys: list[str] | None = None,
             if cur is None:
                 cur = wc.find_by_sku(info["sku"])
                 pid = cur["id"] if cur else None
-            if cur is None and (twin := _twin(earlier, data["name"])):
+            if cur is None and (twin := _twin(earlier, data["name"], claimed)):
                 # the same product sent from an earlier list under another SKU (a page read by the
                 # vision model names it a little differently each time): updated, not made twice
                 try:
@@ -332,8 +347,8 @@ def publish(cfg: dict, run: str, limit: int = 0, pkeys: list[str] | None = None,
                     notes.append(f"نوع محصول روی سایت «{cur.get('type')}» است و این بار «{data['type']}» شد؛ "
                                  "نوع و قیمت‌ها دست نخورد")
                     data["type"] = cur["type"]
-                    data.pop("regular_price", None)
-                    data.pop("attributes", None)
+                    for k in ("regular_price", "attributes", "name", "description", "short_description"):
+                        data.pop(k, None)          # built from the one row left: not the product on the site
                     variations = []
                 if files and not cur.get("images") and wc.can_upload():
                     data["images"] = [{"id": wc.upload_media(f, f"{info['sku'].lower()}-{k}{f.suffix}", alt=data["name"])["id"]}
@@ -346,18 +361,21 @@ def publish(cfg: dict, run: str, limit: int = 0, pkeys: list[str] | None = None,
                 res["action"] = "updated"
                 site_vars = wc.list_variations(pid) if cur.get("type") == "variable" else []
                 have_vars = _match_vars(site_vars, variations)
-                # sizes held this month or gone from the list: not left buyable at last month's price
-                stale = [v for v in site_vars if v["id"] not in set(have_vars.values())
-                         and v.get("stock_status") != "outofstock"] if (variations and not notes) else []
-                if stale:
-                    wc.batch_variations(pid, None, [{"id": v["id"], "stock_status": "outofstock"} for v in stale])
-                    notes.append(f"{len(stale)} تنوعِ بدون قیمت مطمئن در این لیست «ناموجود» شد")
                 if notes:
                     res["error"] = " · ".join(x for x in [res["error"]] + notes if x)
             if variations:
+                site_by_id = {v["id"]: v for v in (site_vars if res["action"] == "updated" else [])}
                 create = [v for v in variations if v["sku"] not in have_vars]
-                update = [{**v, "id": have_vars[v["sku"]], "stock_status": "instock"}
-                          for v in variations if v["sku"] in have_vars]
+                update = []
+                for v in variations:
+                    if v["sku"] not in have_vars:
+                        continue
+                    sv = site_by_id.get(have_vars[v["sku"]], {})
+                    u = {k: x for k, x in v.items() if k != "sku" or not sv.get("sku")}   # a person's SKU stays
+                    if _auto_out(sv):                    # we took it out of stock earlier: back in stock
+                        u["stock_status"] = "instock"
+                        u["meta_data"] = list(u.get("meta_data") or []) + [{"key": "_caravan_auto_out", "value": ""}]
+                    update.append({**u, "id": have_vars[v["sku"]]})
                 bad = []
                 for k in range(0, max(len(create), len(update)), 50):
                     j = wc.batch_variations(pid, create[k:k + 50], update[k:k + 50])
@@ -365,6 +383,15 @@ def publish(cfg: dict, run: str, limit: int = 0, pkeys: list[str] | None = None,
                             for x in (j.get(part) or []) if x.get("error")]
                 if bad:
                     res["error"] = " · ".join(x for x in (res["error"], f"{len(bad)} تنوع ناموفق: {bad[0]}") if x)
+                # sizes held this month or gone from the list: not left buyable at last month's price
+                # (only after the new prices went in, and marked so a later list can bring them back)
+                stale = [v for v in site_by_id.values() if v["id"] not in set(have_vars.values())
+                         and v.get("stock_status") != "outofstock"] if not bad else []
+                if stale:
+                    wc.batch_variations(pid, None, [{"id": v["id"], "stock_status": "outofstock",
+                                                     "meta_data": [{"key": "_caravan_auto_out", "value": "1"}]}
+                                                    for v in stale])
+                    res["error"] = " · ".join(x for x in (res["error"], f"{len(stale)} تنوعِ بدون قیمت مطمئن در این لیست «ناموجود» شد") if x)
             res.update(product_id=pid, status=prod.get("status", ""),
                        edit_url=f"{wc.base}/wp-admin/post.php?post={pid}&action=edit")
             counts[res["action"]] += 1

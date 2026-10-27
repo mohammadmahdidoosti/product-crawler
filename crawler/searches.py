@@ -497,10 +497,14 @@ def rebuild(cfg: dict) -> dict:
 def _dec_key(row: dict, dec: dict) -> str:
     """The decision that belongs to a review row: its own key, else one made for another spelling
     of the same search (a member of its group) before the list was rebuilt; '' when none."""
-    k = row["key"]
-    if k in dec:
-        return k
-    return next((_flat(t) for t in str(row.get("members") or "").split(" | ") if _flat(t) in dec), "")
+    keys = _dec_keys(row, dec)
+    return keys[0] if keys else ""
+
+
+def _dec_keys(row: dict, dec: dict) -> list[str]:
+    """Every decision belonging to the row (its own key first, then other spellings of its group)."""
+    ks = [row["key"]] + [_flat(t) for t in str(row.get("members") or "").split(" | ")]
+    return [k for k in dict.fromkeys(ks) if k and k in dec]
 
 
 DEC_FIELDS = ["decision", "query", "decided_taxonomy_id", "decided_breadcrumb", "decided_at", "queued_run"]
@@ -562,15 +566,16 @@ def decide(cfg: dict, items: list[dict]) -> dict:
             skipped.append(k)
             continue
         row = r.loc[k]
-        dk = _dec_key(row.to_dict(), dec)              # the decision may sit under another spelling
-        if dk and dec.get(dk, {}).get("queued_run"):
+        dks = _dec_keys(row.to_dict(), dec)            # the decision may sit under other spellings
+        if any(dec[x].get("queued_run") for x in dks):
             skipped.append(k)
             continue
         what = it.get("decision")
         if what not in ("approved", "rejected", ""):
             raise ValueError(f"decision نامعتبر: {what}")
-        if dk and dk != k:
-            dec.pop(dk, None)                          # moved to this row's own key (or undone)
+        for x in dks:
+            if x != k:
+                dec.pop(x, None)                       # moved to this row's own key (or undone)
         if what == "":
             dec.pop(k, None)
             changed += 1
@@ -633,8 +638,7 @@ def make_queue(cfg: dict, run: str | None = None) -> dict:
     write_csv(q, d / "01_queue.csv", QUEUE_COLS + ["extra_queries", "from_searches", "searches"])
     dec = decisions(cfg)
     for row in ready[ready["key"].isin(queued)].to_dict("records"):
-        dk = _dec_key(row, dec)
-        if dk:
+        for dk in _dec_keys(row, dec):
             dec[dk]["queued_run"] = run
     write_csv(pd.DataFrame(list(dec.values()), columns=DECISION_COLS), sdir(cfg) / "decisions.csv", DECISION_COLS)
     log.info("SEARCHES_QUEUE %s: %d categories from %d approved searches", run, len(q), len(queued))

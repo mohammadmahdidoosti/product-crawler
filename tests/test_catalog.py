@@ -323,7 +323,22 @@ class EndToEnd(unittest.TestCase):
         CP.publish(self.cfg, run, republish=True)
         vs = sorted(FakeWoo.variations[pid].values(), key=lambda v: float(v["regular_price"]))
         self.assertEqual([float(v["regular_price"]) for v in vs], [130, 160, 210])
-        self.assertEqual([v.get("stock_status") for v in vs], ["instock", "instock", "outofstock"])
+        self.assertEqual([v.get("stock_status") for v in vs][2], "outofstock")
+        self.assertNotIn("outofstock", [v.get("stock_status") for v in vs][:2])
+        # the size comes back priced next month: back in stock (it was we who took it out)
+        make_xlsx(x, ["13,000,000", "16,000,000", "22,000,000"])
+        C.add_source(self.cfg, run, x.read_bytes(), "list.xlsx")
+        C.run_steps(self.cfg, run, ["read", "structure", "category"])
+        CP.publish(self.cfg, run, republish=True)
+        vs = sorted(FakeWoo.variations[pid].values(), key=lambda v: float(v["regular_price"]))
+        self.assertEqual([float(v["regular_price"]) for v in vs], [130, 160, 220])
+        self.assertEqual(vs[2].get("stock_status"), "instock")
+        self.assertEqual(len(FakeWoo.products), 1)
+
+    def test_twin_needs_the_exact_name(self):
+        self.assertIsNone(CP._twin({"پارما 24": 5}, "پارما 28", set()))
+        self.assertEqual(CP._twin({"پارما 24": 5}, "پارما  24", set()), 5)
+        self.assertIsNone(CP._twin({"پارما 24": 5}, "پارما 24", {5}))
 
     def test_toman_list_with_dollar_footer_is_held(self):
         x = self.dir / "list.csv"

@@ -62,6 +62,7 @@ DEFAULTS = {"brand": "", "supplier": "", "unit": "auto", "category": "", "maker_
 VARY_PREF = ("سایز", "اندازه", "ظرفیت", "قطر", "طول", "تعداد", "ابعاد", "ارتفاع", "عرض", "مدل", "نوع", "ضخامت",
              "قدرت", "توان", "حجم", "فشار", "دبی", "وزن")
 PRICE_WORDS = ("قیمت", "price", "مبلغ", "بها")
+MONEY_WORDS = PRICE_WORDS + ("دلار", "usd", "$", "dollar")      # a dollar list's price column may say only 'USD'
 PER_UNIT = re.compile(r"(\sهر\s|^هر\s|برحسب\s*هر|قیمت\s*هر|per\s)")
 NAME_WORDS = ("شرح", "نام", "عنوان", "محصول", "کالا", "description", "item", "product")
 CODE_WORDS = ("کد", "code", "part", "art")
@@ -263,7 +264,15 @@ def _headers(rows: list[list], usd: bool = False) -> tuple[list[str], list[str],
     """(group header, sub header, first data row) per column: the leading rows without a price are the
     header; the last of them names the columns, the ones above group them (a merged cell, None to its
     right, covers the columns after it)."""
-    first = next((i for i, r in enumerate(rows) if any(looks_price(c, usd) for c in r if c)), len(rows))
+    first = len(rows)
+    money_cols: set[int] = set()                 # dollar lists: columns whose heading names a price or currency
+    for i, r in enumerate(rows):
+        if any(looks_price(c) for c in r if c) or (usd and any(
+                j in money_cols and looks_price(c, True) for j, c in enumerate(r) if c)):
+            first = i
+            break
+        money_cols |= {j for j, c in enumerate(r) if c and any(w in norm_text(str(c)) or w in str(c).lower()
+                                                               for w in MONEY_WORDS)}
     width = max(len(r) for r in rows)
     head_rows = [list(r) + [None] * (width - len(r)) for r in rows[:first]]
     group, sub = [""] * width, [""] * width
@@ -361,10 +370,12 @@ def rule_products(table: dict, st: dict) -> list[dict]:
         if len(re.sub(r"\s", "", h)) <= 1:
             h = "اندازه" if any(re.search(r"\d\s*(cm|mm|متر|اینچ)", fa_digits_to_en(str(v))) for v in vals) else f"ستون {j + 1}"
         cols.append({"j": j, "header": h, "group": group[j], "sub": sub[j] if len(re.sub(r"\s", "", full[j])) > 1 else h})
-    price_cols = [c for c in cols if any(w in norm_text(c["header"]) for w in PRICE_WORDS)
+    words = MONEY_WORDS if usd else PRICE_WORDS
+    price_cols = [c for c in cols if any(w in norm_text(c["header"]) or w in c["header"].lower() for w in words)
                   and sum(1 for r in data if looks_price(r[c["j"]], usd)) >= max(1, len(data) // 3)]
     if not price_cols:
-        price_cols = [c for c in cols if sum(1 for r in data if looks_price(r[c["j"]], usd)) >= max(1, len(data) // 2)]
+        # no column says it is a price: only big, separated numbers count (never a size or a PN column)
+        price_cols = [c for c in cols if sum(1 for r in data if looks_price(r[c["j"]])) >= max(1, len(data) // 2)]
     if not price_cols:
         return []
     whole = [c for c in price_cols if not PER_UNIT.search(" " + norm_text(c["header"]) + " ")]
@@ -660,8 +671,8 @@ def step_structure(cfg: dict, run: str) -> Path:
         base.setdefault(product_key(prod.get("brand") or st.get("brand", ""), prod["family"],
                                     st.get("supplier", "")), []).append(prod)
 
-    def _sig(prod):
-        return json.dumps([sorted(v["attributes"].items()) for v in prod["variants"]], ensure_ascii=False)
+    def _sig(prod):                              # the first size it holds: a size added later rarely moves it
+        return min((json.dumps(sorted(v["attributes"].items()), ensure_ascii=False) for v in prod["variants"]), default="")
     for same in base.values():
         if len(same) > 1:
             for n, prod in enumerate(sorted(same, key=_sig)[1:], 2):
