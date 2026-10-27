@@ -228,7 +228,9 @@ class Job:
                     compare=bool(opts.get("compare")))
         elif step == "photo_fix":
             from crawler.aiphotos import fix_photos
-            fix_photos(cfg, run)
+            if opts.get("redo_found"):                   # photos found by search are looked for again (strict)
+                cfg = {**cfg, "images": {**cfg.get("images", {}), "redo_found": True}}
+            self.logs.append(f"photo check: {fix_photos(cfg, run)}")
         elif step == "vision_compare":
             from crawler.vision import compare as vcompare
             vcompare(cfg, run, opts.get("models") or [], int(opts.get("n") or 25), int(opts.get("n") or 25))
@@ -1051,7 +1053,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self._json(w.test() if w.ok() else {"error": "WC_URL / WC_KEY / WC_SECRET not set"})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "photo-fix":
                 run_path(parts[2])
-                err = start_job("photo_fix", parts[2], {})
+                err = start_job("photo_fix", parts[2], {"redo_found": bool((self._jbody() or {}).get("redo_found"))})
                 return self._err(err) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "vision-compare":
                 run_path(parts[2])

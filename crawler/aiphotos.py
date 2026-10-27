@@ -37,7 +37,7 @@ def _bad(v: dict, busy: bool) -> bool:
 def fix_photos(cfg: dict, run: str) -> dict:
     from .enhance import edit, source_photo
     from .images import download, make, product_key, search_images
-    from .vision import check
+    from .vision import ASK_FOUND, check, found_ok
     ic = cfg.get("images", {})
     key = secret("OPENROUTER_API_KEY")
     if not key or not ic.get("ai_fix", True):
@@ -68,6 +68,19 @@ def fix_photos(cfg: dict, run: str) -> dict:
                 im.at[i, "originals"] = ""
                 im.at[i, "notes"] = " | ".join(x.strip() for x in str(r["notes"]).split("|")
                                                if x.strip() and x.strip() != "bad_photo_dropped")
+
+    # 0b. redo_found: photos found by search under the old loose check go back to the originals and
+    #     are looked for again with the strict check
+    if ic.get("redo_found"):
+        for i, r in im.iterrows():
+            nts = [x.strip() for x in str(r.get("notes") or "").split("|") if x.strip()]
+            files = [f.strip() for f in str(r.get("files") or "").split("|") if f.strip()]
+            if "found_by_search" in nts and files and files[0].split("/")[-1].startswith("ai9_") \
+                    and str(r.get("originals") or "").strip():
+                orig = str(r["originals"]).split("|")[0].strip()
+                im.at[i, "files"] = " | ".join([orig] + files[1:])
+                im.at[i, "originals"] = ""
+                im.at[i, "notes"] = " | ".join(x for x in nts if x != "found_by_search")
 
     # 1. check every photo
     jobs = []
@@ -172,9 +185,9 @@ def fix_photos(cfg: dict, run: str) -> dict:
                             pic, _ = make(one, None, int(ic.get("size", 1000)))
                     rel = f"{k}/ai9_{n}.webp"
                     pic.save(root / rel, "WEBP", quality=85, method=4)
-                    v = check(vmodel, f"{base}/img/{rel}", new.get(r["url"], {}).get("name", ""), key)
+                    v = check(vmodel, f"{base}/img/{rel}", new.get(r["url"], {}).get("name", ""), key, ASK_FOUND)
                     looked += 1
-                    if not _bad(v, False) and v.get("matches_name") is not False:
+                    if found_ok(v):                      # strict: unsure is a no (batch 5: 8 of 44 were wrong)
                         fixed = rel
                         notes.add("found_by_search")
                         bump("searched")
