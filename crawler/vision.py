@@ -107,7 +107,8 @@ def compare(cfg: dict, run: str, models: list[str], n_flagged: int = 25, n_clean
     im = im[im["files"] != ""]
     flagged = im[im["notes"].str.contains("text_overlay|busy_background")].head(n_flagged)
     clean = im[~im["notes"].str.contains("text_overlay|busy_background")].sample(min(n_clean, len(im)), random_state=1)
-    base = (cfg.get("images", {}).get("public_base") or __import__("os").environ.get("RENDER_EXTERNAL_URL", "")).rstrip("/")
+    env = __import__("os").environ
+    base = (cfg.get("images", {}).get("public_base") or env.get("PUBLIC_URL") or env.get("RENDER_EXTERNAL_URL", "")).rstrip("/")
     jobs = []
     for grp, part in (("flagged", flagged), ("clean", clean)):
         for r in part.to_dict("records"):
