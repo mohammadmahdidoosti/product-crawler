@@ -18,9 +18,18 @@ TAX = pd.DataFrame([
 ])
 
 
+class Resp:
+    def __init__(self, code, body):
+        self.status_code, self.body, self.ok = code, body, code < 300
+
+    def json(self):
+        return self.body
+
+
 class FakeWC:
     def __init__(self):
-        self.terms = [{"id": 900, "name": "میخ نامریی", "parent": 20}]   # already on the site
+        self.terms = [{"id": 900, "name": "میخ نامریی", "parent": 20},   # already on the site
+                      {"id": 950, "name": "ابزار باغبانی", "parent": 30}]   # the search misses this one
         self.created = []
 
     def _call(self, fn, what, tries=3):
@@ -28,11 +37,14 @@ class FakeWC:
 
     def _wc(self, method, path, params=None, json=None):
         if method == "GET":
-            return [t for t in self.terms if params["search"] in t["name"]]
+            return [t for t in self.terms if params["search"] in t["name"] and t["id"] != 950]
+        hit = [t for t in self.terms if t["name"] == json["name"] and t["parent"] == json["parent"]]
+        if hit:
+            return Resp(400, {"code": "term_exists", "message": "exists", "data": {"status": 400, "resource_id": hit[0]["id"]}})
         t = {"id": 1000 + len(self.created), "name": json["name"], "parent": json["parent"]}
         self.created.append(t)
         self.terms.append(t)
-        return t
+        return Resp(201, t)
 
 
 class Names(unittest.TestCase):
@@ -86,7 +98,7 @@ class Make(unittest.TestCase):
         wc = FakeWC()
         res = C.make(self.cfg, self.dec, dry_run=False, wc=wc)
         self.assertEqual(len(res["made"]), 3)
-        self.assertEqual(len(wc.created), 2)               # میخ نامریی was on the site already
+        self.assertEqual(len(wc.created), 1)               # میخ نامریی and ابزار باغبانی were on the site
         d = Path(self.tmp.name)
         tax = read_csv(d / "taxonomy.csv")
         row = tax[tax["Full Breadcrumb Path"] == f"{C.GARDEN} > ابزار باغبانی > اره باغبانی"].iloc[0]
@@ -95,12 +107,12 @@ class Make(unittest.TestCase):
         wp = dict(zip(*read_csv(d / "wp_categories.csv")[["ID", "wp_id"]].T.values))
         nail = tax[tax["Full Breadcrumb Path"].str.endswith("میخ نامریی")].iloc[0]["ID"]
         self.assertEqual(wp[nail], "900")
-        self.assertEqual(wc.created[0]["parent"], 30)      # ابزار باغبانی under the garden section
+        self.assertEqual(wc.created[0]["parent"], 950)     # اره باغبانی under the existing ابزار باغبانی
         pl = read_csv(d / C.PLACEMENTS)
         self.assertEqual(set(pl["url"]), {"u1", "u2", "u3"})
         again = C.make(self.cfg, self.dec, dry_run=False, wc=wc)
         self.assertEqual(again["made"], [])
-        self.assertEqual(len(wc.created), 2)
+        self.assertEqual(len(wc.created), 1)
         self.assertEqual(len(read_csv(d / "taxonomy.csv")), len(tax))
 
     def test_placements_join_the_run(self):

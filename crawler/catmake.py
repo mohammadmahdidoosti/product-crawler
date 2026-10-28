@@ -173,16 +173,18 @@ def _site_term(wc, name: str, parent_wp: int) -> int:
     for t in found or []:
         if norm(t.get("name", "")).replace("&amp;", "&") == norm(name) and int(t.get("parent") or 0) == parent_wp:
             return int(t["id"])
-    from .wc import WCError
+    r = wc._wc("POST", "products/categories", json={"name": name, "parent": parent_wp})
     try:
-        t = wc._call(lambda: wc._wc("POST", "products/categories", json={"name": name, "parent": parent_wp}),
-                     f"category create {name}")
-        return int(t["id"])
-    except WCError as e:                              # 'term_exists' carries the existing term's ID
-        m = re.search(r"resource_id\D+(\d+)", str(e))
-        if m:
-            return int(m.group(1))
-        raise
+        j = r.json()
+    except ValueError:
+        j = {}
+    if r.ok and j.get("id"):
+        return int(j["id"])
+    rid = (j.get("data") or {}).get("resource_id") if isinstance(j, dict) else None
+    if j.get("code") == "term_exists" and rid:       # the search missed it (spelling): the site says which one
+        return int(rid)
+    from .wc import WCError
+    raise WCError(f"category create {name}: HTTP {r.status_code} {j.get('code', '')} {j.get('message', '')}", r.status_code)
 
 
 # ------------------------------------------------------------------ the tool
