@@ -270,7 +270,7 @@ class Job:
             from crawler.publish import set_status
             skus = [x for x in re.split(r"[\s,،]+", str(opts.get("skus") or "")) if x]
             res = set_status(cfg, run, opts.get("status") or "publish", skus=skus or None,
-                             progress=lambda d, t: self.prog.update(step="status", done=d, total=t), stop=self.stop_ev.is_set)
+                             force=bool(opts.get("force")), progress=lambda d, t: self.prog.update(step="status", done=d, total=t), stop=self.stop_ev.is_set)
             self.logs.append(f"وضعیت «{opts.get('status') or 'publish'}»: {res['changed']} از {res['requested']} محصول"
                              + (f"، ناموفق: {len(res['failed'])}" if res["failed"] else ""))
         elif step == "brands":

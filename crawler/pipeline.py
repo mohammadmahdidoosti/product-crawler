@@ -959,8 +959,37 @@ def is_part(name: str) -> bool:
     return any(n.startswith(f" {w} ") for w in PRICE_PART_LEADS)
 
 
+def price_history(cfg: dict, d: Path, low: float = 150_000, high: float = 150_000_000) -> dict[str, list[float]]:
+    """Toman prices of the other runs' new products by category ('leaf:<breadcrumb>' and
+    'parent:<breadcrumb minus its leaf>'): the reference for a category this run has too few
+    products of (a Ronix router at 407,000 toman went out because its batch had no other routers)."""
+    out: dict[str, list[float]] = {}
+    runs = Path(cfg["_data_dir"]) / "runs"
+    if not runs.exists():
+        return out
+    for rd in runs.iterdir():
+        f = rd / FILES["new"]
+        if rd == d or not f.exists() or rd.name.startswith("fix-"):
+            continue
+        try:
+            x = read_csv(f)
+        except Exception:                                    # noqa: BLE001 - one bad file is skipped
+            continue
+        if "price_toman" not in x or "breadcrumb" not in x:
+            continue
+        for p, bc in zip(x["price_toman"], x["breadcrumb"]):
+            try:
+                v = float(p)
+            except (TypeError, ValueError):
+                continue
+            if low <= v <= high and bc:
+                out.setdefault("leaf:" + bc, []).append(v)
+                out.setdefault("parent:" + bc.rsplit(" > ", 1)[0], []).append(v)
+    return out
+
+
 def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, high: float = 150_000_000,
-                 peers: list[dict] | None = None) -> list[dict]:
+                 peers: list[dict] | None = None, history: dict[str, list[float]] | None = None) -> list[dict]:
     """Prices that look 10x off (rial read as toman, or the reverse) are held back, never changed:
     far from the median of the other products of the category in this run (else of its parent),
     or outside an absolute range. The note says what /10 or x10 would give, for the review page,
@@ -1006,6 +1035,11 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
             if len(others) >= 3:
                 ref = median(others)
                 break
+        if ref is None and history:                      # too few in this run: the other batches decide
+            for g in ("leaf:" + leaf, "parent:" + leaf.rsplit(" > ", 1)[0]):
+                if len(history.get(g, [])) >= 5:
+                    ref = median(history[g])
+                    break
         why = ""
         if "price_outlier" in str(r.get("price_flags") or "") and r.get("price_estimated") != "reviewed":
             why = f"{v:,.0f} تومان؛ خیلی دور از قیمت بقیه‌ی دسته"
@@ -1091,7 +1125,9 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
     pc = cfg.get("price", {})
     if pc.get("category_check", True):
         recs = price_sanity(recs, float(pc.get("check_factor", 8)), float(pc.get("check_min_toman", 150_000)),
-                            float(pc.get("check_max_toman", 150_000_000)), peers=price_peers(cfg, d))
+                            float(pc.get("check_max_toman", 150_000_000)), peers=price_peers(cfg, d),
+                            history=price_history(cfg, d, float(pc.get("check_min_toman", 150_000)),
+                                                  float(pc.get("check_max_toman", 150_000_000))))
     desc = {}
     if (d / "05_descriptions.csv").exists():
         desc = {x["url"]: x for x in read_csv(d / "05_descriptions.csv").to_dict("records")}

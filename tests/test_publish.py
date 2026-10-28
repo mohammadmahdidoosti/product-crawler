@@ -293,6 +293,20 @@ class Publish(unittest.TestCase):
         self.assertEqual({p["status"] for p in FakeWoo.products.values()}, {"publish"})
         self.assertEqual(set(read_csv(self.d / PB.RESULT_FILE)["status"]), {"publish", ""})   # '' = the skipped one
 
+    def test_sku_list_never_publishes_a_doubtful_price(self):
+        PB.publish(self.cfg, "batch-1", limit=10)
+        df = read_csv(self.d / PB.RESULT_FILE)
+        sent = df[df["product_id"].astype(str) != ""]
+        doubt = sent.iloc[0]["sku"]
+        df.loc[df["sku"] == doubt, "error"] = "قیمت مشکوک (1,048,000,000 تومان؛ شاید 104,800,000)"
+        write_csv(df, self.d / PB.RESULT_FILE)
+        res = PB.set_status(self.cfg, "batch-1", "publish", skus=list(sent["sku"]))
+        self.assertEqual(res["requested"], len(sent) - 1)
+        st = {p["sku"]: p["status"] for p in FakeWoo.products.values()}
+        self.assertEqual(st[doubt], "draft")
+        res = PB.set_status(self.cfg, "batch-1", "publish", skus=[doubt], force=True)   # a person checked it
+        self.assertEqual(res["changed"], 1)
+
     def test_merge_site_brands(self):
         FakeWoo.brands = [{"id": 1583, "name": "BSPOOL (بی اس پول)"}, {"id": 1584, "name": "BSPOOL(بی اس پول)"}]
         FakeWoo.products = {1: {"id": 1, "sku": "a", "name": "x", "status": "publish", "_b": [1583]},
@@ -542,6 +556,20 @@ class PriceCheck(unittest.TestCase):
         self.assertNotIn("price_check", out["6"])                             # 4M: within 8x of the median
         self.assertNotIn("price_check", out["f"])                             # dollar prices: not checked
         self.assertNotIn("price_check", out["r"])                             # set on the review page
+
+
+    def test_other_batches_are_the_reference(self):
+        from crawler.pipeline import price_sanity
+        bc = "ابزار برقی > فرز > اور فرز نجاری > اور فرز"
+        recs = [{"breadcrumb": bc, "url": "r", "price_toman": "407000", "price_flags": "", "price_estimated": "",
+                 "name": "اور فرز 7112 رونیکس"}]
+        self.assertNotIn("price_check", price_sanity(recs)[0])          # alone in its run: nothing to compare
+        hist = {"leaf:" + bc: [14e6, 20e6, 18e6, 25e6, 16e6]}
+        out = price_sanity(recs, history=hist)[0]
+        self.assertTrue(out["price_check"].startswith("suspicious"))     # the other batches' routers
+        self.assertIn("4,070,000", out["price_check"])
+        few = {"leaf:" + bc: [14e6, 20e6]}                               # fewer than 5: no judgement
+        self.assertNotIn("price_check", price_sanity(recs, history=few)[0])
 
 
 class SuspiciousReview(unittest.TestCase):

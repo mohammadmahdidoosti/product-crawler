@@ -631,8 +631,11 @@ def results(cfg: dict, run: str) -> list[dict]:
 
 
 def set_status(cfg: dict, run: str, status: str = "publish", skus: list[str] | None = None,
-               wc: WC | None = None, progress=None, stop=None) -> dict:
-    """Publish (or return to draft) every product of a run that is on the site, 50 per request."""
+               wc: WC | None = None, progress=None, stop=None, force: bool = False) -> dict:
+    """Publish (or return to draft) every product of a run that is on the site, 50 per request.
+    Publishing never takes along what waits for a person (a doubtful price, a product parked for
+    want of a category), with or without a SKU list: on 28 Oct a SKU list published 86 doubtful
+    prices. force=True publishes them anyway (a person checked them)."""
     from .pipeline import run_dir
     if status not in ("publish", "draft", "pending", "private"):
         raise ValueError("bad status")
@@ -644,8 +647,8 @@ def set_status(cfg: dict, run: str, status: str = "publish", skus: list[str] | N
     on_site = done[(done["product_id"].astype(str) != "") & done["action"].isin(["created", "updated"])]
     if skus:
         on_site = on_site[on_site["sku"].isin(skus)]
-    elif status == "publish":
-        # 'publish all' leaves out what waits for a person: a doubtful price (pending review) and
+    if status == "publish" and not force:
+        # publishing leaves out what waits for a person: a doubtful price (pending review) and
         # products parked in draft for want of a category
         err = on_site["error"].astype(str)
         held = err.str.startswith("قیمت مشکوک") | err.str.startswith(PARKED) | (on_site["status"] == "pending")
