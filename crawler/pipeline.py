@@ -541,6 +541,8 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     if dd.get("place_up", True):                         # what still fits nowhere: the nearest category above
         from .harvest import place_up
         df = place_up(cfg, df, crawled)
+    from .catmake import apply_placements                # pages a person placed in a new category
+    df = apply_placements(cfg, df, crawled)
     try:                                                 # what fits nowhere: the waiting list for new categories
         from .nocat import write as no_category
         pub = d / "07_published.csv"

@@ -113,7 +113,7 @@ class Job:
         h = logging.Handler()
         h.emit = lambda r: self.logs.append(f"{time.strftime('%H:%M:%S')} {r.levelname} {r.getMessage()}")
         h.setLevel(logging.INFO)
-        own = {"site": ("crawler.publish", "crawler.brands_fa", "crawler.wc", "crawler.catalog_publish",
+        own = {"site": ("crawler.publish", "crawler.catmake", "crawler.brands_fa", "crawler.wc", "crawler.catalog_publish",
                         "crawler.merge_site", "crawler.sitefix.apply"),
                "health": ("crawler.health", "crawler.shops")}
         others = tuple(x for k, v in own.items() if k != lane for x in v)
@@ -255,6 +255,17 @@ class Job:
             self.logs.append(f"هماهنگی دسته‌ها: {res['to_change']} محصول تغییر دارد؛ {res['lose_a_category']} دسته‌ی نادرست، "
                              f"{res['gain_a_category']} دسته‌ی تازه، {res['out_of_run']} بیرون از اجرا ({res.get('to_draft', 0)} به پیش‌نویس)"
                              + ("" if opts.get("dry_run", True) else f"؛ اعمال شد روی {res['changed']}"))
+        elif step == "catmake":                      # new categories from the waiting list
+            from crawler.catmake import make
+            import pandas as pd
+            dec = pd.read_csv(DATA_DIR / "category_decisions.csv", dtype=str, encoding="utf-8-sig").fillna("")
+            res = make(cfg, dec, dry_run=bool(opts.get("dry_run", True)))
+            (DATA_DIR / "tmp").mkdir(exist_ok=True)
+            (DATA_DIR / "tmp" / "catmake_result.json").write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
+            self.logs.append(f"ساخت دسته{' (آزمایشی)' if res['dry_run'] else ''}: {len(res['made'])} دسته‌ی تازه، "
+                             f"{res['reused']} دسته‌ی موجود، {res['placed']} محصول جا گرفت، {len(res['rejected'])} مسیر رد شد")
+            for r in res["rejected"][:30]:
+                self.logs.append(f"رد: {r['path']} — {r['why']}")
         elif step == "status":
             from crawler.publish import set_status
             skus = [x for x in re.split(r"[\s,،]+", str(opts.get("skus") or "")) if x]
@@ -369,7 +380,7 @@ class Job:
                 took = time.time() - t0
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
-            if step not in ("probe", "publish", "brands", "status", "resync", "health", "shops", "catalog", "catalog_publish",
+            if step not in ("catmake", "probe", "publish", "brands", "status", "resync", "health", "shops", "catalog", "catalog_publish",
                             "sitefix", "sitefix_apply"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
@@ -388,7 +399,7 @@ class Job:
         return {**self.state, "progress": dict(self.prog), "logs": list(self.logs)[-200:]}
 
 
-SITE_STEPS = {"publish", "status", "brands", "resync", "merge", "catalog_publish", "sitefix_apply"}
+SITE_STEPS = {"catmake", "publish", "status", "brands", "resync", "merge", "catalog_publish", "sitefix_apply"}
 JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health")}
 JOB = JOBS["crawl"]
 
@@ -1241,6 +1252,14 @@ class Handler(BaseHTTPRequestHandler):
                     if lane in (None, "", k):
                         j.stop_ev.set()
                 return self._json({"ok": True})
+            if parts[:3] == ["api", "categories", "make"]:      # {"csv": "group,path,url...", "dry_run": true}
+                b = self._jbody()
+                if b.get("csv"):
+                    (DATA_DIR / "category_decisions.csv").write_text(b["csv"], encoding="utf-8-sig")
+                if not (DATA_DIR / "category_decisions.csv").exists():
+                    return self._err("category_decisions.csv نیست", 400)
+                err = start_job("catmake", "categories", {"dry_run": b.get("dry_run", True) is not False})
+                return self._err(err, 409) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "resync":       # {"dry_run": true}
                 run_path(parts[2])
                 err = start_job("resync", parts[2], {"dry_run": self._jbody().get("dry_run", True) is not False})

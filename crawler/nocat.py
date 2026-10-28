@@ -22,7 +22,10 @@ LEAD = {norm_text(w) for w in ("خرید", "قیمت", "و", "مشخصات", "س
 
 
 def group_of(name: str) -> str:
-    ws = [w for w in norm_text(name).split() if w not in LEAD and not re.search(r"\d", w)]
+    """Suggested category: the name's first two real words, under the shop's naming rules
+    (catmake.clean_name: no 'قیمت'/'خرید', shop names, emoji or glued English)."""
+    from .catmake import clean_name
+    ws = [w for w in norm_text(clean_name(name)).split() if w not in LEAD and not re.search(r"\d", w)]
     return " ".join(ws[:2])
 
 
