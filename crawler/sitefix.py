@@ -230,8 +230,13 @@ def _site_products(wc, ids: list[int]) -> list[dict]:
 
 
 def prepare(cfg: dict, kind: str, limit: int = 20, report: str | None = None, ids: list[int] | None = None,
-            run: str | None = None, wc=None, progress=None, stop=None) -> dict:
-    """Build a fix run (nothing is sent to the site). Returns a summary."""
+            run: str | None = None, wc=None, progress=None, stop=None, web: bool | None = None,
+            spread: bool = False) -> dict:
+    """Build a fix run (nothing is sent to the site). Returns a summary.
+    web=False: no web search (the crawl pool still counts, it is free); the description is written
+    from the name and category, and the writer's number check keeps every number to the name's own.
+    spread=True: a sample across kinds of product (one per head of name) instead of the first ones,
+    which are often one family (18 fuses of the same series in the first text preview)."""
     from copy import deepcopy
 
     from .config import run_dir
@@ -248,6 +253,9 @@ def prepare(cfg: dict, kind: str, limit: int = 20, report: str | None = None, id
         cand = cand[cand["id"].isin({str(i) for i in ids})]
     cap = int(st["max_products"])
     limit = min(int(limit or cap), cap)
+    if spread and len(cand) > limit:
+        head = cand["name"].map(lambda n: " ".join(_words(str(n))[:2]))
+        cand = cand.assign(_h=head).drop_duplicates("_h").drop(columns="_h")
     chosen = [int(x) for x in cand["id"].head(limit)]
     if not chosen:
         raise ValueError("محصولی برای این اصلاح در گزارش نیست")
@@ -258,7 +266,7 @@ def prepare(cfg: dict, kind: str, limit: int = 20, report: str | None = None, id
     pool = Pool(cfg)
     f = Fetcher(cfg, "iran")
     rows, found = [], {"pool": 0, "web": 0, "none": 0}
-    misses, web_on = 0, bool(st.get("web_search"))
+    misses, web_on = 0, bool(st.get("web_search")) if web is None else bool(web)
     problems = dict(zip(cand["id"], cand["problems"]))
     for n, pid in enumerate(chosen, 1):
         if stop and stop():

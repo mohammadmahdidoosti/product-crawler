@@ -329,7 +329,7 @@ class Job:
         elif step == "sitefix":                    # crawl lane: photos / descriptions for site products (preview only)
             from crawler import sitefix as SF
             res = SF.prepare(cfg, opts.get("kind") or "photo", int(opts.get("limit") or 20), opts.get("report") or None,
-                             run=run, progress=lambda d, t: self.prog.update(step="sitefix", done=d, total=t),
+                             run=run, web=opts.get("web"), spread=bool(opts.get("spread")), progress=lambda d, t: self.prog.update(step="sitefix", done=d, total=t),
                              stop=self.stop_ev.is_set)
             self.logs.append(f"پیش‌نمایش اصلاح ({res['kind']}): {res['rows']} محصول، {res['with_proposal']} پیشنهاد، "
                              f"{res['doubt']} مشکوک؛ منبع: {res['found']} — هنوز چیزی به سایت نرفته")
@@ -1308,7 +1308,9 @@ class Handler(BaseHTTPRequestHandler):
                 SF.candidates(build_cfg(), kind, b.get("report") or None)        # a clear error before the job
                 run = SF.run_name(kind)
                 err = start_job("sitefix", run, {"kind": kind, "limit": int(b.get("limit") or 20),
-                                                 "report": b.get("report") or ""})
+                                                 "report": b.get("report") or "",
+                                                 "web": None if b.get("web") is None else bool(b.get("web")),
+                                                 "spread": bool(b.get("spread"))})
                 return self._err(err, 409) if err else self._json({"ok": True, "run": run})
             if parts[:2] == ["api", "fix"] and len(parts) == 4 and parts[3] in ("decide", "apply"):
                 from crawler import sitefix as SF
