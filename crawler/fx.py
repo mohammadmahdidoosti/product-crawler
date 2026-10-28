@@ -74,12 +74,15 @@ def today_rate(cfg: dict) -> dict:
     today = dt.date.today().isoformat()
     df = _read_log(cfg)
     hit = df[df["date"] == today]
+    fx = cfg.get("fx", {})
+    if len(hit) and fx.get("provider", "manual") == "manual" and fx.get("manual_rate_toman") \
+            and float(hit.iloc[-1]["usd_rate_toman"]) != float(fx["manual_rate_toman"]):
+        hit = hit.iloc[0:0]                     # the manual rate was changed today: the new one counts
     if len(hit):
         r = hit.iloc[-1]
         return {"usd_rate_toman": float(r["usd_rate_toman"]), "usd_rate_date": today,
                 "usd_rate_type": r["rate_type"]}
     rate = fetch_rate(cfg)
-    fx = cfg.get("fx", {})
     row = {"date": today, "usd_rate_toman": rate, "rate_type": fx.get("rate_type", "free"),
            "provider": fx.get("provider", "manual")}
     df = pd.concat([df, pd.DataFrame([row])], ignore_index=True)

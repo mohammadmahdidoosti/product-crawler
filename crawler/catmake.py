@@ -115,6 +115,7 @@ class Tree:
         self.next_id = int(ids.max()) + 1 if len(ids) else 1
         self.new_rows: list[dict] = []
         self.new_wp: list[dict] = []
+        self.backed_up = False
 
     @staticmethod
     def _key(path: str) -> str:
@@ -150,12 +151,14 @@ class Tree:
     def save(self) -> None:
         if not self.new_rows:
             return
-        stamp = time.strftime("%Y%m%d-%H%M%S")
-        shutil.copy(self.tax_p, self.tax_p.with_name(f"{self.tax_p.name}.bak-{stamp}"))
-        write_csv(pd.concat([self.raw, pd.DataFrame(self.new_rows)], ignore_index=True), self.tax_p)
-        if self.new_wp:
+        if not self.backed_up:                 # one backup per run, before the first change
+            stamp = time.strftime("%Y%m%d-%H%M%S")
+            shutil.copy(self.tax_p, self.tax_p.with_name(f"{self.tax_p.name}.bak-{stamp}"))
             if self.wp_p.exists():
                 shutil.copy(self.wp_p, self.wp_p.with_name(f"{self.wp_p.name}.bak-{stamp}"))
+            self.backed_up = True
+        write_csv(pd.concat([self.raw, pd.DataFrame(self.new_rows)], ignore_index=True), self.tax_p)
+        if self.new_wp:
             write_csv(pd.concat([self.wp, pd.DataFrame(self.new_wp)], ignore_index=True), self.wp_p)
 
 

@@ -839,13 +839,34 @@ def caravan_sku(url: str) -> str:
     return "CRV-" + hashlib.sha1(str(url).strip().encode("utf-8")).hexdigest()[:10].upper()
 
 
-def _usd_price(r: dict) -> str:
-    """The site stores prices in dollars and multiplies them by its own rate, so the dollar price
-    the crawl computed (its own rate; foreign prices already x the foreign multiplier) is sent."""
-    try:
-        v = float(r.get("price_usd") or "nan")
-    except (TypeError, ValueError):
-        v = float("nan")
+def _send_rate(cfg: dict) -> dict:
+    """Today's rate for sending; a rate source that fails stops the export (never a guessed price).
+    Only when no rate is set up at all (tests, a fresh install) the crawl day's prices are sent."""
+    from .fx import today_rate
+    fx = cfg.get("fx", {})
+    if fx.get("provider", "manual") == "manual" and not fx.get("manual_rate_toman"):
+        log.warning("no dollar rate set: prices go out at the crawl day's rate")
+        return {"usd_rate_toman": None, "usd_rate_date": ""}
+    return today_rate(cfg)
+
+
+def _usd_price(r: dict, rate: float | None = None) -> str:
+    """The site stores prices in dollars and multiplies them by its own rate. A toman price is turned
+    into dollars with the rate of the day it is SENT (`rate`, the site's rate in settings), not the
+    rate of the day it was crawled: batches crawled at 270,000 went out 26% cheap on a site that
+    multiplies by 200,000. Foreign prices (in dollars from the start) are sent as they are."""
+    foreign = str(r.get("source_type", "")) == "foreign" or str(r.get("price_unit_detected", "")) == "usd"
+    v = float("nan")
+    if rate and not foreign:
+        try:
+            v = float(r.get("price_toman")) / float(rate)
+        except (TypeError, ValueError, ZeroDivisionError):
+            v = float("nan")
+    if v != v:
+        try:
+            v = float(r.get("price_usd") or "nan")
+        except (TypeError, ValueError):
+            v = float("nan")
     if v != v:                                            # NaN: no dollar price, derive it
         try:
             v = float(r.get("price_toman")) / float(r.get("usd_rate_toman"))
@@ -1058,6 +1079,7 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
     new = read_csv(d / FILES["new"])
     if new.empty:
         return []
+    send = _send_rate(cfg)
     new = keep_published_url(d, new)
     new = new[new["price_toman"] != ""] if cfg.get("export", {}).get("require_price", True) else new
     from .images import public_urls
@@ -1110,7 +1132,7 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
             "Published": cfg.get("export", {}).get("published", 0),
             "Visibility in catalog": "visible",
             "Description": (ds.get("html") or "") + _spec_html(r), "Short description": ds.get("short", ""),
-            "Regular price": _usd_price(r),
+            "Regular price": _usd_price(r, send["usd_rate_toman"]),
             "Categories": ", ".join(dict.fromkeys(
                 [r["breadcrumb"]] + [b for b in str(r.get("extra_breadcrumbs") or "").split(" | ")
                                      if b and b not in dropped_bc.get(r["url"], set())])),
@@ -1118,9 +1140,9 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
             "Brands": brand,
             "Attribute 1 name": "برند" if brand else "", "Attribute 1 value(s)": brand,
             "Attribute 1 visible": 1 if brand else "", "Attribute 1 global": 1 if brand else "",
-            "Meta: _caravan_price_date": r.get("usd_rate_date", ""),
-            "Meta: _caravan_usd_rate": r.get("usd_rate_toman", ""),
-            "Meta: _caravan_price_usd": r.get("price_usd", ""),
+            "Meta: _caravan_price_date": send["usd_rate_date"] or r.get("usd_rate_date", ""),
+            "Meta: _caravan_usd_rate": send["usd_rate_toman"] or r.get("usd_rate_toman", ""),
+            "Meta: _caravan_price_usd": _usd_price(r, send["usd_rate_toman"]),
             "Meta: _caravan_taxonomy_id": r.get("taxonomy_id", ""),
             "Meta: _caravan_source_name": r.get("source_name", ""),
             "Meta: _caravan_price_estimated": r.get("price_estimated", ""),
@@ -1145,12 +1167,14 @@ def step_export(cfg: dict, run: str) -> list[Path]:
     if len(upd):
         upd = upd[~upd["site_product_id"].astype(str).str.startswith("name-")]   # name-only export: no IDs to update
     if len(upd):
+        send = _send_rate(cfg)
+        prices = [_usd_price(x, send["usd_rate_toman"]) for x in upd.to_dict("records")]
         u = pd.DataFrame({
             "ID": upd["site_product_id"],
-            "Regular price": [_usd_price(x) for x in upd.to_dict("records")],
-            "Meta: _caravan_price_date": upd["usd_rate_date"],
-            "Meta: _caravan_usd_rate": upd["usd_rate_toman"],
-            "Meta: _caravan_price_usd": upd["price_usd"],
+            "Regular price": prices,
+            "Meta: _caravan_price_date": send["usd_rate_date"] or upd["usd_rate_date"],
+            "Meta: _caravan_usd_rate": send["usd_rate_toman"] or upd["usd_rate_toman"],
+            "Meta: _caravan_price_usd": prices,
         })
         u = u[u["Regular price"] != ""]
         out.append(write_csv(u, d / "06_woo_update_prices.csv"))
