@@ -4,8 +4,9 @@ fixed came out as good for free, and the paid model had drawn another product on
   1. the product cut out of the photo (U2-Net) and put on white: marks around it go with the background;
   2. small marks at the edges of the photo: painted white when they sit on white, else filled by LaMa.
 
-A vision model first finds the marks' boxes (one cheap call). Every free result must pass three locks
-before it is used, otherwise the photo goes on to the paid model as before:
+A vision model first finds the marks' boxes (one cheap call). A cut-out is not used when a mark's box is
+still full after it (the mark sits on the product). Every free result must pass three locks before it is
+used, otherwise the photo goes on to the paid model as before:
   - the vision check finds no shop text/logo AND no faint watermark laid over the product (29 Oct, #16:
     a see-through logo over a tool case survived the cut-out and the plain check called it clean);
   - the background is white (a cluttered photo with a hand in it is not a store photo, #05);
@@ -104,26 +105,62 @@ def ink(im: Image.Image, bx=()) -> float:
     return float(a.mean())
 
 
+def left_in_boxes(im: Image.Image, bx: list) -> float:
+    """After the cut-out: the largest share of 'something' still inside a mark's box. A mark sitting on
+    the product survives the cut-out (29 Oct, #17: a shop's orange 'K' on a heat gun's handle passed the
+    vision check), so a box that is still full means the cut-out did not remove that mark."""
+    if not bx:
+        return 0.0
+    W, H = im.size
+    g = np.asarray(im.convert("L"), dtype=np.uint8) < 235
+    worst = 0.0
+    for x0, y0, x1, y1 in bx:
+        a = g[int(y0 / 1000 * H):int(y1 / 1000 * H) + 1, int(x0 / 1000 * W):int(x1 / 1000 * W) + 1]
+        if a.size:
+            worst = max(worst, float(a.mean()))
+    return worst
+
+
+def _ring_dirty(a: np.ndarray, b: list, W: int, H: int, pad: int = 12) -> float:
+    """Share of non-white pixels in a thin ring just outside box b (0-1000 units)."""
+    X0, Y0 = max(0, int(b[0] / 1000 * W)), max(0, int(b[1] / 1000 * H))
+    X1, Y1 = min(W, int(b[2] / 1000 * W)), min(H, int(b[3] / 1000 * H))
+    ring = np.concatenate([a[max(0, Y0 - pad):Y0, X0:X1].reshape(-1, 3), a[Y1:Y1 + pad, X0:X1].reshape(-1, 3),
+                           a[Y0:Y1, max(0, X0 - pad):X0].reshape(-1, 3), a[Y0:Y1, X1:X1 + pad].reshape(-1, 3)])
+    if not len(ring):
+        return 0.0                                           # the box reaches the photo's edges
+    return float((ring.min(axis=1) < 235).mean())
+
+
+def grow(a: np.ndarray, b: list, W: int, H: int, steps: int = 6, by: float = 15) -> list | None:
+    """The finder's box runs small at times (29 Oct, #14: half a logo was left). The box is grown until
+    the ring around it is white; None when it never is (the mark touches the product or a busy part)."""
+    for k in range(steps + 1):
+        g = [max(0, b[0] - k * by), max(0, b[1] - k * by), min(1000, b[2] + k * by), min(1000, b[3] + k * by)]
+        if _ring_dirty(a, g, W, H) <= 0.03:
+            return g
+    return None
+
+
 def white_fill(im: Image.Image, bx: list) -> Image.Image | None:
-    """Marks on a white margin painted white; None when any mark's surroundings are not white."""
+    """Marks on a white margin painted white (each box grown until white surrounds it); None when any
+    mark's surroundings are not white."""
     W, H = im.size
     out = im.convert("RGB").copy()
     a = np.asarray(out)
-    for x0, y0, x1, y1 in bx:
-        X0, Y0, X1, Y1 = int(x0 / 1000 * W), int(y0 / 1000 * H), int(x1 / 1000 * W), int(y1 / 1000 * H)
-        pad = 12
-        ring = np.concatenate([a[max(0, Y0 - pad):Y0, X0:X1].reshape(-1, 3), a[Y1:Y1 + pad, X0:X1].reshape(-1, 3),
-                               a[Y0:Y1, max(0, X0 - pad):X0].reshape(-1, 3), a[Y0:Y1, X1:X1 + pad].reshape(-1, 3)])
-        if not len(ring) or (ring.min(axis=1) < 235).mean() > 0.03:
-            return None
+    grown = [grow(a, b, W, H) for b in bx]
+    if any(g is None for g in grown):
+        return None
     dr = ImageDraw.Draw(out)
-    p = 0.015
-    for x0, y0, x1, y1 in bx:
+    p = 0.01
+    for x0, y0, x1, y1 in grown:
         dr.rectangle([(x0 / 1000 - p) * W, (y0 / 1000 - p) * H, (x1 / 1000 + p) * W, (y1 / 1000 + p) * H], fill="white")
     return out
 
 
 def lama(im: Image.Image, bx: list) -> Image.Image | None:
+    """LaMa fills the marks; None when there is no model, or when a filled part comes out much 'fuller'
+    than what is around it (a patch of the mark copied back in)."""
     from .images import _session
     sess = _session("lama")
     if sess is None:
@@ -131,9 +168,15 @@ def lama(im: Image.Image, bx: list) -> Image.Image | None:
     W, H = im.size
     mask = Image.new("L", (W, H), 0)
     dr = ImageDraw.Draw(mask)
-    p = 0.02
-    for x0, y0, x1, y1 in bx:
-        dr.rectangle([(x0 / 1000 - p) * W, (y0 / 1000 - p) * H, (x1 / 1000 + p) * W, (y1 / 1000 + p) * H], fill=255)
+    p = 0.035                                                # the finder's boxes run a little small
+    big = [[b[0] - p * 1000, b[1] - p * 1000, b[2] + p * 1000, b[3] + p * 1000] for b in bx]
+    a0 = np.asarray(im.convert("RGB"))
+    # the mask's edge must run round the mark, not through it (29 Oct, #14: a ring 45% 'full' meant
+    # half the logo lay outside the box, and LaMa drew the rest of it back in); 0, 3: under 10%
+    if any(_ring_dirty(a0, g, W, H) > 0.25 for g in big):
+        return None
+    for x0, y0, x1, y1 in big:
+        dr.rectangle([x0 / 1000 * W, y0 / 1000 * H, x1 / 1000 * W, y1 / 1000 * H], fill=255)
     a = np.asarray(im.convert("RGB").resize((512, 512)), dtype=np.float32).transpose(2, 0, 1)[None] / 255.0
     m = (np.asarray(mask.resize((512, 512)), dtype=np.float32) > 127).astype(np.float32)[None, None]
     o = sess.run(None, {sess.get_inputs()[0].name: a, sess.get_inputs()[1].name: m})[0][0]
@@ -142,6 +185,13 @@ def lama(im: Image.Image, bx: list) -> Image.Image | None:
     filled = Image.fromarray(np.clip(o.transpose(1, 2, 0), 0, 255).astype(np.uint8)).resize((W, H), Image.LANCZOS)
     res = im.convert("RGB").copy()
     res.paste(filled, (0, 0), mask)                          # only the marked parts change
+    r = np.asarray(res)
+    for b in big:
+        X0, Y0 = max(0, int(b[0] / 1000 * W)), max(0, int(b[1] / 1000 * H))
+        X1, Y1 = min(W, int(b[2] / 1000 * W)), min(H, int(b[3] / 1000 * H))
+        inside = r[Y0:Y1, X0:X1].reshape(-1, 3)
+        if len(inside) and float((inside.min(axis=1) < 235).mean()) > _ring_dirty(r, b, W, H) + 0.15:
+            return None
     return res
 
 
@@ -161,10 +211,11 @@ def passes(v: dict) -> tuple[bool, str]:
 
 
 def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=None, size: int = 1000,
-             ) -> tuple[Image.Image | None, str, float]:
+             ours: bool = False) -> tuple[Image.Image | None, str, float]:
     """(photo, how, cost): the fixed photo (1000 px, our watermark on) or None when no free way passes.
     `lock` guards the local models (not thread-safe); `check(model, img_url, name, key, ask)` is the vision
-    call (crawler.vision.check)."""
+    call (crawler.vision.check). `ours`: the photo is our processed one, which already carries our camel
+    mark: that corner is painted white first, or the result would carry two marks."""
     from contextlib import nullcontext
     from .images import flatten, remove_background, square, trim, watermark
     if check is None:
@@ -173,6 +224,9 @@ def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=
     im = im.convert("RGB")
     if max(im.size) > 1200:
         im.thumbnail((1200, 1200), Image.LANCZOS)
+    if ours:
+        im = im.copy()
+        ImageDraw.Draw(im).rectangle([0.88 * im.width, 0.9 * im.height, im.width, im.height], fill="white")
     cost = 0.0
     bx, c = find_boxes(model, im, key)
     cost += c
@@ -188,14 +242,23 @@ def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=
             return False, "part of the product lost"
         v = check(model, data_url(cand), name, key, ASK_FREE)
         cost += float(v.get("_cost") or 0)
-        return passes(v)
+        good, w = passes(v)
+        if not good:
+            return good, w
+        # the mark finder asked again: the check passed a half-filled logo strip on 29 Oct (#14)
+        again, c2 = find_boxes(model, cand, key)
+        cost += c2
+        if [b for b in again if not ((b[0] + b[2]) / 2 > 850 and (b[1] + b[3]) / 2 > 870)]:
+            return False, "marks still found"
+        return True, "clean"
 
     # 1. cut out
-    base = im.copy()
-    ImageDraw.Draw(base).rectangle([0.88 * im.width, 0.9 * im.height, im.width, im.height], fill="white")
     with lock:
-        cut, did = remove_background(flatten(base))
+        cut, did = remove_background(flatten(im))
         cand = finish(cut) if did else None
+    if cand is not None and left_in_boxes(cut, bx) > 0.3:
+        why.append("cut-out: a mark sits on the product")
+        cand = None
     if cand is not None:
         good, w = ok(cand)
         if good:
@@ -215,7 +278,7 @@ def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=
             log.debug("lama %.1fs", time.time() - t)
         how = "lama"
     if filled is None:
-        why.append("no LaMa model")
+        why.append("LaMa left a patch (or no model)")
         return None, "; ".join(why), cost
     with lock:
         cand = finish(filled)

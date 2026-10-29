@@ -101,3 +101,25 @@ class FreeFixLocks(unittest.TestCase):
         self.assertIsNone(out)                    # no cut-out model in tests, mark in the middle: no free fix
         self.assertIn("middle", how)
         self.assertAlmostEqual(cost, 0.001)
+
+
+class MarkOnTheProduct(unittest.TestCase):
+    def test_a_mark_left_inside_its_box_is_seen(self):
+        from crawler.freefix import left_in_boxes
+        im = Image.new("RGB", (1000, 1000), "white")
+        ImageDraw.Draw(im).rectangle([300, 300, 700, 700], fill="blue")      # the product, mark on it
+        self.assertGreater(left_in_boxes(im, [[450, 450, 520, 520]]), 0.9)
+        self.assertLess(left_in_boxes(im, [[20, 20, 200, 100]]), 0.05)       # a mark that went with the background
+
+
+class SmallBoxGrows(unittest.TestCase):
+    def test_half_a_logo_is_not_left(self):
+        from crawler.freefix import white_fill
+        im = Image.new("RGB", (1000, 1000), "white")
+        ImageDraw.Draw(im).rectangle([400, 40, 680, 140], fill=(20, 120, 40))     # the logo
+        ImageDraw.Draw(im).rectangle([300, 400, 700, 900], fill="blue")           # the product
+        out = white_fill(im, [[450, 60, 600, 120]])                               # the finder's box: too small
+        self.assertIsNotNone(out)
+        a = np.asarray(out)[40:141, 400:681]
+        self.assertTrue((a.min(axis=2) >= 235).all())
+        self.assertEqual(out.getpixel((500, 600)), (0, 0, 255))                    # product untouched

@@ -256,8 +256,9 @@ def fix_photos(cfg: dict, run: str) -> dict:
                     and not any(x.startswith("free_fixed") for x in notes):
                 from .freefix import free_fix
                 bump("free_tried")
+                ours = not (0 < n <= len([u for u in str(r.get("source_images") or "").split(" | ") if u]))
                 out, how, c = free_fix(src, new.get(r["url"], {}).get("name", ""), vmodel, key, lock=model_lock,
-                                       check=check, size=int(ic.get("size", 1000)))
+                                       check=check, size=int(ic.get("size", 1000)), ours=ours)
                 bump("free_cost", c)
                 if out is not None:
                     rel = f"{k}/ai0_{n}.webp"
