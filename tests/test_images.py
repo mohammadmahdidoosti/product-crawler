@@ -123,3 +123,44 @@ class SmallBoxGrows(unittest.TestCase):
         a = np.asarray(out)[40:141, 400:681]
         self.assertTrue((a.min(axis=2) >= 235).all())
         self.assertEqual(out.getpixel((500, 600)), (0, 0, 255))                    # product untouched
+
+
+class FixedPhotoReused(unittest.TestCase):
+    def test_same_photo_is_found_and_another_is_not(self):
+        import tempfile
+        from pathlib import Path
+        from crawler.photoprint import Prints
+        with tempfile.TemporaryDirectory() as t:
+            root = Path(t) / "images" / "k1"
+            root.mkdir(parents=True)
+            a = Image.new("RGB", (1000, 1000), "white")
+            ImageDraw.Draw(a).rectangle([300, 200, 700, 800], fill="blue")
+            ImageDraw.Draw(a).text((20, 20), "SHOP.IR", fill="red")
+            a.save(root / "1.webp")
+            a.resize((800, 800)).save(root / "2.webp")                    # the same photo, smaller
+            b = Image.new("RGB", (1000, 1000), "white")
+            ImageDraw.Draw(b).ellipse([200, 300, 800, 700], fill="red")    # another product
+            b.save(root / "3.webp")
+            c = a.copy()
+            ImageDraw.Draw(c).rectangle([300, 200, 700, 800], fill=(200, 160, 30))   # same shape, gold
+            c.save(root / "4.webp")
+            Image.new("RGB", (1000, 1000), "white").save(root / "ai1_1.webp")
+            pr = Prints(Path(t))
+            pr.add(root / "1.webp", "k1/ai1_1.webp", "ai_fixed:qwen")
+            self.assertEqual(Prints(Path(t)).find(root / "2.webp")["fixed"], "k1/ai1_1.webp")
+            self.assertIsNone(pr.find(root / "3.webp"))
+            self.assertIsNone(pr.find(root / "4.webp"))
+
+
+class ShopMarkMemory(unittest.TestCase):
+    def test_a_learned_mark_is_used_when_a_run_cannot_learn_it(self):
+        import tempfile
+        from pathlib import Path
+        from crawler.images import remembered_marks
+        with tempfile.TemporaryDirectory() as t:
+            m = np.full((256, 256), -1.0)
+            m[5:20, 5:60] = 40
+            remembered_marks(Path(t), {"shop.ir": m})
+            got = remembered_marks(Path(t), {"shop.ir": None, "other.ir": None})
+            self.assertIsNotNone(got["shop.ir"])
+            self.assertIsNone(got["other.ir"])

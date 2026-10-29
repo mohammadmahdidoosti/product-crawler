@@ -188,13 +188,19 @@ def fix_photos(cfg: dict, run: str) -> dict:
     models = [ic.get("ai_model", "qwen/qwen-image-2.1-turbo")] + list(ic.get("ai_fallback_models") or [])
     stats = {"checked": len(jobs), "bad": 0, "dropped": 0, "edited": 0, "searched": 0, "left": 0,
              "wrong": 0, "wrong_left": 0, "search_tried": 0, "edit_tried": 0, "free_tried": 0, "free": 0,
-             "free_cost": 0.0}
+             "free_cost": 0.0, "reused": 0}
     rows = im.to_dict("records")
     import threading
     lock = threading.Lock()
     model_lock = threading.Lock()
 
     rewritten: set[tuple[str, str]] = set()
+    try:
+        from .photoprint import Prints
+        prints = Prints(cfg["_data_dir"]) if ic.get("reuse_fixes", True) else None
+    except Exception as e:                           # noqa: BLE001 - without it every photo is fixed afresh
+        log.info("photo prints: %s", e)
+        prints = None
 
     def bump(k, n=1):
         with lock:
@@ -250,6 +256,19 @@ def fix_photos(cfg: dict, run: str) -> dict:
             if not worth_editing(vis.get((r["url"], files[0]), {})):   # an edit cannot make the product appear
                 src = None
                 notes.add("no_product_in_photo")
+            # 2·. the same photo fixed before (another product, an earlier run): its fix is copied
+            if not fixed and src is not None and prints is not None \
+                    and not files[0].split("/")[-1].startswith("ai"):
+                hit = prints.find(root / files[0])
+                if hit:
+                    import shutil
+                    rel = f"{k}/ai7_{n}.webp"
+                    shutil.copyfile(root / hit["fixed"], root / rel)
+                    fixed = rel
+                    notes.add("reused_fix")
+                    if hit.get("how"):
+                        notes.add(hit["how"])
+                    bump("reused")
             # 2a. free first: the product cut out, or small edge marks painted white / filled by LaMa;
             #     used only when the strict check passes it (else on to search and the paid models)
             if not fixed and src is not None and ic.get("free_fix", True) \
@@ -313,6 +332,10 @@ def fix_photos(cfg: dict, run: str) -> dict:
                 fixed = rel
                 notes.add(f"ai_fixed:{m.split('/')[-1]}")
                 break
+            if fixed and prints is not None and "reused_fix" not in notes \
+                    and not fixed.split("/")[-1].startswith("ai9") and not files[0].split("/")[-1].startswith("ai"):
+                how = next((x for x in notes if x.startswith(("ai_fixed:", "free_fixed:"))), "")
+                prints.add(root / files[0], fixed, how)
             if fixed:
                 r["files"] = " | ".join([fixed] + [f for f in files[1:] if f not in bad])
                 with lock:

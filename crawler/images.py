@@ -105,6 +105,30 @@ def shop_mark(thumbs: list[np.ndarray], min_images: int = 4) -> np.ndarray | Non
     return np.where(mask, med, -1.0)               # the mark's usual grey level; -1 = not the mark
 
 
+def remembered_marks(data_dir: Path, marks: dict) -> dict:
+    """A shop's mark is learned from at least 4 of its photos in one run; a site-fix or small run often
+    has only 1-2 per shop. A mark learned once is kept (data/shop_marks/<domain>.npy) and used when the
+    run cannot learn it; a newly learned one replaces the old. remove_mark only paints where a photo
+    really shows the mark, so a kept mark the shop no longer uses changes nothing."""
+    import re as _re
+    folder = Path(data_dir) / "shop_marks"
+    out = dict(marks)
+    for dom, m in marks.items():
+        if not dom:
+            continue
+        p = folder / (_re.sub(r"[^a-z0-9.-]", "_", str(dom).lower()) + ".npy")
+        try:
+            if m is not None:
+                folder.mkdir(parents=True, exist_ok=True)
+                np.save(p, m.astype(np.float32))
+            elif p.exists():
+                out[dom] = np.load(p)
+                log.info("images: %s's mark from an earlier run", dom)
+        except Exception as e:                               # noqa: BLE001 - memory is a help, not a must
+            log.info("shop mark memory %s: %s", dom, e)
+    return out
+
+
 def remove_mark(im: Image.Image, mark: np.ndarray | None) -> tuple[Image.Image, bool]:
     """Only where this photo really shows the mark (its pixels look like the mark's usual ones);
     where the product itself covers that place, the product is left alone."""
@@ -465,6 +489,7 @@ def step_images(cfg: dict, run: str) -> Path | None:
     # a shop's own photos from the whole crawl help too, but downloading them all is slow: the
     # products of this run are usually enough (24 per category, several per shop)
     marks = {dom: shop_mark(ims) for dom, ims in by_shop.items()}
+    marks = remembered_marks(cfg["_data_dir"], marks)
     by_shop.clear()
     got = [(r, urls, paths, None) for r, urls, paths, _ in got]   # thumbnails no longer needed
     log.info("images: shop marks found for %s", ", ".join(k for k, v in marks.items() if v is not None) or "none")
