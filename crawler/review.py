@@ -18,6 +18,7 @@ from .io import FILES, read_csv, write_csv
 DEC_COLS = ["url", "action", "images", "price", "note"]
 ISSUES = {"text_overlay": "عکس هنوز آگهی یا نوشته‌ی فروشگاه دارد",
           "ai_fixed": "عکس با هوش مصنوعی اصلاح شد (با اصلی مقایسه کنید)",
+          "free_fixed": "عکس رایگان تمیز شد (با اصلی مقایسه کنید)",
           "busy_background": "پس‌زمینه سفید نشد",
           "no_image": "بدون عکس",
           "wrong_photo": "همه‌ی عکس‌ها محصول دیگری را نشان می‌دهند"}

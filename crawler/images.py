@@ -222,6 +222,8 @@ MODELS = {
     # PP-OCRv3 text detector from the OpenCV model zoo (Apache-2.0): finds text, does not read it
     "textdet": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/text_detection_ppocr/"
                "text_detection_en_ppocrv3_2023may.onnx",
+    # LaMa inpainting (Apache-2.0), ONNX export, 512x512: fills small shop marks at the photo's edges
+    "lama": "https://huggingface.co/Carve/LaMa-ONNX/resolve/main/lama_fp32.onnx",
 }
 _models: dict = {}
 
@@ -257,10 +259,10 @@ def _session(name: str):
         p = model_path(name)
         if p is None:
             _models[name] = None
-        elif name == "u2net":
+        elif name in ("u2net", "lama"):
             import onnxruntime as ort
             o = ort.SessionOptions()
-            o.intra_op_num_threads = 1
+            o.intra_op_num_threads = 1 if name == "u2net" else 2
             o.enable_cpu_mem_arena = False                   # the arena doubled memory (1.2 GB -> 0.56 GB)
             o.enable_mem_pattern = False
             _models[name] = ort.InferenceSession(str(p), o, providers=["CPUExecutionProvider"])

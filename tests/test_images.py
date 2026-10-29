@@ -57,3 +57,47 @@ class NoPaidEditWithoutTheProduct(unittest.TestCase):
         self.assertFalse(worth_editing({"matches_name": False, "shop_logo": True}))
         self.assertTrue(worth_editing({"matches_name": True, "shop_logo": True}))
         self.assertTrue(worth_editing({"product_whole": True, "overlay_text": True}))
+
+
+class FreeFixLocks(unittest.TestCase):
+    """29 Oct ladder test: a faint watermark over the product (#16) and a cluttered photo (#05) came
+    out as 'free' fixes; both must go on to the paid model."""
+
+    def test_faint_watermark_or_busy_background_fail(self):
+        from crawler.freefix import passes
+        ok = {"overlay_text": False, "shop_logo": False, "faint_watermark": False, "white_background": True,
+              "product_whole": True, "matches_name": True}
+        self.assertTrue(passes(ok)[0])
+        self.assertFalse(passes({**ok, "faint_watermark": True})[0])
+        self.assertFalse(passes({**ok, "white_background": False})[0])
+        self.assertFalse(passes({**ok, "white_background": None})[0])
+        self.assertFalse(passes({**ok, "shop_logo": True})[0])
+        self.assertFalse(passes({"_error": "x"})[0])
+
+    def test_only_small_marks_at_the_edges_are_filled(self):
+        from crawler.freefix import safe_boxes
+        self.assertTrue(safe_boxes([[20, 20, 200, 120]])[0])
+        self.assertFalse(safe_boxes([[400, 400, 600, 600]])[0])          # on the product
+        self.assertFalse(safe_boxes([[0, 0, 400, 300]])[0])              # too big
+        self.assertFalse(safe_boxes([])[0])
+
+    def test_white_fill_only_on_white(self):
+        from crawler.freefix import white_fill
+        im = Image.new("RGB", (500, 500), "white")
+        ImageDraw.Draw(im).rectangle([20, 20, 80, 50], fill="red")
+        out = white_fill(im, [[30, 30, 170, 110]])
+        self.assertIsNotNone(out)
+        self.assertEqual(out.getpixel((50, 35)), (255, 255, 255))
+        busy = Image.new("RGB", (500, 500), (90, 120, 60))
+        self.assertIsNone(white_fill(busy, [[40, 40, 160, 100]]))
+
+    def test_a_fail_goes_on_and_costs_are_counted(self):
+        from unittest import mock
+        from crawler import freefix
+        im = Image.new("RGB", (600, 600), (90, 120, 60))
+        ImageDraw.Draw(im).rectangle([150, 150, 450, 450], fill="blue")
+        with mock.patch.object(freefix, "find_boxes", return_value=([[400, 400, 600, 600]], 0.001)):
+            out, how, cost = freefix.free_fix(im, "x", "m", "k", check=lambda *a: {"_cost": 0.001})
+        self.assertIsNone(out)                    # no cut-out model in tests, mark in the middle: no free fix
+        self.assertIn("middle", how)
+        self.assertAlmostEqual(cost, 0.001)

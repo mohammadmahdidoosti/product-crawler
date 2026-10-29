@@ -2,7 +2,8 @@
 advert, phone number, web address or another shop's logo (or a busy background) are fixed:
 
   1. a product that also has a clean photo simply drops the bad one (free);
-  2. otherwise the bad photo is edited by an image model (Qwen Image Turbo, then Krea K3 Edit);
+  2. otherwise a free fix is tried (crawler.freefix: cut-out, white fill or LaMa, strictly checked),
+     then the bad photo is edited by an image model (Qwen Image Turbo, then the fallbacks);
   3. if both refuse, a clean photo of the same product is looked for (image search) and checked;
   4. what still fails is left as it is and listed for review.
 AI-edited photos are saved next to the originals (ai<k>_<n>.webp); the originals are kept so the
@@ -186,7 +187,8 @@ def fix_photos(cfg: dict, run: str) -> dict:
     # 2-4. fix
     models = [ic.get("ai_model", "qwen/qwen-image-2.1-turbo")] + list(ic.get("ai_fallback_models") or [])
     stats = {"checked": len(jobs), "bad": 0, "dropped": 0, "edited": 0, "searched": 0, "left": 0,
-             "wrong": 0, "wrong_left": 0, "search_tried": 0, "edit_tried": 0}
+             "wrong": 0, "wrong_left": 0, "search_tried": 0, "edit_tried": 0, "free_tried": 0, "free": 0,
+             "free_cost": 0.0}
     rows = im.to_dict("records")
     import threading
     lock = threading.Lock()
@@ -248,6 +250,23 @@ def fix_photos(cfg: dict, run: str) -> dict:
             if not worth_editing(vis.get((r["url"], files[0]), {})):   # an edit cannot make the product appear
                 src = None
                 notes.add("no_product_in_photo")
+            # 2a. free first: the product cut out, or small edge marks painted white / filled by LaMa;
+            #     used only when the strict check passes it (else on to search and the paid models)
+            if not fixed and src is not None and ic.get("free_fix", True) \
+                    and not any(x.startswith("free_fixed") for x in notes):
+                from .freefix import free_fix
+                bump("free_tried")
+                out, how, c = free_fix(src, new.get(r["url"], {}).get("name", ""), vmodel, key, lock=model_lock,
+                                       check=check, size=int(ic.get("size", 1000)))
+                bump("free_cost", c)
+                if out is not None:
+                    rel = f"{k}/ai0_{n}.webp"
+                    out.save(root / rel, "WEBP", quality=88, method=4)
+                    fixed = rel
+                    notes.add(f"free_fixed:{how}")
+                    bump("free")
+                else:
+                    log.info("photo fix %s free: %s", r["url"][-40:], how[:80])
             if not fixed and int(ic.get("search_max", 40)) > 0:   # 2. a clean photo from another shop first:
                 bump("search_tried")                              # a real photo, and cheaper than an AI edit
                 from .pipeline import _fetchers
