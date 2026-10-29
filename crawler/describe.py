@@ -124,6 +124,11 @@ Return JSON only: {"short": "<one or two sentences, max 220 characters>",
 Use only the tags p, h3, ul, li, strong."""
 
 
+FIX_NUMBERS = ("در متنت عدد {n} آمده که در اسم و مشخصات این محصول نیست. همان متن را دوباره بنویس و هیچ عددی "
+               "ننویس مگر عددهایی که عیناً در اسم یا مشخصات محصول آمده‌اند؛ اندازه، توان، زاویه یا ظرفیتی را که "
+               "در اسم نیست حدس نزن و به‌جایش کلی بنویس. همان قالب JSON.")
+
+
 class Writer:
     def __init__(self, cfg: dict, model: str | None = None):
         dc = cfg.get("describe", {})
@@ -149,7 +154,8 @@ class Writer:
                 "messages": [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}],
                 "response_format": {"type": "json_object"},
                 "reasoning": {"enabled": False}}                 # no hidden 'thinking' tokens: plain writing
-        for attempt in range(3):
+        retried = False
+        for attempt in range(4):
             try:
                 res = self.s.post(OPENROUTER, json=body, timeout=120, headers={
                     "Authorization": f"Bearer {self.key}", "Content-Type": "application/json",
@@ -182,9 +188,18 @@ class Writer:
             if out and not why:
                 out["tokens_in"], out["tokens_out"] = u.get("prompt_tokens", ""), u.get("completion_tokens", "")
                 return out
-            self._tl.last = "rejected"
             log.info("description rejected (%s, finish=%s) for %s", why,
                      ((data.get("choices") or [{}])[0]).get("finish_reason"), r.get("url"))
+            m = re.match(r"number (\S+) not in the facts", why or "")
+            if m and not retried:
+                # once more, told what was wrong (29 Oct: 146 of 155 rejections were a number the model
+                # knew for such products, e.g. '90' for an elbow, but the name does not say)
+                retried = True
+                body = {**body, "messages": body["messages"] + [
+                    {"role": "assistant", "content": text},
+                    {"role": "user", "content": FIX_NUMBERS.format(n=m.group(1))}]}
+                continue
+            self._tl.last = "rejected"
             self.usage["failed"] += 1
             return None
         self.usage["failed"] += 1

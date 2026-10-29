@@ -33,3 +33,30 @@ class ChineseSlip(unittest.TestCase):
         body = "<p>" + " ".join(["این کلید برای شبکه‌های مستقیم مناسب است و کیفیت خوبی دارد"] * 12) + "</p>"
         self.assertEqual(check_why({"html": body, "short": "کلید"}, r), "")
         self.assertEqual(check_why({"html": body.replace("مستقیم", "直流"), "short": "کلید"}, r), "Chinese characters")
+
+
+class NumberRetry(unittest.TestCase):
+    def test_told_the_number_was_wrong_the_model_writes_again(self):
+        import json
+        from unittest import mock
+        from crawler import describe as D
+        r = {"url": "u", "name": "زانو مسی جوشی سایز 22", "brand": "", "breadcrumb": "اتصالات"}
+        body = " ".join(["این زانو برای لوله‌کشی آب گرم و سرد ساختمان مناسب است و نصب ساده‌ای دارد"] * 12)
+        bad = {"html": "<p>" + body + " زاویه ۹۰ درجه دارد.</p>", "short": "زانو مسی"}
+        good = {"html": "<p>" + body + "</p>", "short": "زانو مسی"}
+
+        def resp(x):
+            m = mock.Mock(status_code=200)
+            m.json.return_value = {"choices": [{"message": {"content": json.dumps(x, ensure_ascii=False)},
+                                                "finish_reason": "stop"}], "usage": {}}
+            return m
+        w = D.Writer({"describe": {}})
+        w.key = "k"
+        w.s = mock.Mock()
+        w.s.post.side_effect = [resp(bad), resp(good)]
+        out = w.write(r)
+        self.assertIsNotNone(out)
+        sent = w.s.post.call_args_list[1].kwargs["json"]["messages"]
+        self.assertIn("90", sent[-1]["content"])
+        w.s.post.side_effect = [resp(bad), resp(bad)]                 # a second slip: rejected, no third call
+        self.assertIsNone(w.write(r))
