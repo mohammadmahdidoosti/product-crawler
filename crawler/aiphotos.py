@@ -36,6 +36,15 @@ def _bad(v: dict, busy: bool) -> bool:
     return v.get("overlay_text") is True or v.get("shop_logo") is True or (busy and v.get("white_background") is False)
 
 
+def worth_editing(v: dict) -> bool:
+    """A paid edit removes marks from a photo of the product; it cannot make a product appear in a
+    placeholder ('no image'), a factory or a spec table (both models were paid for one on 29 Oct)."""
+    note = str(v.get("note") or "").lower()
+    if v.get("matches_name") is False or "placeholder" in note or "no product" in note:
+        return False
+    return v.get("product_whole") is not False or v.get("matches_name") is True
+
+
 def best_photo(files: list[str], verdict: dict) -> str:
     """Of a product's photos (all bad), the one worth the one paid fix: it is the product, the whole of
     it, on a plain background, with the fewest marks; on a tie the shop's own first photo. (Sharpness
@@ -236,6 +245,9 @@ def fix_photos(cfg: dict, run: str) -> dict:
             fixed = ""
             if any(x.startswith("ai_fixed") for x in notes):   # edited before and still not clean: no second edit
                 src = None
+            if not worth_editing(vis.get((r["url"], files[0]), {})):   # an edit cannot make the product appear
+                src = None
+                notes.add("no_product_in_photo")
             if not fixed and int(ic.get("search_max", 40)) > 0:   # 2. a clean photo from another shop first:
                 bump("search_tried")                              # a real photo, and cheaper than an AI edit
                 from .pipeline import _fetchers

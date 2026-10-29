@@ -48,3 +48,12 @@ class BestPhotoToFix(unittest.TestCase):
         v["k/3.webp"]["matches_name"] = False                      # another thing in the photo: never
         self.assertEqual(best_photo(files, v), "k/2.webp")
         self.assertEqual(best_photo(files, {}), "k/1.webp")        # nothing known: the shop's first
+
+
+class NoPaidEditWithoutTheProduct(unittest.TestCase):
+    def test_placeholder_is_not_sent_for_an_edit(self):
+        from crawler.aiphotos import worth_editing
+        self.assertFalse(worth_editing({"note": "placeholder image, no product shown", "overlay_text": True}))
+        self.assertFalse(worth_editing({"matches_name": False, "shop_logo": True}))
+        self.assertTrue(worth_editing({"matches_name": True, "shop_logo": True}))
+        self.assertTrue(worth_editing({"product_whole": True, "overlay_text": True}))
