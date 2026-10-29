@@ -336,6 +336,11 @@ def prepare(cfg: dict, kind: str, limit: int = 20, report: str | None = None, id
 
 # ------------------------------------------------------------------ preview and decisions
 
+BAD_PHOTO = {"text_overlay": "عکس هنوز آگهی یا نوشته‌ی فروشگاه دارد",
+             "wrong_photo": "عکس محصول دیگری را نشان می‌دهد",
+             "no_product_in_photo": "محصول در عکس دیده نمی‌شود"}
+
+
 def build_preview(cfg: dict, run: str) -> dict:
     from .config import run_dir
     from .images import public_urls
@@ -366,6 +371,13 @@ def build_preview(cfg: dict, run: str) -> dict:
                 if len(v) and (v["matches_name"].astype(str).str.lower() == "false").any():
                     doubt.append("مدل بینایی مطمئن نیست عکس همین محصول باشد")
             proposal = public_urls(cfg, files)
+            # a photo still carrying a shop's advert, or not showing the product, is never offered:
+            # it could only be sent by mistake (29 Oct: such rows had a proposal like any other)
+            tokens = {x.strip() for x in str(notes or "").split("|")}
+            bad = [m for k, m in BAD_PHOTO.items() if k in tokens]
+            if bad and files:
+                proposal = ""
+                doubt.append("پیشنهادی نیست: " + "، ".join(bad))
             now = f"{r['site_images']} عکس"
         else:
             ds = desc.get(r["url"]) or {}
@@ -483,7 +495,9 @@ def apply(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
     kind = meta["kind"]
     pv = preview(cfg, run)
     todo = [i for i in range(len(pv)) if pv.loc[i, "decision"] == "approved" and pv.loc[i, "applied"] == ""
-            and pv.loc[i, "proposal"] != ""]
+            and pv.loc[i, "proposal"] != ""
+            and not (pv.loc[i, "kind"] == "photo"          # a preview built before this rule: still never sent
+                     and set(BAD_PHOTO) & {x.strip() for x in str(pv.loc[i, "notes"] or "").split("|")})]
     alog.info("site fix apply %s: %d approved", run, len(todo))
     halted = ""
     for n, i in enumerate(todo, 1):

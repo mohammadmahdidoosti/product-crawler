@@ -190,6 +190,22 @@ class SiteFix(unittest.TestCase):
         self.assertFalse((self.data / "no_category.csv").exists())
         self.assertEqual(sorted(p.name for p in (self.data / "runs").iterdir()), [res["run"]])
 
+    def test_a_photo_with_an_advert_is_never_offered(self):
+        res = self.prepare("photo", limit=10)
+        d = self.data / "runs" / res["run"]
+        im = read_csv(d / "05_images.csv")
+        im["notes"] = ["text_overlay" if "11" in str(u) or i == 0 else "wrong_photo_dropped"
+                       for i, u in enumerate(im["url"])]
+        write_csv(im, d / "05_images.csv")
+        SF.build_preview(self.cfg, res["run"])
+        pv = SF.preview(self.cfg, res["run"])
+        ad = pv[pv["notes"].str.contains("text_overlay")]
+        self.assertTrue(len(ad))
+        self.assertTrue((ad["proposal"] == "").all())
+        self.assertTrue(ad["note"].str.contains("آگهی").all())
+        ok = pv[pv["notes"] == "wrong_photo_dropped"]          # a bad photo dropped, a good one kept: offered
+        self.assertTrue((ok["proposal"] != "").any() or not len(ok[ok["files"] != ""]))
+
     def test_text_preview(self):
         res = self.prepare("text")
         pv = SF.preview(self.cfg, res["run"]).set_index("key")
