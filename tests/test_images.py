@@ -35,3 +35,16 @@ class ImageStep(unittest.TestCase):
     def test_no_mark_without_enough_photos(self):
         from crawler.images import shop_mark
         self.assertIsNone(shop_mark([np.zeros((256, 256), np.float32)] * 2))
+
+
+class BestPhotoToFix(unittest.TestCase):
+    def test_the_whole_product_with_fewest_marks_is_fixed(self):
+        from crawler.aiphotos import best_photo
+        files = ["k/1.webp", "k/2.webp", "k/3.webp"]
+        v = {"k/1.webp": {"matches_name": True, "product_whole": False, "overlay_text": True, "shop_logo": True},
+             "k/2.webp": {"matches_name": True, "product_whole": True, "overlay_text": True, "shop_logo": True},
+             "k/3.webp": {"matches_name": True, "product_whole": True, "overlay_text": False, "shop_logo": True}}
+        self.assertEqual(best_photo(files, v), "k/3.webp")
+        v["k/3.webp"]["matches_name"] = False                      # another thing in the photo: never
+        self.assertEqual(best_photo(files, v), "k/2.webp")
+        self.assertEqual(best_photo(files, {}), "k/1.webp")        # nothing known: the shop's first

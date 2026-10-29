@@ -36,6 +36,19 @@ def _bad(v: dict, busy: bool) -> bool:
     return v.get("overlay_text") is True or v.get("shop_logo") is True or (busy and v.get("white_background") is False)
 
 
+def best_photo(files: list[str], verdict: dict) -> str:
+    """Of a product's photos (all bad), the one worth the one paid fix: it is the product, the whole of
+    it, on a plain background, with the fewest marks; on a tie the shop's own first photo. (Sharpness
+    is not compared: every photo is already made 1000x1000 by the image step.)"""
+    def rank(f):
+        v = verdict.get(f) or {}
+        return (v.get("matches_name") is not False, v.get("product_whole") is True,
+                v.get("white_background") is True,
+                -(int(v.get("overlay_text") is True) + int(v.get("shop_logo") is True)),
+                -files.index(f))
+    return max(files, key=rank)
+
+
 def image_query(p: dict) -> str:
     """'دریل رونیکس 2513T' finds the maker's clean photo more often than a shop's whole title."""
     from .pipeline import _codes
@@ -214,6 +227,9 @@ def fix_photos(cfg: dict, run: str) -> dict:
             notes.add("bad_photo_dropped")
             bump("dropped", len(bad))
         else:                                                # 2. a photo from another shop, 3. an AI edit
+            # the one photo to fix is the best of them, not just the first (the rest go)
+            pick = best_photo(files, {f: vis.get((r["url"], f), {}) for f in files})
+            files = [pick] + [f for f in files if f != pick]
             k = product_key(r["url"])
             n = int(re.findall(r"\d+", files[0].split("/")[-1].split(".")[0])[-1])   # '2.webp', 'ai1_2.webp
             src = source_photo(r, n, cfg["_data_dir"])
