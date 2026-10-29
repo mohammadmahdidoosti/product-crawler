@@ -72,6 +72,9 @@ class Prints:
         """First use: the fixes of all earlier runs (05_images.csv: originals -> files[0])."""
         seen = set()
         for f in sorted(glob.glob(str(data_dir / "runs" / "*" / "05_images.csv"))):
+            run = Path(f).parent
+            if run.name.startswith("fix-") and not (run / "08_fix_backup.csv").exists():
+                continue                                 # a site-fix preview nobody applied
             try:
                 with open(f, encoding="utf-8-sig") as fh:
                     for r in csv.DictReader(fh):

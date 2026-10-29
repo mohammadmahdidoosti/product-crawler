@@ -255,7 +255,9 @@ def fix_photos(cfg: dict, run: str) -> dict:
             made = len([p for p in (root / k).glob("*.webp") if re.fullmatch(r"\d{1,2}\.webp", p.name)]) \
                 if (root / k).is_dir() else 0
             tried = len([u for u in str(r.get("source_images") or "").split(" | ") if u.strip()])
-            ours = not (made and made == tried)
+            # a searched photo's address may serve another picture later (29 Oct, #1: same count, another
+            # motor came back): our own copy is the photo that was judged
+            ours = not (made and made == tried) or "found_by_search" in notes or "text_photo_replaced" in notes
             if ours:
                 own = root / k / f"{n}.webp"
                 src = Image.open(own).convert("RGB") if own.exists() else None
