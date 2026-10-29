@@ -116,6 +116,9 @@ Rules:
 - Translate technical terms into Persian (keep the Latin term in brackets only when it helps); numbers
   with their units.
 - 180 to 300 words: a fuller introduction, the features as a list, and real uses of the product.
+- Open the introduction with what this product does or what sets it apart, in your own words. Do not
+  open with stock phrases such as "یکی از اتصالات پرکاربرد", "یکی از اجزای پرکاربرد/کلیدی/کاربردی" or
+  "از ... پرکاربرد در"; thousands of the shop's pages would then start the same way.
 Return JSON only: {"short": "<one or two sentences, max 220 characters>",
  "html": "<p>intro</p><h3>ویژگی‌ها</h3><ul><li>…</li></ul><h3>کاربردها</h3><p>…</p>"}
 Use only the tags p, h3, ul, li, strong."""
