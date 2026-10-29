@@ -249,7 +249,22 @@ def fix_photos(cfg: dict, run: str) -> dict:
             files = [pick] + [f for f in files if f != pick]
             k = product_key(r["url"])
             n = int(re.findall(r"\d+", files[0].split("/")[-1].split(".")[0])[-1])   # '2.webp', 'ai1_2.webp
-            src = source_photo(r, n, cfg["_data_dir"])
+            # the shop's original is used only when it is surely photo n: the image step numbers the
+            # photos it could make, while source_images keeps every address it tried (29 Oct: a free fix
+            # of photo 1 was made from another address, another motor); else our own photo n
+            made = len([p for p in (root / k).glob("*.webp") if re.fullmatch(r"\d{1,2}\.webp", p.name)]) \
+                if (root / k).is_dir() else 0
+            tried = len([u for u in str(r.get("source_images") or "").split(" | ") if u.strip()])
+            ours = not (made and made == tried)
+            if ours:
+                own = root / k / f"{n}.webp"
+                src = Image.open(own).convert("RGB") if own.exists() else None
+                if src is not None:                  # our camel mark goes; the finished photo gets it back
+                    from PIL import ImageDraw
+                    ImageDraw.Draw(src).rectangle([0.88 * src.width, 0.9 * src.height, src.width, src.height],
+                                                  fill="white")
+            else:
+                src = source_photo(r, n, cfg["_data_dir"])
             fixed = ""
             if any(x.startswith("ai_fixed") for x in notes):   # edited before and still not clean: no second edit
                 src = None
@@ -275,7 +290,6 @@ def fix_photos(cfg: dict, run: str) -> dict:
                     and not any(x.startswith("free_fixed") for x in notes):
                 from .freefix import free_fix
                 bump("free_tried")
-                ours = not (0 < n <= len([u for u in str(r.get("source_images") or "").split(" | ") if u]))
                 out, how, c = free_fix(src, new.get(r["url"], {}).get("name", ""), vmodel, key, lock=model_lock,
                                        check=check, size=int(ic.get("size", 1000)), ours=ours)
                 bump("free_cost", c)
