@@ -24,3 +24,12 @@ class Describe(unittest.TestCase):
         self.assertFalse(check(copied, self.R))
         a = parse_answer('```json\n{"short": "x", "html": "<p>a</p><script>b</script><img src=x>"}\n```')
         self.assertEqual(a["html"], "<p>a</p>b")
+
+
+class ChineseSlip(unittest.TestCase):
+    def test_a_chinese_word_is_rejected(self):
+        from crawler.describe import check_why
+        r = {"name": "کلید مینیاتوری DC دو پل 40 آمپر", "brand": "", "model": ""}
+        body = "<p>" + " ".join(["این کلید برای شبکه‌های مستقیم مناسب است و کیفیت خوبی دارد"] * 12) + "</p>"
+        self.assertEqual(check_why({"html": body, "short": "کلید"}, r), "")
+        self.assertEqual(check_why({"html": body.replace("مستقیم", "直流"), "short": "کلید"}, r), "Chinese characters")

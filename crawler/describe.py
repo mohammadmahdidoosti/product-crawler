@@ -212,6 +212,8 @@ def check_why(out: dict, r: dict) -> str:
     fa = len(re.findall(r"[؀-ۿ]", text))
     if fa < 0.5 * max(1, len(re.sub(r"\s", "", text))):
         return "not Persian"
+    if re.search(r"[\u3400-\u4dbf\u4e00-\u9fff]", text + " " + str(out.get("short") or "")):
+        return "Chinese characters"            # DeepSeek slips a Chinese word in now and then (14 of 25,000)
     words = len(text.split())
     if words < 100 or words > 450:
         return f"{words} words"
