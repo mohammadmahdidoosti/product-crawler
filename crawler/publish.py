@@ -398,6 +398,16 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
     wc = wc or WC()
     if not dry_run and not wc.ok():
         raise ValueError("WC_URL / WC_KEY / WC_SECRET روی سرور تنظیم نشده")
+    if not dry_run and any((rec.get("_brand") or {}).get("status") == "missing" for rec, _ in items):
+        # the brands step was not run for this batch: 83 of 87 were skipped for it on 29 Oct.
+        # It names the new brands now (shops get none) and the products are built again.
+        from . import brands_fa as BF
+        try:
+            log.info("publish %s: brands not in the table yet, building them first", run)
+            BF.build(cfg, [rec for rec, _ in items], wc=wc)
+            items = export_rows(cfg, run)
+        except Exception as e:                           # noqa: BLE001 - those products are skipped as before
+            log.warning("publish %s: brands not built (%s)", run, e)
     cats = category_map()
     if not cats:
         raise ValueError("نگاشت دسته‌های وردپرس (wp_categories.csv) پیدا نشد")

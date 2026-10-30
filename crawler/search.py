@@ -117,11 +117,15 @@ def search_template(f: Fetcher, src: dict, row: dict, n: int) -> list[dict]:
             _links_from_page(res["text"], url, src["link_selector"], n) if _overlap_ok(row["query"], t)]
 
 
+SERPER_CALLS = [0]                                   # paid web searches made by this process (for 09_costs.csv)
+
+
 def search_web(f: Fetcher, cfg: dict, row: dict, query: str, n: int, site: str | None = None) -> list[dict]:
     web = cfg["sources"].get("web_search") or {}
     key = secret(web.get("api_key_env", "SERPER_API_KEY"))
     if not key:
         return []
+    SERPER_CALLS[0] += 1
     excl = web.get("exclude_domains") or []
     q = f"site:{site} {query}" if site else query + "".join(f" -site:{d}" for d in excl)
     res = f.post_json("https://google.serper.dev/search",

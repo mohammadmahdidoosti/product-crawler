@@ -136,7 +136,7 @@ class Writer:
         self.model = model or dc.get("model", "deepseek/deepseek-v4.1-flash")
         self.max_tokens = int(dc.get("max_tokens", 2500))
         self.s = requests.Session()
-        self.usage = {"in": 0, "out": 0, "calls": 0, "failed": 0}
+        self.usage = {"in": 0, "out": 0, "calls": 0, "failed": 0, "usd": 0.0}
         self.spent = False
         import threading
         self._tl = threading.local()           # .last = 'rejected' when the model answered but broke a rule
@@ -153,7 +153,8 @@ class Writer:
         body = {"model": self.model, "max_tokens": self.max_tokens, "temperature": 0.6,
                 "messages": [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}],
                 "response_format": {"type": "json_object"},
-                "reasoning": {"enabled": False}}                 # no hidden 'thinking' tokens: plain writing
+                "reasoning": {"enabled": False},                 # no hidden 'thinking' tokens: plain writing
+                "usage": {"include": True}}                      # OpenRouter returns the call's cost
         retried = False
         for attempt in range(4):
             try:
@@ -182,6 +183,10 @@ class Writer:
             self.usage["in"] += int(u.get("prompt_tokens") or 0)
             self.usage["out"] += int(u.get("completion_tokens") or 0)
             self.usage["calls"] += 1
+            try:
+                self.usage["usd"] += float(u.get("cost") or 0)
+            except (TypeError, ValueError):
+                pass
             text = ((data.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
             out = parse_answer(text)
             why = "unparsable" if not out else check_why(out, r)
@@ -315,6 +320,11 @@ def step_describe(cfg: dict, run: str, limit: int | None = None) -> Path | None:
         log.info("descriptions: %s calls, %d failed, tokens in %d / out %d%s",
                  u["calls"], u["failed"], u["in"], u["out"],
                  "".join(f"; backup {b.model}: {b.usage['calls']} calls, {b.usage['failed']} failed" for b in backups))
+        from .costs import add
+        calls = u["calls"] + sum(b.usage["calls"] for b in backups)
+        if calls:
+            add(d, "describe", calls, u["usd"] + sum(b.usage["usd"] for b in backups),
+                f"{w.model}; tokens in {u['in']} / out {u['out']}")
     return out_p
 
 

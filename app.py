@@ -1084,6 +1084,9 @@ class Handler(BaseHTTPRequestHandler):
                 if len(parts) == 3:
                     return self._json({"name": parts[2], "files": {f.name: file_rows(f) for f in sorted(d.glob("*.csv"))},
                                        "kpi": run_kpi(d), "stats": P.stats(build_cfg(), parts[2]) if d.exists() else ""})
+                if parts[3] == "costs":                   # what this batch cost, step by step
+                    from crawler.costs import summary
+                    return self._json(summary(d))
                 if parts[3] == "brands":
                     from crawler import brands_fa as BF
                     cfg = build_cfg()

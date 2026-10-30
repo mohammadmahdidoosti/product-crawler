@@ -377,4 +377,11 @@ def fix_photos(cfg: dict, run: str) -> dict:
         write_csv(vv[[(u, f) not in rewritten for u, f in zip(vv["url"], vv["file"])]], vp)
     cost = sum(float(v.get("_cost") or 0) for v in res)
     log.info("photo check: %s; vision cost $%.3f", stats, cost)
+    from .costs import add
+    add(d, "photo_check", stats["checked"], cost, "vision")
+    paid = int(stats["edit_tried"])
+    add(d, "photo_fix", paid + int(stats["free_tried"]),
+        paid * float(ic.get("ai_edit_usd", 0.02)) + float(stats["free_cost"]),
+        f"paid edits {paid}, free fixes {stats['free']}/{stats['free_tried']}, reused {stats['reused']}, "
+        f"found by search {stats['searched']}", estimated=bool(paid))
     return stats

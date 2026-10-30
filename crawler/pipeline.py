@@ -105,6 +105,8 @@ def step_search(cfg: dict, run: str) -> Path:
     f = _fetchers(cfg)
     from concurrent.futures import ThreadPoolExecutor, as_completed
     from .rules import judge
+    from .search import SERPER_CALLS
+    calls0 = SERPER_CALLS[0]
     workers = max(1, int(cfg.get("http", {}).get("workers", 8)) // 2)
     n_hits = n_pre = 0
     todo = [r for r in queue if r["taxonomy_id"] not in done]
@@ -146,6 +148,11 @@ def step_search(cfg: dict, run: str) -> Path:
             if i % 10 == 0:
                 log.info("search %d/%d, %d hits so far", i, len(todo), n_hits)
     log.info("search done: %d new hits (%d dropped by title before fetching) -> %s", n_hits, n_pre, out.name)
+    calls = SERPER_CALLS[0] - calls0
+    if calls:
+        from .costs import add
+        web = cfg["sources"].get("web_search") or {}
+        add(d, "search", calls, calls * float(web.get("usd_per_query", 0.001)), "Serper web searches", estimated=True)
     return out
 
 
@@ -468,6 +475,9 @@ def step_filter(cfg: dict, run: str) -> Path:
                         log.warning("filter failed for %s: %s (will retry next run)", tid, e)
                         continue
                 for r, v in zip(chunk, verdicts):
+                    car = car_part(r.get("name", ""), crumb)
+                    if car:
+                        v = {**v, "relevant": False, "reason": f"لوازم یدکی خودرو ({car})؛ به کار سایت نمی‌آید"}
                     r.update({"relevant": v.get("relevant"), "relevance_confidence": v.get("confidence"),
                               "relevance_reason": v.get("reason", "")})
                     if not r.get("brand") and v.get("brand"):
@@ -988,6 +998,24 @@ def price_history(cfg: dict, d: Path, low: float = 150_000, high: float = 150_00
     return out
 
 
+CAR_WORDS = ("سوزوکی", "ویتارا", "پژو", "پراید", "سمند", "تیبا", "ساینا", "کوییک", "پیکان", "رانا", "نیسان",
+             "تویوتا", "هیوندای", "هیوندا", "مزدا", "رنو", "ام وی ام", "لیفان", "هایما", "صندوق عقب",
+             "درب موتور", "کاپوت", "سپر عقب", "سپر جلو")       # not 'خودرو': car jacks and pumps are tools
+
+
+def car_part(name: str, crumb: str = "") -> str:
+    """The car word in a product name ('جک گازی صندوق عقب ویتارا'), or ''. An industrial shop does not
+    sell car spare parts (29 Oct: four car gas springs came with the search 'جک گازی'). Only when the
+    category is not about cars itself."""
+    if "خودرو" in str(crumb) or "ماشین" in str(crumb).split(">")[-1]:
+        return ""
+    n = " " + norm_text(str(name or "")) + " "
+    for w in CAR_WORDS:
+        if f" {norm_text(w)} " in n:
+            return w
+    return ""
+
+
 def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, high: float = 150_000_000,
                  peers: list[dict] | None = None, history: dict[str, list[float]] | None = None) -> list[dict]:
     """Prices that look 10x off (rial read as toman, or the reverse) are held back, never changed:
@@ -1020,10 +1048,26 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
             lf = str(r.get("breadcrumb") or "")
             above.setdefault(lf, []).append(v)
             above.setdefault("parent:" + lf.rsplit(" > ", 1)[0], []).append(v)
+    # one price copied onto several different products: 6 cartridge pumps of 5 makers all at exactly
+    # 12,200,000 (29 Oct). Different brands almost never cost the very same; a person decides.
+    makers: dict[float, set] = {}
+    for r in recs:
+        v = num(r.get("price_toman"))
+        if v and "foreign_x" not in str(r.get("price_flags") or "") and r.get("price_estimated") != "reviewed":
+            b = norm_text(str(r.get("brand") or "")) or " ".join(re.findall(r"[A-Za-z]{3,}", str(r.get("name") or ""))[:1]).lower()
+            if b:                                        # unbranded items often share a round price
+                makers.setdefault(v, set()).add(b)
+    copied = {v for v, b in makers.items() if len(b) >= 3}
     out = []
     for r in recs:
         v = num(r.get("price_toman"))
         if not v or "foreign_x" in str(r.get("price_flags") or "") or r.get("price_estimated") == "reviewed":
+            out.append(r)
+            continue
+        if v in copied:
+            r = {**r, "price_check": f"suspicious: {v:,.0f} تومان؛ همین قیمت روی {len(makers[v])} محصول با برند جدا"
+                                    " (احتمالاً یک قیمت روی همه کپی شده)"}
+            log.warning("price held back %s: %s", r.get("url"), r["price_check"])
             out.append(r)
             continue
         leaf = str(r.get("breadcrumb") or "")
