@@ -43,6 +43,29 @@ class CostCuts(unittest.TestCase):
         self.assertEqual(sorted(kept["name"]), ["قیچی نووا", "قیچی چینی"])
         self.assertEqual(list(dropped["name"]), ["دستگاه برش"])
 
+    def test_foreign_kept_out_of_brand_category(self):
+        df = pd.DataFrame([
+            {"taxonomy_id": "5", "breadcrumb": "ابزار > ترانسمیتر اختلاف فشار > ترانسمیتر اختلاف فشار اندرس هاوزر",
+             "name": "ترانسمیتر چینی", "source_domain": "q.en.made-in-china.com", "url": "https://q.en.made-in-china.com/1",
+             "price_toman": "20000000"},
+            {"taxonomy_id": "5", "breadcrumb": "ابزار > ترانسمیتر اختلاف فشار > ترانسمیتر اختلاف فشار اندرس هاوزر",
+             "name": "ترانسمیتر اندرس هاوزر PMD75", "source_domain": "shop.ir", "url": "https://shop.ir/2",
+             "price_toman": "60000000", "brand": "اندرس هاوزر"},
+            {"taxonomy_id": "6", "breadcrumb": "ابزار > ترموستات دیجیتال > ترموستات دیجیتال فن کویل",
+             "name": "ترموستات چینی", "source_domain": "r.en.made-in-china.com", "url": "https://r.en.made-in-china.com/1",
+             "price_toman": "5000000"},
+        ])
+        df.loc[3] = {"taxonomy_id": "7", "breadcrumb": "ابزار > چکش تخریب > چکش تخریب دی سی ای",
+                     "name": "DCA AZG15 demolition hammer", "source_domain": "dca.en.made-in-china.com",
+                     "url": "https://dca.en.made-in-china.com/1", "price_toman": "20000000", "brand": ""}
+        df.loc[4] = {"taxonomy_id": "7", "breadcrumb": "ابزار > چکش تخریب > چکش تخریب دی سی ای",
+                     "name": "Electric demolition hammer 1500W", "source_domain": "x.en.made-in-china.com",
+                     "url": "https://x.en.made-in-china.com/2", "price_toman": "15000000", "brand": ""}
+        kept, dropped = select_top(df, 24, 3, brand_names={"اندرس هاوزر", "دی سی ای"})
+        # the brand's own product from China stays (DCA is a Chinese brand); another factory's does not
+        self.assertEqual(sorted(kept["name"]), ["DCA AZG15 demolition hammer", "ترانسمیتر اندرس هاوزر PMD75", "ترموستات چینی"])
+        self.assertEqual(sorted(dropped["name"]), ["Electric demolition hammer 1500W", "ترانسمیتر چینی"])
+
     def test_no_caps_is_unchanged(self):
         kept, dropped = select_top(rows(), 24, 3)
         self.assertEqual(len(kept), 20 + 23)

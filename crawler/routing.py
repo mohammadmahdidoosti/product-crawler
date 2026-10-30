@@ -58,6 +58,7 @@ LATIN = {  # Latin names of brands, to recognise them in product names (Persian 
     "اشتیل": "stihl", "اشیتل": "stihl", "ماتو درایو": "mato drive", "متودرایو": "mato drive", "ماتودرایو": "mato drive",
     "اس کی": "sk", "بوش ": "bosch", "رونیکس": "ronix", "توسن": "tosan", "ویوارکس": "vivarex", "پاپ": "pap", "پی ای پی": "pap", "پی‌ای‌پی": "pap", "پی.ای.پی": "pap", "هوسکوارنا": "husqvarna", "ماکیتا ": "makita",
     "زیلابگ": "ziehl-abegg", "مونتاناری": "montanari", "ویتور": "wittur", "الکو": "elco",
+    "اندرس هاوزر": "endress", "اندرس": "endress", "سوها": "suha",
     "abb": "abb", "smc": "smc", "aeg": "aeg", "obo": "obo", "eti": "eti", "dca": "dca", "فلوسرو ": "flowserve",
 }
 

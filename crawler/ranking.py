@@ -65,8 +65,32 @@ def _foreign(r) -> bool:
     return "made-in-china" in str(r.get("source_domain") or r.get("url") or "")
 
 
+def brand_leaf(breadcrumb: str, brand_names) -> str:
+    """The brand a category is named after (the leaf adds it to its parent: 'ترانسمیتر اختلاف فشار' ->
+    '... اندرس هاوزر'), or ''."""
+    from .normalize import norm_text
+    parts = str(breadcrumb or "").split(" > ")
+    leaf, parent = f" {norm_text(parts[-1])} ", f" {norm_text(parts[-2]) if len(parts) > 1 else ''} "
+    hits = [b for b in brand_names if len(b) >= 3 and f" {b} " in leaf and f" {b} " not in parent]
+    return max(hits, key=len) if hits else ""
+
+
+def not_that_brand(r, brand_names) -> bool:
+    """A Made-in-China product in a brand's category that is not that brand (batch 9: 24 Chinese
+    transmitters named 'اندرس هاوزر'). The brand's own product from China stays (a Chinese brand such as
+    DCA sells there too): its name, brand, seller or address must carry the brand."""
+    if not _foreign(r):
+        return False
+    b = brand_leaf(r.get("breadcrumb", ""), brand_names)
+    if not b:
+        return False
+    from .routing import brand_in
+    text = " ".join(str(r.get(k) or "") for k in ("name", "brand", "seller_name", "source_domain", "url"))
+    return not brand_in(text, b)
+
+
 def select_top(df: pd.DataFrame, n: int, max_per_seller: int = 3, max_foreign: int = 0,
-               foreign_skip: str = "", max_ratio: float = 0) -> tuple[pd.DataFrame, pd.DataFrame]:
+               foreign_skip: str = "", max_ratio: float = 0, brand_names=()) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Returns (kept, dropped); both carry quality_score and quality_why.
     max_foreign: at most this many Made-in-China products per category (0 = no cap); foreign_skip: a
     regex of category words whose Made-in-China products are not taken at all (cheap consumables a
@@ -74,6 +98,13 @@ def select_top(df: pd.DataFrame, n: int, max_per_seller: int = 3, max_foreign: i
     if df.empty:
         return df, df
     df = df.copy()
+    if brand_names and "breadcrumb" in df:
+        bl = df.apply(lambda r: not_that_brand(r, brand_names), axis=1)
+        if bl.any():
+            out = df[bl].copy()
+            out["quality_score"], out["quality_why"] = 0, "foreign product in a brand's category"
+            kept, dropped = select_top(df[~bl], n, max_per_seller, max_foreign, foreign_skip, max_ratio)
+            return kept, pd.concat([dropped, out])
     if max_ratio and "price_toman" in df and "breadcrumb" in df:
         # a factory machine in a hand-tool category (batch 8: 'قیچی لوله سفید' ~2 M toman in Iranian shops,
         # 0.7-12.7 billion from Made-in-China): more than max_ratio x the Iranian median of the parent group

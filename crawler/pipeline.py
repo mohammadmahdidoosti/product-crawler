@@ -44,6 +44,24 @@ def _fetchers(cfg: dict) -> dict[str, Fetcher]:
     return {"iran": Fetcher(cfg, "iran"), "foreign": Fetcher(cfg, "foreign")}
 
 
+def _brand_names(cfg: dict, merged: pd.DataFrame) -> set[str]:
+    """Brand names known to the crawler (brands.csv, the site's brand table, the brands the shops wrote on
+    this run's products), normalised: for keeping Made-in-China products out of a brand's category."""
+    from .normalize import norm_text
+    from .routing import brands
+    names = {n for n, _, _ in brands()}
+    try:
+        from .brands_fa import load as load_brands
+        t = load_brands(cfg)
+        for c in [c for c in t.columns if c in ("brand", "name_fa", "fa", "persian", "display")]:
+            names |= {norm_text(x) for x in t[c].astype(str) if x}
+    except Exception:                                      # noqa: BLE001 - brands.csv alone then
+        pass
+    if "brand" in merged:
+        names |= {norm_text(x) for x in merged["brand"].astype(str) if x and x.lower() != "nan"}
+    return {x for x in names if len(x) >= 3}
+
+
 # ------------------------------------------------------------------ 1 queue
 
 def step_queue(cfg: dict, run: str, **filters) -> Path:
@@ -598,7 +616,7 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     n_all = len(merged)
     merged, dropped = select_top(merged, int(sel.get("max_per_category", 24)), int(sel.get("max_per_seller", 3)),
                                  int(sel.get("max_foreign_per_category", 0)), str(sel.get("foreign_skip_words") or ""),
-                                 float(sel.get("foreign_max_ratio", 0)))
+                                 float(sel.get("foreign_max_ratio", 0)), _brand_names(cfg, merged))
     write_csv(dropped, d / "05_not_selected.csv")
     log.info("select: best %s per category -> kept %d of %d (rest in 05_not_selected.csv)",
              sel.get("max_per_category", 24), len(merged), n_all)
