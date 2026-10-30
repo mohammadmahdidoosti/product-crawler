@@ -91,10 +91,24 @@ def safe_boxes(bx: list) -> tuple[bool, str]:
     areas = [(x1 - x0) * (y1 - y0) / 1e6 for x0, y0, x1, y1 in bx]
     if max(areas) > 0.05 or sum(areas) > 0.08:
         return False, f"mark too big ({max(areas):.0%})"
-    for x0, y0, x1, y1 in bx:
-        if 200 < (x0 + x1) / 2 < 800 and 200 < (y0 + y1) / 2 < 800:
+    for (x0, y0, x1, y1), a in zip(bx, areas):
+        # a small mark on the product (a shop's sticker on a handle, 30 Oct #13) is filled locally;
+        # a bigger one in the middle is the product itself or too much to invent
+        if 200 < (x0 + x1) / 2 < 800 and 200 < (y0 + y1) / 2 < 800 and a > 0.015:
             return False, "mark in the middle"
-    return True, "small marks at the edges"
+    return True, "small marks"
+
+
+def text_strips(bx: list) -> bool:
+    """Every mark is a thin line (a shop's name or web address written across the product: 30 Oct #17,
+    #36): filled in its own crop, even over the product; a big block (a see-through logo) is not."""
+    if not bx:
+        return False
+    for x0, y0, x1, y1 in bx:
+        h, w = (y1 - y0) / 1000, (x1 - x0) / 1000
+        if h > 0.08 or h * w > 0.15 or w < 1.5 * h:
+            return False
+    return sum((x1 - x0) * (y1 - y0) / 1e6 for x0, y0, x1, y1 in bx) <= 0.2
 
 
 def ink(im: Image.Image, bx=()) -> float:
@@ -195,6 +209,63 @@ def lama(im: Image.Image, bx: list) -> Image.Image | None:
     return res
 
 
+def lama_local(im: Image.Image, bx: list) -> Image.Image | None:
+    """Each mark filled by LaMa in a crop around it (about 3x the mark), at the photo's own detail; only
+    the mark's pixels change. Used when the whole-photo fill is refused or for marks on the product."""
+    from .images import _session
+    sess = _session("lama")
+    if sess is None:
+        return None
+    res = im.convert("RGB").copy()
+    W, H = res.size
+    for b in bx:
+        p = 0.02 * 1000                                       # the finder's boxes run a little small
+        x0, y0, x1, y1 = (max(0, b[0] - p) / 1000 * W, max(0, b[1] - p) / 1000 * H,
+                          min(1000, b[2] + p) / 1000 * W, min(1000, b[3] + p) / 1000 * H)
+        bw, bh = x1 - x0, y1 - y0
+        side = int(max(bw, bh) * 3) + 32
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        C0, D0 = int(max(0, min(W - side, cx - side / 2))), int(max(0, min(H - side, cy - side / 2)))
+        C1, D1 = min(W, C0 + side), min(H, D0 + side)
+        crop = res.crop((C0, D0, C1, D1))
+        cw, ch = crop.size
+        mask = Image.new("L", (cw, ch), 0)
+        ImageDraw.Draw(mask).rectangle([x0 - C0, y0 - D0, x1 - C0, y1 - D0], fill=255)
+        a = np.asarray(crop.resize((512, 512), Image.LANCZOS), dtype=np.float32).transpose(2, 0, 1)[None] / 255.0
+        m = (np.asarray(mask.resize((512, 512)), dtype=np.float32) > 127).astype(np.float32)[None, None]
+        o = sess.run(None, {sess.get_inputs()[0].name: a, sess.get_inputs()[1].name: m})[0][0]
+        if o.max() <= 1.5:
+            o = o * 255
+        filled = Image.fromarray(np.clip(o.transpose(1, 2, 0), 0, 255).astype(np.uint8)).resize((cw, ch), Image.LANCZOS)
+        crop.paste(filled, (0, 0), mask)
+        res.paste(crop, (C0, D0))
+    return res
+
+
+SAME = ("Two photos of the same product for an online store: the first is the original, the second has a "
+        "shop's added text or logo removed. Compare them closely. Answer JSON only: {\"damaged\": true/false, "
+        "\"note\": \"<few words>\"} — damaged is true when anything besides the added mark changed in the second "
+        "photo: a part of the product, its own printed brand, label or packaging text missing, smeared or blurred.")
+
+
+def unchanged(model: str, before: Image.Image, after: Image.Image, key: str) -> tuple[bool, float, str]:
+    """A local fill over the product is compared with the original (30 Oct #33: a web address removed from a
+    blister pack took half of the pack's own brand with it, and the plain check passed it)."""
+    body = {"model": model, "max_tokens": 120, "temperature": 0, "reasoning": {"enabled": False},
+            "messages": [{"role": "user", "content": [
+                {"type": "text", "text": SAME},
+                {"type": "image_url", "image_url": {"url": data_url(before)}},
+                {"type": "image_url", "image_url": {"url": data_url(after)}}]}]}
+    try:
+        j = requests.post(OPENROUTER, json=body, timeout=90, headers={"Authorization": f"Bearer {key}"}).json()
+        t = ((j.get("choices") or [{}])[0].get("message") or {}).get("content") or ""
+        m = re.search(r"\{.*\}", t, re.S)
+        v = json.loads(m.group(0)) if m else {}
+    except Exception as e:                                   # noqa: BLE001 - unsure is a no
+        return False, 0.0, f"compare failed ({e})"
+    return v.get("damaged") is False, float((j.get("usage") or {}).get("cost") or 0), str(v.get("note") or "")[:60]
+
+
 def passes(v: dict) -> tuple[bool, str]:
     """The three locks on the vision verdict (the ink lock is checked apart)."""
     if v.get("_error"):
@@ -252,6 +323,23 @@ def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=
             return False, "marks still found"
         return True, "clean"
 
+    def local():
+        nonlocal cost
+        with lock:
+            filled = lama_local(im, bx)
+            cand = finish(filled) if filled is not None else None
+        if cand is None:
+            return None, "; ".join(why), cost
+        good, w = ok(cand)
+        if good:
+            same, c3, note = unchanged(model, finish(im), cand, key)
+            cost += c3
+            if same:
+                return cand, "lama_local", cost
+            good, w = False, f"changed more than the mark ({note})"
+        why.append(f"lama_local: {w}")
+        return None, "; ".join(why), cost
+
     # 1. cut out
     with lock:
         cut, did = remove_background(flatten(im))
@@ -264,26 +352,42 @@ def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=
         if good:
             return cand, "cutout", cost
         why.append("cut-out: " + w)
-    # 2. white fill / LaMa
+    # 2. no marks found and nothing to cut: the first check may have been wrong (30 Oct: clean photos
+    #    of a pipe cutter were sent to the paid model); the strict checks on the photo as it is
+    if not bx:
+        with lock:
+            cand = finish(im)
+        good, w = ok(cand)
+        if good:
+            return cand, "as_is", cost
+        why.append("as is: " + w)
+        return None, "; ".join(why), cost
+    # 3. white fill / LaMa
     sb, w = safe_boxes(bx)
-    if not sb:
+    if not sb and not text_strips(bx):
         why.append(w)
         return None, "; ".join(why), cost
+    if not sb:                                               # thin text lines: only the local fill
+        why.append(w)
+        return local()
     filled = white_fill(im, bx)
     how = "white"
-    if filled is None:
+    middle = any(200 < (b[0] + b[2]) / 2 < 800 and 200 < (b[1] + b[3]) / 2 < 800 for b in bx)
+    if filled is None and not middle:
         with lock:
             t = time.time()
             filled = lama(im, bx)
             log.debug("lama %.1fs", time.time() - t)
         how = "lama"
-    if filled is None:
-        why.append("LaMa left a patch (or no model)")
-        return None, "; ".join(why), cost
-    with lock:
-        cand = finish(filled)
-    good, w = ok(cand)
-    if good:
-        return cand, how, cost
-    why.append(f"{how}: {w}")
-    return None, "; ".join(why), cost
+    if filled is not None:
+        with lock:
+            cand = finish(filled)
+        good, w = ok(cand)
+        if good:
+            return cand, how, cost
+        why.append(f"{how}: {w}")
+    else:
+        why.append("LaMa left a patch (or no model)" if not middle else "mark on the product")
+    # 4. each mark filled in its own crop, at full detail
+    return local()
+
