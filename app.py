@@ -211,7 +211,9 @@ class Job:
             step_images(cfg, run)
         elif step == "describe":
             from crawler.describe import step_describe
-            step_describe(cfg, run)
+            # the model writes at publishing, for the products kept (describe.defer_to_publish)
+            step_describe(cfg, run, llm=not cfg.get("describe", {}).get("defer_to_publish", True)
+                          or bool(opts.get("describe_now")))
         elif step == "prices":                       # doubtful prices settled from evidence (detective)
             from crawler.detective import run_detective
             if opts.get("forget"):

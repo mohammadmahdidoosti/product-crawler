@@ -391,20 +391,32 @@ def _paid_photo_fixes(cfg: dict, run: str, d, items: list) -> list:
     get it now, only these, and are built again with the new photo."""
     from .pipeline import export_rows
     p = d / "05_images.csv"
-    if not p.exists():
-        return items
-    im = read_csv(p)
+    im = read_csv(p) if p.exists() else pd.DataFrame(columns=["url", "notes"])
     pending = set(im.loc[im["notes"].astype(str).str.contains("paid_fix_pending"), "url"]) if "notes" in im else set()
     want = {rec.get("url") for rec, _ in items} & pending
-    if not want:
+    urls = {rec.get("url") for rec, _ in items}
+    dp = d / "05_descriptions.csv"
+    templ = set()
+    if dp.exists():                                      # the model writes only for the products sent
+        dd = read_csv(dp)
+        last = dd.drop_duplicates("url", keep="last")
+        templ = set(last.loc[last["method"] == "template", "url"]) & urls
+    if not want and not templ:
         return items
-    from .aiphotos import fix_photos
-    try:
-        log.info("publish %s: paid photo fix for %d product(s) first", run, len(want))
-        fix_photos(cfg, run, paid=True, only=want)
-    except Exception as e:                               # noqa: BLE001 - the product goes with the photo it has
-        log.warning("publish %s: paid photo fix failed (%s)", run, e)
-        return items
+    if templ:
+        from .describe import step_describe
+        try:
+            log.info("publish %s: descriptions for %d product(s) first", run, len(templ))
+            step_describe(cfg, run, only=templ)
+        except Exception as e:                           # noqa: BLE001 - the template text stays
+            log.warning("publish %s: descriptions failed (%s)", run, e)
+    if want:
+        from .aiphotos import fix_photos
+        try:
+            log.info("publish %s: paid photo fix for %d product(s) first", run, len(want))
+            fix_photos(cfg, run, paid=True, only=want)
+        except Exception as e:                           # noqa: BLE001 - the product goes with the photo it has
+            log.warning("publish %s: paid photo fix failed (%s)", run, e)
     skus = [row["SKU"] for _, row in items]
     fresh = {row["SKU"]: (rec, row) for rec, row in export_rows(cfg, run)}
     return [fresh.get(s, x) for s, x in zip(skus, items)]

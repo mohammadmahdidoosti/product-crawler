@@ -145,6 +145,7 @@ images:
   # public_base: https://caravan-crawler.onrender.com   # default: Render's own address
 
 describe:
+  defer_to_publish: true     # the crawl writes the free template; the model writes at publishing, only for the products kept
   provider: auto          # auto: OpenRouter when OPENROUTER_API_KEY is set, otherwise the free template
   model: deepseek/deepseek-v4.1-flash  # chosen after a blind comparison with MiMo V2.6 Flash (fuller Persian)
   fallback_models: [xiaomi/mimo-v2.6-flash]   # tried when the main model's text is rejected

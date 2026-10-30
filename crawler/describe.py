@@ -265,7 +265,11 @@ def check_why(out: dict, r: dict) -> str:
 
 # ------------------------------------------------------------------ step
 
-def step_describe(cfg: dict, run: str, limit: int | None = None) -> Path | None:
+def step_describe(cfg: dict, run: str, limit: int | None = None, only: set | None = None,
+                  llm: bool = True) -> Path | None:
+    """llm=False: the free template for every product (the crawl, when describe.defer_to_publish is on;
+    batch 7: 4 in 5 model-written texts went to products dropped on review). only: the product urls to
+    write (publishing calls it for the products it sends, with the model)."""
     from .pipeline import _progress
     dc = cfg.get("describe", {})
     d = run_dir(cfg, run)
@@ -274,7 +278,7 @@ def step_describe(cfg: dict, run: str, limit: int | None = None) -> Path | None:
     new = read_csv(d / FILES["new"])
     out_p = d / "05_descriptions.csv"
     w = Writer(cfg)
-    use_llm = dc.get("provider", "auto") in ("auto", "openrouter") and w.ok()
+    use_llm = llm and dc.get("provider", "auto") in ("auto", "openrouter") and w.ok()
     have = set()
     if out_p.exists():
         prev = read_csv(out_p)
@@ -287,7 +291,7 @@ def step_describe(cfg: dict, run: str, limit: int | None = None) -> Path | None:
         tries = {u: int(n or 0) for u, n in zip(t["url"], t["tries"])}
     if use_llm:                                         # after 2 failed rounds the template stays: no more spend
         have |= {u for u, n in tries.items() if n >= int(dc.get("max_tries", 2))}
-    rows = [r for r in new.to_dict("records") if r["url"] not in have][:limit]
+    rows = [r for r in new.to_dict("records") if r["url"] not in have and (only is None or r["url"] in only)][:limit]
     backups = [Writer(cfg, m) for m in (dc.get("fallback_models") or [])] if use_llm else []
     log.info("descriptions: %d products, %s", len(rows), f"OpenRouter {w.model}" if use_llm else "template (free)")
 
