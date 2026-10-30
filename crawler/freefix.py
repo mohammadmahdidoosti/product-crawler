@@ -242,10 +242,11 @@ def lama_local(im: Image.Image, bx: list) -> Image.Image | None:
     return res
 
 
-SAME = ("Two photos of the same product for an online store: the first is the original, the second has a "
-        "shop's added text or logo removed. Compare them closely. Answer JSON only: {\"damaged\": true/false, "
-        "\"note\": \"<few words>\"} — damaged is true when anything besides the added mark changed in the second "
-        "photo: a part of the product, its own printed brand, label or packaging text missing, smeared or blurred.")
+SAME = ("Two photos of the same product for an online store. In the second, a shop's ADDED overlay (a web "
+        "address, a company name or a logo laid over the photo) was REMOVED ON PURPOSE: that removal is expected "
+        "and is NOT damage. Compare everything else. Answer JSON only: {\"damaged\": true/false, \"note\": "
+        "\"<few words>\"} — damaged is true only when the product itself changed: a part of it missing, smeared, "
+        "blurred or redrawn, or text/brand PRINTED ON the product or its packaging cut or erased.")
 
 
 def unchanged(model: str, before: Image.Image, after: Image.Image, key: str) -> tuple[bool, float, str]:
