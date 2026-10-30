@@ -880,6 +880,9 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send(404, b"not found", "text/plain")
             if u.path == "/torob-checker.user.js":
                 return self._send(200, (STATIC / "torob-checker.user.js").read_bytes(), "text/javascript; charset=utf-8")
+            if parts == ["api", "lookup"]:               # which shop a site product came from (by name, ID or SKU)
+                from crawler.lookup import find
+                return self._json({"rows": find(build_cfg(), q.get("q") or "")})
             if parts[:2] == ["api", "torob"]:            # slow Torob price check (see crawler/torobcheck.py)
                 from crawler import torobcheck as TC
                 cfg = build_cfg()

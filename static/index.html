@@ -453,6 +453,14 @@ td select,td input{padding:3px 6px;font-size:12.5px}
 
   <!-- ===================== SELLERS ===================== -->
   <section class="page" id="page-sellers">
+    <div class="card" style="margin-bottom:14px">
+      <h3 style="margin:0 0 8px">این محصول از کدام تأمین‌کننده است؟</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <input id="lkQ" placeholder="اسم محصول، شناسه‌ی سایت یا SKU (مثلاً: غلطک 1081)" style="flex:1;min-width:220px">
+        <button class="btn" id="lkGo">پیدا کن</button>
+      </div>
+      <div class="tablewrap" style="max-height:420px;margin-top:10px"><table id="lkTable"></table></div>
+    </div>
     <div class="ph">
       <div class="grow"><h1>تأمین‌کننده‌ها</h1><p>فروشنده‌هایی که در این اجرا پیدا شدند؛ همان فهرستی که برای دعوت به کاروان لازم دارید. فقط داخلی است و روی سایت نمی‌آید.</p></div>
       <div class="field s" style="flex:0 0 190px"><label>اجرا</label><select id="selRun"></select></div>
@@ -768,6 +776,23 @@ async function api(path, opts={}){
 const post = (p, body) => api(p, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body||{})});
 const LS = {get(k){ try{ return JSON.parse(localStorage.getItem('cc_'+k)); }catch(e){ return null; } },
             set(k,v){ try{ localStorage.setItem('cc_'+k, JSON.stringify(v)); }catch(e){} }};
+
+// ---------------- supplier lookup
+async function lookup(){
+  const q = $('#lkQ').value.trim(); if(!q) return;
+  $('#lkTable').innerHTML = '<tr><td>در حال جست‌وجو…</td></tr>';
+  try{
+    const r = await api('/api/lookup?q='+encodeURIComponent(q));
+    $('#lkTable').innerHTML = r.rows.length ? '<tr><th>محصول</th><th>تأمین‌کننده</th><th>تلفن</th><th>قیمت آن موقع</th><th>تاریخ</th><th>شناسه</th><th>اجرا</th></tr>' +
+      r.rows.map(x => `<tr><td>${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>` : esc(x.name)}</td>` +
+        `<td>${esc(x.supplier)}${x.other_shops ? `<br><small>هم‌چنین: ${esc(x.other_shops)}</small>` : ''}</td><td>${esc(x.phones)}</td>` +
+        `<td>${x.price_toman ? Number(x.price_toman).toLocaleString('fa-IR') : ''}</td><td>${esc(String(x.read_at).slice(0,10))}</td>` +
+        `<td>${esc(x.product_id)}</td><td>${esc(x.run)}</td></tr>`).join('')
+      : '<tr><td>چیزی پیدا نشد؛ اسم کوتاه‌تر یا شناسه‌ی محصول را امتحان کنید.</td></tr>';
+  }catch(e){ $('#lkTable').innerHTML = `<tr><td>${esc(e.message)}</td></tr>`; }
+}
+document.addEventListener('click', e => { if(e.target && e.target.id === 'lkGo') lookup(); });
+document.addEventListener('keydown', e => { if(e.key === 'Enter' && e.target && e.target.id === 'lkQ') lookup(); });
 
 // ---------------- navigation
 function go(tab){ document.querySelector(`.nav button[data-tab="${tab}"]`).click(); window.scrollTo(0,0); }
