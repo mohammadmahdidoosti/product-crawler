@@ -30,6 +30,19 @@ class CostCuts(unittest.TestCase):
         self.assertEqual(int((~k2["source_domain"].str.contains("made-in-china")).sum()), 3)
         self.assertEqual(len(kept) + len(dropped), 43)
 
+    def test_factory_machine_in_hand_tool_category(self):
+        df = pd.DataFrame([
+            {"taxonomy_id": "3", "breadcrumb": "ابزار > قیچی لوله > قیچی لوله سفید", "name": "دستگاه برش",
+             "source_domain": "m.en.made-in-china.com", "url": "https://m.en.made-in-china.com/1", "price_toman": "900000000"},
+            {"taxonomy_id": "3", "breadcrumb": "ابزار > قیچی لوله > قیچی لوله سفید", "name": "قیچی چینی",
+             "source_domain": "n.en.made-in-china.com", "url": "https://n.en.made-in-china.com/1", "price_toman": "1500000"},
+            {"taxonomy_id": "4", "breadcrumb": "ابزار > قیچی لوله > قیچی لوله بر", "name": "قیچی نووا",
+             "source_domain": "shop.ir", "url": "https://shop.ir/1", "price_toman": "2000000"},
+        ])
+        kept, dropped = select_top(df, 24, 3, max_ratio=10)
+        self.assertEqual(sorted(kept["name"]), ["قیچی نووا", "قیچی چینی"])
+        self.assertEqual(list(dropped["name"]), ["دستگاه برش"])
+
     def test_no_caps_is_unchanged(self):
         kept, dropped = select_top(rows(), 24, 3)
         self.assertEqual(len(kept), 20 + 23)

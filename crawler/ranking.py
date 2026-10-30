@@ -66,7 +66,7 @@ def _foreign(r) -> bool:
 
 
 def select_top(df: pd.DataFrame, n: int, max_per_seller: int = 3, max_foreign: int = 0,
-               foreign_skip: str = "") -> tuple[pd.DataFrame, pd.DataFrame]:
+               foreign_skip: str = "", max_ratio: float = 0) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Returns (kept, dropped); both carry quality_score and quality_why.
     max_foreign: at most this many Made-in-China products per category (0 = no cap); foreign_skip: a
     regex of category words whose Made-in-China products are not taken at all (cheap consumables a
@@ -74,13 +74,27 @@ def select_top(df: pd.DataFrame, n: int, max_per_seller: int = 3, max_foreign: i
     if df.empty:
         return df, df
     df = df.copy()
+    if max_ratio and "price_toman" in df and "breadcrumb" in df:
+        # a factory machine in a hand-tool category (batch 8: 'قیچی لوله سفید' ~2 M toman in Iranian shops,
+        # 0.7-12.7 billion from Made-in-China): more than max_ratio x the Iranian median of the parent group
+        par = df["breadcrumb"].astype(str).str.split(" > ").str[-2].fillna("")
+        price = pd.to_numeric(df["price_toman"], errors="coerce")
+        fo = df.apply(_foreign, axis=1)
+        med = price[~fo].groupby(par[~fo]).median()
+        ref = par.map(med)
+        far = fo & ref.notna() & (price > max_ratio * ref)
+        if far.any():
+            out = df[far].copy()
+            out["quality_score"], out["quality_why"] = 0, f"foreign > {max_ratio:g}x Iranian price"
+            kept, dropped = select_top(df[~far], n, max_per_seller, max_foreign, foreign_skip, 0)
+            return kept, pd.concat([dropped, out])
     if foreign_skip:
         leaf = df.get("breadcrumb", pd.Series("", index=df.index)).astype(str).str.split(" > ").str[-1]
         skip = df.apply(_foreign, axis=1) & leaf.str.contains(foreign_skip, regex=True)
         if skip.any():
             out = df[skip].copy()
             out["quality_score"], out["quality_why"] = 0, "foreign consumable"
-            kept, dropped = select_top(df[~skip], n, max_per_seller, max_foreign, "")
+            kept, dropped = select_top(df[~skip], n, max_per_seller, max_foreign, "", max_ratio)
             return kept, pd.concat([dropped, out])
     sc = [score(r) for r in df.to_dict("records")]
     df["quality_score"] = [s for s, _ in sc]

@@ -49,7 +49,8 @@ select:
   max_per_category: 24             # keep the best N products per category (quality score), 0 = all
   max_per_seller: 3                # inside those N, at most this many from one seller (if others exist)
   max_foreign_per_category: 8      # at most this many Made-in-China products per category (batch 7: 24 near-identical each)
-  foreign_skip_words: "برس|اسپیسر|کلیپس|آچار|پیچ|مهره|واشر|سیم جوش|الکترود|تیغ|مته|سنباده|سرپیچ|بست"  # consumables: never from Made-in-China
+  foreign_max_ratio: 10            # a Made-in-China product above 10x the Iranian median of its parent group is a factory machine, not this tool
+  foreign_skip_words: "برس|اسپیسر|کلیپس|آچار|پیچ|مهره|واشر|سیم جوش|الکترود|تیغ|مته|سنباده|سرپیچ|بست|کیف"  # consumables: never from Made-in-China
   use_web_search: false            # true = also search the whole web (needs SERPER_API_KEY)
 
 http:
