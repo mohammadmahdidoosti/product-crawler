@@ -796,7 +796,7 @@ class Handler(BaseHTTPRequestHandler):
     server_version = "CaravanCrawler/0.1"
 
     def log_message(self, fmt, *args):
-        if not self.path.startswith(("/api/job", "/healthz", "/api/export-data")):   # no token in the log
+        if not self.path.startswith(("/api/job", "/healthz", "/api/export-data", "/api/torob/next")):   # no token in the log
             log.info("%s %s", self.command, self.path)
 
     # --- auth
@@ -806,6 +806,11 @@ class Handler(BaseHTTPRequestHandler):
             return True
         if self.path.startswith("/api/export-data?") and self.command == "GET":
             return export_ok(parse_qs(urlparse(self.path).query).get("token", [""])[0])
+        if self.path == "/torob-checker.user.js":
+            return True                              # the userscript itself holds no secret
+        if self.path.startswith(("/api/torob/next", "/api/torob/result")):
+            from crawler.torobcheck import token_ok   # the Torob userscript: its own key, not the password
+            return token_ok(self.headers.get("X-Torob-Token", ""))
         h = self.headers.get("Authorization", "")
         if h.startswith("Basic "):
             try:
@@ -873,6 +878,23 @@ class Handler(BaseHTTPRequestHandler):
                 if f.exists():
                     return self._send(200, f.read_bytes(), "image/webp")
                 return self._send(404, b"not found", "text/plain")
+            if u.path == "/torob-checker.user.js":
+                return self._send(200, (STATIC / "torob-checker.user.js").read_bytes(), "text/javascript; charset=utf-8")
+            if parts[:2] == ["api", "torob"]:            # slow Torob price check (see crawler/torobcheck.py)
+                from crawler import torobcheck as TC
+                cfg = build_cfg()
+                if parts[2:] == ["token"]:
+                    return self._json({"token": TC.token(APP_PASSWORD)})
+                if parts[2:] == ["next"]:
+                    return self._json(TC.next_item(cfg))
+                if parts[2:] == ["download"]:
+                    buf = io.StringIO()
+                    TC.checks(cfg).to_csv(buf, index=False)
+                    return self._download(("\ufeff" + buf.getvalue()).encode("utf-8"), "torob-checks.csv",
+                                          "text/csv; charset=utf-8")
+                if len(parts) == 2:
+                    return self._json(TC.summary(cfg))
+                return self._err("not found", 404)
             if u.path in ("/", "/index.html"):
                 return self._send(200, (STATIC / "index.html").read_bytes(), "text/html; charset=utf-8")
             if parts[:2] == ["api", "state"]:
@@ -1128,6 +1150,9 @@ class Handler(BaseHTTPRequestHandler):
         u = urlparse(self.path)
         parts = [unquote(p) for p in u.path.strip("/").split("/") if p]
         try:
+            if parts == ["api", "torob", "result"]:
+                from crawler import torobcheck as TC
+                return self._json(TC.result(build_cfg(), self._jbody()))
             if parts == ["api", "export-token"]:      # see stream_data_tar: one download, 2 hours
                 return self._json({"token": export_token(), "valid_seconds": 7200})
             if parts[:2] == ["api", "upload"] and len(parts) == 3:
