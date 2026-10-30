@@ -461,6 +461,18 @@ td select,td input{padding:3px 6px;font-size:12.5px}
       </div>
       <div class="tablewrap" style="max-height:420px;margin-top:10px"><table id="lkTable"></table></div>
     </div>
+    <div class="card" style="margin-bottom:14px">
+      <h3 style="margin:0 0 4px">فهرست کسب‌وکارها (مشتری بالقوه)</h3>
+      <p style="margin:0 0 8px;color:var(--muted,#777);font-size:13px">کسب‌وکارهای یک صنف از نقشه‌ی گوگل، با تلفن، موبایل، اینستاگرام و تلگرامی که خودشان در سایتشان گذاشته‌اند. فقط جمع‌آوری؛ به کسی پیامی نمی‌رود.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <input id="ldName" placeholder="نام فهرست (مثلاً pool)" style="flex:0 0 150px">
+        <input id="ldTerms" placeholder="عبارت‌ها با ویرگول: استخرسازی، تجهیزات استخر" style="flex:1;min-width:220px">
+        <input id="ldCities" placeholder="شهرها (خالی = ۲۰ شهر بزرگ)" style="flex:0 0 200px">
+        <button class="btn" id="ldGo">جمع کن</button>
+      </div>
+      <div id="ldMsg" style="margin-top:6px;font-size:13px"></div>
+      <div class="tablewrap" style="max-height:260px;margin-top:8px"><table id="ldTable"></table></div>
+    </div>
     <div class="ph">
       <div class="grow"><h1>تأمین‌کننده‌ها</h1><p>فروشنده‌هایی که در این اجرا پیدا شدند؛ همان فهرستی که برای دعوت به کاروان لازم دارید. فقط داخلی است و روی سایت نمی‌آید.</p></div>
       <div class="field s" style="flex:0 0 190px"><label>اجرا</label><select id="selRun"></select></div>
@@ -791,6 +803,28 @@ async function lookup(){
       : '<tr><td>چیزی پیدا نشد؛ اسم کوتاه‌تر یا شناسه‌ی محصول را امتحان کنید.</td></tr>';
   }catch(e){ $('#lkTable').innerHTML = `<tr><td>${esc(e.message)}</td></tr>`; }
 }
+// ---------------- business lists (leads)
+async function leadsLoad(){
+  try{
+    const r = await api('/api/leads');
+    const j = r.job || {};
+    const p = j.progress || {};
+    $('#ldMsg').textContent = j.running && j.step === 'leads' ? `در حال جمع‌آوری «${j.run}»: ${p.step||''} ${p.done||0} از ${p.total||0}` :
+      (j.step === 'leads' && j.error ? 'خطا: ' + j.error : '');
+    $('#ldTable').innerHTML = r.lists.length ? '<tr><th>فهرست</th><th>کسب‌وکار</th><th>با موبایل</th><th>به‌روز</th><th></th></tr>' +
+      r.lists.map(x => `<tr><td>${esc(x.name)}</td><td>${x.businesses}</td><td>${x.with_mobile}</td><td>${esc(x.updated)}</td>` +
+        `<td><a href="/api/runs/${encodeURIComponent(x.run)}/download/leads.csv">دانلود</a></td></tr>`).join('') : '';
+    if(j.running && j.step === 'leads') setTimeout(leadsLoad, 5000);
+  }catch(e){ $('#ldMsg').textContent = e.message; }
+}
+async function leadsGo(){
+  try{
+    await post('/api/leads', {name: $('#ldName').value, terms: $('#ldTerms').value, cities: $('#ldCities').value});
+    setTimeout(leadsLoad, 1500);
+  }catch(e){ $('#ldMsg').textContent = e.message; }
+}
+document.addEventListener('click', e => { if(e.target && e.target.id === 'ldGo') leadsGo(); });
+document.addEventListener('DOMContentLoaded', () => setTimeout(leadsLoad, 800));
 document.addEventListener('click', e => { if(e.target && e.target.id === 'lkGo') lookup(); });
 document.addEventListener('keydown', e => { if(e.key === 'Enter' && e.target && e.target.id === 'lkQ') lookup(); });
 

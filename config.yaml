@@ -48,6 +48,8 @@ search:
 select:
   max_per_category: 24             # keep the best N products per category (quality score), 0 = all
   max_per_seller: 3                # inside those N, at most this many from one seller (if others exist)
+  max_foreign_per_category: 8      # at most this many Made-in-China products per category (batch 7: 24 near-identical each)
+  foreign_skip_words: "برس|اسپیسر|کلیپس|آچار|پیچ|مهره|واشر|سیم جوش|الکترود|تیغ|مته|سنباده|سرپیچ|بست"  # consumables: never from Made-in-China
   use_web_search: false            # true = also search the whole web (needs SERPER_API_KEY)
 
 http:
@@ -133,6 +135,7 @@ images:
   remove_background: true # busy backgrounds -> white (free U2-Net model on the server)
   search_max: 40          # products with no usable photo: image search (Serper) per run
   delay_seconds: 1        # between two photo downloads from one site (pages: http.delay_seconds)
+  defer_paid_fix: true    # the paid image-model edit is done at publishing, only for the products kept
   ai_fix: true            # check every photo with a vision model and fix the bad ones (OpenRouter)
   vision_workers: 24      # photos checked at the same time (a photo checked before is not sent again)
   fix_workers: 6          # bad photos fixed at the same time (an image-model edit takes 20-40 s)

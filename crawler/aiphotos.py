@@ -94,7 +94,11 @@ def _candidates(cfg: dict, f, p: dict, per: int):
             break
 
 
-def fix_photos(cfg: dict, run: str) -> dict:
+def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) -> dict:
+    """paid=False: check, free fixes and search only; a product that still needs the image model is
+    marked paid_fix_pending and is fixed when it is published (batch 7: 41 of 46 paid edits went to
+    products dropped on review). only: the product urls to work on (None = all)."""
+    do_paid = paid                                # 'paid' is reused as a loop name further down
     from .enhance import edit, source_photo
     from .images import download, make, product_key, search_images
     from .vision import ASK_FOUND, check, found_ok
@@ -188,7 +192,7 @@ def fix_photos(cfg: dict, run: str) -> dict:
     models = [ic.get("ai_model", "qwen/qwen-image-2.1-turbo")] + list(ic.get("ai_fallback_models") or [])
     stats = {"checked": len(jobs), "bad": 0, "dropped": 0, "edited": 0, "searched": 0, "left": 0,
              "wrong": 0, "wrong_left": 0, "search_tried": 0, "edit_tried": 0, "free_tried": 0, "free": 0,
-             "free_cost": 0.0, "reused": 0}
+             "free_cost": 0.0, "reused": 0, "deferred": 0}
     rows = im.to_dict("records")
     import threading
     lock = threading.Lock()
@@ -212,6 +216,8 @@ def fix_photos(cfg: dict, run: str) -> dict:
     def fix_one(r):
         files = [x.strip() for x in str(r.get("files") or "").split("|") if x.strip()]
         if not files or r["url"] in dropped:         # a product taken out on review gets no paid fix
+            return
+        if only is not None and r["url"] not in only:
             return
         busy = "busy_background" in str(r.get("notes") or "")
         # a photo of something else (a supplier's factory, a spec table, another product) goes when
@@ -268,6 +274,7 @@ def fix_photos(cfg: dict, run: str) -> dict:
             else:
                 src = source_photo(r, n, cfg["_data_dir"])
             fixed = ""
+            again = "paid_fix_pending" in notes and do_paid   # free fix and search were tried at crawl time
             if any(x.startswith("ai_fixed") for x in notes):   # edited before and still not clean: no second edit
                 src = None
             if not worth_editing(vis.get((r["url"], files[0]), {})):   # an edit cannot make the product appear
@@ -288,7 +295,7 @@ def fix_photos(cfg: dict, run: str) -> dict:
                     bump("reused")
             # 2a. free first: the product cut out, or small edge marks painted white / filled by LaMa;
             #     used only when the strict check passes it (else on to search and the paid models)
-            if not fixed and src is not None and ic.get("free_fix", True) \
+            if not fixed and src is not None and ic.get("free_fix", True) and not again \
                     and not any(x.startswith("free_fixed") for x in notes):
                 from .freefix import free_fix
                 bump("free_tried")
@@ -303,7 +310,7 @@ def fix_photos(cfg: dict, run: str) -> dict:
                     bump("free")
                 else:
                     log.info("photo fix %s free: %s", r["url"][-40:], how[:80])
-            if not fixed and int(ic.get("search_max", 40)) > 0:   # 2. a clean photo from another shop first:
+            if not fixed and not again and int(ic.get("search_max", 40)) > 0:   # 2. a clean photo from another shop first:
                 bump("search_tried")                              # a real photo, and cheaper than an AI edit
                 from .pipeline import _fetchers
                 f = _fetchers(cfg)["iran"]
@@ -326,10 +333,14 @@ def fix_photos(cfg: dict, run: str) -> dict:
                         notes.add("found_by_search" if paid else "found_other_source")
                         bump("searched")
                         break
-            if not fixed and src is not None:
+            if not fixed and src is not None and not do_paid:
+                notes.add("paid_fix_pending")            # done at publish, for the products kept
+                bump("deferred")
+            elif not fixed and src is not None:
                 bump("edit_tried")
+                notes.discard("paid_fix_pending")
             for mi, m in enumerate(models, 1):
-                if fixed or src is None:
+                if fixed or src is None or not do_paid:
                     break
                 out, status = edit(m, src, key)
                 if out is None:
@@ -353,6 +364,7 @@ def fix_photos(cfg: dict, run: str) -> dict:
                 how = next((x for x in notes if x.startswith(("ai_fixed:", "free_fixed:"))), "")
                 prints.add(root / files[0], fixed, how)
             if fixed:
+                notes.discard("paid_fix_pending")
                 r["files"] = " | ".join([fixed] + [f for f in files[1:] if f not in bad])
                 with lock:
                     rewritten.add((r["url"], fixed))             # same file name, new picture: check it again
@@ -383,5 +395,5 @@ def fix_photos(cfg: dict, run: str) -> dict:
     add(d, "photo_fix", paid + int(stats["free_tried"]),
         paid * float(ic.get("ai_edit_usd", 0.02)) + float(stats["free_cost"]),
         f"paid edits {paid}, free fixes {stats['free']}/{stats['free_tried']}, reused {stats['reused']}, "
-        f"found by search {stats['searched']}", estimated=bool(paid))
+        f"found by search {stats['searched']}, paid fix deferred {stats['deferred']}", estimated=bool(paid))
     return stats

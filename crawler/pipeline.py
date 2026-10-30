@@ -596,7 +596,8 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     from .ranking import select_top
     sel = cfg.get("select", {})
     n_all = len(merged)
-    merged, dropped = select_top(merged, int(sel.get("max_per_category", 24)), int(sel.get("max_per_seller", 3)))
+    merged, dropped = select_top(merged, int(sel.get("max_per_category", 24)), int(sel.get("max_per_seller", 3)),
+                                 int(sel.get("max_foreign_per_category", 0)), str(sel.get("foreign_skip_words") or ""))
     write_csv(dropped, d / "05_not_selected.csv")
     log.info("select: best %s per category -> kept %d of %d (rest in 05_not_selected.csv)",
              sel.get("max_per_category", 24), len(merged), n_all)

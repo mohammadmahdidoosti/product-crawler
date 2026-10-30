@@ -572,7 +572,9 @@ def step_images(cfg: dict, run: str) -> Path | None:
     log.info("images: %d of %d products have photos (data/images)", n_ok, len(out))
     try:
         from .aiphotos import fix_photos
-        fix_photos(cfg, run)                     # vision check + AI fix / replacement of bad photos
+        # vision check, free fixes and search; the paid image-model edit waits for publishing (only the
+        # products kept get it) unless images.defer_paid_fix is false
+        fix_photos(cfg, run, paid=not cfg.get("images", {}).get("defer_paid_fix", True))
     except Exception as e:                       # noqa: BLE001 - the photos already made stay usable
         log.warning("photo check failed: %s", e)
     return done_p

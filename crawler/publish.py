@@ -386,6 +386,30 @@ def _save(d: Path, done: pd.DataFrame, new_rows: list[dict]) -> None:
     write_csv(df, d / RESULT_FILE)
 
 
+def _paid_photo_fixes(cfg: dict, run: str, d, items: list) -> list:
+    """Products whose photo still needs the paid image model (left for publishing by the image step)
+    get it now, only these, and are built again with the new photo."""
+    from .pipeline import export_rows
+    p = d / "05_images.csv"
+    if not p.exists():
+        return items
+    im = read_csv(p)
+    pending = set(im.loc[im["notes"].astype(str).str.contains("paid_fix_pending"), "url"]) if "notes" in im else set()
+    want = {rec.get("url") for rec, _ in items} & pending
+    if not want:
+        return items
+    from .aiphotos import fix_photos
+    try:
+        log.info("publish %s: paid photo fix for %d product(s) first", run, len(want))
+        fix_photos(cfg, run, paid=True, only=want)
+    except Exception as e:                               # noqa: BLE001 - the product goes with the photo it has
+        log.warning("publish %s: paid photo fix failed (%s)", run, e)
+        return items
+    skus = [row["SKU"] for _, row in items]
+    fresh = {row["SKU"]: (rec, row) for rec, row in export_rows(cfg, run)}
+    return [fresh.get(s, x) for s, x in zip(skus, items)]
+
+
 def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, dry_run: bool = False,
             republish: bool = False, wc: WC | None = None, progress=None, stop=None) -> dict:
     """Send up to `limit` products of a run (the ones not yet sent first; `skus` picks exact ones).
@@ -419,6 +443,8 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
     elif not republish:
         items = [x for x in items if x[1]["SKU"] not in sent]
     items = items[:max(int(limit or 0), 0)] if limit else items
+    if not dry_run and items:
+        items = _paid_photo_fixes(cfg, run, d, items)
     log.info("publish %s: %d product(s)%s", run, len(items), " (dry run)" if dry_run else "")
 
     brands = SiteBrands(wc, dry_run) if (wc.ok() or not dry_run) else None

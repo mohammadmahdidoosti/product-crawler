@@ -115,7 +115,7 @@ class Job:
         h.setLevel(logging.INFO)
         own = {"site": ("crawler.publish", "crawler.catmake", "crawler.brands_fa", "crawler.wc", "crawler.catalog_publish",
                         "crawler.merge_site", "crawler.sitefix.apply"),
-               "health": ("crawler.health", "crawler.shops")}
+               "health": ("crawler.health", "crawler.shops", "crawler.leads")}
         others = tuple(x for k, v in own.items() if k != lane for x in v)
         h.addFilter(lambda r: (r.name.startswith(own[lane]) if lane in own else True) and not r.name.startswith(others))
         logging.getLogger("crawler").addHandler(h)
@@ -305,6 +305,14 @@ class Job:
                              f"بی‌توضیح {c['no_description']}، بی‌دسته {c['no_category']}؛ "
                              f"{res['doubtful_only']} مورد مشکوک برای بررسی شما"
                              + ("" if res["complete"] else " (ناقص: متوقف شد)"))
+        elif step == "leads":                      # business lists: public contacts of one trade (nothing is sent)
+            from crawler.leads import run as leads_run
+            res = leads_run(cfg, opts["name"], opts["terms"], opts.get("cities") or None,
+                            read_sites=opts.get("read_sites", True) is not False,
+                            progress=lambda st, d, t: self.prog.update(step=f"leads:{st}", done=d, total=t),
+                            stop=self.stop_ev.is_set)
+            self.logs.append(f"فهرست کسب‌وکار «{opts['name']}»: {res.get('businesses', 0)} کسب‌وکار، "
+                             f"{res.get('with_mobile', 0)} با موبایل، {res.get('with_instagram', 0)} با اینستاگرام")
         elif step == "shops":                      # read-only: past crawls on disk + GET checks of the top shops
             from crawler.shops import report as shops_report
             res = shops_report(cfg, progress=lambda d, t: self.prog.update(step="shops", done=d, total=t),
@@ -380,7 +388,7 @@ class Job:
                 took = time.time() - t0
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
-            if step not in ("catmake", "probe", "publish", "brands", "status", "resync", "health", "shops", "catalog", "catalog_publish",
+            if step not in ("catmake", "probe", "publish", "brands", "status", "resync", "health", "shops", "leads", "catalog", "catalog_publish",
                             "sitefix", "sitefix_apply"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
@@ -408,7 +416,7 @@ def start_job(step: str, run: str, opts: dict) -> str | None:
     # a site-fix run holds products already on the site: the crawl / publish steps must never take it
     if run.startswith("fix-") and step not in ("sitefix", "sitefix_apply"):
         return "این اجرا مال «اصلاح سایت» است؛ از صفحه‌ی سلامت سایت با آن کار کنید."
-    lane = "health" if step in ("health", "shops") else "site" if step in SITE_STEPS else "crawl"
+    lane = "health" if step in ("health", "shops", "leads") else "site" if step in SITE_STEPS else "crawl"
     return JOBS[lane].start(step, run, opts)
 
 
@@ -906,6 +914,9 @@ class Handler(BaseHTTPRequestHandler):
                 if q.get("lane") in JOBS:
                     return self._json(JOBS[q["lane"]].status())
                 return self._json({**JOB.status(), "site": JOBS["site"].status(), "health": JOBS["health"].status()})
+            if parts == ["api", "leads"]:              # business lists made so far
+                from crawler.leads import runs as leads_runs, CITIES
+                return self._json({"lists": leads_runs(build_cfg()), "cities": CITIES, "job": JOBS["health"].status()})
             if parts[:2] == ["api", "sources"]:
                 txt = sources_text()
                 return self._json({"yaml": txt, "data": yaml.safe_load(txt) or {}})
@@ -1202,6 +1213,16 @@ class Handler(BaseHTTPRequestHandler):
                     return self._err(f"YAML نامعتبر: {e}")
                 paths()["sources"].write_text(txt, encoding="utf-8")
                 return self._json({"ok": True, "yaml": txt, "data": data, "sites": len(data.get("iran_sites") or [])})
+            if parts == ["api", "leads"]:              # {"name", "terms", "cities"?, "read_sites"?}
+                body = self._jbody()
+                name = re.sub(r"[^\w\-]+", "-", str(body.get("name") or "").strip()).strip("-")[:40]
+                terms = [t.strip() for t in re.split(r"[,،\n]+", str(body.get("terms") or "")) if t.strip()][:8]
+                cities = [c.strip() for c in re.split(r"[,،\n]+", str(body.get("cities") or "")) if c.strip()][:40]
+                if not name or not terms:
+                    return self._err("نام فهرست و دست‌کم یک عبارت جست‌وجو لازم است")
+                err = start_job("leads", f"leads-{name}", {"name": name, "terms": terms, "cities": cities,
+                                                            "read_sites": body.get("read_sites", True)})
+                return self._err(err, 409) if err else self._json({"ok": True, "run": f"leads-{name}"})
             if parts[:2] == ["api", "routing"] and len(parts) >= 3:
                 from crawler import routing_state as RS
                 cfg = build_cfg()
