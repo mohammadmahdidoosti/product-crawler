@@ -1070,22 +1070,28 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
             above.setdefault("parent:" + lf.rsplit(" > ", 1)[0], []).append(v)
     # one price copied onto several different products: 6 cartridge pumps of 5 makers all at exactly
     # 12,200,000 (29 Oct). Different brands almost never cost the very same; a person decides.
-    makers: dict[float, set] = {}
+    # Counted per shop (31 Oct): the shop that pasted one price on three brands is held, while another
+    # shop that sells one of those products at the same price is judged like any other price (batches
+    # 9-10 held 81 such prices, many of them right).
+    def shop(r):
+        m = re.match(r"https?://(?:www\.)?([^/]+)", str(r.get("url") or ""))
+        return m.group(1).lower() if m else ""
+    makers: dict[tuple, set] = {}
     for r in recs:
         v = num(r.get("price_toman"))
         if v and "foreign_x" not in str(r.get("price_flags") or "") and r.get("price_estimated") != "reviewed":
             b = norm_text(str(r.get("brand") or "")) or " ".join(re.findall(r"[A-Za-z]{3,}", str(r.get("name") or ""))[:1]).lower()
             if b:                                        # unbranded items often share a round price
-                makers.setdefault(v, set()).add(b)
-    copied = {v for v, b in makers.items() if len(b) >= 3}
+                makers.setdefault((v, shop(r)), set()).add(b)
+    copied = {k for k, b in makers.items() if len(b) >= 3}
     out = []
     for r in recs:
         v = num(r.get("price_toman"))
         if not v or "foreign_x" in str(r.get("price_flags") or "") or r.get("price_estimated") == "reviewed":
             out.append(r)
             continue
-        if v in copied:
-            r = {**r, "price_check": f"suspicious: {v:,.0f} تومان؛ همین قیمت روی {len(makers[v])} محصول با برند جدا"
+        if (v, shop(r)) in copied:
+            r = {**r, "price_check": f"suspicious: {v:,.0f} تومان؛ همین قیمت روی {len(makers[(v, shop(r))])} محصول با برند جدا"
                                     " (احتمالاً یک قیمت روی همه کپی شده)"}
             log.warning("price held back %s: %s", r.get("url"), r["price_check"])
             out.append(r)

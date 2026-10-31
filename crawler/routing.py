@@ -145,7 +145,15 @@ LATIN_NOT_BRAND = {"ip", "ac", "dc", "led", "pvc", "upvc", "cpvc", "pe", "pp", "
                    "rcd", "rcbo", "ct", "pt", "cat", "rj", "utp", "ftp", "sfp", "poe", "nvr", "dvr", "ip67", "ip68",
                    "gps", "gsm", "sms", "rf", "ir", "pir", "co2", "lpg", "cng", "hdpe", "ldpe", "pex", "pert", "ppr",
                    "frp", "grp", "mdf", "hdf", "osb", "pu", "eva", "tpu", "pom", "pa", "pc", "pmma", "ptc", "ntc",
-                   "rtd", "pt100", "ac/dc", "ccs", "sr", "x", "v", "w", "a", "u", "l", "s", "m", "t", "z", "y"}
+                   "rtd", "pt100", "ac/dc", "ccs", "sr", "x", "v", "w", "a", "u", "l", "s", "m", "t", "z", "y",
+                   # control modes, signals and other technical words, not makers ('کنترلر دما pid', batch 10)
+                   "pid", "pwm", "ssr", "rs485", "rs232", "modbus", "hart", "profibus", "profinet", "ethernet",
+                   "analog", "digital", "dual", "single", "auto", "manual", "timer", "relay", "sensor", "rtc",
+                   "ohm", "hz", "khz", "mhz", "va", "kva", "kvar", "mah", "ah", "lux", "rgb", "ups", "ip65", "ip54",
+                   "ip44", "npn", "pnp", "nc", "no", "spdt", "dpdt", "spst", "dpst", "bldc", "ec", "dc12", "ac220",
+                   "atex", "ul", "rohs", "ie2", "ie3", "ie4", "b3", "b5", "b14", "b35", "gost", "jis", "en", "bs",
+                   "steel", "inox", "sus", "sus304", "sus316", "hss", "tct", "sds", "plus", "lite", "ultra", "eco",
+                   "digi", "multi", "universal", "industrial", "heavy", "duty"}
 
 
 def leaf_brand(text: str) -> tuple[str, str] | None:

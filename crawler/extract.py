@@ -212,6 +212,30 @@ def site_name(soup: BeautifulSoup) -> str:
     return _clean(m["content"]) if m and m.get("content") else ""
 
 
+def _bare(t: str) -> str:
+    return re.sub(r"[\s\u200c\-_|:.]+", "", str(t or "")).replace("ي", "ی").replace("ك", "ک").lower()
+
+
+def shop_named(name: str, seller: str) -> bool:
+    """The 'product name' is only the shop's own name: some themes put the site name in the JSON-LD
+    or og:title ('ایران ابزار', 'نید صنعت': 41 pages of the waiting list, 31 Oct)."""
+    n, s = _bare(name), _bare(seller)
+    return bool(n) and bool(s) and (n == s or (n in s and len(n) >= 4))
+
+
+def name_from_page(soup: BeautifulSoup, seller: str) -> str:
+    """The product's name from the page itself: the h1, else the <title> without the shop's name."""
+    cands = [h.get_text(" ", strip=True) for h in soup.find_all("h1")[:3]]
+    t = soup.find("title")
+    if t:
+        cands += [p for p in re.split(r"\s+[|\-–—]\s+", t.get_text(" ", strip=True))]
+    for c in cands:
+        c = _clean(c)
+        if len(c) >= 6 and not shop_named(c, seller) and _bare(seller) not in _bare(c)[:len(_bare(seller))]:
+            return c
+    return ""
+
+
 def extract_page(html: str, url: str = "") -> dict | None:
     rec = _extract_page(html)
     if url and "made-in-china.com" not in html[:30000]:
@@ -308,6 +332,10 @@ def _extract_from(soup: BeautifulSoup, html: str) -> dict | None:
     text = soup.get_text(" ", strip=True)
     rec["page_text"] = text
     rec["seller_name"] = site_name(soup)
+    if shop_named(rec.get("name", ""), rec["seller_name"]):
+        better = name_from_page(soup, rec["seller_name"])
+        if better:
+            rec["name"] = better
     finalize(rec, text)
     if "made-in-china.com" in html[:30000]:
         made_in_china(rec, soup)

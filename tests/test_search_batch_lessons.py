@@ -24,6 +24,17 @@ class CopiedPrice(unittest.TestCase):
             self.assertNotIn("کپی", r.get("price_check", ""))
 
 
+    def test_copied_by_one_shop_only(self):
+        from crawler.pipeline import price_sanity
+        recs = [{"url": f"https://a.ir/p{i}", "name": f"ترانسمیتر {b}", "brand": b, "price_toman": "64825000",
+                 "breadcrumb": "ابزار دقیق > ترانسمیتر فشار"} for i, b in enumerate(["Endress", "Wika", "Yokogawa"])]
+        recs += [{"url": "https://b.ir/wika", "name": "ترانسمیتر Wika", "brand": "Wika", "price_toman": "64825000",
+                  "breadcrumb": "ابزار دقیق > ترانسمیتر فشار"}]
+        out = {r["url"]: r for r in price_sanity(recs)}
+        self.assertIn("کپی", out["https://a.ir/p0"].get("price_check", ""))
+        self.assertNotIn("کپی", out["https://b.ir/wika"].get("price_check", ""))
+
+
 class CarParts(unittest.TestCase):
     def test_car_gas_spring(self):
         from crawler.pipeline import car_part
@@ -66,3 +77,20 @@ class UnbrandedRoundPrice(unittest.TestCase):
                 for i, n in enumerate(["زانو ۹۰ پلی اتیلن", "سه راهی پلی اتیلن", "بوشن پلی اتیلن", "درپوش پلی اتیلن"])]
         for r in price_sanity(recs):
             self.assertNotIn("کپی", r.get("price_check", ""))
+
+
+class NotBrandWords(unittest.TestCase):
+    def test_pid_is_not_a_brand(self):
+        from crawler.routing import rule_route
+        self.assertNotEqual(rule_route("ابزار دقیق > کنترلر دما > کنترلر دما pid").get("kind"), "brand")
+        self.assertEqual(rule_route("ابزار دقیق > کنترلر دما > کنترلر دما autonics").get("kind"), "brand")
+
+
+class ShopNamedProduct(unittest.TestCase):
+    def test_page_name_replaces_shop_name(self):
+        from bs4 import BeautifulSoup
+        from crawler.extract import name_from_page, shop_named
+        self.assertTrue(shop_named("نیدصنعت", "نید صنعت"))
+        self.assertFalse(shop_named("دریل بتن کن ماکیتا", "نید صنعت"))
+        soup = BeautifulSoup("<title>نید صنعت - دریل بتن کن ماکیتا HR2470</title><h1>نید صنعت</h1>", "html.parser")
+        self.assertEqual(name_from_page(soup, "نید صنعت"), "دریل بتن کن ماکیتا HR2470")

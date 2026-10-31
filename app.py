@@ -17,6 +17,7 @@ the run files (and a backup of settings) after each run.
 from __future__ import annotations
 
 import base64
+import hashlib
 import hmac
 import csv
 import io
@@ -1320,6 +1321,18 @@ class Handler(BaseHTTPRequestHandler):
                     if lane in (None, "", k):
                         j.stop_ev.set()
                 return self._json({"ok": True})
+            if parts[:2] == ["api", "tmp-upload"] and len(parts) == 3:   # a helper script or data file, raw body
+                name = parts[2]                         # (typing files into the server terminal corrupted them)
+                if not re.fullmatch(r"[A-Za-z0-9_.-]{1,80}\.(py|json|csv|txt)", name):
+                    return self._err("bad file name", 400)
+                data = self._body()
+                if not data or len(data) > 5_000_000:
+                    return self._err("empty or too big", 400)
+                d_ = DATA_DIR / "tmp"
+                d_.mkdir(parents=True, exist_ok=True)
+                (d_ / name).write_bytes(data)
+                return self._json({"ok": True, "path": f"/data/tmp/{name}", "bytes": len(data),
+                                   "sha256": hashlib.sha256(data).hexdigest()})
             if parts[:3] == ["api", "categories", "make"]:      # {"csv": "group,path,url...", "dry_run": true}
                 b = self._jbody()
                 if b.get("csv"):
