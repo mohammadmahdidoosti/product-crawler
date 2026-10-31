@@ -29,6 +29,8 @@ from PIL import Image
 log = logging.getLogger(__name__)
 MIN_PHOTOS = 5
 MAX_SAMPLES = 16
+PCT = 97            # which brightness percentile of a shop's photos is taken as the mark over white
+REP_MIN = 0.10      # least share of photos that must show the mark over white at a pixel
 
 
 def host_of(url: str) -> str:
@@ -70,6 +72,39 @@ def _load(p: Path) -> np.ndarray | None:
         return None
 
 
+def _solid(mark: np.ndarray) -> np.ndarray:
+    """Only solid parts: a logo or a frame is a solid shape, while scattered dots are bits of products
+    that came out alike in a few photos (two photos of one product: 30 Oct, choobakabzar)."""
+    import cv2
+    m = cv2.morphologyEx(mark.astype(np.uint8), cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+    n, lab, stats, _ = cv2.connectedComponentsWithStats(m, connectivity=8)
+    keep = np.zeros_like(mark)
+    min_area = max(30, int(0.0002 * mark.size))
+    for i in range(1, n):
+        x, y, w, h, a = stats[i]
+        if a >= min_area and a >= 0.15 * w * h:           # dense enough to be one shape
+            keep |= lab == i
+    if keep.any():                                         # the shape's own holes and thin strokes back
+        keep = cv2.dilate(keep.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool) & mark
+        # and the small parts of the same logo (the dots of Persian letters: 31 Oct, choobakabzar): a small
+        # piece of the raw mark that lies within the box of a kept shape belongs to it
+        n2, lab2, st2, _ = cv2.connectedComponentsWithStats(keep.astype(np.uint8), connectivity=8)
+        H, W = mark.shape
+        pad = max(4, int(0.01 * max(H, W)))
+        zone = np.zeros_like(mark)
+        for i in range(1, n2):
+            x, y, w, h, _a = st2[i]
+            if w * h > 0.25 * H * W:                        # a frame round the photo: no logo box
+                continue
+            zone[max(0, y - pad):y + h + pad, max(0, x - pad):x + w + pad] = True
+        n3, lab3, st3, _ = cv2.connectedComponentsWithStats(mark.astype(np.uint8), connectivity=8)
+        for i in range(1, n3):
+            x, y, w, h, _a = st3[i]
+            if zone[y:y + h, x:x + w].all():
+                keep |= lab3 == i
+    return keep
+
+
 def learn_from(arrays: list[np.ndarray]) -> dict | None:
     """The template of one shop and size, or None when its photos share no mark."""
     if len(arrays) < MIN_PHOTOS:
@@ -78,10 +113,11 @@ def learn_from(arrays: list[np.ndarray]) -> dict | None:
     # A mark darkens what lies under it: J = a*W + (1-a)*I <= a*W + (1-a)*255, the mark over white.
     # So the lighter photos at a pixel show the mark over white even where most photos have a product
     # there (the middle of the photo): the 85th percentile, not the median, is the template.
-    med = np.percentile(st, 85, axis=0)
+    med = np.percentile(st, PCT, axis=0)
     # a mark repeats exactly (whenever white lies under it); a product's colour does not
     repeats = (np.abs(st - med).max(axis=3) <= 12).mean(axis=0)
-    mark = (med.min(axis=2) < 240) & (repeats >= max(0.15, 2.0 / len(arrays)))
+    mark = (med.min(axis=2) < 240) & (repeats >= max(REP_MIN, 2.0 / len(arrays)))
+    mark = _solid(mark)
     frac = float(mark.mean())
     if frac < 0.0008:
         return None
@@ -160,5 +196,21 @@ def remove(im: Image.Image, t: dict) -> tuple[Image.Image | None, str]:
     under = mark & ~same
     if under.any() and a > 0.05:                      # the product shows through a see-through mark
         out[under] = np.clip((J[under] - M[under]) / (1 - a) + 255.0, 0, 255)
+        # the reversal multiplies small differences by 1/(1-alpha): where an opaque logo's soft edge lay over
+        # white it made faint pink dots (31 Oct, choobakabzar). What is light both before and after is white.
+        light = under & (J.min(axis=2) > 200) & (out.min(axis=2) > 200)
+        out[light] = 255.0
     # else the product lies on the frame/card: its pixels stay as they are
+    # the mark's soft edges and light boxes (too light to count as mark) stay as faint dots and a grey patch
+    # (31 Oct, choobakabzar): around each part of the mark, what still equals the template goes white too
+    import cv2
+    n, lab, stats, _ = cv2.connectedComponentsWithStats(mark.astype(np.uint8), connectivity=8)
+    zone = np.zeros_like(mark)
+    H, W = mark.shape
+    pad = max(6, int(0.012 * max(H, W)))
+    for i in range(1, n):
+        x, y, w, h, _a = stats[i]
+        zone[max(0, y - pad):min(H, y + h + pad), max(0, x - pad):min(W, x + w + pad)] = True
+    edge = zone & ~mark & (diff <= 30) & (M.min(axis=2) > 150)
+    out[edge] = 255.0
     return Image.fromarray(out.astype(np.uint8)), "shop watermark removed"

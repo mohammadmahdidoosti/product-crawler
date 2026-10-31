@@ -283,7 +283,7 @@ def passes(v: dict) -> tuple[bool, str]:
 
 
 def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=None, size: int = 1000,
-             ours: bool = False) -> tuple[Image.Image | None, str, float]:
+             ours: bool = False, first_as_is: bool = False) -> tuple[Image.Image | None, str, float]:
     """(photo, how, cost): the fixed photo (1000 px, our watermark on) or None when no free way passes.
     `lock` guards the local models (not thread-safe); `check(model, img_url, name, key, ask)` is the vision
     call (crawler.vision.check). `ours`: the photo is our processed one, which already carries our camel
@@ -341,6 +341,15 @@ def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=
         why.append(f"lama_local: {w}")
         return None, "; ".join(why), cost
 
+    # 0. a photo whose shop watermark was already taken off (crawler/shopwm.py) is tried as it is first:
+    #    the cut-out keeps the largest object only and dropped the loose drill bit beside its pack (31 Oct)
+    if first_as_is:
+        with lock:
+            cand = finish(im)
+        good, w = ok(cand)
+        if good:
+            return cand, "as_is", cost
+        why.append("as is: " + w)
     # 1. cut out
     with lock:
         cut, did = remove_background(flatten(im))

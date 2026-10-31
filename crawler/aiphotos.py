@@ -310,8 +310,17 @@ def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) 
                         if clean_ is not None:
                             bump("free_tried")
                             out, how, c = _ff(clean_, new.get(r["url"], {}).get("name", ""), vmodel, key,
-                                              lock=model_lock, check=check, size=int(ic.get("size", 1000)))
+                                              lock=model_lock, check=check, size=int(ic.get("size", 1000)),
+                                              first_as_is=True)
                             bump("free_cost", c)
+                            if out is not None:                   # nothing but the mark may change
+                                from .freefix import unchanged
+                                from .images import square as _sq, trim as _tr, watermark as _wm
+                                same_, c2_, note_ = unchanged(vmodel, _wm(_sq(_tr(orig), int(ic.get("size", 1000)))), out, key)
+                                bump("free_cost", c2_)
+                                if not same_:
+                                    log.info("photo fix %s shop watermark changed more: %s", r["url"][-40:], note_)
+                                    out = None
                             if out is not None:
                                 rel = f"{k}/ai0_{n}.webp"
                                 out.save(root / rel, "WEBP", quality=88, method=4)
