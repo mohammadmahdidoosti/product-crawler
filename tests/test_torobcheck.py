@@ -45,3 +45,28 @@ class TorobCheck(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class PendingVerdict(unittest.TestCase):
+    def test_apply_pending(self):
+        from crawler import torobcheck as TC
+
+        class W:
+            def __init__(self):
+                self.calls = []
+
+            def ok(self):
+                return True
+
+            def update_product(self, pid, data):
+                self.calls.append((pid, data))
+                return {}
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        with mock.patch("crawler.fx.today_rate", return_value={"usd_rate_toman": 270000}):
+            w = W()
+            self.assertIn("منتشر شد", TC.apply_pending(cfg, "7", {"ratio": "1.05", "median_toman": "10000000"}, 0.15, w))
+            self.assertEqual(w.calls[-1], (7, {"status": "publish"}))
+            self.assertIn("اصلاح", TC.apply_pending(cfg, "8", {"ratio": "0.1", "median_toman": "27000000"}, 0.15, w))
+            self.assertEqual(w.calls[-1], (8, {"status": "publish", "regular_price": "100.00"}))
+            self.assertIn("در انتظار", TC.apply_pending(cfg, "9", {"ratio": "2.5", "median_toman": "1000000"}, 0.15, w))
+            self.assertEqual(len(w.calls), 2)

@@ -69,19 +69,41 @@ def _save(cfg: dict, df: pd.DataFrame) -> None:
 
 
 def products(cfg: dict) -> pd.DataFrame:
-    """Published products with a price, from the latest site health report (id, name, our toman)."""
+    """Products with a price to check: those held as 'pending' for a doubtful price first (31 Oct: 174 of
+    them waited for a person), then the published ones (id, name, our toman, status). The pending ones
+    come from the batches' publish results, so today's batch is in even before the nightly site scan."""
     from . import health as H
     from .fx import today_rate
-    names = H.reports(cfg)
-    if not names:
-        return pd.DataFrame(columns=["id", "name", "our_toman"])
-    d = read_csv(H.health_dir(cfg) / names[0] / "products.csv")
-    d = d[(d["status"] == "publish")]
-    usd = pd.to_numeric(d["price"], errors="coerce")
     rate = float(today_rate(cfg)["usd_rate_toman"])
-    d = d.assign(our_toman=(usd * rate).round(-3))
+    parts = []
+    names = H.reports(cfg)
+    if names:
+        d = read_csv(H.health_dir(cfg) / names[0] / "products.csv")
+        d = d[d["status"].isin(["publish", "pending"])]
+        parts.append(d.assign(our_toman=(pd.to_numeric(d["price"], errors="coerce") * rate).round(-3))
+                     [["id", "name", "our_toman", "status"]])
+    pend = []
+    for f in sorted(Path(cfg["_data_dir"]).glob("runs/*/07_published.csv")):
+        try:
+            x = read_csv(f)
+        except Exception:                                    # noqa: BLE001
+            continue
+        if "status" in x and "product_id" in x:
+            x = x[(x["status"] == "pending") & (x["product_id"].astype(str) != "")]
+            pend.append(pd.DataFrame({"id": x["product_id"].astype(str).str.replace(r"\.0$", "", regex=True),
+                                      "name": x["name"], "status": "pending",
+                                      "our_toman": (pd.to_numeric(x["price"], errors="coerce") * rate).round(-3)}))
+    if pend:
+        parts.append(pd.concat(pend, ignore_index=True))
+    if not parts:
+        return pd.DataFrame(columns=["id", "name", "our_toman", "status"])
+    d = pd.concat(parts, ignore_index=True).astype({"id": str})
     d = d[d["our_toman"] > 0]
-    return d[["id", "name", "our_toman"]].astype({"id": str})
+    # a product published since (by a person or by a Torob verdict) is no longer pending
+    pub = set(d.loc[d["status"] == "publish", "id"])
+    d = d[~((d["status"] == "pending") & d["id"].isin(pub))]
+    d = d.sort_values("status", key=lambda s: s != "pending", kind="stable")
+    return d.drop_duplicates("id", keep="first")[["id", "name", "our_toman", "status"]]
 
 
 def _today_count(df: pd.DataFrame) -> int:
@@ -104,8 +126,10 @@ def next_item(cfg: dict) -> dict:
         p = p[~p["id"].isin(fresh) & ~p["id"].isin(set(LEASE))]
         if p.empty:
             return {"wait": 3600, "why": "همه‌ی محصولات به‌تازگی بررسی شده‌اند"}
-        # never checked first; the dearer products first (a wrong price costs more there)
-        p = p.sort_values("our_toman", ascending=False)
+        # products held for a doubtful price first, then the dearer ones (a wrong price costs more there)
+        if "status" not in p:
+            p = p.assign(status="publish")
+        p = p.assign(_w=(p["status"] != "pending")).sort_values(["_w", "our_toman"], ascending=[True, False])
         r = p.iloc[0]
         LEASE[r["id"]] = now
         from .names import clean_name
@@ -163,11 +187,46 @@ def result(cfg: dict, body: dict) -> dict:
                    verdict="high" if ratio > 1 + tol else "low" if ratio < 1 - tol else "ok")
         if ratio > 5 or ratio < 0.2:
             row["note"] = "اختلاف خیلی زیاد؛ شاید محصول یا واحد قیمت فرق دارد"
+    if str(ours.get("status")) == "pending" and row.get("median_toman") and st.get("auto_pending", True):
+        row["note"] = (row["note"] + " | " if row["note"] else "") + apply_pending(cfg, pid, row, float(st["tolerance"]))
     with LOCK:
         _record(cfg, row)
         LEASE.pop(pid, None)
     log.info("TOROB %s %s ratio=%s offers=%s", pid, row["verdict"], row["ratio"], row["offers"])
     return {"done": True, "verdict": row["verdict"]}
+
+
+def apply_pending(cfg: dict, pid: str, row: dict, tol: float, wc=None) -> str:
+    """A product held for a doubtful price, now seen on Torob (the owner's rule, 31 Oct):
+    (a) Torob's median matches our price -> published as it is;
+    (b) it is exactly 10x or a tenth of ours (a rial/toman slip) -> Torob's median is set and published;
+    anything else stays pending for a person. Returns what was done, for the report."""
+    try:
+        ratio = float(row["ratio"])
+        med = float(row["median_toman"])
+    except (KeyError, TypeError, ValueError):
+        return "در انتظار ماند"
+    data = None
+    if 1 - tol <= ratio <= 1 + tol:
+        data, what = {"status": "publish"}, "قیمت با ترب جور بود: منتشر شد"
+    elif any(abs(ratio * k - 1) <= tol for k in (0.1, 10.0)):
+        from .fx import today_rate
+        usd = round(med / float(today_rate(cfg)["usd_rate_toman"]), 2)
+        data = {"status": "publish", "regular_price": f"{usd:.2f}"}
+        what = f"خطای ۱۰ برابری: قیمت به میانه‌ی ترب ({int(med):,} تومان) اصلاح و منتشر شد"
+    else:
+        return "در انتظار ماند (قیمت ترب فرق دارد)"
+    try:
+        from .wc import WC
+        wc = wc or WC()
+        if not wc.ok():
+            return "در انتظار ماند (اتصال سایت تنظیم نیست)"
+        wc.update_product(int(float(pid)), data)
+    except Exception as e:                                   # noqa: BLE001 - the report still records it
+        log.warning("TOROB pending %s not applied: %s", pid, e)
+        return "در انتظار ماند (خطای سایت)"
+    log.info("TOROB pending %s: %s", pid, what)
+    return what
 
 
 def summary(cfg: dict) -> dict:
