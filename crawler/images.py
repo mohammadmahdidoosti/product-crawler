@@ -498,7 +498,22 @@ def step_images(cfg: dict, run: str) -> Path | None:
     # products of this run are usually enough (24 per category, several per shop)
     marks = {dom: shop_mark(ims) for dom, ims in by_shop.items()}
     try:                                             # see-through / framing watermarks (crawler/shopwm.py)
-        from .shopwm import host_of, learn as learn_wm
+        from .shopwm import MIN_PHOTOS, add_sample, earlier_photos, host_of, learn as learn_wm, sample_count
+        from collections import Counter
+        per_shop = Counter(host_of(u) for u in hosts_seen)
+        # shops with several photos in this run but too few samples yet: their photos from earlier
+        # runs are fetched first (free; a few seconds a shop), so the mark is known in this batch
+        thin = {h for h, c in per_shop.items() if h and c >= 3 and "made-in-china" not in h
+                and sample_count(cfg["_data_dir"], h) < MIN_PHOTOS}
+        if thin and ic.get("seed_shop_samples", True):
+            seeded = 0
+            for h, us in earlier_photos(cfg["_data_dir"], thin).items():
+                for u in us:
+                    data = download(fx["iran"], u)
+                    if data:
+                        add_sample(cfg["_data_dir"], u, data)
+                        seeded += 1
+            log.info("shop watermarks: %d earlier photos of %d shop(s) fetched to learn from", seeded, len(thin))
         for h in sorted({host_of(u) for u in hosts_seen} - {""}):
             learn_wm(cfg["_data_dir"], h)
     except Exception as e:                           # noqa: BLE001

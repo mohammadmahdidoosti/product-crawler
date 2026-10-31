@@ -282,6 +282,35 @@ def passes(v: dict) -> tuple[bool, str]:
     return True, "clean"
 
 
+def lost_parts(orig: Image.Image, cut: Image.Image, bx: list | None = None) -> bool:
+    """The cut-out dropped a separate piece of the product: on a photo with a white background, a
+    sizeable object (not inside a mark's box) is gone from the cut-out (31 Oct: the loose drill bit beside
+    its pack, a pack's printed top). Busy backgrounds can't be judged this way and pass."""
+    import cv2
+    a = np.asarray(orig.convert("RGB"), dtype=np.int16)
+    b = np.asarray(cut.convert("RGB"), dtype=np.int16)
+    if a.shape != b.shape:
+        return False
+    H, W = a.shape[:2]
+    edge = np.concatenate([a[:8].reshape(-1, 3), a[-8:].reshape(-1, 3), a[:, :8].reshape(-1, 3), a[:, -8:].reshape(-1, 3)])
+    if (edge.min(axis=1) > 225).mean() < 0.9:          # not a white-background photo
+        return False
+    obj = (a.min(axis=2) < 215).astype(np.uint8)
+    for x0, y0, x1, y1 in (bx or []):                  # the marks themselves are meant to go
+        obj[int(y0 / 1000 * H):int(y1 / 1000 * H) + 1, int(x0 / 1000 * W):int(x1 / 1000 * W) + 1] = 0
+    obj = cv2.morphologyEx(obj, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8))
+    n, lab, st, _ = cv2.connectedComponentsWithStats(obj, connectivity=8)
+    if n <= 1:
+        return False
+    biggest = st[1:, cv2.CC_STAT_AREA].max()
+    gone = (b.min(axis=2) > 235)
+    for i in range(1, n):
+        area = st[i, cv2.CC_STAT_AREA]
+        if area >= max(0.004 * H * W, 0.03 * biggest) and gone[lab == i].mean() > 0.7:
+            return True
+    return False
+
+
 def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=None, size: int = 1000,
              ours: bool = False, first_as_is: bool = False) -> tuple[Image.Image | None, str, float]:
     """(photo, how, cost): the fixed photo (1000 px, our watermark on) or None when no free way passes.
@@ -357,6 +386,9 @@ def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=
         cand = finish(cut) if did else None
     if cand is not None and left_in_boxes(cut, bx) > 0.3:
         why.append("cut-out: a mark sits on the product")
+        cand = None
+    if cand is not None and lost_parts(im, cut, bx):
+        why.append("cut-out: a separate part of the product would be lost")
         cand = None
     if cand is not None:
         good, w = ok(cand)

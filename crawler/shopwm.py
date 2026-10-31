@@ -64,6 +64,34 @@ def add_sample(data_dir: Path, url: str, data: bytes) -> None:
         p.write_bytes(data)
 
 
+def sample_count(data_dir: Path, host: str) -> int:
+    """The most samples this shop has in one photo size."""
+    root = _folder(data_dir, host)
+    if not root.exists():
+        return 0
+    return max((len(list(d.glob("*.img"))) for d in root.glob("*x*")), default=0)
+
+
+def earlier_photos(data_dir: Path, hosts: set[str], per_host: int = 12) -> dict[str, list[str]]:
+    """Photo URLs of these shops from earlier runs (05_images.csv), to learn a shop's watermark before
+    its first photo needs fixing (batch 10: no shop had 5 same-size photos yet, so nothing was learned)."""
+    import csv
+    out: dict[str, list[str]] = {h: [] for h in hosts}
+    for f in sorted((Path(data_dir) / "runs").glob("*/05_images.csv"), reverse=True):
+        try:
+            with open(f, encoding="utf-8-sig", newline="") as fh:
+                for r in csv.DictReader(fh):
+                    for u in str(r.get("source_images") or "").split(" | "):
+                        h = host_of(u)
+                        if h in out and len(out[h]) < per_host and u not in out[h]:
+                            out[h].append(u)
+        except OSError:
+            continue
+        if all(len(v) >= per_host for v in out.values()):
+            break
+    return {h: v for h, v in out.items() if v}
+
+
 def _load(p: Path) -> np.ndarray | None:
     try:
         with Image.open(p) as im:

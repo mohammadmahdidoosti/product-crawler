@@ -57,8 +57,38 @@ def score(r: dict) -> tuple[float, str]:
         "عکس": 10 * min(imgs, 3) / 3,
         "تأمین‌کننده": min(sup, 5),
     }
+    # a supplier whose photos usually carry text or logos costs a paid photo fix (~1.8 cents) each time:
+    # among Chinese products of a category, the ones with clean-photo suppliers go first (31 Oct, batch 10:
+    # half the paid fixes were Made-in-China photos)
+    bad = _f(r.get("photo_bad_rate"), 0)
+    if bad:
+        parts["عکس تبلیغاتی"] = -15 * min(bad, 1)
     total = round(sum(parts.values()), 1)
     return total, " · ".join(f"{k} {round(v)}" for k, v in parts.items() if v)
+
+
+def photo_bad_rates(data_dir, min_photos: int = 3) -> dict[str, float]:
+    """Share of each seller's checked photos (all runs) that carried overlay text or another shop's logo."""
+    import csv
+    import re as _re
+    from pathlib import Path
+    seen: dict[str, list[int]] = {}
+    for f in Path(data_dir).glob("runs/*/05_vision.csv"):
+        try:
+            with open(f, encoding="utf-8-sig", newline="") as fh:
+                for v in csv.DictReader(fh):
+                    if v.get("error") or "/ai" in str(v.get("file") or ""):
+                        continue
+                    m = _re.match(r"https?://(?:www\.)?([^/]+)", str(v.get("url") or ""))
+                    if not m:
+                        continue
+                    b = int(v.get("overlay_text") == "True" or v.get("shop_logo") == "True")
+                    t = seen.setdefault(m.group(1).lower(), [0, 0])
+                    t[0] += b
+                    t[1] += 1
+        except OSError:
+            continue
+    return {h: b / n for h, (b, n) in seen.items() if n >= min_photos}
 
 
 def _foreign(r) -> bool:

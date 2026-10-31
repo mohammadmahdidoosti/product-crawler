@@ -611,9 +611,13 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
         from .pricing import estimate
         merged, need = estimate(cfg, merged, crawled, _fetchers(cfg)["iran"])
     (d / "05_needs_price.csv").unlink(missing_ok=True)   # no separate list: counted in 05_low_categories.csv
-    from .ranking import select_top
+    from .ranking import photo_bad_rates, select_top
     sel = cfg.get("select", {})
     n_all = len(merged)
+    if len(merged) and sel.get("prefer_clean_photos", True):
+        rates = photo_bad_rates(cfg["_data_dir"])
+        hosts = merged["url"].astype(str).str.extract(r"https?://(?:www\.)?([^/]+)", expand=False).str.lower()
+        merged["photo_bad_rate"] = hosts.map(rates).fillna(0)
     merged, dropped = select_top(merged, int(sel.get("max_per_category", 24)), int(sel.get("max_per_seller", 3)),
                                  int(sel.get("max_foreign_per_category", 0)), str(sel.get("foreign_skip_words") or ""),
                                  float(sel.get("foreign_max_ratio", 0)), _brand_names(cfg, merged))

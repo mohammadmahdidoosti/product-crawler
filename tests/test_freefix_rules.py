@@ -24,3 +24,21 @@ class FreeFixRules(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class LostParts(unittest.TestCase):
+    def test_loose_part_dropped_by_cutout(self):
+        from PIL import Image, ImageDraw
+        from crawler.freefix import lost_parts
+        im = Image.new("RGB", (600, 600), "white")
+        d = ImageDraw.Draw(im)
+        d.rectangle([250, 100, 500, 500], fill=(30, 160, 60))     # the pack
+        d.rectangle([120, 120, 140, 520], fill=(180, 140, 40))    # the loose drill bit
+        cut = Image.new("RGB", (600, 600), "white")
+        ImageDraw.Draw(cut).rectangle([250, 100, 500, 500], fill=(30, 160, 60))
+        self.assertTrue(lost_parts(im, cut))
+        self.assertFalse(lost_parts(im, im.copy()))
+        busy = Image.new("RGB", (600, 600), (120, 120, 120))
+        self.assertFalse(lost_parts(busy, cut))
+        # the part dropped was a mark in a known box: fine
+        self.assertFalse(lost_parts(im, cut, [[190, 190, 250, 880]]))

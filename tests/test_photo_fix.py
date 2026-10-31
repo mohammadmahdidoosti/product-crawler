@@ -39,7 +39,7 @@ class PhotoFix(unittest.TestCase):
 
     def test_bad_dropped_and_rerun_checks_only_new(self):
         st = self.run_fix()
-        self.assertEqual(len(self.calls), 12)
+        self.assertEqual(len(self.calls), 18)              # 12 photos + a second look at the 6 flagged ones
         self.assertEqual(st["dropped"], 6)
         im = pd.read_csv(self.d / "05_images.csv", dtype=str).fillna("")
         self.assertTrue(all(f == f"k{i}/2.webp" for i, f in enumerate(im["files"])))

@@ -178,6 +178,31 @@ def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) 
             v = check(vmodel, f"{base}/img/{j[1]}", j[2], key, ASK_FOUND)
             return {**v, "found_ok": found_ok(v)} if not v.get("_error") else v
         fresh = list(ex.map(look, todo))
+        # a second look at a photo flagged only for an overlay or a logo: the check is not steady
+        # (31 Oct: the same photo passed once and failed once), and each false alarm sends a photo to
+        # the paid model (~1.8 cents) for a check that costs ~0.007 cents. Both looks must agree.
+        if ic.get("second_look", True):
+            again = [i for i, (j, v) in enumerate(zip(todo, fresh)) if (j[0], j[1]) not in found
+                     and not v.get("_error") and (v.get("overlay_text") is True or v.get("shop_logo") is True)
+                     and v.get("matches_name") is not False]
+            def clean(v):
+                return not v.get("_error") and v.get("overlay_text") is not True and v.get("shop_logo") is not True
+
+            def looks(i):                           # a shop's advert must never reach the site: a photo
+                v2 = check(vmodel, f"{base}/img/{todo[i][1]}", todo[i][2], key)   # is cleared only when
+                if not clean(v2):                   # two more looks both find nothing (2 of 3)
+                    return v2, None
+                return v2, check(vmodel, f"{base}/img/{todo[i][1]}", todo[i][2], key)
+            second = list(ex.map(looks, again))
+            cleared = 0
+            for i, (v2, v3) in zip(again, second):
+                c = float(fresh[i].get("_cost") or 0) + float(v2.get("_cost") or 0) + float((v3 or {}).get("_cost") or 0)
+                if v3 is not None and clean(v3):
+                    fresh[i] = {**v3, "_cost": c, "note": f"cleared on 2 more looks ({fresh[i].get('note', '')})"}
+                    cleared += 1
+                else:
+                    fresh[i] = {**fresh[i], "_cost": c}
+            log.info("photo check: second look at %d flagged photo(s), %d cleared", len(again), cleared)
     vis = {**known, **{(j[0], j[1]): v for j, v in zip(todo, fresh)}}
     res = fresh
     redo = {(j[0], j[1]) for j in todo}
