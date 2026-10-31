@@ -453,6 +453,8 @@ def step_images(cfg: dict, run: str) -> Path | None:
     log.info("images: %d products to do (%d done before)", len(rows), len(have))
 
     # 1. download, grouped by shop (the shop's mark is learned from all its photos together)
+    hosts_seen: set[str] = set()
+
     def fetch_one(r):
         try:
             urls = [u for u in json.loads(r.get("image_urls") or "[]") if isinstance(u, str)][:per]
@@ -468,6 +470,12 @@ def step_images(cfg: dict, run: str) -> Path | None:
             tmp.mkdir(parents=True, exist_ok=True)
             p = tmp / f"{n}.src"
             p.write_bytes(data)
+            try:                                     # the shop's photos, for learning its watermark
+                from .shopwm import add_sample
+                add_sample(cfg["_data_dir"], u, data)
+                hosts_seen.add(u)
+            except Exception:                        # noqa: BLE001 - a help, not a must
+                pass
             paths.append(p)
             try:
                 thumbs.append(thumb(data))
@@ -489,6 +497,12 @@ def step_images(cfg: dict, run: str) -> Path | None:
     # a shop's own photos from the whole crawl help too, but downloading them all is slow: the
     # products of this run are usually enough (24 per category, several per shop)
     marks = {dom: shop_mark(ims) for dom, ims in by_shop.items()}
+    try:                                             # see-through / framing watermarks (crawler/shopwm.py)
+        from .shopwm import host_of, learn as learn_wm
+        for h in sorted({host_of(u) for u in hosts_seen} - {""}):
+            learn_wm(cfg["_data_dir"], h)
+    except Exception as e:                           # noqa: BLE001
+        log.info("shop watermarks: %s", e)
     marks = remembered_marks(cfg["_data_dir"], marks)
     by_shop.clear()
     got = [(r, urls, paths, None) for r, urls, paths, _ in got]   # thumbnails no longer needed

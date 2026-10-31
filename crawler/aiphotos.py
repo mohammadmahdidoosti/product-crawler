@@ -192,7 +192,7 @@ def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) 
     models = [ic.get("ai_model", "qwen/qwen-image-2.1-turbo")] + list(ic.get("ai_fallback_models") or [])
     stats = {"checked": len(jobs), "bad": 0, "dropped": 0, "edited": 0, "searched": 0, "left": 0,
              "wrong": 0, "wrong_left": 0, "search_tried": 0, "edit_tried": 0, "free_tried": 0, "free": 0,
-             "free_cost": 0.0, "reused": 0, "deferred": 0}
+             "free_cost": 0.0, "reused": 0, "deferred": 0, "shopwm": 0}
     rows = im.to_dict("records")
     import threading
     lock = threading.Lock()
@@ -295,6 +295,34 @@ def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) 
                     bump("reused")
             # 2a. free first: the product cut out, or small edge marks painted white / filled by LaMa;
             #     used only when the strict check passes it (else on to search and the paid models)
+            # 2a·. the shop's own watermark, learned from its photos, taken off the original (free);
+            #      the result still has to pass the free fix's checks
+            if not fixed and ic.get("shop_watermarks", True) and not any(x.startswith("free_fixed") for x in notes):
+                try:
+                    from .shopwm import remove as wm_remove, template as wm_template
+                    from .freefix import free_fix as _ff
+                    urls_ = [u for u in str(r.get("source_images") or "").split(" | ") if u]
+                    u_ = urls_[n - 1] if 0 < n <= len(urls_) else ""
+                    orig = source_photo(r, n, cfg["_data_dir"]) if u_ else None
+                    t_ = wm_template(cfg["_data_dir"], u_, orig.size) if orig is not None else None
+                    if t_ is not None:
+                        clean_, why_ = wm_remove(orig, t_)
+                        if clean_ is not None:
+                            bump("free_tried")
+                            out, how, c = _ff(clean_, new.get(r["url"], {}).get("name", ""), vmodel, key,
+                                              lock=model_lock, check=check, size=int(ic.get("size", 1000)))
+                            bump("free_cost", c)
+                            if out is not None:
+                                rel = f"{k}/ai0_{n}.webp"
+                                out.save(root / rel, "WEBP", quality=88, method=4)
+                                fixed = rel
+                                notes.add(f"free_fixed:shopwm+{how}")
+                                bump("free")
+                                bump("shopwm")
+                            else:
+                                log.info("photo fix %s shop watermark: %s", r["url"][-40:], how[:80])
+                except Exception as e:                   # noqa: BLE001 - on to the other ways
+                    log.info("photo fix %s shop watermark failed: %s", r["url"][-40:], e)
             if not fixed and src is not None and ic.get("free_fix", True) and not again \
                     and not any(x.startswith("free_fixed") for x in notes):
                 from .freefix import free_fix
@@ -395,5 +423,5 @@ def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) 
     add(d, "photo_fix", paid + int(stats["free_tried"]),
         paid * float(ic.get("ai_edit_usd", 0.02)) + float(stats["free_cost"]),
         f"paid edits {paid}, free fixes {stats['free']}/{stats['free_tried']}, reused {stats['reused']}, "
-        f"found by search {stats['searched']}, paid fix deferred {stats['deferred']}", estimated=bool(paid))
+        f"found by search {stats['searched']}, paid fix deferred {stats['deferred']}, shop watermarks {stats['shopwm']}", estimated=bool(paid))
     return stats
