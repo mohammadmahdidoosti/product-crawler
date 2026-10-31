@@ -150,7 +150,8 @@ def learn_from(arrays: list[np.ndarray]) -> dict | None:
         a = 1.0 - float(np.median(ratios))
         if 0.08 <= a <= 0.85:
             alpha = round(a, 3)
-    return {"med": med.astype(np.uint8), "mark": mark, "alpha": alpha, "frac": frac, "n": len(arrays)}
+    bg = np.median(st, axis=0).min(axis=2) > 235          # white in most of the shop's photos: the margin
+    return {"med": med.astype(np.uint8), "mark": mark, "alpha": alpha, "frac": frac, "n": len(arrays), "bg": bg}
 
 
 def learn(data_dir: Path, host: str) -> int:
@@ -163,7 +164,7 @@ def learn(data_dir: Path, host: str) -> int:
         if t is None:
             (d / "template.npz").unlink(missing_ok=True)
             continue
-        np.savez_compressed(d / "template.npz", med=t["med"], mark=t["mark"], alpha=t["alpha"])
+        np.savez_compressed(d / "template.npz", med=t["med"], mark=t["mark"], alpha=t["alpha"], bg=t["bg"])
         (d / "info.json").write_text(json.dumps({"alpha": t["alpha"], "frac": t["frac"], "photos": t["n"]}))
         made += 1
         log.info("shop watermark %s %s: %.1f%% of the photo, alpha %.2f, from %d photos",
@@ -176,7 +177,8 @@ def template(data_dir: Path, url: str, size: tuple[int, int]) -> dict | None:
     if not p.exists():
         return None
     z = np.load(p)
-    return {"med": z["med"].astype(np.float32), "mark": z["mark"], "alpha": float(z["alpha"])}
+    return {"med": z["med"].astype(np.float32), "mark": z["mark"], "alpha": float(z["alpha"]),
+            "bg": z["bg"] if "bg" in z.files else None}
 
 
 def remove(im: Image.Image, t: dict) -> tuple[Image.Image | None, str]:
@@ -213,4 +215,21 @@ def remove(im: Image.Image, t: dict) -> tuple[Image.Image | None, str]:
         zone[max(0, y - pad):min(H, y + h + pad), max(0, x - pad):min(W, x + w + pad)] = True
     edge = zone & ~mark & (diff <= 30) & (M.min(axis=2) > 150)
     out[edge] = 255.0
+    # a logo on the margin (white in most of the shop's photos) whose box holds nothing else in this photo:
+    # the whole box goes white, so no soft edge or dot of it is left (31 Oct, the dots of choobakabzar's logo)
+    bg = t.get("bg")
+    if bg is not None:
+        near = cv2.dilate(mark.astype(np.uint8), np.ones((5, 5), np.uint8)).astype(bool)
+        for i in range(1, n):
+            x, y, w, h, _a = stats[i]
+            ys, ye = max(0, y - pad), min(H, y + h + pad)
+            xs, xe = max(0, x - pad), min(W, x + w + pad)
+            if (ye - ys) * (xe - xs) > 0.1 * H * W:
+                continue
+            rest = ~near[ys:ye, xs:xe]
+            if not rest.any() or bg[ys:ye, xs:xe][rest].mean() < 0.95:
+                continue                                  # the box lies where products usually are
+            if (J[ys:ye, xs:xe][rest].min(axis=1) < 200).mean() > 0.01:
+                continue                                  # something of the product is in the box
+            out[ys:ye, xs:xe] = 255.0
     return Image.fromarray(out.astype(np.uint8)), "shop watermark removed"

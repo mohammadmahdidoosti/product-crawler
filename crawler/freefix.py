@@ -350,9 +350,10 @@ def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=
         if good:
             return cand, "as_is", cost
         why.append("as is: " + w)
-    # 1. cut out
+    # 1. cut out (not after a shop watermark: on 31 Oct it cut a drill pack's printed top off and dropped
+    #    the loose bit, and the change check passed it; the background is already the shop's white there)
     with lock:
-        cut, did = remove_background(flatten(im))
+        cut, did = remove_background(flatten(im)) if not first_as_is else (None, False)
         cand = finish(cut) if did else None
     if cand is not None and left_in_boxes(cut, bx) > 0.3:
         why.append("cut-out: a mark sits on the product")
@@ -365,6 +366,8 @@ def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=
     # 2. no marks found and nothing to cut: the first check may have been wrong (30 Oct: clean photos
     #    of a pipe cutter were sent to the paid model); the strict checks on the photo as it is
     if not bx:
+        if first_as_is:                                   # tried as it is above already
+            return None, "; ".join(why), cost
         with lock:
             cand = finish(im)
         good, w = ok(cand)
