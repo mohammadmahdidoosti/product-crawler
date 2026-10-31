@@ -435,6 +435,11 @@ def nightly_loop() -> None:
                 log.info("nightly site-health scan %s", "started" if not err else f"not started: {err}")
         except Exception:                           # noqa: BLE001 - the loop must survive
             log.error(traceback.format_exc())
+        try:                                        # night crawls without a person (crawler/autopilot.py)
+            from crawler import autopilot as AP
+            AP.tick(build_cfg(), JOBS, start_job)
+        except Exception:                           # noqa: BLE001
+            log.error(traceback.format_exc())
 _TAX_CACHE: dict = {"mtime": None, "df": None}
 
 
@@ -812,7 +817,7 @@ class Handler(BaseHTTPRequestHandler):
     # --- auth
     def _authed(self) -> bool:
         # product photos are public: the WooCommerce importer on the site fetches them
-        if not APP_PASSWORD or self.path == "/healthz" or self.path.startswith("/img/"):
+        if not APP_PASSWORD or self.path in ("/healthz", "/api/status") or self.path.startswith("/img/"):
             return True
         if self.path.startswith("/api/export-data?") and self.command == "GET":
             return export_ok(parse_qs(urlparse(self.path).query).get("token", [""])[0])
@@ -876,6 +881,12 @@ class Handler(BaseHTTPRequestHandler):
         try:
             if u.path == "/healthz":
                 return self._send(200, b"ok", "text/plain")
+            if u.path == "/api/status":                  # public, read-only: lanes and the night list, no secrets
+                from crawler import autopilot as AP
+                return self._json(AP.status(build_cfg(), JOBS))
+            if parts == ["api", "autopilot"]:
+                from crawler import autopilot as AP
+                return self._json(AP.load(build_cfg()))
             if parts[:1] == ["img"] and len(parts) == 3 and re.fullmatch(r"[0-9a-f]{14}", parts[1]) \
                     and re.fullmatch(r"(ai\d_)?\d{1,2}\.webp", parts[2]):
                 f = DATA_DIR / "images" / parts[1] / parts[2]
@@ -1225,6 +1236,9 @@ class Handler(BaseHTTPRequestHandler):
                 err = start_job("leads", f"leads-{name}", {"name": name, "terms": terms, "cities": cities,
                                                             "read_sites": body.get("read_sites", True)})
                 return self._err(err, 409) if err else self._json({"ok": True, "run": f"leads-{name}"})
+            if parts == ["api", "autopilot"]:              # {"batches": [11, 12], "enabled": true, "max_usd": 1}
+                from crawler import autopilot as AP
+                return self._json(AP.configure(build_cfg(), self._jbody()))
             if parts[:2] == ["api", "routing"] and len(parts) >= 3:
                 from crawler import routing_state as RS
                 cfg = build_cfg()
