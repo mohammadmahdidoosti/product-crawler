@@ -28,6 +28,9 @@ REP_WORDS = ("نماینده رسمی", "نمایندگی رسمی", "نماین
 SALE_UNITS = {"متری": "متر", "متر ": "متر", "رول": "رول", "شاخه": "شاخه", "بسته": "بسته",
               "کارتن": "کارتن", "کیلویی": "کیلوگرم", "کیلوگرم": "کیلوگرم", "جفت": "جفت",
               "عددی": "عدد", "ست ": "ست"}
+# 'قیمت هر متر', 'قیمت یک متر', 'فروش متری', 'به صورت متری', 'هر متر: 50,000' (31 Oct: hoses held as too cheap)
+PER_METER = re.compile(r"قیمت\s*(?:برای\s*)?(?:هر|یک|1)\s*متر(?!\S)|فروش\s*(?:به\s*صورت\s*)?متری|به\s*صورت\s*متری"
+                       r"|(?<!\S)هر\s*متر\s*[:=]|تومان\s*/\s*متر|(?<!\S)متری\s*\d")
 BRAND_KEYS = ("برند", "brand", "سازنده", "شرکت سازنده", "مارک")
 MODEL_KEYS = ("مدل", "model", "کد", "شماره مدل", "پارت نامبر", "part number")
 
@@ -463,6 +466,8 @@ def finalize(rec: dict, text: str) -> None:
         rec["model"] = rec["sku"]
     name_n = norm_text(rec["name"]) + " "
     rec["sale_unit"] = next((u for w, u in SALE_UNITS.items() if norm_text(w) + " " in name_n + " "), "")
+    if not rec["sale_unit"] and PER_METER.search(norm_text(text or "")):
+        rec["sale_unit"] = "متر"                         # hoses and cables: the page says the price is per metre
     rec["seller_phones"] = extract_phones(text)
     t = norm_text(text)
     rec["claims_representative"] = "yes" if any(norm_text(w) in t for w in REP_WORDS) else ""

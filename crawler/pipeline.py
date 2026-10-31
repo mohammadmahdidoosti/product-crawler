@@ -605,7 +605,8 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
             log.info("dedupe: %d product(s) already on the site from another batch, left out", int(again.sum()))
             merged = merged[~again]
     from .brandfix import clean_brand
-    merged["brand"] = [clean_brand(b, n) for b, n in zip(merged.get("brand", ""), merged["name"])]
+    if len(merged):                                      # a crawl that found nothing has no columns
+        merged["brand"] = [clean_brand(b, n) for b, n in zip(merged.get("brand", ""), merged["name"])]
     need = merged.iloc[0:0]
     if cfg.get("price", {}).get("estimate_missing", True) and len(merged):
         from .pricing import estimate
@@ -1040,6 +1041,14 @@ def car_part(name: str, crumb: str = "") -> str:
     return ""
 
 
+METER_NOTE = "<p><strong>قیمت درج‌شده برای هر متر است.</strong></p>"
+
+
+def per_meter(r: dict) -> bool:
+    """The price is for one metre (hoses, cables): the page or the name says so."""
+    return str(r.get("sale_unit") or "").strip() == "متر"
+
+
 def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, high: float = 150_000_000,
                  peers: list[dict] | None = None, history: dict[str, list[float]] | None = None) -> list[dict]:
     """Prices that look 10x off (rial read as toman, or the reverse) are held back, never changed:
@@ -1129,9 +1138,10 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
             pass
         elif v > high and dear:
             pass                                         # an expensive category: in line with the others
-        elif v > high or v < low:
+        elif v > high or v < (low / 20 if per_meter(r) else low):
             why = f"{v:,.0f} تومان بیرون از بازه‌ی {low:,.0f} تا {high:,.0f}"
-        elif ref and not (1 / factor <= v / ref <= factor) and not (v < ref and is_part(r.get("name", ""))):
+        elif ref and not (1 / factor <= v / ref <= factor) and not (v < ref and is_part(r.get("name", ""))) \
+                and not (per_meter(r) and v < ref):        # a metre of hose is cheaper than a hose
             why = f"{v:,.0f} تومان؛ میانه‌ی دسته {ref:,.0f}"
         if why and peers:                    # other shops sell the same model: they decide
             ok = confirm_price(r, v, peers)
@@ -1241,7 +1251,7 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
             "Name": BF.name_with_brand(base, br),
             "Published": cfg.get("export", {}).get("published", 0),
             "Visibility in catalog": "visible",
-            "Description": (ds.get("html") or "") + _spec_html(r), "Short description": ds.get("short", ""),
+            "Description": (ds.get("html") or "") + _spec_html(r), "Short description": (METER_NOTE if per_meter(r) else "") + ds.get("short", ""),
             "Regular price": _usd_price(r, send["usd_rate_toman"]),
             "Categories": ", ".join(dict.fromkeys(
                 [r["breadcrumb"]] + [b for b in str(r.get("extra_breadcrumbs") or "").split(" | ")
@@ -1258,6 +1268,7 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
             "Meta: _caravan_price_estimated": r.get("price_estimated", ""),
             "Meta: _caravan_source_url": r.get("url", ""),
             "Meta: _caravan_price_toman": r.get("price_toman", ""),
+            "Meta: _caravan_sale_unit": "متر" if per_meter(r) else "",
             "Meta: _caravan_price_check": r.get("price_check", ""),
             "Meta: _caravan_brand_source": br.get("source", ""),
             "Meta: _caravan_supplier": br.get("original", ""),
