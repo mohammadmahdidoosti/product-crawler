@@ -299,6 +299,14 @@ class Job:
                               stop=self.stop_ev.is_set)
             self.logs.append(f"ادغام تکراری‌ها: {res['groups']} گروه انجام شد، {len(res['failed'])} ناموفق"
                              + (f" ({res['failed'][:3]})" if res["failed"] else ""))
+        elif step == "specs":                      # the «ویژگی‌ها» lists of the site's products into their spec tables
+            from crawler.specs import site_run
+            res = site_run(cfg, start_page=int(opts.get("start_page") or 1),
+                           max_pages=int(opts["max_pages"]) if str(opts.get("max_pages") or "").isdigit() else None,
+                           dry_run=bool(opts.get("dry_run")), workers=int(opts.get("workers") or 8),
+                           progress=lambda d, t: self.prog.update(step="specs", done=d, total=t), stop=self.stop_ev.is_set)
+            self.logs.append(f"جدول مشخصات: {res['read']} محصول خوانده شد، {res['with_list']} فهرست ویژگی داشت، "
+                             f"{res['changed']} تغییر کرد، {res['failed']} ناموفق، ${res['usd']} (تا صفحه‌ی {res['last_page']})")
         elif step == "health":                     # read-only scan of every product on the site
             from crawler.health import scan
             res = scan(cfg, progress=lambda d, t: self.prog.update(step="health", done=d, total=t),
@@ -391,7 +399,7 @@ class Job:
                 took = time.time() - t0
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
-            if step not in ("catmake", "probe", "publish", "brands", "status", "resync", "health", "shops", "leads", "catalog", "catalog_publish",
+            if step not in ("catmake", "probe", "publish", "brands", "status", "resync", "health", "shops", "leads", "specs", "catalog", "catalog_publish",
                             "sitefix", "sitefix_apply"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
@@ -419,7 +427,7 @@ def start_job(step: str, run: str, opts: dict) -> str | None:
     # a site-fix run holds products already on the site: the crawl / publish steps must never take it
     if run.startswith("fix-") and step not in ("sitefix", "sitefix_apply"):
         return "این اجرا مال «اصلاح سایت» است؛ از صفحه‌ی سلامت سایت با آن کار کنید."
-    lane = "health" if step in ("health", "shops", "leads") else "site" if step in SITE_STEPS else "crawl"
+    lane = "health" if step in ("health", "shops", "leads", "specs") else "site" if step in SITE_STEPS else "crawl"
     return JOBS[lane].start(step, run, opts)
 
 
@@ -1340,6 +1348,9 @@ class Handler(BaseHTTPRequestHandler):
                 if not (DATA_DIR / "category_decisions.csv").exists():
                     return self._err("category_decisions.csv نیست", 400)
                 err = start_job("catmake", "categories", {"dry_run": b.get("dry_run", True) is not False})
+                return self._err(err, 409) if err else self._json({"ok": True})
+            if parts == ["api", "specs", "run"]:      # {"dry_run", "start_page", "max_pages", "workers"}
+                err = start_job("specs", "specs", self._jbody() or {})
                 return self._err(err, 409) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "resync":       # {"dry_run": true}
                 run_path(parts[2])

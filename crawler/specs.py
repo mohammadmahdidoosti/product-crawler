@@ -121,3 +121,135 @@ def merged(attrs: list[dict], rows: list[dict]) -> list[dict]:
         out.append({"name": r["name"], "options": [r["value"]], "visible": True, "variation": False, "position": pos})
         have.add(r["name"])
     return out
+
+
+# ------------------------------------------------------------------ at publish (new products, re-sends)
+
+CACHE = "specs_cache.json"
+
+
+def _key(items: list[str]) -> str:
+    import hashlib
+    return hashlib.sha1("\n".join(items).encode()).hexdigest()[:16]
+
+
+def load_cache(data_dir) -> dict:
+    from pathlib import Path
+    try:
+        return json.loads((Path(data_dir) / CACHE).read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def save_cache(data_dir, cache: dict) -> None:
+    from pathlib import Path
+    p = Path(data_dir) / CACHE
+    p.write_text(json.dumps(cache, ensure_ascii=False), encoding="utf-8")
+
+
+def prefetch(data_dir, texts: list[tuple[str, str]], key: str, workers: int = 8,
+             model: str = "deepseek/deepseek-v4.1-flash") -> tuple[dict, float, int]:
+    """(cache, usd, calls): rows for every (name, description) whose features are not cached yet, side by
+    side. A product sent again (re-publish, price change) costs nothing: its list was turned once."""
+    from concurrent.futures import ThreadPoolExecutor
+    cache = load_cache(data_dir)
+    todo = {}
+    for name, html in texts:
+        items = feature_items(html)
+        if items and _key(items) not in cache:
+            todo[_key(items)] = (name, items)
+    usd = 0.0
+
+    def one(k):
+        name, items = todo[k]
+        try:
+            return k, *to_pairs(items, name, key, model)
+        except Exception as e:                             # noqa: BLE001 - this product keeps its list
+            log.warning("spec rows not made for %s: %s", name[:40], e)
+            return k, None, 0.0
+    if todo:
+        with ThreadPoolExecutor(max_workers=workers) as ex:
+            for k, rows, c in ex.map(one, list(todo)):
+                usd += c
+                if rows is not None:
+                    cache[k] = rows
+        save_cache(data_dir, cache)
+    return cache, usd, len(todo)
+
+
+def apply(data: dict, cache: dict) -> dict:
+    """The WooCommerce payload with the spec rows in its attributes and the list out of its text."""
+    html = data.get("description") or ""
+    items = feature_items(html)
+    rows = cache.get(_key(items)) if items else None
+    if not rows:
+        return data
+    data["attributes"] = merged(data.get("attributes") or [], rows)
+    data["description"] = without_features(html, items, rows)
+    return data
+
+
+# ------------------------------------------------------------------ every product on the site, once
+
+def site_run(cfg: dict, wc=None, workers: int = 8, batch: int = 50, start_page: int = 1, max_pages: int | None = None,
+             dry_run: bool = False, progress=None, stop=None) -> dict:
+    """Every product of the site: its list into its spec table, the list out of its text. Products with no
+    list (most old ones) are only read. The text and attributes a product had are kept in
+    DATA_DIR/specs_backup.jsonl before it is changed. Pages of 100 are read; the model works on 8 lists
+    side by side; changes go to the site 50 at a time (products/batch). A second run changes nothing:
+    a product whose list was taken out has none left."""
+    import time
+    from pathlib import Path
+    from .config import secret
+    if wc is None:
+        from .wc import WC
+        wc = WC(timeout=90)
+    key = secret("OPENROUTER_API_KEY")
+    data_dir = Path(cfg["_data_dir"])
+    stats = {"read": 0, "with_list": 0, "changed": 0, "failed": 0, "usd": 0.0, "pages": 0, "last_page": start_page - 1}
+    page, total_pages = start_page, None
+    with open(data_dir / "specs_backup.jsonl", "a", encoding="utf-8") as bk:
+        while True:
+            if stop and stop():
+                break
+            prods, total, total_pages = wc.products_page(page, 100, "id,name,description,attributes", "any")
+            if not prods:
+                break
+            stats["read"] += len(prods)
+            have = [p for p in prods if feature_items(p.get("description") or "")]
+            stats["with_list"] += len(have)
+            cache, usd, _ = prefetch(data_dir, [(p["name"], p["description"]) for p in have], key, workers)
+            stats["usd"] += usd
+            ups = []
+            for p in have:
+                d = apply({"description": p["description"], "attributes": p.get("attributes") or []}, cache)
+                if d["description"] == p["description"] and len(d["attributes"]) == len(p.get("attributes") or []):
+                    continue
+                bk.write(json.dumps({"id": p["id"], "t": time.time(), "description": p["description"],
+                                     "attributes": p.get("attributes")}, ensure_ascii=False) + "\n")
+                ups.append({"id": p["id"], **d})
+            bk.flush()
+            for i in range(0, len(ups), batch):
+                part = ups[i:i + batch]
+                if dry_run:
+                    stats["changed"] += len(part)
+                    continue
+                try:
+                    res = wc.batch_update(part)
+                    bad = [x for x in (res.get("update") or []) if x.get("error")]
+                    stats["changed"] += len(part) - len(bad)
+                    stats["failed"] += len(bad)
+                except Exception as e:                     # noqa: BLE001 - next batch; a re-run picks these up
+                    log.warning("spec table: batch of %d not saved: %s", len(part), e)
+                    stats["failed"] += len(part)
+            stats["pages"] += 1
+            stats["last_page"] = page
+            if progress:
+                progress(page, total_pages or page)
+            log.info("spec table page %d/%s: %d read, %d with a list, %d changed so far ($%.3f)",
+                     page, total_pages, len(prods), len(have), stats["changed"], stats["usd"])
+            if (max_pages and stats["pages"] >= max_pages) or (total_pages and page >= total_pages):
+                break
+            page += 1
+    stats["usd"] = round(stats["usd"], 4)
+    return stats

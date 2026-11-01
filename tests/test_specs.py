@@ -57,5 +57,60 @@ class WithoutFeatures(unittest.TestCase):
         self.assertEqual(without_features(HTML, self.items, [{"name": "x", "value": "1"}]), HTML)
 
 
+class AtPublish(unittest.TestCase):
+    def test_prefetch_once_then_apply(self):
+        import tempfile
+        from unittest import mock
+        from crawler import specs as SP
+        rows = [{"name": "نمایشگر", "value": "۲۰۰۰ شمارش"}, {"name": "ولتاژ DC", "value": "تا ۶۰۰ ولت"}]
+        with tempfile.TemporaryDirectory() as t, mock.patch.object(SP, "to_pairs", return_value=(rows, 0.0001)) as tp:
+            cache, usd, calls = SP.prefetch(t, [("مولتی متر", HTML), ("بی‌فهرست", "<p>x</p>")], "k")
+            self.assertEqual(calls, 1)
+            cache2, _, calls2 = SP.prefetch(t, [("مولتی متر", HTML)], "k")
+            self.assertEqual(calls2, 0)                    # cached: a re-send costs nothing
+            self.assertEqual(tp.call_count, 1)
+        data = {"description": HTML, "attributes": [{"name": "برند", "options": ["یونیتی"], "visible": True,
+                                                     "variation": False}]}
+        out = SP.apply(data, cache2)
+        self.assertEqual([a["name"] for a in out["attributes"]], ["برند", "نمایشگر", "ولتاژ DC"])
+        self.assertNotIn("ویژگی", out["description"])
+
+    def test_apply_without_rows_leaves_payload(self):
+        from crawler import specs as SP
+        data = {"description": HTML, "attributes": []}
+        self.assertEqual(SP.apply(dict(data), {}), data)
+
+
+class SiteRun(unittest.TestCase):
+    def test_only_products_with_a_list_change_and_backup_kept(self):
+        import json, tempfile
+        from pathlib import Path
+        from unittest import mock
+        from crawler import specs as SP
+
+        class FakeWC:
+            def __init__(self):
+                self.sent = []
+
+            def products_page(self, page, per_page, fields, status):
+                if page > 1:
+                    return [], 2, 1
+                return [{"id": 1, "name": "a", "description": HTML, "attributes": []},
+                        {"id": 2, "name": "b", "description": "<p>بی‌فهرست</p>", "attributes": []}], 2, 1
+
+            def batch_update(self, items):
+                self.sent += items
+                return {"update": [{"id": x["id"]} for x in items]}
+
+        rows = [{"name": "نمایشگر", "value": "۲۰۰۰"}, {"name": "ولتاژ DC", "value": "تا ۶۰۰ ولت"}]
+        with tempfile.TemporaryDirectory() as t, mock.patch.object(SP, "to_pairs", return_value=(rows, 0.0)), \
+                mock.patch("crawler.config.secret", return_value="k"):
+            wc = FakeWC()
+            st = SP.site_run({"_data_dir": t}, wc=wc)
+            self.assertEqual((st["read"], st["with_list"], st["changed"]), (2, 1, 1))
+            self.assertEqual(wc.sent[0]["id"], 1)
+            self.assertEqual(json.loads((Path(t) / "specs_backup.jsonl").read_text().splitlines()[0])["id"], 1)
+
+
 if __name__ == "__main__":
     unittest.main()

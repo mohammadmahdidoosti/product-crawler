@@ -458,6 +458,19 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
     if not dry_run and items:
         items = _paid_photo_fixes(cfg, run, d, items)
     log.info("publish %s: %d product(s)%s", run, len(items), " (dry run)" if dry_run else "")
+    specs = {}
+    if not dry_run and items and cfg.get("publish", {}).get("spec_table", True):
+        # the «ویژگی‌ها» list becomes rows of the spec table (the shop, 1 Nov); turned once per list
+        from . import specs as SP
+        from .config import secret
+        from .costs import add as add_cost
+        try:
+            specs, usd, calls = SP.prefetch(cfg["_data_dir"], [(r["Name"], r.get("Description") or "") for _, r in items],
+                                            secret("OPENROUTER_API_KEY"))
+            if calls:
+                add_cost(d, "spec_table", calls, usd, f"feature lists turned into spec rows: {calls}")
+        except Exception as e:                           # noqa: BLE001 - the products keep their lists
+            log.warning("publish %s: spec rows not made (%s)", run, e)
 
     brands = SiteBrands(wc, dry_run) if (wc.ok() or not dry_run) else None
     if brands is not None and not brands.available:
@@ -483,6 +496,9 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
     merged = registry(cfg)                            # products merged on the site: never undone here
     for rec, row in items:
         data, missing = payload(cfg, rec, row, cats)
+        if specs:
+            from .specs import apply as spec_apply
+            data = spec_apply(data, specs)
         m = merged.get(row["SKU"])
         if m and m.get("role") == "dup":              # a hidden duplicate of another product: not sent again
             out.append({"sku": row["SKU"], "name": row["Name"], "action": "skipped", "product_id": m.get("product_id", ""),
