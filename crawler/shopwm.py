@@ -33,9 +33,17 @@ PCT = 97            # which brightness percentile of a shop's photos is taken as
 REP_MIN = 0.10      # least share of photos that must show the mark over white at a pixel
 
 
+SHARED_CDNS = ("cdnfa.com",)      # one host, many shops: the shop is the first part of the path (2 Nov)
+
+
 def host_of(url: str) -> str:
-    m = re.match(r"https?://([^/:]+)", str(url or ""))
-    return (m.group(1).lower().removeprefix("www.") if m else "")
+    m = re.match(r"https?://([^/:]+)(/[^/?#]+)?", str(url or ""))
+    if not m:
+        return ""
+    h = m.group(1).lower().removeprefix("www.")
+    if h in SHARED_CDNS and m.group(2):                  # cdnfa.com/myabzar/... is myabzar's own photos
+        h = f"{h}_{m.group(2).strip('/').lower()}"
+    return h
 
 
 def _folder(data_dir: Path, host: str) -> Path:
@@ -164,6 +172,8 @@ def learn_from(arrays: list[np.ndarray]) -> dict | None:
             if not len(ys):
                 continue
             xp = xs - dx
+            ok_ = (xp >= 0) & (xp < J.shape[1])           # np.roll wraps round the edge: not a neighbour
+            ys, xs, xp = ys[ok_], xs[ok_], xp[ok_]
             Jq, Jp, Mp = J[ys, xs], J[ys, xp], med[ys, xp]
             prod = Jq.min(axis=1) < 225                   # the product (not white) just outside
             if prod.sum() < 20:

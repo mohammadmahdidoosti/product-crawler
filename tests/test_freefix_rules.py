@@ -42,3 +42,10 @@ class LostParts(unittest.TestCase):
         self.assertFalse(lost_parts(busy, cut))
         # the part dropped was a mark in a known box: fine
         self.assertFalse(lost_parts(im, cut, [[190, 190, 250, 880]]))
+
+
+class ShopHost(unittest.TestCase):
+    def test_shared_cdn_split_by_shop(self):
+        from crawler.shopwm import host_of
+        self.assertEqual(host_of("https://cdnfa.com/myabzar/0bbd/files/1.jpg"), "cdnfa.com_myabzar")
+        self.assertEqual(host_of("https://www.sabztoos.ir/wp-content/a.jpg"), "sabztoos.ir")
