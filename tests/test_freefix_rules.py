@@ -49,3 +49,14 @@ class ShopHost(unittest.TestCase):
         from crawler.shopwm import host_of
         self.assertEqual(host_of("https://cdnfa.com/myabzar/0bbd/files/1.jpg"), "cdnfa.com_myabzar")
         self.assertEqual(host_of("https://www.sabztoos.ir/wp-content/a.jpg"), "sabztoos.ir")
+
+
+class SearchSkipsBadShops(unittest.TestCase):
+    def test_own_and_bad_hosts_not_tried(self):
+        from unittest import mock
+        from crawler import aiphotos as A
+        hits = ["https://farmkala.com/a.jpg", "https://bad.ir/b.jpg", "https://good.ir/c.jpg"]
+        with mock.patch("crawler.images.search_images", return_value=hits):
+            got = [u for u, _ in A._candidates({}, None, {"url": "https://farmkala.com/p/1", "name": "سمپاش"}, 3,
+                                                 {"bad.ir"})]
+        self.assertEqual(got, ["https://good.ir/c.jpg"])
