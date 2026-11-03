@@ -167,3 +167,65 @@ class MatchAndApply(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RowsWithoutCode(unittest.TestCase):
+    """3 Nov, the P.S.C list: 53 rows, none with a model code; sizes are not codes."""
+
+    def test_rows_kept_by_name(self):
+        rows = [{"brand": "P.S.C", "model": "", "name": "دستگاه جوش پلی اتیلن 90-315 دو فک پرتابل اهرم دستی",
+                 "price": "1,270,000,000", "unit": "rial", "list_date": "1405/08/01", "file": "a"},
+                {"brand": "P.S.C", "model": "", "name": "دستگاه جوش پلی اتیلن نیمه هیدرولیک فشارقوی 315 - 90",
+                 "price": "2,430,000,000", "unit": "rial", "list_date": "1405/08/01", "file": "a"},
+                {"brand": "P.S.C", "model": "", "name": "کالیبر (لقمه جوش) سایز 20 1/2 اینچ",
+                 "price": "4,600,000", "unit": "rial", "list_date": "1405/08/01", "file": "b"}]
+        df = PL.merge_rows(rows)
+        self.assertEqual(len(df), 3)
+        self.assertTrue(all(PL.is_name_key(k) for k in df["key"]))
+        self.assertEqual(sorted(df["toman"].astype(int)), [460000, 127000000, 243000000])
+
+    def test_same_by_name(self):
+        row = "دستگاه جوش پلی اتیلن 90-315 دو فک پرتابل اهرم دستی"
+        self.assertTrue(PL.same_by_name("دستگاه جوش پلی اتیلن 90-315 دو فک پرتابل اهرم دستی برند پی اس سی", row))
+        self.assertFalse(PL.same_by_name("دستگاه جوش پلی اتیلن تمام هیدرولیک 90-315", row))   # another variant
+        self.assertFalse(PL.same_by_name("زانو 90 315-16 بار پلی اتیلن", row))
+        self.assertFalse(PL.same_by_name("دستگاه جوش پلی اتیلن 63-200 دو فک پرتابل اهرم دستی", row))  # other size
+
+
+class CreateFromList(unittest.TestCase):
+    def test_new_rows_made_pending_and_locked(self):
+        d = Path(tempfile.mkdtemp())
+        cfg = {"_data_dir": d}
+        run = PL.run_path(cfg, "pl-psc")
+        PL.write_csv(pd.DataFrame([{"action": "new", "key": "NAAAAAAAAAA", "model": "", "brand": "P.S.C",
+                                    "list_name": "دستگاه جوش پلی اتیلن 90-315 دو فک", "list_toman": 127000000},
+                                   {"action": "new", "key": "NBBBBBBBBBB", "model": "", "brand": "P.S.C",
+                                    "list_name": "چیزی ناشناخته", "list_toman": 1000000}]), run / "plan.csv", PL.PLAN_COLS)
+        (run / "match.json").write_text(json.dumps({"rate": 273000}))
+
+        class Idx:
+            def __init__(self, *a):
+                pass
+
+            def match(self, name, n=3):
+                return [{"taxonomy_id": "77", "leaf": "دستگاه جوش پلی اتیلن", "breadcrumb": "جوش > دستگاه جوش پلی اتیلن"}] \
+                    if "جوش" in name else []
+        made = []
+        wc = mock.Mock()
+        wc.ok.return_value = True
+        wc.find_by_sku.return_value = None
+        wc.list_brands.return_value = []
+        wc.create_brand.return_value = {"id": 5}
+        wc.create_product.side_effect = lambda data: made.append(data) or {"id": 900}
+        with mock.patch("crawler.searches.TaxIndex", Idx), mock.patch("crawler.searches.load_tax", return_value=None), \
+                mock.patch("crawler.wc.category_map", return_value={"77": "1234"}), \
+                mock.patch("crawler.describe.Writer.ok", return_value=False), \
+                mock.patch("crawler.catalog_publish._brand", return_value={"status": "ok", "display": "پی اس سی (P.S.C)", "fa": "پی اس سی", "en": "P.S.C"}):
+            res = PL.create_new(cfg, "pl-psc", wc=wc)
+        self.assertEqual((res["made"], res["no_category"]), (1, 1))
+        p = made[0]
+        self.assertEqual(p["status"], "pending")
+        self.assertEqual(p["categories"], [{"id": 1234}])
+        self.assertEqual(p["regular_price"], f"{127000000 / 273000:.4f}")
+        self.assertTrue(any(m["key"] == "_caravan_price_lock" for m in p["meta_data"]))
+        self.assertIn("پی اس سی", p["name"])

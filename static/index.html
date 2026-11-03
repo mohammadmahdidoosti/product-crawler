@@ -402,7 +402,8 @@ td select,td input{padding:3px 6px;font-size:12.5px}
         <label class="cb"><input type="checkbox" id="plBig"> تغییرهای بزرگ هم اعمال شود (بیش از ۲٫۵ برابر)</label>
         <label class="cb"><input type="checkbox" id="plSpread" checked> نسخه‌های پرت (قیمت‌های خیلی متفاوت یک مدل) «در انتظار بررسی» شوند</label>
         <button class="btn ink" id="plApply">اعمال در سایت</button>
-        <button class="btn ghost" id="plNew">ساخت محصولات تازه (کراول)</button>
+        <button class="btn ghost" id="plCreate">ساخت محصولات تازه از روی خود لیست</button>
+        <button class="btn ghost" id="plNew">پیدا کردن محصولات تازه با کراول</button>
       </div>
       <div id="plApplied" class="muted" style="font-size:12.5px;margin-top:8px"></div>
     </div>
@@ -1584,11 +1585,13 @@ async function plLoad(){
   $('#plPlanInfo').textContent = mt.at ? `نرخ سایت ${fa(Math.round(mt.rate))} · میانه‌ی تغییر ${mt.median_change_pct}% · ${fa(mt.big)} تغییر بزرگ` : 'هنوز تطبیق نشده';
   $('#plFilter').innerHTML = Object.keys(PL_ACT).filter(k=>cnt[k]).map(k=>`<button class="btn ${PL.filter===k?'ink':'ghost'} sm" data-plf="${k}">${PL_ACT[k]} (${fa(cnt[k])})</button>`).join('');
   const rows = r.plan.filter(x=>x.action===PL.filter);
-  $('#plPlan').innerHTML = '<tr><th>مدل</th><th>نام در لیست</th><th>محصول سایت</th><th>وضعیت</th><th>قیمت سایت</th><th>قیمت لیست</th><th>تغییر</th><th>برند سایت</th><th>توضیح</th></tr>' + rows.map(x=>`<tr${x.big==='yes'?' style="background:#fff4e5"':''}><td class="ltr">${esc(x.model)}</td><td>${esc(x.list_name)}</td>
+  $('#plPlan').innerHTML = '<tr><th>مدل</th><th>نام در لیست</th><th>محصول سایت</th><th>وضعیت</th><th>قیمت سایت</th><th>قیمت لیست</th><th>تغییر</th><th>برند سایت</th><th>توضیح</th></tr>' + rows.map(x=>`<tr${x.big==='yes'?' style="background:#fff4e5"':''}><td class="ltr">${esc(x.model)||'—'}</td><td>${esc(x.list_name)}</td>
     <td>${x.product_id?`<a href="https://caravansanat.com/wp-admin/post.php?action=edit&post=${esc(x.product_id)}" target="_blank" rel="noopener">#${esc(x.product_id)}</a> ${esc(x.product_name)}`:'—'}</td><td>${esc(x.status)}</td>
     <td>${M(x.site_toman)}</td><td><b>${M(x.list_toman)}</b></td><td class="ltr">${x.change_pct!==''?esc(x.change_pct)+'%':''}${x.big==='yes'?' ⚠':''}</td><td style="font-size:12px">${esc(x.site_brand)}</td><td style="font-size:12px">${esc(x.note)}</td></tr>`).join('');
   const ap=r.applied||[];
-  $('#plApplied').textContent = ap.length ? `اعمال‌شده: ${fa(ap.filter(x=>x.action!=='error').length)} محصول، ${fa(ap.filter(x=>x.action==='error').length)} خطا` : '';
+  const cr=r.created||[];
+  $('#plApplied').textContent = (ap.length ? `اعمال‌شده: ${fa(ap.filter(x=>x.action!=='error').length)} محصول، ${fa(ap.filter(x=>x.action==='error').length)} خطا` : '')
+    + (cr.length ? ` · ساخته‌شده از لیست: ${fa(cr.filter(x=>x.product_id).length)} («در انتظار»)، ${fa(cr.filter(x=>x.error).length)} ساخته نشد` : '');
 }
 async function plWait(lane){
   const t=setInterval(async ()=>{
@@ -1615,6 +1618,10 @@ $('#plApply').onclick = async ()=>{
   if(!confirm(`قیمت ${fa((c.update||0)+(c.same||0)+(c.brand||0))} محصول طبق لیست تنظیم و قفل شود${$('#plSpread').checked&&c.spread?` و ${fa(c.spread)} نسخه‌ی پرت در انتظار بررسی برود`:''}؟`)) return;
   try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/apply`, {include_big:$('#plBig').checked, spread:$('#plSpread').checked}); toast('اعمال در سایت شروع شد'); plWait('site'); }
   catch(err){ toast(err.message,true); }
+};
+$('#plCreate').onclick = async ()=>{
+  if(!confirm('محصولاتی که روی سایت نیستند از روی خود لیست (نام، قیمت قفل‌شده، دسته، توضیحات) ساخته شوند؟ «در انتظار بررسی» می‌مانند تا شما منتشرشان کنید.')) return;
+  try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/create`, {}); toast('ساخت محصولات شروع شد'); plWait('site'); }catch(err){ toast(err.message,true); }
 };
 $('#plNew').onclick = async ()=>{
   if(!confirm('برای مدل‌هایی که روی سایت نیستند یک اجرای کراول ساخته و شروع شود؟ (انتشارش مثل بچ‌ها جدا تأیید می‌شود)')) return;

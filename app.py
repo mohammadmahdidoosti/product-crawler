@@ -358,7 +358,7 @@ class Job:
                            stop=self.stop_ev.is_set)
             self.logs.append(f"اصلاح در سایت: {res['applied']} انجام شد، {res['skipped']} دست نخورد، {res['failed']} خطا"
                              + (f" — {res['halted']}" if res.get("halted") else ""))
-        elif step in ("pricelist_read", "pricelist_match", "pricelist_apply"):   # a supplier's price list (crawler/pricelist.py)
+        elif step in ("pricelist_read", "pricelist_match", "pricelist_apply", "pricelist_create"):   # a supplier's price list (crawler/pricelist.py)
             from crawler import pricelist as PL
             pg = lambda d, t: self.prog.update(step=step, done=d, total=t)  # noqa: E731
             if step == "pricelist_read":
@@ -371,6 +371,10 @@ class Job:
             elif step == "pricelist_match":
                 res = PL.match(cfg, run, progress=pg)
                 self.logs.append(f"تطبیق با سایت: {res['counts']} — هنوز چیزی در سایت عوض نشده")
+            elif step == "pricelist_create":
+                res = PL.create_new(cfg, run, progress=pg, stop=self.stop_ev.is_set)
+                self.logs.append(f"محصولات تازه از روی لیست: {res['made']} ساخته شد («در انتظار بررسی»)، "
+                                 f"{res['no_category']} بی‌دسته ماند، {res['failed']} خطا")
             else:
                 res = PL.apply(cfg, run, include_big=bool(opts.get("include_big")), spread=opts.get("spread", True) is not False,
                                progress=pg, stop=self.stop_ev.is_set)
@@ -419,7 +423,7 @@ class Job:
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
             if step not in ("catmake", "probe", "publish", "brands", "status", "resync", "health", "shops", "leads", "specs", "catalog", "catalog_publish",
-                            "pricelist_read", "pricelist_match", "pricelist_apply",
+                            "pricelist_read", "pricelist_match", "pricelist_apply", "pricelist_create",
                             "sitefix", "sitefix_apply"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
@@ -439,7 +443,7 @@ class Job:
 
 
 SITE_STEPS = {"catmake", "publish", "status", "brands", "resync", "merge", "catalog_publish", "sitefix_apply",
-              "pricelist_apply"}
+              "pricelist_apply", "pricelist_create"}
 JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health"),
         "lists": Job("lists")}       # price lists: read + match only (3 Nov: never waits for a long health job)
 JOB = JOBS["crawl"]
@@ -1315,7 +1319,7 @@ class Handler(BaseHTTPRequestHandler):
                     return self._json({"ok": True, **PL.add_file(cfg, run, data, unquote(self.headers.get("X-Filename", "")))})
                 if what == "edit":                      # [{key, toman?, model?, name?, delete?}]
                     return self._json({"ok": True, "edited": PL.edit_items(cfg, run, self._jbody().get("rows") or [])})
-                if what in ("read", "match", "apply"):
+                if what in ("read", "match", "apply", "create"):
                     b = self._jbody()
                     err = start_job(f"pricelist_{what}", run, {k: b.get(k) for k in ("unit", "brand", "then_match",
                                                                                      "include_big", "spread")})

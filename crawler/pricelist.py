@@ -52,13 +52,18 @@ PARTS = ("باتری", "شارژر", "آرمیچر", "آرمیچر", "ذغال",
 FA_DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩", "01234567890123456789")
 
 VISION_SYSTEM = """You read Iranian supplier price lists (posters, catalog pages, tables).
-Return JSON: {"list_date": "<month and year printed, e.g. آبان ۱۴۰۵, or empty>",
- "rows": [{"brand": "<maker as printed, Latin if printed in Latin>", "model": "<model code exactly as printed>",
-           "name": "<Persian product name as printed>", "price": "<the price digits exactly as printed>",
-           "unit": "rial|toman|unknown"}]}
-One row per product that has a printed price. Copy digits exactly (Persian digits may be written in Latin).
-The unit comes from the words near the price (ریال = rial, تومان = toman). Leave out cartons, counts,
-phone numbers, watts and other numbers that are not the price. No prose, only the JSON."""
+Return JSON: {"list_date": "<date or month and year printed, e.g. آبان ۱۴۰۵ or 1405/08/01, or empty>",
+ "brand": "<the maker or supplier named on the page, as printed, or empty>",
+ "rows": [{"model": "<the product's model code ONLY when one is printed as an identifier (letters and digits such as
+            VR2402-BCK, LE-710, P3355); empty when the row has no model code. Never put a size, a size range
+            (90-315, 1/2 اینچ) or a row number here>",
+           "name": "<the row's full product name exactly as printed, with its sizes and variant words
+            (دستی / نیمه هیدرولیک / تمام هیدرولیک, دو فک / چهار فک ...)>",
+           "brand": "<maker of this row if it differs from the page's, else empty>",
+           "price": "<the price digits exactly as printed>", "unit": "rial|toman|unknown"}]}
+One row for EVERY product line that has a price, also rows without a model code. Copy digits exactly.
+The unit comes from the words near the prices (ریال = rial, تومان = toman). Leave out cartons, counts, row numbers,
+phone numbers and other numbers that are not the price. No prose, only the JSON."""
 
 
 # ------------------------------------------------------------------ places and small helpers
@@ -116,6 +121,40 @@ def add_file(cfg: dict, run: str, data: bytes, filename: str) -> dict:
 def model_key(s) -> str:
     """'VR2402-BCK', 'vr 2402 bck' and 'VR2402BCK' are one model."""
     return re.sub(r"[^A-Z0-9]", "", str(s or "").translate(FA_DIGITS).upper())
+
+
+def name_key(name: str) -> str:
+    """'N' + a short hash of the normalized name, for a list row with no model code."""
+    import hashlib
+    from .normalize import norm_text
+    n = norm_text(str(name or "").translate(FA_DIGITS))
+    return ("N" + hashlib.sha1(n.encode()).hexdigest()[:10].upper()) if len(n) >= 6 else ""
+
+
+def is_name_key(key: str) -> bool:
+    return bool(re.fullmatch(r"N[0-9A-F]{10}", str(key)))
+
+
+def _words_nums(text: str) -> tuple[set, set]:
+    from .normalize import norm_text
+    t = norm_text(_clean_html(str(text or "")).translate(FA_DIGITS)).replace("/", " / ")
+    nums = set(re.findall(r"\d+(?:\.\d+)?", t))
+    words = {w for w in t.split() if not re.search(r"\d", w) and len(w) > 1 and w not in GENERIC_WORDS}
+    return words, nums
+
+
+GENERIC_WORDS = {"مدل", "برند", "سری", "با", "و", "به", "همراه", "عدد", "هرکدام", "سایز", "اینچ", "میلیمتر", "قیمت", "خرید"}
+
+
+def same_by_name(product_name: str, list_name: str) -> bool:
+    """A row with no code is a site product only when the names agree: every number of the row is in the
+    product's name, and most words of each are in the other (the variant words decide: 'دستی' is not
+    'تمام هیدرولیک')."""
+    lw, ln = _words_nums(list_name)
+    pw, pn = _words_nums(product_name)
+    if not lw or not pw or not ln <= pn:
+        return False
+    return len(lw & pw) >= 0.8 * len(lw) and len(lw & pw) >= 0.6 * len(pw)
 
 
 def contains_model(text: str, key: str) -> bool:
@@ -260,7 +299,7 @@ def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progr
                 j = cache[h]
                 for r in j.get("rows") or []:
                     if isinstance(r, dict):
-                        rows.append({"brand": str(r.get("brand") or ""), "model": str(r.get("model") or ""),
+                        rows.append({"brand": str(r.get("brand") or j.get("brand") or ""), "model": str(r.get("model") or ""),
                                      "name": str(r.get("name") or ""), "price": str(r.get("price") or ""),
                                      "unit": str(r.get("unit") or "unknown"), "list_date": str(j.get("list_date") or ""),
                                      "file": label})
@@ -282,7 +321,9 @@ def merge_rows(rows: list[dict], default_unit: str = "auto", brand: str = "") ->
     for r in rows:
         k = model_key(r["model"])
         if len(k) < 3 or not re.search(r"\d", k):
-            continue
+            k = name_key(r.get("name", ""))           # a row with no model code is known by its whole name
+            if not k:
+                continue
         unit = r["unit"] if r["unit"] in ("rial", "toman") else (default_unit if default_unit in ("rial", "toman") else "")
         t = to_toman(r["price"], unit) if unit else None
         note = "" if unit else "واحد قیمت معلوم نیست"
@@ -299,7 +340,7 @@ def merge_rows(rows: list[dict], default_unit: str = "auto", brand: str = "") ->
         if (b > a and row["toman"]) or (not old["toman"] and row["toman"]):
             row["note"] = "؛ ".join(x for x in (row["note"], f"در لیست قدیمی‌تر {old['toman']}" if old["toman"] and old["toman"] != row["toman"] else "") if x)
             by[k] = row
-        elif b == a and row["toman"] and old["toman"] and row["toman"] != old["toman"]:
+        elif b == a and row["toman"] and old["toman"] and row["toman"] != old["toman"] and not k.startswith("N"):
             old["note"] = "؛ ".join(x for x in (old["note"], f"تصویر دیگر {row['toman']} خوانده شد؛ بررسی کنید") if x)
     return pd.DataFrame(list(by.values()), columns=ITEM_COLS)
 
@@ -440,7 +481,13 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
         if progress:
             progress(k, len(keys) + 1)
         hits = {}
-        for term in dict.fromkeys([r["model"], r["model"].replace("-", " "), r["key"]]):
+        if is_name_key(r["key"]):
+            from .normalize import norm_text
+            q = " ".join([w for w in norm_text(r["name"]).split() if w not in GENERIC_WORDS][:3])
+            cands = [p for p in _search(wc, q) if same_by_name(p.get("name"), r["name"])] if q else []
+            if len(cands) >= 1:
+                hits = {p["id"]: p for p in cands}
+        for term in ([] if is_name_key(r["key"]) else dict.fromkeys([r["model"], r["model"].replace("-", " "), r["key"]])):
             for p in _search(wc, term):
                 if contains_model(f"{p.get('name')} {p.get('sku')}", r["key"]) and not _is_part(p.get("name"), r["name"]) \
                         and (not weak_key(r["key"]) or kind_in(p.get("name"), r["name"])):
@@ -574,7 +621,7 @@ def save_index(cfg: dict, run: str, it: pd.DataFrame) -> int:
     day = time.strftime("%Y-%m-%d")
     n, names = 0, {}
     for r in it.to_dict("records"):
-        if str(r.get("toman") or "").strip() and len(r["key"]) >= 4:
+        if str(r.get("toman") or "").strip() and len(r["key"]) >= 4 and not is_name_key(r["key"]):
             b = str(r.get("brand") or "")
             if b not in names:
                 names[b] = brand_names(cfg, b)
@@ -718,7 +765,8 @@ def queue_new(cfg: dict, run: str) -> dict:
         t = by_id.loc[m[0]["taxonomy_id"]].copy()
         t["taxonomy_id"] = m[0]["taxonomy_id"]
         fa, en = split_display(str(r["brand"]))
-        rows.append({"taxonomy_id": m[0]["taxonomy_id"], "query": f"{r['model']} {fa or en or r['brand']}".strip(),
+        rows.append({"taxonomy_id": m[0]["taxonomy_id"],
+                     "query": (f"{r['model']} {fa or en or r['brand']}" if r["model"] else str(r["list_name"])).strip(),
                      "breadcrumb": t["breadcrumb"], "leaf": t["leaf"], "level1": t["level1"],
                      "route": resolve_route(t, cfg.get("routes") or {}), "site_product_count": int(t["site_product_count"]),
                      "priority": len(rows), "extra_queries": f"{r['list_name']} {r['model']}",
@@ -728,6 +776,84 @@ def queue_new(cfg: dict, run: str) -> dict:
     name = f"{run}-new"
     write_csv(pd.DataFrame(rows), run_dir(cfg, name) / "01_queue.csv", QUEUE_COLS + ["extra_queries", "from_searches", "searches"])
     return {"run": name, "queued": len(rows), "no_category": skipped}
+
+
+def _leaf_for(idx, name: str) -> dict | None:
+    """The taxonomy leaf for a new row: every word of the leaf must be in the row's name (no other maker's
+    leaf, no part's leaf)."""
+    from .normalize import norm_text
+    from .routing import leaf_brand
+    words = set(norm_text(str(name)).split())
+    for x in idx.match(str(name), n=25):
+        if not leaf_brand(x["leaf"]) and all(w in words or re.fullmatch(r"[\d.]+", w) for w in norm_text(x["leaf"]).split()):
+            return x
+    return None
+
+
+def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
+    """(3 Nov) The list's rows not on the site -> products made from the list itself, as 'pending' for a
+    person: the name (with the brand), the list price (locked), a category, a description by the text model.
+    No photo yet (added on the site, or by a later photo step). A row made before (its SKU) is not made again."""
+    import hashlib
+    from .catalog_publish import _brand
+    from .brands_fa import name_with_brand
+    from .describe import Writer, template
+    from .publish import SiteBrands
+    from .searches import TaxIndex, load_tax
+    from .wc import WC, category_map
+    wc = wc or WC()
+    if not wc.ok():
+        raise ValueError("WC_URL / WC_KEY / WC_SECRET روی سرور تنظیم نشده")
+    d = run_path(cfg, run)
+    pl = plan(cfg, run)
+    new = pl[pl["action"] == "new"]
+    if new.empty:
+        raise ValueError("ردیف تازه‌ای در این لیست نیست")
+    rate = float(json.loads((d / "match.json").read_text())["rate"])
+    idx, cats = TaxIndex(load_tax(cfg), cfg), category_map()
+    brands, writer = SiteBrands(wc), Writer(cfg)
+    out = []
+    for i, r in enumerate(new.to_dict("records")):
+        if stop and stop():
+            break
+        if progress:
+            progress(i, len(new))
+        sku = "PL-" + hashlib.sha1(f"{r['brand']}|{r['key']}".encode()).hexdigest()[:10].upper()
+        res = {"key": r["key"], "name": r["list_name"], "sku": sku, "product_id": "", "status": "", "category": "", "error": ""}
+        try:
+            if wc.find_by_sku(sku):
+                res["error"] = "قبلاً ساخته شده"
+                out.append(res)
+                continue
+            leaf = _leaf_for(idx, r["list_name"])
+            wp = cats.get(str(leaf["taxonomy_id"])) if leaf else None
+            if not wp:
+                res["error"] = "دسته‌ی مناسب پیدا نشد"
+                out.append(res)
+                continue
+            br = _brand(cfg, r["brand"]) if str(r["brand"]).strip() else {"status": "none"}
+            name = name_with_brand(f"{r['list_name']} {r['model']}".strip() if r["model"] and r["model"] not in r["list_name"]
+                                   else r["list_name"], br)
+            rec = {"url": sku, "name": name, "breadcrumb": leaf["breadcrumb"], "brand": br.get("display", ""),
+                   "model": r["model"], "specs_json": "{}", "description": "", "seller_name": ""}
+            txt = writer.write(rec) if writer.ok() else None
+            html, short = (txt["html"], txt["short"]) if txt else template(rec)
+            data = {"name": name, "type": "simple", "status": "pending", "sku": sku,
+                    "regular_price": f"{float(r['list_toman']) / rate:.4f}", "description": html, "short_description": short,
+                    "categories": [{"id": int(wp)}], "meta_data": lock_meta(run, int(float(r["list_toman"])))}
+            bid = brands.id_for(br)[0] if br.get("status") == "ok" else None
+            if bid:
+                data["brands"] = [{"id": int(bid)}]
+            prod = wc.create_product(data)
+            res.update(product_id=prod["id"], status="pending", category=leaf["breadcrumb"])
+        except Exception as e:                           # noqa: BLE001 - one row's failure is recorded
+            res["error"] = str(e)[:200]
+        out.append(res)
+    write_csv(pd.DataFrame(out), d / "created.csv", ["key", "name", "sku", "product_id", "status", "category", "error"])
+    made = sum(1 for x in out if x["product_id"])
+    log.info("PRICELIST create %s: %d made of %d", run, made, len(out))
+    return {"made": made, "rows": len(out), "no_category": sum(1 for x in out if x["error"] == "دسته‌ی مناسب پیدا نشد"),
+            "failed": sum(1 for x in out if x["error"] and x["error"] not in ("قبلاً ساخته شده", "دسته‌ی مناسب پیدا نشد"))}
 
 
 def summary(cfg: dict, run: str) -> dict:
@@ -740,4 +866,6 @@ def summary(cfg: dict, run: str) -> dict:
     out["plan"] = plan(cfg, run).to_dict("records")
     p = d / "applied.csv"
     out["applied"] = read_csv(p).fillna("").to_dict("records") if p.exists() else []
+    p = d / "created.csv"
+    out["created"] = read_csv(p).fillna("").to_dict("records") if p.exists() else []
     return out
