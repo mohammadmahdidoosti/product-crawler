@@ -674,8 +674,15 @@ def queue_new(cfg: dict, run: str) -> dict:
     idx, by_id = TaxIndex(tax, cfg), tax.set_index("taxonomy_id")
     rows, skipped = [], []
     from .brands_fa import split_display
+    from .routing import leaf_brand
+    from .normalize import norm_text
     for r in new.to_dict("records"):
-        m = idx.match(str(r["list_name"]))
+        words = set(norm_text(str(r["list_name"])).split())
+        # a leaf of another maker ('دستگاه جوش co2 صبا', 'پروفیل بر aeg') or of a part ('کلید دریل') would
+        # turn the crawl to other products: the leaf's own first word must be in the list's name
+        m = [x for x in idx.match(str(r["list_name"]), n=15)
+             if not leaf_brand(x["leaf"]) and norm_text(x["leaf"]).split()[:1] and norm_text(x["leaf"]).split()[0] in words
+             and not re.search(r"[a-z]{3,}", x["leaf"].lower())]
         if not m:
             skipped.append(r["model"])
             continue
