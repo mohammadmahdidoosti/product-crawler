@@ -1266,7 +1266,7 @@ def _similar_photos(cfg: dict, name: str, brand: str, n: int = 2) -> list[Path]:
     return out
 
 
-def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
+def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: int = 0) -> dict:
     """(3 Nov) The list's rows not on the site -> products made from the list itself, as 'pending' for a
     person: the name (with the brand), the list price (locked), a category, a description by the text model.
     With the supplier's own site set (site.json) a row found there brings its photos, text and specs; else no
@@ -1286,6 +1286,9 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
     new = pl[pl["action"] == "new"]
     if new.empty:
         raise ValueError("ردیف تازه‌ای در این لیست نیست")
+    if limit:                                            # a few first, to look at (3 Nov: 20 of Ronix's)
+        done_keys = set(read_csv(d / "created.csv").fillna("")["key"].astype(str)) if (d / "created.csv").exists() else set()
+        new = new[~new["key"].astype(str).isin(done_keys)].head(int(limit))
     rate = float(json.loads((d / "match.json").read_text())["rate"])
     idx, cats = TaxIndex(load_tax(cfg), cfg), category_map()
     brands, writer = SiteBrands(wc), Writer(cfg)
@@ -1348,8 +1351,10 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
         except Exception as e:                           # noqa: BLE001 - one row's failure is recorded
             res["error"] = str(e)[:200]
         out.append(res)
-    write_csv(pd.DataFrame(out), d / "created.csv", ["key", "name", "sku", "product_id", "status", "category", "photos",
-                                                      "photo_from", "site_url", "error"])
+    cols = ["key", "name", "sku", "product_id", "status", "category", "photos", "photo_from", "site_url", "error"]
+    prev = read_csv(d / "created.csv").fillna("") if (d / "created.csv").exists() else pd.DataFrame(columns=cols)
+    allc = pd.concat([prev, pd.DataFrame(out, columns=cols)], ignore_index=True).drop_duplicates("key", keep="last")
+    write_csv(allc, d / "created.csv", cols)
     made = sum(1 for x in out if x["product_id"])
     log.info("PRICELIST create %s: %d made of %d", run, made, len(out))
     return {"made": made, "rows": len(out), "with_photos": sum(1 for x in out if x["photos"]),

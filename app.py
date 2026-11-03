@@ -376,7 +376,7 @@ class Job:
                 self.logs.append(f"سایت تأمین‌کننده: {res['site_products']} محصول خوانده شد؛ {res['found']} از {res['rows']} "
                                  f"ردیف پیدا شد ({res['with_photos']} با عکس)، ${res['usd']} — هنوز چیزی در سایت عوض نشده")
             elif step == "pricelist_create":
-                res = PL.create_new(cfg, run, progress=pg, stop=self.stop_ev.is_set)
+                res = PL.create_new(cfg, run, progress=pg, stop=self.stop_ev.is_set, limit=int(opts.get("limit") or 0))
                 self.logs.append(f"محصولات تازه از روی لیست: {res['made']} ساخته شد ({res['published']} منتشر شد با عکس، "
                                  f"{res['made'] - res['published']} بی‌عکس در انتظار؛ {res['similar_photos']} با عکس مشابه)، "
                                  f"{res['no_category']} بی‌دسته ماند، {res['failed']} خطا")
@@ -1332,7 +1332,7 @@ class Handler(BaseHTTPRequestHandler):
                 if what in ("read", "match", "apply", "create"):
                     b = self._jbody()
                     err = start_job(f"pricelist_{what}", run, {k: b.get(k) for k in ("unit", "brand", "then_match",
-                                                                                     "include_big", "spread", "complete")})
+                                                                                     "include_big", "spread", "complete", "limit")})
                     return self._err(err, 409) if err else self._json({"ok": True})
                 if what == "site":                      # the supplier's own site {url, match?}: photos and text for new rows
                     b = self._jbody()

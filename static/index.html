@@ -412,6 +412,7 @@ td select,td input{padding:3px 6px;font-size:12.5px}
         <label class="cb"><input type="checkbox" id="plComplete" checked> لیست کامل برند است (محصولات دیگر برند ناموجود و برند در کراولر قفل شود)</label>
         <button class="btn ink" id="plApply">اعمال در سایت</button>
         <button class="btn ghost" id="plCreate">ساخت محصولات تازه از روی خود لیست</button>
+        <div class="field s" style="flex:0 0 120px"><label>تعداد (خالی = همه)</label><input id="plLimit" class="ltr" placeholder="مثلاً 20"></div>
         <button class="btn ghost" id="plNew">پیدا کردن محصولات تازه با کراول</button>
       </div>
       <div id="plApplied" class="muted" style="font-size:12.5px;margin-top:8px"></div>
@@ -1647,7 +1648,7 @@ $('#plApply').onclick = async ()=>{
 };
 $('#plCreate').onclick = async ()=>{
   if(!confirm('محصولاتی که روی سایت نیستند از روی خود لیست ساخته شوند؟ نام با برند، قیمت قفل‌شده، دسته، توضیحات؛ عکس از ' + ($('#plSite').value.trim()?'سایت تأمین‌کننده، وگرنه ':'') + 'عکس مشابه بدون برند. محصول با عکس فوراً منتشر می‌شود؛ بی‌عکس «در انتظار» می‌ماند.')) return;
-  try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/create`, {}); toast('ساخت محصولات شروع شد'); plWait('site'); }catch(err){ toast(err.message,true); }
+  try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/create`, {limit:parseInt($('#plLimit').value)||0}); toast('ساخت محصولات شروع شد'); plWait('site'); }catch(err){ toast(err.message,true); }
 };
 $('#plNew').onclick = async ()=>{
   if(!confirm('برای مدل‌هایی که روی سایت نیستند یک اجرای کراول ساخته و شروع شود؟ (انتشارش مثل بچ‌ها جدا تأیید می‌شود)')) return;
