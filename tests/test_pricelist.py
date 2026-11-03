@@ -69,6 +69,8 @@ class FakeWC:
             if (params or {}).get("context") == "view":
                 return {**p, "regular_price": str(round(float(p["regular_price"]) * 273000))}
             return p
+        if path == "products" and "brand" in (params or {}):
+            return self.products_of_brand(params["brand"]) if params.get("page", 1) == 1 else []
         if path == "products" and "include" in (params or {}):
             return [self.products[int(i)] for i in params["include"].split(",")]
         if path == "products":

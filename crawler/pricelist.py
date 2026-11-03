@@ -358,6 +358,22 @@ def _search(wc, term: str) -> list[dict]:
     return out
 
 
+def _brand_products(wc, brand_id: int) -> list[dict]:
+    """The brand's products with their stored (dollar) prices: the default 'view' answer of this site
+    carries toman prices."""
+    out, page = [], 1
+    while page <= 50:
+        j = wc._call(lambda: wc._wc("GET", "products", params={"brand": brand_id, "status": "any", "per_page": 100,
+                                                               "page": page, "context": "edit"}), "brand products")
+        if not isinstance(j, list) or not j:
+            break
+        out += [p for p in j if brand_id in [b.get("id") for b in p.get("brands") or []]]
+        if len(j) < 100:
+            break
+        page += 1
+    return out
+
+
 def _brand_terms(wc, items_df: pd.DataFrame, cfg: dict) -> dict[str, dict]:
     """Brand of the list (as printed) -> the site's brand term, or {} when none matches."""
     from .catalog_publish import _brand
@@ -453,7 +469,7 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
         if not t:
             continue
         try:
-            prods = wc.products_of_brand(int(t["id"]))
+            prods = _brand_products(wc, int(t["id"]))
         except Exception as e:                           # noqa: BLE001 - the report says so
             log.warning("pricelist brand %s: %s", name, e)
             continue
