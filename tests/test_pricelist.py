@@ -277,3 +277,49 @@ class SupplierSite(unittest.TestCase):
         self.assertEqual(m["N3"]["site_url"], "")           # 'لوله بازکن' was never a candidate: the model can't pick it
         PL.set_site(self.cfg, "pl-psc", "another.com")      # another site: the old matches go
         self.assertFalse((PL.run_path(self.cfg, "pl-psc") / "site_match.csv").exists())
+
+
+class OurOldCopiesByName(unittest.TestCase):
+    """3 Nov: the shop's own P.S.C products are named in other words ('صفحه گرمکن' for 'هیتر', the range reversed)."""
+
+    def test_found_and_chosen(self):
+        from crawler.normalize import norm_text
+        prods = [_p(10, "صفحه گرمکن پلی اتیلن گازی 315", 25000000 / 273000),
+                 _p(11, "صفحه گرمکن پلی اتیلن گازی 250", 23000000 / 273000),
+                 _p(12, "دستگاه جوش پلی اتیلن دستی ۳۱۵-۹۰ میلی‌متر دو فک", 120000000 / 273000),
+                 _p(13, "دستگاه جوش پلی اتیلن تمام هیدرولیک مدل TSD315 برند تی‌اس‌دی", 790000000 / 273000)]
+
+        class W(FakeWC):
+            def _wc(self, method, path, params=None, json=None):
+                if path == "products" and "search" in (params or {}):
+                    ws = norm_text(params["search"]).split()
+                    return [p for p in self.products.values()
+                            if all(w in norm_text(p["name"].translate(PL.FA_DIGITS)).split() for w in ws)]
+                return super()._wc(method, path, params, json)
+        wc = W(prods, [])
+        c = PL._name_cands(wc, "هیتر گازی پلی اتیلن 315")
+        self.assertEqual([p["id"] for p in c], [10])                  # 250 is another size
+        c = PL._name_cands(wc, "دستگاه جوش پلی اتیلن 90-315 دو فک پرتابل اهرم دستی")
+        self.assertEqual({p["id"] for p in c}, {12, 13} & {p["id"] for p in c})
+        self.assertIn(12, [p["id"] for p in c])
+
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        run = PL.run_path(cfg, "pl-psc")
+        PL.write_csv(pd.DataFrame([
+            {"brand": "P.S.C", "model": "", "key": PL.name_key("هیتر گازی پلی اتیلن 315"), "name": "هیتر گازی پلی اتیلن 315",
+             "price": "", "unit": "rial", "toman": "27000000", "list_date": "", "file": "a", "note": ""},
+            {"brand": "P.S.C", "model": "", "key": PL.name_key("دستگاه جوش پلی اتیلن 90-315 دو فک پرتابل اهرم دستی"),
+             "name": "دستگاه جوش پلی اتیلن 90-315 دو فک پرتابل اهرم دستی", "price": "", "unit": "rial",
+             "toman": "127000000", "list_date": "", "file": "a", "note": ""}]), run / "items.csv", PL.ITEM_COLS)
+
+        def pick(cfg, messages, **kw):
+            u = messages[1]["content"]
+            same = [j for j, line in enumerate(u.splitlines()[2:]) if "TSD" not in line and "تمام" not in line]
+            return {"same": same}, 0.0001
+        with mock.patch.object(PL, "_openrouter", side_effect=pick), \
+                mock.patch.object(PL, "_brand_terms", return_value={}), mock.patch.object(PL, "site_rate", return_value=273000.0):
+            s = PL.match(cfg, "pl-psc", wc=wc)
+        pl = PL.plan(cfg, "pl-psc")
+        got = {int(float(x)) for x in pl.loc[pl["action"].isin(["update", "same"]), "product_id"]}
+        self.assertEqual(got, {10, 12})
+        self.assertGreater(s["usd"], 0)

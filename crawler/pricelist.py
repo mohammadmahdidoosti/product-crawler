@@ -467,6 +467,63 @@ def _brand_ok(p: dict, term: dict | None, resolved: dict) -> bool:
     return any(key(b.get("name", "")) in want or any(w in key(b.get("name", "")) for w in want) for b in have)
 
 
+# words the lists and the shops write differently for one thing (3 Nov, the P.S.C list)
+SYNONYMS = {"هیتر": "صفحه گرمکن", "اسکرابر": "اسکراپر", "رستریگ": "رتنبرگ", "اچار": "آچار", "لقه": "لقمه"}
+SAME_SYSTEM = """You compare one row of a supplier's price list with products of an online shop.
+Pick every shop product that is the SAME product and the SAME variant as the row: the same size range, the same
+number of jaws, the same drive (manual / gearbox / semi-hydraulic / full hydraulic), the same heater (electric / gas),
+the same design. Words may differ (هیتر = صفحه گرمکن, رستریگ = رتنبرگ, اهرم دستی = دستی; digits may be Persian or
+Latin; a range may be written in either order). A product of another named brand, another size, another variant, a
+spare part or an accessory is NOT the same. Usually there is none or one; several only when the shop has copies.
+Reply JSON only: {"same": [<candidate numbers>]}"""
+
+
+def _syn(text: str) -> str:
+    t = str(text or "")
+    for a, b in SYNONYMS.items():
+        t = re.sub(rf"(?<!\S){a}(?!\S)", b, t)
+    return t
+
+
+def _name_cands(wc, name: str, site_name: str = "", n: int = 10) -> list[dict]:
+    """Shop products that may be a row with no code: searched by its first words (also in the shop's words and
+    by the supplier site's name of it), kept only when they carry the row's sizes (numbers of 2+ digits)."""
+    from .normalize import norm_text
+    terms = []
+    for t in (name, _syn(name), site_name):
+        w = [x for x in norm_text(_clean_html(t).translate(FA_DIGITS)).split() if x not in GENERIC_WORDS and x not in GENERIC]
+        words = [x for x in w if not re.search(r"\d", x)]
+        nums = [x for x in re.findall(r"\d{2,}", " ".join(w))]
+        if words:
+            terms.append(" ".join(words[:3]))
+            if nums:
+                terms.append(" ".join(words[:2] + nums[:1]))
+    _, ln = _words_nums(name)
+    need = {x for x in ln if len(x) >= 2}
+    found: dict[int, dict] = {}
+    for t in dict.fromkeys(terms):
+        for p in _search(wc, t):
+            _, pn = _words_nums(p.get("name") or "")
+            if need <= pn and p["id"] not in found:
+                found[p["id"]] = p
+    return list(found.values())[:n]
+
+
+def _pick_same(cfg: dict, name: str, brand: str, cand_names: list[str]) -> tuple[list[int], float]:
+    user = f"row: {name}\nbrand of the list: {brand}\n" + "\n".join(f"{j}: {c}" for j, c in enumerate(cand_names))
+    ans, usd = _openrouter(cfg, [{"role": "system", "content": SAME_SYSTEM}, {"role": "user", "content": user}],
+                           max_tokens=200, title="Caravan price list match")
+    js = []
+    for j in (ans or {}).get("same") or []:
+        try:
+            j = int(j)
+        except (TypeError, ValueError):
+            continue
+        if 0 <= j < len(cand_names) and j not in js:
+            js.append(j)
+    return js, usd
+
+
 def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
     from .wc import WC
     wc = wc or WC()
@@ -479,18 +536,23 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
         raise ValueError("ردیف قیمت‌داری در لیست نیست؛ اول «خواندن» را اجرا کنید")
     brands = _brand_terms(wc, it, cfg)
     seen: dict[int, dict] = {}
-    rows, rate = [], None
+    rows, rate, usd = [], None, 0.0
+    sm = run_path(cfg, run) / "site_match.csv"            # the supplier site's name of a row: our old copies may use it
+    site_names = {str(x["key"]): x["site_name"] for x in read_csv(sm).fillna("").to_dict("records")} if sm.exists() else {}
     keys = list(it.to_dict("records"))
     for k, r in enumerate(keys):
         if progress:
             progress(k, len(keys) + 1)
         hits = {}
         if is_name_key(r["key"]):
-            from .normalize import norm_text
-            q = " ".join([w for w in norm_text(r["name"]).split() if w not in GENERIC_WORDS][:3])
-            cands = [p for p in _search(wc, q) if same_by_name(p.get("name"), r["name"])] if q else []
-            if len(cands) >= 1:
-                hits = {p["id"]: p for p in cands}
+            cands = _name_cands(wc, r["name"], site_names.get(str(r["key"]), ""))
+            sure = [p for p in cands if same_by_name(p.get("name"), r["name"])]
+            if sure:
+                hits = {p["id"]: p for p in sure}
+            elif cands:
+                js, u = _pick_same(cfg, r["name"], str(r["brand"]), [_clean_html(p.get("name")) for p in cands])
+                usd += u
+                hits = {cands[j]["id"]: cands[j] for j in js}
         for term in ([] if is_name_key(r["key"]) else dict.fromkeys([r["model"], r["model"].replace("-", " "), r["key"]])):
             for p in _search(wc, term):
                 if contains_model(f"{p.get('name')} {p.get('sku')}", r["key"]) and not _is_part(p.get("name"), r["name"]) \
@@ -578,7 +640,7 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
     summ = {"rate": rate, "counts": plan["action"].value_counts().to_dict(), "big": int((plan["big"] == "yes").sum()),
             "median_change_pct": round((median(ratios) - 1) * 100, 1) if ratios else None,
             "brands": {k: (v["term"] or {}).get("name", "") for k, v in brands.items()},
-            "at": time.strftime("%Y-%m-%d %H:%M")}
+            "usd": round(usd, 4), "at": time.strftime("%Y-%m-%d %H:%M")}
     (d / "match.json").write_text(json.dumps(summ, ensure_ascii=False))
     log.info("PRICELIST match %s: %s", run, summ)
     return summ
