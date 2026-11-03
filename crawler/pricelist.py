@@ -600,8 +600,8 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
     terms = _brand_terms(wc, todo, cfg) if len(todo) else {}
     items_ = []
     for r in todo.to_dict("records"):
-        usd = round(float(r["list_toman"]) / rate, 2)
-        x = {"id": int(float(r["product_id"])), "regular_price": f"{usd:.2f}", "sale_price": "",
+        usd = round(float(r["list_toman"]) / rate, 4)
+        x = {"id": int(float(r["product_id"])), "regular_price": f"{usd:.4f}", "sale_price": "",
              "meta_data": lock_meta(run, int(float(r["list_toman"])))}
         if r.get("fix_brand") == "yes":
             br = (terms.get(str(r["brand"]).strip()) or {}).get("resolved")

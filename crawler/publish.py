@@ -503,7 +503,7 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
         data, missing = payload(cfg, rec, row, cats)
         lp = PL.list_price(cfg, data["name"], data.get("sku", ""), plist) if plist else None
         if lp:                                           # the supplier's list price, locked (pricelist.py)
-            data["regular_price"] = f"{lp['toman'] / prate:.2f}"
+            data["regular_price"] = f"{lp['toman'] / prate:.4f}"
             data["meta_data"] = [m for m in data["meta_data"] if m["key"] not in
                                  ("_caravan_price_toman", "_caravan_price_estimated", "_caravan_price_lock")] \
                 + [m for m in PL.lock_meta(lp["run"], lp["toman"], lp.get("date", "")) if m["key"] != "_caravan_price_date"]

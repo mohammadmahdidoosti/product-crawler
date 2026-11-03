@@ -144,7 +144,7 @@ class MatchAndApply(unittest.TestCase):
             res = PL.apply(self.cfg, "pl-test", wc=self.wc)
         ups = {x["id"]: x for x in self.wc.updates}
         self.assertNotIn(1, ups)                                           # big change held
-        self.assertEqual(ups[2]["regular_price"], f"{4791000 / s['rate']:.2f}")
+        self.assertEqual(ups[2]["regular_price"], f"{4791000 / s['rate']:.4f}")
         self.assertTrue(any(m["key"] == "_caravan_price_lock" for m in ups[2]["meta_data"]))
         self.assertEqual(ups[4]["brands"], [{"id": 5}])
         self.assertEqual(ups[5]["status"], "pending")
