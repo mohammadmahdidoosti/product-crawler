@@ -536,7 +536,7 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
         raise ValueError("ردیف قیمت‌داری در لیست نیست؛ اول «خواندن» را اجرا کنید")
     brands = _brand_terms(wc, it, cfg)
     seen: dict[int, dict] = {}
-    rows, rate, usd = [], None, 0.0
+    rows, rate, llm_usd = [], None, 0.0
     sm = run_path(cfg, run) / "site_match.csv"            # the supplier site's name of a row: our old copies may use it
     site_names = {str(x["key"]): x["site_name"] for x in read_csv(sm).fillna("").to_dict("records")} if sm.exists() else {}
     keys = list(it.to_dict("records"))
@@ -551,7 +551,7 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
                 hits = {p["id"]: p for p in sure}
             elif cands:
                 js, u = _pick_same(cfg, r["name"], str(r["brand"]), [_clean_html(p.get("name")) for p in cands])
-                usd += u
+                llm_usd += u
                 hits = {cands[j]["id"]: cands[j] for j in js}
         for term in ([] if is_name_key(r["key"]) else dict.fromkeys([r["model"], r["model"].replace("-", " "), r["key"]])):
             for p in _search(wc, term):
@@ -640,7 +640,7 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
     summ = {"rate": rate, "counts": plan["action"].value_counts().to_dict(), "big": int((plan["big"] == "yes").sum()),
             "median_change_pct": round((median(ratios) - 1) * 100, 1) if ratios else None,
             "brands": {k: (v["term"] or {}).get("name", "") for k, v in brands.items()},
-            "usd": round(usd, 4), "at": time.strftime("%Y-%m-%d %H:%M")}
+            "usd": round(llm_usd, 4), "at": time.strftime("%Y-%m-%d %H:%M")}
     (d / "match.json").write_text(json.dumps(summ, ensure_ascii=False))
     log.info("PRICELIST match %s: %s", run, summ)
     return summ
