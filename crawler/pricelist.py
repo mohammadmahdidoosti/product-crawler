@@ -387,6 +387,24 @@ def _brand_terms(wc, items_df: pd.DataFrame, cfg: dict) -> dict[str, dict]:
     return out
 
 
+GENERIC = {"دستگاه", "مدل", "سری", "کیت", "ست", "جدید", "حرفه‌ای", "صنعتی", "برقی", "پرتابل"}
+
+
+def weak_key(key: str) -> bool:
+    """A code of digits only ('50-160', '90-315': a size range in a list of welding machines) is also a size
+    of pipes, jacks and gauges: it alone never makes a match."""
+    return key.isdigit()
+
+
+def kind_in(product_name: str, list_name: str) -> bool:
+    """The list row's kind of thing (its first real word: 'جوش' of 'دستگاه جوش پلی اتیلن …') is in the
+    product's name too."""
+    from .normalize import norm_text
+    words = [w for w in norm_text(list_name).split() if w not in GENERIC and len(w) > 1 and not re.search(r"\d", w)]
+    name = norm_text(_clean_html(product_name))
+    return bool(words) and all(w in name.split() for w in words[:2])
+
+
 def _is_part(product_name: str, list_name: str) -> bool:
     n = _clean_html(product_name)
     return any(w in n and w not in list_name for w in PARTS) and not n.startswith(("کیت", "ست"))
@@ -424,7 +442,8 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
         hits = {}
         for term in dict.fromkeys([r["model"], r["model"].replace("-", " "), r["key"]]):
             for p in _search(wc, term):
-                if contains_model(f"{p.get('name')} {p.get('sku')}", r["key"]) and not _is_part(p.get("name"), r["name"]):
+                if contains_model(f"{p.get('name')} {p.get('sku')}", r["key"]) and not _is_part(p.get("name"), r["name"]) \
+                        and (not weak_key(r["key"]) or kind_in(p.get("name"), r["name"])):
                     hits[p["id"]] = p
         binfo = brands.get(str(r["brand"]).strip()) or {}
         bt, bres = binfo.get("term"), binfo.get("resolved") or {}
@@ -553,7 +572,8 @@ def save_index(cfg: dict, run: str, it: pd.DataFrame) -> int:
             b = str(r.get("brand") or "")
             if b not in names:
                 names[b] = brand_names(cfg, b)
-            idx[r["key"]] = {"toman": int(float(r["toman"])), "model": r["model"], "brand": b, "brand_names": names[b],
+            idx[r["key"]] = {"toman": int(float(r["toman"])), "model": r["model"], "name": r.get("name", ""),
+                             "brand": b, "brand_names": names[b],
                              "run": run, "date": day, "list_date": r.get("list_date", "")}
             n += 1
     _index_path(cfg).write_text(json.dumps(idx, ensure_ascii=False))
@@ -570,6 +590,8 @@ def list_price(cfg: dict, name: str, sku: str = "", idx: dict | None = None) -> 
         bn = v.get("brand_names") or []
         if bn and not any(b in flat for b in bn):
             continue                                     # '3151' of Ronix is not a number in another maker's name
+        if weak_key(k) and not (bn or kind_in(name, v.get("name", ""))):
+            continue                                     # digits alone, no brand to check: not enough
         if best is None or len(k) > len(best[0]):
             best = (k, v)
     return best[1] if best else None

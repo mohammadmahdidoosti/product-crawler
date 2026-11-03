@@ -47,6 +47,13 @@ class Helpers(unittest.TestCase):
                 {"brand": "", "model": "P3355", "name": "", "price": "295,000,000", "unit": "rial", "list_date": "مهر ۱۴۰۵", "file": "b"}]
         self.assertIn("بررسی", PL.merge_rows(rows).iloc[0]["note"])
 
+    def test_digit_codes_need_the_kind(self):
+        self.assertTrue(PL.weak_key(PL.model_key("90-315")))
+        self.assertFalse(PL.kind_in("زانو 90 315-16 بار پلی اتیلن", "دستگاه جوش پلی اتیلن دو فک"))
+        self.assertTrue(PL.kind_in("دستگاه جوش پلی اتیلن 90-315 دو فک", "دستگاه جوش پلی اتیلن دو فک"))
+        idx = {"90315": {"toman": 1, "name": "دستگاه جوش پلی اتیلن", "brand_names": []}}
+        self.assertIsNone(PL.list_price({}, "زانو 90 315-16 بار", idx=idx))
+
     def test_list_price_longest_code(self):
         idx = {"VR2010": {"toman": 1}, "VR2010BLX": {"toman": 2}}
         self.assertEqual(PL.list_price({}, "دریل VR2010-BLX", idx=idx)["toman"], 2)
