@@ -468,6 +468,17 @@ def _brand_ok(p: dict, term: dict | None, resolved: dict) -> bool:
     return any(key(b.get("name", "")) in want or any(w in key(b.get("name", "")) for w in want) for b in have)
 
 
+def _of_brand(p: dict, term: dict | None, resolved: dict, brand: str, cfg: dict) -> bool:
+    """The product is the list's brand: its brand term, or the brand's name in its name (a list naming a
+    brand only)."""
+    if not str(brand or "").strip():
+        return False
+    if term and term["id"] in [b.get("id") for b in p.get("brands") or []]:
+        return True
+    name = _flat(_clean_html(p.get("name")))
+    return any(n and len(n) >= 3 and n in name for n in brand_names(cfg, brand))
+
+
 # words the lists and the shops write differently for one thing (3 Nov, the P.S.C list)
 SYNONYMS = {"هیتر": "صفحه گرمکن", "اسکرابر": "اسکراپر", "رستریگ": "رتنبرگ", "اچار": "آچار", "لقه": "لقمه"}
 SAME_SYSTEM = """You compare one row of a supplier's price list with products of an online shop.
@@ -553,13 +564,23 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
                 js, u = _pick_same(cfg, r["name"], str(r["brand"]), [_clean_html(p.get("name")) for p in cands])
                 llm_usd += u
                 hits = {cands[j]["id"]: cands[j] for j in js}
-        for term in ([] if is_name_key(r["key"]) else dict.fromkeys([r["model"], r["model"].replace("-", " "), r["key"]])):
-            for p in _search(wc, term):
-                if contains_model(f"{p.get('name')} {p.get('sku')}", r["key"]) and not _is_part(p.get("name"), r["name"]) \
-                        and (not weak_key(r["key"]) or kind_in(p.get("name"), r["name"])):
-                    hits[p["id"]] = p
         binfo = brands.get(str(r["brand"]).strip()) or {}
         bt, bres = binfo.get("term"), binfo.get("resolved") or {}
+        maybe = {}
+        for term in ([] if is_name_key(r["key"]) else dict.fromkeys([r["model"], r["model"].replace("-", " "), r["key"]])):
+            for p in _search(wc, term):
+                if contains_model(f"{p.get('name')} {p.get('sku')}", r["key"]) and not _is_part(p.get("name"), r["name"]):
+                    if not weak_key(r["key"]) or kind_in(p.get("name"), r["name"]):
+                        hits[p["id"]] = p
+                    elif _of_brand(p, bt, bres, r["brand"], cfg):
+                        maybe[p["id"]] = p
+        # a code of digits only on a product of the list's brand, named in other words ('بلوور' in the list,
+        # 'دمنده - مکنده' on the site, both Ronix 1209: 3 Nov): the cheap model says whether it is the same
+        maybe = [p for pid, p in maybe.items() if pid not in hits][:8]
+        if maybe:
+            js, u = _pick_same(cfg, f"{r['name']} {r['model']}", str(r["brand"]), [_clean_html(p.get("name")) for p in maybe])
+            llm_usd += u
+            hits.update({maybe[j]["id"]: maybe[j] for j in js})
         priced = str(r["toman"]).strip() != ""
         if not priced:                                   # in the catalog without a price: kept in stock, price untouched
             for pid, p in hits.items():

@@ -379,3 +379,25 @@ class PublishWithPhoto(unittest.TestCase):
         self.assertEqual(made[0]["status"], "publish")
         self.assertEqual(made[0]["images"], [{"id": 55}])
         self.assertEqual((res["published"], res["similar_photos"]), (1, 1))
+
+
+class DigitCodeOfTheBrand(unittest.TestCase):
+    """3 Nov, Ronix: 'بلوور برقی 1209' in the list is 'دمنده - مکنده رونیکس مدل 1209' on the site."""
+
+    def test_brand_product_asked(self):
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        run = PL.run_path(cfg, "pl-rx")
+        PL.write_csv(pd.DataFrame([{"brand": "رونیکس", "model": "1209", "key": "1209", "name": "بلوور برقی 600وات",
+                                    "price": "", "unit": "toman", "toman": "7498000", "list_date": "", "file": "a", "note": ""}]),
+                     run / "items.csv", PL.ITEM_COLS)
+        wc = FakeWC([_p(1, "دمنده - مکنده رونیکس مدل 1209", 7000000 / 273000, brand=(8, "رونیکس")),
+                     _p(2, "زانو 1209 پلی اتیلن", 100000 / 273000, brand=None)], [{"id": 8, "name": "رونیکس"}])
+        asked = []
+        with mock.patch("crawler.catalog_publish._brand", side_effect=lambda cfg, raw: {"status": "ok", "display": raw, "fa": raw, "en": "Ronix"}), \
+                mock.patch.object(PL, "_openrouter", side_effect=lambda cfg, m, **k: asked.append(m[1]["content"]) or ({"same": [0]}, 0.0)):
+            PL.match(cfg, "pl-rx", wc=wc)
+        pl = PL.plan(cfg, "pl-rx")
+        got = pl.loc[pl["action"].isin(["update", "same"]), "product_id"].astype(float).astype(int).tolist()
+        self.assertEqual(got, [1])
+        self.assertEqual(len(asked), 1)
+        self.assertNotIn("زانو", asked[0])                    # not of the brand: never asked
