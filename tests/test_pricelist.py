@@ -51,6 +51,10 @@ class Helpers(unittest.TestCase):
         idx = {"VR2010": {"toman": 1}, "VR2010BLX": {"toman": 2}}
         self.assertEqual(PL.list_price({}, "دریل VR2010-BLX", idx=idx)["toman"], 2)
         self.assertIsNone(PL.list_price({}, "دریل VR3000", idx=idx))
+        idx = {"3151": {"toman": 5, "brand_names": ["رونیکس", "ronix"]}}
+        self.assertEqual(PL.list_price({}, "مینی فرز رونیکس مدل 3151", idx=idx)["toman"], 5)
+        self.assertEqual(PL.list_price({}, "مینی فرز Ronix 3151", idx=idx)["toman"], 5)
+        self.assertIsNone(PL.list_price({}, "پمپ پنتاکس 3151", idx=idx))
 
 
 class FakeWC:

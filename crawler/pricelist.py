@@ -527,14 +527,34 @@ def load_index(cfg: dict) -> dict:
         return {}
 
 
+def brand_names(cfg: dict, brand: str) -> list[str]:
+    """The brand as it may be written in a product name (Persian and Latin)."""
+    if not str(brand or "").strip():
+        return []
+    try:
+        from .catalog_publish import _brand
+        br = _brand(cfg, brand)
+        names = [brand, br.get("fa", ""), br.get("en", ""), br.get("display", "")]
+    except Exception:                                    # noqa: BLE001 - the printed name is enough
+        names = [brand]
+    return sorted({_flat(x) for x in names if _flat(x)})
+
+
+def _flat(s) -> str:
+    return re.sub(r"[\s\u200c\-]+", "", str(s or "")).lower()
+
+
 def save_index(cfg: dict, run: str, it: pd.DataFrame) -> int:
     idx = load_index(cfg)
     day = time.strftime("%Y-%m-%d")
-    n = 0
+    n, names = 0, {}
     for r in it.to_dict("records"):
         if str(r.get("toman") or "").strip() and len(r["key"]) >= 4:
-            idx[r["key"]] = {"toman": int(float(r["toman"])), "model": r["model"], "brand": r["brand"], "run": run,
-                             "date": day, "list_date": r.get("list_date", "")}
+            b = str(r.get("brand") or "")
+            if b not in names:
+                names[b] = brand_names(cfg, b)
+            idx[r["key"]] = {"toman": int(float(r["toman"])), "model": r["model"], "brand": b, "brand_names": names[b],
+                             "run": run, "date": day, "list_date": r.get("list_date", "")}
             n += 1
     _index_path(cfg).write_text(json.dumps(idx, ensure_ascii=False))
     return n
@@ -543,9 +563,14 @@ def save_index(cfg: dict, run: str, it: pd.DataFrame) -> int:
 def list_price(cfg: dict, name: str, sku: str = "", idx: dict | None = None) -> dict | None:
     """A model of an applied price list inside a product's name (for publish); the longest code wins."""
     idx = load_index(cfg) if idx is None else idx
-    best = None
+    best, flat = None, _flat(name)
     for k, v in idx.items():
-        if contains_model(f"{name} {sku}", k) and (best is None or len(k) > len(best[0])):
+        if not contains_model(f"{name} {sku}", k):
+            continue
+        bn = v.get("brand_names") or []
+        if bn and not any(b in flat for b in bn):
+            continue                                     # '3151' of Ronix is not a number in another maker's name
+        if best is None or len(k) > len(best[0]):
             best = (k, v)
     return best[1] if best else None
 
