@@ -358,7 +358,7 @@ class Job:
                            stop=self.stop_ev.is_set)
             self.logs.append(f"اصلاح در سایت: {res['applied']} انجام شد، {res['skipped']} دست نخورد، {res['failed']} خطا"
                              + (f" — {res['halted']}" if res.get("halted") else ""))
-        elif step in ("pricelist_read", "pricelist_match", "pricelist_apply", "pricelist_create"):   # a supplier's price list (crawler/pricelist.py)
+        elif step in ("pricelist_read", "pricelist_match", "pricelist_apply", "pricelist_create", "pricelist_site"):   # a supplier's price list (crawler/pricelist.py)
             from crawler import pricelist as PL
             pg = lambda d, t: self.prog.update(step=step, done=d, total=t)  # noqa: E731
             if step == "pricelist_read":
@@ -371,9 +371,13 @@ class Job:
             elif step == "pricelist_match":
                 res = PL.match(cfg, run, progress=pg)
                 self.logs.append(f"تطبیق با سایت: {res['counts']} — هنوز چیزی در سایت عوض نشده")
+            elif step == "pricelist_site":
+                res = PL.site_match(cfg, run, progress=pg, stop=self.stop_ev.is_set)
+                self.logs.append(f"سایت تأمین‌کننده: {res['site_products']} محصول خوانده شد؛ {res['found']} از {res['rows']} "
+                                 f"ردیف پیدا شد ({res['with_photos']} با عکس)، ${res['usd']} — هنوز چیزی در سایت عوض نشده")
             elif step == "pricelist_create":
                 res = PL.create_new(cfg, run, progress=pg, stop=self.stop_ev.is_set)
-                self.logs.append(f"محصولات تازه از روی لیست: {res['made']} ساخته شد («در انتظار بررسی»)، "
+                self.logs.append(f"محصولات تازه از روی لیست: {res['made']} ساخته شد («در انتظار بررسی»، {res['with_photos']} با عکس)، "
                                  f"{res['no_category']} بی‌دسته ماند، {res['failed']} خطا")
             else:
                 res = PL.apply(cfg, run, include_big=bool(opts.get("include_big")), spread=opts.get("spread", True) is not False,
@@ -423,7 +427,7 @@ class Job:
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
             if step not in ("catmake", "probe", "publish", "brands", "status", "resync", "health", "shops", "leads", "specs", "catalog", "catalog_publish",
-                            "pricelist_read", "pricelist_match", "pricelist_apply", "pricelist_create",
+                            "pricelist_read", "pricelist_match", "pricelist_apply", "pricelist_create", "pricelist_site",
                             "sitefix", "sitefix_apply"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
@@ -453,7 +457,7 @@ def start_job(step: str, run: str, opts: dict) -> str | None:
     # a site-fix run holds products already on the site: the crawl / publish steps must never take it
     if run.startswith("fix-") and step not in ("sitefix", "sitefix_apply"):
         return "این اجرا مال «اصلاح سایت» است؛ از صفحه‌ی سلامت سایت با آن کار کنید."
-    if step in ("pricelist_read", "pricelist_match"):
+    if step in ("pricelist_read", "pricelist_match", "pricelist_site"):
         return JOBS["lists"].start(step, run, opts)
     lane = "health" if step in ("health", "shops", "leads", "specs") else "site" if step in SITE_STEPS else "crawl"
     return JOBS[lane].start(step, run, opts)
@@ -1324,6 +1328,14 @@ class Handler(BaseHTTPRequestHandler):
                     err = start_job(f"pricelist_{what}", run, {k: b.get(k) for k in ("unit", "brand", "then_match",
                                                                                      "include_big", "spread")})
                     return self._err(err, 409) if err else self._json({"ok": True})
+                if what == "site":                      # the supplier's own site {url, match?}: photos and text for new rows
+                    b = self._jbody()
+                    url = PL.set_site(cfg, run, b.get("url") or "")
+                    res = {"ok": True, "site": url}
+                    if url and b.get("match"):
+                        err = start_job("pricelist_site", run, {})
+                        res["started"], res["start_error"] = not err, err or ""
+                    return self._json(res)
                 if what == "new":                       # models not on the site -> a crawl run; {"start": true} starts it
                     res = PL.queue_new(cfg, run)
                     if self._jbody().get("start"):

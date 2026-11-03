@@ -192,33 +192,30 @@ def _clean_html(s: str) -> str:
 
 # ------------------------------------------------------------------ step: read
 
-def _vision(cfg: dict, png: bytes, mime: str = "image/jpeg") -> tuple[dict | None, float]:
+def _openrouter(cfg: dict, messages: list, max_tokens: int = 3000, title: str = "Caravan price list") -> tuple[dict | None, float]:
+    """One JSON answer of the cheap model (OpenRouter) and its cost in dollars."""
     import requests
     from .config import secret
     key = secret("OPENROUTER_API_KEY")
     if not key:
         raise ValueError("کلید OpenRouter روی سرور نیست")
-    body = {"model": settings(cfg)["model"], "max_tokens": 3000, "temperature": 0,
+    body = {"model": settings(cfg)["model"], "max_tokens": max_tokens, "temperature": 0,
             "reasoning": {"enabled": False}, "response_format": {"type": "json_object"},
-            "messages": [{"role": "system", "content": VISION_SYSTEM},
-                         {"role": "user", "content": [
-                             {"type": "text", "text": "Read every priced product of this price list."},
-                             {"type": "image_url", "image_url": {"url": f"data:{mime};base64," + base64.b64encode(png).decode()}}]}],
-            "usage": {"include": True}}
+            "messages": messages, "usage": {"include": True}}
     for attempt in range(3):
         try:
             r = requests.post(OPENROUTER, json=body, timeout=180, headers={
                 "Authorization": f"Bearer {key}", "Content-Type": "application/json",
-                "HTTP-Referer": "https://caravansanat.com", "X-Title": "Caravan price list"})
+                "HTTP-Referer": "https://caravansanat.com", "X-Title": title})
         except requests.RequestException as e:
-            log.info("pricelist vision: %s", e)
+            log.info("pricelist model: %s", e)
             time.sleep(3 * (attempt + 1))
             continue
         if r.status_code in (429, 500, 502, 503):
             time.sleep(5 * (attempt + 1))
             continue
         if r.status_code != 200:
-            log.warning("pricelist vision: HTTP %s %s", r.status_code, r.text[:200])
+            log.warning("pricelist model: HTTP %s %s", r.status_code, r.text[:200])
             return None, 0.0
         j = r.json()
         usd = float((j.get("usage") or {}).get("cost") or 0)
@@ -229,6 +226,13 @@ def _vision(cfg: dict, png: bytes, mime: str = "image/jpeg") -> tuple[dict | Non
         except ValueError:
             return None, usd
     return None, 0.0
+
+
+def _vision(cfg: dict, png: bytes, mime: str = "image/jpeg") -> tuple[dict | None, float]:
+    return _openrouter(cfg, [{"role": "system", "content": VISION_SYSTEM},
+                             {"role": "user", "content": [
+                                 {"type": "text", "text": "Read every priced product of this price list."},
+                                 {"type": "image_url", "image_url": {"url": f"data:{mime};base64," + base64.b64encode(png).decode()}}]}])
 
 
 def _images_of(f: Path) -> list[tuple[str, bytes, str]]:
@@ -790,10 +794,201 @@ def _leaf_for(idx, name: str) -> dict | None:
     return None
 
 
+# ------------------------------------------------------------------ the supplier's own site (3 Nov)
+# A list without photos: when the supplier has a shop site, its products give the new rows their photos,
+# text and specs. The price always stays the list's.
+
+SITE_MATCH_COLS = ["key", "list_name", "site_name", "site_url", "images", "how"]
+PICK_SYSTEM = """You match rows of a supplier's price list to the products of the same supplier's own website.
+For each row choose the candidate that is the SAME product and the SAME variant: the same size range, the same
+number of jaws, the same drive (manual / gearbox / semi-hydraulic / full hydraulic), the same heater (electric /
+gas), the same design. Words may differ (هیتر = صفحه گرمکن, رستریگ = رتنبرگ, اهرم دستی = دستی, digits may be
+Persian or Latin, a range may be written in either order). If no candidate is that same product, answer null;
+a near size or another variant is null.
+Reply JSON only: {"picks": [{"i": <row number>, "j": <candidate number or null>}]}"""
+
+
+def norm_site(url: str) -> str:
+    from urllib.parse import urlparse
+    u = str(url or "").strip()
+    if not u:
+        return ""
+    if not re.match(r"https?://", u, re.I):
+        u = "https://" + u
+    host = urlparse(u).netloc.lower()
+    if "." not in host or " " in host:
+        raise ValueError("آدرس سایت درست نیست (مثل pooya-sanat.com)")
+    return f"https://{host}/"
+
+
+def get_site(cfg: dict, run: str) -> str:
+    p = run_path(cfg, run) / "site.json"
+    return json.loads(p.read_text()).get("url", "") if p.exists() else ""
+
+
+def set_site(cfg: dict, run: str, url: str) -> str:
+    d = run_path(cfg, run)
+    u = norm_site(url)
+    old = get_site(cfg, run)
+    (d / "site.json").write_text(json.dumps({"url": u}, ensure_ascii=False))
+    if u != old:                                          # another site: its products and matches are not this one's
+        (d / "site_match.csv").unlink(missing_ok=True)
+    return u
+
+
+def site_products(cfg: dict, run: str, stop=None, fresh_days: float = 3) -> list[dict]:
+    """Every product of the supplier's site (WooCommerce Store API, else the sitemap, else links), kept in
+    the run's folder for a few days so a second press does not crawl the site again."""
+    import argparse
+    import threading
+    from . import wpshop
+    url = get_site(cfg, run)
+    if not url:
+        return []
+    d = run_path(cfg, run) / "site"
+    d.mkdir(exist_ok=True)
+    out = d / "products.jsonl"
+    meta = d / "crawl.json"
+    m = json.loads(meta.read_text()) if meta.exists() else {}
+    if out.exists() and m.get("url") == url and time.time() - m.get("at", 0) < fresh_days * 86400:
+        return wpshop.read_jsonl(str(out))
+    a = argparse.Namespace(out=str(d), mode="auto", delay=1.0, workers=2, parallel_sites=1, max_pages=1500,
+                           timeout=30, proxy=None, user_agent=wpshop.DEFAULT_USER_AGENT, images="none", enrich=False,
+                           only_available=False, resume=False, ignore_robots=False, insecure=False, verbose=False)
+    ev = threading.Event()
+    c = wpshop.SiteCrawler(url, a, stop_event=ev, out_path=str(out))
+    if stop:
+        def watch():
+            while not ev.is_set():
+                if stop():
+                    ev.set()
+                time.sleep(1)
+        threading.Thread(target=watch, daemon=True).start()
+    try:
+        n = c.run()
+    finally:
+        ev.set()                                          # the watcher ends with the crawl
+    meta.write_text(json.dumps({"url": url, "at": time.time(), "products": n, "robots_blocked": c.blocked_by_robots}))
+    return wpshop.read_jsonl(str(out)) if out.exists() else []
+
+
+def _cands(name: str, recs: list[dict], n: int = 8) -> list[int]:
+    """The site products most like a row: shared numbers (sizes) first, then shared words."""
+    lw, ln = _words_nums(name)
+    scored = []
+    for j, r in enumerate(recs):
+        pw, pn = _words_nums(r.get("name") or "")
+        num = len(ln & pn) / len(ln) if ln else 0.0
+        wrd = len(lw & pw) / len(lw) if lw else 0.0
+        if num or wrd >= 0.34:
+            scored.append((num * 2 + wrd, j))
+    return [j for _, j in sorted(scored, reverse=True)[:n]]
+
+
+def site_match(cfg: dict, run: str, progress=None, stop=None) -> dict:
+    """The list's new rows -> the supplier site's products (site_match.csv). Nothing on caravansanat changes."""
+    if not get_site(cfg, run):
+        raise ValueError("برای این لیست سایتی ثبت نشده")
+    d = run_path(cfg, run)
+    pl = plan(cfg, run)
+    rows = pl[pl["action"] == "new"].to_dict("records") if not pl.empty else items(cfg, run).rename(
+        columns={"name": "list_name"}).to_dict("records")
+    if progress:
+        progress(0, len(rows))
+    recs = [r for r in site_products(cfg, run, stop=stop) if (r.get("name") or "").strip()]
+    if not recs:
+        raise ValueError("از سایت تأمین‌کننده محصولی خوانده نشد (سایت باز نشد یا robots.txt اجازه نداد)")
+    picks, usd, todo = {}, 0.0, []
+    for i, r in enumerate(rows):
+        c = _cands(r["list_name"], recs)
+        sure = [j for j in c if same_by_name(recs[j]["name"], r["list_name"])]
+        if len(sure) == 1:
+            picks[i] = (sure[0], "نام یکسان")
+        elif c:
+            todo.append((i, c))
+    for b in range(0, len(todo), 8):
+        if stop and stop():
+            break
+        if progress:
+            progress(b, len(todo))
+        part = todo[b:b + 8]
+        user = "\n\n".join(f"row {i}: {rows[i]['list_name']}\n" + "\n".join(f"  {j}: {recs[j]['name']}" for j in c)
+                           for i, c in part)
+        ans, u = _openrouter(cfg, [{"role": "system", "content": PICK_SYSTEM}, {"role": "user", "content": user}],
+                             max_tokens=800, title="Caravan price list site")
+        usd += u
+        ok = {i: set(c) for i, c in part}
+        for x in (ans or {}).get("picks") or []:
+            try:
+                i, j = int(x.get("i")), x.get("j")
+            except (TypeError, ValueError):
+                continue
+            if i in ok and j is not None and int(j) in ok[i]:
+                picks[i] = (int(j), "مدل زبانی")
+    out = []
+    for i, r in enumerate(rows):
+        j, how = picks.get(i, (None, ""))
+        s = recs[j] if j is not None else {}
+        out.append({"key": r["key"], "list_name": r["list_name"], "site_name": s.get("name", ""),
+                    "site_url": s.get("url", ""), "images": int(s.get("image_count") or 0) if s else 0, "how": how})
+    write_csv(pd.DataFrame(out, columns=SITE_MATCH_COLS), d / "site_match.csv", SITE_MATCH_COLS)
+    res = {"site": get_site(cfg, run), "site_products": len(recs), "rows": len(rows),
+           "found": sum(1 for x in out if x["site_url"]), "with_photos": sum(1 for x in out if x["images"]),
+           "usd": round(usd, 4), "at": time.strftime("%Y-%m-%d %H:%M")}
+    (d / "site_match.json").write_text(json.dumps(res, ensure_ascii=False))
+    log.info("PRICELIST site match %s: %s", run, res)
+    return res
+
+
+def site_rows(cfg: dict, run: str) -> dict:
+    """key -> the site product chosen for that row (from site_match.csv)."""
+    d = run_path(cfg, run)
+    p, jl = d / "site_match.csv", d / "site" / "products.jsonl"
+    if not p.exists() or not jl.exists():
+        return {}
+    from . import wpshop
+    by_url = {r.get("url"): r for r in wpshop.read_jsonl(str(jl))}
+    out = {}
+    for r in read_csv(p).fillna("").to_dict("records"):
+        if r["site_url"] and r["site_url"] in by_url:
+            out[str(r["key"])] = by_url[r["site_url"]]
+    return out
+
+
+def _photos(cfg: dict, run: str, rec: dict, n: int = 4) -> list[Path]:
+    """The site product's photos, downloaded once and saved as webp (small ones and icons are left out)."""
+    import hashlib
+    import requests
+    from PIL import Image
+    d = run_path(cfg, run) / "site" / "img"
+    d.mkdir(parents=True, exist_ok=True)
+    out = []
+    for u in [x.strip() for x in str(rec.get("images") or "").split("|") if x.strip()]:
+        if len(out) >= n:
+            break
+        f = d / (hashlib.sha1(u.encode()).hexdigest()[:16] + ".webp")
+        if not f.exists():
+            try:
+                r = requests.get(u, timeout=40, headers={"User-Agent": "Mozilla/5.0 (CaravanSanat price list)"})
+                r.raise_for_status()
+                im = Image.open(io.BytesIO(r.content))
+                if min(im.size) < 300:
+                    continue
+                im = im.convert("RGB")
+                im.thumbnail((1600, 1600))
+                im.save(f, "WEBP", quality=85)
+            except Exception as e:                       # noqa: BLE001 - one photo's failure leaves the others
+                log.info("pricelist photo %s: %s", u, e)
+                continue
+        out.append(f)
+    return out
+
+
 def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
     """(3 Nov) The list's rows not on the site -> products made from the list itself, as 'pending' for a
     person: the name (with the brand), the list price (locked), a category, a description by the text model.
-    No photo yet (added on the site, or by a later photo step). A row made before (its SKU) is not made again."""
+    With the supplier's own site set (site.json) a row found there brings its photos, text and specs; else no
+    photo yet. A row made before (its SKU) is not made again."""
     import hashlib
     from .catalog_publish import _brand
     from .brands_fa import name_with_brand
@@ -812,6 +1007,9 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
     rate = float(json.loads((d / "match.json").read_text())["rate"])
     idx, cats = TaxIndex(load_tax(cfg), cfg), category_map()
     brands, writer = SiteBrands(wc), Writer(cfg)
+    if get_site(cfg, run) and not (d / "site_match.csv").exists():
+        site_match(cfg, run, stop=stop)                  # the supplier's own site gives photos and text
+    found = site_rows(cfg, run)
     out = []
     for i, r in enumerate(new.to_dict("records")):
         if stop and stop():
@@ -819,7 +1017,8 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
         if progress:
             progress(i, len(new))
         sku = "PL-" + hashlib.sha1(f"{r['brand']}|{r['key']}".encode()).hexdigest()[:10].upper()
-        res = {"key": r["key"], "name": r["list_name"], "sku": sku, "product_id": "", "status": "", "category": "", "error": ""}
+        res = {"key": r["key"], "name": r["list_name"], "sku": sku, "product_id": "", "status": "", "category": "",
+               "photos": 0, "site_url": "", "error": ""}
         try:
             if wc.find_by_sku(sku):
                 res["error"] = "قبلاً ساخته شده"
@@ -834,8 +1033,10 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
             br = _brand(cfg, r["brand"]) if str(r["brand"]).strip() else {"status": "none"}
             name = name_with_brand(f"{r['list_name']} {r['model']}".strip() if r["model"] and r["model"] not in r["list_name"]
                                    else r["list_name"], br)
+            site = found.get(str(r["key"])) or {}
             rec = {"url": sku, "name": name, "breadcrumb": leaf["breadcrumb"], "brand": br.get("display", ""),
-                   "model": r["model"], "specs_json": "{}", "description": "", "seller_name": ""}
+                   "model": r["model"], "specs_json": site.get("specs") or "{}",
+                   "description": site.get("description") or "", "seller_name": ""}
             txt = writer.write(rec) if writer.ok() else None
             html, short = (txt["html"], txt["short"]) if txt else template(rec)
             data = {"name": name, "type": "simple", "status": "pending", "sku": sku,
@@ -844,15 +1045,26 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
             bid = brands.id_for(br)[0] if br.get("status") == "ok" else None
             if bid:
                 data["brands"] = [{"id": int(bid)}]
+            if site:
+                res["site_url"] = site.get("url", "")
+                data["meta_data"] = data["meta_data"] + [{"key": "_caravan_source_url", "value": site.get("url", "")}]
+                files = _photos(cfg, run, site)
+                if files and wc.can_upload():
+                    data["images"] = [{"id": wc.upload_media(f, f"{sku.lower()}-{n}.webp", alt=name)["id"]}
+                                      for n, f in enumerate(files, 1)]
+                elif site.get("images"):
+                    data["images"] = [{"src": u.strip()} for u in str(site["images"]).split("|") if u.strip()][:4]
+                res["photos"] = len(data.get("images") or [])
             prod = wc.create_product(data)
             res.update(product_id=prod["id"], status="pending", category=leaf["breadcrumb"])
         except Exception as e:                           # noqa: BLE001 - one row's failure is recorded
             res["error"] = str(e)[:200]
         out.append(res)
-    write_csv(pd.DataFrame(out), d / "created.csv", ["key", "name", "sku", "product_id", "status", "category", "error"])
+    write_csv(pd.DataFrame(out), d / "created.csv", ["key", "name", "sku", "product_id", "status", "category", "photos",
+                                                      "site_url", "error"])
     made = sum(1 for x in out if x["product_id"])
     log.info("PRICELIST create %s: %d made of %d", run, made, len(out))
-    return {"made": made, "rows": len(out), "no_category": sum(1 for x in out if x["error"] == "دسته‌ی مناسب پیدا نشد"),
+    return {"made": made, "rows": len(out), "with_photos": sum(1 for x in out if x["photos"]), "no_category": sum(1 for x in out if x["error"] == "دسته‌ی مناسب پیدا نشد"),
             "failed": sum(1 for x in out if x["error"] and x["error"] not in ("قبلاً ساخته شده", "دسته‌ی مناسب پیدا نشد"))}
 
 
@@ -868,4 +1080,9 @@ def summary(cfg: dict, run: str) -> dict:
     out["applied"] = read_csv(p).fillna("").to_dict("records") if p.exists() else []
     p = d / "created.csv"
     out["created"] = read_csv(p).fillna("").to_dict("records") if p.exists() else []
+    out["site"] = get_site(cfg, run)
+    p = d / "site_match.json"
+    out["site_info"] = json.loads(p.read_text()) if p.exists() else None
+    p = d / "site_match.csv"
+    out["site_match"] = read_csv(p).fillna("").to_dict("records") if p.exists() else []
     return out

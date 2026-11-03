@@ -395,6 +395,14 @@ td select,td input{padding:3px 6px;font-size:12.5px}
       <h2 style="margin:0 0 8px">خوانده‌شده از لیست <small id="plItemsInfo"></small></h2>
       <div class="tablewrap" style="max-height:300px"><table id="plItems"></table></div>
       <div class="row" style="margin-top:8px"><button class="btn ghost sm" id="plRematch">تطبیق دوباره با سایت</button></div>
+      <h2 style="margin:16px 0 8px">آیا تأمین‌کننده سایت دارد؟ <small>اختیاری</small></h2>
+      <p class="muted" style="font-size:12.5px;margin:0 0 8px">اگر سایت دارد آدرسش را بدهید. محصولات همان سایت خوانده می‌شود و برای ردیف‌های تازه‌ی لیست، عکس و توضیحات و مشخصات از محصول هم‌نام آنجا برداشته می‌شود؛ قیمت همیشه قیمت لیست است. این کار چیزی را در سایت ما عوض نمی‌کند.</p>
+      <div class="row" style="align-items:flex-end">
+        <div class="field" style="flex:0 0 280px"><label>سایت پیشنهادی</label><input id="plSite" class="ltr" placeholder="pooya-sanat.com"></div>
+        <button class="btn ghost" id="plSiteGo">ذخیره و پیدا کردن در سایت تأمین‌کننده</button>
+      </div>
+      <div id="plSiteInfo" class="muted" style="font-size:12.5px;margin-top:6px"></div>
+      <div class="tablewrap" style="max-height:300px;margin-top:6px" id="plSiteWrap" hidden><table id="plSiteTbl"></table></div>
       <h2 style="margin:16px 0 8px">برنامه <small id="plPlanInfo"></small></h2>
       <div class="row" id="plFilter" style="gap:6px;margin-bottom:8px"></div>
       <div class="tablewrap" style="max-height:560px"><table id="plPlan"></table></div>
@@ -1588,10 +1596,15 @@ async function plLoad(){
   $('#plPlan').innerHTML = '<tr><th>مدل</th><th>نام در لیست</th><th>محصول سایت</th><th>وضعیت</th><th>قیمت سایت</th><th>قیمت لیست</th><th>تغییر</th><th>برند سایت</th><th>توضیح</th></tr>' + rows.map(x=>`<tr${x.big==='yes'?' style="background:#fff4e5"':''}><td class="ltr">${esc(x.model)||'—'}</td><td>${esc(x.list_name)}</td>
     <td>${x.product_id?`<a href="https://caravansanat.com/wp-admin/post.php?action=edit&post=${esc(x.product_id)}" target="_blank" rel="noopener">#${esc(x.product_id)}</a> ${esc(x.product_name)}`:'—'}</td><td>${esc(x.status)}</td>
     <td>${M(x.site_toman)}</td><td><b>${M(x.list_toman)}</b></td><td class="ltr">${x.change_pct!==''?esc(x.change_pct)+'%':''}${x.big==='yes'?' ⚠':''}</td><td style="font-size:12px">${esc(x.site_brand)}</td><td style="font-size:12px">${esc(x.note)}</td></tr>`).join('');
+  $('#plSite').value = r.site||'';
+  const si=r.site_info, sm=r.site_match||[];
+  $('#plSiteInfo').textContent = si ? `${fa(si.site_products)} محصول در سایت تأمین‌کننده · ${fa(si.found)} از ${fa(si.rows)} ردیف پیدا شد (${fa(si.with_photos)} با عکس) · $${si.usd} · ${si.at}` : (r.site?'هنوز در سایت تأمین‌کننده جست‌وجو نشده':'');
+  $('#plSiteWrap').hidden = !sm.length;
+  $('#plSiteTbl').innerHTML = '<tr><th>نام در لیست</th><th>محصول سایت تأمین‌کننده</th><th>عکس</th><th>چطور</th></tr>' + sm.map(x=>`<tr${x.site_url?'':' style="color:#999"'}><td>${esc(x.list_name)}</td><td>${x.site_url?`<a href="${esc(x.site_url)}" target="_blank" rel="noopener">${esc(x.site_name)}</a>`:'پیدا نشد'}</td><td>${fa(x.images||0)}</td><td style="font-size:12px">${esc(x.how)}</td></tr>`).join('');
   const ap=r.applied||[];
   const cr=r.created||[];
   $('#plApplied').textContent = (ap.length ? `اعمال‌شده: ${fa(ap.filter(x=>x.action!=='error').length)} محصول، ${fa(ap.filter(x=>x.action==='error').length)} خطا` : '')
-    + (cr.length ? ` · ساخته‌شده از لیست: ${fa(cr.filter(x=>x.product_id).length)} («در انتظار»)، ${fa(cr.filter(x=>x.error).length)} ساخته نشد` : '');
+    + (cr.length ? ` · ساخته‌شده از لیست: ${fa(cr.filter(x=>x.product_id).length)} («در انتظار»، ${fa(cr.filter(x=>Number(x.photos)>0).length)} با عکس)، ${fa(cr.filter(x=>x.error).length)} ساخته نشد` : '');
 }
 async function plWait(lane){
   const t=setInterval(async ()=>{
@@ -1613,6 +1626,13 @@ $('#plGo').onclick = async ()=>{
 };
 $('#plOpen').onclick = ()=>{ const run=plRunName(); if(!run) return; PL.run=run; LS.set('plRun', run); plLoad(); };
 $('#plRematch').onclick = async ()=>{ try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/match`, {}); toast('تطبیق شروع شد'); plWait('lists'); }catch(err){ toast(err.message,true); } };
+$('#plSiteGo').onclick = async ()=>{
+  if(!PL.run){ toast('اول اجرا را باز کنید', true); return; }
+  try{ const r=await post(`/api/pricelist/${encodeURIComponent(PL.run)}/site`, {url:$('#plSite').value.trim(), match:true});
+    if(!r.site){ toast('سایت پاک شد'); plLoad(); return; }
+    toast(r.start_error ? r.start_error : 'خواندن سایت تأمین‌کننده شروع شد', !!r.start_error); if(!r.start_error) plWait('lists'); }
+  catch(err){ toast(err.message,true); }
+};
 $('#plApply').onclick = async ()=>{
   const c=(PL.data&&PL.data.match&&PL.data.match.counts)||{};
   if(!confirm(`قیمت ${fa((c.update||0)+(c.same||0)+(c.brand||0))} محصول طبق لیست تنظیم و قفل شود${$('#plSpread').checked&&c.spread?` و ${fa(c.spread)} نسخه‌ی پرت در انتظار بررسی برود`:''}؟`)) return;
@@ -1620,7 +1640,7 @@ $('#plApply').onclick = async ()=>{
   catch(err){ toast(err.message,true); }
 };
 $('#plCreate').onclick = async ()=>{
-  if(!confirm('محصولاتی که روی سایت نیستند از روی خود لیست (نام، قیمت قفل‌شده، دسته، توضیحات) ساخته شوند؟ «در انتظار بررسی» می‌مانند تا شما منتشرشان کنید.')) return;
+  if(!confirm('محصولاتی که روی سایت نیستند از روی خود لیست (نام، قیمت قفل‌شده، دسته، توضیحات' + ($('#plSite').value.trim()?'، عکس از سایت تأمین‌کننده':'') + ') ساخته شوند؟ «در انتظار بررسی» می‌مانند تا شما منتشرشان کنید.')) return;
   try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/create`, {}); toast('ساخت محصولات شروع شد'); plWait('site'); }catch(err){ toast(err.message,true); }
 };
 $('#plNew').onclick = async ()=>{

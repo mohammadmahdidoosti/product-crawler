@@ -229,3 +229,51 @@ class CreateFromList(unittest.TestCase):
         self.assertEqual(p["regular_price"], f"{127000000 / 273000:.4f}")
         self.assertTrue(any(m["key"] == "_caravan_price_lock" for m in p["meta_data"]))
         self.assertIn("پی اس سی", p["name"])
+
+
+class SupplierSite(unittest.TestCase):
+    """3 Nov: the supplier's own site (pooya-sanat.com) gives the new rows their photos and text."""
+
+    SITE = [{"name": "صفحه گرمکن پلی اتیلن گازی 315", "url": "https://s/g315", "images": "https://s/a.jpg", "image_count": 1},
+            {"name": "صفحه گرمکن پلی اتیلن طرح رتنبرگ سایز 315", "url": "https://s/r315", "images": "https://s/b.jpg", "image_count": 1},
+            {"name": "دستگاه جوش پلی اتیلن دستی ۳۱۵-۹۰ میلی‌متر دو فک", "url": "https://s/m90", "images": "", "image_count": 0},
+            {"name": "دستگاه لوله بازکن", "url": "https://s/x", "images": "", "image_count": 0}]
+
+    def setUp(self):
+        self.cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        run = PL.run_path(self.cfg, "pl-psc")
+        PL.write_csv(pd.DataFrame([
+            {"action": "new", "key": "N1", "list_name": "هیتر گازی پلی اتیلن 315", "list_toman": 27000000},
+            {"action": "new", "key": "N2", "list_name": "دستگاه جوش پلی اتیلن 90-315 دو فک پرتابل اهرم دستی", "list_toman": 127000000},
+            {"action": "new", "key": "N3", "list_name": "غلطک زیر سری", "list_toman": 8000000}]), run / "plan.csv", PL.PLAN_COLS)
+
+    def test_site_address(self):
+        self.assertEqual(PL.norm_site("pooya-sanat.com"), "https://pooya-sanat.com/")
+        self.assertEqual(PL.norm_site("http://Pooya-Sanat.com/shop/"), "https://pooya-sanat.com/")
+        self.assertEqual(PL.norm_site(""), "")
+        with self.assertRaises(ValueError):
+            PL.norm_site("not a site")
+        self.assertEqual(PL.set_site(self.cfg, "pl-psc", "pooya-sanat.com"), "https://pooya-sanat.com/")
+        self.assertEqual(PL.get_site(self.cfg, "pl-psc"), "https://pooya-sanat.com/")
+
+    def test_candidates_share_the_size(self):
+        c = PL._cands("هیتر گازی پلی اتیلن 315", self.SITE)
+        self.assertEqual(set(c[:3]), {0, 1, 2})
+        self.assertNotIn(3, c)
+
+    def test_match_by_the_model(self):
+        PL.set_site(self.cfg, "pl-psc", "pooya-sanat.com")
+        asked = []
+
+        def answer(cfg, messages, **kw):
+            asked.append(messages[1]["content"])
+            return {"picks": [{"i": 0, "j": 0}, {"i": 1, "j": 2}, {"i": 2, "j": 3}]}, 0.0001
+        with mock.patch.object(PL, "site_products", return_value=self.SITE), mock.patch.object(PL, "_openrouter", side_effect=answer):
+            res = PL.site_match(self.cfg, "pl-psc")
+        self.assertEqual((res["rows"], res["found"], res["with_photos"]), (3, 2, 1))
+        m = {r["key"]: r for r in PL.read_csv(PL.run_path(self.cfg, "pl-psc") / "site_match.csv").fillna("").to_dict("records")}
+        self.assertEqual(m["N1"]["site_url"], "https://s/g315")
+        self.assertEqual(m["N2"]["site_url"], "https://s/m90")
+        self.assertEqual(m["N3"]["site_url"], "")           # 'لوله بازکن' was never a candidate: the model can't pick it
+        PL.set_site(self.cfg, "pl-psc", "another.com")      # another site: the old matches go
+        self.assertFalse((PL.run_path(self.cfg, "pl-psc") / "site_match.csv").exists())
