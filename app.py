@@ -440,7 +440,8 @@ class Job:
 
 SITE_STEPS = {"catmake", "publish", "status", "brands", "resync", "merge", "catalog_publish", "sitefix_apply",
               "pricelist_apply"}
-JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health")}
+JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health"),
+        "lists": Job("lists")}       # price lists: read + match only (3 Nov: never waits for a long health job)
 JOB = JOBS["crawl"]
 
 
@@ -448,7 +449,9 @@ def start_job(step: str, run: str, opts: dict) -> str | None:
     # a site-fix run holds products already on the site: the crawl / publish steps must never take it
     if run.startswith("fix-") and step not in ("sitefix", "sitefix_apply"):
         return "این اجرا مال «اصلاح سایت» است؛ از صفحه‌ی سلامت سایت با آن کار کنید."
-    lane = "health" if step in ("health", "shops", "leads", "specs", "pricelist_read", "pricelist_match") else "site" if step in SITE_STEPS else "crawl"
+    if step in ("pricelist_read", "pricelist_match"):
+        return JOBS["lists"].start(step, run, opts)
+    lane = "health" if step in ("health", "shops", "leads", "specs") else "site" if step in SITE_STEPS else "crawl"
     return JOBS[lane].start(step, run, opts)
 
 

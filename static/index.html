@@ -1605,11 +1605,11 @@ $('#plGo').onclick = async ()=>{
     const fs=[...$('#plFiles').files];
     for(let i=0;i<fs.length;i++){ $('#plMsg').textContent=`بارگذاری ${fa(i+1)} از ${fa(fs.length)}…`; await api(`/api/pricelist/${encodeURIComponent(run)}/upload`, {method:'POST', body:fs[i], headers:{'X-Filename':encodeURIComponent(fs[i].name)}}); }
     await post(`/api/pricelist/${encodeURIComponent(run)}/read`, {unit:$('#plUnit').value, brand:$('#plBrand').value.trim(), then_match:true});
-    toast('خواندن لیست شروع شد'); plWait('health');
+    toast('خواندن لیست شروع شد'); plWait('lists');
   }catch(err){ toast(err.message,true); }
 };
 $('#plOpen').onclick = ()=>{ const run=plRunName(); if(!run) return; PL.run=run; LS.set('plRun', run); plLoad(); };
-$('#plRematch').onclick = async ()=>{ try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/match`, {}); toast('تطبیق شروع شد'); plWait('health'); }catch(err){ toast(err.message,true); } };
+$('#plRematch').onclick = async ()=>{ try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/match`, {}); toast('تطبیق شروع شد'); plWait('lists'); }catch(err){ toast(err.message,true); } };
 $('#plApply').onclick = async ()=>{
   const c=(PL.data&&PL.data.match&&PL.data.match.counts)||{};
   if(!confirm(`قیمت ${fa((c.update||0)+(c.same||0)+(c.brand||0))} محصول طبق لیست تنظیم و قفل شود${$('#plSpread').checked&&c.spread?` و ${fa(c.spread)} نسخه‌ی پرت در انتظار بررسی برود`:''}؟`)) return;
