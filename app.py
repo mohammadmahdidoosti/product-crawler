@@ -377,13 +377,16 @@ class Job:
                                  f"ردیف پیدا شد ({res['with_photos']} با عکس)، ${res['usd']} — هنوز چیزی در سایت عوض نشده")
             elif step == "pricelist_create":
                 res = PL.create_new(cfg, run, progress=pg, stop=self.stop_ev.is_set)
-                self.logs.append(f"محصولات تازه از روی لیست: {res['made']} ساخته شد («در انتظار بررسی»، {res['with_photos']} با عکس)، "
+                self.logs.append(f"محصولات تازه از روی لیست: {res['made']} ساخته شد ({res['published']} منتشر شد با عکس، "
+                                 f"{res['made'] - res['published']} بی‌عکس در انتظار؛ {res['similar_photos']} با عکس مشابه)، "
                                  f"{res['no_category']} بی‌دسته ماند، {res['failed']} خطا")
             else:
                 res = PL.apply(cfg, run, include_big=bool(opts.get("include_big")), spread=opts.get("spread", True) is not False,
-                               progress=pg, stop=self.stop_ev.is_set)
-                self.logs.append(f"اعمال لیست قیمت: {res['priced']} قیمت (قفل‌شده)، {res['pending']} در انتظار بررسی، "
+                               complete=opts.get("complete", True) is not False, progress=pg, stop=self.stop_ev.is_set)
+                self.logs.append(f"اعمال لیست قیمت: {res['priced']} قیمت (قفل‌شده)، {res['out_of_stock']} ناموجود، "
+                                 f"{res['back_in_stock']} دوباره موجود، {res['redirected']} نسخه‌ی تکراری ریدایرکت، "
                                  f"{res['brand_fixed']} برند اصلاح شد، {res['failed']} خطا"
+                                 + (f"؛ برند قفل شد: {'، '.join(res['brand_locked'])}" if res["brand_locked"] else "")
                                  + (f"؛ {res['held_big']} تغییر بزرگ نگه داشته شد" if res["held_big"] else ""))
         elif step == "probe":
             from crawler import routing_state as RS
@@ -1169,7 +1172,7 @@ class Handler(BaseHTTPRequestHandler):
                 from crawler import pricelist as PL
                 cfg = build_cfg()
                 if len(parts) == 2:
-                    return self._json({"runs": PL.runs(cfg)})
+                    return self._json({"runs": PL.runs(cfg), "locks": PL.brand_locks(cfg)})
                 return self._json(PL.summary(cfg, parts[2]))
             if parts[:2] == ["api", "catalog"] and len(parts) == 3:        # one catalog run: products and results
                 return self._json(catalog_view(parts[2]))
@@ -1312,6 +1315,9 @@ class Handler(BaseHTTPRequestHandler):
                         res["started"] = not err
                     return self._json(res)
                 return self._err("not found", 404)
+            if parts == ["api", "pricelist", "locks", "unlock"]:     # {"brand": …}: the crawler may take it again
+                from crawler import pricelist as PL
+                return self._json({"ok": PL.unlock_brand(build_cfg(), str(self._jbody().get("brand") or ""))})
             if parts[:2] == ["api", "pricelist"] and len(parts) == 4:
                 from crawler import pricelist as PL
                 cfg, run, what = build_cfg(), parts[2], parts[3]
@@ -1326,7 +1332,7 @@ class Handler(BaseHTTPRequestHandler):
                 if what in ("read", "match", "apply", "create"):
                     b = self._jbody()
                     err = start_job(f"pricelist_{what}", run, {k: b.get(k) for k in ("unit", "brand", "then_match",
-                                                                                     "include_big", "spread")})
+                                                                                     "include_big", "spread", "complete")})
                     return self._err(err, 409) if err else self._json({"ok": True})
                 if what == "site":                      # the supplier's own site {url, match?}: photos and text for new rows
                     b = self._jbody()

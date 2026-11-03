@@ -475,6 +475,8 @@ def step_filter(cfg: dict, run: str) -> Path:
         g = q.get("group") or group_of(q["breadcrumb"])
         en_of[q["taxonomy_id"]] = (q.get("english") or english_for(g, gl), english_for(g, gl))
     with Appender(out, FILTER_COLS) as w_ok, Appender(rej, FILTER_COLS) as w_no:
+        from . import pricelist as PL
+        locks = PL.brand_locks(cfg)
         for tid, part in todo.groupby("taxonomy_id", sort=False):
             if _progress("filter", kept + dropped, total):
                 break
@@ -496,6 +498,10 @@ def step_filter(cfg: dict, run: str) -> Path:
                     car = car_part(r.get("name", ""), crumb)
                     if car:
                         v = {**v, "relevant": False, "reason": f"لوازم یدکی خودرو ({car})؛ به کار سایت نمی‌آید"}
+                    lb = PL.locked_brand_of(locks, r.get("name", ""), r.get("brand", "") or v.get("brand", ""))
+                    if lb:                       # the brand's whole list is on the site (3 Nov): its products are not crawled
+                        v = {**v, "relevant": False, "confidence": 1.0,
+                             "reason": f"برند قفل است ({lb})؛ محصولاتش فقط از لیست تأمین‌کننده می‌آیند"}
                     r.update({"relevant": v.get("relevant"), "relevance_confidence": v.get("confidence"),
                               "relevance_reason": v.get("reason", "")})
                     if not r.get("brand") and v.get("brand"):

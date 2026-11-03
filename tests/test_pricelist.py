@@ -132,37 +132,55 @@ class MatchAndApply(unittest.TestCase):
             [{"id": 5, "name": "ویوارکس"}, {"id": 7, "name": "ال‌ای (LE-)"}])
 
     def test_plan(self):
-        with mock.patch("crawler.catalog_publish._brand", side_effect=lambda cfg, raw: {"status": "ok", "display": raw, "fa": raw, "en": "Vivarex"}):
+        """3 Nov rules: one copy of a listed model stays (the oldest published), the other goes (301); the
+        brand's products not in the list go out of stock; the brand is locked for the crawler."""
+        brand = lambda cfg, raw: {"status": "ok", "display": raw, "fa": raw, "en": "Vivarex"}  # noqa: E731
+        with mock.patch("crawler.catalog_publish._brand", side_effect=brand):
             s = PL.match(self.cfg, "pl-test", wc=self.wc)
         self.assertAlmostEqual(s["rate"], 273000, delta=50)
         pl = PL.plan(self.cfg, "pl-test")
         pl = pl[pl["product_id"].astype(str) != ""].assign(product_id=lambda x: x["product_id"].astype(float).astype(int)).set_index("product_id")
         self.assertEqual(pl.loc[1, "action"], "update")
         self.assertEqual(pl.loc[1, "big"], "yes")                          # 876k -> 4.79M
-        self.assertEqual(pl.loc[2, "action"], "update")
-        self.assertNotIn(3, pl.index[pl["action"] != "other"])           # the battery is not the drill
+        self.assertEqual(pl.loc[2, "action"], "dup")                       # a copy of #1
+        self.assertEqual(int(float(pl.loc[2, "keep_id"])), 1)
+        self.assertNotIn(3, pl.index[~pl["action"].isin(["other", "spread"])])  # the battery is not the drill
         self.assertEqual(pl.loc[4, "action"], "brand")                     # same price, wrong brand
         self.assertEqual(pl.loc[5, "action"], "spread")
         self.assertEqual(pl.loc[7, "action"], "other")
+        self.assertEqual(s["out_of_stock"], 4)                              # 3, 5, 6, 7
         new = PL.plan(self.cfg, "pl-test")
         self.assertEqual(list(new.loc[new["action"] == "new", "model"]), ["VR2402-BCK"])
 
-        with mock.patch("crawler.catalog_publish._brand", side_effect=lambda cfg, raw: {"status": "ok", "display": raw, "fa": raw, "en": "Vivarex"}):
+        moved = []
+        with mock.patch("crawler.catalog_publish._brand", side_effect=brand), \
+                mock.patch("crawler.merge_site.redirect_copy", side_effect=lambda cfg, wc, k, dd, run="": moved.append((k, dd)) or "redirect"):
             res = PL.apply(self.cfg, "pl-test", wc=self.wc)
         ups = {x["id"]: x for x in self.wc.updates}
         self.assertNotIn(1, ups)                                           # big change held
-        self.assertEqual(ups[2]["regular_price"], f"{4791000 / s['rate']:.4f}")
-        self.assertTrue(any(m["key"] == "_caravan_price_lock" for m in ups[2]["meta_data"]))
+        self.assertEqual(moved, [(1, 2)])
+        self.assertTrue(any(m["key"] == "_caravan_price_lock" for m in ups[4]["meta_data"]))
         self.assertEqual(ups[4]["brands"], [{"id": 5}])
-        self.assertEqual(ups[5]["status"], "pending")
-        self.assertEqual(res["held_big"], 1)
+        for pid in (3, 5, 6, 7):
+            self.assertEqual(ups[pid]["stock_status"], "outofstock")
+        self.assertEqual((res["out_of_stock"], res["redirected"], res["held_big"]), (4, 1, 1))
+        self.assertEqual(res["brand_locked"], ["ویوارکس"])
+        locks = PL.brand_locks(self.cfg)
+        self.assertEqual(PL.locked_brand_of(locks, "دریل شارژی ویوارکس VR9999"), "ویوارکس")
+        self.assertEqual(PL.locked_brand_of(locks, "دریل VR9999", "Vivarex"), "ویوارکس")
+        self.assertEqual(PL.locked_brand_of(locks, "دریل رونیکس 2700"), "")
         self.assertIn("VR8016AS", json.loads((self.d / "pricelists" / "index.json").read_text()))
         self.assertTrue((self.d / "pricelists" / "pl-test" / "backup.jsonl").exists())
+        self.assertTrue(PL.unlock_brand(self.cfg, "ویوارکس"))
+        self.assertEqual(PL.brand_locks(self.cfg), {})
 
-        self.wc.updates = []
-        with mock.patch("crawler.catalog_publish._brand", side_effect=lambda cfg, raw: {"status": "ok", "display": raw, "fa": raw, "en": "Vivarex"}):
-            PL.apply(self.cfg, "pl-test", wc=self.wc, include_big=True, spread=False)
+        self.wc.updates = []                                               # not the brand's whole list
+        with mock.patch("crawler.catalog_publish._brand", side_effect=brand), \
+                mock.patch("crawler.merge_site.redirect_copy", return_value="redirect"):
+            res = PL.apply(self.cfg, "pl-test", wc=self.wc, include_big=True, complete=False)
         self.assertIn(1, {x["id"] for x in self.wc.updates})
+        self.assertFalse(any(x.get("stock_status") == "outofstock" for x in self.wc.updates))
+        self.assertEqual(res["brand_locked"], [])
 
 
 if __name__ == "__main__":
@@ -323,3 +341,41 @@ class OurOldCopiesByName(unittest.TestCase):
         got = {int(float(x)) for x in pl.loc[pl["action"].isin(["update", "same"]), "product_id"]}
         self.assertEqual(got, {10, 12})
         self.assertGreater(s["usd"], 0)
+
+
+class PublishWithPhoto(unittest.TestCase):
+    """3 Nov: a new product with a photo (the supplier's or a similar one) goes on the shop at once."""
+
+    def test_similar_photo_publishes(self):
+        d = Path(tempfile.mkdtemp())
+        cfg = {"_data_dir": d}
+        run = PL.run_path(cfg, "pl-psc")
+        PL.write_csv(pd.DataFrame([{"action": "new", "key": "NAAAAAAAAAA", "model": "", "brand": "P.S.C",
+                                    "list_name": "آچار پلی اتیلن ثابت 75-63-50", "list_toman": 1500000}]), run / "plan.csv", PL.PLAN_COLS)
+        (run / "match.json").write_text(json.dumps({"rate": 273000}))
+        pic = d / "a.webp"
+        pic.write_bytes(b"x")
+
+        class Idx:
+            def __init__(self, *a):
+                pass
+
+            def match(self, name, n=3):
+                return [{"taxonomy_id": "7", "leaf": "آچار", "breadcrumb": "ابزار > آچار"}]
+        made = []
+        wc = mock.Mock()
+        wc.ok.return_value = True
+        wc.find_by_sku.return_value = None
+        wc.can_upload.return_value = True
+        wc.upload_media.return_value = {"id": 55}
+        wc.create_product.side_effect = lambda data: made.append(data) or {"id": 901}
+        with mock.patch("crawler.searches.TaxIndex", Idx), mock.patch("crawler.searches.load_tax", return_value=None), \
+                mock.patch("crawler.wc.category_map", return_value={"7": "12"}), \
+                mock.patch("crawler.describe.Writer.ok", return_value=False), \
+                mock.patch("crawler.catalog_publish._brand", return_value={"status": "none", "display": ""}), \
+                mock.patch.object(PL, "_similar_photos", return_value=[pic]) as sim:
+            res = PL.create_new(cfg, "pl-psc", wc=wc)
+        self.assertEqual(sim.call_args[0][1], "آچار پلی اتیلن ثابت 75-63-50")
+        self.assertEqual(made[0]["status"], "publish")
+        self.assertEqual(made[0]["images"], [{"id": 55}])
+        self.assertEqual((res["published"], res["similar_photos"]), (1, 1))

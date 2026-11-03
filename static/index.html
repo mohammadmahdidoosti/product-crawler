@@ -388,6 +388,7 @@ td select,td input{padding:3px 6px;font-size:12.5px}
         <button class="btn ghost" id="plOpen">باز کردن</button>
       </div>
       <div id="plRuns" class="muted" style="font-size:12.5px;margin-top:8px"></div>
+      <div id="plLocks" class="muted" style="font-size:12.5px;margin-top:6px"></div>
       <div id="plMsg" class="muted" style="font-size:12.5px;margin-top:6px"></div>
       <div id="plJob" class="muted" style="font-size:12.5px;margin-top:6px"></div>
     </div>
@@ -408,7 +409,7 @@ td select,td input{padding:3px 6px;font-size:12.5px}
       <div class="tablewrap" style="max-height:560px"><table id="plPlan"></table></div>
       <div class="row" style="align-items:center;margin-top:12px;gap:14px">
         <label class="cb"><input type="checkbox" id="plBig"> تغییرهای بزرگ هم اعمال شود (بیش از ۲٫۵ برابر)</label>
-        <label class="cb"><input type="checkbox" id="plSpread" checked> نسخه‌های پرت (قیمت‌های خیلی متفاوت یک مدل) «در انتظار بررسی» شوند</label>
+        <label class="cb"><input type="checkbox" id="plComplete" checked> لیست کامل برند است (محصولات دیگر برند ناموجود و برند در کراولر قفل شود)</label>
         <button class="btn ink" id="plApply">اعمال در سایت</button>
         <button class="btn ghost" id="plCreate">ساخت محصولات تازه از روی خود لیست</button>
         <button class="btn ghost" id="plNew">پیدا کردن محصولات تازه با کراول</button>
@@ -1575,11 +1576,12 @@ $('#ctPub').onclick = async ()=>{
 
 // ---------------- supplier price list -> site prices (crawler/pricelist.py)
 const PL = {run:'', filter:'update', data:null};
-const PL_ACT = {update:'قیمت عوض می‌شود', same:'همان قیمت (فقط قفل)', brand:'برند اصلاح + قفل', new:'روی سایت نیست', spread:'نسخه‌ی پرت', other:'در لیست نیست', skip:'دستی'};
+const PL_ACT = {update:'قیمت عوض می‌شود', same:'همان قیمت (فقط قفل)', brand:'برند اصلاح + قفل', dup:'نسخه‌ی تکراری → ریدایرکت', listed:'در لیست بدون قیمت', new:'روی سایت نیست → ساخته می‌شود', other:'در لیست نیست → ناموجود', spread:'نسخه‌ی پرت → ناموجود', skip:'دستی / بدون قیمت'};
 const plRunName = ()=>{ let v=$('#plRun').value.trim().replace(/\s+/g,'-'); if(v && !v.startsWith('pl-')) v='pl-'+v; $('#plRun').value=v; return v; };
 const M = v => v===''||v==null ? '—' : fa(Math.round(Number(v)/1000))+' هزار';
 async function plLoad(){
-  try{ const r=await api('/api/pricelist'); $('#plRuns').innerHTML = r.runs.length ? 'اجراهای قبلی: '+r.runs.map(x=>`<a href="#" data-plrun="${esc(x.run)}">${esc(x.run)}</a>${x.applied?' ✓':''}`).join(' · ') : ''; }catch(e){}
+  try{ const r=await api('/api/pricelist'); $('#plRuns').innerHTML = r.runs.length ? 'اجراهای قبلی: '+r.runs.map(x=>`<a href="#" data-plrun="${esc(x.run)}">${esc(x.run)}</a>${x.applied?' ✓':''}`).join(' · ') : '';
+    const lk=Object.entries(r.locks||{}); $('#plLocks').innerHTML = lk.length ? '🔒 برندهای قفل (کراولر محصولاتشان را نمی‌سازد): '+lk.map(([b,v])=>`${esc(b)} <small>(${esc(v.run)}، ${esc(v.at)})</small> <button class="btn ghost sm" data-plunlock="${esc(b)}">برداشتن قفل</button>`).join(' · ') : ''; }catch(e){}
   const run = PL.run || LS.get('plRun'); if(!run) return; PL.run=run; $('#plRun').value=run;
   let r; try{ r=await api('/api/pricelist/'+encodeURIComponent(run)); }catch(e){ $('#plMsg').textContent=e.message; return; }
   PL.data=r; const rd=r.read||{}, mt=r.match||{};
@@ -1590,7 +1592,8 @@ async function plLoad(){
     <td><input class="ltr" data-pltoman="${esc(x.key)}" value="${esc(x.toman)}" style="width:110px"></td><td>${esc(x.list_date)}</td><td style="font-size:11px">${esc(x.file)}</td><td style="font-size:12px;color:#a5571b">${esc(x.note)}</td>
     <td><button class="btn ghost sm" data-pldel="${esc(x.key)}">حذف</button></td></tr>`).join('');
   const cnt = mt.counts||{};
-  $('#plPlanInfo').textContent = mt.at ? `نرخ سایت ${fa(Math.round(mt.rate))} · میانه‌ی تغییر ${mt.median_change_pct}% · ${fa(mt.big)} تغییر بزرگ` : 'هنوز تطبیق نشده';
+  $('#plPlanInfo').innerHTML = mt.at ? `نرخ سایت ${fa(Math.round(mt.rate))} · میانه‌ی تغییر ${mt.median_change_pct}% · ${fa(mt.big)} تغییر بزرگ`
+    + (mt.out_of_stock!=null ? ` · <b${mt.oos_share>0.4?' style="color:#c0392b"':''}>${fa(mt.out_of_stock)} محصول برند ناموجود می‌شود (${fa(Math.round(mt.oos_share*100))}٪)${mt.oos_share>0.4?' ⚠ زیاد است؛ مطمئن شوید همه‌ی صفحه‌های لیست بارگذاری شده':''}</b>` : '') : 'هنوز تطبیق نشده';
   $('#plFilter').innerHTML = Object.keys(PL_ACT).filter(k=>cnt[k]).map(k=>`<button class="btn ${PL.filter===k?'ink':'ghost'} sm" data-plf="${k}">${PL_ACT[k]} (${fa(cnt[k])})</button>`).join('');
   const rows = r.plan.filter(x=>x.action===PL.filter);
   $('#plPlan').innerHTML = '<tr><th>مدل</th><th>نام در لیست</th><th>محصول سایت</th><th>وضعیت</th><th>قیمت سایت</th><th>قیمت لیست</th><th>تغییر</th><th>برند سایت</th><th>توضیح</th></tr>' + rows.map(x=>`<tr${x.big==='yes'?' style="background:#fff4e5"':''}><td class="ltr">${esc(x.model)||'—'}</td><td>${esc(x.list_name)}</td>
@@ -1604,7 +1607,7 @@ async function plLoad(){
   const ap=r.applied||[];
   const cr=r.created||[];
   $('#plApplied').textContent = (ap.length ? `اعمال‌شده: ${fa(ap.filter(x=>x.action!=='error').length)} محصول، ${fa(ap.filter(x=>x.action==='error').length)} خطا` : '')
-    + (cr.length ? ` · ساخته‌شده از لیست: ${fa(cr.filter(x=>x.product_id).length)} («در انتظار»، ${fa(cr.filter(x=>Number(x.photos)>0).length)} با عکس)، ${fa(cr.filter(x=>x.error).length)} ساخته نشد` : '');
+    + (cr.length ? ` · ساخته‌شده از لیست: ${fa(cr.filter(x=>x.product_id).length)} (${fa(cr.filter(x=>x.status==='publish').length)} منتشر با عکس، ${fa(cr.filter(x=>x.product_id&&x.status!=='publish').length)} بی‌عکس در انتظار)، ${fa(cr.filter(x=>x.error).length)} ساخته نشد` : '');
 }
 async function plWait(lane){
   const t=setInterval(async ()=>{
@@ -1634,13 +1637,16 @@ $('#plSiteGo').onclick = async ()=>{
   catch(err){ toast(err.message,true); }
 };
 $('#plApply').onclick = async ()=>{
-  const c=(PL.data&&PL.data.match&&PL.data.match.counts)||{};
-  if(!confirm(`قیمت ${fa((c.update||0)+(c.same||0)+(c.brand||0))} محصول طبق لیست تنظیم و قفل شود${$('#plSpread').checked&&c.spread?` و ${fa(c.spread)} نسخه‌ی پرت در انتظار بررسی برود`:''}؟`)) return;
-  try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/apply`, {include_big:$('#plBig').checked, spread:$('#plSpread').checked}); toast('اعمال در سایت شروع شد'); plWait('site'); }
+  const m=(PL.data&&PL.data.match)||{}, c=m.counts||{}, full=$('#plComplete').checked;
+  if(!confirm(`قیمت ${fa((c.update||0)+(c.same||0)+(c.brand||0))} محصول طبق لیست تنظیم و قفل شود`
+    + (c.dup?`، ${fa(c.dup)} نسخه‌ی تکراری ریدایرکت شود`:'')
+    + (full?`، ${fa(m.out_of_stock||0)} محصول دیگر برند «ناموجود» شود و برند در کراولر قفل شود`:' (لیست کامل نیست: چیزی ناموجود نمی‌شود)')
+    + (full&&m.oos_share>0.4?`\n\n⚠ ${fa(Math.round(m.oos_share*100))}٪ محصولات برند ناموجود می‌شوند؛ اگر صفحه‌ای از لیست جا مانده، اول آن را بارگذاری کنید.`:'') + '؟')) return;
+  try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/apply`, {include_big:$('#plBig').checked, complete:full}); toast('اعمال در سایت شروع شد'); plWait('site'); }
   catch(err){ toast(err.message,true); }
 };
 $('#plCreate').onclick = async ()=>{
-  if(!confirm('محصولاتی که روی سایت نیستند از روی خود لیست (نام، قیمت قفل‌شده، دسته، توضیحات' + ($('#plSite').value.trim()?'، عکس از سایت تأمین‌کننده':'') + ') ساخته شوند؟ «در انتظار بررسی» می‌مانند تا شما منتشرشان کنید.')) return;
+  if(!confirm('محصولاتی که روی سایت نیستند از روی خود لیست ساخته شوند؟ نام با برند، قیمت قفل‌شده، دسته، توضیحات؛ عکس از ' + ($('#plSite').value.trim()?'سایت تأمین‌کننده، وگرنه ':'') + 'عکس مشابه بدون برند. محصول با عکس فوراً منتشر می‌شود؛ بی‌عکس «در انتظار» می‌ماند.')) return;
   try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/create`, {}); toast('ساخت محصولات شروع شد'); plWait('site'); }catch(err){ toast(err.message,true); }
 };
 $('#plNew').onclick = async ()=>{
@@ -1651,6 +1657,7 @@ $('#plNew').onclick = async ()=>{
 document.addEventListener('click', async e=>{
   const f=e.target.closest('[data-plf]'); if(f){ PL.filter=f.dataset.plf; plLoad(); return; }
   const r=e.target.closest('[data-plrun]'); if(r){ e.preventDefault(); PL.run=r.dataset.plrun; LS.set('plRun', PL.run); plLoad(); return; }
+  const u=e.target.closest('[data-plunlock]'); if(u){ if(!confirm(`قفل برند ${u.dataset.plunlock} برداشته شود؟ کراولر دوباره محصولاتش را می‌سازد.`)) return; try{ await post('/api/pricelist/locks/unlock', {brand:u.dataset.plunlock}); toast('قفل برداشته شد'); plLoad(); }catch(err){ toast(err.message,true); } return; }
   const d=e.target.closest('[data-pldel]'); if(d){ try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/edit`, {rows:[{key:d.dataset.pldel, delete:true}]}); plLoad(); }catch(err){ toast(err.message,true); } }
 });
 document.addEventListener('change', async e=>{

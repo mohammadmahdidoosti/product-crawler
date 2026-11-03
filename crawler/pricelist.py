@@ -44,6 +44,7 @@ OPENROUTER = "https://openrouter.ai/api/v1/chat/completions"
 ITEM_COLS = ["brand", "model", "key", "name", "price", "unit", "toman", "list_date", "file", "note"]
 PLAN_COLS = ["action", "key", "model", "brand", "list_name", "list_toman", "product_id", "product_name", "status",
              "site_toman", "change_pct", "site_brand", "big", "note"]
+EXTRA_COLS = ["fix_brand", "keep_id", "stock"]
 MONTHS = {m: i for i, m in enumerate(["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان",
                                       "آذر", "دی", "بهمن", "اسفند"], 1)}
 # a product holding the model code but being only a part or a consumable of it
@@ -531,8 +532,7 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
         raise ValueError("WC_URL / WC_KEY / WC_SECRET روی سرور تنظیم نشده")
     st = settings(cfg)
     it = items(cfg, run)
-    it = it[it["toman"].astype(str).str.strip() != ""]
-    if it.empty:
+    if (it["toman"].astype(str).str.strip() == "").all():
         raise ValueError("ردیف قیمت‌داری در لیست نیست؛ اول «خواندن» را اجرا کنید")
     brands = _brand_terms(wc, it, cfg)
     seen: dict[int, dict] = {}
@@ -560,12 +560,33 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
                     hits[p["id"]] = p
         binfo = brands.get(str(r["brand"]).strip()) or {}
         bt, bres = binfo.get("term"), binfo.get("resolved") or {}
+        priced = str(r["toman"]).strip() != ""
+        if not priced:                                   # in the catalog without a price: kept in stock, price untouched
+            for pid, p in hits.items():
+                seen[pid] = p
+                rows.append({"action": "listed", "key": r["key"], "model": r["model"], "brand": r["brand"],
+                             "list_name": r["name"], "list_toman": "", "product_id": pid,
+                             "product_name": _clean_html(p.get("name")), "status": p.get("status", ""),
+                             "stock": p.get("stock_status", ""), "note": "در لیست بدون قیمت؛ قیمت دست نمی‌خورد"})
+            if not hits:
+                rows.append({"action": "skip", "key": r["key"], "model": r["model"], "brand": r["brand"],
+                             "list_name": r["name"], "list_toman": "", "note": "بدون قیمت و روی سایت نیست؛ ساخته نمی‌شود"})
+            continue
         if not hits:
             rows.append({"action": "new", "key": r["key"], "model": r["model"], "brand": r["brand"],
                          "list_name": r["name"], "list_toman": int(r["toman"]), "note": r["note"]})
             continue
+        # one model, several copies on the site: the oldest published one stays (3 Nov), the rest go to it
+        order = sorted(hits.values(), key=lambda p: (p.get("status") != "publish", int(p["id"])))
+        keep = order[0]["id"]
         for pid, p in hits.items():
             seen[pid] = p
+            if pid != keep:
+                rows.append({"action": "dup", "key": r["key"], "model": r["model"], "brand": r["brand"],
+                             "list_name": r["name"], "list_toman": int(r["toman"]), "product_id": pid,
+                             "product_name": _clean_html(p.get("name")), "status": p.get("status", ""),
+                             "keep_id": keep, "note": f"نسخه‌ی تکراری؛ به #{keep} ریدایرکت می‌شود"})
+                continue
             if rate is None and p.get("regular_price"):
                 rate = site_rate(wc, pid)
             pb = [b.get("name", "") for b in p.get("brands") or []]
@@ -574,7 +595,7 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
                          "list_name": r["name"], "list_toman": int(r["toman"]), "product_id": pid,
                          "product_name": _clean_html(p.get("name")), "status": p.get("status", ""),
                          "_usd": usd, "site_brand": "، ".join(pb),
-                         "_brand_ok": _brand_ok(p, bt, bres),
+                         "_brand_ok": _brand_ok(p, bt, bres), "stock": p.get("stock_status", ""),
                          "_type": p.get("type"), "note": r["note"]})
     if rate is None:                                   # nothing of the list is on the site: any product tells it
         j = wc._call(lambda: wc._wc("GET", "products", params={"per_page": 5, "status": "publish", "context": "edit",
@@ -601,17 +622,30 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
                 x["action"] = "brand" if x["action"] == "same" else x["action"]
                 x["fix_brand"] = "yes"
         out.append(x)
-    # the brands' other products: copies of one model far apart in price
+    # the brand's other products: not in the list -> out of stock when the list is the brand's whole list
+    # (3 Nov); products with the brand only in their name count too and get the brand. Copies far apart in
+    # price are still told apart ('spread') for the report.
+    from .merge_site import registry
+    merged_dups = {str(x.get("product_id")) for x in registry(cfg).values() if x.get("role") == "dup"}
     for name, b in brands.items():
         t = b.get("term")
-        if not t:
-            continue
-        try:
-            prods = _brand_products(wc, int(t["id"]))
-        except Exception as e:                           # noqa: BLE001 - the report says so
-            log.warning("pricelist brand %s: %s", name, e)
-            continue
-        others = [p for p in prods if p["id"] not in seen and p.get("type") != "variable" and p.get("regular_price")]
+        prods = []
+        if t:
+            try:
+                prods = _brand_products(wc, int(t["id"]))
+            except Exception as e:                       # noqa: BLE001 - the report says so
+                log.warning("pricelist brand %s: %s", name, e)
+        unbranded = _named_unbranded(wc, cfg, name, {p["id"] for p in prods} | set(seen))
+        prods = [p for p in prods + unbranded if p["id"] not in seen and str(p["id"]) not in merged_dups
+                 and p.get("status") in ("publish", "pending", "private")]
+        for p in prods:
+            if p.get("type") == "variable" or not p.get("regular_price"):
+                out.append({"action": "other", "key": f"_{p['id']}", "brand": name, "product_id": p["id"],
+                            "product_name": _clean_html(p.get("name")), "status": p.get("status", ""),
+                            "stock": p.get("stock_status", ""), "_type": p.get("type"),
+                            "fix_brand": "yes" if p.get("_unbranded") else "",
+                            "note": "محصول متغیر" if p.get("type") == "variable" else "بدون قیمت"})
+        others = [p for p in prods if p.get("type") != "variable" and p.get("regular_price")]
         groups: dict[str, list] = {}
         for p in others:
             m = re.search(r"[A-Z]{1,4}[\- ]?\d{2,5}[A-Z0-9\-]*", _clean_html(p.get("name")).upper())
@@ -626,24 +660,53 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
                 out.append({"action": "spread" if far else "other", "key": g, "model": g if not g.startswith("_") else "",
                             "brand": name, "product_id": p["id"], "product_name": _clean_html(p.get("name")),
                             "status": p.get("status", ""), "site_toman": int(round(v * rate, -3)),
+                            "stock": p.get("stock_status", ""), "fix_brand": "yes" if p.get("_unbranded") else "",
                             "note": f"{len(ps)} نسخه با قیمت‌های {', '.join(f'{round(x * rate / 1e6, 2)}M' for x in sorted(prices))}"
                             if far else ""})
     plan = pd.DataFrame(out)
-    for c in PLAN_COLS + ["fix_brand"]:
+    plan = plan.drop(columns=[c for c in ("_type",) if c in plan])
+    for c in PLAN_COLS + EXTRA_COLS:
         if c not in plan:
             plan[c] = ""
     plan = plan.fillna("")
     d = run_path(cfg, run)
-    write_csv(plan, d / "plan.csv", PLAN_COLS + ["fix_brand"])
+    write_csv(plan, d / "plan.csv", PLAN_COLS + EXTRA_COLS)
     upd = plan[plan["action"].isin(["update", "same", "brand"])]
     ratios = [r["list_toman"] / r["site_toman"] for r in upd.to_dict("records") if r["site_toman"]]
     summ = {"rate": rate, "counts": plan["action"].value_counts().to_dict(), "big": int((plan["big"] == "yes").sum()),
             "median_change_pct": round((median(ratios) - 1) * 100, 1) if ratios else None,
             "brands": {k: (v["term"] or {}).get("name", "") for k, v in brands.items()},
             "usd": round(llm_usd, 4), "at": time.strftime("%Y-%m-%d %H:%M")}
+    # what 'the list is the brand's whole list' would do: the share going out of stock warns of a missing page
+    oos = plan[plan["action"].isin(["other", "spread"]) & (plan["stock"] != "outofstock")]
+    inlist = plan[plan["action"].isin(["update", "same", "brand", "dup", "listed", "skip"]) & (plan["product_id"].astype(str) != "")]
+    summ["out_of_stock"] = int(len(oos))
+    summ["oos_share"] = round(len(oos) / max(1, len(oos) + len(inlist)), 2)
     (d / "match.json").write_text(json.dumps(summ, ensure_ascii=False))
     log.info("PRICELIST match %s: %s", run, summ)
     return summ
+
+
+def _named_unbranded(wc, cfg: dict, brand: str, skip: set) -> list[dict]:
+    """Products with no brand term whose name holds the brand (3 Nov: 'دریل رونیکس 2700' with no brand
+    still is Ronix): searched by the brand's names, marked _unbranded (the brand is put on them)."""
+    from .normalize import norm_text
+    names = []
+    try:
+        from .catalog_publish import _brand
+        br = _brand(cfg, brand)
+        names = [x for x in (br.get("fa"), br.get("en")) if x and len(str(x)) >= 3]
+    except Exception:                                    # noqa: BLE001
+        pass
+    out = {}
+    for n in dict.fromkeys(names):
+        nn = norm_text(str(n)).casefold()
+        for p in _search(wc, n):
+            if p["id"] in skip or p.get("brands"):
+                continue
+            if re.search(rf"(?<!\w){re.escape(nn)}(?!\w)", norm_text(_clean_html(p.get("name"))).casefold()):
+                out[p["id"]] = {**p, "_unbranded": True}
+    return list(out.values())
 
 
 def plan(cfg: dict, run: str) -> pd.DataFrame:
@@ -716,6 +779,58 @@ def list_price(cfg: dict, name: str, sku: str = "", idx: dict | None = None) -> 
     return best[1] if best else None
 
 
+def _locks_path(cfg: dict) -> Path:
+    return pdir(cfg) / "brand_locks.json"
+
+
+def brand_locks(cfg: dict) -> dict:
+    """Brands whose whole list was applied (3 Nov): the crawler passes their products by."""
+    p = _locks_path(cfg)
+    try:
+        return json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    except ValueError:
+        return {}
+
+
+def lock_brand(cfg: dict, brand: str, run: str, extra_names: list | None = None) -> dict:
+    from .normalize import norm_text
+    names = set()
+    try:
+        from .catalog_publish import _brand
+        br = _brand(cfg, brand)
+        names |= {br.get("fa", ""), br.get("en", "")}
+    except Exception:                                    # noqa: BLE001
+        pass
+    names |= set(extra_names or [])
+    names = sorted({norm_text(str(n)).casefold().strip() for n in names if len(str(n or "").strip()) >= 3})
+    locks = brand_locks(cfg)
+    locks[brand] = {"names": names, "run": run, "at": time.strftime("%Y-%m-%d %H:%M")}
+    _locks_path(cfg).write_text(json.dumps(locks, ensure_ascii=False, indent=1), encoding="utf-8")
+    return locks[brand]
+
+
+def unlock_brand(cfg: dict, brand: str) -> bool:
+    locks = brand_locks(cfg)
+    if brand not in locks:
+        return False
+    locks.pop(brand)
+    _locks_path(cfg).write_text(json.dumps(locks, ensure_ascii=False, indent=1), encoding="utf-8")
+    return True
+
+
+def locked_brand_of(locks: dict, name: str, brand: str = "") -> str:
+    """The locked brand a crawled product belongs to (its brand field or a whole word of its name), or ''."""
+    if not locks:
+        return ""
+    from .normalize import norm_text
+    n = norm_text(f"{name} {brand}").casefold()
+    for b, v in locks.items():
+        for w in v.get("names") or []:
+            if w and re.search(rf"(?<!\w){re.escape(w)}(?!\w)", n):
+                return b
+    return ""
+
+
 def lock_meta(run: str, toman: int, day: str = "") -> list[dict]:
     day = day or time.strftime("%Y-%m-%d")
     return [{"key": "_caravan_price_lock", "value": f"{run} {day}"},
@@ -724,7 +839,12 @@ def lock_meta(run: str, toman: int, day: str = "") -> list[dict]:
             {"key": "_caravan_price_estimated", "value": ""}]
 
 
-def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool = True, progress=None, stop=None) -> dict:
+def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool = True, progress=None, stop=None,
+          complete: bool = True) -> dict:
+    """The plan on the site. complete (3 Nov, the list is the brand's whole list): the brand's products not in
+    it go out of stock, products back in it come back in stock, and the brand is locked for the crawler.
+    Copies of a listed model go (301) to the copy kept. Every product's state before is kept in backup.jsonl."""
+    from .merge_site import redirect_copy
     from .publish import SiteBrands
     from .wc import WC
     wc = wc or WC()
@@ -734,25 +854,42 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
     pl = plan(cfg, run)
     if pl.empty:
         raise ValueError("اول «تطبیق با سایت» را اجرا کنید")
+    for c in EXTRA_COLS:
+        if c not in pl:
+            pl[c] = ""
     rate = float(json.loads((d / "match.json").read_text())["rate"])
-    todo = pl[pl["action"].isin(["update", "same", "brand"]) & ((pl["big"] != "yes") | include_big)]
-    sp = pl[pl["action"] == "spread"] if spread else pl.iloc[0:0]
+    priced = pl[pl["action"].isin(["update", "same", "brand"]) & ((pl["big"] != "yes") | include_big)]
     brands = SiteBrands(wc)
-    terms = _brand_terms(wc, todo, cfg) if len(todo) else {}
+    terms = _brand_terms(wc, pl[pl["brand"].astype(str).str.strip() != ""], cfg) if len(pl) else {}
+
+    def brand_of(r) -> dict | None:
+        br = (terms.get(str(r["brand"]).strip()) or {}).get("resolved")
+        bid = brands.id_for(br)[0] if br and br.get("status") == "ok" else None
+        return {"brands": [{"id": int(bid)}]} if bid else None
+
     items_ = []
-    for r in todo.to_dict("records"):
+    for r in priced.to_dict("records"):
         usd = round(float(r["list_toman"]) / rate, 4)
         x = {"id": int(float(r["product_id"])), "regular_price": f"{usd:.4f}", "sale_price": "",
              "meta_data": lock_meta(run, int(float(r["list_toman"])))}
-        if r.get("fix_brand") == "yes":
-            br = (terms.get(str(r["brand"]).strip()) or {}).get("resolved")
-            bid = brands.id_for(br)[0] if br else None
-            if bid:
-                x["brands"] = [{"id": int(bid)}]
+        if r.get("stock") == "outofstock":
+            x["stock_status"] = "instock"
+        if r.get("fix_brand") == "yes" and (b := brand_of(r)):
+            x.update(b)
         items_.append((r, x))
-    for r in sp.to_dict("records"):
-        if r["status"] == "publish":
-            items_.append((r, {"id": int(float(r["product_id"])), "status": "pending"}))
+    for r in pl[pl["action"] == "listed"].to_dict("records"):
+        if r.get("stock") == "outofstock":
+            items_.append((r, {"id": int(float(r["product_id"])), "stock_status": "instock"}))
+    oos_rows = pl[pl["action"].isin(["other", "spread"])] if complete else pl.iloc[0:0]
+    for r in oos_rows.to_dict("records"):
+        x = {"id": int(float(r["product_id"]))}
+        if r.get("stock") != "outofstock" and "متغیر" not in str(r.get("note")):
+            x["stock_status"] = "outofstock"
+            x["meta_data"] = [{"key": "_caravan_oos_list", "value": f"{run} {time.strftime('%Y-%m-%d')}"}]
+        if r.get("fix_brand") == "yes" and (b := brand_of(r)):
+            x.update(b)
+        if len(x) > 1:
+            items_.append((r, x))
     done, failed = [], []
     bk = d / "backup.jsonl"
     for i in range(0, len(items_), 50):
@@ -769,8 +906,8 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
                 for p in cur:
                     fh.write(json.dumps({"id": p["id"], "regular_price": p.get("regular_price"),
                                          "sale_price": p.get("sale_price"), "status": p.get("status"),
-                                         "brands": p.get("brands"), "at": time.strftime("%Y-%m-%d %H:%M")},
-                                        ensure_ascii=False) + "\n")
+                                         "stock_status": p.get("stock_status"), "brands": p.get("brands"),
+                                         "at": time.strftime("%Y-%m-%d %H:%M")}, ensure_ascii=False) + "\n")
             j = wc.batch_update([x for _, x in chunk])
         except Exception as e:                           # noqa: BLE001 - recorded, the rest go on
             failed += [{"product_id": x["id"], "error": str(e)[:200]} for _, x in chunk]
@@ -782,14 +919,33 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
             else:
                 done.append({"product_id": x["id"], "action": r["action"], "model": r["model"],
                              "name": r.get("product_name", ""), "site_toman": r.get("site_toman", ""),
-                             "price_toman": r.get("list_toman", ""), "status": x.get("status", ""),
-                             "brand_fixed": "yes" if "brands" in x else ""})
+                             "price_toman": r.get("list_toman", "") if "regular_price" in x else "",
+                             "status": x.get("stock_status", ""), "brand_fixed": "yes" if "brands" in x else ""})
+    redirected = 0
+    for r in pl[pl["action"] == "dup"].to_dict("records"):
+        if stop and stop():
+            break
+        try:
+            how = redirect_copy(cfg, wc, int(float(r["keep_id"])), int(float(r["product_id"])), run)
+            redirected += 1
+            done.append({"product_id": int(float(r["product_id"])), "action": "dup", "model": r["model"],
+                         "name": r.get("product_name", ""), "status": how, "site_toman": "", "price_toman": "",
+                         "brand_fixed": ""})
+        except Exception as e:                           # noqa: BLE001
+            failed.append({"product_id": int(float(r["product_id"])), "error": str(e)[:200]})
     it = items(cfg, run)
     indexed = save_index(cfg, run, it)
+    locked = []
+    if complete and not (stop and stop()):
+        for b in sorted({str(x).strip() for x in it["brand"] if str(x).strip()}):
+            lock_brand(cfg, b, run)
+            locked.append(b)
     write_csv(pd.DataFrame(done + [{**f, "action": "error"} for f in failed]), d / "applied.csv",
               ["product_id", "action", "model", "name", "site_toman", "price_toman", "status", "brand_fixed", "error"])
-    res = {"priced": sum(1 for x in done if x["action"] in ("update", "same", "brand")),
-           "pending": sum(1 for x in done if x["status"] == "pending"),
+    res = {"priced": sum(1 for x in done if x["action"] in ("update", "same", "brand") and x["price_toman"] != ""),
+           "out_of_stock": sum(1 for x in done if x["status"] == "outofstock"),
+           "back_in_stock": sum(1 for x in done if x["status"] == "instock"),
+           "redirected": redirected, "brand_locked": locked,
            "brand_fixed": sum(1 for x in done if x["brand_fixed"]), "failed": len(failed),
            "held_big": int(((pl["big"] == "yes") & pl["action"].isin(["update", "same", "brand"])).sum()) if not include_big else 0,
            "indexed_models": indexed}
@@ -1046,6 +1202,49 @@ def _photos(cfg: dict, run: str, rec: dict, n: int = 4) -> list[Path]:
     return out
 
 
+def _similar_photos(cfg: dict, name: str, brand: str, n: int = 2) -> list[Path]:
+    """No photo of the product itself (3 Nov): a photo of the same kind and size from another page, found by
+    the name WITHOUT the brand, used only when the strict check finds it clean (no other shop's or maker's
+    logo, no added text, white background, the whole product) and the product it shows matches the name."""
+    import hashlib
+    from PIL import Image
+    from .config import secret
+    from .images import download, search_images
+    from .normalize import norm_text
+    from .pipeline import _fetchers
+    from .vision import ASK_FOUND, check, found_ok
+    key = secret("OPENROUTER_API_KEY")
+    if not key:
+        return []
+    bw = {norm_text(w).casefold() for b in brand_names(cfg, brand) for w in [b]} | \
+         {norm_text(w).casefold() for w in str(brand or "").replace("(", " ").replace(")", " ").split() if len(w) > 2}
+    words = [w for w in str(name).split() if norm_text(w).casefold() not in bw and _flat(w) not in bw]
+    q = " ".join(words)
+    f = _fetchers(cfg)["iran"]
+    model = cfg.get("images", {}).get("vision_model", "deepseek/deepseek-v4.1-flash")
+    d = pdir(cfg) / "similar"
+    d.mkdir(parents=True, exist_ok=True)
+    out = []
+    for u in search_images(cfg, f, {"name": q, "image_query": q}, n=8):
+        if len(out) >= n:
+            break
+        v = check(model, u, q, key, ask=ASK_FOUND)
+        if not found_ok(v):
+            continue
+        data = download(f, u, min_side=400)
+        if not data:
+            continue
+        fp = d / (hashlib.sha1(u.encode()).hexdigest()[:16] + ".webp")
+        try:
+            im = Image.open(io.BytesIO(data)).convert("RGB")
+            im.thumbnail((1600, 1600))
+            im.save(fp, "WEBP", quality=85)
+        except Exception:                                # noqa: BLE001
+            continue
+        out.append(fp)
+    return out
+
+
 def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
     """(3 Nov) The list's rows not on the site -> products made from the list itself, as 'pending' for a
     person: the name (with the brand), the list price (locked), a category, a description by the text model.
@@ -1080,7 +1279,7 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
             progress(i, len(new))
         sku = "PL-" + hashlib.sha1(f"{r['brand']}|{r['key']}".encode()).hexdigest()[:10].upper()
         res = {"key": r["key"], "name": r["list_name"], "sku": sku, "product_id": "", "status": "", "category": "",
-               "photos": 0, "site_url": "", "error": ""}
+               "photos": 0, "photo_from": "site" if str(r["key"]) in found else "", "site_url": "", "error": ""}
         try:
             if wc.find_by_sku(sku):
                 res["error"] = "قبلاً ساخته شده"
@@ -1107,26 +1306,34 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None) -> dict:
             bid = brands.id_for(br)[0] if br.get("status") == "ok" else None
             if bid:
                 data["brands"] = [{"id": int(bid)}]
+            files = []
             if site:
                 res["site_url"] = site.get("url", "")
                 data["meta_data"] = data["meta_data"] + [{"key": "_caravan_source_url", "value": site.get("url", "")}]
                 files = _photos(cfg, run, site)
-                if files and wc.can_upload():
-                    data["images"] = [{"id": wc.upload_media(f, f"{sku.lower()}-{n}.webp", alt=name)["id"]}
-                                      for n, f in enumerate(files, 1)]
-                elif site.get("images"):
+                if not files and site.get("images") and not wc.can_upload():
                     data["images"] = [{"src": u.strip()} for u in str(site["images"]).split("|") if u.strip()][:4]
-                res["photos"] = len(data.get("images") or [])
+            if not files and not data.get("images"):
+                files = _similar_photos(cfg, r["list_name"], str(r["brand"]))
+                res["photo_from"] = "similar" if files else ""
+            if files and wc.can_upload():
+                data["images"] = [{"id": wc.upload_media(f, f"{sku.lower()}-{n}.webp", alt=name)["id"]}
+                                  for n, f in enumerate(files, 1)]
+            res["photos"] = len(data.get("images") or [])
+            if res["photos"]:                            # a photo and a category: on the shop at once (3 Nov)
+                data["status"] = "publish"
             prod = wc.create_product(data)
-            res.update(product_id=prod["id"], status="pending", category=leaf["breadcrumb"])
+            res.update(product_id=prod["id"], status=data["status"], category=leaf["breadcrumb"])
         except Exception as e:                           # noqa: BLE001 - one row's failure is recorded
             res["error"] = str(e)[:200]
         out.append(res)
     write_csv(pd.DataFrame(out), d / "created.csv", ["key", "name", "sku", "product_id", "status", "category", "photos",
-                                                      "site_url", "error"])
+                                                      "photo_from", "site_url", "error"])
     made = sum(1 for x in out if x["product_id"])
     log.info("PRICELIST create %s: %d made of %d", run, made, len(out))
-    return {"made": made, "rows": len(out), "with_photos": sum(1 for x in out if x["photos"]), "no_category": sum(1 for x in out if x["error"] == "دسته‌ی مناسب پیدا نشد"),
+    return {"made": made, "rows": len(out), "with_photos": sum(1 for x in out if x["photos"]),
+            "published": sum(1 for x in out if x["status"] == "publish"),
+            "similar_photos": sum(1 for x in out if x.get("photo_from") == "similar"), "no_category": sum(1 for x in out if x["error"] == "دسته‌ی مناسب پیدا نشد"),
             "failed": sum(1 for x in out if x["error"] and x["error"] not in ("قبلاً ساخته شده", "دسته‌ی مناسب پیدا نشد"))}
 
 

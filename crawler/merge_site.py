@@ -107,3 +107,29 @@ def check(cfg: dict, keep_id: int, dup_id: int, wc: WC | None = None) -> dict:
                      "categories": [c["id"] for c in k.get("categories") or []]},
             "dup": {"visibility": d.get("catalog_visibility"), "price": d.get("regular_price"),
                     "status": d.get("status"), "link": d.get("permalink"), "canonical": meta.get(CANONICAL_KEY)}}
+
+
+def redirect_copy(cfg: dict, wc: WC, keep_id: int, dup_id: int, run: str = "") -> str:
+    """A copy of a product (3 Nov): the copy -> draft, hidden, and its address answers 301 to the kept
+    product (WordPress's old-slug redirect: the copy's slug stored as an old slug of the kept product).
+    When the kept product already has an old slug (the API keeps one value per key) the copy stays
+    published but hidden with a canonical link instead. Registered as a merge so it is never sent again."""
+    K, D = wc.get_product(keep_id), wc.get_product(dup_id)
+    old = [m for m in K.get("meta_data") or [] if m.get("key") == "_wp_old_slug"]
+    if not old and D.get("slug"):
+        wc.update_product(keep_id, {"meta_data": [{"key": "_wp_old_slug", "value": D["slug"]}]})
+        wc.update_product(dup_id, {"status": "draft", "catalog_visibility": "hidden"})
+        how = "redirect"
+    else:
+        wc.update_product(dup_id, {"catalog_visibility": "hidden",
+                                   "meta_data": [{"key": CANONICAL_KEY, "value": K.get("permalink", "")}]})
+        how = "canonical"
+    today = time.strftime("%Y-%m-%d %H:%M")
+    rows = [{"sku": D.get("sku") or f"id-{dup_id}", "product_id": dup_id, "role": "dup", "keep_id": keep_id,
+             "keep_sku": K.get("sku", ""), "name": "", "price_usd": "", "categories": "",
+             "canonical": K.get("permalink", ""), "merged_at": today}]
+    p = _reg_path(cfg)
+    old_reg = read_csv(p) if p.exists() else pd.DataFrame(columns=REG_COLS)
+    write_csv(pd.concat([old_reg, pd.DataFrame(rows, columns=REG_COLS)], ignore_index=True).drop_duplicates("sku", keep="last"), p)
+    log.info("copy %s -> %s (%s)%s", dup_id, keep_id, how, f" [{run}]" if run else "")
+    return how
