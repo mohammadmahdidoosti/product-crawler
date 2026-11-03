@@ -214,10 +214,26 @@ UNIT_FA = {"cm": "سانتی", "mm": "میلیمتر", "v": "ولت", "w": "وا
 _UNIT_RE = sorted(((u, c) for c, us in UNIT_CLASS for u in us), key=lambda x: -len(x[0]))
 
 
+WORD_NUMS = [("یک و نیم", "1.5"), ("دو و نیم", "2.5"), ("سه و نیم", "3.5"), ("نیم", "0.5"), ("یک", "1"), ("دو", "2"),
+             ("سه", "3"), ("چهار", "4"), ("پنج", "5"), ("شش", "6"), ("هفت", "7"), ("هشت", "8"), ("ده", "10")]
+_UNIT_ALT = "|".join(re.escape(u) for u, _ in _UNIT_RE if len(u) > 1)
+
+
+def _num(n: str) -> float | None:
+    a, _, b = str(n).replace(",", ".").partition("/")
+    try:
+        return float(a) / float(b) if b else float(a)
+    except (ValueError, ZeroDivisionError):
+        return None
+
+
 def measures(text: str) -> set[tuple[str, str]]:
     """{('20', 'v'), ('25', 'cm')} from '20 ولت 25 سانتی' (numbers as written, Persian digits too)."""
     from .normalize import fa_digits_to_en
     t = fa_digits_to_en(norm_text(str(text or ""))).lower()
+    # 'سه اسب', 'دو اینچ', 'یک و نیم اسب' -> '3 اسب', '2 اینچ', '1.5 اسب'
+    for w, d in WORD_NUMS:
+        t = re.sub(rf"(?<!\S){w}\s+(?=(?:{_UNIT_ALT})(?:\s|$|[^\u0600-\u06FFa-z]))", d + " ", t)
     out = set()
     for m in re.finditer(r"(\d+(?:[.,/]\d+)?)\s*([^\d\s]+(?:\s[^\d\s]+)?)", t):
         num, rest = m.group(1).replace(",", "."), m.group(2)
@@ -297,6 +313,14 @@ def check_added(breadcrumb: str, leaf: str, product: dict) -> dict | None:
         if others and (n_, u_) not in pmes:
             return {"relevant": False, "confidence": 0.8,
                     "reason": f"«{n_} {UNIT_FA.get(u_, u_)}» دسته با «{n_} {UNIT_FA.get(next(iter(others)), '')}» محصول فرق دارد"}
+    # the same unit with another number: a 'پمپ ۲ اسب' category does not take a 'پمپ سه اسب' whose name has
+    # a '۲' elsewhere ('دهانه ۲ اینچ') (3 Nov)
+    for n_, u_ in lmes:
+        same_unit = {_num(n2) for n2, u in pmes if u == u_}
+        if same_unit and _num(n_) not in same_unit:
+            got = next(n2 for n2, u in pmes if u == u_)
+            return {"relevant": False, "confidence": 0.8,
+                    "reason": f"دسته‌ی «{n_} {UNIT_FA.get(u_, u_)}» است ولی محصول «{got} {UNIT_FA.get(u_, u_)}» است"}
     # number of modes: 'دو حالته' does not take a 'چهار حالته'
     lm, pm = _mode(leaf), _mode(name)
     if lm and pm and lm != pm:
@@ -363,6 +387,10 @@ def judge(breadcrumb: str, leaf: str, product: dict, english: str = "", group_en
         flat = _flat(name)
         toks = [t for t in flat.split("|") if t]
         miss = [t for t in need if not any(code_in(t, k) for k in toks)]
+        if miss:                     # a size written in words ('دو اسب') is the leaf's '2 اسب' too
+            lm, pm = measures(leaf), measures(name)
+            miss = [t for t in miss if not any(_num(n) == _num(t) and (n2, u) in lm
+                                               for n, u in pm for n2, u2 in lm if u2 == u and _num(n2) == _num(t))]
         if miss:                     # 'اره شارژی ویوارکس 2008' takes only the 2008, not every Vivarex saw
             return {"relevant": False, "confidence": 0.8,
                     "reason": "مدل یا اندازه‌ی دسته در نام نیست: " + "، ".join(miss)}
