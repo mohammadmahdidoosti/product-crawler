@@ -36,6 +36,73 @@ Keep model codes and units as written. At most 16 rows.
 Return JSON only: {"rows": [{"name": "...", "value": "..."}]}"""
 
 
+# a shop's WooCommerce attribute slug ('pa_working-pressure') in Persian; a slug with a word not here is not
+# shown (its value usually sits under a Persian name too)
+SLUG_WORDS = {
+    "brand": "برند", "model": "مدل", "size": "سایز", "color": "رنگ", "colour": "رنگ", "rang": "رنگ",
+    "weight": "وزن", "vazn": "وزن", "power": "توان", "tavan": "توان", "watt": "توان", "voltage": "ولتاژ",
+    "voltaj": "ولتاژ", "volt": "ولتاژ", "garanty": "گارانتی", "garanti": "گارانتی", "guarantee": "گارانتی",
+    "warranty": "گارانتی", "made": "کشور سازنده", "country": "کشور سازنده", "keshvar": "کشور سازنده",
+    "origin": "کشور سازنده", "material": "جنس", "jens": "جنس", "type": "نوع", "noe": "نوع", "kind": "نوع",
+    "capacity": "ظرفیت", "zarfiat": "ظرفیت", "length": "طول", "tool": "طول", "width": "عرض", "arz": "عرض",
+    "height": "ارتفاع", "ertefa": "ارتفاع", "dimension": "ابعاد", "dimensions": "ابعاد", "abaad": "ابعاد",
+    "speed": "سرعت", "sorat": "سرعت", "rpm": "دور", "pressure": "فشار", "feshar": "فشار", "working": "کاری",
+    "work": "کاری", "response": "عملکرد", "temp": "دما", "temperature": "دما", "dama": "دما", "water": "آب",
+    "sprinkling": "پاشش", "flow": "دبی", "debi": "دبی", "diameter": "قطر", "ghotr": "قطر", "thickness": "ضخامت",
+    "zekhamat": "ضخامت", "phase": "فاز", "faz": "فاز", "frequency": "فرکانس", "current": "جریان", "amper": "آمپر",
+    "ampere": "آمپر", "battery": "باتری", "chuck": "سه‌نظام", "torque": "گشتاور", "noise": "صدا", "cable": "کابل",
+    "motor": "موتور", "gear": "دنده", "usage": "کاربرد", "application": "کاربرد", "karbord": "کاربرد",
+    "connection": "اتصال", "inlet": "ورودی", "outlet": "خروجی", "input": "ورودی", "output": "خروجی",
+    "max": "حداکثر", "min": "حداقل", "blade": "تیغه", "disc": "صفحه", "volume": "حجم", "hajm": "حجم",
+    "tank": "مخزن", "head": "هد", "suction": "مکش", "accuracy": "دقت", "range": "محدوده", "display": "نمایشگر",
+    "package": "بسته‌بندی", "count": "تعداد", "number": "تعداد", "tedad": "تعداد", "unit": "واحد",
+    "standard": "استاندارد", "class": "کلاس", "grade": "گرید", "fuel": "سوخت", "engine": "موتور", "stroke": "کورس",
+}
+
+
+def fa_name(name: str) -> str | None:
+    """A spec name as the table shows it: Persian names as they are, a Latin slug ('pa_working-pressure')
+    in Persian ('فشار کاری'), None for a slug it cannot read."""
+    from urllib.parse import unquote
+    n = unquote(str(name or "")).strip()
+    n = re.sub(r"^(pa|attribute)_", "", n, flags=re.I)
+    if not n:
+        return None
+    if re.search(r"[\u0600-\u06FF]", n):
+        return n.replace("-", " ").replace("_", " ").strip()
+    if not re.fullmatch(r"[A-Za-z0-9_\- ]+", n):
+        return n
+    words = [w for w in re.split(r"[\-_ ]+", n.lower()) if w and w not in ("in", "of", "the", "and")]
+    if not words or any(w not in SLUG_WORDS for w in words):
+        return None
+    fa = list(dict.fromkeys(SLUG_WORDS[w] for w in words))[::-1]   # 'working pressure' -> فشار کاری
+    fa = [w + "ی" if i < len(fa) - 1 and w.endswith(("ا", "و")) else w for i, w in enumerate(fa)]   # دمای عملکرد
+    return " ".join(fa)
+
+
+_TABLE = re.compile(r"<h[2-4][^>]*>\s*مشخصات\s*فنی\s*</h[2-4]>\s*<table[^>]*>(.*?)</table>", re.S | re.I)
+_TR = re.compile(r"<tr[^>]*>\s*<t[hd][^>]*>(.*?)</t[hd]>\s*<td[^>]*>(.*?)</td>\s*</tr>", re.S | re.I)
+
+
+def table_rows(html: str) -> list[dict]:
+    """The rows of the «مشخصات فنی» table the crawler used to put at the end of descriptions."""
+    m = _TABLE.search(html or "")
+    if not m:
+        return []
+    out = []
+    for k, v in _TR.findall(m.group(1)):
+        k, v = _text(k), _text(v)
+        n = fa_name(k)
+        if n and v:
+            out.append({"name": n, "value": v})
+    return out
+
+
+def without_table(html: str) -> str:
+    m = _TABLE.search(html or "")
+    return (html[:m.start()] + html[m.end():]).strip() if m else html
+
+
 def _text(s: str) -> str:
     return re.sub(r"\s+", " ", unescape(_TAG.sub(" ", s))).strip()
 
@@ -109,14 +176,22 @@ def to_pairs(items: list[str], name: str, key: str, model: str = "deepseek/deeps
     return clean_rows(rows, items), usd
 
 
+def _v(s) -> str:
+    from .normalize import fa_digits_to_en
+    return re.sub(r"\s+", "", fa_digits_to_en(str(s)).replace("\u200c", "")).lower()
+
+
 def merged(attrs: list[dict], rows: list[dict]) -> list[dict]:
-    """The product's attributes with the rows added; an attribute it already has keeps its value."""
+    """The product's attributes with the rows added; an attribute it already has keeps its value, and a
+    row whose value the table already shows under another name is not shown twice."""
     out = [dict(a) for a in attrs or []]
     have = {str(a.get("name") or "").strip() for a in out}
+    vals = {_v(o) for a in out for o in (a.get("options") or [a.get("option")] if a.get("option") else a.get("options") or [])}
     pos = max([int(a.get("position") or 0) for a in out] + [0])
     for r in rows:
-        if r["name"] in have:
+        if r["name"] in have or _v(r["value"]) in vals:
             continue
+        vals.add(_v(r["value"]))
         pos += 1
         out.append({"name": r["name"], "options": [r["value"]], "visible": True, "variation": False, "position": pos})
         have.add(r["name"])
@@ -178,8 +253,14 @@ def prefetch(data_dir, texts: list[tuple[str, str]], key: str, workers: int = 8,
 
 
 def apply(data: dict, cache: dict) -> dict:
-    """The WooCommerce payload with the spec rows in its attributes and the list out of its text."""
+    """The WooCommerce payload with the spec rows in its attributes, and out of its text both the
+    «ویژگی‌ها» list and the «مشخصات فنی» table (the shop, 3 Nov: everything of the table belongs in the
+    product's spec table, not as a second, untidy table in the text)."""
     html = data.get("description") or ""
+    trows = table_rows(html)
+    if trows or _TABLE.search(html):
+        data["attributes"] = merged(data.get("attributes") or [], trows)
+        html = data["description"] = without_table(html)
     items = feature_items(html)
     rows = cache.get(_key(items)) if items else None
     if not rows:
@@ -216,9 +297,9 @@ def site_run(cfg: dict, wc=None, workers: int = 8, batch: int = 50, start_page: 
             if not prods:
                 break
             stats["read"] += len(prods)
-            have = [p for p in prods if feature_items(p.get("description") or "")]
+            have = [p for p in prods if feature_items(p.get("description") or "") or _TABLE.search(p.get("description") or "")]
             stats["with_list"] += len(have)
-            cache, usd, _ = prefetch(data_dir, [(p["name"], p["description"]) for p in have], key, workers)
+            cache, usd, _ = prefetch(data_dir, [(p["name"], without_table(p["description"])) for p in have], key, workers)
             stats["usd"] += usd
             ups = []
             for p in have:

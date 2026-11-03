@@ -218,7 +218,8 @@ class Publish(unittest.TestCase):
         self.assertEqual(p1["attributes"][0]["options"], ["آنتو (Antu)"])
         self.assertEqual(p1["brands"], [{"id": 901}])        # new brand term made on the site
         self.assertEqual(FakeWoo.brands[-1]["name"], "آنتو (Antu)")
-        self.assertNotIn("attributes", p2)
+        self.assertEqual([a["name"] for a in p2["attributes"]], ["مدل", "توان"])   # the text's spec table, in the table (3 Nov)
+        self.assertNotIn("<table", p2["description"])
         self.assertIn({"key": "_caravan_supplier", "value": "Nanjing Antu Elevator Parts Co., Ltd."}, p1["meta_data"])
         self.assertIn({"key": "_caravan_price_toman", "value": "1500000"}, p1["meta_data"])
         self.assertEqual(len(p1["images"]), 2)               # local photos uploaded to the media library

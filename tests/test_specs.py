@@ -114,3 +114,29 @@ class SiteRun(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DescriptionTable(unittest.TestCase):
+    """3 Nov: the «مشخصات فنی» table in the text goes into the product's spec table (no slug names)."""
+    H = ('<p>متن</p>\n<h3>مشخصات فنی</h3>\n<table>\n<tr>\n<th>برند</th>\n<td>کالن</td>\n</tr>\n'
+         '<tr><th>pa_response-type</th><td>واکنش سریع</td></tr><tr><th>pa_response-temp</th><td>68 درجه</td></tr>'
+         '<tr><th>pa_zzz-qqq</th><td>چیزی</td></tr></table>')
+
+    def test_slug_names(self):
+        from crawler.specs import fa_name
+        self.assertEqual(fa_name("pa_working-pressure"), "فشار کاری")
+        self.assertEqual(fa_name("pa_response-temp"), "دمای عملکرد")
+        self.assertEqual(fa_name("pa_made-in"), "کشور سازنده")
+        self.assertIsNone(fa_name("pa_zzz-qqq"))
+        self.assertEqual(fa_name("وزن"), "وزن")
+
+    def test_table_moves_to_attributes(self):
+        from crawler.specs import apply
+        d = apply({"description": self.H, "attributes": [{"name": "برند", "options": ["کالن"]},
+                                                          {"name": "دمای کار", "options": ["۶۸ درجه"]}]}, {})
+        self.assertEqual(d["description"], "<p>متن</p>")
+        names = [a["name"] for a in d["attributes"]]
+        self.assertIn("نوع عملکرد", names)
+        self.assertNotIn("دمای عملکرد", names)          # its value is already shown (Persian digits)
+        self.assertEqual(names.count("برند"), 1)
+        self.assertFalse(any(n.startswith("pa_") for n in names))

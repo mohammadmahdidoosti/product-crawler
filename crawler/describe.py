@@ -54,6 +54,10 @@ def clean_specs(r: dict) -> dict:
             k = unquote(k).replace("-", " ").strip()
         if not k or not v or len(v) > 160 or k.lower() in JUNK_KEYS:
             continue
+        from .specs import fa_name
+        k = fa_name(k) or ""                               # 'pa_working-pressure' -> 'فشار کاری'; unreadable slugs out
+        if not k:
+            continue
         if (k.lower(), v) in seen_vals or k in out:
             continue
         seen_vals.add((k.lower(), v))

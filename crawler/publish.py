@@ -509,9 +509,9 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
                 + [m for m in PL.lock_meta(lp["run"], lp["toman"], lp.get("date", "")) if m["key"] != "_caravan_price_date"]
             rec = {**rec, "price_check": ""}             # a list price is never 'doubtful'
 
-        if specs:
+        if cfg.get("publish", {}).get("spec_table", True):
             from .specs import apply as spec_apply
-            data = spec_apply(data, specs)
+            data = spec_apply(data, specs or {})
         m = merged.get(row["SKU"])
         if m and m.get("role") == "dup":              # a hidden duplicate of another product: not sent again
             out.append({"sku": row["SKU"], "name": row["Name"], "action": "skipped", "product_id": m.get("product_id", ""),
