@@ -27,7 +27,7 @@ from . import catalog as C
 from .config import run_dir
 from .io import read_csv, write_csv
 from .normalize import norm_text
-from .wc import WC, WCError, category_map
+from .wc import WC, WCError, category_map, price_locked
 
 log = logging.getLogger(__name__)
 RESULT = "C6_published.csv"
@@ -334,6 +334,11 @@ def publish(cfg: dict, run: str, limit: int = 0, pkeys: list[str] | None = None,
             else:
                 data.pop("status", None)                      # a product someone published stays published
                 notes = []
+                if price_locked(cur):
+                    # its price comes from the supplier's price list: neither it nor its variations' are touched
+                    data.pop("regular_price", None)
+                    variations = []
+                    notes.append("قیمت از لیست تأمین‌کننده قفل است؛ دست نخورد")
                 live = cur.get("status") == "publish"
                 if live and info.get("doubtful"):
                     # prices read from a page image and not found in its text: a new product waits as

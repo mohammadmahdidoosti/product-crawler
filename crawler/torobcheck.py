@@ -221,6 +221,10 @@ def apply_pending(cfg: dict, pid: str, row: dict, tol: float, wc=None) -> str:
         wc = wc or WC()
         if not wc.ok():
             return "در انتظار ماند (اتصال سایت تنظیم نیست)"
+        if "regular_price" in data:
+            from .wc import price_locked
+            if price_locked(wc.get_product(int(float(pid)))):
+                return "در انتظار ماند (قیمت از لیست تأمین‌کننده قفل است)"
         wc.update_product(int(float(pid)), data)
     except Exception as e:                                   # noqa: BLE001 - the report still records it
         log.warning("TOROB pending %s not applied: %s", pid, e)

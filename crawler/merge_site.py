@@ -20,7 +20,7 @@ from pathlib import Path
 import pandas as pd
 
 from .io import read_csv, write_csv
-from .wc import WC, WCError
+from .wc import WC, WCError, price_locked
 
 log = logging.getLogger(__name__)
 REG_COLS = ["sku", "product_id", "role", "keep_id", "keep_sku", "name", "price_usd", "categories", "canonical",
@@ -60,6 +60,8 @@ def apply(cfg: dict, groups: list[dict], dry_run: bool = False, wc: WC | None = 
             continue
         link = kp.get("permalink") or ""
         price = f"{float(g['price_usd']):.2f}"
+        if price_locked(kp) and kp.get("regular_price"):
+            price = str(kp["regular_price"])          # the supplier's list price stays
         cats = sorted({int(c) for c in g.get("categories") or [] if str(c).strip().isdigit()}
                       | {c["id"] for c in kp.get("categories") or []})
         items = [{"id": int(keep["id"]), "name": g["name"], "regular_price": price,

@@ -22,6 +22,18 @@ log = logging.getLogger(__name__)
 ROOT = Path(__file__).resolve().parent.parent
 
 
+PRICE_LOCK_KEY = "_caravan_price_lock"
+
+
+def price_locked(product: dict | None) -> bool:
+    """A price set by hand from a supplier's price list (the owner's rule, 3 Nov): the crawler never
+    writes another price on that product. The mark is the product's meta _caravan_price_lock."""
+    for m in (product or {}).get("meta_data") or []:
+        if m.get("key") == PRICE_LOCK_KEY and str(m.get("value") or "").strip() not in ("", "0", "no", "false"):
+            return True
+    return False
+
+
 class WCError(Exception):
     def __init__(self, msg: str, status: int | None = None):
         super().__init__(msg)

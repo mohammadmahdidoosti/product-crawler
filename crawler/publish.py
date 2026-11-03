@@ -31,7 +31,7 @@ from pathlib import Path
 import pandas as pd
 
 from .io import read_csv, write_csv
-from .wc import WC, WCError, category_map
+from .wc import WC, WCError, category_map, price_locked
 
 log = logging.getLogger(__name__)
 
@@ -636,6 +636,9 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
                     have = [c["id"] for c in cur.get("categories") or [] if c["id"] not in wrong]
                     new = [c["id"] for c in data.get("categories") or []]
                     data["categories"] = [{"id": i} for i in dict.fromkeys(have + new)]
+                    if price_locked(cur):                 # price from the supplier's list: kept
+                        data.pop("regular_price", None)
+                        data.pop("sale_price", None)
                     p = wc.update_product(pid, data)
                     res["action"] = "updated"
                 except WCError as e:

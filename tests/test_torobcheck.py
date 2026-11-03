@@ -61,6 +61,9 @@ class PendingVerdict(unittest.TestCase):
             def update_product(self, pid, data):
                 self.calls.append((pid, data))
                 return {}
+
+            def get_product(self, pid):
+                return {"id": pid, "meta_data": []}
         cfg = {"_data_dir": Path(tempfile.mkdtemp())}
         with mock.patch("crawler.fx.today_rate", return_value={"usd_rate_toman": 270000}):
             w = W()
