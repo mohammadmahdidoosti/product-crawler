@@ -463,6 +463,12 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
                          "_usd": usd, "site_brand": "، ".join(pb),
                          "_brand_ok": _brand_ok(p, bt, bres),
                          "_type": p.get("type"), "note": r["note"]})
+    if rate is None:                                   # nothing of the list is on the site: any product tells it
+        j = wc._call(lambda: wc._wc("GET", "products", params={"per_page": 5, "status": "publish", "context": "edit",
+                                                               "type": "simple"}), "rate sample")
+        for p in j or []:
+            if p.get("regular_price") and (rate := site_rate(wc, p["id"])):
+                break
     if rate is None:
         raise ValueError("نرخ تبدیل سایت خوانده نشد")
     out = []
