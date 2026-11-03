@@ -494,8 +494,21 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
     out, counts, work = [], {"created": 0, "updated": 0, "skipped": 0, "error": 0, "checked": 0}, []
     from .merge_site import registry
     merged = registry(cfg)                            # products merged on the site: never undone here
+    from . import pricelist as PL
+    plist = PL.load_index(cfg)
+    if plist:
+        from .fx import today_rate
+        prate = float(today_rate(cfg)["usd_rate_toman"])
     for rec, row in items:
         data, missing = payload(cfg, rec, row, cats)
+        lp = PL.list_price(cfg, data["name"], data.get("sku", ""), plist) if plist else None
+        if lp:                                           # the supplier's list price, locked (pricelist.py)
+            data["regular_price"] = f"{lp['toman'] / prate:.2f}"
+            data["meta_data"] = [m for m in data["meta_data"] if m["key"] not in
+                                 ("_caravan_price_toman", "_caravan_price_estimated", "_caravan_price_lock")] \
+                + [m for m in PL.lock_meta(lp["run"], lp["toman"], lp.get("date", "")) if m["key"] != "_caravan_price_date"]
+            rec = {**rec, "price_check": ""}             # a list price is never 'doubtful'
+
         if specs:
             from .specs import apply as spec_apply
             data = spec_apply(data, specs)

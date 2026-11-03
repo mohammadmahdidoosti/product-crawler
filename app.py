@@ -358,6 +358,25 @@ class Job:
                            stop=self.stop_ev.is_set)
             self.logs.append(f"اصلاح در سایت: {res['applied']} انجام شد، {res['skipped']} دست نخورد، {res['failed']} خطا"
                              + (f" — {res['halted']}" if res.get("halted") else ""))
+        elif step in ("pricelist_read", "pricelist_match", "pricelist_apply"):   # a supplier's price list (crawler/pricelist.py)
+            from crawler import pricelist as PL
+            pg = lambda d, t: self.prog.update(step=step, done=d, total=t)  # noqa: E731
+            if step == "pricelist_read":
+                res = PL.read(cfg, run, default_unit=opts.get("unit") or "auto", brand=opts.get("brand") or "", progress=pg)
+                self.logs.append(f"لیست قیمت خوانده شد: {res['files']} فایل، {res['items']} مدل، ${res['usd']}"
+                                 + (f"؛ خوانده نشد: {'، '.join(res['failed'][:5])}" if res["failed"] else ""))
+                if opts.get("then_match") and res["items"]:
+                    res = PL.match(cfg, run, progress=pg)
+                    self.logs.append(f"تطبیق با سایت: {res['counts']}")
+            elif step == "pricelist_match":
+                res = PL.match(cfg, run, progress=pg)
+                self.logs.append(f"تطبیق با سایت: {res['counts']} — هنوز چیزی در سایت عوض نشده")
+            else:
+                res = PL.apply(cfg, run, include_big=bool(opts.get("include_big")), spread=opts.get("spread", True) is not False,
+                               progress=pg, stop=self.stop_ev.is_set)
+                self.logs.append(f"اعمال لیست قیمت: {res['priced']} قیمت (قفل‌شده)، {res['pending']} در انتظار بررسی، "
+                                 f"{res['brand_fixed']} برند اصلاح شد، {res['failed']} خطا"
+                                 + (f"؛ {res['held_big']} تغییر بزرگ نگه داشته شد" if res["held_big"] else ""))
         elif step == "probe":
             from crawler import routing_state as RS
             res = RS.probe_batch(cfg, int(opts["batch"]),
@@ -400,6 +419,7 @@ class Job:
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
             if step not in ("catmake", "probe", "publish", "brands", "status", "resync", "health", "shops", "leads", "specs", "catalog", "catalog_publish",
+                            "pricelist_read", "pricelist_match", "pricelist_apply",
                             "sitefix", "sitefix_apply"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
@@ -418,7 +438,8 @@ class Job:
         return {**self.state, "progress": dict(self.prog), "logs": list(self.logs)[-200:]}
 
 
-SITE_STEPS = {"catmake", "publish", "status", "brands", "resync", "merge", "catalog_publish", "sitefix_apply"}
+SITE_STEPS = {"catmake", "publish", "status", "brands", "resync", "merge", "catalog_publish", "sitefix_apply",
+              "pricelist_apply"}
 JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health")}
 JOB = JOBS["crawl"]
 
@@ -427,7 +448,7 @@ def start_job(step: str, run: str, opts: dict) -> str | None:
     # a site-fix run holds products already on the site: the crawl / publish steps must never take it
     if run.startswith("fix-") and step not in ("sitefix", "sitefix_apply"):
         return "این اجرا مال «اصلاح سایت» است؛ از صفحه‌ی سلامت سایت با آن کار کنید."
-    lane = "health" if step in ("health", "shops", "leads", "specs") else "site" if step in SITE_STEPS else "crawl"
+    lane = "health" if step in ("health", "shops", "leads", "specs", "pricelist_read", "pricelist_match") else "site" if step in SITE_STEPS else "crawl"
     return JOBS[lane].start(step, run, opts)
 
 
@@ -1133,6 +1154,12 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "backup"]:
                 return self._download(backup_zip(), f"caravan-backup-{time.strftime('%Y%m%d-%H%M')}.zip",
                                       "application/zip")
+            if parts[:2] == ["api", "pricelist"]:          # supplier price lists (crawler/pricelist.py)
+                from crawler import pricelist as PL
+                cfg = build_cfg()
+                if len(parts) == 2:
+                    return self._json({"runs": PL.runs(cfg)})
+                return self._json(PL.summary(cfg, parts[2]))
             if parts[:2] == ["api", "catalog"] and len(parts) == 3:        # one catalog run: products and results
                 return self._json(catalog_view(parts[2]))
             if parts[:2] == ["api", "runs"] and len(parts) == 2:
@@ -1272,6 +1299,29 @@ class Handler(BaseHTTPRequestHandler):
                     if body.get("start"):
                         err = start_job("all", run, {"keep_queue": True})
                         res["started"] = not err
+                    return self._json(res)
+                return self._err("not found", 404)
+            if parts[:2] == ["api", "pricelist"] and len(parts) == 4:
+                from crawler import pricelist as PL
+                cfg, run, what = build_cfg(), parts[2], parts[3]
+                PL.run_path(cfg, run)
+                if what == "upload":                    # one picture / PDF / Excel / zip, raw body
+                    data = self._body()
+                    if not data:
+                        return self._err("فایل خالی است")
+                    return self._json({"ok": True, **PL.add_file(cfg, run, data, unquote(self.headers.get("X-Filename", "")))})
+                if what == "edit":                      # [{key, toman?, model?, name?, delete?}]
+                    return self._json({"ok": True, "edited": PL.edit_items(cfg, run, self._jbody().get("rows") or [])})
+                if what in ("read", "match", "apply"):
+                    b = self._jbody()
+                    err = start_job(f"pricelist_{what}", run, {k: b.get(k) for k in ("unit", "brand", "then_match",
+                                                                                     "include_big", "spread")})
+                    return self._err(err, 409) if err else self._json({"ok": True})
+                if what == "new":                       # models not on the site -> a crawl run; {"start": true} starts it
+                    res = PL.queue_new(cfg, run)
+                    if self._jbody().get("start"):
+                        err = start_job("all", res["run"], {"keep_queue": True})
+                        res["started"], res["start_error"] = not err, err or ""
                     return self._json(res)
                 return self._err("not found", 404)
             if parts[:2] == ["api", "catalog"] and len(parts) == 4:

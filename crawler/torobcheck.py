@@ -93,6 +93,16 @@ def products(cfg: dict) -> pd.DataFrame:
             pend.append(pd.DataFrame({"id": x["product_id"].astype(str).str.replace(r"\.0$", "", regex=True),
                                       "name": x["name"], "status": "pending",
                                       "our_toman": (pd.to_numeric(x["price"], errors="coerce") * rate).round(-3)}))
+    for f in sorted(Path(cfg["_data_dir"]).glob("pricelists/*/applied.csv")):
+        try:                                         # copies of one model far apart in price (pricelist.py)
+            x = read_csv(f)
+        except Exception:                                    # noqa: BLE001
+            continue
+        if "status" in x and "site_toman" in x:
+            x = x[x["status"] == "pending"]
+            pend.append(pd.DataFrame({"id": x["product_id"].astype(str).str.replace(r"\.0$", "", regex=True),
+                                      "name": x["name"], "status": "pending",
+                                      "our_toman": pd.to_numeric(x["site_toman"], errors="coerce")}))
     if pend:
         parts.append(pd.concat(pend, ignore_index=True))
     if not parts:
