@@ -287,7 +287,7 @@ def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progr
                 continue
             for label, pic, mime in _images_of(f):
                 import hashlib
-                h = hashlib.sha1(pic).hexdigest()
+                h = hashlib.sha1(pic + VISION_SYSTEM.encode()).hexdigest()    # a new prompt reads the picture again
                 if h not in cache:
                     j, c = _vision(cfg, pic, mime)
                     usd, calls = usd + c, calls + 1
