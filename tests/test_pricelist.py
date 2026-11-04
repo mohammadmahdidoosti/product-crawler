@@ -503,3 +503,28 @@ class CategoryByModel(unittest.TestCase):
             self.assertEqual(PL._leaf_llm({}, Idx(), "هیتر گازی پلی اتیلن 315")["taxonomy_id"], "2")
         with mock.patch.object(PL, "_openrouter", return_value=({"pick": None}, 0.0)):
             self.assertIsNone(PL._leaf_llm({}, Idx(), "چیزی"))
+
+
+class SellerCodeFallsBackToName(unittest.TestCase):
+    """4 Nov, Crown: the list's '۳۸۱-۷' is the seller's own code; the site has 'میخکوب بادی ... CT18124'."""
+
+    def test_by_name(self):
+        from crawler.normalize import norm_text
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        run = PL.run_path(cfg, "pl-crown")
+        PL.write_csv(pd.DataFrame([{"brand": "کرون", "model": "۳۸۱-۷", "key": "3817", "name": "میخکوب بادی F50 دوکاره",
+                                    "price": "", "unit": "rial", "toman": "13400000", "list_date": "", "file": "a", "note": ""}]),
+                     run / "items.csv", PL.ITEM_COLS)
+
+        class W(FakeWC):
+            def _wc(self, method, path, params=None, json=None):
+                if path == "products" and "search" in (params or {}):
+                    ws = norm_text(params["search"]).split()
+                    return [p for p in self.products.values() if all(w in norm_text(p["name"]).split() for w in ws)]
+                return super()._wc(method, path, params, json)
+        wc = W([_p(1, "میخکوب بادی F50 دوکاره کرون مدل CT38117", 12000000 / 273000, brand=(4, "کرون"))], [{"id": 4, "name": "کرون"}])
+        with mock.patch("crawler.catalog_publish._brand", return_value={"status": "ok", "display": "کرون", "fa": "کرون", "en": "Crown"}), \
+                mock.patch.object(PL, "_openrouter", return_value=({"same": [0]}, 0.0)):
+            PL.match(cfg, "pl-crown", wc=wc)
+        pl = PL.plan(cfg, "pl-crown")
+        self.assertEqual(pl.loc[pl["action"].isin(["update", "same"]), "product_id"].astype(float).astype(int).tolist(), [1])

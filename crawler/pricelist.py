@@ -686,16 +686,21 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
         hits = {}
         binfo = brands.get(str(r["brand"]).strip()) or {}
         bt, bres = binfo.get("term"), binfo.get("resolved") or {}
-        if is_name_key(r["key"]):
+        def by_name() -> dict:
+            nonlocal llm_usd
             cands = [p for p in _name_cands(wc, r["name"], site_names.get(str(r["key"]), ""))
                      if _brand_fits(p, bt, bres, r["brand"], cfg)]
             sure = [p for p in cands if same_by_name(p.get("name"), r["name"])]
             if sure:
-                hits = {p["id"]: p for p in sure}
-            elif cands:
+                return {p["id"]: p for p in sure}
+            if cands:
                 js, u = _pick_same(cfg, r["name"], str(r["brand"]), [_clean_html(p.get("name")) for p in cands])
                 llm_usd += u
-                hits = {cands[j]["id"]: cands[j] for j in js}
+                return {cands[j]["id"]: cands[j] for j in js}
+            return {}
+
+        if is_name_key(r["key"]):
+            hits = by_name()
         binfo = brands.get(str(r["brand"]).strip()) or {}
         bt, bres = binfo.get("term"), binfo.get("resolved") or {}
         maybe = {}
@@ -714,6 +719,9 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
             js, u = _pick_same(cfg, f"{r['name']} {r['model']}", str(r["brand"]), [_clean_html(p.get("name")) for p in maybe])
             llm_usd += u
             hits.update({maybe[j]["id"]: maybe[j] for j in js})
+        if not hits and not is_name_key(r["key"]):
+            # the list's code is the seller's own (Crown 4 Nov: '۳۸۱-۷' in the list, CT18124 on the site): by name
+            hits = by_name()
         priced = str(r["toman"]).strip() != ""
         if not priced:                                   # in the catalog without a price: kept in stock, price untouched
             for pid, p in hits.items():
