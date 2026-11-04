@@ -427,7 +427,7 @@ def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progr
             failed.append(f"{f.name}: {e}"[:200])
     items = merge_rows(rows, default_unit, "")
     write_csv(items, d / "items.csv", ITEM_COLS)
-    (d / "read.json").write_text(json.dumps({"files": len(files), "rows": len(rows), "items": len(items),
+    (d / "read.json").write_text(json.dumps({"files": len(files), "rows": len(rows), "items": len(items), "brand": brand,
                                              "usd": round(usd, 4), "calls": calls, "failed": failed,
                                              "at": time.strftime("%Y-%m-%d %H:%M")}, ensure_ascii=False))
     log.info("PRICELIST read %s: %d files, %d rows, %d models, $%.4f", run, len(files), len(rows), len(items), usd)
@@ -821,7 +821,10 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
             "brands": {k: (v["term"] or {}).get("name", "") for k, v in brands.items()},
             "usd": round(llm_usd, 4), "at": time.strftime("%Y-%m-%d %H:%M")}
     # what 'the list is the brand's whole list' would do: the share going out of stock warns of a missing page
-    oos = plan[plan["action"].isin(["other", "spread"]) & (plan["stock"] != "outofstock")]
+    main = main_brands(cfg, run, it)
+    oos = plan[plan["action"].isin(["other", "spread"]) & (plan["stock"] != "outofstock")
+               & plan["brand"].astype(str).str.strip().isin(main)]
+    summ["main_brands"] = sorted(main)
     inlist = plan[plan["action"].isin(["update", "same", "brand", "dup", "listed", "skip"]) & (plan["product_id"].astype(str) != "")]
     summ["out_of_stock"] = int(len(oos))
     summ["oos_share"] = round(len(oos) / max(1, len(oos) + len(inlist)), 2)
@@ -920,6 +923,22 @@ def list_price(cfg: dict, name: str, sku: str = "", idx: dict | None = None) -> 
         if best is None or len(k) > len(best[0]):
             best = (k, v)
     return best[1] if best else None
+
+
+def main_brands(cfg: dict, run: str, it: pd.DataFrame | None = None) -> set[str]:
+    """The brand(s) the list is the whole list of (4 Nov): the brand the person typed, else the brand of most
+    rows. Other makers inside the catalog (Mustang in Tosan's) only get prices and new products: their
+    other products do not go out of stock and they are not locked."""
+    p = run_path(cfg, run) / "read.json"
+    typed = (json.loads(p.read_text()).get("brand") or "").strip() if p.exists() else ""
+    it = items(cfg, run) if it is None else it
+    names = [str(x).strip() for x in it["brand"] if str(x).strip()] if len(it) else []
+    if typed:
+        return {typed}
+    if not names:
+        return set()
+    top = pd.Series(names).value_counts()
+    return {top.index[0]}
 
 
 def _locks_path(cfg: dict) -> Path:
@@ -1027,7 +1046,8 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
         want = "outofstock" if r.get("list_stock") == "no" else "instock"
         if (r.get("stock") or "instock") != want:
             items_.append((r, {"id": int(float(r["product_id"])), "stock_status": want}))
-    oos_rows = pl[pl["action"].isin(["other", "spread"])] if complete else pl.iloc[0:0]
+    main = main_brands(cfg, run)
+    oos_rows = pl[pl["action"].isin(["other", "spread"]) & pl["brand"].astype(str).str.strip().isin(main)] if complete else pl.iloc[0:0]
     for r in oos_rows.to_dict("records"):
         x = {"id": int(float(r["product_id"]))}
         if r.get("stock") != "outofstock" and "متغیر" not in str(r.get("note")):
@@ -1084,7 +1104,7 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
     indexed = save_index(cfg, run, it)
     locked = []
     if complete and not (stop and stop()):
-        for b in sorted({str(x).strip() for x in it["brand"] if str(x).strip()}):
+        for b in sorted(main):
             lock_brand(cfg, b, run)
             locked.append(b)
     write_csv(pd.DataFrame(done + [{**f, "action": "error"} for f in failed]), d / "applied.csv",

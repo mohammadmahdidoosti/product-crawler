@@ -458,3 +458,17 @@ class CatalogCases(unittest.TestCase):
         self.assertEqual(ups[1]["stock_status"], "outofstock")
         self.assertEqual(ups[2]["stock_status"], "instock")
         self.assertIn("regular_price", ups[1])
+
+
+class MainBrandOnly(unittest.TestCase):
+    """4 Nov: Tosan's catalog carries Mustang; only Tosan's other products go out of stock and only Tosan locks."""
+
+    def test_main_brand(self):
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        run = PL.run_path(cfg, "pl-tosan")
+        rows = [{"brand": "توسن", "model": f"T{i}00", "key": f"T{i}00", "name": "x", "toman": "1000000"} for i in range(5)] + \
+               [{"brand": "MUSTANG", "model": "T6106", "key": "T6106", "name": "y", "toman": "1000000"}]
+        PL.write_csv(pd.DataFrame(rows), run / "items.csv", PL.ITEM_COLS)
+        self.assertEqual(PL.main_brands(cfg, "pl-tosan"), {"توسن"})
+        (run / "read.json").write_text(json.dumps({"brand": "MUSTANG"}))
+        self.assertEqual(PL.main_brands(cfg, "pl-tosan"), {"MUSTANG"})
