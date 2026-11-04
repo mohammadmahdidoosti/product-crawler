@@ -1573,7 +1573,10 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
         out = [x for x in ex.map(step, new.to_dict("records")) if x]
     cols = ["key", "name", "sku", "product_id", "status", "category", "photos", "photo_from", "site_url", "error"]
     prev = read_csv(d / "created.csv").fillna("") if (d / "created.csv").exists() else pd.DataFrame(columns=cols)
-    allc = pd.concat([prev, pd.DataFrame(out, columns=cols)], ignore_index=True).drop_duplicates("key", keep="last")
+    now = pd.DataFrame(out, columns=cols)
+    # a row 'made before' keeps the row of the round that made it (its id, status, photo)
+    now = now[~((now["error"] == "قبلاً ساخته شده") & now["key"].astype(str).isin(set(prev["key"].astype(str))))]
+    allc = pd.concat([prev, now], ignore_index=True).drop_duplicates("key", keep="last")
     write_csv(allc, d / "created.csv", cols)
     made = sum(1 for x in out if x["product_id"])
     log.info("PRICELIST create %s: %d made of %d", run, made, len(out))

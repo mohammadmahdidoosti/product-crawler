@@ -113,6 +113,8 @@ def tick(cfg: dict, jobs: dict, start_job) -> None:
             if not (crawl.get("run") == f"batch-{n}" and finished):
                 return
             if crawl.get("ok") is False:
+                if not crawl.get("error"):                # a person pressed stop: a pause, not a failure
+                    return _stop(cfg, st, f"batch {n}: stopped by hand; turn autopilot on again to go on from where it stopped")
                 return _stop(cfg, st, f"batch {n}: crawl failed: {crawl.get('error', '')[:200]}")
             usd = _crawl_cost(cfg, f"batch-{n}")
             st["done"].append({"batch": n, "usd": round(usd, 4), "ended": time.time()})
