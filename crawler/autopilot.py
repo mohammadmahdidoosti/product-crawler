@@ -105,6 +105,11 @@ def tick(cfg: dict, jobs: dict, start_job) -> None:
                 return _stop(cfg, st, f"batch {n}: market probe failed: {crawl.get('error', '')[:200]}")
             return _start_crawl(cfg, st, n, start_job)
         if phase == "crawl":
+            if not crawl.get("run") and time.time() - float(cur["started"]) > 120:
+                # the server restarted (a new version) while the batch was crawling: the lane forgot it.
+                # The batch goes on where it stopped (its searches and pages are kept on disk). 4 Nov.
+                log.info("autopilot: batch %d crawl resumed after a restart", n)
+                return _start_crawl(cfg, st, n, start_job)
             if not (crawl.get("run") == f"batch-{n}" and finished):
                 return
             if crawl.get("ok") is False:
@@ -123,8 +128,9 @@ def tick(cfg: dict, jobs: dict, start_job) -> None:
         st["stopped"] = "all batches crawled"
         save(cfg, st)
         return
-    if jobs["site"].state.get("running"):
-        return                                            # a publish is running: crawl after it
+    site = jobs["site"].state
+    if site.get("running") and not str(site.get("step") or "").startswith(("pricelist_", "sitefix")):
+        return                                            # a publish is running: crawl after it (price-list work does not hold the crawl)
     n = int(st["batches"][0])
     from . import routing_state as RS
     b = next((x for x in RS.summary(cfg)["batches"] if x["batch"] == n), None)

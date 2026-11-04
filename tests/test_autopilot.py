@@ -98,3 +98,19 @@ class AutopilotTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class AfterRestart(AutopilotTest):
+    """4 Nov: a new version was installed mid-crawl; the lane forgot the batch, autopilot picks it up again.
+    Price-list work in the site lane does not hold the next crawl."""
+
+    def test_resumed_and_not_held(self):
+        AP.save(self.cfg, {**AP.DEFAULTS, "enabled": True, "batches": [12],
+                           "current": {"batch": 11, "phase": "crawl", "started": time.time() - 600}})
+        self.jobs["site"].state.update(running=True, step="pricelist_create")
+        self.tick()
+        self.assertEqual(self.started[-1], ("all", "batch-11"))
+        self.finish()
+        self.tick()
+        self.tick()
+        self.assertEqual(self.started[-1], ("all", "batch-12"))           # not held by price-list work
