@@ -413,6 +413,10 @@ td select,td input{padding:3px 6px;font-size:12.5px}
         <div class="field" style="flex:0 0 260px"><label>اسم فروشگاه است نه برند (با ویرگول)</label><input id="btShops" placeholder="پی فارم، سبز توس"></div>
         <button class="btn ghost" data-bt="shop" data-go="0">شمارش</button><button class="btn" data-bt="shop" data-go="1">درست کن</button>
       </div>
+      <div class="row" style="align-items:flex-end;gap:8px;margin-top:8px">
+        <div class="field" style="flex:0 0 260px"><label>ناموجود کردن همه‌ی محصولاتی که از این فروشگاه آمده‌اند</label><input id="btSellers" placeholder="سبز توس"></div>
+        <button class="btn ghost" data-bt="seller" data-go="0">شمارش</button><button class="btn" data-bt="seller" data-go="1">ناموجود کن</button>
+      </div>
     </div>
     <div class="card" id="plCard" hidden>
       <h2 style="margin:0 0 8px">خوانده‌شده از لیست <small id="plItemsInfo"></small></h2>
@@ -1666,11 +1670,13 @@ $('#pfGo').onclick = async ()=>{
 };
 document.addEventListener('click', async e=>{
   const b=e.target.closest('[data-bt]'); if(!b) return;
-  const go=b.dataset.go==='1', oos=b.dataset.bt==='oos';
-  const body = oos ? {brands:plSplit($('#btBrands').value), filter:$('#btFilter').value.trim(), go} : {shops:plSplit($('#btShops').value), go};
-  const list = oos ? body.brands : body.shops; if(!list.length){ toast('اسم برند را بنویسید', true); return; }
-  if(go && !confirm(oos ? `همه‌ی محصولات ${list.join('، ')}${body.filter?' (فقط «'+body.filter+'»)':''} ناموجود شوند؟` : `${list.join('، ')} از برند محصولات برداشته شود؟`)) return;
-  try{ await post(`/api/brandtools/${oos?'oos':'shop'}`, body); toast(go?'شروع شد':'شمارش شروع شد'); plWait('site'); }catch(err){ toast(err.message,true); }
+  const go=b.dataset.go==='1', kind=b.dataset.bt, oos=kind==='oos';
+  const body = oos ? {brands:plSplit($('#btBrands').value), filter:$('#btFilter').value.trim(), go}
+             : kind==='shop' ? {shops:plSplit($('#btShops').value), go} : {sellers:plSplit($('#btSellers').value), go};
+  const list = body.brands || body.shops || body.sellers; if(!list.length){ toast('اسم را بنویسید', true); return; }
+  if(go && !confirm(oos ? `همه‌ی محصولات ${list.join('، ')}${body.filter?' (فقط «'+body.filter+'»)':''} ناموجود شوند؟`
+                   : kind==='shop' ? `${list.join('، ')} از برند محصولات برداشته شود؟` : `همه‌ی محصولاتی که از ${list.join('، ')} آمده‌اند ناموجود شوند؟`)) return;
+  try{ await post(`/api/brandtools/${kind}`, body); toast(go?'شروع شد':'شمارش شروع شد'); plWait('site'); }catch(err){ toast(err.message,true); }
 });
 $('#plSiteGo').onclick = async ()=>{
   if(!PL.run){ toast('اول اجرا را باز کنید', true); return; }

@@ -105,6 +105,50 @@ def out_of_stock(cfg: dict, wc, brands: list[str], name_filter: str = "", go: bo
     return res
 
 
+def seller_domains(cfg: dict, sellers: list[str]) -> dict[str, str]:
+    """Shop names or domains as the owner says them ('سبز توس') -> {domain: shop name}, from every run's crawl."""
+    import pandas as pd
+    from .io import read_csv
+    want = [_n(s) for s in sellers if _n(s)]
+    out = {}
+    for p in sorted((Path(cfg["_data_dir"]) / "runs").glob("*/03_crawled.csv")):
+        try:
+            c = read_csv(p).fillna("")
+        except Exception:                                   # noqa: BLE001 - a broken file is skipped
+            continue
+        if "source_domain" not in c:
+            continue
+        for dom, nm in zip(c["source_domain"], c.get("seller_name", pd.Series([""] * len(c)))):
+            if dom and dom not in out and any(w in _n(nm) or w in _n(dom) for w in want):
+                out[dom] = nm or dom
+    return out
+
+
+def seller_out_of_stock(cfg: dict, wc, sellers: list[str], go: bool = False) -> dict:
+    """(4 Nov) Every product the crawler took from these shops -> out of stock: the shop is no longer a source."""
+    from urllib.parse import urlparse
+    from .io import read_csv
+    doms = seller_domains(cfg, sellers)
+    host = lambda u: (urlparse(str(u)).hostname or "").removeprefix("www.")      # noqa: E731
+    want = {d.removeprefix("www.") for d in doms}
+    ids = set()
+    for p in sorted((Path(cfg["_data_dir"]) / "runs").glob("*/07_published.csv")):
+        try:
+            for r in read_csv(p).fillna("").to_dict("records"):
+                if str(r.get("product_id") or "").strip() and host(r.get("source_url")) in want:
+                    ids.add(int(float(r["product_id"])))
+        except Exception:                                   # noqa: BLE001
+            continue
+    day = time.strftime("%Y-%m-%d")
+    res = {"go": go, "domains": doms, "products": len(ids), "done": 0}
+    if go and ids:
+        res["done"] = _send(cfg, wc, [{"id": i, "stock_status": "outofstock",
+                                       "meta_data": [{"key": "_caravan_oos_list", "value": f"owner:seller {day}"}]}
+                                      for i in sorted(ids)], f"seller {','.join(sellers)}")
+    log.info("BRANDTOOLS seller out of stock: %s", res)
+    return res
+
+
 SHOP_WORDS = r"(?:برند|فروشگاه)"
 
 

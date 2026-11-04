@@ -78,3 +78,21 @@ class BrandTools(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SellerOOS(unittest.TestCase):
+    def test_products_of_a_shop(self):
+        import pandas as pd
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        d = cfg["_data_dir"] / "runs" / "batch-1"
+        d.mkdir(parents=True)
+        pd.DataFrame([{"source_domain": "sabztoos.com", "seller_name": "سبز توس فروشگاه اینترنتی"},
+                      {"source_domain": "farmkala.ir", "seller_name": "فارم کالا"}]).to_csv(d / "03_crawled.csv", index=False)
+        pd.DataFrame([{"source_url": "https://www.sabztoos.com/p/1", "product_id": "501"},
+                      {"source_url": "https://farmkala.ir/p/2", "product_id": "502"},
+                      {"source_url": "https://sabztoos.com/p/3", "product_id": ""}]).to_csv(d / "07_published.csv", index=False)
+        wc = FakeWC()
+        dry = BT.seller_out_of_stock(cfg, wc, ["سبز توس"])
+        self.assertEqual((dry["products"], list(dry["domains"])), (1, ["sabztoos.com"]))
+        BT.seller_out_of_stock(cfg, wc, ["سبز توس"], go=True)
+        self.assertEqual([x["id"] for x in wc.sent], [501])
