@@ -1467,7 +1467,7 @@ def _similar_photos(cfg: dict, name: str, brand: str, n: int = 2) -> list[Path]:
     return out
 
 
-def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: int = 0) -> dict:
+def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: int = 0, workers: int = 3) -> dict:
     """(3 Nov) The list's rows not on the site -> products made from the list itself, as 'pending' for a
     person: the name (with the brand), the list price (locked), a category, a description by the text model.
     With the supplier's own site set (site.json) a row found there brings its photos, text and specs; else no
@@ -1498,27 +1498,24 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
     if get_site(cfg, run) and not (d / "site_match.csv").exists():
         site_match(cfg, run, stop=stop)                  # the supplier's own site gives photos and text
     found = site_rows(cfg, run)
-    out = []
-    for i, r in enumerate(new.to_dict("records")):
-        if stop and stop():
-            break
-        if progress:
-            progress(i, len(new))
+    import threading
+    from concurrent.futures import ThreadPoolExecutor
+    brand_lock, count = threading.Lock(), [0]
+
+    def one(r: dict) -> dict:
         sku = "PL-" + hashlib.sha1(f"{r['brand']}|{r['key']}".encode()).hexdigest()[:10].upper()
         res = {"key": r["key"], "name": r["list_name"], "sku": sku, "product_id": "", "status": "", "category": "",
                "photos": 0, "photo_from": "site" if str(r["key"]) in found else "", "site_url": "", "error": ""}
         try:
             if wc.find_by_sku(sku):
                 res["error"] = "قبلاً ساخته شده"
-                out.append(res)
-                continue
+                return res
             site = found.get(str(r["key"])) or {}
             leaf = _leaf_for(idx, r["list_name"]) or _leaf_llm(cfg, idx, r["list_name"], str(site.get("categories") or ""))
             wp = cats.get(str(leaf["taxonomy_id"])) if leaf else None
             if not wp:
                 res["error"] = "دسته‌ی مناسب پیدا نشد"
-                out.append(res)
-                continue
+                return res
             br = _brand(cfg, r["brand"]) if str(r["brand"]).strip() else {"status": "none"}
             name = name_with_brand(f"{r['list_name']} {r['model']}".strip() if r["model"] and r["model"] not in r["list_name"]
                                    else r["list_name"], br)
@@ -1531,7 +1528,8 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
             data = {"name": name, "type": "simple", "status": "pending", "sku": sku,
                     "regular_price": f"{float(r['list_toman']) / rate:.4f}", "description": html, "short_description": short,
                     "categories": [{"id": int(wp)}], "meta_data": lock_meta(run, int(float(r["list_toman"])))}
-            bid = brands.id_for(br)[0] if br.get("status") == "ok" else None
+            with brand_lock:                            # a new brand term is made once, not by every worker
+                bid = brands.id_for(br)[0] if br.get("status") == "ok" else None
             if bid:
                 data["brands"] = [{"id": int(bid)}]
             files = []
@@ -1558,7 +1556,21 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
             res.update(product_id=prod["id"], status=data["status"], category=leaf["breadcrumb"])
         except Exception as e:                           # noqa: BLE001 - one row's failure is recorded
             res["error"] = str(e)[:200]
-        out.append(res)
+        return res
+
+    def step(r: dict) -> dict | None:
+        if stop and stop():
+            return None
+        res = one(r)
+        with brand_lock:
+            count[0] += 1
+            if progress:
+                progress(count[0], len(new))
+        return res
+
+    # a few products at once (4 Nov): each waits mostly on the model, the photo search and the shop
+    with ThreadPoolExecutor(max(1, int(workers))) as ex:
+        out = [x for x in ex.map(step, new.to_dict("records")) if x]
     cols = ["key", "name", "sku", "product_id", "status", "category", "photos", "photo_from", "site_url", "error"]
     prev = read_csv(d / "created.csv").fillna("") if (d / "created.csv").exists() else pd.DataFrame(columns=cols)
     allc = pd.concat([prev, pd.DataFrame(out, columns=cols)], ignore_index=True).drop_duplicates("key", keep="last")
