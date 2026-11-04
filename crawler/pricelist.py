@@ -558,8 +558,9 @@ GENERIC = {"دستگاه", "مدل", "سری", "کیت", "ست", "جدید", "ح
 
 def weak_key(key: str) -> bool:
     """A code of digits only ('50-160', '90-315': a size range in a list of welding machines) is also a size
-    of pipes, jacks and gauges: it alone never makes a match."""
-    return key.isdigit()
+    of pipes, jacks and gauges, and a short code ('B16' of a drill chuck is also terminal block 'B16/6',
+    4 Nov): it alone never makes a match."""
+    return key.isdigit() or len(key) <= 4
 
 
 def kind_in(product_name: str, list_name: str) -> bool:
@@ -586,6 +587,14 @@ def _brand_ok(p: dict, term: dict | None, resolved: dict) -> bool:
     if not want:
         return True                                  # the list names no brand: nothing to judge
     return any(key(b.get("name", "")) in want or any(w in key(b.get("name", "")) for w in want) for b in have)
+
+
+def _brand_fits(p: dict, term: dict | None, resolved: dict, brand: str, cfg: dict) -> bool:
+    """A site product may be this list's row only when it has no brand or the list's brand (4 Nov: Picoran's
+    chisel is not another maker's SDS chisel of the same size)."""
+    if not str(brand or "").strip() or not p.get("brands"):
+        return True
+    return _of_brand(p, term, resolved, brand, cfg)
 
 
 def _of_brand(p: dict, term: dict | None, resolved: dict, brand: str, cfg: dict) -> bool:
@@ -675,8 +684,11 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
         if progress:
             progress(k, len(keys) + 1)
         hits = {}
+        binfo = brands.get(str(r["brand"]).strip()) or {}
+        bt, bres = binfo.get("term"), binfo.get("resolved") or {}
         if is_name_key(r["key"]):
-            cands = _name_cands(wc, r["name"], site_names.get(str(r["key"]), ""))
+            cands = [p for p in _name_cands(wc, r["name"], site_names.get(str(r["key"]), ""))
+                     if _brand_fits(p, bt, bres, r["brand"], cfg)]
             sure = [p for p in cands if same_by_name(p.get("name"), r["name"])]
             if sure:
                 hits = {p["id"]: p for p in sure}
@@ -689,7 +701,8 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
         maybe = {}
         for term in ([] if is_name_key(r["key"]) else dict.fromkeys([r["model"], r["model"].replace("-", " "), r["key"]])):
             for p in _search(wc, term):
-                if contains_model(f"{p.get('name')} {p.get('sku')}", r["key"]) and not _is_part(p.get("name"), r["name"]):
+                if contains_model(f"{p.get('name')} {p.get('sku')}", r["key"]) and not _is_part(p.get("name"), r["name"]) \
+                        and _brand_fits(p, bt, bres, r["brand"], cfg):
                     if not weak_key(r["key"]) or kind_in(p.get("name"), r["name"]):
                         hits[p["id"]] = p
                     elif _of_brand(p, bt, bres, r["brand"], cfg):

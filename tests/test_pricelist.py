@@ -302,10 +302,11 @@ class OurOldCopiesByName(unittest.TestCase):
 
     def test_found_and_chosen(self):
         from crawler.normalize import norm_text
-        prods = [_p(10, "صفحه گرمکن پلی اتیلن گازی 315", 25000000 / 273000),
-                 _p(11, "صفحه گرمکن پلی اتیلن گازی 250", 23000000 / 273000),
-                 _p(12, "دستگاه جوش پلی اتیلن دستی ۳۱۵-۹۰ میلی‌متر دو فک", 120000000 / 273000),
-                 _p(13, "دستگاه جوش پلی اتیلن تمام هیدرولیک مدل TSD315 برند تی‌اس‌دی", 790000000 / 273000)]
+        prods = [_p(10, "صفحه گرمکن پلی اتیلن گازی 315", 25000000 / 273000, brand=None),
+                 _p(11, "صفحه گرمکن پلی اتیلن گازی 250", 23000000 / 273000, brand=None),
+                 _p(12, "دستگاه جوش پلی اتیلن دستی ۳۱۵-۹۰ میلی‌متر دو فک", 120000000 / 273000, brand=None),
+                 _p(13, "دستگاه جوش پلی اتیلن تمام هیدرولیک مدل TSD315 برند تی‌اس‌دی", 790000000 / 273000, brand=None),
+                 _p(14, "صفحه گرمکن پلی اتیلن گازی 315 برند دیگر", 20000000 / 273000, brand=(9, "دیگر"))]
 
         class W(FakeWC):
             def _wc(self, method, path, params=None, json=None):
@@ -316,7 +317,7 @@ class OurOldCopiesByName(unittest.TestCase):
                 return super()._wc(method, path, params, json)
         wc = W(prods, [])
         c = PL._name_cands(wc, "هیتر گازی پلی اتیلن 315")
-        self.assertEqual([p["id"] for p in c], [10])                  # 250 is another size
+        self.assertEqual([p["id"] for p in c], [10, 14])              # 250 is another size (14: another maker, left out in match)
         c = PL._name_cands(wc, "دستگاه جوش پلی اتیلن 90-315 دو فک پرتابل اهرم دستی")
         self.assertEqual({p["id"] for p in c}, {12, 13} & {p["id"] for p in c})
         self.assertIn(12, [p["id"] for p in c])
@@ -472,3 +473,19 @@ class MainBrandOnly(unittest.TestCase):
         self.assertEqual(PL.main_brands(cfg, "pl-tosan"), {"توسن"})
         (run / "read.json").write_text(json.dumps({"brand": "MUSTANG"}))
         self.assertEqual(PL.main_brands(cfg, "pl-tosan"), {"MUSTANG"})
+
+
+class ShortCodesAndOtherMakers(unittest.TestCase):
+    """4 Nov, Picoran: 'سه نظام B16' is not terminal block 'B16/6'; Picoran's chisel is not another maker's."""
+
+    def test_short_code_needs_the_kind(self):
+        self.assertTrue(PL.weak_key("B16"))
+        self.assertFalse(PL.weak_key("VR2402BCK"))
+        self.assertFalse(PL.kind_in("ترمینال شاخه‌ای ۶ خانه سایز ۱۶ مدل B16/6", "سه نظام 13 آچاری B16"))
+
+    def test_other_maker_never_fits(self):
+        cfg = {}
+        with mock.patch("crawler.catalog_publish._brand", return_value={"status": "ok", "display": "پیکوران", "fa": "پیکوران", "en": "Picoran"}):
+            self.assertTrue(PL._brand_fits({"name": "قلم", "brands": []}, None, {}, "پیکوران", cfg))
+            self.assertFalse(PL._brand_fits({"name": "قلم SDS", "brands": [{"id": 3, "name": "بوش"}]}, None, {}, "پیکوران", cfg))
+            self.assertTrue(PL._brand_fits({"name": "قلم", "brands": [{"id": 4, "name": "پیکوران"}]}, {"id": 4}, {}, "پیکوران", cfg))
