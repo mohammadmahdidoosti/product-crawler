@@ -665,3 +665,23 @@ class RecheckMissingPrice(unittest.TestCase):
             self.assertEqual(PL.recheck(cfg, "pl-agro"), 1)
         it = PL.items(cfg, "pl-agro").set_index("key")
         self.assertEqual(int(float(it.loc["NY", "toman"])), 12_500_000)
+
+
+class SiteAsList(unittest.TestCase):
+    def test_brand_rows_from_supplier_site(self):
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        PL.set_site(cfg, "pl-hioki", "https://barghstore.ir/")
+        recs = [{"name": "مولتی متر هیوکی DT4282", "sku": "", "price": 45000000, "currency": "IRT", "in_stock": True,
+                 "url": "https://barghstore.ir/p/1", "brand": "HIOKI"},
+                {"name": "کلمپ متر هیوکی مدل CM4375-50", "sku": "", "price": 900000000, "currency": "IRR",
+                 "in_stock": False, "url": "https://barghstore.ir/p/2", "brand": ""},
+                {"name": "مولتی متر فلوک 117", "sku": "", "price": 30000000, "currency": "IRT", "in_stock": True,
+                 "url": "https://barghstore.ir/p/3", "brand": "Fluke"}]
+        with mock.patch.object(PL, "site_products", return_value=recs):
+            res = PL.site_as_list(cfg, "pl-hioki", "هیوکی", ["hioki"])
+        self.assertEqual(res["rows"], 2)                     # Fluke is not the brand
+        it = PL.items(cfg, "pl-hioki").set_index("key")
+        self.assertEqual(int(float(it.loc["DT4282", "toman"])), 45_000_000)
+        self.assertEqual(int(float(it.loc["CM437550", "toman"])), 90_000_000)   # rial -> toman
+        self.assertEqual(it.loc["CM437550", "stock"], "no")
+        self.assertEqual(len(PL.site_rows(cfg, "pl-hioki")), 0)    # no products.jsonl in this test

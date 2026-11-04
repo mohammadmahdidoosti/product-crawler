@@ -1618,6 +1618,54 @@ def site_match(cfg: dict, run: str, progress=None, stop=None) -> dict:
     return res
 
 
+_CODE = re.compile(r"(?<![A-Za-z0-9])([A-Za-z]{1,6}[\s\-]?\d{2,6}[A-Za-z0-9\-]*)(?![A-Za-z0-9])")
+
+
+def site_as_list(cfg: dict, run: str, brand: str, names: list[str] | None = None, stop=None) -> dict:
+    """(4 Nov, Hioki / Victor / Rigol: 'no list, everything is on our site') The supplier's own site is the
+    list: its products of the brand -> items.csv with the site's price (the consumer price), its stock and
+    its page (photos, text) for the new ones. Then match / apply / create as for any list."""
+    if not get_site(cfg, run):
+        raise ValueError("برای این اجرا سایت تأمین‌کننده ثبت نشده")
+    from .normalize import norm_text
+    d = run_path(cfg, run)
+    recs = [r for r in site_products(cfg, run, stop=stop) if (r.get("name") or "").strip()]
+    if not recs:
+        raise ValueError("از سایت تأمین‌کننده محصولی خوانده نشد (سایت باز نشد یا robots.txt اجازه نداد)")
+    ws = [norm_text(x).casefold() for x in [brand] + list(names or []) if len(norm_text(x)) >= 3]
+
+    def of_brand(r):
+        t = norm_text(f"{r.get('brand', '')} {r.get('name', '')}").casefold()
+        return any(re.search(rf"(?<!\w){re.escape(w)}(?!\w)", t) for w in ws)
+    rows, matches, seen = [], [], set()
+    for r in filter(of_brand, recs):
+        name = _clean_html(r["name"]).strip()
+        m = _CODE.search(str(r.get("sku") or "")) or _CODE.search(name.translate(FA_DIGITS))
+        model = m.group(1).strip() if m else ""
+        key = model_key(model) if model else name_key(name)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        cur = str(r.get("currency") or "").upper()
+        toman = to_toman(r.get("price"), "rial" if cur in ("IRR", "RIAL") else "toman")
+        stock = "no" if r.get("in_stock") is False else ""
+        rows.append({"brand": brand, "model": model, "key": key, "name": name, "price": r.get("price") or "",
+                     "unit": "rial" if cur in ("IRR", "RIAL") else "toman", "toman": toman or "",
+                     "list_date": time.strftime("%Y-%m-%d"), "file": "site",
+                     "note": "" if toman else "قیمت در سایت تأمین‌کننده نیست", "stock": stock, "vat": "", "photo": ""})
+        matches.append({"key": key, "list_name": name, "site_name": r.get("name", ""), "site_url": r.get("url", ""),
+                        "images": int(r.get("image_count") or 0), "how": "خود سایت"})
+    write_csv(pd.DataFrame(rows, columns=ITEM_COLS), d / "items.csv", ITEM_COLS)
+    write_csv(pd.DataFrame(matches, columns=SITE_MATCH_COLS), d / "site_match.csv", SITE_MATCH_COLS)
+    res = {"files": 0, "rows": len(rows), "items": len(rows), "brand": brand, "from_site": get_site(cfg, run),
+           "site_products": len(recs), "priced": sum(1 for x in rows if x["toman"]),
+           "not_available": sum(1 for x in rows if x["stock"] == "no"), "usd": 0, "calls": 0, "failed": [],
+           "at": time.strftime("%Y-%m-%d %H:%M")}
+    (d / "read.json").write_text(json.dumps(res, ensure_ascii=False))
+    log.info("PRICELIST site as list %s: %s", run, res)
+    return res
+
+
 def site_rows(cfg: dict, run: str) -> dict:
     """key -> the site product chosen for that row (from site_match.csv)."""
     d = run_path(cfg, run)

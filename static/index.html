@@ -393,6 +393,27 @@ td select,td input{padding:3px 6px;font-size:12.5px}
       <div id="plMsg" class="muted" style="font-size:12.5px;margin-top:6px"></div>
       <div id="plJob" class="muted" style="font-size:12.5px;margin-top:6px"></div>
     </div>
+    <div class="card">
+      <h2 style="margin:0 0 8px">لیست ندارد، همه‌چیز در سایتش است</h2>
+      <p class="muted" style="font-size:12.5px;margin:0 0 8px">نام اجرا را بالا بنویسید، آدرس سایت تأمین‌کننده و برند را بدهید. محصولات آن برند از سایتشان خوانده می‌شود و قیمت سایتشان قیمت ما می‌شود؛ بعد مثل یک لیست معمولی تطبیق می‌خورد. تا «اعمال» نزنید چیزی در سایت ما عوض نمی‌شود.</p>
+      <div class="row" style="align-items:flex-end;gap:8px">
+        <div class="field" style="flex:0 0 240px"><label>سایت تأمین‌کننده</label><input id="pfSite" class="ltr" placeholder="barghstore.ir"></div>
+        <div class="field" style="flex:0 0 160px"><label>برند</label><input id="pfBrand" placeholder="هیوکی"></div>
+        <div class="field" style="flex:0 0 200px"><label>اسم‌های دیگر برند (با ویرگول)</label><input id="pfNames" class="ltr" placeholder="hioki"></div>
+        <button class="btn" id="pfGo">خواندن از سایتشان</button>
+      </div>
+      <h2 style="margin:16px 0 8px">ابزار برند</h2>
+      <p class="muted" style="font-size:12.5px;margin:0 0 8px">«شمارش» فقط می‌شمارد و چیزی عوض نمی‌کند؛ نتیجه در گزارش کار پایین صفحه می‌آید. وضعیت قبلی هر محصول نگه داشته می‌شود.</p>
+      <div class="row" style="align-items:flex-end;gap:8px">
+        <div class="field" style="flex:0 0 260px"><label>ناموجود کردن همه‌ی محصولات این برندها (با ویرگول)</label><input id="btBrands" placeholder="ادون، ماکیتا"></div>
+        <div class="field" style="flex:0 0 180px"><label>فقط اسم‌هایی که دارند (اختیاری)</label><input id="btFilter" placeholder="تیلر"></div>
+        <button class="btn ghost" data-bt="oos" data-go="0">شمارش</button><button class="btn" data-bt="oos" data-go="1">ناموجود کن</button>
+      </div>
+      <div class="row" style="align-items:flex-end;gap:8px;margin-top:8px">
+        <div class="field" style="flex:0 0 260px"><label>اسم فروشگاه است نه برند (با ویرگول)</label><input id="btShops" placeholder="پی فارم، سبز توس"></div>
+        <button class="btn ghost" data-bt="shop" data-go="0">شمارش</button><button class="btn" data-bt="shop" data-go="1">درست کن</button>
+      </div>
+    </div>
     <div class="card" id="plCard" hidden>
       <h2 style="margin:0 0 8px">خوانده‌شده از لیست <small id="plItemsInfo"></small></h2>
       <div class="tablewrap" style="max-height:300px"><table id="plItems"></table></div>
@@ -1634,6 +1655,23 @@ $('#plGo').onclick = async ()=>{
 };
 $('#plOpen').onclick = ()=>{ const run=plRunName(); if(!run) return; PL.run=run; LS.set('plRun', run); plLoad(); };
 $('#plRematch').onclick = async ()=>{ try{ await post(`/api/pricelist/${encodeURIComponent(PL.run)}/match`, {}); toast('تطبیق شروع شد'); plWait('lists'); }catch(err){ toast(err.message,true); } };
+const plSplit = s => s.split(/[,،]/).map(x=>x.trim()).filter(Boolean);
+$('#pfGo').onclick = async ()=>{
+  const run=plRunName(); if(!/^pl-[\p{L}\p{N}_\-]{1,60}$/u.test(run)){ toast('نام اجرا مثل pl-hioki-1405-08', true); return; }
+  const url=$('#pfSite').value.trim(), brand=$('#pfBrand').value.trim();
+  if(!url || !brand){ toast('آدرس سایت و برند را بنویسید', true); return; }
+  try{ const r=await post(`/api/pricelist/${encodeURIComponent(run)}/site`, {url, as_list:true, brand, names:plSplit($('#pfNames').value)});
+    toast(r.start_error ? r.start_error : 'خواندن سایت تأمین‌کننده شروع شد', !!r.start_error); if(!r.start_error) plWait('lists'); }
+  catch(err){ toast(err.message,true); }
+};
+document.addEventListener('click', async e=>{
+  const b=e.target.closest('[data-bt]'); if(!b) return;
+  const go=b.dataset.go==='1', oos=b.dataset.bt==='oos';
+  const body = oos ? {brands:plSplit($('#btBrands').value), filter:$('#btFilter').value.trim(), go} : {shops:plSplit($('#btShops').value), go};
+  const list = oos ? body.brands : body.shops; if(!list.length){ toast('اسم برند را بنویسید', true); return; }
+  if(go && !confirm(oos ? `همه‌ی محصولات ${list.join('، ')}${body.filter?' (فقط «'+body.filter+'»)':''} ناموجود شوند؟` : `${list.join('، ')} از برند محصولات برداشته شود؟`)) return;
+  try{ await post(`/api/brandtools/${oos?'oos':'shop'}`, body); toast(go?'شروع شد':'شمارش شروع شد'); plWait('site'); }catch(err){ toast(err.message,true); }
+});
 $('#plSiteGo').onclick = async ()=>{
   if(!PL.run){ toast('اول اجرا را باز کنید', true); return; }
   try{ const r=await post(`/api/pricelist/${encodeURIComponent(PL.run)}/site`, {url:$('#plSite').value.trim(), match:true});

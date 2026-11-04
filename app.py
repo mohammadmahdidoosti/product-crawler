@@ -352,6 +352,24 @@ class Job:
                              stop=self.stop_ev.is_set)
             self.logs.append(f"پیش‌نمایش اصلاح ({res['kind']}): {res['rows']} محصول، {res['with_proposal']} پیشنهاد، "
                              f"{res['doubt']} مشکوک؛ منبع: {res['found']} — هنوز چیزی به سایت نرفته")
+        elif step in ("brand_oos", "brand_shop"):  # the owner's brand-wide fixes (crawler/brandtools.py)
+            from crawler import brandtools as BT
+            from crawler.wc import WC
+            go = bool(opts.get("go"))
+            if step == "brand_oos":
+                res = BT.out_of_stock(cfg, WC(), opts.get("brands") or [], opts.get("filter") or "", go=go)
+                for b in res["brands"]:
+                    self.logs.append(f"{'ناموجود شد' if go else 'آزمایشی'} — {b['brand']} ({'، '.join(b['terms']) or 'برچسب برند پیدا نشد'}): "
+                                     f"{b['products']} محصول، {b['to_change'] if not go else b['done']} "
+                                     f"{'تغییر کرد' if go else 'ناموجود می‌شود'}، {b['variable_left']} متغیر دست نخورد")
+                if go:
+                    from crawler import pricelist as PL
+                    for b in res["brands"]:
+                        PL.lock_brand(cfg, b["brand"], f"owner-oos {time.strftime('%Y-%m-%d')}")
+            else:
+                res = BT.shop_not_brand(cfg, WC(), opts.get("shops") or [], go=go)
+                self.logs.append(f"{'انجام شد' if go else 'آزمایشی'} — اسم فروشگاه به‌جای برند ({'، '.join(res['shop_terms']) or '-'}): "
+                                 f"{res['products']} محصول، {res['names_cleaned']} اسم تمیز شد؛ برند جدید: {res['to']}")
         elif step == "sitefix_apply":              # site lane: only the rows a person approved
             from crawler import sitefix as SF
             res = SF.apply(cfg, run, progress=lambda d, t: self.prog.update(step="sitefix_apply", done=d, total=t),
@@ -371,6 +389,14 @@ class Job:
             elif step == "pricelist_match":
                 res = PL.match(cfg, run, progress=pg)
                 self.logs.append(f"تطبیق با سایت: {res['counts']} — هنوز چیزی در سایت عوض نشده")
+            elif step == "pricelist_site" and opts.get("as_list"):
+                # no list: the supplier's own site is the list (4 Nov, Hioki / Victor / Rigol)
+                res = PL.site_as_list(cfg, run, opts.get("brand") or "", opts.get("names") or [], stop=self.stop_ev.is_set)
+                self.logs.append(f"سایت تأمین‌کننده به‌جای لیست: {res['site_products']} محصول خوانده شد، {res['rows']} محصول "
+                                 f"{res['brand']} ({res['priced']} با قیمت، {res['not_available']} ناموجود در سایتشان)")
+                if res["rows"]:
+                    res = PL.match(cfg, run, progress=pg)
+                    self.logs.append(f"تطبیق با سایت: {res['counts']} — هنوز چیزی در سایت عوض نشده")
             elif step == "pricelist_site":
                 res = PL.site_match(cfg, run, progress=pg, stop=self.stop_ev.is_set)
                 self.logs.append(f"سایت تأمین‌کننده: {res['site_products']} محصول خوانده شد؛ {res['found']} از {res['rows']} "
@@ -431,7 +457,7 @@ class Job:
                 self.state.setdefault("timings", {})[st] = round(took)
             if step not in ("catmake", "probe", "publish", "brands", "status", "resync", "health", "shops", "leads", "specs", "catalog", "catalog_publish",
                             "pricelist_read", "pricelist_match", "pricelist_apply", "pricelist_create", "pricelist_site",
-                            "sitefix", "sitefix_apply"):
+                            "sitefix", "sitefix_apply", "brand_oos", "brand_shop"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
             self.state["ok"] = not self.stop_ev.is_set()
@@ -449,7 +475,7 @@ class Job:
         return {**self.state, "progress": dict(self.prog), "logs": list(self.logs)[-200:]}
 
 
-SITE_STEPS = {"catmake", "publish", "status", "brands", "resync", "merge", "catalog_publish", "sitefix_apply",
+SITE_STEPS = {"brand_oos", "brand_shop", "catmake", "publish", "status", "brands", "resync", "merge", "catalog_publish", "sitefix_apply",
               "pricelist_apply", "pricelist_create"}
 JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health"),
         "lists": Job("lists")}       # price lists: read + match only (3 Nov: never waits for a long health job)
@@ -1315,6 +1341,12 @@ class Handler(BaseHTTPRequestHandler):
                         res["started"] = not err
                     return self._json(res)
                 return self._err("not found", 404)
+            if parts[:2] == ["api", "brandtools"] and len(parts) == 3 and parts[2] in ("oos", "shop"):
+                # {"brands": [...], "filter": "", "go": bool} / {"shops": [...], "go": bool}; without go only counts
+                b = self._jbody()
+                err = start_job("brand_oos" if parts[2] == "oos" else "brand_shop", "brandtools",
+                                {k: b.get(k) for k in ("brands", "filter", "shops", "go")})
+                return self._err(err, 409) if err else self._json({"ok": True})
             if parts == ["api", "pricelist", "locks", "unlock"]:     # {"brand": …}: the crawler may take it again
                 from crawler import pricelist as PL
                 return self._json({"ok": PL.unlock_brand(build_cfg(), str(self._jbody().get("brand") or ""))})
@@ -1340,7 +1372,11 @@ class Handler(BaseHTTPRequestHandler):
                     b = self._jbody()
                     url = PL.set_site(cfg, run, b.get("url") or "")
                     res = {"ok": True, "site": url}
-                    if url and b.get("match"):
+                    if url and b.get("as_list"):          # {url, as_list: true, brand, names: [...]}: the site is the list
+                        err = start_job("pricelist_site", run, {"as_list": True, "brand": b.get("brand") or "",
+                                                                "names": b.get("names") or []})
+                        res["started"], res["start_error"] = not err, err or ""
+                    elif url and b.get("match"):
                         err = start_job("pricelist_site", run, {})
                         res["started"], res["start_error"] = not err, err or ""
                     return self._json(res)
