@@ -581,3 +581,15 @@ class MakerCodeWithoutLetters(unittest.TestCase):
         self.assertFalse(PL.contains_digits_code("اره CT152120", "15212"))
         self.assertFalse(PL.contains_digits_code("اره 15212", "15212"))            # plain digits: contains_model's case
         self.assertFalse(PL.contains_digits_code("CT152", "152"))                   # too short
+
+
+class NumbersAndBrand(unittest.TestCase):
+    def test_misread_kind_found_by_numbers(self):
+        rows = [_p(1, "دریل گیربکسی چکشی کرون 810 وات مدل CT10067، 13 میلیمتر", 1, brand=(4, "کرون")),
+                _p(2, "دریل گیربکسی بوش 810 وات 13 میلیمتر", 1, brand=(3, "بوش"))]
+        PL._use_cache(rows)
+        try:
+            c = PL._name_cands(None, "پیل گیربکسی ۱۳ م.م ۸۱۰ وات سه نظام اتوماتیک", brand="کرون")
+        finally:
+            PL._use_cache([])
+        self.assertIn(1, [p["id"] for p in c])

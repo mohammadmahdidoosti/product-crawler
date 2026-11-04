@@ -705,7 +705,7 @@ def _syn(text: str) -> str:
     return t
 
 
-def _name_cands(wc, name: str, site_name: str = "", n: int = 10) -> list[dict]:
+def _name_cands(wc, name: str, site_name: str = "", n: int = 10, brand: str = "") -> list[dict]:
     """Shop products that may be a row with no code: searched by its first words (also in the shop's words and
     by the supplier site's name of it), kept only when they carry the row's sizes (numbers of 2+ digits)."""
     from .normalize import norm_text
@@ -718,6 +718,12 @@ def _name_cands(wc, name: str, site_name: str = "", n: int = 10) -> list[dict]:
             terms.append(" ".join(words[:3]))
             if nums:
                 terms.append(" ".join(words[:2] + nums[:1]))
+    # its big numbers with the brand (4 Nov, Crown: 'پیل گیربکسی ۱۳ م.م ۸۱۰ وات' was misread from 'دریل'; '810 کرون'
+    # still finds 'دریل گیربکسی ... کرون 810 وات')
+    bw = [w for w in re.sub(r"[()]", " ", str(brand or "")).split() if len(w) > 2][:1]
+    if bw:
+        for x in re.findall(r"\d{3,}", _clean_html(name).translate(FA_DIGITS))[:2]:
+            terms.append(f"{x} {bw[0]}")
     _, ln = _words_nums(name)
     need = {x for x in ln if len(x) >= 2}
     found: dict[int, dict] = {}
@@ -841,7 +847,7 @@ def _match(cfg: dict, run: str, wc, progress=None) -> dict:
         bt, bres = binfo.get("term"), binfo.get("resolved") or {}
         def by_name() -> dict:
             nonlocal llm_usd
-            cands = [p for p in _name_cands(wc, r["name"], site_names.get(str(r["key"]), ""))
+            cands = [p for p in _name_cands(wc, r["name"], site_names.get(str(r["key"]), ""), brand=str(r["brand"]))
                      if _brand_fits(p, bt, bres, r["brand"], cfg)]
             sure = [p for p in cands if same_by_name(p.get("name"), r["name"])]
             if sure:
