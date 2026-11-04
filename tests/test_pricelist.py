@@ -551,3 +551,24 @@ class SiteCopy(unittest.TestCase):
             self.assertEqual([r["id"] for r in PL._brand_products(None, 5)], [1, 2])
         finally:
             PL._use_cache([])
+
+
+class RecheckFarPrices(unittest.TestCase):
+    """4 Nov, Crown: a far price is read again from its page; '21400000' was really '214,000,000'."""
+
+    def test_recheck(self):
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        run = PL.run_path(cfg, "pl-crown")
+        (run / "files").mkdir()
+        (run / "files" / "a.jpg").write_bytes(b"jpg")
+        PL.write_csv(pd.DataFrame([{"brand": "کرون", "model": "", "key": "NX", "name": "دریل شارژی ۱۰ میلیمتر ۱۲ ولت",
+                                    "price": "21400000", "unit": "rial", "toman": "2140000", "list_date": "", "file": "a.jpg", "note": ""}]),
+                     run / "items.csv", PL.ITEM_COLS)
+        PL.write_csv(pd.DataFrame([{"action": "update", "key": "NX", "big": "yes", "product_id": 1}]), run / "plan.csv", PL.PLAN_COLS)
+        with mock.patch.object(PL, "_openrouter", return_value=({"price": "214,000,000", "unit": "rial", "found": True}, 0.0)) as m:
+            self.assertEqual(PL.recheck(cfg, "pl-crown"), 1)
+            self.assertEqual(PL.recheck(cfg, "pl-crown"), 0)            # once only
+        self.assertEqual(m.call_count, 1)
+        it = PL.items(cfg, "pl-crown")
+        self.assertEqual(int(float(it.loc[0, "toman"])), 21_400_000)
+        self.assertIn("دوباره خوانده شد", it.loc[0, "note"])

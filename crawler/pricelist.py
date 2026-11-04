@@ -742,9 +742,75 @@ def match(cfg: dict, run: str, wc=None, progress=None, cache: bool = True) -> di
         raise ValueError("WC_URL / WC_KEY / WC_SECRET روی سرور تنظیم نشده")
     _use_cache(site_cache(cfg, wc) if cache else [])
     try:
-        return _match(cfg, run, wc, progress)
+        summ = _match(cfg, run, wc, progress)
+        if summ.get("big"):                              # a far price is read again once, its page sharper (4 Nov)
+            n = recheck(cfg, run)
+            if n:
+                summ = _match(cfg, run, wc, progress)
+            summ["rechecked"] = n
+            (run_path(cfg, run) / "match.json").write_text(json.dumps(summ, ensure_ascii=False))
+        return summ
     finally:
         _use_cache([])
+
+
+RECHECK_SYSTEM = """You read one row of an Iranian supplier's price list page. Find the row named below and copy its
+price digit by digit exactly as printed, every digit and every group of three (a price in rial usually has 7 to 10
+digits). Reply JSON only: {"price": "<digits as printed>", "unit": "rial|toman|thousand_toman|unknown", "found": true|false}"""
+
+
+def recheck(cfg: dict, run: str) -> int:
+    """Rows whose list price is far from the site's (big) are read once more from their page at a higher
+    resolution, asking for that row's price alone (4 Nov, Crown: '۲۱۴٬۰۰۰٬۰۰۰' had been read '21400000').
+    A price that reads differently replaces the first one, noted. Returns how many changed."""
+    d = run_path(cfg, run)
+    pl, it = plan(cfg, run), items(cfg, run)
+    keys = set(pl.loc[(pl["big"] == "yes") & pl["action"].isin(["update", "same", "brand"]), "key"].astype(str))
+    if not keys:
+        return 0
+    done_p = d / "rechecked.json"
+    done = set(json.loads(done_p.read_text())) if done_p.exists() else set()
+    changed, pages = 0, {}
+    for i, r in it.iterrows():
+        k = str(r["key"])
+        if k not in keys or k in done:
+            continue
+        done.add(k)
+        m = re.match(r"(.+?) ص(\d+)$", str(r["file"]))
+        f = d / "files" / (m.group(1) if m else str(r["file"]))
+        if not f.exists():
+            continue
+        try:
+            if f.name.lower().endswith(".pdf"):
+                key = (f.name, int(m.group(2)))
+                if key not in pages:
+                    import pdfplumber
+                    with pdfplumber.open(str(f)) as pdf:
+                        buf = io.BytesIO()
+                        pdf.pages[key[1] - 1].to_image(resolution=220).original.convert("RGB").save(buf, "JPEG", quality=90)
+                        pages[key] = buf.getvalue()
+                pic = pages[key]
+            else:
+                pic = f.read_bytes()
+            ans, _ = _openrouter(cfg, [{"role": "system", "content": RECHECK_SYSTEM}, {"role": "user", "content": [
+                {"type": "text", "text": f"row: {r['name']} {r['model']}"},
+                {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + base64.b64encode(pic).decode()}}]}],
+                max_tokens=120, title="Caravan price list recheck")
+        except Exception as e:                           # noqa: BLE001 - the first reading stays
+            log.info("pricelist recheck %s: %s", k, e)
+            continue
+        if not ans or not ans.get("found") or not ans.get("price"):
+            continue
+        unit = ans.get("unit") if ans.get("unit") in ("rial", "toman", "thousand_toman") else r["unit"]
+        t = to_toman(ans["price"], unit)
+        if t and str(t) != str(r["toman"]).split(".")[0]:
+            it.at[i, "note"] = "؛ ".join(x for x in (str(r["note"]), f"دوباره خوانده شد: {r['price']} ← {ans['price']}") if x)
+            it.at[i, "price"], it.at[i, "unit"], it.at[i, "toman"] = str(ans["price"]), str(unit), str(t)
+            changed += 1
+    write_csv(it, d / "items.csv", ITEM_COLS)
+    done_p.write_text(json.dumps(sorted(done)))
+    log.info("PRICELIST recheck %s: %d of %d far prices read differently", run, changed, len(keys))
+    return changed
 
 
 def _match(cfg: dict, run: str, wc, progress=None) -> dict:
