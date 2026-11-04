@@ -449,8 +449,9 @@ def merge_rows(rows: list[dict], default_unit: str = "auto", brand: str = "") ->
         note = "" if unit else "واحد قیمت معلوم نیست"
         if unit and t is None:
             note = "قیمت خوانده‌شده معقول نیست"
-        if r.get("vat") == "yes" and t:
-            note = "؛ ".join(x for x in (note, "قیمت با ارزش افزوده است") if x)
+        if r.get("vat") == "yes" and t:                 # only a price with VAT: held for the person (4 Nov)
+            note = "؛ ".join(x for x in (note, f"فقط قیمت با ارزش افزوده چاپ شده ({t:,})؛ قیمت بدون ارزش افزوده را وارد کنید") if x)
+            t = None
         unit = unit if unit else ("" if not r.get("unit") else "")
         row = {"brand": r.get("brand", "") or brand, "model": r["model"].strip(), "key": k, "name": r.get("name", "").strip(),
                "price": r["price"], "unit": unit, "toman": t or "", "list_date": r.get("list_date", ""),
