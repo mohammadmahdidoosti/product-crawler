@@ -167,8 +167,16 @@ def add_url(cfg: dict, run: str, url: str) -> dict:
         if r.status_code != 200 or "text/html" in r.headers.get("content-type", ""):
             raise ValueError("فایل گوگل درایو باز نشد؛ اشتراک را «هر کس لینک دارد» کنید")
         if not name:
-            m = re.search(r"filename\*?=(?:UTF-8'')?\"?([^\";]+)", r.headers.get("content-disposition", ""))
-            name = _unq(m.group(1)) if m else f"{fid}.pdf"
+            cd = r.headers.get("content-disposition", "")
+            m = re.search(r"filename\*=UTF-8''([^;]+)", cd, re.I)
+            if m:
+                name = _unq(m.group(1))
+            else:                                       # a raw UTF-8 name arrives read as latin-1
+                m = re.search(r'filename="?([^";]+)', cd)
+                try:
+                    name = m.group(1).encode("latin-1").decode("utf-8") if m else f"{fid}.pdf"
+                except (UnicodeEncodeError, UnicodeDecodeError):
+                    name = m.group(1) if m else f"{fid}.pdf"
         return add_file(cfg, run, r.content, name)
 
     m = DRIVE_ID.search(url)
