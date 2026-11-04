@@ -489,3 +489,17 @@ class ShortCodesAndOtherMakers(unittest.TestCase):
             self.assertTrue(PL._brand_fits({"name": "قلم", "brands": []}, None, {}, "پیکوران", cfg))
             self.assertFalse(PL._brand_fits({"name": "قلم SDS", "brands": [{"id": 3, "name": "بوش"}]}, None, {}, "پیکوران", cfg))
             self.assertTrue(PL._brand_fits({"name": "قلم", "brands": [{"id": 4, "name": "پیکوران"}]}, {"id": 4}, {}, "پیکوران", cfg))
+
+
+class CategoryByModel(unittest.TestCase):
+    """4 Nov, Pooya: 'هیتر گازی پلی اتیلن 315' has no category with all its words; the model picks one."""
+
+    def test_model_picks(self):
+        class Idx:
+            def match(self, name, n=3):
+                return [{"taxonomy_id": "1", "leaf": "لوله پلی اتیلن", "breadcrumb": "لوله > لوله پلی اتیلن"},
+                        {"taxonomy_id": "2", "leaf": "دستگاه جوش پلی اتیلن", "breadcrumb": "جوش > دستگاه جوش پلی اتیلن"}]
+        with mock.patch.object(PL, "_openrouter", return_value=({"pick": 1}, 0.0)):
+            self.assertEqual(PL._leaf_llm({}, Idx(), "هیتر گازی پلی اتیلن 315")["taxonomy_id"], "2")
+        with mock.patch.object(PL, "_openrouter", return_value=({"pick": None}, 0.0)):
+            self.assertIsNone(PL._leaf_llm({}, Idx(), "چیزی"))

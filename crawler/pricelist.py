@@ -1181,6 +1181,39 @@ def queue_new(cfg: dict, run: str) -> dict:
     return {"run": name, "queued": len(rows), "no_category": skipped}
 
 
+LEAF_SYSTEM = """You choose the category of an Iranian tools and industrial-equipment shop for one product.
+Pick the most specific category path that this exact product belongs in. A category of another kind of
+product, of a part or accessory of it, or of another maker is wrong. Words may differ (هیتر = صفحه گرمکن,
+کالیبر = لقمه جوش). If none fits, answer null. Reply JSON only: {"pick": <number or null>}"""
+
+
+def _leaf_llm(cfg: dict, idx, name: str, hint: str = "") -> dict | None:
+    """When no category's every word is in the name (4 Nov, Pooya: 48 of 51 rows had none), the cheap model
+    picks among the closest categories, or none."""
+    from .routing import leaf_brand
+    seen, cands = set(), []
+    for q in dict.fromkeys([name, _syn(name)]):
+        for x in idx.match(str(q), n=25):
+            if x["taxonomy_id"] not in seen and not leaf_brand(x["leaf"]):
+                seen.add(x["taxonomy_id"])
+                cands.append(x)
+    if not cands:
+        return None
+    cands = cands[:30]
+    user = f"product: {name}\n" + (f"the maker's own shop files it under: {hint}\n" if hint else "") + \
+        "\n".join(f"{j}: {c['breadcrumb']}" for j, c in enumerate(cands))
+    try:
+        ans, _ = _openrouter(cfg, [{"role": "system", "content": LEAF_SYSTEM}, {"role": "user", "content": user}],
+                             max_tokens=60, title="Caravan price list category")
+    except Exception:                                    # noqa: BLE001 - no model: no category, as before
+        return None
+    try:
+        j = (ans or {}).get("pick")
+        return cands[int(j)] if j is not None and 0 <= int(j) < len(cands) else None
+    except (TypeError, ValueError):
+        return None
+
+
 def _leaf_for(idx, name: str) -> dict | None:
     """The taxonomy leaf for a new row: every word of the leaf must be in the row's name (no other maker's
     leaf, no part's leaf)."""
@@ -1471,7 +1504,8 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
                 res["error"] = "قبلاً ساخته شده"
                 out.append(res)
                 continue
-            leaf = _leaf_for(idx, r["list_name"])
+            site = found.get(str(r["key"])) or {}
+            leaf = _leaf_for(idx, r["list_name"]) or _leaf_llm(cfg, idx, r["list_name"], str(site.get("categories") or ""))
             wp = cats.get(str(leaf["taxonomy_id"])) if leaf else None
             if not wp:
                 res["error"] = "دسته‌ی مناسب پیدا نشد"
