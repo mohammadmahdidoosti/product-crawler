@@ -41,10 +41,10 @@ from .io import read_csv, write_csv
 
 log = logging.getLogger(__name__)
 OPENROUTER = "https://openrouter.ai/api/v1/chat/completions"
-ITEM_COLS = ["brand", "model", "key", "name", "price", "unit", "toman", "list_date", "file", "note"]
+ITEM_COLS = ["brand", "model", "key", "name", "price", "unit", "toman", "list_date", "file", "note", "stock", "vat", "photo"]
 PLAN_COLS = ["action", "key", "model", "brand", "list_name", "list_toman", "product_id", "product_name", "status",
              "site_toman", "change_pct", "site_brand", "big", "note"]
-EXTRA_COLS = ["fix_brand", "keep_id", "stock"]
+EXTRA_COLS = ["fix_brand", "keep_id", "stock", "list_stock"]
 MONTHS = {m: i for i, m in enumerate(["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان",
                                       "آذر", "دی", "بهمن", "اسفند"], 1)}
 # a product holding the model code but being only a part or a consumable of it
@@ -52,19 +52,26 @@ PARTS = ("باتری", "شارژر", "آرمیچر", "آرمیچر", "ذغال",
          "قاب", "دسته", "چرخ", "بلبرینگ", "سیم پیچ", "استاتور", "گیربکس", "پیستون", "واشر", "اورینگ", "لنت", "نازل")
 FA_DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩", "01234567890123456789")
 
-VISION_SYSTEM = """You read Iranian supplier price lists (posters, catalog pages, tables).
+VISION_SYSTEM = """You read Iranian supplier price lists and catalogs (posters, catalog pages, tables).
 Return JSON: {"list_date": "<date or month and year printed, e.g. آبان ۱۴۰۵ or 1405/08/01, or empty>",
  "brand": "<the maker or supplier named on the page, as printed, or empty>",
- "rows": [{"model": "<the product's model code ONLY when one is printed as an identifier (letters and digits such as
-            VR2402-BCK, LE-710, P3355); empty when the row has no model code. Never put a size, a size range
+ "rows": [{"model": "<the product's model code ONLY when one is printed as an identifier (letters and/or digits such as
+            VR2402-BCK, LE-710, P3355, 2119); empty when the row has no model code. Never put a size, a size range
             (90-315, 1/2 اینچ) or a row number here>",
            "name": "<the row's full product name exactly as printed, with its sizes and variant words
             (دستی / نیمه هیدرولیک / تمام هیدرولیک, دو فک / چهار فک ...)>",
-           "brand": "<maker of this row if it differs from the page's, else empty>",
-           "price": "<the price digits exactly as printed>", "unit": "rial|toman|unknown"}]}
-One row for EVERY product line that has a price, also rows without a model code. Copy digits exactly.
-The unit comes from the words near the prices (ریال = rial, تومان = toman). Leave out cartons, counts, row numbers,
-phone numbers and other numbers that are not the price. No prose, only the JSON."""
+           "brand": "<maker of this row if it differs from the page's (a catalog may carry other makers), else empty>",
+           "price": "<the price digits exactly as printed, or empty when the row shows no price>",
+           "unit": "rial|toman|thousand_toman|thousand_rial|unknown",
+           "vat": <true only when the price you copied includes VAT (با احتساب ارزش افزوده) and no price without it is printed>,
+           "stock": "<yes|no from a stock / availability column (موجود, ناموجود, 0, ✓, ✗; a count above 0 is yes); empty when the page has no such column>",
+           "photo": [x0, y0, x1, y1] <box of THIS row's own product photo on the page, 0-1000 (x right, y down), when the page
+            shows a photo of this product; else []>}]}
+One row for EVERY product line, also rows without a model code or without a price. Copy digits exactly.
+When a row has several prices, copy the consumer price (مصرف کننده / خرده) rather than the dealer price (همکار / عمده),
+and the price WITHOUT VAT (بدون ارزش افزوده) rather than with it. The unit comes from the words near the prices
+(ریال = rial, تومان = toman, هزار تومان = thousand_toman). Leave out cartons, counts, row numbers, phone numbers and
+other numbers that are not the price. No prose, only the JSON."""
 
 
 # ------------------------------------------------------------------ places and small helpers
@@ -105,6 +112,27 @@ def add_file(cfg: dict, run: str, data: bytes, filename: str) -> dict:
     name = re.sub(r"[^\w.\-]+", "_", Path(filename or "file").name)[-80:] or "file"
     if len(list(d.glob("*"))) >= int(settings(cfg)["max_files"]):
         raise ValueError("تعداد فایل‌های این اجرا به سقف رسیده")
+    import hashlib
+    h = hashlib.sha1(data).hexdigest()
+    for old in d.glob("*"):                             # the same file twice (4 Nov: Arva's list sent under two names)
+        if old.is_file() and old.stat().st_size == len(data) and hashlib.sha1(old.read_bytes()).hexdigest() == h:
+            return {"files": 0, "same_as": old.name}
+    if name.lower().endswith(".rar"):
+        import shutil
+        import subprocess
+        import tempfile
+        if not shutil.which("unar"):
+            raise ValueError("فایل rar روی سرور باز نمی‌شود؛ آن را zip کنید یا عکس‌ها را جدا بدهید")
+        with tempfile.TemporaryDirectory() as t:
+            src = Path(t) / "in.rar"
+            src.write_bytes(data)
+            subprocess.run(["unar", "-q", "-f", "-o", str(Path(t) / "x"), str(src)], check=True, timeout=300)
+            n = 0
+            for f in (Path(t) / "x").rglob("*"):
+                if f.is_file() and f.name.lower().endswith((".jpg", ".jpeg", ".png", ".webp", ".pdf", ".xlsx", ".csv")):
+                    (d / re.sub(r"[^\w.\-]+", "_", f.name)[-80:]).write_bytes(f.read_bytes())
+                    n += 1
+        return {"files": n}
     if name.lower().endswith((".zip",)):
         import zipfile
         n = 0
@@ -117,6 +145,55 @@ def add_file(cfg: dict, run: str, data: bytes, filename: str) -> dict:
         return {"files": n}
     (d / name).write_bytes(data)
     return {"files": 1}
+
+
+DRIVE_ID = re.compile(r"(?:/d/|/folders/|[?&]id=)([\w-]{20,})")
+
+
+def add_url(cfg: dict, run: str, url: str) -> dict:
+    """A link instead of an upload (4 Nov): a Google Drive file or a whole shared folder ('anyone with the link'),
+    or any direct file address. Every file of a folder is added (the same file twice only once)."""
+    import requests
+    from urllib.parse import unquote as _unq
+    url = str(url or "").strip()
+    if not re.match(r"https?://", url):
+        raise ValueError("لینک درست نیست")
+    s = requests.Session()
+    s.headers["User-Agent"] = "Mozilla/5.0 (CaravanSanat price list)"
+
+    def drive_file(fid: str, name: str = "") -> dict:
+        r = s.get("https://drive.usercontent.google.com/download", params={"id": fid, "export": "download", "confirm": "t"},
+                  timeout=600)
+        if r.status_code != 200 or "text/html" in r.headers.get("content-type", ""):
+            raise ValueError("فایل گوگل درایو باز نشد؛ اشتراک را «هر کس لینک دارد» کنید")
+        if not name:
+            m = re.search(r"filename\*?=(?:UTF-8'')?\"?([^\";]+)", r.headers.get("content-disposition", ""))
+            name = _unq(m.group(1)) if m else f"{fid}.pdf"
+        return add_file(cfg, run, r.content, name)
+
+    m = DRIVE_ID.search(url)
+    if "drive.google.com" in url and "/folders/" in url and m:
+        r = s.get("https://drive.google.com/embeddedfolderview", params={"id": m.group(1)}, timeout=60)
+        if r.status_code != 200:
+            raise ValueError("پوشه‌ی گوگل درایو باز نشد؛ اشتراک را «هر کس لینک دارد» کنید")
+        found = re.findall(r'href="https://drive\.google\.com/file/d/([\w-]{20,})/view[^"]*"[^>]*>.*?'
+                           r'<div class="flip-entry-title">([^<]+)</div>', r.text, re.S)
+        if not found:
+            found = [(fid, "") for fid in dict.fromkeys(re.findall(r"/file/d/([\w-]{20,})", r.text))]
+        n, same, failed = 0, 0, []
+        for fid, name in found:
+            try:
+                res = drive_file(fid, name.strip())
+                n += res.get("files", 0)
+                same += 1 if res.get("same_as") else 0
+            except Exception as e:                       # noqa: BLE001 - one file never stops the others
+                failed.append(f"{name or fid}: {e}"[:120])
+        return {"files": n, "same": same, "failed": failed, "in_folder": len(found)}
+    if "drive.google.com" in url and m:
+        return drive_file(m.group(1))
+    r = s.get(url, timeout=600)
+    r.raise_for_status()
+    return add_file(cfg, run, r.content, _unq(url.split("?")[0].rstrip("/").split("/")[-1]) or "file")
 
 
 def model_key(s) -> str:
@@ -169,11 +246,16 @@ def contains_model(text: str, key: str) -> bool:
 
 
 def to_toman(price, unit: str) -> int | None:
-    raw = re.sub(r"\D", "", str(price or "").translate(FA_DIGITS))
-    if not raw:
-        return None
-    v = int(raw)
-    if unit == "rial":
+    txt = str(price or "").translate(FA_DIGITS).replace("٫", ".").strip()
+    if unit in ("thousand_toman", "thousand_rial") and re.fullmatch(r"\d+\.\d{1,2}", txt):
+        v = float(txt) * 1000                        # '22.8' thousand toman
+    else:
+        raw = re.sub(r"\D", "", txt)               # '۴۴۹/۹۹۹/۰۰۰', '359.999.000', '۲۳۹٬۹۸۰٬۰۰۰'
+        if not raw:
+            return None
+        v = int(raw) * (1000 if unit in ("thousand_toman", "thousand_rial") else 1)
+    v = int(v)
+    if unit in ("rial", "thousand_rial"):
         v //= 10
     return v if 10_000 <= v <= 20_000_000_000 else None
 
@@ -236,6 +318,31 @@ def _vision(cfg: dict, png: bytes, mime: str = "image/jpeg") -> tuple[dict | Non
                                  {"type": "image_url", "image_url": {"url": f"data:{mime};base64," + base64.b64encode(png).decode()}}]}])
 
 
+def _crop(d: Path, pic: bytes, box: list, row: dict) -> str:
+    """A catalog page's photo of one product (4 Nov, Tosan: one product a page with its photo) -> photos/<key>.webp,
+    used for a new product when the supplier's site has none. Small boxes are left out."""
+    try:
+        from PIL import Image
+        x0, y0, x1, y1 = [max(0.0, min(1000.0, float(v))) for v in box]
+        if x1 - x0 < 60 or y1 - y0 < 60:
+            return ""
+        im = Image.open(io.BytesIO(pic)).convert("RGB")
+        W, H = im.size
+        c = im.crop((int(x0 / 1000 * W), int(y0 / 1000 * H), int(x1 / 1000 * W), int(y1 / 1000 * H)))
+        if min(c.size) < 250:
+            return ""
+        k = model_key(row["model"])
+        k = k if len(k) >= 3 and re.search(r"\d", k) else name_key(row["name"])
+        if not k:
+            return ""
+        (d / "photos").mkdir(exist_ok=True)
+        out = d / "photos" / f"{k}.webp"
+        c.save(out, "WEBP", quality=88)
+        return out.name
+    except Exception:                                    # noqa: BLE001 - a photo is never worth a row
+        return ""
+
+
 def _images_of(f: Path) -> list[tuple[str, bytes, str]]:
     """(label, picture bytes, mime) of one file: a picture as it is, a PDF page by page."""
     low = f.name.lower()
@@ -249,7 +356,7 @@ def _images_of(f: Path) -> list[tuple[str, bytes, str]]:
         with pdfplumber.open(str(f)) as pdf:
             for i, page in enumerate(pdf.pages, 1):
                 buf = io.BytesIO()
-                page.to_image(resolution=130).original.convert("RGB").save(buf, "JPEG", quality=85)
+                page.to_image(resolution=150).original.convert("RGB").save(buf, "JPEG", quality=85)
                 out.append((f"{f.name} ص{i}", buf.getvalue(), "image/jpeg"))
         return out
     return []
@@ -304,14 +411,21 @@ def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progr
                 j = cache[h]
                 for r in j.get("rows") or []:
                     if isinstance(r, dict):
-                        rows.append({"brand": str(r.get("brand") or j.get("brand") or ""), "model": str(r.get("model") or ""),
-                                     "name": str(r.get("name") or ""), "price": str(r.get("price") or ""),
-                                     "unit": str(r.get("unit") or "unknown"), "list_date": str(j.get("list_date") or ""),
-                                     "file": label})
+                        # a row's own maker (a Tosan catalog carries Mustang too) > the brand the person typed > the page's
+                        b = str(r.get("brand") or "").strip() or brand or str(j.get("brand") or "")
+                        row = {"brand": b, "model": str(r.get("model") or ""),
+                               "name": str(r.get("name") or ""), "price": str(r.get("price") or ""),
+                               "unit": str(r.get("unit") or "unknown"), "list_date": str(j.get("list_date") or ""),
+                               "file": label, "stock": str(r.get("stock") or "").strip().lower(),
+                               "vat": "yes" if r.get("vat") is True else "", "photo": ""}
+                        box = r.get("photo")
+                        if isinstance(box, list) and len(box) == 4:
+                            row["photo"] = _crop(d, pic, box, row)
+                        rows.append(row)
         except Exception as e:                           # noqa: BLE001 - one file never stops the others
             log.warning("pricelist read %s: %s", f.name, e)
             failed.append(f"{f.name}: {e}"[:200])
-    items = merge_rows(rows, default_unit, brand)
+    items = merge_rows(rows, default_unit, "")
     write_csv(items, d / "items.csv", ITEM_COLS)
     (d / "read.json").write_text(json.dumps({"files": len(files), "rows": len(rows), "items": len(items),
                                              "usd": round(usd, 4), "calls": calls, "failed": failed,
@@ -329,14 +443,19 @@ def merge_rows(rows: list[dict], default_unit: str = "auto", brand: str = "") ->
             k = name_key(r.get("name", ""))           # a row with no model code is known by its whole name
             if not k:
                 continue
-        unit = r["unit"] if r["unit"] in ("rial", "toman") else (default_unit if default_unit in ("rial", "toman") else "")
+        unit = r["unit"] if r["unit"] in ("rial", "toman", "thousand_toman", "thousand_rial") else \
+            (default_unit if default_unit in ("rial", "toman") else "")
         t = to_toman(r["price"], unit) if unit else None
         note = "" if unit else "واحد قیمت معلوم نیست"
         if unit and t is None:
             note = "قیمت خوانده‌شده معقول نیست"
-        row = {"brand": brand or r.get("brand", ""), "model": r["model"].strip(), "key": k, "name": r.get("name", "").strip(),
+        if r.get("vat") == "yes" and t:
+            note = "؛ ".join(x for x in (note, "قیمت با ارزش افزوده است") if x)
+        unit = unit if unit else ("" if not r.get("unit") else "")
+        row = {"brand": r.get("brand", "") or brand, "model": r["model"].strip(), "key": k, "name": r.get("name", "").strip(),
                "price": r["price"], "unit": unit, "toman": t or "", "list_date": r.get("list_date", ""),
-               "file": r.get("file", ""), "note": note}
+               "file": r.get("file", ""), "note": note, "stock": r.get("stock", "") if r.get("stock") in ("yes", "no") else "",
+               "vat": r.get("vat", ""), "photo": r.get("photo", "")}
         old = by.get(k)
         if old is None:
             by[k] = row
@@ -586,6 +705,7 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
             for pid, p in hits.items():
                 seen[pid] = p
                 rows.append({"action": "listed", "key": r["key"], "model": r["model"], "brand": r["brand"],
+                             "list_stock": r.get("stock", ""),
                              "list_name": r["name"], "list_toman": "", "product_id": pid,
                              "product_name": _clean_html(p.get("name")), "status": p.get("status", ""),
                              "stock": p.get("stock_status", ""), "note": "در لیست بدون قیمت؛ قیمت دست نمی‌خورد"})
@@ -595,7 +715,8 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
             continue
         if not hits:
             rows.append({"action": "new", "key": r["key"], "model": r["model"], "brand": r["brand"],
-                         "list_name": r["name"], "list_toman": int(r["toman"]), "note": r["note"]})
+                         "list_name": r["name"], "list_toman": int(r["toman"]), "note": r["note"],
+                         "list_stock": r.get("stock", "")})
             continue
         # one model, several copies on the site: the oldest published one stays (3 Nov), the rest go to it
         order = sorted(hits.values(), key=lambda p: (p.get("status") != "publish", int(p["id"])))
@@ -617,6 +738,7 @@ def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
                          "product_name": _clean_html(p.get("name")), "status": p.get("status", ""),
                          "_usd": usd, "site_brand": "، ".join(pb),
                          "_brand_ok": _brand_ok(p, bt, bres), "stock": p.get("stock_status", ""),
+                         "list_stock": r.get("stock", ""),
                          "_type": p.get("type"), "note": r["note"]})
     if rate is None:                                   # nothing of the list is on the site: any product tells it
         j = wc._call(lambda: wc._wc("GET", "products", params={"per_page": 5, "status": "publish", "context": "edit",
@@ -893,14 +1015,18 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
         usd = round(float(r["list_toman"]) / rate, 4)
         x = {"id": int(float(r["product_id"])), "regular_price": f"{usd:.4f}", "sale_price": "",
              "meta_data": lock_meta(run, int(float(r["list_toman"])))}
-        if r.get("stock") == "outofstock":
+        if r.get("list_stock") == "no":                   # the list's stock column (4 Nov, Hyundai)
+            if r.get("stock") != "outofstock":
+                x["stock_status"] = "outofstock"
+        elif r.get("stock") == "outofstock":
             x["stock_status"] = "instock"
         if r.get("fix_brand") == "yes" and (b := brand_of(r)):
             x.update(b)
         items_.append((r, x))
     for r in pl[pl["action"] == "listed"].to_dict("records"):
-        if r.get("stock") == "outofstock":
-            items_.append((r, {"id": int(float(r["product_id"])), "stock_status": "instock"}))
+        want = "outofstock" if r.get("list_stock") == "no" else "instock"
+        if (r.get("stock") or "instock") != want:
+            items_.append((r, {"id": int(float(r["product_id"])), "stock_status": want}))
     oos_rows = pl[pl["action"].isin(["other", "spread"])] if complete else pl.iloc[0:0]
     for r in oos_rows.to_dict("records"):
         x = {"id": int(float(r["product_id"]))}
@@ -1286,6 +1412,8 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
     new = pl[pl["action"] == "new"]
     if new.empty:
         raise ValueError("ردیف تازه‌ای در این لیست نیست")
+    if "list_stock" in new:                              # the list says it is not available: nothing to sell
+        new = new[new["list_stock"].astype(str) != "no"]
     if limit:                                            # a few first, to look at (3 Nov: 20 of Ronix's)
         done_keys = set(read_csv(d / "created.csv").fillna("")["key"].astype(str)) if (d / "created.csv").exists() else set()
         new = new[~new["key"].astype(str).isin(done_keys)].head(int(limit))
@@ -1337,6 +1465,10 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
                 files = _photos(cfg, run, site)
                 if not files and site.get("images") and not wc.can_upload():
                     data["images"] = [{"src": u.strip()} for u in str(site["images"]).split("|") if u.strip()][:4]
+            if not files and not data.get("images"):
+                cat = d / "photos" / f"{r['key']}.webp"       # the catalog page's own photo of it (4 Nov, Tosan)
+                if cat.exists():
+                    files, res["photo_from"] = [cat], "catalog"
             if not files and not data.get("images"):
                 files = _similar_photos(cfg, r["list_name"], str(r["brand"]))
                 res["photo_from"] = "similar" if files else ""

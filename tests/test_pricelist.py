@@ -401,3 +401,60 @@ class DigitCodeOfTheBrand(unittest.TestCase):
         self.assertEqual(got, [1])
         self.assertEqual(len(asked), 1)
         self.assertNotIn("زانو", asked[0])                    # not of the brand: never asked
+
+
+class CatalogCases(unittest.TestCase):
+    """4 Nov, the owner's 16 catalogs: price formats, a row's own maker, the same file twice, stock, photos."""
+
+    def test_price_formats(self):
+        self.assertEqual(PL.to_toman("۴۴۹/۹۹۹/۰۰۰", "rial"), 44_999_900)          # Arva
+        self.assertEqual(PL.to_toman("359.999.000", "rial"), 35_999_900)            # Hyundai
+        self.assertEqual(PL.to_toman("۲۳۹٬۹۸۰٬۰۰۰", "rial"), 23_998_000)           # Nova
+        self.assertEqual(PL.to_toman("22800", "thousand_toman"), 22_800_000)        # Boss
+        self.assertEqual(PL.to_toman("22.8", "thousand_toman"), 22_800)
+
+    def test_row_maker_wins(self):
+        rows = [{"brand": "MUSTANG", "model": "T6106", "name": "انبر دست ۶ اینچ", "price": "14/375/000", "unit": "rial",
+                 "list_date": "آبان ۱۴۰۵", "file": "a"},
+                {"brand": "توسن", "model": "2720", "name": "صفحه برش", "price": "15/395/000", "unit": "rial",
+                 "list_date": "آبان ۱۴۰۵", "file": "a", "stock": "no", "vat": "yes"}]
+        df = PL.merge_rows(rows, "auto", "").set_index("key")
+        self.assertEqual(df.loc["T6106", "brand"], "MUSTANG")
+        self.assertEqual(df.loc["2720", "stock"], "no")
+        self.assertIn("ارزش افزوده", df.loc["2720", "note"])
+
+    def test_same_file_twice(self):
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        PL.run_path(cfg, "pl-arva")
+        self.assertEqual(PL.add_file(cfg, "pl-arva", b"%PDF-1 x", "arva.pdf")["files"], 1)
+        r = PL.add_file(cfg, "pl-arva", b"%PDF-1 x", "arva-jame.pdf")
+        self.assertEqual((r["files"], r["same_as"]), (0, "arva.pdf"))
+
+    def test_catalog_photo_crop(self):
+        from PIL import Image
+        import io as _io
+        d = Path(tempfile.mkdtemp())
+        buf = _io.BytesIO()
+        Image.new("RGB", (1000, 1400), "white").save(buf, "JPEG")
+        name = PL._crop(d, buf.getvalue(), [100, 100, 600, 500], {"model": "2720", "name": "صفحه برش"})
+        self.assertEqual(name, "2720.webp")
+        self.assertTrue((d / "photos" / "2720.webp").exists())
+        self.assertEqual(PL._crop(d, buf.getvalue(), [0, 0, 50, 50], {"model": "1", "name": "x"}), "")
+
+    def test_list_stock_applied(self):
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        run = PL.run_path(cfg, "pl-hy")
+        PL.write_csv(pd.DataFrame([
+            {"action": "update", "key": "HP5246", "model": "HP-5246", "brand": "HYUNDAI", "list_name": "بکس", "list_toman": 35999900,
+             "product_id": 1, "big": "", "stock": "instock", "list_stock": "no"},
+            {"action": "update", "key": "HP5230", "model": "HP-5230", "brand": "HYUNDAI", "list_name": "اره", "list_toman": 22799900,
+             "product_id": 2, "big": "", "stock": "outofstock", "list_stock": "yes"}]), run / "plan.csv", PL.PLAN_COLS + PL.EXTRA_COLS)
+        (run / "match.json").write_text(json.dumps({"rate": 273000}))
+        PL.write_csv(pd.DataFrame(columns=PL.ITEM_COLS), run / "items.csv", PL.ITEM_COLS)
+        wc = FakeWC([_p(1, "بکس HP-5246", 1), _p(2, "اره HP-5230", 1)], [])
+        with mock.patch("crawler.catalog_publish._brand", return_value={"status": "none"}):
+            PL.apply(cfg, "pl-hy", wc=wc, complete=False)
+        ups = {x["id"]: x for x in wc.updates}
+        self.assertEqual(ups[1]["stock_status"], "outofstock")
+        self.assertEqual(ups[2]["stock_status"], "instock")
+        self.assertIn("regular_price", ups[1])

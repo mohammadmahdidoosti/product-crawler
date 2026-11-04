@@ -1327,6 +1327,8 @@ class Handler(BaseHTTPRequestHandler):
                     if not data:
                         return self._err("فایل خالی است")
                     return self._json({"ok": True, **PL.add_file(cfg, run, data, unquote(self.headers.get("X-Filename", "")))})
+                if what == "url":                       # {"url": a Google Drive file / folder link or a file address}
+                    return self._json({"ok": True, **PL.add_url(cfg, run, self._jbody().get("url") or "")})
                 if what == "edit":                      # [{key, toman?, model?, name?, delete?}]
                     return self._json({"ok": True, "edited": PL.edit_items(cfg, run, self._jbody().get("rows") or [])})
                 if what in ("read", "match", "apply", "create"):

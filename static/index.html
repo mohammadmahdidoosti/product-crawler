@@ -381,7 +381,8 @@ td select,td input{padding:3px 6px;font-size:12.5px}
     <div class="card">
       <div class="row" style="align-items:flex-end">
         <div class="field s" style="flex:0 0 220px"><label>نام اجرا</label><input id="plRun" class="ltr" placeholder="pl-vivarex-1405-08"></div>
-        <div class="field"><label>فایل‌ها (چندتا با هم)</label><input id="plFiles" type="file" multiple accept=".jpg,.jpeg,.png,.webp,.pdf,.xlsx,.csv,.zip"></div>
+        <div class="field"><label>فایل‌ها (چندتا با هم)</label><input id="plFiles" type="file" multiple accept=".jpg,.jpeg,.png,.webp,.pdf,.xlsx,.csv,.zip,.rar"></div>
+        <div class="field"><label>یا لینک (فایل یا پوشه‌ی گوگل درایو)</label><input id="plUrl" class="ltr" placeholder="https://drive.google.com/..."></div>
         <div class="field s" style="flex:0 0 150px"><label>برند (اختیاری)</label><input id="plBrand" placeholder="از روی لیست"></div>
         <div class="field s" style="flex:0 0 150px"><label>واحد اگر ننوشته</label><select id="plUnit"><option value="auto">نامعلوم</option><option value="toman">تومان</option><option value="rial">ریال</option></select></div>
         <button class="btn ink" id="plGo">بارگذاری، خواندن و تطبیق</button>
@@ -1624,6 +1625,9 @@ $('#plGo').onclick = async ()=>{
   try{
     const fs=[...$('#plFiles').files];
     for(let i=0;i<fs.length;i++){ $('#plMsg').textContent=`بارگذاری ${fa(i+1)} از ${fa(fs.length)}…`; await api(`/api/pricelist/${encodeURIComponent(run)}/upload`, {method:'POST', body:fs[i], headers:{'X-Filename':encodeURIComponent(fs[i].name)}}); }
+    const link=$('#plUrl').value.trim();
+    if(link){ $('#plMsg').textContent='دریافت از لینک… (فایل‌های بزرگ چند دقیقه طول می‌کشد)'; const u=await post(`/api/pricelist/${encodeURIComponent(run)}/url`, {url:link});
+      $('#plMsg').textContent=`از لینک: ${fa(u.files||0)} فایل` + (u.same?` (${fa(u.same)} فایل تکراری کنار رفت)`:'') + (u.failed&&u.failed.length?` · باز نشد: ${u.failed.join('، ')}`:''); }
     await post(`/api/pricelist/${encodeURIComponent(run)}/read`, {unit:$('#plUnit').value, brand:$('#plBrand').value.trim(), then_match:true});
     toast('خواندن لیست شروع شد'); plWait('lists');
   }catch(err){ toast(err.message,true); }
