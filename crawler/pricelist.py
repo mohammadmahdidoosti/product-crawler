@@ -397,17 +397,27 @@ def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progr
             if f.name.lower().endswith((".xlsx", ".xlsm", ".csv")):
                 rows += [{**r, "list_date": "", "file": f.name} for r in _table_rows(f)]
                 continue
-            for label, pic, mime in _images_of(f):
-                import hashlib
-                h = hashlib.sha1(pic + VISION_SYSTEM.encode()).hexdigest()    # a new prompt reads the picture again
-                if h not in cache:
-                    j, c = _vision(cfg, pic, mime)
+            import hashlib
+            from concurrent.futures import ThreadPoolExecutor
+            pics = [(label, pic, mime, hashlib.sha1(pic + VISION_SYSTEM.encode()).hexdigest())   # a new prompt reads again
+                    for label, pic, mime in _images_of(f)]
+            todo = [x for x in pics if x[3] not in cache]
+
+            def look(x):
+                return x[3], _vision(cfg, x[1], x[2])
+            with ThreadPoolExecutor(5) as ex:            # five pages at a time (4 Nov: Tosan's 313 pages)
+                for n_done, (h, (j, c)) in enumerate(ex.map(look, todo), 1):
                     usd, calls = usd + c, calls + 1
-                    if j is None:
-                        failed.append(f"{label}: خوانده نشد")
-                        continue
-                    cache[h] = j
-                    cache_p.write_text(json.dumps(cache, ensure_ascii=False))
+                    if j is not None:
+                        cache[h] = j
+                    if n_done % 10 == 0 or n_done == len(todo):
+                        cache_p.write_text(json.dumps(cache, ensure_ascii=False))
+                    if progress:
+                        progress(n_done, len(todo))
+            for label, pic, mime, h in pics:
+                if h not in cache:
+                    failed.append(f"{label}: خوانده نشد")
+                    continue
                 j = cache[h]
                 for r in j.get("rows") or []:
                     if isinstance(r, dict):
@@ -510,7 +520,65 @@ def site_rate(wc, pid: int) -> float | None:
     return toman / usd if usd > 0 and toman > usd * 1000 else None
 
 
+CACHE_FIELDS = "id,name,sku,status,type,regular_price,stock_status,brands"
+_CACHE: dict = {}                                       # set by match(): {"rows": [...], "flat": [...]} while it runs
+
+
+def site_cache(cfg: dict, wc, max_age_h: float = 6.0, force: bool = False) -> list[dict]:
+    """Every product of the site, light (id, name, SKU, status, type, stored price, stock, brands): read once in
+    ~360 pages and kept for a few hours (4 Nov: a list of 956 rows asked the site ~3000 times, 40 minutes, while
+    customers used it). Matching searches this copy; what it finds is the site's own product id."""
+    p = pdir(cfg) / "site_cache.jsonl"
+    meta = pdir(cfg) / "site_cache.json"
+    if not force and p.exists() and meta.exists():
+        m = json.loads(meta.read_text())
+        if time.time() - m.get("at", 0) < max_age_h * 3600:
+            return [json.loads(x) for x in p.read_text(encoding="utf-8").splitlines() if x.strip()]
+    rows, page, pages = [], 1, 1
+    while page <= pages:
+        items, total, pages = wc.products_page(page, 100, CACHE_FIELDS)
+        if not items:
+            break
+        rows += items
+        page += 1
+    tmp = p.with_suffix(".tmp")
+    tmp.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows), encoding="utf-8")
+    tmp.replace(p)
+    meta.write_text(json.dumps({"at": time.time(), "products": len(rows)}))
+    log.info("PRICELIST site cache: %d products", len(rows))
+    return rows
+
+
+def _flat_text(s: str) -> str:
+    from .normalize import norm_text
+    return " " + norm_text(_clean_html(str(s or "")).translate(FA_DIGITS)).casefold() + " "
+
+
+def _use_cache(rows: list[dict]) -> None:
+    _CACHE.clear()
+    if rows:
+        _CACHE["rows"] = rows
+        _CACHE["flat"] = [_flat_text(f"{r.get('name', '')} {r.get('sku', '')}") for r in rows]
+
+
+def _cache_search(term: str) -> list[dict]:
+    """Like the site's search: the term as a phrase, or every word of it, in the name or SKU."""
+    t = _flat_text(term).strip()
+    if not t:
+        return []
+    ws = t.split()
+    out = []
+    for r, f in zip(_CACHE["rows"], _CACHE["flat"]):
+        if t in f or all(w in f for w in ws):
+            out.append(r)
+            if len(out) >= 500:
+                break
+    return out
+
+
 def _search(wc, term: str) -> list[dict]:
+    if _CACHE.get("rows") is not None:
+        return _cache_search(term)
     out, page = [], 1
     while page <= 5:
         j = wc._call(lambda: wc._wc("GET", "products", params={"search": term, "status": "any", "per_page": 100,
@@ -527,6 +595,8 @@ def _search(wc, term: str) -> list[dict]:
 def _brand_products(wc, brand_id: int) -> list[dict]:
     """The brand's products with their stored (dollar) prices: the default 'view' answer of this site
     carries toman prices."""
+    if _CACHE.get("rows") is not None:
+        return [r for r in _CACHE["rows"] if brand_id in [b.get("id") for b in r.get("brands") or []]]
     out, page = [], 1
     while page <= 50:
         j = wc._call(lambda: wc._wc("GET", "products", params={"brand": brand_id, "status": "any", "per_page": 100,
@@ -665,11 +735,19 @@ def _pick_same(cfg: dict, name: str, brand: str, cand_names: list[str]) -> tuple
     return js, usd
 
 
-def match(cfg: dict, run: str, wc=None, progress=None) -> dict:
+def match(cfg: dict, run: str, wc=None, progress=None, cache: bool = True) -> dict:
     from .wc import WC
     wc = wc or WC()
     if not wc.ok():
         raise ValueError("WC_URL / WC_KEY / WC_SECRET روی سرور تنظیم نشده")
+    _use_cache(site_cache(cfg, wc) if cache else [])
+    try:
+        return _match(cfg, run, wc, progress)
+    finally:
+        _use_cache([])
+
+
+def _match(cfg: dict, run: str, wc, progress=None) -> dict:
     st = settings(cfg)
     it = items(cfg, run)
     if (it["toman"].astype(str).str.strip() == "").all():

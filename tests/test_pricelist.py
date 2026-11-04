@@ -92,6 +92,9 @@ class FakeWC:
     def list_brands(self):
         return self.brands
 
+    def products_page(self, page, per_page=100, fields="", status="any"):
+        return (list(self.products.values()) if page == 1 else []), len(self.products), 1
+
     def products_of_brand(self, bid):
         return [p for p in self.products.values() if bid in [b["id"] for b in p.get("brands") or []]]
 
@@ -528,3 +531,23 @@ class SellerCodeFallsBackToName(unittest.TestCase):
             PL.match(cfg, "pl-crown", wc=wc)
         pl = PL.plan(cfg, "pl-crown")
         self.assertEqual(pl.loc[pl["action"].isin(["update", "same"]), "product_id"].astype(float).astype(int).tolist(), [1])
+
+
+class SiteCopy(unittest.TestCase):
+    """4 Nov: matching searches a copy of the site (read once, kept 6 hours), not the site itself."""
+
+    def test_cache_and_search(self):
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        wc = FakeWC([_p(1, "دریل شارژی ویوارکس مدل VR2010-BLX", 1), _p(2, "مینی فرز ویوارکس VR9525-AG", 1)], [])
+        rows = PL.site_cache(cfg, wc)
+        self.assertEqual(len(rows), 2)
+        wc.products = {}                                   # the copy is used while it is fresh
+        self.assertEqual(len(PL.site_cache(cfg, wc)), 2)
+        self.assertEqual(len(PL.site_cache(cfg, wc, force=True)), 0)
+        PL._use_cache(rows)
+        try:
+            self.assertEqual([r["id"] for r in PL._search(None, "VR2010-BLX")], [1])
+            self.assertEqual([r["id"] for r in PL._search(None, "فرز ویوارکس")], [2])
+            self.assertEqual([r["id"] for r in PL._brand_products(None, 5)], [1, 2])
+        finally:
+            PL._use_cache([])
