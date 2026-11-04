@@ -245,6 +245,15 @@ def contains_model(text: str, key: str) -> bool:
     return re.search(pat, t) is not None
 
 
+def contains_digits_code(text: str, key: str) -> bool:
+    """A list code of digits only that is the maker's model without its letters (4 Nov, Crown: '۱۵۲۱۲' in the
+    list is 'CT15212' on the site)."""
+    if not key.isdigit() or len(key) < 4:
+        return False
+    t = str(text or "").translate(FA_DIGITS).upper()
+    return re.search(r"(?<![A-Z0-9])[A-Z]{1,4}[\s\-]?" + re.escape(key) + r"(?![0-9])", t) is not None
+
+
 def to_toman(price, unit: str) -> int | None:
     txt = str(price or "").translate(FA_DIGITS).replace("٫", ".").strip()
     if unit in ("thousand_toman", "thousand_rial") and re.fullmatch(r"\d+\.\d{1,2}", txt):
@@ -850,7 +859,8 @@ def _match(cfg: dict, run: str, wc, progress=None) -> dict:
         maybe = {}
         for term in ([] if is_name_key(r["key"]) else dict.fromkeys([r["model"], r["model"].replace("-", " "), r["key"]])):
             for p in _search(wc, term):
-                if contains_model(f"{p.get('name')} {p.get('sku')}", r["key"]) and not _is_part(p.get("name"), r["name"]) \
+                txt = f"{p.get('name')} {p.get('sku')}"
+                if (contains_model(txt, r["key"]) or contains_digits_code(txt, r["key"])) and not _is_part(p.get("name"), r["name"]) \
                         and _brand_fits(p, bt, bres, r["brand"], cfg):
                     if not weak_key(r["key"]) or kind_in(p.get("name"), r["name"]):
                         hits[p["id"]] = p

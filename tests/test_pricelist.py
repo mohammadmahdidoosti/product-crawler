@@ -572,3 +572,12 @@ class RecheckFarPrices(unittest.TestCase):
         it = PL.items(cfg, "pl-crown")
         self.assertEqual(int(float(it.loc[0, "toman"])), 21_400_000)
         self.assertIn("دوباره خوانده شد", it.loc[0, "note"])
+
+
+class MakerCodeWithoutLetters(unittest.TestCase):
+    def test_digits_are_the_maker_model(self):
+        self.assertTrue(PL.contains_digits_code("اره عمود بر 550 وات کرون مدل CT15212", "15212"))
+        self.assertTrue(PL.contains_digits_code("دریل بتن کن کرون CT-18182", "18182"))
+        self.assertFalse(PL.contains_digits_code("اره CT152120", "15212"))
+        self.assertFalse(PL.contains_digits_code("اره 15212", "15212"))            # plain digits: contains_model's case
+        self.assertFalse(PL.contains_digits_code("CT152", "152"))                   # too short
