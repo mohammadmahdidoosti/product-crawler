@@ -1355,19 +1355,38 @@ product, of a part or accessory of it, or of another maker is wrong. Words may d
 کالیبر = لقمه جوش). If none fits, answer null. Reply JSON only: {"pick": <number or null>}"""
 
 
-def _leaf_llm(cfg: dict, idx, name: str, hint: str = "") -> dict | None:
+def _leaf_llm(cfg: dict, idx, name: str, hint: str = "", tax: pd.DataFrame | None = None,
+              cats: dict | None = None) -> dict | None:
     """When no category's every word is in the name (4 Nov, Pooya: 48 of 51 rows had none), the cheap model
-    picks among the closest categories, or none."""
+    picks among the closest categories, or none. The taxonomy's leaves are often single products ('الکتروپمپ
+    آب کولری sh300'), so the leaves' parents ('ابزار دستی > آچار') and the shop's second-level categories are
+    offered too (4 Nov, Hyundai: آچار فرانسه, متر, تبر found no leaf)."""
     from .routing import leaf_brand
     seen, cands = set(), []
+
+    def add(x):
+        if x["taxonomy_id"] not in seen and not leaf_brand(x["leaf"]) and (cats is None or str(x["taxonomy_id"]) in cats):
+            seen.add(x["taxonomy_id"])
+            cands.append(x)
+    by_bc = {}
+    if tax is not None and len(tax):
+        for r in tax.to_dict("records"):
+            by_bc[str(r["breadcrumb"]).strip()] = {"taxonomy_id": r["taxonomy_id"], "breadcrumb": r["breadcrumb"],
+                                                   "leaf": r.get("leaf") or str(r["breadcrumb"]).split(">")[-1].strip()}
     for q in dict.fromkeys([name, _syn(name)]):
-        for x in idx.match(str(q), n=25):
-            if x["taxonomy_id"] not in seen and not leaf_brand(x["leaf"]):
-                seen.add(x["taxonomy_id"])
-                cands.append(x)
+        for x in idx.match(str(q), n=20):
+            add(x)
+            parts = [p.strip() for p in str(x["breadcrumb"]).split(">")]
+            for k in range(len(parts) - 1, 1, -1):             # its parents, nearest first
+                up = by_bc.get(" > ".join(parts[:k]))
+                if up:
+                    add(up)
+    for bc, x in by_bc.items():                                # the shop's second level, for what matched nothing
+        if bc.count(">") == 1:
+            add(x)
     if not cands:
         return None
-    cands = cands[:30]
+    cands = cands[:120]
     user = f"product: {name}\n" + (f"the maker's own shop files it under: {hint}\n" if hint else "") + \
         "\n".join(f"{j}: {c['breadcrumb']}" for j, c in enumerate(cands))
     try:
@@ -1653,7 +1672,8 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
         done_keys = set(read_csv(d / "created.csv").fillna("")["key"].astype(str)) if (d / "created.csv").exists() else set()
         new = new[~new["key"].astype(str).isin(done_keys)].head(int(limit))
     rate = float(json.loads((d / "match.json").read_text())["rate"])
-    idx, cats = TaxIndex(load_tax(cfg), cfg), category_map()
+    tax = load_tax(cfg)
+    idx, cats = TaxIndex(tax, cfg), category_map()
     brands, writer = SiteBrands(wc), Writer(cfg)
     if get_site(cfg, run) and not (d / "site_match.csv").exists():
         site_match(cfg, run, stop=stop)                  # the supplier's own site gives photos and text
@@ -1671,7 +1691,8 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
                 res["error"] = "قبلاً ساخته شده"
                 return res
             site = found.get(str(r["key"])) or {}
-            leaf = _leaf_for(idx, r["list_name"]) or _leaf_llm(cfg, idx, r["list_name"], str(site.get("categories") or ""))
+            leaf = _leaf_for(idx, r["list_name"]) or _leaf_llm(cfg, idx, r["list_name"], str(site.get("categories") or ""),
+                                                               tax, cats)
             wp = cats.get(str(leaf["taxonomy_id"])) if leaf else None
             if not wp:
                 res["error"] = "دسته‌ی مناسب پیدا نشد"

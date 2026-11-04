@@ -593,3 +593,25 @@ class NumbersAndBrand(unittest.TestCase):
         finally:
             PL._use_cache([])
         self.assertIn(1, [p["id"] for p in c])
+
+
+class ParentCategories(unittest.TestCase):
+    def test_parent_offered(self):
+        class Idx:
+            def match(self, name, n=3):
+                return [{"taxonomy_id": "9", "leaf": "آچار دو سر", "breadcrumb": "ابزار دستی > آچار > آچار دو سر"}]
+        tax = pd.DataFrame([{"taxonomy_id": "1", "breadcrumb": "ابزار دستی", "leaf": "ابزار دستی"},
+                            {"taxonomy_id": "5", "breadcrumb": "ابزار دستی > آچار", "leaf": "آچار"},
+                            {"taxonomy_id": "9", "breadcrumb": "ابزار دستی > آچار > آچار دو سر", "leaf": "آچار دو سر"},
+                            {"taxonomy_id": "7", "breadcrumb": "باغبانی > تبر", "leaf": "تبر"}])
+        seen = {}
+
+        def pick(cfg, messages, **kw):
+            lines = messages[1]["content"].splitlines()[1:]
+            seen["lines"] = lines
+            j = next(i for i, l in enumerate(lines) if l.endswith("ابزار دستی > آچار"))
+            return {"pick": j}, 0.0
+        with mock.patch.object(PL, "_openrouter", side_effect=pick):
+            got = PL._leaf_llm({}, Idx(), "آچار فرانسه 8 اینچ", tax=tax, cats={"5": "50", "9": "90", "7": "70"})
+        self.assertEqual(got["taxonomy_id"], "5")
+        self.assertTrue(any(l.endswith("باغبانی > تبر") for l in seen["lines"]))   # second level offered too
