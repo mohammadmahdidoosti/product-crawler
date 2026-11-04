@@ -617,6 +617,38 @@ class ParentCategories(unittest.TestCase):
         self.assertTrue(any(l.endswith("باغبانی > تبر") for l in seen["lines"]))   # second level offered too
 
 
+class BroadCategoryAndPlaced(unittest.TestCase):
+    TAX = pd.DataFrame([{"taxonomy_id": "1", "breadcrumb": "ابزار دستی", "leaf": "ابزار دستی"},
+                        {"taxonomy_id": "5", "breadcrumb": "ابزار دستی > آچار", "leaf": "آچار"},
+                        {"taxonomy_id": "6", "breadcrumb": "قطعات > بلبرینگ و چرخ دنده", "leaf": "بلبرینگ و چرخ دنده"},
+                        {"taxonomy_id": "9", "breadcrumb": "ابزار دستی > آچار > آچار دو سر", "leaf": "آچار دو سر"}])
+
+    def test_broad_offers_second_level_only(self):
+        seen = {}
+
+        def pick(cfg, messages, **kw):
+            lines = messages[1]["content"].splitlines()[1:]
+            seen["lines"] = lines
+            return {"pick": next(i for i, l in enumerate(lines) if "بلبرینگ" in l)}, 0.0
+        with mock.patch.object(PL, "_openrouter", side_effect=pick):
+            got = PL._broad_llm({}, "بلبرینگ 6204", tax=self.TAX, cats={"5": "50", "6": "60", "9": "90"})
+        self.assertEqual(got["taxonomy_id"], "6")
+        self.assertEqual(len(seen["lines"]), 2)          # the two second-level categories, no leaf, no top
+
+    def test_broad_none(self):
+        with mock.patch.object(PL, "_openrouter", return_value=({"pick": None}, 0.0)):
+            self.assertIsNone(PL._broad_llm({}, "کنسول بازی", tax=self.TAX, cats=None))
+
+    def test_placed_categories(self):
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        d = PL.run_path(cfg, "pl-x")
+        PL.write_csv(pd.DataFrame([{"key": "A1", "taxonomy_id": "6"}, {"key": "B2", "taxonomy_id": "404"}]),
+                     d / "categories.csv", ["key", "taxonomy_id"])
+        got = PL.placed_categories(cfg, "pl-x", self.TAX)
+        self.assertEqual(got["A1"]["breadcrumb"], "قطعات > بلبرینگ و چرخ دنده")
+        self.assertNotIn("B2", got)                      # an unknown category is not used
+
+
 class RecheckMissingPrice(unittest.TestCase):
     def test_unpriced_row_read_again(self):
         cfg = {"_data_dir": Path(tempfile.mkdtemp())}

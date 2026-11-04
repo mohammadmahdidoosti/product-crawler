@@ -1368,6 +1368,52 @@ product, of a part or accessory of it, or of another maker is wrong. Words may d
 کالیبر = لقمه جوش). If none fits, answer null. Reply JSON only: {"pick": <number or null>}"""
 
 
+BROAD_SYSTEM = """You choose the category of an Iranian tools and industrial-equipment shop for one product.
+No exact category exists for it, so pick the closest BROADER category from the list that this kind of
+product belongs under (a hammer -> hand tools, a bearing -> bearings and gears). Answer null only when the
+shop sells nothing of this kind. Reply JSON only: {"pick": <number or null>}"""
+
+
+def _broad_llm(cfg: dict, name: str, hint: str = "", tax: pd.DataFrame | None = None,
+               cats: dict | None = None) -> dict | None:
+    """(4 Nov) When no exact category fits, the shop's second-level category it belongs under, so a product
+    is never left unmade for want of a category (494 rows of 9 lists were)."""
+    if tax is None or not len(tax):
+        return None
+    cands = []
+    for r in tax.to_dict("records"):
+        bc = str(r["breadcrumb"]).strip()
+        if bc.count(">") == 1 and (cats is None or str(r["taxonomy_id"]) in cats):
+            cands.append({"taxonomy_id": r["taxonomy_id"], "breadcrumb": bc, "leaf": bc.split(">")[-1].strip()})
+    if not cands:
+        return None
+    user = f"product: {name}\n" + (f"the maker's own shop files it under: {hint}\n" if hint else "") + \
+        "\n".join(f"{j}: {c['breadcrumb']}" for j, c in enumerate(cands))
+    try:
+        ans, _ = _openrouter(cfg, [{"role": "system", "content": BROAD_SYSTEM}, {"role": "user", "content": user}],
+                             max_tokens=60, title="Caravan price list category")
+        j = (ans or {}).get("pick")
+        return cands[int(j)] if j is not None and 0 <= int(j) < len(cands) else None
+    except Exception:                                    # noqa: BLE001 - no model: no category
+        return None
+
+
+def placed_categories(cfg: dict, run: str, tax: pd.DataFrame | None) -> dict[str, dict]:
+    """A run's categories.csv (key -> taxonomy_id): categories chosen for its rows by hand or by the
+    category maker (4 Nov), used before any guess."""
+    p = run_path(cfg, run) / "categories.csv"
+    if not p.exists() or tax is None:
+        return {}
+    by_id = {str(r["taxonomy_id"]): r for r in tax.to_dict("records")}
+    out = {}
+    for r in read_csv(p).fillna("").to_dict("records"):
+        t = by_id.get(str(r.get("taxonomy_id", "")).strip())
+        if t:
+            out[str(r["key"])] = {"taxonomy_id": t["taxonomy_id"], "breadcrumb": t["breadcrumb"],
+                                  "leaf": str(t["breadcrumb"]).split(">")[-1].strip()}
+    return out
+
+
 def _leaf_llm(cfg: dict, idx, name: str, hint: str = "", tax: pd.DataFrame | None = None,
               cats: dict | None = None) -> dict | None:
     """When no category's every word is in the name (4 Nov, Pooya: 48 of 51 rows had none), the cheap model
@@ -1687,6 +1733,7 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
     rate = float(json.loads((d / "match.json").read_text())["rate"])
     tax = load_tax(cfg)
     idx, cats = TaxIndex(tax, cfg), category_map()
+    placed = placed_categories(cfg, run, tax)
     brands, writer = SiteBrands(wc), Writer(cfg)
     if get_site(cfg, run) and not (d / "site_match.csv").exists():
         site_match(cfg, run, stop=stop)                  # the supplier's own site gives photos and text
@@ -1704,8 +1751,9 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
                 res["error"] = "قبلاً ساخته شده"
                 return res
             site = found.get(str(r["key"])) or {}
-            leaf = _leaf_for(idx, r["list_name"]) or _leaf_llm(cfg, idx, r["list_name"], str(site.get("categories") or ""),
-                                                               tax, cats)
+            hint = str(site.get("categories") or "")
+            leaf = placed.get(str(r["key"])) or _leaf_for(idx, r["list_name"]) or \
+                _leaf_llm(cfg, idx, r["list_name"], hint, tax, cats) or _broad_llm(cfg, r["list_name"], hint, tax, cats)
             wp = cats.get(str(leaf["taxonomy_id"])) if leaf else None
             if not wp:
                 res["error"] = "دسته‌ی مناسب پیدا نشد"
