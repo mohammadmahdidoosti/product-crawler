@@ -615,3 +615,21 @@ class ParentCategories(unittest.TestCase):
             got = PL._leaf_llm({}, Idx(), "آچار فرانسه 8 اینچ", tax=tax, cats={"5": "50", "9": "90", "7": "70"})
         self.assertEqual(got["taxonomy_id"], "5")
         self.assertTrue(any(l.endswith("باغبانی > تبر") for l in seen["lines"]))   # second level offered too
+
+
+class RecheckMissingPrice(unittest.TestCase):
+    def test_unpriced_row_read_again(self):
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        run = PL.run_path(cfg, "pl-agro")
+        (run / "files").mkdir()
+        (run / "files" / "a.jpg").write_bytes(b"jpg")
+        rows = [{"brand": "اگرو", "model": f"M{i}00", "key": f"M{i}00", "name": "x", "price": "1", "unit": "toman",
+                 "toman": "1000000", "list_date": "", "file": "a.jpg", "note": ""} for i in range(3)]
+        rows.append({"brand": "اگرو", "model": "", "key": "NY", "name": "سمپاش پشتی موتوری ۲۵ لیتر", "price": "", "unit": "",
+                     "toman": "", "list_date": "", "file": "a.jpg", "note": "واحد قیمت معلوم نیست"})
+        PL.write_csv(pd.DataFrame(rows), run / "items.csv", PL.ITEM_COLS)
+        PL.write_csv(pd.DataFrame(columns=PL.PLAN_COLS), run / "plan.csv", PL.PLAN_COLS)
+        with mock.patch.object(PL, "_openrouter", return_value=({"price": "125,000,000", "unit": "rial", "found": True}, 0.0)):
+            self.assertEqual(PL.recheck(cfg, "pl-agro"), 1)
+        it = PL.items(cfg, "pl-agro").set_index("key")
+        self.assertEqual(int(float(it.loc["NY", "toman"])), 12_500_000)

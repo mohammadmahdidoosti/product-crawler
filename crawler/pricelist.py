@@ -758,7 +758,8 @@ def match(cfg: dict, run: str, wc=None, progress=None, cache: bool = True) -> di
     _use_cache(site_cache(cfg, wc) if cache else [])
     try:
         summ = _match(cfg, run, wc, progress)
-        if summ.get("big"):                              # a far price is read again once, its page sharper (4 Nov)
+        unpriced = (items(cfg, run)["toman"].astype(str).str.strip() == "").sum()
+        if summ.get("big") or unpriced:                  # a far or missing price is read again once, its page sharper (4 Nov)
             n = recheck(cfg, run)
             if n:
                 summ = _match(cfg, run, wc, progress)
@@ -781,6 +782,10 @@ def recheck(cfg: dict, run: str) -> int:
     d = run_path(cfg, run)
     pl, it = plan(cfg, run), items(cfg, run)
     keys = set(pl.loc[(pl["big"] == "yes") & pl["action"].isin(["update", "same", "brand"]), "key"].astype(str))
+    # rows read without a price in a list that mostly has prices (4 Nov, Agro: 40 of 140 rows)
+    priced = it["toman"].astype(str).str.strip() != ""
+    if len(it) and priced.mean() >= 0.5:
+        keys |= set(it.loc[~priced & ~it["note"].astype(str).str.contains("ارزش افزوده"), "key"].astype(str))
     if not keys:
         return 0
     done_p = d / "rechecked.json"
