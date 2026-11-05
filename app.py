@@ -442,6 +442,8 @@ class Job:
                 steps = [x for x in STEPS if x != "queue"]
             if step == "all" and opts.get("resume_from") in steps:
                 steps = steps[steps.index(opts["resume_from"]):]
+            if step == "all" and opts.get("until") in steps:   # (5 Nov) crawl only: photos and texts later
+                steps = steps[:steps.index(opts["until"]) + 1]
             only = [x for x in (opts.get("steps") or []) if x in STEPS]
             if step == "all" and (opts.get("from_step") in STEPS or only):
                 # re-run from a step (or only the listed steps, e.g. filter+dedupe+export without a new

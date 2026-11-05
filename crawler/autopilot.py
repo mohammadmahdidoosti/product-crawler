@@ -18,7 +18,7 @@ from pathlib import Path
 
 log = logging.getLogger(__name__)
 DEFAULTS = {"enabled": False, "batches": [], "max_usd": 1.0, "current": None, "done": [], "stopped": "",
-            "with_publish": False}
+            "with_publish": False, "until": ""}
 
 
 def _path(cfg: dict) -> Path:
@@ -48,6 +48,8 @@ def configure(cfg: dict, body: dict) -> dict:
         st["batches"] = [int(b) for b in body["batches"] if int(b) not in done and int(b) != cur]
     if "max_usd" in body:
         st["max_usd"] = float(body["max_usd"])
+    if "until" in body:                                   # (5 Nov) e.g. "dedupe": photos and texts wait
+        st["until"] = str(body["until"] or "")
     if "with_publish" in body:                            # (5 Nov) crawl the next batches while the last ones publish
         st["with_publish"] = bool(body["with_publish"])
     if "enabled" in body:
@@ -81,7 +83,7 @@ def _start_crawl(cfg: dict, st: dict, n: int, start_job) -> None:
         RS.review_batch(cfg, n, [])                      # the proposals as they are
     run = f"batch-{n}"
     RS.make_queue(cfg, n, run)
-    err = start_job("all", run, {"keep_queue": True})
+    err = start_job("all", run, {"keep_queue": True, **({"until": st["until"]} if st.get("until") else {})})
     if err:
         _stop(cfg, st, f"batch {n}: crawl not started: {err}")
         return
