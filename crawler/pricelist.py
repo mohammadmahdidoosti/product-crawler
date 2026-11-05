@@ -1857,9 +1857,12 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
         raise ValueError("ردیف تازه‌ای در این لیست نیست")
     if "list_stock" in new:                              # the list says it is not available: nothing to sell
         new = new[new["list_stock"].astype(str) != "no"]
+    prev_c = read_csv(d / "created.csv").fillna("") if (d / "created.csv").exists() else pd.DataFrame(columns=["key", "product_id"])
     if limit:                                            # a few first, to look at (3 Nov: 20 of Ronix's)
-        done_keys = set(read_csv(d / "created.csv").fillna("")["key"].astype(str)) if (d / "created.csv").exists() else set()
-        new = new[~new["key"].astype(str).isin(done_keys)].head(int(limit))
+        new = new[~new["key"].astype(str).isin(set(prev_c["key"].astype(str)))].head(int(limit))
+    else:                                                # a second round only retries what did not get made (5 Nov)
+        made_keys = set(prev_c[prev_c["product_id"].astype(str).str.strip() != ""]["key"].astype(str))
+        new = new[~new["key"].astype(str).isin(made_keys)]
     rate = float(json.loads((d / "match.json").read_text())["rate"])
     tax = load_tax(cfg)
     idx, cats = TaxIndex(tax, cfg), category_map()

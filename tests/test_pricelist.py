@@ -704,6 +704,7 @@ class SiteAsList(unittest.TestCase):
         self.assertEqual(PL.to_toman("2800000.0", "toman"), 2_800_000)
         self.assertEqual(PL.to_toman("359.999.000", "toman"), 359_999_000)
         self.assertEqual(PL.to_toman(9000000.0, "rial"), 900_000)
+        self.assertEqual(PL.to_toman("1320000000.0", "rial"), 132_000_000)   # Rigol / Victor, 5 Nov
 
 
 class SiteCacheOnce(unittest.TestCase):
