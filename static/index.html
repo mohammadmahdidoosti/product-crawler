@@ -395,10 +395,10 @@ td select,td input{padding:3px 6px;font-size:12.5px}
     </div>
     <div class="card">
       <h2 style="margin:0 0 8px">لیست ندارد، همه‌چیز در سایتش است</h2>
-      <p class="muted" style="font-size:12.5px;margin:0 0 8px">نام اجرا را بالا بنویسید، آدرس سایت تأمین‌کننده و برند را بدهید. محصولات آن برند از سایتشان خوانده می‌شود و قیمت سایتشان قیمت ما می‌شود؛ بعد مثل یک لیست معمولی تطبیق می‌خورد. تا «اعمال» نزنید چیزی در سایت ما عوض نمی‌شود.</p>
+      <p class="muted" style="font-size:12.5px;margin:0 0 8px">نام اجرا را بالا بنویسید، آدرس سایت تأمین‌کننده و برند را بدهید (برای فروشگاه چندبرندی برند را خالی بگذارید: هر محصولِ برندی که در سایت ما هست برداشته می‌شود و هیچ‌چیز ناموجود نمی‌شود). محصولات از سایتشان خوانده می‌شود و قیمت سایتشان قیمت ما می‌شود؛ بعد مثل یک لیست معمولی تطبیق می‌خورد. تا «اعمال» نزنید چیزی در سایت ما عوض نمی‌شود.</p>
       <div class="row" style="align-items:flex-end;gap:8px">
         <div class="field" style="flex:0 0 240px"><label>سایت تأمین‌کننده</label><input id="pfSite" class="ltr" placeholder="barghstore.ir"></div>
-        <div class="field" style="flex:0 0 160px"><label>برند</label><input id="pfBrand" placeholder="هیوکی"></div>
+        <div class="field" style="flex:0 0 160px"><label>برند</label><input id="pfBrand" placeholder="خالی = فروشگاه چندبرندی"></div>
         <div class="field" style="flex:0 0 200px"><label>اسم‌های دیگر برند (با ویرگول)</label><input id="pfNames" class="ltr" placeholder="hioki"></div>
         <button class="btn" id="pfGo">خواندن از سایتشان</button>
       </div>
@@ -1663,7 +1663,7 @@ const plSplit = s => s.split(/[,،]/).map(x=>x.trim()).filter(Boolean);
 $('#pfGo').onclick = async ()=>{
   const run=plRunName(); if(!/^pl-[\p{L}\p{N}_\-]{1,60}$/u.test(run)){ toast('نام اجرا مثل pl-hioki-1405-08', true); return; }
   const url=$('#pfSite').value.trim(), brand=$('#pfBrand').value.trim();
-  if(!url || !brand){ toast('آدرس سایت و برند را بنویسید', true); return; }
+  if(!url){ toast('آدرس سایت را بنویسید', true); return; }
   try{ const r=await post(`/api/pricelist/${encodeURIComponent(run)}/site`, {url, as_list:true, brand, names:plSplit($('#pfNames').value)});
     toast(r.start_error ? r.start_error : 'خواندن سایت تأمین‌کننده شروع شد', !!r.start_error); if(!r.start_error) plWait('lists'); }
   catch(err){ toast(err.message,true); }

@@ -67,7 +67,9 @@ Return JSON: {"list_date": "<date or month and year printed, e.g. آبان ۱۴�
            "stock": "<yes|no from a stock / availability column (موجود, ناموجود, 0, ✓, ✗; a count above 0 is yes); empty when the page has no such column>",
            "photo": [x0, y0, x1, y1] <box of THIS row's own product photo on the page, 0-1000 (x right, y down), when the page
             shows a photo of this product; else []>}]}
-One row for EVERY product line, also rows without a model code or without a price. Copy digits exactly.
+One row for EVERY product line, also rows without a model code or without a price. Copy digits exactly: every digit and
+every group of three, never drop or add a zero (5 Nov: '630,000,000' copied as '63000000' put a price at a tenth). A page
+prints its prices with the same number of digits in a column; a price much shorter than its neighbours is a misread.
 When a row has several prices, copy the consumer price (مصرف کننده / خرده) rather than the dealer price (همکار / عمده),
 and the price WITHOUT VAT (بدون ارزش افزوده) rather than with it. The unit comes from the words near the prices
 (ریال = rial, تومان = toman, هزار تومان = thousand_toman). Leave out cartons, counts, row numbers, phone numbers and
@@ -900,10 +902,23 @@ def verify(cfg: dict, run: str, vision: bool = True, progress=None, hold: bool =
                     nums, src = _nums(" ; ".join(str(r.get("price")) for r in (ans or {}).get("rows") or [] if isinstance(r, dict))), "vision"
             except Exception as e:                       # noqa: BLE001 - that page stays unchecked
                 log.info("pricelist verify %s %s: %s", run, label, e)
+        lines = []
+        if src == "text" and f.exists():
+            try:
+                import pdfplumber
+                with pdfplumber.open(str(f)) as pdf:
+                    lines = (pdf.pages[int(m.group(2)) - 1 if m else 0].extract_text() or "").translate(FA_DIGITS).splitlines()
+            except Exception:                            # noqa: BLE001
+                lines = []
         for r in it[it["file"].astype(str) == label].to_dict("records"):
             if not str(r.get("toman") or "").strip():
                 continue
             st, guess = _check_price(r, nums) if nums else ("unchecked", None)
+            if st == "mismatch" and lines:               # the model's own line, read either way (Persian comes reversed)
+                code = re.sub(r"\s+", "", str(r.get("model") or "")).translate(FA_DIGITS)
+                own = [ln for ln in lines if code and (code in ln.replace(" ", "") or code[::-1] in ln.replace(" ", ""))]
+                if own and not any({guess, guess * 10} & _nums(ln) for ln in own):
+                    st, guess = "not_found", None        # the 10x number belongs to another row
             out.append({"key": r["key"], "model": r["model"], "name": r["name"], "file": label, "unit": r["unit"],
                         "price": r["price"], "toman": r["toman"], "status": st, "page_says": guess or "", "how": src})
     cols = ["key", "model", "name", "file", "unit", "price", "toman", "status", "page_says", "how"]
@@ -917,6 +932,9 @@ def verify(cfg: dict, run: str, vision: bool = True, progress=None, hold: bool =
         it.loc[m, "toman"] = ""
         write_csv(it, d / "items.csv", ITEM_COLS)
     res = {"rows": len(out), "usd": round(usd, 4)}
+    # (5 Nov, DCA) one file read in two units is a sign the reader lost track of the unit on some pages
+    units = it[it["toman"].astype(str).str.strip() != ""].groupby(it["file"].astype(str).str.replace(r" ص\d+$", "", regex=True))["unit"].nunique()
+    res["mixed_units"] = sorted(units[units > 1].index.tolist())
     for x in out:
         res[x["status"]] = res.get(x["status"], 0) + 1
     log.info("PRICELIST verify %s: %s", run, res)
@@ -1372,6 +1390,8 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
         if c not in pl:
             pl[c] = ""
     rate = float(json.loads((d / "match.json").read_text())["rate"])
+    if complete and (d / "read.json").exists() and json.loads((d / "read.json").read_text()).get("shop"):
+        complete = False                                 # a shop of many brands is not any brand's whole list
     x10 = pl.apply(_tenfold, axis=1) if len(pl) else pd.Series(dtype=bool)
     # (5 Nov, Parkside: every price x10 from a '2800000.0') a gap of about ten times is a unit slip, not a
     # price change: held even with include_big, for a person to look at.
@@ -1790,6 +1810,25 @@ def site_match(cfg: dict, run: str, progress=None, stop=None) -> dict:
 _CODE = re.compile(r"(?<![A-Za-z0-9])([A-Za-z]{1,6}[\s\-]?\d{2,6}[A-Za-z0-9\-]*)(?![A-Za-z0-9])")
 
 
+def _known_brands(cfg: dict) -> list[tuple[str, str]]:
+    """(brand as on our site, a word to look for), longest words first, from the site copy's brands."""
+    from .normalize import norm_text
+    p = pdir(cfg) / "site_cache.jsonl"
+    seen = {}
+    if p.exists():
+        for line in p.read_text(encoding="utf-8").splitlines():
+            try:
+                for b in json.loads(line).get("brands") or []:
+                    n = str(b.get("name") or "").strip()
+                    for w in re.split(r"[()/|]", n):
+                        w = norm_text(w).casefold().strip()
+                        if len(w) >= 3 and not re.fullmatch(r"[\d\s]+", w):
+                            seen.setdefault(w, re.sub(r"\s*\(.*\)", "", n).strip())
+            except ValueError:
+                continue
+    return sorted(((b, w) for w, b in seen.items()), key=lambda x: -len(x[1]))
+
+
 def site_as_list(cfg: dict, run: str, brand: str, names: list[str] | None = None, stop=None) -> dict:
     """(4 Nov, Hioki / Victor / Rigol: 'no list, everything is on our site') The supplier's own site is the
     list: its products of the brand -> items.csv with the site's price (the consumer price), its stock and
@@ -1802,8 +1841,17 @@ def site_as_list(cfg: dict, run: str, brand: str, names: list[str] | None = None
     if not recs:
         raise ValueError("از سایت تأمین‌کننده محصولی خوانده نشد (سایت باز نشد یا robots.txt اجازه نداد)")
     ws = [norm_text(x).casefold() for x in [brand] + list(names or []) if len(norm_text(x)) >= 3]
+    known = [] if brand else _known_brands(cfg)          # (5 Nov, thermostatco.ir) a shop of many brands
+
+    def brand_of(r):
+        if brand:
+            return brand
+        t = f" {norm_text(r.get('brand', ''))} {norm_text(r.get('name', ''))} ".casefold()
+        return next((b for b, w in known if re.search(rf"(?<!\w){re.escape(w)}(?!\w)", t)), "")
 
     def of_brand(r):
+        if not brand:
+            return bool(brand_of(r))
         t = norm_text(f"{r.get('brand', '')} {r.get('name', '')}").casefold()
         return any(re.search(rf"(?<!\w){re.escape(w)}(?!\w)", t) for w in ws)
     mine = list(filter(of_brand, recs))
@@ -1828,7 +1876,7 @@ def site_as_list(cfg: dict, run: str, brand: str, names: list[str] | None = None
         price = r.get("price")
         if isinstance(price, float) and price == int(price):
             price = int(price)
-        rows.append({"brand": brand, "model": model, "key": key, "name": name, "price": price or "",
+        rows.append({"brand": brand_of(r), "model": model, "key": key, "name": name, "price": price or "",
                      "unit": "rial" if cur in ("IRR", "RIAL") else "toman", "toman": toman or "",
                      "list_date": time.strftime("%Y-%m-%d"), "file": "site",
                      "note": "" if toman else "قیمت در سایت تأمین‌کننده نیست", "stock": stock, "vat": "", "photo": ""})
@@ -1839,6 +1887,7 @@ def site_as_list(cfg: dict, run: str, brand: str, names: list[str] | None = None
     res = {"files": 0, "rows": len(rows), "items": len(rows), "brand": brand, "from_site": get_site(cfg, run),
            "site_products": len(recs), "priced": sum(1 for x in rows if x["toman"]),
            "not_available": sum(1 for x in rows if x["stock"] == "no"), "stock_ignored": catalog_only,
+           "shop": not brand,                            # many brands: never «the brand's whole list» (no out of stock)
            "usd": 0, "calls": 0, "failed": [],
            "at": time.strftime("%Y-%m-%d %H:%M")}
     (d / "read.json").write_text(json.dumps(res, ensure_ascii=False))

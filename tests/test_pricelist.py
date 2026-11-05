@@ -739,3 +739,22 @@ class VerifyPrices(unittest.TestCase):
         self.assertEqual(PL._check_price({"toman": 63_000_000, "price": "630,000,000"}, n), ("ok", None))
         self.assertEqual(PL._check_price({"toman": 22_800_000, "price": "22800"}, n), ("ok", None))
         self.assertEqual(PL._check_price({"toman": 5_000_000, "price": "5000000"}, n), ("not_found", None))
+
+
+class ShopOfManyBrands(unittest.TestCase):
+    def test_brand_per_row_and_never_complete(self):
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        (PL.pdir(cfg) / "site_cache.jsonl").write_text("\n".join(json.dumps(x, ensure_ascii=False) for x in [
+            {"id": 1, "name": "x", "brands": [{"id": 5, "name": "هانیول (Honeywell)"}]},
+            {"id": 2, "name": "y", "brands": [{"id": 6, "name": "کلایماست"}]}]), encoding="utf-8")
+        PL.set_site(cfg, "pl-tc", "https://thermostatco.ir/")
+        recs = [{"name": "ترموستات هانیول T6861", "price": 8540000.0, "currency": "IRT", "in_stock": True, "url": "u1"},
+                {"name": "ترموستات کلایماست CLX 8300", "price": 16170000, "currency": "IRT", "in_stock": True, "url": "u2"},
+                {"name": "ترموستات بی‌نام", "price": 1000000, "currency": "IRT", "in_stock": True, "url": "u3"}]
+        with mock.patch.object(PL, "site_products", return_value=recs):
+            res = PL.site_as_list(cfg, "pl-tc", "")
+        it = PL.items(cfg, "pl-tc").set_index("key")
+        self.assertEqual(res["rows"], 2)
+        self.assertTrue(res["shop"])
+        self.assertEqual(set(it["brand"]), {"کلایماست", "هانیول"})
+        self.assertEqual(int(float(it.loc["T6861", "toman"])), 8_540_000)
