@@ -263,7 +263,10 @@ def contains_digits_code(text: str, key: str) -> bool:
 
 
 def to_toman(price, unit: str) -> int | None:
+    if isinstance(price, float):                     # 2800000.0 from a site's JSON: the '.0' is not a digit
+        price = int(price) if price == price else None
     txt = str(price or "").translate(FA_DIGITS).replace("٫", ".").strip()
+    txt = re.sub(r"^(\d+)\.0+$", r"\1", txt)          # '2800000.0' as text (a CSV round trip)
     if unit in ("thousand_toman", "thousand_rial") and re.fullmatch(r"\d+\.\d{1,2}", txt):
         v = float(txt) * 1000                        # '22.8' thousand toman
     else:
@@ -1240,6 +1243,18 @@ def lock_meta(run: str, toman: int, day: str = "") -> list[dict]:
             {"key": "_caravan_price_estimated", "value": ""}]
 
 
+def _tenfold(x) -> bool:
+    """The list price is about 10x (or 1/10) the site's: rial read as toman or the like."""
+    try:
+        a, b = float(x.get("list_toman") or 0), float(x.get("site_toman") or 0)
+    except (TypeError, ValueError):
+        return False
+    if a <= 0 or b <= 0:
+        return False
+    r = max(a, b) / min(a, b)
+    return 7.5 <= r <= 13
+
+
 def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool = True, progress=None, stop=None,
           complete: bool = True) -> dict:
     """The plan on the site. complete (3 Nov, the list is the brand's whole list): the brand's products not in
@@ -1259,7 +1274,10 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
         if c not in pl:
             pl[c] = ""
     rate = float(json.loads((d / "match.json").read_text())["rate"])
-    priced = pl[pl["action"].isin(["update", "same", "brand"]) & ((pl["big"] != "yes") | include_big)]
+    x10 = pl.apply(_tenfold, axis=1) if len(pl) else pd.Series(dtype=bool)
+    # (5 Nov, Parkside: every price x10 from a '2800000.0') a gap of about ten times is a unit slip, not a
+    # price change: held even with include_big, for a person to look at.
+    priced = pl[pl["action"].isin(["update", "same", "brand"]) & ((pl["big"] != "yes") | include_big) & ~x10]
     brands = SiteBrands(wc)
     terms = _brand_terms(wc, pl[pl["brand"].astype(str).str.strip() != ""], cfg) if len(pl) else {}
 
@@ -1354,6 +1372,7 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
            "redirected": redirected, "brand_locked": locked,
            "brand_fixed": sum(1 for x in done if x["brand_fixed"]), "failed": len(failed),
            "held_big": int(((pl["big"] == "yes") & pl["action"].isin(["update", "same", "brand"])).sum()) if not include_big else 0,
+           "held_x10": int((x10 & pl["action"].isin(["update", "same", "brand"])).sum()) if len(pl) else 0,
            "indexed_models": indexed}
     log.info("PRICELIST apply %s: %s", run, res)
     return res
@@ -1681,8 +1700,15 @@ def site_as_list(cfg: dict, run: str, brand: str, names: list[str] | None = None
     def of_brand(r):
         t = norm_text(f"{r.get('brand', '')} {r.get('name', '')}").casefold()
         return any(re.search(rf"(?<!\w){re.escape(w)}(?!\w)", t) for w in ws)
+    mine = list(filter(of_brand, recs))
+    # (5 Nov, parkside.ir) a showroom site with no cart marks every product «ناموجود» although it sells them
+    # by phone: when (nearly) every priced product says out of stock, the site's stock means nothing.
+    priced = [r for r in mine if to_toman(r.get("price"), "toman")]
+    catalog_only = len(priced) >= 5 and sum(1 for r in priced if r.get("in_stock") is False) >= 0.9 * len(priced)
+    if catalog_only:
+        log.info("PRICELIST site as list %s: every priced product says out of stock -> stock ignored", run)
     rows, matches, seen = [], [], set()
-    for r in filter(of_brand, recs):
+    for r in mine:
         name = _clean_html(r["name"]).strip()
         m = _CODE.search(str(r.get("sku") or "")) or _CODE.search(name.translate(FA_DIGITS))
         model = m.group(1).strip() if m else ""
@@ -1692,8 +1718,11 @@ def site_as_list(cfg: dict, run: str, brand: str, names: list[str] | None = None
         seen.add(key)
         cur = str(r.get("currency") or "").upper()
         toman = to_toman(r.get("price"), "rial" if cur in ("IRR", "RIAL") else "toman")
-        stock = "no" if r.get("in_stock") is False else ""
-        rows.append({"brand": brand, "model": model, "key": key, "name": name, "price": r.get("price") or "",
+        stock = "no" if r.get("in_stock") is False and not catalog_only else ""
+        price = r.get("price")
+        if isinstance(price, float) and price == int(price):
+            price = int(price)
+        rows.append({"brand": brand, "model": model, "key": key, "name": name, "price": price or "",
                      "unit": "rial" if cur in ("IRR", "RIAL") else "toman", "toman": toman or "",
                      "list_date": time.strftime("%Y-%m-%d"), "file": "site",
                      "note": "" if toman else "قیمت در سایت تأمین‌کننده نیست", "stock": stock, "vat": "", "photo": ""})
@@ -1703,7 +1732,8 @@ def site_as_list(cfg: dict, run: str, brand: str, names: list[str] | None = None
     write_csv(pd.DataFrame(matches, columns=SITE_MATCH_COLS), d / "site_match.csv", SITE_MATCH_COLS)
     res = {"files": 0, "rows": len(rows), "items": len(rows), "brand": brand, "from_site": get_site(cfg, run),
            "site_products": len(recs), "priced": sum(1 for x in rows if x["toman"]),
-           "not_available": sum(1 for x in rows if x["stock"] == "no"), "usd": 0, "calls": 0, "failed": [],
+           "not_available": sum(1 for x in rows if x["stock"] == "no"), "stock_ignored": catalog_only,
+           "usd": 0, "calls": 0, "failed": [],
            "at": time.strftime("%Y-%m-%d %H:%M")}
     (d / "read.json").write_text(json.dumps(res, ensure_ascii=False))
     log.info("PRICELIST site as list %s: %s", run, res)

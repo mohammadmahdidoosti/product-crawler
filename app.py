@@ -417,7 +417,8 @@ class Job:
                                  f"{res['back_in_stock']} دوباره موجود، {res['redirected']} نسخه‌ی تکراری ریدایرکت، "
                                  f"{res['brand_fixed']} برند اصلاح شد، {res['failed']} خطا"
                                  + (f"؛ برند قفل شد: {'، '.join(res['brand_locked'])}" if res["brand_locked"] else "")
-                                 + (f"؛ {res['held_big']} تغییر بزرگ نگه داشته شد" if res["held_big"] else ""))
+                                 + (f"؛ {res['held_big']} تغییر بزرگ نگه داشته شد" if res["held_big"] else "")
+                                 + (f"؛ {res.get('held_x10')} قیمت حدود ده‌برابر نگه داشته شد" if res.get("held_x10") else ""))
         elif step == "probe":
             from crawler import routing_state as RS
             res = RS.probe_batch(cfg, int(opts["batch"]),

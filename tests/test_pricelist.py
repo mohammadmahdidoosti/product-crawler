@@ -686,6 +686,25 @@ class SiteAsList(unittest.TestCase):
         self.assertEqual(it.loc["CM437550", "stock"], "no")
         self.assertEqual(len(PL.site_rows(cfg, "pl-hioki")), 0)    # no products.jsonl in this test
 
+    def test_float_price_and_showroom_site(self):
+        """parkside.ir: prices as 2800000.0 (were read x10) and every product «ناموجود» (no cart)."""
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        PL.set_site(cfg, "pl-pk", "https://parkside.ir/")
+        recs = [{"name": f"دریل پارکساید PSB 2{i} Li", "sku": "", "price": 2800000.0 + i * 1000000, "currency": "IRT",
+                 "in_stock": False, "url": f"https://parkside.ir/p/{i}", "brand": ""} for i in range(6)]
+        with mock.patch.object(PL, "site_products", return_value=recs):
+            res = PL.site_as_list(cfg, "pl-pk", "پارکساید", ["parkside"])
+        it = PL.items(cfg, "pl-pk")
+        self.assertEqual(sorted(int(float(x)) for x in it["toman"])[0], 2_800_000)
+        self.assertTrue(res["stock_ignored"])
+        self.assertTrue((it["stock"].fillna("") == "").all())
+
+    def test_to_toman_float(self):
+        self.assertEqual(PL.to_toman(2800000.0, "toman"), 2_800_000)
+        self.assertEqual(PL.to_toman("2800000.0", "toman"), 2_800_000)
+        self.assertEqual(PL.to_toman("359.999.000", "toman"), 359_999_000)
+        self.assertEqual(PL.to_toman(9000000.0, "rial"), 900_000)
+
 
 class SiteCacheOnce(unittest.TestCase):
     def test_second_caller_reuses_fresh_copy(self):
@@ -701,3 +720,11 @@ class SiteCacheOnce(unittest.TestCase):
         self.assertEqual(calls, [1])
         self.assertLess(PL.cache_age_h(cfg), 0.1)
         self.assertFalse(PL.warm_site_cache(cfg, W()))      # fresh: nothing read
+
+
+class TenfoldHeld(unittest.TestCase):
+    def test_ten_times_gap(self):
+        self.assertTrue(PL._tenfold({"list_toman": 480_000_000, "site_toman": 52_577_000}))
+        self.assertTrue(PL._tenfold({"list_toman": 5_000_000, "site_toman": 50_000_000}))
+        self.assertFalse(PL._tenfold({"list_toman": 60_000_000, "site_toman": 52_577_000}))
+        self.assertFalse(PL._tenfold({"list_toman": "", "site_toman": 52_577_000}))
