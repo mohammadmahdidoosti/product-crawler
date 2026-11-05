@@ -437,9 +437,22 @@ def prepare(cfg: dict, run: str, wc: WC | None = None) -> dict:
     done = _results(d)
     sent = set(done.loc[done["action"].isin(["created", "updated"]), "sku"]) if len(done) else set()
     items = [x for x in items if x[1]["SKU"] not in sent]
+    made = 0
     if items:
         _paid_photo_fixes(cfg, run, d, items)
-    return {"items": len(items)}
+        items = [x for x in export_rows(cfg, run) if x[1]["SKU"] not in sent]
+        # the new brands are made on the site now too (5 Nov: 296 brands at ~5 s each held batch 23 for 25 min)
+        brands = SiteBrands(wc or WC())
+        seen = set()
+        for rec, _ in items:
+            br = rec.get("_brand") or {}
+            if br.get("status") == "ok" and br.get("display") and br["display"] not in seen:
+                seen.add(br["display"])
+                try:
+                    made += int(brands.id_for(br)[1])
+                except Exception as e:                   # noqa: BLE001 - publishing makes it later
+                    log.info("prepare %s: brand %s not made (%s)", run, br.get("display"), e)
+    return {"items": len(items), "brands_made": made}
 
 
 def _publish_workers(cfg: dict, hour: int | None = None) -> int:
