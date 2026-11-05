@@ -461,6 +461,11 @@ def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progr
                                              "usd": round(usd, 4), "calls": calls, "failed": failed,
                                              "at": time.strftime("%Y-%m-%d %H:%M")}, ensure_ascii=False))
     log.info("PRICELIST read %s: %d files, %d rows, %d models, $%.4f", run, len(files), len(rows), len(items), usd)
+    try:                                                 # every price checked on its page once more (5 Nov, DCA)
+        v = verify(cfg, run, hold=True)
+        log.info("PRICELIST read %s: verify %s", run, v)
+    except Exception as e:                               # noqa: BLE001 - the reading stands
+        log.warning("pricelist verify %s: %s", run, e)
     return {"files": len(files), "rows": len(rows), "items": len(items), "usd": round(usd, 4), "failed": failed}
 
 
@@ -823,6 +828,99 @@ def match(cfg: dict, run: str, wc=None, progress=None, cache: bool = True) -> di
         return summ
     finally:
         _use_cache([])
+
+
+VERIFY_SYSTEM = """You check the prices on one page of an Iranian supplier's price list. Copy EVERY price printed on the
+page digit by digit exactly as printed (every digit and every group of three; do not drop or add a zero), each with its
+row's model code or name. Reply JSON only: {"rows": [{"model": "...", "name": "...", "price": "<digits as printed>"}]}"""
+
+
+def _nums(text: str) -> set[int]:
+    """Every number of four digits or more printed in a text ('۶۳۰,۰۰۰,۰۰۰', '63.000.000', '22800')."""
+    t = str(text or "").translate(FA_DIGITS).replace("٬", ",").replace("٫", ".")
+    out = set()
+    for g in re.findall(r"\d{1,3}(?:[,./]\d{3})+|\d+", t):
+        v = re.sub(r"\D", "", g)
+        if len(v) >= 4:
+            out.add(int(v))
+    return out
+
+
+def _check_price(row: dict, nums: set[int]) -> tuple[str, int | None]:
+    """'ok' when the price we use is printed on the page (as toman or rial, or as the digits we read), else
+    'mismatch' with the price the page most likely says (10x or 1/10 of ours), else 'not_found'."""
+    t = int(float(row.get("toman") or 0))
+    raw = re.sub(r"\D", "", str(row.get("price") or "").translate(FA_DIGITS).split(".")[0])
+    if t <= 0:
+        return "no_price", None
+    if {t, t * 10, t // 1000, t * 10 // 1000} & nums or (raw and int(raw) in nums):
+        return "ok", None
+    for f in (10, 0.1, 100, 0.01):
+        g = int(t * f)
+        if {g, g * 10} & nums:
+            return "mismatch", g
+    return "not_found", None
+
+
+def verify(cfg: dict, run: str, vision: bool = True, progress=None, hold: bool = False) -> dict:
+    """(5 Nov, DCA: '۶۳۰,۰۰۰,۰۰۰' read '63000000', the price 1/10) Every priced row is looked for on its own page
+    again: in the page's text when the PDF has one (exact, free), else in a second, independent reading of the page
+    that only copies prices. Rows whose price is not on the page, or is there only 10x / 1/10, go to verify.csv."""
+    d = run_path(cfg, run)
+    it = items(cfg, run)
+    if it.empty:
+        return {"rows": 0}
+    out, usd, pages = [], 0.0, {}
+    labels = list(dict.fromkeys(it["file"].astype(str)))
+    for n, label in enumerate(labels):
+        if progress:
+            progress(n, len(labels))
+        m = re.match(r"(.+?) ص(\d+)$", label)
+        f = d / "files" / (m.group(1) if m else label)
+        nums, src = set(), ""
+        if f.exists():
+            try:
+                pic = None
+                if f.name.lower().endswith(".pdf"):
+                    import pdfplumber
+                    with pdfplumber.open(str(f)) as pdf:
+                        page = pdf.pages[int(m.group(2)) - 1 if m else 0]
+                        nums, src = _nums(page.extract_text() or ""), "text"
+                        if not nums and vision:
+                            buf = io.BytesIO()
+                            page.to_image(resolution=200).original.convert("RGB").save(buf, "JPEG", quality=88)
+                            pic = buf.getvalue()
+                elif f.name.lower().endswith((".jpg", ".jpeg", ".png", ".webp")) and vision:
+                    pic = f.read_bytes()
+                if pic is not None:
+                    ans, c = _openrouter(cfg, [{"role": "system", "content": VERIFY_SYSTEM}, {"role": "user", "content": [
+                        {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + base64.b64encode(pic).decode()}}]}],
+                        max_tokens=6000, title="Caravan price list verify")
+                    usd += c
+                    nums, src = _nums(" ; ".join(str(r.get("price")) for r in (ans or {}).get("rows") or [] if isinstance(r, dict))), "vision"
+            except Exception as e:                       # noqa: BLE001 - that page stays unchecked
+                log.info("pricelist verify %s %s: %s", run, label, e)
+        for r in it[it["file"].astype(str) == label].to_dict("records"):
+            if not str(r.get("toman") or "").strip():
+                continue
+            st, guess = _check_price(r, nums) if nums else ("unchecked", None)
+            out.append({"key": r["key"], "model": r["model"], "name": r["name"], "file": label, "unit": r["unit"],
+                        "price": r["price"], "toman": r["toman"], "status": st, "page_says": guess or "", "how": src})
+    cols = ["key", "model", "name", "file", "unit", "price", "toman", "status", "page_says", "how"]
+    write_csv(pd.DataFrame(out, columns=cols), d / "verify.csv", cols)
+    bad = {x["key"]: x["page_says"] for x in out if x["status"] == "mismatch"}
+    if hold and bad:                                     # not put on the site until a person looks (or recheck reads it)
+        it = items(cfg, run)
+        m = it["key"].astype(str).isin(bad)
+        it.loc[m, "note"] = it.loc[m, "key"].astype(str).map(
+            lambda k: f"قیمت خوانده‌شده روی صفحه نیست؛ صفحه احتمالاً {int(bad[k]):,} تومان می‌گوید")
+        it.loc[m, "toman"] = ""
+        write_csv(it, d / "items.csv", ITEM_COLS)
+    res = {"rows": len(out), "usd": round(usd, 4)}
+    for x in out:
+        res[x["status"]] = res.get(x["status"], 0) + 1
+    log.info("PRICELIST verify %s: %s", run, res)
+    return res
 
 
 RECHECK_SYSTEM = """You read one row of an Iranian supplier's price list page. Find the row named below and copy its

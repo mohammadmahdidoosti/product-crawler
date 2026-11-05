@@ -729,3 +729,13 @@ class TenfoldHeld(unittest.TestCase):
         self.assertTrue(PL._tenfold({"list_toman": 5_000_000, "site_toman": 50_000_000}))
         self.assertFalse(PL._tenfold({"list_toman": 60_000_000, "site_toman": 52_577_000}))
         self.assertFalse(PL._tenfold({"list_toman": "", "site_toman": 52_577_000}))
+
+
+class VerifyPrices(unittest.TestCase):
+    def test_nums_and_check(self):
+        n = PL._nums("چکش AZG10  ۶۳۰,۰۰۰,۰۰۰  ؛ 167,000,000 و 22800")
+        self.assertEqual(n, {630_000_000, 167_000_000, 22800})
+        self.assertEqual(PL._check_price({"toman": 6_300_000, "price": "63000000"}, n), ("mismatch", 63_000_000))
+        self.assertEqual(PL._check_price({"toman": 63_000_000, "price": "630,000,000"}, n), ("ok", None))
+        self.assertEqual(PL._check_price({"toman": 22_800_000, "price": "22800"}, n), ("ok", None))
+        self.assertEqual(PL._check_price({"toman": 5_000_000, "price": "5000000"}, n), ("not_found", None))
