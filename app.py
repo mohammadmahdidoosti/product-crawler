@@ -290,6 +290,7 @@ class Job:
             res = publish(cfg, run, limit=int(opts.get("limit") or 0) if not skus else 0, skus=skus or None,
                           dry_run=bool(opts.get("dry_run")), republish=bool(opts.get("republish")),
                           keep_draft=bool(opts.get("keep_draft")),   # (5 Nov) to the site as drafts; published later
+                          workers=int(opts.get("workers") or 0),
                           progress=lambda d, t: self.prog.update(step="publish", done=d, total=t),
                           stop=self.stop_ev.is_set)
             self.logs.append("نتیجه: " + "، ".join(f"{k} {v}" for k, v in res["counts"].items() if v))
@@ -1523,7 +1524,7 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "publish":
                 run_path(parts[2])
                 b = self._jbody()
-                opts = {k: b.get(k) for k in ("limit", "dry_run", "skus", "republish", "keep_draft")}
+                opts = {k: b.get(k) for k in ("limit", "dry_run", "skus", "republish", "keep_draft", "workers")}
                 if not opts.get("skus") and not str(opts.get("limit") or "").isdigit():
                     return self._err("تعداد محصول را مشخص کنید")
                 err = start_job("publish", parts[2], opts)

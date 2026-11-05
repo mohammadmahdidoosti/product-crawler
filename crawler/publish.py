@@ -433,7 +433,8 @@ def _publish_workers(cfg: dict, hour: int | None = None) -> int:
 
 
 def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, dry_run: bool = False,
-            republish: bool = False, wc: WC | None = None, progress=None, stop=None, keep_draft: bool = False) -> dict:
+            republish: bool = False, wc: WC | None = None, progress=None, stop=None, keep_draft: bool = False,
+            workers: int = 0) -> dict:
     """Send up to `limit` products of a run (the ones not yet sent first; `skus` picks exact ones).
     dry_run: build and check every payload, upload nothing."""
     from .pipeline import export_rows, run_dir
@@ -607,7 +608,7 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
 
     # 2. photos + product, several products at the same time
     lock, halt = threading.Lock(), threading.Event()
-    workers = _publish_workers(cfg)
+    workers = int(workers) if workers else _publish_workers(cfg)   # (5 Nov) a person's number for a load test
     state = {"n": 0, "since_save": 0}
 
     pause = float(cfg.get("publish", {}).get("pause_seconds", 0.5))
