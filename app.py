@@ -284,6 +284,9 @@ class Job:
                            progress=lambda d, t: self.prog.update(step="brands", done=d, total=t), stop=self.stop_ev.is_set)
             self.logs.append(f"برندها: {res['brands']} برند در این اجرا، {res['named']} نام‌گذاری با DeepSeek"
                              + (f"، ناموفق: {', '.join(res['failed'])}" if res["failed"] else ""))
+        elif step == "prepare":                         # (5 Nov) brands, descriptions, paid photos ahead of publishing
+            from crawler.publish import prepare
+            self.logs.append(f"آماده‌سازی {run}: {prepare(cfg, run)}")
         elif step == "publish":
             from crawler.publish import publish
             skus = [x for x in re.split(r"[\s,،]+", str(opts.get("skus") or "")) if x]
@@ -462,7 +465,7 @@ class Job:
                 took = time.time() - t0
                 self.logs.append(f"⏱ {st}: {int(took // 60)}:{int(took % 60):02d}")
                 self.state.setdefault("timings", {})[st] = round(took)
-            if step not in ("catmake", "probe", "publish", "brands", "status", "resync", "health", "shops", "leads", "specs", "catalog", "catalog_publish",
+            if step not in ("catmake", "probe", "publish", "prepare", "brands", "status", "resync", "health", "shops", "leads", "specs", "catalog", "catalog_publish",
                             "pricelist_read", "pricelist_match", "pricelist_apply", "pricelist_create", "pricelist_site",
                             "sitefix", "sitefix_apply", "brand_oos", "brand_shop", "seller_oos"):
                 for line in P.stats(cfg, run).splitlines():
@@ -495,7 +498,7 @@ def start_job(step: str, run: str, opts: dict) -> str | None:
         return "این اجرا مال «اصلاح سایت» است؛ از صفحه‌ی سلامت سایت با آن کار کنید."
     if step in ("pricelist_read", "pricelist_match", "pricelist_site"):
         return JOBS["lists"].start(step, run, opts)
-    lane = "health" if step in ("health", "shops", "leads", "specs") else "site" if step in SITE_STEPS else "crawl"
+    lane = "health" if step in ("health", "shops", "leads", "specs", "prepare") else "site" if step in SITE_STEPS else "crawl"
     return JOBS[lane].start(step, run, opts)
 
 
@@ -1521,6 +1524,10 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "brands"] and len(parts) == 2:
                 from crawler import brands_fa as BF
                 return self._json({"ok": True, "saved": BF.edit(build_cfg(), self._jbody().get("rows") or [])})
+            if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "prepare":
+                run_path(parts[2])
+                err = start_job("prepare", parts[2], {})
+                return self._err(err, 409) if err else self._json({"ok": True})
             if parts[:2] == ["api", "runs"] and len(parts) == 4 and parts[3] == "publish":
                 run_path(parts[2])
                 b = self._jbody()

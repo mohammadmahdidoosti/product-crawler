@@ -216,18 +216,24 @@ class Namer:
 
     def name_all(self, rows: list[dict], progress=None, stop=None) -> dict[str, dict]:
         res: dict[str, dict] = {}
-        for start in range(0, len(rows), self.batch):
+        from concurrent.futures import ThreadPoolExecutor
+        chunks = [rows[s:s + self.batch] for s in range(0, len(rows), self.batch)]
+
+        def one(chunk):
             if stop and stop():
-                break
-            chunk = rows[start:start + self.batch]
+                return chunk, {}
             items = [{"i": i, "brand": r.get("ask") or r["source"], "company": r.get("from_company", False)}
                      for i, r in enumerate(chunk)]
-            got = self.ask(items)
-            for i, r in enumerate(chunk):
-                if i in got:
-                    res[key(r["source"])] = got[i]
-            if progress:
-                progress(min(start + self.batch, len(rows)), len(rows))
+            return chunk, self.ask(items)
+        done = 0
+        with ThreadPoolExecutor(4) as ex:                # (5 Nov) 191 brands took 13 minutes one request at a time
+            for chunk, got in ex.map(one, chunks):
+                for i, r in enumerate(chunk):
+                    if i in got:
+                        res[key(r["source"])] = got[i]
+                done += len(chunk)
+                if progress:
+                    progress(done, len(rows))
         return res
 
 

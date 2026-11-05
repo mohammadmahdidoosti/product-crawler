@@ -422,6 +422,26 @@ def _paid_photo_fixes(cfg: dict, run: str, d, items: list) -> list:
     return [fresh.get(s, x) for s, x in zip(skus, items)]
 
 
+def prepare(cfg: dict, run: str, wc: WC | None = None) -> dict:
+    """(5 Nov, speed) What publishing does before the first product, done ahead while the batch before is
+    being sent: the brands' Persian names, the model descriptions and the paid photo fixes. Nothing is sent."""
+    from .pipeline import export_rows, run_dir
+    d = run_dir(cfg, run)
+    items = export_rows(cfg, run)
+    if not items:
+        return {"items": 0}
+    if any((rec.get("_brand") or {}).get("status") == "missing" for rec, _ in items):
+        from . import brands_fa as BF
+        BF.build(cfg, [rec for rec, _ in items], wc=wc or WC())
+        items = export_rows(cfg, run)
+    done = _results(d)
+    sent = set(done.loc[done["action"].isin(["created", "updated"]), "sku"]) if len(done) else set()
+    items = [x for x in items if x[1]["SKU"] not in sent]
+    if items:
+        _paid_photo_fixes(cfg, run, d, items)
+    return {"items": len(items)}
+
+
 def _publish_workers(cfg: dict, hour: int | None = None) -> int:
     """More products at a time at night (00-08 Tehran), when the shop has few visitors (5 Nov)."""
     pc = cfg.get("publish", {})
