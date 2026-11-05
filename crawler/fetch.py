@@ -20,6 +20,31 @@ import requests
 log = logging.getLogger(__name__)
 
 
+_PAGE_TYPES = ("html", "json", "xml", "text", "javascript")
+
+
+def _read_capped(r, max_bytes: int) -> bytes | None:
+    """The body of a page, or None for a file that is not a page or a body over max_bytes (read no further)."""
+    ctype = str(r.headers.get("Content-Type") or "").lower()
+    if ctype and not any(t in ctype for t in _PAGE_TYPES):
+        r.close()
+        return None
+    try:
+        if int(r.headers.get("Content-Length") or 0) > max_bytes:
+            r.close()
+            return None
+    except ValueError:
+        pass
+    buf, n = [], 0
+    for chunk in r.iter_content(256 * 1024):
+        n += len(chunk)
+        if n > max_bytes:
+            r.close()
+            return None
+        buf.append(chunk)
+    return b"".join(buf)
+
+
 def canon_url(url: str) -> str:
     """One spelling per page: '%d9%85' and '%D9%85' (and raw Persian) are the same URL."""
     from urllib.parse import quote, unquote, urlsplit, urlunsplit
@@ -72,6 +97,7 @@ class Fetcher:
         # page cache: only for re-runs, so it may live outside the persistent disk (CACHE_DIR)
         import os
         self.cache_dir: Path = Path(os.environ["CACHE_DIR"]) if os.environ.get("CACHE_DIR") else cfg["_data_dir"] / "cache"
+        self.max_bytes = int(float(h.get("max_page_mb", 8)) * 1024 * 1024)
         self.s = requests.Session()
         self.s.headers.update({
             "User-Agent": h.get("user_agent", "CaravanSanatBot/0.1 (+https://caravansanat.com)"),
@@ -206,7 +232,8 @@ class Fetcher:
                 return None
             self._wait(dom)
             try:
-                r = self.s.get(url, params=params, timeout=self.timeout)
+                r = self.s.get(url, params=params, timeout=self.timeout, stream=True)
+                body = _read_capped(r, self.max_bytes)       # (5 Nov) one huge page took the crawl to 4.4 GB
             except requests.RequestException as e:
                 log.warning("fetch failed %s (%s)", url, e)
                 self._failed(dom)
@@ -225,6 +252,11 @@ class Fetcher:
             if r.status_code != 200:
                 log.info("HTTP %s for %s", r.status_code, url)
                 return data
+            if body is None:                              # a file (pdf, zip, video) or a page over the cap
+                log.info("skipped %s: %s", url, r.headers.get("Content-Type", "") or "too big")
+                data["status"] = -2
+                return data
+            r._content = body
             if as_json:
                 try:
                     data["json"] = r.json()

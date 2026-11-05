@@ -31,6 +31,22 @@ STOP = threading.Event()
 PROGRESS: dict = {"step": "", "done": 0, "total": 0}
 
 
+
+def _release_memory() -> int:
+    """Give freed heap back to the system (glibc keeps it otherwise) and return the memory in use now, MB."""
+    try:
+        import ctypes
+        ctypes.CDLL("libc.so.6").malloc_trim(0)
+    except Exception:                                    # noqa: BLE001 - not glibc: nothing to do
+        pass
+    try:
+        for line in open("/proc/self/status"):
+            if line.startswith("VmRSS:"):
+                return int(line.split()[1]) // 1024
+    except OSError:
+        pass
+    return 0
+
 def _progress(step: str, done: int, total: int) -> bool:
     """Update progress; return True if the user asked to stop."""
     PROGRESS.update(step=step, done=done, total=total)
@@ -383,9 +399,10 @@ def step_crawl(cfg: dict, run: str, use_llm_fallback: bool = False) -> Path:
                         stats["pages"] += 1
                         if stats["pages"] % 50 == 0:
                             gc.collect()
+                            now_mb = _release_memory()            # freed memory goes back to the server (5 Nov)
                             import resource
-                            log.info("crawl %d pages read, %d products (memory peak %d MB)", stats["pages"], stats["ok"],
-                                     resource.getrusage(resource.RUSAGE_SELF).ru_maxrss // 1024)
+                            log.info("crawl %d pages read, %d products (memory now %d MB, peak %d MB)", stats["pages"],
+                                     stats["ok"], now_mb, resource.getrusage(resource.RUSAGE_SELF).ru_maxrss // 1024)
                         if _progress("crawl", stats["pages"], max(total, stats["pages"])):
                             stopped = True
                         nk = next(it, None) if not stopped else None

@@ -254,3 +254,24 @@ class SameCodeOtherWording(unittest.TestCase):
                            for i, n in enumerate(names)])
         m = merge_crawl(df)
         self.assertEqual(sorted(m["n_sources"].astype(int).tolist()), [1, 2])
+
+
+class PageSizeCap(unittest.TestCase):
+    def test_files_and_huge_pages_are_not_read(self):
+        from crawler.fetch import _read_capped
+
+        class R:
+            def __init__(self, ctype, body, length=None):
+                self.headers = {"Content-Type": ctype, **({"Content-Length": str(length)} if length else {})}
+                self.body, self.closed = body, False
+
+            def iter_content(self, n):
+                for i in range(0, len(self.body), n):
+                    yield self.body[i:i + n]
+
+            def close(self):
+                self.closed = True
+        self.assertEqual(_read_capped(R("text/html; charset=utf-8", b"<html>ok</html>"), 1000), b"<html>ok</html>")
+        self.assertIsNone(_read_capped(R("application/pdf", b"%PDF"), 1000))
+        self.assertIsNone(_read_capped(R("text/html", b"x" * 5000), 1000))
+        self.assertIsNone(_read_capped(R("text/html", b"", length=10_000), 1000))

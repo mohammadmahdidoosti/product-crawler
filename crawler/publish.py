@@ -423,7 +423,7 @@ def _paid_photo_fixes(cfg: dict, run: str, d, items: list) -> list:
 
 
 def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, dry_run: bool = False,
-            republish: bool = False, wc: WC | None = None, progress=None, stop=None) -> dict:
+            republish: bool = False, wc: WC | None = None, progress=None, stop=None, keep_draft: bool = False) -> dict:
     """Send up to `limit` products of a run (the ones not yet sent first; `skus` picks exact ones).
     dry_run: build and check every payload, upload nothing."""
     from .pipeline import export_rows, run_dir
@@ -638,7 +638,7 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
                             data.pop("images", None)
             if p is None:
                 status = data.pop("status", None)             # never un-publish a product someone published
-                if parked.get(sku) == "publish" and data.get("categories"):
+                if parked.get(sku) == "publish" and data.get("categories") and not keep_draft:
                     data["status"] = "publish"                    # parked for want of a category: it has one now
                 try:
                     # the product may sit in categories of another run (or ones set by hand): the new
