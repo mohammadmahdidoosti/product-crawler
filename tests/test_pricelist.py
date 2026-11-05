@@ -685,3 +685,19 @@ class SiteAsList(unittest.TestCase):
         self.assertEqual(int(float(it.loc["CM437550", "toman"])), 90_000_000)   # rial -> toman
         self.assertEqual(it.loc["CM437550", "stock"], "no")
         self.assertEqual(len(PL.site_rows(cfg, "pl-hioki")), 0)    # no products.jsonl in this test
+
+
+class SiteCacheOnce(unittest.TestCase):
+    def test_second_caller_reuses_fresh_copy(self):
+        cfg = {"_data_dir": Path(tempfile.mkdtemp())}
+        calls = []
+
+        class W:
+            def products_page(self, page, n, fields):
+                calls.append(page)
+                return ([{"id": 1, "name": "x"}], 1, 1) if page == 1 else ([], 1, 1)
+        PL.site_cache(cfg, W())
+        PL.site_cache(cfg, W())
+        self.assertEqual(calls, [1])
+        self.assertLess(PL.cache_age_h(cfg), 0.1)
+        self.assertFalse(PL.warm_site_cache(cfg, W()))      # fresh: nothing read

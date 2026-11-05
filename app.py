@@ -496,6 +496,9 @@ def start_job(step: str, run: str, opts: dict) -> str | None:
     return JOBS[lane].start(step, run, opts)
 
 
+_WARMING = False
+
+
 def nightly_loop() -> None:
     """Starts the read-only site-health scan once a night (config: health.at, Tehran time)."""
     from crawler import health as H
@@ -509,6 +512,19 @@ def nightly_loop() -> None:
                 log.info("nightly site-health scan %s", "started" if not err else f"not started: {err}")
         except Exception:                           # noqa: BLE001 - the loop must survive
             log.error(traceback.format_exc())
+        global _WARMING
+        if not _WARMING:                            # the shop's product copy, refreshed in the background (5 Nov)
+            def warm():
+                global _WARMING
+                try:
+                    from crawler import pricelist as PL
+                    PL.warm_site_cache(build_cfg())
+                except Exception:                   # noqa: BLE001
+                    log.error(traceback.format_exc())
+                finally:
+                    _WARMING = False
+            _WARMING = True
+            threading.Thread(target=warm, daemon=True, name="site-cache").start()
         try:                                        # night crawls without a person (crawler/autopilot.py)
             from crawler import autopilot as AP
             AP.tick(build_cfg(), JOBS, start_job)

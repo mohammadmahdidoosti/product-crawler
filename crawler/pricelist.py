@@ -545,25 +545,69 @@ def site_cache(cfg: dict, wc, max_age_h: float = 6.0, force: bool = False) -> li
     """Every product of the site, light (id, name, SKU, status, type, stored price, stock, brands): read once in
     ~360 pages and kept for a few hours (4 Nov: a list of 956 rows asked the site ~3000 times, 40 minutes, while
     customers used it). Matching searches this copy; what it finds is the site's own product id."""
+    import fcntl
     p = pdir(cfg) / "site_cache.jsonl"
     meta = pdir(cfg) / "site_cache.json"
-    if not force and p.exists() and meta.exists():
-        m = json.loads(meta.read_text())
+
+    def fresh():
+        if force or not (p.exists() and meta.exists()):
+            return None
+        try:
+            m = json.loads(meta.read_text())
+        except ValueError:
+            return None
         if time.time() - m.get("at", 0) < max_age_h * 3600:
             return [json.loads(x) for x in p.read_text(encoding="utf-8").splitlines() if x.strip()]
-    rows, page, pages = [], 1, 1
-    while page <= pages:
-        items, total, pages = wc.products_page(page, 100, CACHE_FIELDS)
-        if not items:
-            break
-        rows += items
-        page += 1
-    tmp = p.with_suffix(".tmp")
-    tmp.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows), encoding="utf-8")
-    tmp.replace(p)
-    meta.write_text(json.dumps({"at": time.time(), "products": len(rows)}))
+        return None
+    rows = fresh()
+    if rows is not None:
+        return rows
+    # one reader at a time (5 Nov: a brand tool and a list match both read the whole site at once, 18 minutes
+    # each); a caller that waited takes the copy the other one just made
+    with open(pdir(cfg) / "site_cache.lock", "w") as lk:
+        fcntl.flock(lk, fcntl.LOCK_EX)
+        if not force and p.exists() and meta.exists():
+            try:
+                if time.time() - json.loads(meta.read_text()).get("at", 0) < 600:
+                    return [json.loads(x) for x in p.read_text(encoding="utf-8").splitlines() if x.strip()]
+            except ValueError:
+                pass
+        rows = fresh()
+        if rows is not None:
+            return rows
+        rows, page, pages = [], 1, 1
+        while page <= pages:
+            items, total, pages = wc.products_page(page, 100, CACHE_FIELDS)
+            if not items:
+                break
+            rows += items
+            page += 1
+        tmp = p.with_suffix(".tmp")
+        tmp.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in rows), encoding="utf-8")
+        tmp.replace(p)
+        meta.write_text(json.dumps({"at": time.time(), "products": len(rows)}))
     log.info("PRICELIST site cache: %d products", len(rows))
     return rows
+
+
+def cache_age_h(cfg: dict) -> float:
+    try:
+        return (time.time() - json.loads((pdir(cfg) / "site_cache.json").read_text()).get("at", 0)) / 3600
+    except (OSError, ValueError):
+        return 1e9
+
+
+def warm_site_cache(cfg: dict, wc=None, older_than_h: float = 5.0) -> bool:
+    """(5 Nov) Kept warm by the server in the background, so a list or a brand tool never waits ~15 minutes
+    for the whole site to be read first."""
+    if cache_age_h(cfg) < older_than_h:
+        return False
+    from .wc import WC
+    wc = wc or WC()
+    if not wc.ok():
+        return False
+    site_cache(cfg, wc, max_age_h=older_than_h)
+    return True
 
 
 def _flat_text(s: str) -> str:
