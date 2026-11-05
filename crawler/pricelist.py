@@ -1286,16 +1286,16 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
         bid = brands.id_for(br)[0] if br and br.get("status") == "ok" else None
         return {"brands": [{"id": int(bid)}]} if bid else None
 
-    items_ = []
+    items_, want_stock = [], {}
     for r in priced.to_dict("records"):
         usd = round(float(r["list_toman"]) / rate, 4)
         x = {"id": int(float(r["product_id"])), "regular_price": f"{usd:.4f}", "sale_price": "",
              "meta_data": lock_meta(run, int(float(r["list_toman"])))}
-        if r.get("list_stock") == "no":                   # the list's stock column (4 Nov, Hyundai)
-            if r.get("stock") != "outofstock":
-                x["stock_status"] = "outofstock"
-        elif r.get("stock") == "outofstock":
-            x["stock_status"] = "instock"
+        # the list's stock column (4 Nov, Hyundai). Checked again against the live product just before the
+        # update (5 Nov, Parkside: the site copy was older than a previous apply and said «in stock»).
+        want_stock[x["id"]] = "outofstock" if r.get("list_stock") == "no" else "instock"
+        if want_stock[x["id"]] != (r.get("stock") or "instock"):
+            x["stock_status"] = want_stock[x["id"]]
         if r.get("fix_brand") == "yes" and (b := brand_of(r)):
             x.update(b)
         items_.append((r, x))
@@ -1332,6 +1332,14 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
                                          "sale_price": p.get("sale_price"), "status": p.get("status"),
                                          "stock_status": p.get("stock_status"), "brands": p.get("brands"),
                                          "at": time.strftime("%Y-%m-%d %H:%M")}, ensure_ascii=False) + "\n")
+            live = {p["id"]: p for p in cur}
+            for _, x in chunk:
+                p = live.get(x["id"])
+                if x["id"] in want_stock and p and p.get("type") != "variable":
+                    if p.get("stock_status") != want_stock[x["id"]]:
+                        x["stock_status"] = want_stock[x["id"]]
+                    else:
+                        x.pop("stock_status", None)
             j = wc.batch_update([x for _, x in chunk])
         except Exception as e:                           # noqa: BLE001 - recorded, the rest go on
             failed += [{"product_id": x["id"], "error": str(e)[:200]} for _, x in chunk]
