@@ -139,6 +139,10 @@ def tick(cfg: dict, jobs: dict, start_job) -> None:
     if site.get("running") and not st.get("with_publish") and not str(site.get("step") or "").startswith(("pricelist_", "sitefix")):
         return                                            # a publish is running: crawl after it (price-list work does not hold the crawl)
     n = int(st["batches"][0])
+    from .llm import openrouter_left
+    left = openrouter_left()
+    if left is not None and left < 0.5:                  # (5 Nov) a batch on an empty key reads badly
+        return _stop(cfg, st, f"OpenRouter credit is out (${left:.2f} left): raise the key's limit")
     from . import routing_state as RS
     b = next((x for x in RS.summary(cfg)["batches"] if x["batch"] == n), None)
     if b is None:

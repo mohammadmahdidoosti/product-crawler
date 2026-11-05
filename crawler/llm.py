@@ -145,3 +145,27 @@ def extract(llm: LLM, page_text: str) -> dict | None:
     except Exception as e:
         log.warning("LLM extract failed: %s", e)
         return None
+
+
+def openrouter_left() -> float | None:
+    """Dollars left on the OpenRouter key (its own limit), None when unknown (no key, no answer).
+    (5 Nov) The $60 limit ran out mid-batch and every model step fell back to templates without a word."""
+    import requests
+    from .config import secret
+    key = secret("OPENROUTER_API_KEY")
+    if not key:
+        return None
+    try:
+        d = requests.get("https://openrouter.ai/api/v1/key", headers={"Authorization": f"Bearer {key}"}, timeout=20).json()["data"]
+    except Exception:                                    # noqa: BLE001 - unknown is not empty
+        return None
+    left = d.get("limit_remaining")
+    return None if left is None else float(left)
+
+
+def require_credit(what: str, need: float = 0.5) -> None:
+    """Stop a paid step loudly when the key has (almost) nothing left, instead of a quiet template."""
+    left = openrouter_left()
+    if left is not None and left < need:
+        raise ValueError(f"اعتبار OpenRouter تمام شده ({left:.2f} دلار مانده)؛ {what} متوقف شد. "
+                         "سقف کلید را در openrouter.ai بالا ببرید.")

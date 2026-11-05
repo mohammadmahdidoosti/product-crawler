@@ -425,7 +425,9 @@ def _paid_photo_fixes(cfg: dict, run: str, d, items: list) -> list:
 def prepare(cfg: dict, run: str, wc: WC | None = None) -> dict:
     """(5 Nov, speed) What publishing does before the first product, done ahead while the batch before is
     being sent: the brands' Persian names, the model descriptions and the paid photo fixes. Nothing is sent."""
+    from .llm import require_credit
     from .pipeline import export_rows, run_dir
+    require_credit("آماده‌سازی " + run)
     d = run_dir(cfg, run)
     items = export_rows(cfg, run)
     if not items:
@@ -478,6 +480,9 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
     wc = wc or WC()
     if not dry_run and not wc.ok():
         raise ValueError("WC_URL / WC_KEY / WC_SECRET روی سرور تنظیم نشده")
+    if not dry_run:
+        from .llm import require_credit
+        require_credit("ارسال " + run)                  # no product goes with a template text for want of credit
     if not dry_run and any((rec.get("_brand") or {}).get("status") == "missing" for rec, _ in items):
         # the brands step was not run for this batch: 83 of 87 were skipped for it on 29 Oct.
         # It names the new brands now (shops get none) and the products are built again.
