@@ -57,7 +57,7 @@ http:
   delay_seconds: 2                 # wait between two requests to the same site
   domain_delays:                   # per-site exceptions (all subdomains of the site share it)
     made-in-china.com: 1
-  workers: 10                      # sites fetched in parallel (each still at its own pace)
+  workers: 16                      # sites fetched in parallel (each still at its own pace; pages capped at 8 MB since 5 Nov)
   parse_slots: 3                   # pages parsed at the same time (memory)
   timeout_seconds: 15
   retries: 1
@@ -166,6 +166,8 @@ catalog:                  # a supplier's price list (PDF / Excel) -> variable pr
 
 publish:                  # direct publishing to the WooCommerce site (crawler/publish.py)
   workers: 3              # products sent at the same time (photos + product); the shop's own visitors share the server
+  night_workers: 6        # 00:00-08:00 Tehran, few visitors: twice as fast (5 Nov, speed)
+  slow_seconds: 25        # a product call slower than this (the shop is busy): the next ones wait a little
   pause_seconds: 0.5      # wait before each product, per worker
 
 health:                   # site health (crawler/health.py): a read-only nightly look at every product on the site

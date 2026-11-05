@@ -598,3 +598,12 @@ class SuspiciousReview(unittest.TestCase):
             self.assertEqual(rec["price_toman"], "51900000")
             self.assertEqual(RV.items(cfg, "b", "suspicious")["counts"]["suspicious"], 0)
 
+
+
+class NightWorkers(unittest.TestCase):
+    def test_more_at_night(self):
+        from crawler.publish import _publish_workers
+        cfg = {"publish": {"workers": 3, "night_workers": 6}}
+        self.assertEqual(_publish_workers(cfg, hour=2), 6)
+        self.assertEqual(_publish_workers(cfg, hour=14), 3)
+        self.assertEqual(_publish_workers({"publish": {"workers": 3}}, hour=2), 3)

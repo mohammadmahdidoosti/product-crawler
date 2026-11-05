@@ -422,6 +422,16 @@ def _paid_photo_fixes(cfg: dict, run: str, d, items: list) -> list:
     return [fresh.get(s, x) for s, x in zip(skus, items)]
 
 
+def _publish_workers(cfg: dict, hour: int | None = None) -> int:
+    """More products at a time at night (00-08 Tehran), when the shop has few visitors (5 Nov)."""
+    pc = cfg.get("publish", {})
+    if hour is None:
+        import datetime as dt
+        hour = (dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=3, minutes=30)).hour
+    n = pc.get("night_workers") if 0 <= hour < 8 and pc.get("night_workers") else pc.get("workers", 6)
+    return max(1, int(n))
+
+
 def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, dry_run: bool = False,
             republish: bool = False, wc: WC | None = None, progress=None, stop=None, keep_draft: bool = False) -> dict:
     """Send up to `limit` products of a run (the ones not yet sent first; `skus` picks exact ones).
@@ -597,16 +607,26 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
 
     # 2. photos + product, several products at the same time
     lock, halt = threading.Lock(), threading.Event()
-    workers = max(1, int(cfg.get("publish", {}).get("workers", 6)))
+    workers = _publish_workers(cfg)
     state = {"n": 0, "since_save": 0}
 
     pause = float(cfg.get("publish", {}).get("pause_seconds", 0.5))
+    slow = float(cfg.get("publish", {}).get("slow_seconds", 25))
+    busy = {"wait": 0.0}
 
     def send(row, data, files, res):
         if halt.is_set() or (stop and stop()):
             return None
-        if pause:
-            time.sleep(pause)                            # a breath between products for the shop's server
+        if pause or busy["wait"]:
+            time.sleep(pause + busy["wait"])             # a breath between products for the shop's server
+        t0 = time.time()
+        try:
+            return _send(row, data, files, res)
+        finally:                                         # the shop answers slowly: give it room, then speed up again
+            took = time.time() - t0
+            busy["wait"] = min(30.0, busy["wait"] + 5) if took > slow else max(0.0, busy["wait"] - 1)
+
+    def _send(row, data, files, res):
         sku = row["SKU"]
         ex = None
         try:
