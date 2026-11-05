@@ -17,7 +17,8 @@ import time
 from pathlib import Path
 
 log = logging.getLogger(__name__)
-DEFAULTS = {"enabled": False, "batches": [], "max_usd": 1.0, "current": None, "done": [], "stopped": ""}
+DEFAULTS = {"enabled": False, "batches": [], "max_usd": 1.0, "current": None, "done": [], "stopped": "",
+            "with_publish": False}
 
 
 def _path(cfg: dict) -> Path:
@@ -47,6 +48,8 @@ def configure(cfg: dict, body: dict) -> dict:
         st["batches"] = [int(b) for b in body["batches"] if int(b) not in done and int(b) != cur]
     if "max_usd" in body:
         st["max_usd"] = float(body["max_usd"])
+    if "with_publish" in body:                            # (5 Nov) crawl the next batches while the last ones publish
+        st["with_publish"] = bool(body["with_publish"])
     if "enabled" in body:
         st["enabled"] = bool(body["enabled"])
         if st["enabled"]:
@@ -131,7 +134,7 @@ def tick(cfg: dict, jobs: dict, start_job) -> None:
         save(cfg, st)
         return
     site = jobs["site"].state
-    if site.get("running") and not str(site.get("step") or "").startswith(("pricelist_", "sitefix")):
+    if site.get("running") and not st.get("with_publish") and not str(site.get("step") or "").startswith(("pricelist_", "sitefix")):
         return                                            # a publish is running: crawl after it (price-list work does not hold the crawl)
     n = int(st["batches"][0])
     from . import routing_state as RS

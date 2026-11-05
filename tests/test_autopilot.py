@@ -90,6 +90,12 @@ class AutopilotTest(unittest.TestCase):
         self.tick()
         self.assertEqual(self.started, [])
 
+    def test_crawls_beside_a_publish_when_asked(self):
+        AP.configure(self.cfg, {"batches": [12], "enabled": True, "with_publish": True})
+        self.jobs["site"].state["running"] = True
+        self.tick()
+        self.assertNotEqual(self.started, [])
+
     def test_status_has_no_logs(self):
         s = AP.status(self.cfg, self.jobs)
         self.assertIn("lanes", s)
