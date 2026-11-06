@@ -69,3 +69,25 @@ def test_market_check_holds_a_page_read_in_the_wrong_unit(tmp_path, monkeypatch)
     assert res["pages_fixed"] == 1
     assert held["9303"] == "14298000" and held["9302"] == "7598000"   # the page read in the wrong unit, x10
     assert held["2720"] == "1539500"                                   # the page read right stays
+
+
+def test_torob_slip_fixes_only_tenfold(tmp_path, monkeypatch):
+    from crawler import torobcheck as TC
+    import crawler.fx as FX
+    import crawler.wc as W
+    monkeypatch.setattr(FX, "today_rate", lambda cfg: {"usd_rate_toman": 270000})
+    sent = {}
+
+    class Fake:
+        def ok(self): return True
+        def get_product(self, pid): return {"meta_data": [{"key": "_caravan_price_lock", "value": "pl-tosan 2026-11-04"}]}
+        def update_product(self, pid, data): sent[pid] = data
+
+    monkeypatch.setattr(W, "WC", Fake)
+    cfg = {"_data_dir": tmp_path}
+    assert TC.apply_slip(cfg, "164555", {"ratio": "0.10", "our_toman": "1429800"}, 0.15).startswith("خطای ۱۰ برابری")
+    assert sent[164555]["meta_data"][0]["value"] == "14298000"
+    sent.clear()
+    assert TC.apply_slip(cfg, "1", {"ratio": "0.24", "our_toman": "4651000"}, 0.15) == ""    # 4x low: report only
+    assert TC.apply_slip(cfg, "1", {"ratio": "1.05", "our_toman": "4651000"}, 0.15) == ""
+    assert not sent

@@ -36,7 +36,8 @@ COLS = ["id", "name", "our_toman", "checked_at", "verdict", "ratio", "median_tom
         "torob_name", "prk", "note"]
 LOCK = threading.Lock()
 LEASE: dict[str, float] = {}                    # id -> time it was handed out (one script, but a reload asks again)
-DEFAULTS = {"daily_cap": 300, "recheck_days": 30, "tolerance": 0.15, "lease_seconds": 600, "min_offers": 2}
+DEFAULTS = {"daily_cap": 300, "recheck_days": 30, "tolerance": 0.15, "lease_seconds": 600, "min_offers": 2,
+            "auto_slip": True, "server": True, "server_hours": [0, 8]}
 
 
 def settings(cfg: dict) -> dict:
@@ -89,9 +90,11 @@ def products(cfg: dict) -> pd.DataFrame:
         except Exception:                                    # noqa: BLE001
             continue
         if "status" in x and "product_id" in x:
-            x = x[(x["status"] == "pending") & (x["product_id"].astype(str) != "")]
+            # (6 Nov) a doubtful price that went out anyway is looked at first too, whatever its status
+            doubt = x["error"].astype(str).str.contains("قیمت مشکوک|قیمت نامطمئن") if "error" in x else False
+            x = x[((x["status"] == "pending") | doubt) & (x["product_id"].astype(str) != "")]
             pend.append(pd.DataFrame({"id": x["product_id"].astype(str).str.replace(r"\.0$", "", regex=True),
-                                      "name": x["name"], "status": "pending",
+                                      "name": x["name"], "status": x["status"].where(x["status"] == "pending", "doubt"),
                                       "our_toman": (pd.to_numeric(x["price"], errors="coerce") * rate).round(-3)}))
     for f in sorted(Path(cfg["_data_dir"]).glob("pricelists/*/applied.csv")):
         try:                                         # copies of one model far apart in price (pricelist.py)
@@ -112,7 +115,7 @@ def products(cfg: dict) -> pd.DataFrame:
     # a product published since (by a person or by a Torob verdict) is no longer pending
     pub = set(d.loc[d["status"] == "publish", "id"])
     d = d[~((d["status"] == "pending") & d["id"].isin(pub))]
-    d = d.sort_values("status", key=lambda s: s != "pending", kind="stable")
+    d = d.sort_values("status", key=lambda s: ~s.isin(["pending", "doubt"]), kind="stable")
     return d.drop_duplicates("id", keep="first")[["id", "name", "our_toman", "status"]]
 
 
@@ -139,7 +142,7 @@ def next_item(cfg: dict) -> dict:
         # products held for a doubtful price first, then the dearer ones (a wrong price costs more there)
         if "status" not in p:
             p = p.assign(status="publish")
-        p = p.assign(_w=(p["status"] != "pending")).sort_values(["_w", "our_toman"], ascending=[True, False])
+        p = p.assign(_w=~p["status"].isin(["pending", "doubt"])).sort_values(["_w", "our_toman"], ascending=[True, False])
         r = p.iloc[0]
         LEASE[r["id"]] = now
         from .names import clean_name
@@ -199,6 +202,10 @@ def result(cfg: dict, body: dict) -> dict:
             row["note"] = "اختلاف خیلی زیاد؛ شاید محصول یا واحد قیمت فرق دارد"
     if str(ours.get("status")) == "pending" and row.get("median_toman") and st.get("auto_pending", True):
         row["note"] = (row["note"] + " | " if row["note"] else "") + apply_pending(cfg, pid, row, float(st["tolerance"]))
+    elif row.get("median_toman") and st.get("auto_slip", True):
+        done = apply_slip(cfg, pid, row, float(st["tolerance"]))
+        if done:
+            row["note"] = (row["note"] + " | " if row["note"] else "") + done
     with LOCK:
         _record(cfg, row)
         LEASE.pop(pid, None)
@@ -241,6 +248,80 @@ def apply_pending(cfg: dict, pid: str, row: dict, tol: float, wc=None) -> str:
         return "در انتظار ماند (خطای سایت)"
     log.info("TOROB pending %s: %s", pid, what)
     return what
+
+
+def apply_slip(cfg: dict, pid: str, row: dict, tol: float, wc=None) -> str:
+    """(6 Nov, the owner) Only a 10x slip is corrected by itself: Torob's sellers (2+, see min_offers) ask
+    about 10x (or a tenth) of our price. Our own digits are kept, x10 or /10: a rial/toman slip, not a new
+    price. A price locked from a supplier's list is corrected too (the list was read in the wrong unit) and
+    its lock follows. Every other verdict stays in the report only. Returns what was done ('' = nothing)."""
+    try:
+        ratio = float(row["ratio"])
+        ours = float(row["our_toman"])
+    except (KeyError, TypeError, ValueError):
+        return ""
+    k = 10.0 if abs(ratio * 10 - 1) <= tol else 0.1 if abs(ratio / 10 - 1) <= tol else None
+    if not k:
+        return ""
+    new = round(ours * k)
+    try:
+        from .fx import today_rate
+        from .wc import WC, price_locked
+        wc = wc or WC()
+        if not wc.ok():
+            return "خطای ۱۰ برابری دیده شد (اتصال سایت تنظیم نیست)"
+        prod = wc.get_product(int(float(pid)))
+        data = {"regular_price": f"{new / float(today_rate(cfg)['usd_rate_toman']):.4f}", "sale_price": ""}
+        if price_locked(prod):
+            data["meta_data"] = [{"key": "_caravan_price_toman", "value": str(new)},
+                                 {"key": "_caravan_price_fix", "value": f"torob x{k:g} {time.strftime('%Y-%m-%d')}"}]
+        wc.update_product(int(float(pid)), data)
+    except Exception as e:                                   # noqa: BLE001
+        log.warning("TOROB slip %s not applied: %s", pid, e)
+        return "خطای ۱۰ برابری دیده شد (اعمال نشد: خطای سایت)"
+    log.info("TOROB slip %s: %s -> %s", pid, int(ours), new)
+    return f"خطای ۱۰ برابری: قیمت از {int(ours):,} به {new:,} تومان اصلاح شد"
+
+
+TOROB_SEARCH = "https://api.torob.com/v4/base-product/search/"
+TOROB_DETAILS = "https://api.torob.com/v4/base-product/details/"
+
+
+def run_server(cfg: dict, limit: int = 0, stop=None) -> dict:
+    """(6 Nov) The same check run from the server, no browser needed: Torob's robots.txt allows these two API
+    paths, and the fetcher keeps Torob at one request per 30 s (http.domain_delays). Stops at the daily cap,
+    at `limit`, when told to, or after 3 failed requests in a row."""
+    from .pipeline import _fetchers
+    f = _fetchers(cfg)["iran"]
+    counts: dict[str, int] = {}
+    fails = n = 0
+    while not (stop and stop()) and (not limit or n < limit):
+        it = next_item(cfg)
+        if "wait" in it:
+            counts["stopped"] = it.get("why", "")
+            break
+        res = f.get(TOROB_SEARCH, params={"q": it["q"], "page": 0, "size": 8}, as_json=True, use_cache=False)
+        if not res or res.get("status") != 200:
+            with LOCK:
+                LEASE.pop(it["id"], None)
+            fails += 1
+            if fails >= 3:
+                counts["stopped"] = f"ترب جواب نداد ({(res or {}).get('status', 'none')})"
+                break
+            continue
+        fails = 0
+        r = result(cfg, {"id": it["id"], "items": (res.get("json") or {}).get("results") or []})
+        if r.get("details"):
+            det = f.get(TOROB_DETAILS, params={"prk": r["details"]}, as_json=True, use_cache=False)
+            offers = [{"price": o.get("price"), "available": o.get("availability", True) is not False}
+                      for o in ((((det or {}).get("json") or {}).get("products_info") or {}).get("result") or [])]
+            r = result(cfg, {"id": it["id"], "prk": r["details"], "torob_name": r.get("torob_name", ""), "offers": offers})
+        n += 1
+        v = str(r.get("verdict") or "")
+        counts[v] = counts.get(v, 0) + 1
+    counts["checked"] = n
+    log.info("TOROB server run: %s", counts)
+    return counts
 
 
 def summary(cfg: dict) -> dict:

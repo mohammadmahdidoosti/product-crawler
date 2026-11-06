@@ -506,6 +506,8 @@ def start_job(step: str, run: str, opts: dict) -> str | None:
 
 _WARMING = False
 _PRUNED = ""
+_TOROB_RUNNING = False
+_TOROB_PAUSE = [0.0]
 
 
 def nightly_loop() -> None:
@@ -520,6 +522,28 @@ def nightly_loop() -> None:
                 err = start_job("health", "health", {"nightly": True})
                 log.info("nightly site-health scan %s", "started" if not err else f"not started: {err}")
         except Exception:                           # noqa: BLE001 - the loop must survive
+            log.error(traceback.format_exc())
+        global _TOROB_RUNNING
+        try:                                        # (6 Nov) the Torob price check from the server, at night
+            from crawler import torobcheck as TC
+            st = TC.settings(build_cfg())
+            h = int(time.strftime("%H", time.gmtime(time.time() + 12600)))     # Tehran
+            lo, hi = (st.get("server_hours") or [0, 8])[:2]
+            if st.get("server") and lo <= h < hi and not _TOROB_RUNNING and time.time() > _TOROB_PAUSE[0]:
+                def torob_night():
+                    global _TOROB_RUNNING
+                    try:
+                        res = TC.run_server(build_cfg(), stop=lambda: not (lo <= int(time.strftime(
+                            "%H", time.gmtime(time.time() + 12600))) < hi))
+                        if res.get("stopped"):              # cap reached, nothing left or Torob silent: an hour off
+                            _TOROB_PAUSE[0] = time.time() + 3600
+                    except Exception:               # noqa: BLE001
+                        log.error(traceback.format_exc())
+                    finally:
+                        _TOROB_RUNNING = False
+                _TOROB_RUNNING = True
+                threading.Thread(target=torob_night, daemon=True, name="torob-night").start()
+        except Exception:                           # noqa: BLE001
             log.error(traceback.format_exc())
         global _PRUNED
         if _PRUNED != time.strftime("%Y-%m-%d") and time.localtime().tm_hour >= 4:   # once a day, early morning
