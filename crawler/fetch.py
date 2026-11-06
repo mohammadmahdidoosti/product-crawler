@@ -8,6 +8,7 @@ from __future__ import annotations
 import hashlib
 import json
 import logging
+import os
 import threading
 import time
 from collections import defaultdict
@@ -192,14 +193,21 @@ class Fetcher:
     def _cached(self, key: str) -> dict | None:
         p = self._cache_path(key)
         days = 30 if "serper.dev" in key else self.cache_days
-        if p.exists() and (time.time() - p.stat().st_mtime) < days * 86400:
-            return json.loads(p.read_text(encoding="utf-8"))
+        try:
+            if p.exists() and (time.time() - p.stat().st_mtime) < days * 86400:
+                return json.loads(p.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            # (6 Nov) a half-written cache file (two crawls share the cache) stopped batch 33 with
+            # "Expecting value": a broken entry is a miss, the page is fetched again
+            log.warning("broken cache entry %s, fetching again", p.name)
         return None
 
     def _store(self, key: str, data: dict) -> None:
         p = self._cache_path(key)
         p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+        tmp = p.with_name(f"{p.name}.{threading.get_ident()}.tmp")       # write whole, then swap in:
+        tmp.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")  # a reader never sees half
+        os.replace(tmp, p)
 
     # ------------------------------------------------------------ get
     def _wait(self, dom: str) -> None:
