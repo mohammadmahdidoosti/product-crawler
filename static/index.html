@@ -525,6 +525,18 @@ td select,td input{padding:3px 6px;font-size:12.5px}
   <!-- ===================== SELLERS ===================== -->
   <section class="page" id="page-sellers">
     <div class="card" style="margin-bottom:14px">
+      <h3 style="margin:0 0 4px">تأمین‌کننده‌ی یک برند را پیدا کن</h3>
+      <p style="margin:0 0 8px;color:var(--muted,#777);font-size:13px">برای برندی که سفارشش آمده: نمایندگی‌ها، واردکننده‌ها، پخش عمده، لیست قیمت PDF، کانال‌ها و مغازه‌های تهران از گوگل و نقشه، به‌علاوه‌ی فروشنده‌هایی که خودمان کراول کرده‌ایم. هر برند حدود ۷ جستجو (کمتر از یک سنت). بعد از تماس، «خوب بود» یا «نه» بزنید تا دفعه‌ی بعد بالا یا پایین بیاید.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <input id="spBrand" placeholder="برند (مثلاً: لیفان)" style="flex:0 0 170px">
+        <input id="spCtx" placeholder="نوع کالا (مثلاً: سمپاش، ابزار)" style="flex:0 0 190px">
+        <input id="spAka" placeholder="اسم‌های دیگر با ویرگول (Lifan)" style="flex:1;min-width:160px">
+        <button class="btn" id="spGo">پیدا کن</button>
+      </div>
+      <div id="spMsg" style="margin-top:6px;font-size:13px"></div>
+      <div class="tablewrap" style="max-height:520px;margin-top:8px"><table id="spTable"></table></div>
+    </div>
+    <div class="card" style="margin-bottom:14px">
       <h3 style="margin:0 0 8px">این محصول از کدام تأمین‌کننده است؟</h3>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
         <input id="lkQ" placeholder="اسم محصول، شناسه‌ی سایت یا SKU (مثلاً: غلطک 1081)" style="flex:1;min-width:220px">
@@ -1287,6 +1299,37 @@ $('#resPrev').onclick = ()=>{ RES.offset=Math.max(0,RES.offset-100); loadTable()
 $('#resNext').onclick = ()=>{ RES.offset+=100; loadTable(); };
 $('#resDl').onclick = ()=>{ if(RES.file) location.href=`/api/runs/${encodeURIComponent(RES.run)}/download/${RES.file}`; };
 $('#resZip').onclick = ()=>{ if(RES.run) location.href=`/api/runs/${encodeURIComponent(RES.run)}/zip`; };
+
+// ---------------- supplier finder (one brand, on demand)
+const SP_KIND = {official:'نمایندگی رسمی/واردکننده', wholesale:'پخش/عمده', price_list:'لیست قیمت', channel:'کانال/پیج', shop:'فروشگاه'};
+const SP_V = {good:'خوب بود', ok:'معمولی', no:'نه'};
+let SP_LAST = null;
+async function supFind(cached){
+  const b = $('#spBrand').value.trim(); if(!b){ toast('اسم برند را بنویسید', true); return; }
+  const qs = `brand=${encodeURIComponent(b)}&ctx=${encodeURIComponent($('#spCtx').value.trim())}&aka=${encodeURIComponent($('#spAka').value.trim())}` + (cached ? '&cached=1' : '');
+  $('#spMsg').textContent = 'در حال جستجو… (حدود ۳۰ ثانیه)'; $('#spTable').innerHTML = '';
+  try{ SP_LAST = await api('/api/suppliers?'+qs); }catch(e){ $('#spMsg').textContent = 'خطا: '+e.message; return; }
+  const rows = SP_LAST.suppliers || [];
+  $('#spMsg').innerHTML = `<b>${fa(rows.length)}</b> مورد، با ${fa(SP_LAST.searches||0)} جستجو — ${esc(SP_LAST.at||'')}`;
+  $('#spTable').innerHTML = rows.length ? '<tr><th>نوع</th><th>نام</th><th>تلفن</th><th>آدرس</th><th>از کجا</th><th>نظر شما</th></tr>' +
+    rows.map((x,i)=>`<tr style="${x.topic<0?'opacity:.5':''}"><td>${SP_KIND[x.kind]||x.kind}</td>
+      <td>${x.url?`<a href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.name)}</a>`:esc(x.name)}${x.items?` <small>(${fa(x.items)} کالا در کراول ما)</small>`:''}<div style="font-size:12px;color:var(--muted,#777)">${esc(x.snippet||'')}</div></td>
+      <td class="ltr">${(x.phones||[]).map(p=>`<a href="tel:${esc(p)}">${esc(p)}</a>`).join('<br>')}</td>
+      <td>${esc(x.address||'')}</td><td style="font-size:12px">${(x.sources||[]).map(esc).join('<br>')}</td>
+      <td style="white-space:nowrap">${['good','ok','no'].map(v=>`<button class="btn ${x.verdict===v?'':'ghost'}" style="padding:2px 8px;font-size:12px" onclick="supNote(${i},'${v}')">${SP_V[v]}</button>`).join(' ')}</td></tr>`).join('')
+    : '<tr><td class="empty">چیزی پیدا نشد؛ نوع کالا یا اسم انگلیسی برند را اضافه کنید.</td></tr>';
+}
+async function supNote(i, v){
+  const x = SP_LAST.suppliers[i];
+  try{ await post('/api/suppliers/note', {brand: SP_LAST.brand, key: x.key, verdict: v, name: x.name, phone: (x.phones||[])[0]||''});
+       x.verdict = v; toast('ثبت شد'); supRender(); }catch(e){ toast(e.message, true); }
+}
+function supRender(){
+  $('#spTable').querySelectorAll('tr').forEach((tr,j)=>{ if(!j) return; const x = SP_LAST.suppliers[j-1];
+    tr.querySelectorAll('button').forEach((b,k)=>b.classList.toggle('ghost', ['good','ok','no'][k]!==x.verdict)); });
+}
+$('#spGo').onclick = ()=>supFind(false);
+['spBrand','spCtx','spAka'].forEach(id=>$('#'+id).addEventListener('keydown', e=>{ if(e.key==='Enter') supFind(false); }));
 
 // ---------------- sellers
 async function loadSellers(){
