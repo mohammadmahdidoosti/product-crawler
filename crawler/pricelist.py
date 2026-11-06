@@ -468,6 +468,11 @@ def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progr
         log.info("PRICELIST read %s: verify %s", run, v)
     except Exception as e:                               # noqa: BLE001 - the reading stands
         log.warning("pricelist verify %s: %s", run, e)
+    if cfg.get("pricelist", {}).get("market_check", True):
+        try:                                             # and against the market: a page read in the wrong unit (6 Nov, Tosan)
+            log.info("PRICELIST read %s: market %s", run, market_check(cfg, run, hold=True))
+        except Exception as e:                           # noqa: BLE001 - the reading stands
+            log.warning("pricelist market %s: %s", run, e)
     return {"files": len(files), "rows": len(rows), "items": len(items), "usd": round(usd, 4), "failed": failed}
 
 
@@ -938,6 +943,103 @@ def verify(cfg: dict, run: str, vision: bool = True, progress=None, hold: bool =
     for x in out:
         res[x["status"]] = res.get(x["status"], 0) + 1
     log.info("PRICELIST verify %s: %s", run, res)
+    return res
+
+
+def market_check(cfg: dict, run: str, hold: bool = True, progress=None) -> dict:
+    """(6 Nov) The list's prices against the market. verify() checks a price against its own page, so a page
+    read in the wrong unit (Tosan's 9303 grinder: 14,298,000 toman taken for rial, sold at 1.4 million) passes it.
+    Per page, the dearest rows with a model code are looked up at other shops (crawl pool and price memory
+    first, free; Torob; then one web search); decide() says which reading of our price they back.
+      - the shops back x10 (or /10) of our price            -> the whole page is held (its unit is suspect)
+      - they back another price, or 2+ shops disagree        -> that row is held
+    Held rows lose their toman (like verify's holds) and say why; market.csv keeps the evidence."""
+    from . import fx as fxmod
+    from .detective import _same_model, _search_prices, decide
+    from .pipeline import _codes, _fetchers, price_peers
+    from .pricemem import recall, remember
+    pc = cfg.get("pricelist", {})
+    d = run_path(cfg, run)
+    it = items(cfg, run)
+    if it.empty:
+        return {"rows": 0}
+    rate = fxmod.today_rate(cfg)
+    f = _fetchers(cfg)["iran"]
+    pool = price_peers(cfg, d)
+    per_page = int(pc.get("market_samples", 2))
+    budget = int(pc.get("market_max_searches", 300))
+    searched, out, page_bad, row_bad = 0, [], {}, {}
+    priced = it[it["toman"].astype(str).str.strip() != ""].copy()
+    priced["_t"] = pd.to_numeric(priced["toman"], errors="coerce")
+    labels = list(dict.fromkeys(priced["file"].astype(str)))
+    for n, label in enumerate(labels):
+        if progress:
+            progress(n, len(labels))
+        rows = priced[priced["file"].astype(str) == label].sort_values("_t", ascending=False).to_dict("records")
+        rows = [r for r in rows if _codes(f"{r.get('name', '')} {r.get('model', '')}")][:per_page]
+        verdicts = []
+        for r in rows:
+            v = float(r["_t"] or 0)
+            if v <= 0:
+                continue
+            rec = {"name": f"{r.get('name', '')} {r.get('model', '')}".strip(), "brand": r.get("brand", ""), "url": ""}
+            others = [(p["dom"] or p["url"], p["price"]) for p in pool if _same_model(rec, p["name"])]
+            others += [(dm, pr) for dm, pr, nm in recall(cfg, rec["name"]) if _same_model(rec, nm)]
+            if len({o[0] for o in others}) < 2:
+                try:
+                    from .aggregators import torob_offers
+                    tb = torob_offers(f, rec, _same_model)
+                    others += tb
+                    remember(cfg, [{"name": rec["name"], "dom": dm, "price": pr, "source": "torob"} for dm, pr in tb])
+                except Exception as e:                    # noqa: BLE001
+                    log.info("pricelist market %s torob: %s", run, e)
+            if len({o[0] for o in others}) < 2 and searched < budget:
+                try:
+                    found = _search_prices(cfg, f, rec, rate)
+                    searched += 1
+                    others += found
+                    remember(cfg, [{"name": rec["name"], "dom": dm, "price": pr, "source": "search"} for dm, pr in found])
+                except Exception as e:                    # noqa: BLE001
+                    log.info("pricelist market %s search: %s", run, e)
+            new, why = decide(v, others, None)
+            shops = len({o[0] for o in others})
+            ratio = (new / v) if new else None
+            kind = "none" if not shops else "ok" if ratio and 0.7 <= ratio <= 1.43 else \
+                "x10" if ratio and 7 <= ratio <= 14.3 else "d10" if ratio and 0.07 <= ratio <= 0.143 else \
+                "off" if ratio else "unclear"
+            verdicts.append(kind)
+            if kind == "off" or (kind == "unclear" and shops >= 2):
+                row_bad[r["key"]] = f"قیمت لیست با بازار نمی‌خواند: {why}"
+            out.append({"file": label, "key": r["key"], "model": r.get("model", ""), "name": r.get("name", ""),
+                        "toman": round(v), "market": round(new) if new else "", "verdict": kind, "shops": shops,
+                        "why": why, "evidence": " | ".join(f"{dm}: {pr:,.0f}" for dm, pr in others[:6])})
+        slips = [k for k in verdicts if k in ("x10", "d10")]
+        if slips and "ok" not in verdicts:              # the page's unit is suspect: all its rows wait
+            page_bad[label] = "x10" if slips.count("x10") >= slips.count("d10") else "d10"
+    cols = ["file", "key", "model", "name", "toman", "market", "verdict", "shops", "why", "evidence"]
+    write_csv(pd.DataFrame(out, columns=cols), d / "market.csv", cols)
+    held = 0
+    if hold and (page_bad or row_bad):
+        it = items(cfg, run)
+        for i, r in it.iterrows():
+            if not str(r.get("toman") or "").strip():
+                continue
+            why = row_bad.get(r["key"])
+            pb = page_bad.get(str(r.get("file") or ""))
+            if pb:
+                t = int(float(r["toman"]))
+                why = (f"واحد قیمت این صفحه احتمالاً اشتباه خوانده شده: بازار حدود {t * 10:,} تومان می‌گوید" if pb == "x10"
+                       else f"واحد قیمت این صفحه احتمالاً اشتباه خوانده شده: بازار حدود {t // 10:,} تومان می‌گوید")
+            if why:
+                it.at[i, "note"] = why
+                it.at[i, "toman"] = ""
+                held += 1
+        write_csv(it, d / "items.csv", ITEM_COLS)
+    res = {"pages": len(labels), "looked": len(out), "searches": searched, "pages_held": len(page_bad),
+           "rows_held": held}
+    for x in out:
+        res[x["verdict"]] = res.get(x["verdict"], 0) + 1
+    log.info("PRICELIST market %s: %s", run, res)
     return res
 
 

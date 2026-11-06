@@ -1006,6 +1006,35 @@ def confirm_price(r: dict, v: float, peers: list[dict], tol: float = 0.35) -> tu
     return None
 
 
+def peer_ref(r: dict, peers: list[dict]) -> tuple[float, int] | None:
+    """(median price, number of shops) of the same model at other shops (as confirm_price matches it).
+    A code with a size tail counts without it too: 'AG-CS5200-45' (45 cm bar) is the AG-CS5200."""
+    name = str(r.get("name") or "")
+    codes = set(_codes(name))
+    for tok in re.findall(r"[A-Za-z0-9]+(?:-[A-Za-z0-9]+)+", name):
+        parts = tok.split("-")
+        for k in range(len(parts) - 1, 0, -1):
+            c = "".join(parts[:k]).lower()
+            if len(c) >= 5 and re.search(r"\d", c) and re.search(r"[a-z]", c):
+                codes.add(c)
+    if not codes or not peers:
+        return None
+    head = (norm_text(str(r.get("name") or "")).split() or [""])[0]
+    from statistics import median
+    from .rules import code_in
+    others: dict[str, list[float]] = {}
+    own = re.match(r"https?://(?:www\.)?([^/]+)", str(r.get("url") or ""))
+    own = own.group(1).lower() if own else ""
+    for p in peers:
+        if p["url"] == r.get("url") or p["head"] != head or (own and p.get("dom") == own):
+            continue
+        if any(code_in(c, k) or code_in(k, c) for c in codes for k in p["codes"] if min(len(c), len(k)) >= 3):
+            others.setdefault(p["dom"] or p["url"], []).append(p["price"])
+    if not others:
+        return None
+    return median([median(v_) for v_ in others.values()]), len(others)
+
+
 PRICE_PART_LEADS = ("دیمر", "کلید", "آرمیچر", "ارمیچر", "محافظ تیغ", "پوسته", "دنده", "ذغال", "زغال",
                     "قطعه", "یدکی", "درب", "کاربراتور", "سیلندر", "اگزوز", "کوئل", "لنت")
 
@@ -1166,6 +1195,15 @@ def price_sanity(recs: list[dict], factor: float = 8.0, low: float = 150_000, hi
         elif ref and not (1 / factor <= v / ref <= factor) and not (v < ref and is_part(r.get("name", ""))) \
                 and not (per_meter(r) and v < ref):        # a metre of hose is cheaper than a hose
             why = f"{v:,.0f} تومان؛ میانه‌ی دسته {ref:,.0f}"
+        if not why and peers:
+            # (6 Nov) the same model at other shops, checked always, not only when the category looks off:
+            # a chainsaw read at 4.6 million (the market asks 19-31) passed the category check (8x)
+            pr = peer_ref(r, peers)
+            if pr:
+                ref_m, n_m = pr
+                lo_, hi_ = (0.5, 2.0) if n_m >= 2 else (1 / 3, 3.0)
+                if not (lo_ <= v / ref_m <= hi_) and not is_part(r.get("name", "")):
+                    why = f"{v:,.0f} تومان؛ همین مدل در {n_m} فروشگاه دیگر حدود {ref_m:,.0f}"
         if why and peers:                    # other shops sell the same model: they decide
             ok = confirm_price(r, v, peers)
             if ok:

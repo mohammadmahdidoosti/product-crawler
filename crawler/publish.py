@@ -59,6 +59,13 @@ def local_images(cfg: dict, images: str) -> list[Path]:
     return out
 
 
+def guessed_price(rec: dict) -> bool:
+    """The price is a guess from other products (brand, group or category medians, similar sizes), not a
+    price some shop asks for this model ('same model …', 'web search for …') nor one a person set."""
+    how = str(rec.get("price_estimated") or "").strip()
+    return bool(how) and not how.startswith(("same model", "web search", "reviewed"))
+
+
 def payload(cfg: dict, rec: dict, row: dict, cats: dict[str, str]) -> tuple[dict, list[str]]:
     """WooCommerce product JSON for one export row; second value lists the unmapped taxonomy IDs."""
     tax_ids = list(dict.fromkeys([str(rec.get("taxonomy_id", "")).strip()] + _split(rec.get("extra_taxonomy_ids"))))
@@ -557,6 +564,10 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
                                  ("_caravan_price_toman", "_caravan_price_estimated", "_caravan_price_lock")] \
                 + [m for m in PL.lock_meta(lp["run"], lp["toman"], lp.get("date", "")) if m["key"] != "_caravan_price_date"]
             rec = {**rec, "price_check": ""}             # a list price is never 'doubtful'
+        elif guessed_price(rec) and cfg.get("publish", {}).get("guessed_price_out_of_stock", True):
+            # (6 Nov) a price guessed from similar products (no shop prices this one, e.g. a Bosch saw no
+            # shop has) is shown, but the product cannot be ordered at it
+            data["stock_status"] = "outofstock"
 
         if cfg.get("publish", {}).get("spec_table", True):
             from .specs import apply as spec_apply
