@@ -5,6 +5,7 @@ what makes running the pipeline by hand and fixing things in between cheap.
 """
 from __future__ import annotations
 
+import gzip
 import hashlib
 import json
 import logging
@@ -84,6 +85,26 @@ def _remember_dead(p: Path, site: str, days: float) -> None:
             p.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
         except OSError:
             pass
+
+
+def prune_cache(cfg: dict) -> dict:
+    """(6 Nov) Saved pages older than http.cache_days are deleted (once a night): they only make a re-run
+    cheaper, and the cache was filling the disk. Paid searches (search_cache) are not touched."""
+    import os
+    root = Path(os.environ["CACHE_DIR"]) if os.environ.get("CACHE_DIR") else cfg["_data_dir"] / "cache"
+    limit = time.time() - float(cfg.get("http", {}).get("cache_days", 3)) * 86400
+    n = size = 0
+    if root.exists():
+        for f in root.rglob("*"):
+            try:
+                if f.is_file() and f.stat().st_mtime < limit:
+                    size += f.stat().st_size
+                    f.unlink()
+                    n += 1
+            except OSError:
+                pass
+    log.info("page cache: %d old file(s) deleted, %.1f GB freed", n, size / 1e9)
+    return {"files": n, "gb": round(size / 1e9, 2)}
 
 
 class Fetcher:
@@ -187,14 +208,20 @@ class Fetcher:
         h = hashlib.sha1(key.encode()).hexdigest()
         # paid searches are kept on the persistent disk: a page cache in CACHE_DIR (/tmp on the
         # server) is wiped by every deploy, and each re-run then paid for the same searches again
-        root = self._cfg["_data_dir"] / "search_cache" if "serper.dev" in key else self.cache_dir
-        return root / h[:2] / f"{h}.json"
+        if "serper.dev" in key:
+            return self._cfg["_data_dir"] / "search_cache" / h[:2] / f"{h}.json"
+        # (6 Nov) pages are kept gzipped: the plain cache grew 4-5 GB a day and was filling the server's disk
+        return self.cache_dir / h[:2] / f"{h}.json.gz"
 
     def _cached(self, key: str) -> dict | None:
         p = self._cache_path(key)
         days = 30 if "serper.dev" in key else self.cache_days
         try:
+            if p.suffix == ".gz" and not p.exists():
+                p = p.with_suffix("")                                   # a page saved before 6 Nov, not gzipped
             if p.exists() and (time.time() - p.stat().st_mtime) < days * 86400:
+                if p.suffix == ".gz":
+                    return json.loads(gzip.decompress(p.read_bytes()).decode("utf-8"))
                 return json.loads(p.read_text(encoding="utf-8"))
         except (OSError, ValueError):
             # (6 Nov) a half-written cache file (two crawls share the cache) stopped batch 33 with
@@ -206,7 +233,8 @@ class Fetcher:
         p = self._cache_path(key)
         p.parent.mkdir(parents=True, exist_ok=True)
         tmp = p.with_name(f"{p.name}.{threading.get_ident()}.tmp")       # write whole, then swap in:
-        tmp.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")  # a reader never sees half
+        raw = json.dumps(data, ensure_ascii=False).encode("utf-8")      # a reader never sees half
+        tmp.write_bytes(gzip.compress(raw, 6) if p.suffix == ".gz" else raw)
         os.replace(tmp, p)
 
     # ------------------------------------------------------------ get

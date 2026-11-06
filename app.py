@@ -505,6 +505,7 @@ def start_job(step: str, run: str, opts: dict) -> str | None:
 
 
 _WARMING = False
+_PRUNED = ""
 
 
 def nightly_loop() -> None:
@@ -520,6 +521,14 @@ def nightly_loop() -> None:
                 log.info("nightly site-health scan %s", "started" if not err else f"not started: {err}")
         except Exception:                           # noqa: BLE001 - the loop must survive
             log.error(traceback.format_exc())
+        global _PRUNED
+        if _PRUNED != time.strftime("%Y-%m-%d") and time.localtime().tm_hour >= 4:   # once a day, early morning
+            _PRUNED = time.strftime("%Y-%m-%d")
+            try:
+                from crawler.fetch import prune_cache
+                prune_cache(build_cfg())
+            except Exception:                       # noqa: BLE001
+                log.error(traceback.format_exc())
         global _WARMING
         if not _WARMING:                            # the shop's product copy, refreshed in the background (5 Nov)
             def warm():

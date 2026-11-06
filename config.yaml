@@ -63,7 +63,7 @@ http:
   retries: 1
   dead_after_failures: 4           # a site failing 4 times in a row is skipped for the rest of the run
   dead_days: 3                     # ... and for the next 3 days' runs too (data/dead_sites.json); 0 = this run only
-  cache_days: 14                   # reruns within this window reuse saved pages
+  cache_days: 3                    # reruns within this window reuse saved pages; older ones are deleted nightly (6 Nov: disk)
   respect_robots: true
   user_agent: "CaravanSanatBot/0.1 (+https://caravansanat.com)"
   proxy:                           # optional, e.g. a VPN's local proxy
