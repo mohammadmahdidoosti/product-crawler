@@ -60,3 +60,24 @@ class NumberRetry(unittest.TestCase):
         self.assertIn("90", sent[-1]["content"])
         w.s.post.side_effect = [resp(bad), resp(bad)]                 # a second slip: rejected, no third call
         self.assertIsNone(w.write(r))
+
+
+class CutRetry(unittest.TestCase):
+    def test_a_text_cut_at_the_token_limit_is_asked_again_with_room(self):
+        from unittest import mock
+        from crawler import describe as D
+        import json
+        r = {"url": "u", "name": "زانو مسی جوشی سایز 22", "brand": "", "breadcrumb": "اتصالات"}
+        body = " ".join(["این زانو برای لوله‌کشی آب گرم و سرد ساختمان مناسب است و نصب ساده‌ای دارد"] * 12)
+        good = {"html": "<p>" + body + "</p>", "short": "زانو مسی"}
+
+        def resp(text, finish):
+            m = mock.Mock(status_code=200)
+            m.json.return_value = {"choices": [{"message": {"content": text}, "finish_reason": finish}], "usage": {}}
+            return m
+        w = D.Writer({"describe": {"max_tokens": 2500}})
+        w.key = "k"
+        w.s = mock.Mock()
+        w.s.post.side_effect = [resp('{"html": "<p>نیمه', "length"), resp(json.dumps(good, ensure_ascii=False), "stop")]
+        self.assertIsNotNone(w.write(r))
+        self.assertEqual(w.s.post.call_args_list[1].kwargs["json"]["max_tokens"], 5000)

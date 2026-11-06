@@ -159,8 +159,8 @@ class Writer:
                 "response_format": {"type": "json_object"},
                 "reasoning": {"enabled": False},                 # no hidden 'thinking' tokens: plain writing
                 "usage": {"include": True}}                      # OpenRouter returns the call's cost
-        retried = False
-        for attempt in range(4):
+        retried = cut = False
+        for attempt in range(5):
             try:
                 res = self.s.post(OPENROUTER, json=body, timeout=120, headers={
                     "Authorization": f"Bearer {self.key}", "Content-Type": "application/json",
@@ -197,8 +197,14 @@ class Writer:
             if out and not why:
                 out["tokens_in"], out["tokens_out"] = u.get("prompt_tokens", ""), u.get("completion_tokens", "")
                 return out
-            log.info("description rejected (%s, finish=%s) for %s", why,
-                     ((data.get("choices") or [{}])[0]).get("finish_reason"), r.get("url"))
+            finish = ((data.get("choices") or [{}])[0]).get("finish_reason")
+            log.info("description rejected (%s, finish=%s) for %s", why, finish, r.get("url"))
+            if finish == "length" and not cut:
+                # (6 Nov) the text was cut at max_tokens (long Persian specs): once more with room, not a
+                # paid retry on the fallback model with the same limit
+                cut = True
+                body = {**body, "max_tokens": body["max_tokens"] * 2}
+                continue
             m = re.match(r"number (\S+) not in the facts", why or "")
             if m and not retried:
                 # once more, told what was wrong (29 Oct: 146 of 155 rejections were a number the model
