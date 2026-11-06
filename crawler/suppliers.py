@@ -65,8 +65,14 @@ def _serper(f, kind: str, q: str, num: int = 10) -> dict:
     return (res or {}).get("json") or {}
 
 
-def queries(brand: str) -> list[tuple[str, str]]:
-    b = brand.strip()
+OFFTOPIC = re.compile(r"تعمیرگاه|تعمیرات|تعمیر|خدمات\s*پس\s*از\s*فروش|سرویس\s*ادواری|لوازم\s*یدکی|قطعات\s*یدکی|"
+                      r"خودرو|اتومبیل|استخدام|repair", re.I)
+
+
+def queries(brand: str, context: str = "") -> list[tuple[str, str]]:
+    """context: what the order is (its category, e.g. 'سمپاش', 'ابزار'): a brand alone is ambiguous
+    (Bosch = home appliances too, Lifan = cars too)."""
+    b = f"{context.strip()} {brand.strip()}".strip()
     return [("search", f"نمایندگی {b} در تهران"), ("search", f"نماینده رسمی {b} واردکننده"),
             ("search", f"پخش عمده {b}"), ("search", f"لیست قیمت {b} pdf"),
             ("search", f"کانال {b} لیست قیمت تلگرام روبیکا ایتا"), ("places", f"نمایندگی {b} تهران"),
@@ -84,6 +90,18 @@ def kind_of(text: str, url: str) -> str:
     if WHOLESALE.search(text):
         return "wholesale"
     return "shop"
+
+
+def names_brand(text: str, url: str, names: list[str]) -> bool:
+    """The brand as a whole word ('ورکس' is not in 'ویوارکس'), in the text or the address."""
+    t = f" {norm_text(text)} "
+    for n in names:
+        k = norm_text(n)
+        if k and re.search(rf"(?<![\w\u0600-\u06FF]){re.escape(k)}(?![\w\u0600-\u06FF])", t):
+            return True
+        if len(n) >= 4 and n.isascii() and n.lower() in url.lower():
+            return True
+    return False
 
 
 RANK = {"official": 5, "wholesale": 4, "price_list": 3, "channel": 3, "shop": 1}
@@ -112,12 +130,12 @@ def from_pool(cfg: dict, brand: str, names: list[str]) -> list[dict]:
         rel = float((g["v"] / med).median()) if med and g["v"].notna().any() else None
         out.append({"name": dom, "url": f"https://{dom}", "kind": "shop", "source": "کراول خودمان",
                     "items": int(len(g)), "price_vs_median": round(rel, 2) if rel else "",
-                    "phones": [], "address": "", "rating": "", "snippet": ""})
+                    "phones": [], "address": "", "rating": "", "snippet": "", "topic": 1})
     out.sort(key=lambda x: (-x["items"], x["price_vs_median"] or 9))
     return out[:15]
 
 
-def find(cfg: dict, brand: str, aliases: list[str] | None = None) -> dict:
+def find(cfg: dict, brand: str, aliases: list[str] | None = None, context: str = "") -> dict:
     """The candidates for one brand, merged by site/phone, best first; saved to DATA_DIR/suppliers/<brand>.json."""
     from .pipeline import _fetchers
     f = _fetchers(cfg)["iran"]
@@ -135,13 +153,23 @@ def find(cfg: dict, brand: str, aliases: list[str] | None = None) -> dict:
             return
         old["phones"] = list(dict.fromkeys(old["phones"] + c.get("phones", [])))
         old["sources"] = list(dict.fromkeys(old["sources"] + [c["source"]]))
+        old["topic"] = max(old.get("topic", 0), c.get("topic", 0))   # one on-topic page is enough
         for f_ in ("address", "rating", "items", "price_vs_median"):
             if not old.get(f_) and c.get(f_):
                 old[f_] = c[f_]
         if RANK[c["kind"]] > RANK[old["kind"]]:
             old["kind"] = c["kind"]
 
-    for kind, q in queries(brand):
+    ctx = [w for w in norm_text(context).split() if len(w) >= 3]
+
+    def on_topic(text: str) -> int:
+        """+1 the page names the product type, -1 repair/after-sales/car parts (not a supplier for us)."""
+        t = norm_text(text)
+        if OFFTOPIC.search(text):
+            return -1
+        return 1 if ctx and any(w in t for w in ctx) else 0
+
+    for kind, q in queries(brand, context):
         j = _serper(f, kind, q)
         searches += 1
         if kind == "places":
@@ -149,16 +177,18 @@ def find(cfg: dict, brand: str, aliases: list[str] | None = None) -> dict:
                 add({"name": p.get("title", ""), "url": p.get("website", ""), "phones": _phones(p.get("phoneNumber", "")),
                      "address": p.get("address", ""), "rating": p.get("rating", ""),
                      "kind": kind_of(f"{p.get('title', '')} {p.get('category', '')}", p.get("website", "")),
-                     "source": "نقشه گوگل", "snippet": p.get("category", "")})
+                     "source": "نقشه گوگل", "snippet": p.get("category", ""),
+                     "topic": on_topic(f"{p.get('title', '')} {p.get('category', '')}")})
             continue
         for o in j.get("organic") or []:
             url, text = o.get("link", ""), f"{o.get('title', '')} {o.get('snippet', '')}"
             if any(s in _host(url) for s in SKIP_HOSTS):
                 continue
-            if not any(norm_text(n) in norm_text(text) or n.lower() in url.lower() for n in names):
+            if not names_brand(text, url, names):
                 continue                                 # a page that does not name the brand
             add({"name": o.get("title", "")[:90], "url": url, "phones": _phones(text), "address": "",
-                 "rating": "", "kind": kind_of(text, url), "source": f"گوگل: {q}", "snippet": o.get("snippet", "")[:200]})
+                 "rating": "", "kind": kind_of(text, url), "source": f"گوگل: {q}", "snippet": o.get("snippet", "")[:200],
+                 "topic": on_topic(text)})
     for c in from_pool(cfg, brand, names):
         add(c)
     notes = notes_for(cfg, brand)
@@ -166,14 +196,19 @@ def find(cfg: dict, brand: str, aliases: list[str] | None = None) -> dict:
         n = notes.get(k)
         c["verdict"] = n.get("verdict", "") if n else ""
         c["score"] = (RANK[c["kind"]] * 10 + len(c["sources"]) * 3 + (5 if c["phones"] else 0)
-                      + (min(int(c.get("items") or 0), 20) // 4) + {"good": 100, "ok": 50, "no": -100}.get(c["verdict"], 0))
+                      + (min(int(c.get("items") or 0), 20) // 4) + {"good": 100, "ok": 50, "no": -100}.get(c["verdict"], 0)
+                      + {1: 15, -1: -60}.get(c.get("topic", 0), 0))
         c["key"] = k
-    out = {"brand": brand, "at": time.strftime("%Y-%m-%d %H:%M"), "searches": searches,
+    out = {"brand": brand, "context": context, "at": time.strftime("%Y-%m-%d %H:%M"), "searches": searches,
            "suppliers": sorted(found.values(), key=lambda c: -c["score"])}
-    (sdir(cfg) / f"{norm_text(brand).replace(' ', '_')}.json").write_text(json.dumps(out, ensure_ascii=False, indent=1),
+    out_path(cfg, brand, context).write_text(json.dumps(out, ensure_ascii=False, indent=1),
                                                                           encoding="utf-8")
     log.info("suppliers %s: %d found with %d searches", brand, len(found), searches)
     return out
+
+
+def out_path(cfg: dict, brand: str, context: str = "") -> Path:
+    return sdir(cfg) / f"{norm_text(f'{brand} {context}'.strip()).replace(' ', '_')}.json"
 
 
 def notes_for(cfg: dict, brand: str) -> dict[str, dict]:

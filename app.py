@@ -1069,13 +1069,13 @@ class Handler(BaseHTTPRequestHandler):
                 b = (q.get("brand") or "").strip()
                 if not b:
                     return self._err("اسم برند را بدهید")
+                ctx = (q.get("ctx") or "").strip()          # what was ordered (its category): 'سمپاش', 'ابزار'
                 if q.get("cached") == "1":
-                    from crawler.normalize import norm_text
-                    f_ = SUP.sdir(build_cfg()) / f"{norm_text(b).replace(' ', '_')}.json"
+                    f_ = SUP.out_path(build_cfg(), b, ctx)
                     if f_.exists():
                         return self._json(json.loads(f_.read_text(encoding="utf-8")))
                 aliases = [x.strip() for x in (q.get("aka") or "").split(",") if x.strip()]
-                return self._json(SUP.find(build_cfg(), b, aliases))
+                return self._json(SUP.find(build_cfg(), b, aliases, ctx))
             if parts[:2] == ["api", "routing"]:
                 from crawler import routing_state as RS
                 from crawler.probe import total_usage
