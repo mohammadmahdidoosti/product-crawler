@@ -135,6 +135,7 @@ images:
   quality: 85             # WebP
   remove_background: true # busy backgrounds -> white (free U2-Net model on the server)
   search_max: 40          # products with no usable photo: image search (Serper) per run
+  search_checks: 12       # (6 Nov) found photos looked at before the paid edit (8 before): a look is ~0.01 cent, an edit ~1.8
   delay_seconds: 1        # between two photo downloads from one site (pages: http.delay_seconds)
   defer_paid_fix: true    # the paid image-model edit is done at publishing, only for the products kept
   ai_fix: true            # check every photo with a vision model and fix the bad ones (OpenRouter)
