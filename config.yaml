@@ -57,6 +57,7 @@ http:
   delay_seconds: 2                 # wait between two requests to the same site
   domain_delays:                   # per-site exceptions (all subdomains of the site share it)
     made-in-china.com: 1
+    torob.com: 30                  # (6 Nov) Torob only slowly: one request per 30 s from the server (api.torob.com too)
   workers: 16                      # sites fetched in parallel (each still at its own pace; pages capped at 8 MB since 5 Nov)
   parse_slots: 3                   # pages parsed at the same time (memory)
   timeout_seconds: 15

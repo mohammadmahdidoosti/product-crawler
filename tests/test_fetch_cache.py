@@ -28,3 +28,14 @@ def test_pages_are_gzipped_and_old_plain_ones_still_read(tmp_path):
     os.utime(old, (time.time() - 5 * 86400,) * 2)
     r = prune_cache({"_data_dir": tmp_path, "http": {"cache_days": 3}})
     assert r["files"] == 1 and not old.exists() and p.exists()
+
+
+def test_robots_longest_match_like_google():
+    from crawler.fetch import robots_rules, robots_allows
+    txt = "User-agent: *\nDisallow: /\nAllow: /v4/base-product/search\nAllow: /v4/base-product/details\n"
+    r = robots_rules(txt, "CaravanSanatBot/0.1")
+    assert robots_allows(r, "https://api.torob.com/v4/base-product/search/?q=x")
+    assert robots_allows(r, "https://api.torob.com/v4/base-product/details/?prk=1")
+    assert not robots_allows(r, "https://api.torob.com/v4/user/me")
+    assert robots_allows(robots_rules("User-agent: *\nDisallow:\n", "x"), "https://a.ir/p")
+    assert not robots_allows(robots_rules("User-agent: *\nDisallow: /cart\n", "x"), "https://a.ir/cart?x=1")

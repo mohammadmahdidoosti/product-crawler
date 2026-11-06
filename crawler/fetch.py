@@ -10,6 +10,7 @@ import hashlib
 import json
 import logging
 import os
+import re
 import threading
 import time
 from collections import defaultdict
@@ -107,6 +108,48 @@ def prune_cache(cfg: dict) -> dict:
     return {"files": n, "gb": round(size / 1e9, 2)}
 
 
+def robots_rules(text: str, ua: str) -> list[tuple[bool, str]]:
+    """(allow, path prefix) rules of the group for our agent (else '*')."""
+    groups, cur, agents, last_ua = {}, [], [], False
+    for raw in text.splitlines():
+        line = raw.split("#", 1)[0].strip()
+        if ":" not in line:
+            continue
+        k, v = (x.strip() for x in line.split(":", 1))
+        k = k.lower()
+        if k == "user-agent":
+            if not last_ua:
+                agents, cur = [], []
+            agents.append(v.lower())
+            for a in agents:
+                groups.setdefault(a, cur)
+            last_ua = True
+            continue
+        last_ua = False
+        if k in ("allow", "disallow") and agents:
+            cur.append((k == "allow", v))
+    name = ua.split("/")[0].lower()
+    return next((g for a, g in groups.items() if a != "*" and a in name), groups.get("*", []))
+
+
+def robots_allows(rules: list[tuple[bool, str]], url: str) -> bool:
+    """Google's reading of robots.txt: the longest matching rule wins, Allow on a tie. Python's own parser
+    takes the first match, so 'Disallow: /' followed by 'Allow: /v4/base-product/search' (Torob's API, 6 Nov)
+    shut out paths the site allows."""
+    p = urlparse(url)
+    path = (p.path or "/") + (f"?{p.query}" if p.query else "")
+    best, allow = -1, True
+    for ok, rule in rules:
+        if rule == "" and not ok:
+            continue                                     # 'Disallow:' with nothing = everything allowed
+        rx = "^" + re.escape(rule).replace(r"\*", ".*")
+        if rx.endswith(r"\$"):
+            rx = rx[:-2] + "$"
+        if re.match(rx, path) and (len(rule) > best or (len(rule) == best and ok)):
+            best, allow = len(rule), ok
+    return allow
+
+
 class Fetcher:
     def __init__(self, cfg: dict, route: str = "iran"):
         self._cfg = cfg
@@ -187,6 +230,7 @@ class Fetcher:
                 r = self.s.get(base + "/robots.txt", timeout=self.timeout)
                 if r.status_code == 200:
                     rp.parse(r.text.splitlines())
+                    rp._caravan_rules = robots_rules(r.text, self.s.headers["User-Agent"])
                 else:
                     rp = None  # no robots.txt -> allowed
             except requests.RequestException:
@@ -201,7 +245,12 @@ class Fetcher:
                     k = self.site_key(p.netloc.lower().removeprefix("www."))
                     self.domain_delays[k] = max(float(cd), self.domain_delays.get(k, self.delay))
         rp = self._robots[base]
-        return True if rp is None else rp.can_fetch(self.s.headers["User-Agent"], url)
+        if rp is None:
+            return True
+        rules = getattr(rp, "_caravan_rules", None)
+        if rules is not None:                            # longest match wins (see robots_allows)
+            return robots_allows(rules, url)
+        return rp.can_fetch(self.s.headers["User-Agent"], url)
 
     # ------------------------------------------------------------ cache
     def _cache_path(self, key: str) -> Path:
