@@ -17,29 +17,43 @@ log = logging.getLogger(__name__)
 
 
 def torob_offers(f, rec: dict, same_model) -> list[tuple[str, float]]:
-    from .names import clean_name
-    q = clean_name(str(rec.get("name") or ""))
-    res = f.get("https://api.torob.com/v4/base-product/search/", params={"q": q, "page": 0, "size": 8}, as_json=True)
-    if not res or res.get("status") != 200:
-        log.info("torob search not available for %s (%s)", q[:40], res.get("status") if res else "blocked/none")
+    """Torob's lowest price for the same model, from Google's result for its page (6 Nov: Torob's own API
+    answers bots with HTTP 490). 'From X at N shops' with N >= 2 counts as two shops at X."""
+    prices, shops, _ = torob_snippet({}, f, rec)
+    if not prices:
         return []
-    out = []
-    for it in ((res.get("json") or {}).get("results") or [])[:4]:
-        name = it.get("name1") or it.get("name") or ""
-        if not name or not same_model(rec, name):
+    low = min(prices)
+    return [("torob:min", low)] + ([("torob:n", low)] if shops >= 2 else [])
+
+
+def torob_snippet(cfg: dict, f, rec: dict) -> tuple[list[float], int, str]:
+    """(6 Nov) Torob's price line as Google shows it ('از ۲۱٫۵۳۸٫۰۰۰ تومان در ۱۶ فروشگاه'): one search, no
+    request to Torob (its API answers bots with HTTP 490). Returns (prices, shops, title) of the first result
+    that is the same model; ([], 0, '') when none."""
+    from .config import secret
+    from .names import clean_name
+    from .normalize import fa_digits_to_en, parse_number
+    key = secret("SERPER_API_KEY")
+    if not key:
+        return [], 0, ""
+    q = f"site:torob.com {clean_name(str(rec.get('name') or ''))}"
+    res = f.post_json("https://google.serper.dev/search", {"q": q, "gl": "ir", "hl": "fa", "num": 5},
+                      {"X-API-KEY": key, "Content-Type": "application/json"})
+    from .detective import _same_model
+    for o in ((res or {}).get("json") or {}).get("organic") or []:
+        title = re.sub(r"\s*[|\-–]\s*ترب.*$", "", str(o.get("title") or "")).replace("قیمت و خرید", "").strip()
+        if "torob.com" not in str(o.get("link") or "") or not _same_model(rec, title):
             continue
-        det = f.get("https://api.torob.com/v4/base-product/details/", params={"prk": it.get("random_key")}, as_json=True)
-        offers = (((det or {}).get("json") or {}).get("products_info") or {}).get("result") or []
-        for o in offers:
-            p = o.get("price")
-            shop = o.get("shop_text") or o.get("shop_name") or ""
-            if isinstance(p, (int, float)) and p > 0 and shop and o.get("availability", True) is not False:
-                out.append((f"torob:{shop}", float(p)))
-        if not offers and isinstance(it.get("price"), (int, float)) and it["price"] > 0:
-            out.append(("torob:min", float(it["price"])))       # the product's lowest price only
-        if out:
-            break
-    return out
+        text = fa_digits_to_en(f"{o.get('snippet', '')} {o.get('price', '')}").replace("٫", ",")
+        prices = []
+        for m in re.finditer(r"(\d[\d,٬.]{4,})\s*(تومان|تومن|ریال)", text):
+            v = parse_number(m.group(1))
+            if v:
+                prices.append(v / 10 if m.group(2) == "ریال" else v)
+        n = re.search(r"در\s*(\d+)\s*فروشگاه", text)
+        if prices:
+            return prices, int(n.group(1)) if n else 1, title
+    return [], 0, ""
 
 
 def emalls_range(cfg: dict, f, rec: dict) -> list[tuple[str, float]]:

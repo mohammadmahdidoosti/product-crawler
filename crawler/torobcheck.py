@@ -283,14 +283,12 @@ def apply_slip(cfg: dict, pid: str, row: dict, tol: float, wc=None) -> str:
     return f"خطای ۱۰ برابری: قیمت از {int(ours):,} به {new:,} تومان اصلاح شد"
 
 
-TOROB_SEARCH = "https://api.torob.com/v4/base-product/search/"
-TOROB_DETAILS = "https://api.torob.com/v4/base-product/details/"
-
-
 def run_server(cfg: dict, limit: int = 0, stop=None) -> dict:
-    """(6 Nov) The same check run from the server, no browser needed: Torob's robots.txt allows these two API
-    paths, and the fetcher keeps Torob at one request per 30 s (http.domain_delays). Stops at the daily cap,
-    at `limit`, when told to, or after 3 failed requests in a row."""
+    """(6 Nov) The same check run from the server, no browser: Torob answers bots with HTTP 490, so its price
+    line is read from Google (one Serper search per product, site:torob.com), Emalls' when Torob has none.
+    'From X toman at N shops' counts as N offers at X (X is the lowest price: a 10x slip still shows plainly).
+    Stops at the daily cap, at `limit`, when told to, or after 3 failed searches in a row."""
+    from .aggregators import emalls_range, torob_snippet
     from .pipeline import _fetchers
     f = _fetchers(cfg)["iran"]
     counts: dict[str, int] = {}
@@ -300,22 +298,27 @@ def run_server(cfg: dict, limit: int = 0, stop=None) -> dict:
         if "wait" in it:
             counts["stopped"] = it.get("why", "")
             break
-        res = f.get(TOROB_SEARCH, params={"q": it["q"], "page": 0, "size": 8}, as_json=True, use_cache=False)
-        if not res or res.get("status") != 200:
+        rec = {"name": it["q"]}
+        try:
+            prices, shops, title = torob_snippet(cfg, f, rec)
+            where = "torob"
+            if not prices:
+                em = emalls_range(cfg, f, rec)
+                prices, shops, title, where = [p for _, p in em], len(em), "", "emalls"
+            fails = 0
+        except Exception as e:                                # noqa: BLE001
+            log.warning("TOROB server search %s: %s", it["id"], e)
             with LOCK:
                 LEASE.pop(it["id"], None)
             fails += 1
             if fails >= 3:
-                counts["stopped"] = f"ترب جواب نداد ({(res or {}).get('status', 'none')})"
+                counts["stopped"] = "جستجو جواب نداد"
                 break
             continue
-        fails = 0
-        r = result(cfg, {"id": it["id"], "items": (res.get("json") or {}).get("results") or []})
-        if r.get("details"):
-            det = f.get(TOROB_DETAILS, params={"prk": r["details"]}, as_json=True, use_cache=False)
-            offers = [{"price": o.get("price"), "available": o.get("availability", True) is not False}
-                      for o in ((((det or {}).get("json") or {}).get("products_info") or {}).get("result") or [])]
-            r = result(cfg, {"id": it["id"], "prk": r["details"], "torob_name": r.get("torob_name", ""), "offers": offers})
+        offers = [{"price": p} for p in prices]
+        if prices and shops > len(prices):                     # the lowest price stands for its shops
+            offers += [{"price": min(prices)}] * (min(shops, 3) - len(prices))
+        r = result(cfg, {"id": it["id"], "prk": where, "torob_name": title, "offers": offers})
         n += 1
         v = str(r.get("verdict") or "")
         counts[v] = counts.get(v, 0) + 1

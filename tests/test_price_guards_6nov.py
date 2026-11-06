@@ -91,3 +91,16 @@ def test_torob_slip_fixes_only_tenfold(tmp_path, monkeypatch):
     assert TC.apply_slip(cfg, "1", {"ratio": "0.24", "our_toman": "4651000"}, 0.15) == ""    # 4x low: report only
     assert TC.apply_slip(cfg, "1", {"ratio": "1.05", "our_toman": "4651000"}, 0.15) == ""
     assert not sent
+
+
+def test_torob_snippet_reads_googles_price_line(monkeypatch):
+    from crawler import aggregators as AG
+    import crawler.config as C
+    monkeypatch.setattr(C, "secret", lambda k: "x")
+
+    class F:
+        def post_json(self, url, payload, headers):
+            return {"json": {"organic": [{"link": "https://torob.com/p/1/x/", "title": "دریل شارژی چکشی محک براشلس مدل BCD-2010 LI | ترب",
+                                          "snippet": "دریل شارژی ... از ۲۱٫۵۳۸٫۰۰۰ تومان در ۱۶ فروشگاه"}]}}
+    prices, shops, title = AG.torob_snippet({}, F(), {"name": "دریل شارژی چکشی براش لس محک BCD-2010 Li"})
+    assert prices == [21538000] and shops == 16

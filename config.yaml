@@ -197,7 +197,7 @@ searches:                 # failed site searches (crawler/searches.py): WebiSear
   max_queries_per_category: 3   # approved terms searched per category (the first + 2 more)
 
 torob_check:              # Torob price check of the site's products (crawler/torobcheck.py)
-  daily_cap: 500          # products a day (two Torob requests each, one per 30 s)
-  server: true            # (6 Nov) run from the server at night, no browser needed
+  daily_cap: 300          # products a day (one Serper search each, two when Torob has none)
+  server: true            # (6 Nov) run from the server at night: Torob's price line read from Google, no browser
   server_hours: [0, 8]    # Tehran time
   auto_slip: true         # a 10x (or 1/10) slip that 2+ Torob sellers show is corrected; everything else only reported
