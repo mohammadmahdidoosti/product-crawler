@@ -1064,6 +1064,18 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "sources"]:
                 txt = sources_text()
                 return self._json({"yaml": txt, "data": yaml.safe_load(txt) or {}})
+            if parts[:2] == ["api", "suppliers"]:        # (6 Nov) likely suppliers of one brand, on demand
+                from crawler import suppliers as SUP
+                b = (q.get("brand") or "").strip()
+                if not b:
+                    return self._err("اسم برند را بدهید")
+                if q.get("cached") == "1":
+                    from crawler.normalize import norm_text
+                    f_ = SUP.sdir(build_cfg()) / f"{norm_text(b).replace(' ', '_')}.json"
+                    if f_.exists():
+                        return self._json(json.loads(f_.read_text(encoding="utf-8")))
+                aliases = [x.strip() for x in (q.get("aka") or "").split(",") if x.strip()]
+                return self._json(SUP.find(build_cfg(), b, aliases))
             if parts[:2] == ["api", "routing"]:
                 from crawler import routing_state as RS
                 from crawler.probe import total_usage
@@ -1376,6 +1388,15 @@ class Handler(BaseHTTPRequestHandler):
             if parts == ["api", "autopilot"]:              # {"batches": [11, 12], "enabled": true, "max_usd": 1}
                 from crawler import autopilot as AP
                 return self._json(AP.configure(build_cfg(), self._jbody()))
+            if parts[:3] == ["api", "suppliers", "note"]:
+                from crawler import suppliers as SUP
+                body = self._jbody()
+                try:
+                    return self._json(SUP.note(build_cfg(), str(body.get("brand") or ""), str(body.get("key") or ""),
+                                               str(body.get("verdict") or ""), str(body.get("note") or ""),
+                                               str(body.get("name") or ""), str(body.get("phone") or "")))
+                except ValueError as e:
+                    return self._err(str(e))
             if parts[:2] == ["api", "routing"] and len(parts) >= 3:
                 from crawler import routing_state as RS
                 cfg = build_cfg()
