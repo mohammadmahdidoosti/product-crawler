@@ -564,9 +564,9 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
                                  ("_caravan_price_toman", "_caravan_price_estimated", "_caravan_price_lock")] \
                 + [m for m in PL.lock_meta(lp["run"], lp["toman"], lp.get("date", "")) if m["key"] != "_caravan_price_date"]
             rec = {**rec, "price_check": ""}             # a list price is never 'doubtful'
-        elif guessed_price(rec) and cfg.get("publish", {}).get("guessed_price_out_of_stock", True):
-            # (6 Nov) a price guessed from similar products (no shop prices this one, e.g. a Bosch saw no
-            # shop has) is shown, but the product cannot be ordered at it
+        elif guessed_price(rec) and cfg.get("publish", {}).get("guessed_price_out_of_stock", False):
+            # (6 Nov) optional: a price guessed from similar products shown but not orderable. Off: the owner
+            # publishes everything and lets the market's feedback correct it
             data["stock_status"] = "outofstock"
 
         if cfg.get("publish", {}).get("spec_table", True):
@@ -615,7 +615,12 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             continue
         if missing:
             res["error"] = f"دسته‌های بدون نگاشت حذف شدند: {', '.join(missing)}"
-        if doubt:
+        if doubt and cfg.get("publish", {}).get("doubtful_publish", True):
+            # (6 Nov, the owner) a price the detective's search could not settle goes out with the others;
+            # the market's feedback (orders, the Torob check) corrects it. It is marked for the Torob check.
+            data["meta_data"] = data["meta_data"] + [{"key": "_caravan_price_doubt", "value": doubt[:200]}]
+            res["error"] = " · ".join(x for x in ("قیمت نامطمئن (منتشر می‌شود): " + doubt, res["error"]) if x)
+        elif doubt:
             # a new product with a doubtful price goes to the site as 'pending review' (در انتظار
             # بررسی): it is checked there with the other new products, price fixed in place, and the
             # bulk 'publish all' leaves it alone
@@ -801,7 +806,9 @@ def set_status(cfg: dict, run: str, status: str = "publish", skus: list[str] | N
         # publishing leaves out what waits for a person: a doubtful price (pending review) and
         # products parked in draft for want of a category
         err = on_site["error"].astype(str)
-        held = err.str.startswith("قیمت مشکوک") | err.str.startswith(PARKED) | (on_site["status"] == "pending")
+        held = err.str.startswith(PARKED)
+        if not cfg.get("publish", {}).get("doubtful_publish", True):     # (6 Nov) on: doubtful prices go out too
+            held = held | err.str.startswith("قیمت مشکوک") | (on_site["status"] == "pending")
         if held.any():
             log.info("status publish: %d product(s) left as they are (doubtful price / no category)", int(held.sum()))
         on_site = on_site[~held]

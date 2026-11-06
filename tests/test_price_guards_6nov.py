@@ -66,6 +66,6 @@ def test_market_check_holds_a_page_read_in_the_wrong_unit(tmp_path, monkeypatch)
     res = PL.market_check(cfg, "pl-t")
     it = pd.read_csv(d / "items.csv", dtype=str).fillna("")
     held = dict(zip(it["key"], it["toman"]))
-    assert res["pages_held"] == 1
-    assert held["9303"] == "" and held["9302"] == ""          # the page read in the wrong unit waits
-    assert held["2720"] == "1539500"                          # the page read right stays
+    assert res["pages_fixed"] == 1
+    assert held["9303"] == "14298000" and held["9302"] == "7598000"   # the page read in the wrong unit, x10
+    assert held["2720"] == "1539500"                                   # the page read right stays

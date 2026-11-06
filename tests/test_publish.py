@@ -294,7 +294,18 @@ class Publish(unittest.TestCase):
         self.assertEqual({p["status"] for p in FakeWoo.products.values()}, {"publish"})
         self.assertEqual(set(read_csv(self.d / PB.RESULT_FILE)["status"]), {"publish", ""})   # '' = the skipped one
 
+    def test_doubtful_price_goes_out_by_default(self):
+        """(6 Nov, the owner) publish everything; the market's feedback corrects a doubtful price."""
+        PB.publish(self.cfg, "batch-1", limit=10)
+        df = read_csv(self.d / PB.RESULT_FILE)
+        sent = df[df["product_id"].astype(str) != ""]
+        df.loc[df["sku"] == sent.iloc[0]["sku"], "error"] = "قیمت مشکوک (1,048,000,000 تومان؛ شاید 104,800,000)"
+        write_csv(df, self.d / PB.RESULT_FILE)
+        res = PB.set_status(self.cfg, "batch-1", "publish", skus=list(sent["sku"]))
+        self.assertEqual(res["requested"], len(sent))
+
     def test_sku_list_never_publishes_a_doubtful_price(self):
+        self.cfg.setdefault("publish", {})["doubtful_publish"] = False      # the old rule, still available
         PB.publish(self.cfg, "batch-1", limit=10)
         df = read_csv(self.d / PB.RESULT_FILE)
         sent = df[df["product_id"].astype(str) != ""]

@@ -951,9 +951,11 @@ def market_check(cfg: dict, run: str, hold: bool = True, progress=None) -> dict:
     read in the wrong unit (Tosan's 9303 grinder: 14,298,000 toman taken for rial, sold at 1.4 million) passes it.
     Per page, the dearest rows with a model code are looked up at other shops (crawl pool and price memory
     first, free; Torob; then one web search); decide() says which reading of our price they back.
-      - the shops back x10 (or /10) of our price            -> the whole page is held (its unit is suspect)
-      - they back another price, or 2+ shops disagree        -> that row is held
-    Held rows lose their toman (like verify's holds) and say why; market.csv keeps the evidence."""
+      - the shops back x10 (or /10) of our price, none backs it as is -> the whole page is corrected x10 (/10):
+        a unit slip is the page's, not one row's
+      - anything else (another price, nothing found)              -> the price stays and goes out; the
+        market's feedback corrects it later (6 Nov, the owner: publish, then fix from the market)
+    market.csv keeps the evidence; a corrected row says so in its note."""
     from . import fx as fxmod
     from .detective import _same_model, _search_prices, decide
     from .pipeline import _codes, _fetchers, price_peers
@@ -1009,7 +1011,7 @@ def market_check(cfg: dict, run: str, hold: bool = True, progress=None) -> dict:
                 "off" if ratio else "unclear"
             verdicts.append(kind)
             if kind == "off" or (kind == "unclear" and shops >= 2):
-                row_bad[r["key"]] = f"قیمت لیست با بازار نمی‌خواند: {why}"
+                row_bad[r["key"]] = f"قیمت لیست با بازار نمی‌خواند (منتشر می‌شود): {why}"
             out.append({"file": label, "key": r["key"], "model": r.get("model", ""), "name": r.get("name", ""),
                         "toman": round(v), "market": round(new) if new else "", "verdict": kind, "shops": shops,
                         "why": why, "evidence": " | ".join(f"{dm}: {pr:,.0f}" for dm, pr in others[:6])})
@@ -1018,25 +1020,24 @@ def market_check(cfg: dict, run: str, hold: bool = True, progress=None) -> dict:
             page_bad[label] = "x10" if slips.count("x10") >= slips.count("d10") else "d10"
     cols = ["file", "key", "model", "name", "toman", "market", "verdict", "shops", "why", "evidence"]
     write_csv(pd.DataFrame(out, columns=cols), d / "market.csv", cols)
-    held = 0
-    if hold and (page_bad or row_bad):
+    fixed = 0
+    if hold and (page_bad or row_bad):                   # 'hold' = write the outcome into items.csv
         it = items(cfg, run)
         for i, r in it.iterrows():
             if not str(r.get("toman") or "").strip():
                 continue
-            why = row_bad.get(r["key"])
             pb = page_bad.get(str(r.get("file") or ""))
             if pb:
                 t = int(float(r["toman"]))
-                why = (f"واحد قیمت این صفحه احتمالاً اشتباه خوانده شده: بازار حدود {t * 10:,} تومان می‌گوید" if pb == "x10"
-                       else f"واحد قیمت این صفحه احتمالاً اشتباه خوانده شده: بازار حدود {t // 10:,} تومان می‌گوید")
-            if why:
-                it.at[i, "note"] = why
-                it.at[i, "toman"] = ""
-                held += 1
+                new_t = t * 10 if pb == "x10" else t // 10
+                it.at[i, "toman"] = str(new_t)
+                it.at[i, "note"] = f"واحد این صفحه با بازار اصلاح شد: {t:,} ← {new_t:,} تومان"
+                fixed += 1
+            elif row_bad.get(r["key"]):
+                it.at[i, "note"] = row_bad[r["key"]]
         write_csv(it, d / "items.csv", ITEM_COLS)
-    res = {"pages": len(labels), "looked": len(out), "searches": searched, "pages_held": len(page_bad),
-           "rows_held": held}
+    res = {"pages": len(labels), "looked": len(out), "searches": searched, "pages_fixed": len(page_bad),
+           "rows_fixed": fixed, "rows_doubtful": len(row_bad)}
     for x in out:
         res[x["verdict"]] = res.get(x["verdict"], 0) + 1
     log.info("PRICELIST market %s: %s", run, res)
