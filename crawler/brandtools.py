@@ -256,5 +256,30 @@ def raise_prices(cfg: dict, wc, brand: str, pct: float, name_filter: str = "", g
         res["done"] = _send(cfg, wc, todo, f"raise {brand} +{pct:g}%")
         from .pricelist import lock_brand
         lock_brand(cfg, brand, f"owner-raise {pct:g}% {day}")
+    if go:
+        res["index_raised"] = raise_index(cfg, brand, pct, name_filter)
     log.info("BRANDTOOLS raise: %s", {k: v for k, v in res.items() if k != "sample"})
     return res
+
+
+def raise_index(cfg: dict, brand: str, pct: float, name_filter: str = "") -> int:
+    """The applied price lists' models of the brand (pricelists/index.json, given to products the crawler brings
+    later) follow the raise, so a new product does not come with the price from before it."""
+    from .pricelist import _flat, _index_path, brand_names, load_index
+    idx = load_index(cfg)
+    want = set(brand_names(cfg, brand)) | {_flat(brand)}
+    flt = re.compile(name_filter, re.I) if name_filter else None
+    f, n = 1 + float(pct) / 100, 0
+    for v in idx.values():
+        if not (want & set(v.get("brand_names") or []) or _flat(v.get("brand")) in want):
+            continue
+        if flt and not flt.search(_n(v.get("name"))):
+            continue
+        v["toman"] = int(round(float(v.get("toman") or 0) * f))
+        v["raised"] = f"+{pct:g}% {time.strftime('%Y-%m-%d')}"
+        n += 1
+    if n:
+        _index_path(cfg).write_text(json.dumps(idx, ensure_ascii=False))
+    return n
+
+
