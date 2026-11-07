@@ -83,6 +83,7 @@ fx:
   sanity_range_toman: [10000, 10000000]
 
 price:
+  detective: false                 # (7 Nov, owner) doubtful prices are fixed from supplier feedback after publishing
   default_unit: toman              # used only when a page gives no clue (flagged "unit_assumed")
   min_toman: 5000                  # below this -> flag too_low (excluded from the median)
   max_toman: 50000000000

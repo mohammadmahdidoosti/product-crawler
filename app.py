@@ -215,6 +215,10 @@ class Job:
             # the model writes at publishing, for the products kept (describe.defer_to_publish)
             step_describe(cfg, run, llm=not cfg.get("describe", {}).get("defer_to_publish", True)
                           or bool(opts.get("describe_now")))
+        elif step == "prices" and cfg.get("price", {}).get("detective", True) is False and not opts.get("force"):
+            # (7 Nov, owner) no price detective: doubtful prices go out marked as doubtful and are fixed
+            # from suppliers' feedback and price lists after publishing
+            self.logs.append("کارآگاه قیمت خاموش است: قیمت‌های مشکوک با علامت مشکوک می‌مانند")
         elif step == "prices":                       # doubtful prices settled from evidence (detective)
             from crawler.detective import run_detective
             if opts.get("forget"):
