@@ -187,6 +187,9 @@ def telegram_channel(cfg: dict, run: str, channel: str, posts: int | None = None
                     texts.append(f"--- پست {m.group(1)} ({day})\n{txt}")
         url = f"https://t.me/s/{channel}?before={min(ids)}" if ids else ""
     n = 0
+    room = int(settings(cfg)["max_files"]) - len(list((run_path(cfg, run) / "files").glob("*"))) - 1 \
+        if (run_path(cfg, run) / "files").exists() else int(settings(cfg)["max_files"]) - 1
+    photos = sorted(photos, key=lambda x: -int(x[0]))[:max(0, room)]     # the newest posts first, within the cap
     for pid, day, u in photos:
         try:
             r = s.get(u, timeout=60)
