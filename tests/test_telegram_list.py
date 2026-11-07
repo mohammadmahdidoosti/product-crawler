@@ -20,7 +20,8 @@ def test_channel_photos_and_priced_texts(tmp_path):
         return m
     with mock.patch("requests.Session.get", side_effect=resp), \
             mock.patch.object(P, "add_file", side_effect=lambda c, r, d, n: added.append((n, d)) or {"files": 1}), \
-            mock.patch.object(P, "settings", return_value={"telegram_posts": 50}):
+            mock.patch.object(P, "settings", return_value={"telegram_posts": 50, "max_files": 80}), \
+            mock.patch.object(P, "run_path", return_value=tmp_path):
         res = P.telegram_channel({}, "pl-x", "baradabzartehran")
     assert res["posts"] == 2 and res["photos"] == 1 and res["texts"] == 1
     names = [n for n, _ in added]
