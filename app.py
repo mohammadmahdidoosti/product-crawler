@@ -357,16 +357,27 @@ class Job:
                              stop=self.stop_ev.is_set)
             self.logs.append(f"پیش‌نمایش اصلاح ({res['kind']}): {res['rows']} محصول، {res['with_proposal']} پیشنهاد، "
                              f"{res['doubt']} مشکوک؛ منبع: {res['found']} — هنوز چیزی به سایت نرفته")
-        elif step in ("brand_oos", "brand_shop", "seller_oos"):  # the owner's brand-wide fixes (crawler/brandtools.py)
+        elif step in ("brand_oos", "brand_shop", "seller_oos", "brand_raise"):  # the owner's brand-wide fixes (crawler/brandtools.py)
             from crawler import brandtools as BT
             from crawler.wc import WC
             go = bool(opts.get("go"))
-            if step == "seller_oos":
+            if step == "brand_raise":
+                res = BT.raise_prices(cfg, WC(), str(opts.get("brand") or ""), float(opts.get("pct") or 0),
+                                      opts.get("filter") or "", go=go)
+                self.logs.append(f"{'قیمت‌ها بالا رفت' if go else 'آزمایشی'} — {res['brand']} +{res['pct']:g}% "
+                                 f"({'، '.join(res['terms']) or 'برچسب برند پیدا نشد'}): {res['products']} محصول، "
+                                 f"{res['done'] if go else res['to_change']} {'تغییر کرد' if go else 'تغییر می‌کند'} "
+                                 f"(از جمله {res['locked_in']} قفل لیست قیمت)، {res['no_price']} بی‌قیمت، "
+                                 f"{res['variable_left']} متغیر دست نخورد")
+                for x in res["sample"]:
+                    self.logs.append(f"  نمونه #{x[0]} {x[1]}: {x[2]} → {x[3]} دلار")
+            elif step == "seller_oos":
                 res = BT.seller_out_of_stock(cfg, WC(), opts.get("sellers") or [], go=go)
                 self.logs.append(f"{'ناموجود شد' if go else 'آزمایشی'} — فروشگاه منبع ({'، '.join(res['domains']) or 'پیدا نشد'}): "
                                  f"{res['products']} محصول" + (f"، {res['done']} تغییر کرد" if go else ""))
             elif step == "brand_oos":
-                res = BT.out_of_stock(cfg, WC(), opts.get("brands") or [], opts.get("filter") or "", go=go)
+                res = BT.out_of_stock(cfg, WC(), opts.get("brands") or [], opts.get("filter") or "", go=go,
+                                      keep=opts.get("keep") or "")
                 for b in res["brands"]:
                     self.logs.append(f"{'ناموجود شد' if go else 'آزمایشی'} — {b['brand']} ({'، '.join(b['terms']) or 'برچسب برند پیدا نشد'}): "
                                      f"{b['products']} محصول، {b['to_change'] if not go else b['done']} "
@@ -469,7 +480,7 @@ class Job:
                 self.state.setdefault("timings", {})[st] = round(took)
             if step not in ("catmake", "probe", "publish", "prepare", "brands", "status", "resync", "health", "shops", "leads", "specs", "catalog", "catalog_publish",
                             "pricelist_read", "pricelist_match", "pricelist_apply", "pricelist_create", "pricelist_site",
-                            "sitefix", "sitefix_apply", "brand_oos", "brand_shop", "seller_oos"):
+                            "sitefix", "sitefix_apply", "brand_oos", "brand_shop", "seller_oos", "brand_raise"):
                 for line in P.stats(cfg, run).splitlines():
                     self.logs.append(line)
             self.state["ok"] = not self.stop_ev.is_set()
@@ -487,7 +498,7 @@ class Job:
         return {**self.state, "progress": dict(self.prog), "logs": list(self.logs)[-200:]}
 
 
-SITE_STEPS = {"brand_oos", "brand_shop", "seller_oos", "catmake", "publish", "status", "brands", "resync", "merge", "catalog_publish", "sitefix_apply",
+SITE_STEPS = {"brand_oos", "brand_shop", "seller_oos", "brand_raise", "catmake", "publish", "status", "brands", "resync", "merge", "catalog_publish", "sitefix_apply",
               "pricelist_apply", "pricelist_create"}
 JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health"),
         "lists": Job("lists")}       # price lists: read + match only (3 Nov: never waits for a long health job)
@@ -1423,11 +1434,12 @@ class Handler(BaseHTTPRequestHandler):
                         res["started"] = not err
                     return self._json(res)
                 return self._err("not found", 404)
-            if parts[:2] == ["api", "brandtools"] and len(parts) == 3 and parts[2] in ("oos", "shop", "seller"):
+            if parts[:2] == ["api", "brandtools"] and len(parts) == 3 and parts[2] in ("oos", "shop", "seller", "raise"):
                 # {"brands": [...], "filter": "", "go": bool} / {"shops": [...], "go": bool}; without go only counts
                 b = self._jbody()
-                err = start_job({"oos": "brand_oos", "shop": "brand_shop", "seller": "seller_oos"}[parts[2]], "brandtools",
-                                {k: b.get(k) for k in ("brands", "filter", "shops", "sellers", "go")})
+                err = start_job({"oos": "brand_oos", "shop": "brand_shop", "seller": "seller_oos", "raise": "brand_raise"}[parts[2]],
+                                "brandtools", {k: b.get(k) for k in ("brands", "filter", "shops", "sellers", "go", "keep",
+                                                                     "brand", "pct")})
                 return self._err(err, 409) if err else self._json({"ok": True})
             if parts == ["api", "pricelist", "locks", "unlock"]:     # {"brand": …}: the crawler may take it again
                 from crawler import pricelist as PL

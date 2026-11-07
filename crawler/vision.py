@@ -45,7 +45,9 @@ ASK_FOUND = ("You check a photo found on another shop's site before it is used f
              "\"shows_whole_tool\": true/false (the photo shows a whole tool or machine), "
              "\"matches_name\": true/false (true only if the photo clearly shows exactly the product named: same "
              "kind of item, same brand and model when they are visible; a part named must be shown as that part "
-             "alone, not the tool it belongs to), \"note\": \"<few words>\"}}")
+             "alone, not the tool it belongs to), "
+             "\"brand_on_product\": \"<the maker's name or logo printed on the product or its box, as written; empty "
+             "when none is readable>\", \"note\": \"<few words>\"}}")
 
 
 def found_ok(v: dict) -> bool:

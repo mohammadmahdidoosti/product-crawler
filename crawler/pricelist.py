@@ -149,6 +149,57 @@ def add_file(cfg: dict, run: str, data: bytes, filename: str) -> dict:
     return {"files": 1}
 
 
+TG_CHANNEL = re.compile(r"https?://(?:t\.me|telegram\.me)/(?:s/)?([A-Za-z][A-Za-z0-9_]{3,31})/?(?:\?.*)?$")
+
+
+def telegram_channel(cfg: dict, run: str, channel: str, posts: int | None = None) -> dict:
+    """A public Telegram channel as the list: its web preview (t.me/s/<channel>) page by page back to the newest
+    `posts` posts; every photo is added like an uploaded picture, and the texts of the posts go into one
+    channel.txt (read by the model like a page). Newest first; the list date is the post's date."""
+    import requests
+    posts = int(posts or settings(cfg).get("telegram_posts", 120))
+    s = requests.Session()
+    s.headers["User-Agent"] = "Mozilla/5.0 (CaravanSanat price list)"
+    url, seen, photos, texts, pages = f"https://t.me/s/{channel}", set(), [], [], 0
+    while url and len(seen) < posts and pages < 30:
+        r = s.get(url, timeout=60)
+        if r.status_code != 200:
+            break
+        pages += 1
+        blocks = re.split(r'(?=<div class="tgme_widget_message_wrap)', r.text)[1:]
+        if not blocks:
+            break
+        ids = []
+        for b in blocks:
+            m = re.search(r'data-post="[^"/]+/(\d+)"', b)
+            if not m or m.group(1) in seen:
+                continue
+            seen.add(m.group(1))
+            ids.append(int(m.group(1)))
+            day = re.search(r'<time[^>]+datetime="(\d{4}-\d\d-\d\d)', b)
+            day = day.group(1) if day else ""
+            for u in re.findall(r"tgme_widget_message_photo_wrap[^>]+background-image:url\('([^']+)'\)", b):
+                photos.append((m.group(1), day, u))
+            t = re.search(r'<div class="tgme_widget_message_text[^"]*"[^>]*>(.*?)</div>', b, re.S)
+            if t:
+                txt = _clean_html(re.sub(r"<br\s*/?>", "\n", t.group(1))).strip()
+                if re.search(r"\d{4,}|\d{1,3}[,٬]\d{3}", txt.translate(FA_DIGITS)):     # a post with prices
+                    texts.append(f"--- پست {m.group(1)} ({day})\n{txt}")
+        url = f"https://t.me/s/{channel}?before={min(ids)}" if ids else ""
+    n = 0
+    for pid, day, u in photos:
+        try:
+            r = s.get(u, timeout=60)
+            if r.status_code == 200 and r.content:
+                n += add_file(cfg, run, r.content, f"tg-{channel}-{pid}-{day}.jpg").get("files", 0)
+        except Exception as e:                           # noqa: BLE001 - one photo never stops the others
+            log.info("telegram photo %s: %s", u, e)
+    if texts:
+        n += add_file(cfg, run, "\n\n".join(texts).encode("utf-8"), f"tg-{channel}.txt").get("files", 0)
+    log.info("PRICELIST telegram %s: %d posts, %d photos, %d priced texts, %d files", channel, len(seen), len(photos), len(texts), n)
+    return {"files": n, "posts": len(seen), "photos": len(photos), "texts": len(texts)}
+
+
 DRIVE_ID = re.compile(r"(?:/d/|/folders/|[?&]id=)([\w-]{20,})")
 
 
@@ -181,6 +232,9 @@ def add_url(cfg: dict, run: str, url: str) -> dict:
                     name = m.group(1) if m else f"{fid}.pdf"
         return add_file(cfg, run, r.content, name)
 
+    tg = TG_CHANNEL.match(url)
+    if tg:                                               # (7 Nov, Zubr: "no list, read our Telegram channel")
+        return telegram_channel(cfg, run, tg.group(1))
     m = DRIVE_ID.search(url)
     if "drive.google.com" in url and "/folders/" in url and m:
         r = s.get("https://drive.google.com/embeddedfolderview", params={"id": m.group(1)}, timeout=60)
@@ -285,6 +339,12 @@ def to_toman(price, unit: str) -> int | None:
 def list_date_rank(s: str) -> int:
     """'آبان ۱۴۰۵' -> 140508, for 'the newest list wins'; 0 when unknown."""
     s = str(s or "").translate(FA_DIGITS)
+    g = re.search(r"(20\d\d)-(\d\d)-(\d\d)", s)
+    if g:                                                # a Telegram post's date (7 Nov), near enough in Jalali
+        gy, gm, gd = map(int, g.groups())
+        jm = (gm - 3 - (1 if gd < 21 else 0)) % 12 + 1
+        jy = gy - 621 - (1 if (gm, gd) < (3, 21) else 0)
+        return jy * 100 + jm
     y = re.search(r"1[34]\d\d", s)
     m = next((v for k, v in MONTHS.items() if k in s), 0)
     return int(y.group(0)) * 100 + m if y else 0
@@ -419,6 +479,29 @@ def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progr
             if f.name.lower().endswith((".xlsx", ".xlsm", ".csv")):
                 rows += [{**r, "list_date": "", "file": f.name} for r in _table_rows(f)]
                 continue
+            if f.name.lower().endswith(".txt"):          # posts of a channel (7 Nov): the same reader on the text
+                txt = f.read_text(encoding="utf-8", errors="ignore")
+                for i in range(0, len(txt), 6000):
+                    part = txt[i:i + 6000]
+                    import hashlib
+                    h = hashlib.sha1((part + VISION_SYSTEM).encode()).hexdigest()
+                    if h not in cache:
+                        j, c = _openrouter(cfg, [{"role": "system", "content": VISION_SYSTEM},
+                                                 {"role": "user", "content": "Read every priced product of these channel posts "
+                                                  "(the newest post first; a product in several posts: the newest).\n\n" + part}],
+                                           max_tokens=6000)
+                        usd, calls = usd + c, calls + 1
+                        if j is not None:
+                            cache[h] = j
+                            cache_p.write_text(json.dumps(cache, ensure_ascii=False))
+                    for r in (cache.get(h) or {}).get("rows") or []:
+                        if isinstance(r, dict):
+                            rows.append({"brand": str(r.get("brand") or "").strip() or brand, "model": str(r.get("model") or ""),
+                                         "name": str(r.get("name") or ""), "price": str(r.get("price") or ""),
+                                         "unit": str(r.get("unit") or "unknown"), "list_date": "", "file": f.name,
+                                         "stock": str(r.get("stock") or "").strip().lower(),
+                                         "vat": "yes" if r.get("vat") is True else "", "photo": ""})
+                continue
             import hashlib
             from concurrent.futures import ThreadPoolExecutor
             pics = [(label, pic, mime, hashlib.sha1(pic + VISION_SYSTEM.encode()).hexdigest())   # a new prompt reads again
@@ -445,9 +528,11 @@ def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progr
                     if isinstance(r, dict):
                         # a row's own maker (a Tosan catalog carries Mustang too) > the brand the person typed > the page's
                         b = str(r.get("brand") or "").strip() or brand or str(j.get("brand") or "")
+                        tgd = re.search(r"tg-.+-(\d{4}-\d\d-\d\d)", label)
                         row = {"brand": b, "model": str(r.get("model") or ""),
                                "name": str(r.get("name") or ""), "price": str(r.get("price") or ""),
-                               "unit": str(r.get("unit") or "unknown"), "list_date": str(j.get("list_date") or ""),
+                               "unit": str(r.get("unit") or "unknown"),
+                               "list_date": str(j.get("list_date") or "") or (tgd.group(1) if tgd else ""),
                                "file": label, "stock": str(r.get("stock") or "").strip().lower(),
                                "vat": "yes" if r.get("vat") is True else "", "photo": ""}
                         box = r.get("photo")
@@ -2042,6 +2127,15 @@ def _photos(cfg: dict, run: str, rec: dict, n: int = 4) -> list[Path]:
     return out
 
 
+def other_maker(printed, ours: set) -> bool:
+    """The photo shows a maker's name that is not ours: another brand's product, never used for ours."""
+    from .normalize import norm_text
+    p = norm_text(str(printed or "")).casefold().strip()
+    if not p or p in ("none", "null", "n/a", "-"):
+        return False
+    return not any(w and (w in p or p in w) for w in ours)
+
+
 def _similar_photos(cfg: dict, name: str, brand: str, n: int = 2) -> list[Path]:
     """No photo of the product itself (3 Nov): a photo of the same kind and size from another page, found by
     the name WITHOUT the brand, used only when the strict check finds it clean (no other shop's or maker's
@@ -2069,8 +2163,8 @@ def _similar_photos(cfg: dict, name: str, brand: str, n: int = 2) -> list[Path]:
         if len(out) >= n:
             break
         v = check(model, u, q, key, ask=ASK_FOUND)
-        if not found_ok(v):
-            continue
+        if not found_ok(v) or other_maker(v.get("brand_on_product"), bw):
+            continue                                     # (7 Nov) a Pukka screwdriver got an Arva photo
         data = download(f, u, min_side=400)
         if not data:
             continue
