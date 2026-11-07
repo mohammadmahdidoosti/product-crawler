@@ -208,7 +208,7 @@ def raise_prices(cfg: dict, wc, brand: str, pct: float, name_filter: str = "", g
     bring the old price back. Variable products are left and counted."""
     from .pricelist import site_cache
     terms = wc.list_brands() or []
-    rows = site_cache(cfg, wc, force=True)
+    rows = site_cache(cfg, wc)                           # membership only: the prices are read fresh below
     ts = find_terms(terms, [brand])
     names = [brand] + [x for t in ts for x in term_names(t)]
     ps = brand_products(rows, {t["id"] for t in ts}, names, name_filter)
