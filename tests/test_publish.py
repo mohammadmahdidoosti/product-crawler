@@ -618,3 +618,13 @@ class NightWorkers(unittest.TestCase):
         self.assertEqual(_publish_workers(cfg, hour=2), 6)
         self.assertEqual(_publish_workers(cfg, hour=14), 3)
         self.assertEqual(_publish_workers({"publish": {"workers": 3}}, hour=2), 3)
+
+
+def test_a_live_price_is_not_swapped_for_a_jump():
+    from crawler.publish import live_price_jump
+    d = {"regular_price": "2700"}
+    assert live_price_jump({"status": "publish", "regular_price": "291600"}, d)
+    assert "_jump" in d
+    assert not live_price_jump({"status": "draft", "regular_price": "291600"}, {"regular_price": "2700"})
+    assert not live_price_jump({"status": "publish", "regular_price": "291600"}, {"regular_price": "250000"})
+    assert not live_price_jump({"status": "publish", "regular_price": ""}, {"regular_price": "2700"})

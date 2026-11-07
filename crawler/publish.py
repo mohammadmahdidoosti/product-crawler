@@ -727,6 +727,16 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
                     if price_locked(cur):                 # price from the supplier's list: kept
                         data.pop("regular_price", None)
                         data.pop("sale_price", None)
+                    elif live_price_jump(cur, data):
+                        # (7 Nov) a live product's price is not swapped for one 3x lower or higher by a
+                        # crawl (fuse #143025: 291,600 -> 2,700 toman from a 'from' price); kept, and marked
+                        log.warning("publish %s: live price %s kept (new %s is a jump)", sku,
+                                    cur.get("regular_price"), data.get("regular_price"))
+                        data.pop("regular_price", None)
+                        data.pop("sale_price", None)
+                        data["meta_data"] = [m for m in data.get("meta_data") or []
+                                             if m.get("key") not in ("_caravan_price_usd", "_caravan_usd_rate")] + [
+                            {"key": "_caravan_price_doubt", "value": f"new price {data.pop('_jump', '')} not applied"}]
                     p = wc.update_product(pid, data)
                     res["action"] = "updated"
                 except WCError as e:
@@ -841,3 +851,19 @@ def set_status(cfg: dict, run: str, status: str = "publish", skus: list[str] | N
     res = {"requested": len(ids), "changed": len(changed), "failed": failed[:20]}
     log.info("status %s done: %s", status, {k: (v if k != "failed" else len(failed)) for k, v in res.items()})
     return res
+
+
+def live_price_jump(cur: dict, data: dict, factor: float = 3.0) -> bool:
+    """A published product with a price, and the new price 3x lower or higher than it."""
+    if (cur or {}).get("status") != "publish" or "regular_price" not in data:
+        return False
+    try:
+        old, new = float(cur.get("regular_price") or 0), float(data.get("regular_price") or 0)
+    except (TypeError, ValueError):
+        return False
+    if old <= 0 or new <= 0:
+        return False
+    if new < old / factor or new > old * factor:
+        data["_jump"] = f"{new:g} (was {old:g})"
+        return True
+    return False
