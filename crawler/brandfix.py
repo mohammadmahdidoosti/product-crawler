@@ -61,6 +61,20 @@ def brand_from_name(name: str) -> str:
     return ""
 
 
+def same_brand(a: str, b: str) -> bool:
+    """'برند رابین ( Rabin )' and 'رابین' / 'Rabin' are one brand."""
+    from .routing import find_brand
+    def keys(x):
+        x = norm_text(x).casefold()
+        out = {w for w in re.split(r"[\s()|/,-]+", x) if len(w) >= 3 and w not in ("برند", "brand", "مارک")}
+        fb = find_brand(x)
+        if fb:
+            out |= {norm_text(fb[0]).casefold()}
+        return out
+    ka, kb = keys(a), keys(b)
+    return bool(ka & kb) or any(x in y or y in x for x in ka for y in kb)
+
+
 def company_short(name: str) -> str:
     n = re.sub(r"\s+", " ", str(name or "")).strip()
     for _ in range(3):
@@ -68,7 +82,16 @@ def company_short(name: str) -> str:
     return n or str(name or "").strip()
 
 
-def fill_brands(df: pd.DataFrame) -> pd.DataFrame:
+def name_brand(name: str, known: list | None) -> str:
+    """A brand of our site (known: [(brand, word)], longest words first) written in the name as a whole word."""
+    t = f" {norm_text(name).casefold()} "
+    for b, w in known or []:
+        if re.search(rf"(?<!\w){re.escape(w)}(?!\w)", t):
+            return b
+    return ""
+
+
+def fill_brands(df: pd.DataFrame, known: list | None = None) -> pd.DataFrame:
     if df.empty:
         return df
     df = df.copy()
@@ -77,6 +100,11 @@ def fill_brands(df: pd.DataFrame) -> pd.DataFrame:
         name = r.get("source_name") or r.get("name") or ""
         b = clean_brand(r.get("brand", ""), name)
         src = "page" if b else ""
+        nb = (name_brand(name, known) or brand_from_name(name)) if b else ""
+        if b and nb and not same_brand(b, nb):
+            # (7 Nov) the page's brand field says Rabin, its name says Raxer: the shop tagged another maker's
+            # product with the brand it represents; the name is the product's own word
+            b, src = nb, "name"
         if not b:
             b = brand_from_name(name)
             src = "name" if b else ""

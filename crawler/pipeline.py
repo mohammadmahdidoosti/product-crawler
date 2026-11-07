@@ -659,7 +659,12 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     new, upd, rev = split_against_site(merged, site, float(dd.get("same_threshold", 0.92)),
                                        float(dd.get("review_threshold", 0.8)))
     from .brandfix import fill_brands
-    new, upd, rev = (fill_brands(add_persian(cfg, x)) for x in (new, upd, rev))   # after matching: site names are compared in the source wording
+    try:                                                   # our site's brands, for a page whose brand field is another's
+        from .pricelist import _known_brands
+        known = _known_brands(cfg)
+    except Exception:                                      # noqa: BLE001
+        known = []
+    new, upd, rev = (fill_brands(add_persian(cfg, x), known) for x in (new, upd, rev))   # after matching: site names are compared in the source wording
     paths = [write_csv(new, d / FILES["new"]), write_csv(upd, d / FILES["updates"]),
              write_csv(rev, d / FILES["review"])]
     log.info("dedupe: %d rows -> %d products; new %d, updates %d, review %d",
