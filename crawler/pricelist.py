@@ -70,7 +70,9 @@ Return JSON: {"list_date": "<date or month and year printed, e.g. آبان ۱۴�
 One row for EVERY product line, also rows without a model code or without a price. Copy digits exactly: every digit and
 every group of three, never drop or add a zero (5 Nov: '630,000,000' copied as '63000000' put a price at a tenth). A page
 prints its prices with the same number of digits in a column; a price much shorter than its neighbours is a misread.
-When a row has several prices, copy the consumer price (مصرف کننده / خرده) rather than the dealer price (همکار / عمده),
+Iranian lists often group digits with a slash or a dot instead of a comma: «۱/۴۹۹/۰۰۰» or 1.499.000 is 1499000 and
+«۲۵/۹۰۰/۰۰۰» is 25900000 (7 Nov, Zitex: '1/499/000' read as 149900); count the groups of three, never read the slash as
+a decimal point or drop a group. When a row has several prices, copy the consumer price (مصرف کننده / خرده) rather than the dealer price (همکار / عمده),
 and the price WITHOUT VAT (بدون ارزش افزوده) rather than with it. The unit comes from the words near the prices
 (ریال = rial, تومان = toman, هزار تومان = thousand_toman). Leave out cartons, counts, row numbers, phone numbers and
 other numbers that are not the price. No prose, only the JSON."""
