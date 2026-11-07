@@ -602,7 +602,7 @@ def step_dedupe(cfg: dict, run: str, site_export: str | None, skip_filter: bool 
     except Exception as e:                               # noqa: BLE001
         log.warning("no-category list not written: %s", e)
     df = one_category_per_product(df)
-    merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)))
+    merged = merge_crawl(df, float(dd.get("crawl_name_threshold", 0.9)), trusted=cfg.get("trusted_price_shops") or [])
     merged = drop_price_outliers(merged, float(cfg.get("price", {}).get("outlier_factor", 6)))
     same = models_on_site_from_other_runs(cfg, run)
     if same and len(merged):                            # the same model, from another shop, already on the site

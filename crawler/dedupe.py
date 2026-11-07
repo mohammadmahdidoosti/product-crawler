@@ -81,11 +81,16 @@ def _cross_key(row: dict) -> str:
     return f"{head}|{mk}|{_flags(name)}" if mk and head else ""
 
 
-def merge_crawl(df: pd.DataFrame, name_threshold: float = 0.9) -> pd.DataFrame:
+TRUSTED: set = set()                                  # shops whose prices are kept current (set by merge_crawl's caller)
+
+
+def merge_crawl(df: pd.DataFrame, name_threshold: float = 0.9, trusted: list | None = None) -> pd.DataFrame:
     """Group rows that are the same product; one output row per group. Inside a category: the model
     code, else a similar name. Then groups with the same kind + model code (worded differently:
     'سشوار صنعتی GHG 23-66 بوش اصلی' / 'سشوار صنعتی بوش مدل GHG 23-66'), in one category or several,
     become one product, listed in all those categories."""
+    TRUSTED.clear()
+    TRUSTED.update(str(t).lower().removeprefix("www.") for t in (trusted or []))
     groups: list[list[dict]] = []
     for _, part in df.groupby("taxonomy_id", sort=False):
         by_key: dict[str, list[dict]] = defaultdict(list)
@@ -255,7 +260,11 @@ def _aggregate(g: list[dict]) -> dict:
     good = [r for r in g if not any(f in (r.get("price_flags") or "") for f in BAD_PRICE_FLAGS)]
     prices = [_num(r.get("price_toman")) for r in good]
     prices = [p for p in prices if p]
-    out["price_toman"] = round(median(prices)) if prices else ""
+    trust = [_num(r.get("price_toman")) for r in good
+             if str(r.get("source_domain") or "").lower().removeprefix("www.") in TRUSTED and _num(r.get("price_toman"))]
+    out["price_toman"] = round(median(trust)) if trust else round(median(prices)) if prices else ""
+    if trust:                                         # (7 Nov) a shop the owner found current (barghstore) wins
+        out["price_from"] = "trusted shop"
     out["price_min_toman"] = round(min(prices)) if prices else ""
     out["price_max_toman"] = round(max(prices)) if prices else ""
     usd = _num(out.get("usd_rate_toman"))

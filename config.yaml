@@ -201,3 +201,7 @@ torob_check:              # Torob price check of the site's products (crawler/to
   server: true            # (6 Nov) run from the server at night: Torob's price line read from Google, no browser
   server_hours: [0, 8]    # Tehran time
   auto_slip: true         # a 10x (or 1/10) slip that 2+ Torob sellers show is corrected; everything else only reported
+
+# (7 Nov, the owner's calls) shops whose prices are kept current: when one of them sells the model, its price is
+# the product's price instead of the median of all shops (the reps and the shops found up to date)
+trusted_price_shops: [barghstore.ir, toolsyab.com, yarmohamadishop.com, abzarreza.com]
