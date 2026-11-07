@@ -854,16 +854,19 @@ def set_status(cfg: dict, run: str, status: str = "publish", skus: list[str] | N
 
 
 def live_price_jump(cur: dict, data: dict, factor: float = 3.0) -> bool:
-    """A published product with a price, and the new price 3x lower or higher than it."""
+    """A published product with a price, and the new price 3x lower or higher than it. Prices are sent in
+    dollars (the site turns them into toman and the API reads back toman), so the old one is the product's
+    _caravan_price_usd meta, never its regular_price."""
     if (cur or {}).get("status") != "publish" or "regular_price" not in data:
         return False
+    old = next((m.get("value") for m in cur.get("meta_data") or [] if m.get("key") == "_caravan_price_usd"), None)
     try:
-        old, new = float(cur.get("regular_price") or 0), float(data.get("regular_price") or 0)
+        old, new = float(old or 0), float(data.get("regular_price") or 0)
     except (TypeError, ValueError):
         return False
     if old <= 0 or new <= 0:
         return False
     if new < old / factor or new > old * factor:
-        data["_jump"] = f"{new:g} (was {old:g})"
+        data["_jump"] = f"{new:g} usd (was {old:g})"
         return True
     return False

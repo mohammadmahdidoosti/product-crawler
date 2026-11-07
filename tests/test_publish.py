@@ -622,9 +622,9 @@ class NightWorkers(unittest.TestCase):
 
 def test_a_live_price_is_not_swapped_for_a_jump():
     from crawler.publish import live_price_jump
-    d = {"regular_price": "2700"}
-    assert live_price_jump({"status": "publish", "regular_price": "291600"}, d)
-    assert "_jump" in d
-    assert not live_price_jump({"status": "draft", "regular_price": "291600"}, {"regular_price": "2700"})
-    assert not live_price_jump({"status": "publish", "regular_price": "291600"}, {"regular_price": "250000"})
-    assert not live_price_jump({"status": "publish", "regular_price": ""}, {"regular_price": "2700"})
+    live = {"status": "publish", "regular_price": "294000", "meta_data": [{"key": "_caravan_price_usd", "value": "1.08"}]}
+    d = {"regular_price": "0.01"}
+    assert live_price_jump(live, d) and "_jump" in d
+    assert not live_price_jump(live, {"regular_price": "1.2"})        # dollars vs dollars, not toman
+    assert not live_price_jump({**live, "status": "draft"}, {"regular_price": "0.01"})
+    assert not live_price_jump({"status": "publish", "regular_price": "294000"}, {"regular_price": "0.01"})
