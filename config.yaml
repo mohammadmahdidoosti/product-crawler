@@ -168,8 +168,8 @@ catalog:                  # a supplier's price list (PDF / Excel) -> variable pr
   # vision_model: deepseek/deepseek-v4.1-flash   # default: images.vision_model
 
 publish:                  # direct publishing to the WooCommerce site (crawler/publish.py)
-  workers: 12             # products sent at the same time (photos + product); 8 Nov, owner: 12, day and night
-  night_workers: 12       # 00:00-08:00 Tehran, few visitors: twice as fast (5 Nov, speed)
+  workers: 6              # products sent at the same time (photos + product); 8 Nov: 12 made the shop's firewall refuse uploads
+  night_workers: 6        # 00:00-08:00 Tehran, few visitors: twice as fast (5 Nov, speed)
   slow_seconds: 25        # a product call slower than this (the shop is busy): the next ones wait a little
   pause_seconds: 0.5      # wait before each product, per worker
 
