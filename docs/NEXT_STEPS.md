@@ -15,3 +15,14 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
    - 05_low_categories: 3,654 -> check categories; ~1,000 small groups still waiting for a category.
    - 04_rejected (212,850): sample-check the filter is not too strict. 05_not_selected (13,893): duplicates, skip.
    Remind the owner of all of this when batch 50 is published.
+
+   Status 9 Nov:
+   - 05_review: 1,730 unique, compared by the model with their site look-alike (tmp/review_cmp.csv): 1,452 different
+     -> sent as new via tmp/i16.py; 259 same -> site price updated when within 40% (tmp/same259.py); 19 unclear.
+   - 03_failed: really 5,440 unique pages. Sample of 60: 'blocked/none' ~50% real priced products -> retried by
+     i16.py; 'no product data' and anti-bot 403/418 not worth it (owner agreed).
+   - Small no-category groups (~1,066 products, groups of 1-2): two rounds of placing them in the closest existing
+     category were ~50% wrong. Owner (9 Nov 11:29): leave them waiting; they get a category in the next 50 batches,
+     when a group reaches 3+ products.
+   - Next 50 batches: owner decides on 10 Nov after every unseen product of 1-50 is published.
+   - Host space: after publishing ends; a fresh full backup outside the host first, nothing deleted without the owner.
