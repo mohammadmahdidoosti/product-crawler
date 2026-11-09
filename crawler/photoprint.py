@@ -20,6 +20,7 @@ from PIL import Image
 
 log = logging.getLogger(__name__)
 COLS = ["hash", "before", "fixed", "how"]
+_LOCK = threading.Lock()     # (9 Nov) one lock for every Prints: prepares of several batches run at once
 
 
 def _grey(p: Path, side: int) -> np.ndarray:
@@ -60,7 +61,7 @@ class Prints:
     def __init__(self, data_dir: Path):
         self.root = Path(data_dir) / "images"
         self.path = Path(data_dir) / "photo_fixes.csv"
-        self.lock = threading.Lock()
+        self.lock = _LOCK
         self.rows: list[dict] = []
         if not self.path.exists():
             self._build(Path(data_dir))

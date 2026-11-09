@@ -506,6 +506,12 @@ SITE_STEPS = {"brand_oos", "brand_shop", "seller_oos", "brand_raise", "catmake",
               "pricelist_apply", "pricelist_create"}
 JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health"),
         "lists": Job("lists")}       # price lists: read + match only (3 Nov: never waits for a long health job)
+# (9 Nov) prepares of several batches side by side: the health lane and these. The slow part of a prepare
+# (texts, paid photo fixes) touches only its own batch's files; the shared brands go one at a time
+# (crawler.publish.BRANDS_LOCK).
+PREP_LANES = ("health", "prep2", "prep3")
+for _l in PREP_LANES[1:]:
+    JOBS[_l] = Job(_l)
 JOB = JOBS["crawl"]
 
 
@@ -515,7 +521,17 @@ def start_job(step: str, run: str, opts: dict) -> str | None:
         return "این اجرا مال «اصلاح سایت» است؛ از صفحه‌ی سلامت سایت با آن کار کنید."
     if step in ("pricelist_read", "pricelist_match", "pricelist_site"):
         return JOBS["lists"].start(step, run, opts)
-    lane = "health" if step in ("health", "shops", "leads", "specs", "prepare") else "site" if step in SITE_STEPS else "crawl"
+    if step == "prepare":
+        if any(j.state["running"] and j.state["run"] == run for j in JOBS.values()):
+            return f"اجرای «{run}» الان در حال کار است؛ بعد از تمام شدنش دوباره بزنید."
+        err = None
+        for ln in PREP_LANES:
+            if not JOBS[ln].state["running"]:
+                err = JOBS[ln].start(step, run, opts)
+                if not err:
+                    return None
+        return err or "همه‌ی خط‌های آماده‌سازی مشغول‌اند؛ صبر کنید."
+    lane ="health" if step in ("health", "shops", "leads", "specs", "prepare") else "site" if step in SITE_STEPS else "crawl"
     return JOBS[lane].start(step, run, opts)
 
 
@@ -1072,6 +1088,10 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "job"]:
                 if q.get("lane") in JOBS:
                     return self._json(JOBS[q["lane"]].status())
+                if q.get("lane") == "prep":                # (9 Nov) the prepare lanes together
+                    st = {ln: JOBS[ln].state for ln in PREP_LANES}
+                    return self._json({"free": sum(not s["running"] for s in st.values()),
+                                       "runs": [s["run"] for s in st.values() if s["running"]]})
                 return self._json({**JOB.status(), "site": JOBS["site"].status(), "health": JOBS["health"].status()})
             if parts == ["api", "leads"]:              # business lists made so far
                 from crawler.leads import runs as leads_runs, CITIES

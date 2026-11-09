@@ -56,6 +56,19 @@ class Lanes(unittest.TestCase):
         self.assertTrue(self.wait(lambda: not any(j.state["running"] for j in A.JOBS.values())))
         self.assertFalse((A.DATA_DIR / "jobs" / "crawl.json").exists())     # finished: nothing to resume
 
+    def test_prepares_side_by_side(self):
+        """(9 Nov) up to three prepares at once, each on its own lane; never two on one batch."""
+        A = self.app
+        for n in (1, 2, 3):
+            self.assertIsNone(A.start_job("prepare", f"batch-{n}", {}))
+        self.assertTrue(self.wait(lambda: len(self.seen) == 3))
+        self.assertEqual(sorted(x[0] for x in self.seen), sorted(A.PREP_LANES))
+        self.assertIsNotNone(A.start_job("prepare", "batch-4", {}))         # all three busy
+        self.assertIsNotNone(A.start_job("prepare", "batch-2", {}))         # already being prepared
+        self.gate.set()
+        self.assertTrue(self.wait(lambda: not any(j.state["running"] for j in A.JOBS.values())))
+        self.assertIsNone(A.start_job("prepare", "batch-4", {}))
+
     def test_resume_after_restart(self):
         A = self.app
         (A.DATA_DIR / "jobs").mkdir(parents=True)

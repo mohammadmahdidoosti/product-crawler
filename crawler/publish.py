@@ -36,6 +36,7 @@ from .wc import WC, WCError, category_map, price_locked
 log = logging.getLogger(__name__)
 
 RESULT_FILE = "07_published.csv"
+BRANDS_LOCK = threading.Lock()   # (9 Nov) prepares run side by side; brands are shared: one at a time
 PARKED = "پیش‌نویس: بی‌دسته؛ وضعیت قبلی"      # resync put the product back to draft; its old status follows
 RESULT_COLS = ["sku", "action", "product_id", "status", "name", "brand", "price", "categories", "images",
                "edit_url", "error", "source_url", "published_at", "payload_hash"]
@@ -441,7 +442,8 @@ def prepare(cfg: dict, run: str, wc: WC | None = None) -> dict:
         return {"items": 0}
     if any((rec.get("_brand") or {}).get("status") == "missing" for rec, _ in items):
         from . import brands_fa as BF
-        BF.build(cfg, [rec for rec, _ in items], wc=wc or WC())
+        with BRANDS_LOCK:                                # the shared brands table (brands_fa.csv)
+            BF.build(cfg, [rec for rec, _ in items], wc=wc or WC())
         items = export_rows(cfg, run)
     done = _results(d)
     sent = set(done.loc[done["action"].isin(["created", "updated"]), "sku"]) if len(done) else set()
@@ -451,16 +453,17 @@ def prepare(cfg: dict, run: str, wc: WC | None = None) -> dict:
         _paid_photo_fixes(cfg, run, d, items)
         items = [x for x in export_rows(cfg, run) if x[1]["SKU"] not in sent]
         # the new brands are made on the site now too (5 Nov: 296 brands at ~5 s each held batch 23 for 25 min)
-        brands = SiteBrands(wc or WC())
-        seen = set()
-        for rec, _ in items:
-            br = rec.get("_brand") or {}
-            if br.get("status") == "ok" and br.get("display") and br["display"] not in seen:
-                seen.add(br["display"])
-                try:
-                    made += int(brands.id_for(br)[1])
-                except Exception as e:                   # noqa: BLE001 - publishing makes it later
-                    log.info("prepare %s: brand %s not made (%s)", run, br.get("display"), e)
+        with BRANDS_LOCK:                                # two batches must not make the same brand twice
+            brands = SiteBrands(wc or WC())
+            seen = set()
+            for rec, _ in items:
+                br = rec.get("_brand") or {}
+                if br.get("status") == "ok" and br.get("display") and br["display"] not in seen:
+                    seen.add(br["display"])
+                    try:
+                        made += int(brands.id_for(br)[1])
+                    except Exception as e:               # noqa: BLE001 - publishing makes it later
+                        log.info("prepare %s: brand %s not made (%s)", run, br.get("display"), e)
     return {"items": len(items), "brands_made": made}
 
 
@@ -628,7 +631,8 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
             res["error"] = " · ".join(x for x in (doubt + " — در وردپرس «در انتظار بررسی»", res["error"]) if x)
         try:
             if brands is not None:
-                bid, new_brand = brands.id_for(br)
+                with BRANDS_LOCK:                        # (9 Nov) a prepare may be making brands right now
+                    bid, new_brand = brands.id_for(br)
                 if bid:
                     data["brands"] = [{"id": int(bid)}]   # the product schema validates objects, not bare IDs
                 if new_brand:
