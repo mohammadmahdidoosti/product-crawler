@@ -26,3 +26,11 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
      when a group reaches 3+ products.
    - Next 50 batches: owner decides on 10 Nov after every unseen product of 1-50 is published.
    - Host space: after publishing ends; a fresh full backup outside the host first, nothing deleted without the owner.
+
+## Shop move to its own VPS (owner, 9 Nov 2026)
+- Bought ParsVDS IR_VPS_05 (4 cores ~2-2.5 GHz shared, 10 GB RAM, 80 GB NVMe, 500 GB traffic), 1 month, Ubuntu 24.04.
+  Delivery up to 7 days. Upgrade keeps IP and data, only the price difference is paid.
+- No backups from the provider: we set up our own daily backup (DB + uploads) off the VPS.
+- Panel: DirectAdmin license optional (parsvds.com/license), ordered by ticket after delivery; owner decides.
+- Until the move: next 50 batches may be crawled/prepared, but sending waits for the new server (host inodes).
+- Owner enters all passwords/payments himself.
