@@ -31,6 +31,7 @@ MIN_PHOTOS = 5
 MAX_SAMPLES = 16
 PCT = 97            # which brightness percentile of a shop's photos is taken as the mark over white
 REP_MIN = 0.10      # least share of photos that must show the mark over white at a pixel
+STRIP = 128         # rows worked out at a time when learning (memory, 9 Nov)
 
 
 SHARED_CDNS = ("cdnfa.com",)      # one host, many shops: the shop is the first part of the path (2 Nov)
@@ -103,7 +104,7 @@ def earlier_photos(data_dir: Path, hosts: set[str], per_host: int = 12) -> dict[
 def _load(p: Path) -> np.ndarray | None:
     try:
         with Image.open(p) as im:
-            return np.asarray(im.convert("RGB"), dtype=np.float32)
+            return np.asarray(im.convert("RGB"), dtype=np.uint8)     # 4x less memory than float (9 Nov)
     except Exception:                                  # noqa: BLE001
         return None
 
@@ -145,13 +146,23 @@ def learn_from(arrays: list[np.ndarray]) -> dict | None:
     """The template of one shop and size, or None when its photos share no mark."""
     if len(arrays) < MIN_PHOTOS:
         return None
-    st = np.stack(arrays)
-    # A mark darkens what lies under it: J = a*W + (1-a)*I <= a*W + (1-a)*255, the mark over white.
-    # So the lighter photos at a pixel show the mark over white even where most photos have a product
-    # there (the middle of the photo): the 85th percentile, not the median, is the template.
-    med = np.percentile(st, PCT, axis=0)
-    # a mark repeats exactly (whenever white lies under it); a product's colour does not
-    repeats = (np.abs(st - med).max(axis=3) <= 12).mean(axis=0)
+    # 9 Nov: worked out in strips of rows, not on the whole stack at once. Every step is per pixel, so the
+    # result is the same, but the stack and its temporary copies in float took ~2.5 GB for 16 large photos.
+    H, W = arrays[0].shape[:2]
+    med = np.empty((H, W, 3), np.float32)
+    repeats = np.empty((H, W), np.float64)
+    bg = np.empty((H, W), bool)
+    for y0 in range(0, H, STRIP):
+        st = np.stack([a[y0:y0 + STRIP] for a in arrays]).astype(np.float32)
+        # A mark darkens what lies under it: J = a*W + (1-a)*I <= a*W + (1-a)*255, the mark over white.
+        # So the lighter photos at a pixel show the mark over white even where most photos have a product
+        # there (the middle of the photo): the 85th percentile, not the median, is the template.
+        m = np.percentile(st, PCT, axis=0)
+        med[y0:y0 + STRIP] = m
+        # a mark repeats exactly (whenever white lies under it); a product's colour does not
+        repeats[y0:y0 + STRIP] = (np.abs(st - m).max(axis=3) <= 12).mean(axis=0)
+        bg[y0:y0 + STRIP] = np.median(st, axis=0).min(axis=2) > 235   # white in most photos: the margin
+        del st
     mark = (med.min(axis=2) < 240) & (repeats >= max(REP_MIN, 2.0 / len(arrays)))
     mark = _solid(mark)
     frac = float(mark.mean())
@@ -163,6 +174,7 @@ def learn_from(arrays: list[np.ndarray]) -> dict | None:
     # a see-through mark makes a step there, and J - M = (1 - alpha) * (I - 255) gives alpha.
     ratios, steps = [], []
     for J in arrays:
+        J = J.astype(np.float32)                          # one photo at a time
         diffm = np.abs(J - med).max(axis=2) > 18
         for dx in (2, -2):
             inside = mark & diffm
@@ -188,7 +200,6 @@ def learn_from(arrays: list[np.ndarray]) -> dict | None:
         a = 1.0 - float(np.median(ratios))
         if 0.08 <= a <= 0.85:
             alpha = round(a, 3)
-    bg = np.median(st, axis=0).min(axis=2) > 235          # white in most of the shop's photos: the margin
     return {"med": med.astype(np.uint8), "mark": mark, "alpha": alpha, "frac": frac, "n": len(arrays), "bg": bg}
 
 
