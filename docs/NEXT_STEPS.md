@@ -31,6 +31,10 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
 - Bought ParsVDS IR_VPS_05 (4 cores ~2-2.5 GHz shared, 10 GB RAM, 80 GB NVMe, 500 GB traffic), 1 month, Ubuntu 24.04.
   Delivery up to 7 days. Upgrade keeps IP and data, only the price difference is paid.
 - No backups from the provider: we set up our own daily backup (DB + uploads) off the VPS.
-- Panel: DirectAdmin license optional (parsvds.com/license), ordered by ticket after delivery; owner decides.
+- Panel: owner chose CloudPanel (free, Nginx, Ubuntu 24.04) on 9 Nov; DirectAdmin dropped (3.2M + 698k/month, AlmaLinux + Apache only).
+- Delivered 9 Nov 17:29 with national-only internet: international access needs the owner's CRA identity request
+  (done 9 Nov, 24-48h+). Nothing is installed or moved before it works (Google, updates, our crawler need it).
+  72h refund window ends ~12 Nov 17:30 Tehran: if still national-only by 11 Nov evening, ask the owner: wait or refund.
+- Access: key /root/.ssh/shop_vps on the crawler host; owner adds its .pub to root's authorized_keys (SSH port 9011).
 - Until the move: next 50 batches may be crawled/prepared, but sending waits for the new server (host inodes).
 - Owner enters all passwords/payments himself.
