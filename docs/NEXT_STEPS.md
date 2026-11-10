@@ -66,3 +66,19 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
 - Load test (on the VPS): cached pages 307 req/s at 50 concurrent, 0 failures; uncached PHP ~13-15 req/s, 40 concurrent ->
   2.7 s mean, 0 failures. CPU (4 x Broadwell 2 GHz) is the limit for uncached work: keep crawler sends to ~6-8 concurrent.
 - Backup: crawler host cron 00:30 UTC /root/shop_backup.sh -> /srv/shop-backup (DB 7 days + rsync of the site files).
+
+### Switch done 10 Nov (09:46-10:25 UTC)
+- Old host in maintenance (public_html/.maintenance, $upgrading=2000000000) — keep it a day or two so stale-DNS visitors
+  cannot order there; then remove. Final copy: ~/migr/final.php (cron deleted) -> VPS /root/mig/final, /root/mig/final_restore.sh
+  (+ post.sh, which now flushes Redis FIRST: a stale Redis object cache made wp-cli think plugins were active).
+- DNS A caravansanat.com + www -> 87.107.104.175 (TTL 300). MX/mail/ftp/pop/smtp stay on 89.42.44.95.
+- SSL: clpctl lets-encrypt (valid to Feb 2027, CloudPanel renews). Site crons: crontab of user caravan (/root/mig/site.cron).
+- Mail: WP Mail SMTP via mail.caravansanat.com:465 as info@ (owner typed the password). The old exim refuses
+  HELO caravansanat.com from the VPS IP -> mu-plugin wp-content/mu-plugins/caravan-smtp-helo.php sets HELO to the VPS PTR name.
+- ionCube: do NOT install. pw-bulk-edit is an unlicensed copy; with the loader on, it fatals every admin-ajax call
+  (add to cart broke for ~7 min). Removed again; plugin stays self-disabled as on the old host.
+- Sends resumed 10:27 UTC, settings.json publish.workers = 8 (backup settings.json.bak-20261110):
+  tmp/i73.log = i17 SEND_FIRST 36,38,39,22,23,24 + batch 25; tmp/i74.log = i16 SEND_FIRST 26-29,31,43-45 + batches 46-50.
+  Next: watch VPS load at 8; try 12 if CPU allows. Leftovers of 1-10 not started.
+- Still to do: remove FTP account migr + ~/migr on the old host, test subdomain (DNS + nginx file + cert) after a few days,
+  check the backup run (systemd unit shopbackup-now), Persian server guide for the owner, DMARC record.
