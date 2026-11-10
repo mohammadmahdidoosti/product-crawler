@@ -45,3 +45,9 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
   Owner created the panel admin. ufw: 22, 80, 443, 8443, 9011.
 - Site caravansanat.com created (PHP 8.3, WooCommerce vhost, site user caravan; its password only in /root/.caravan_site_pw on the VPS).
 - Next: copy files + DB from the DirectAdmin host (needs SSH there or a DA full backup), test on the VPS via hosts file, then DNS (A record only; MX stays on the old host).
+- 10 Nov 07:25 UTC (owner): sends to the old host stopped until the move. Runners i16 (leftovers 11-29, 43-50) and i17 (35,37,36,38,39)
+  killed. Sent+published: 35, 37. Waiting to send on the new server: 36 (prepare started), 38, 39; leftovers from batch 21 on
+  (i71 list 11-25: done up to 21 prepare) and from 43 on (i72 list 26-29,31,43-50: crawling 43); 1-10 leftovers not started.
+  Kenzax creation (tmp/kz3.py) allowed to finish on the old host. Held for the owner: 8 big updates, 3 x10 updates, 2 'off'.
+- Copy: DB dumped by cron PHP (~/migr/db.sql.gz, 134 MB, via mysqli; cron job '* * * * * php ~/migr/dump.php' must be deleted),
+  files by lftp mirror on the VPS (tmux session 'mig', FTP account migr@caravansanat.com = temporary, delete after the move).
