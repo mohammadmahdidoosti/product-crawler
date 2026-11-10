@@ -79,6 +79,9 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
   (add to cart broke for ~7 min). Removed again; plugin stays self-disabled as on the old host.
 - Sends resumed 10:27 UTC, settings.json publish.workers = 8 (backup settings.json.bak-20261110):
   tmp/i73.log = i17 SEND_FIRST 36,38,39,22,23,24 + batch 25; tmp/i74.log = i16 SEND_FIRST 26-29,31,43-45 + batches 46-50.
-  Next: watch VPS load at 8; try 12 if CPU allows. Leftovers of 1-10 not started.
+  Measured: prepare of batch 36 took 7 min; the site send is CPU-bound (load 7-8 on 4 cores, image subsizes).
+  Owner approved: mu-plugin caravan-image-sizes.php drops the 1536/2048 subsizes of new uploads (theme never uses them;
+  delete the file to undo). Keep workers at 8. Idea for the next 50 batches: server-side importer over SSH
+  (pre-resized images, 100 at a time, nice) — about a day of work, after the current batches. Leftovers of 1-10 not started.
 - Still to do: remove FTP account migr + ~/migr on the old host, test subdomain (DNS + nginx file + cert) after a few days,
   check the backup run (systemd unit shopbackup-now), Persian server guide for the owner, DMARC record.
