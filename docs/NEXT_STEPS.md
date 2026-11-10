@@ -90,5 +90,9 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
   0.2 s vs 246 s and 11 s vs 338 s on real names, identical answers (tools/lp_speed_check.py, brand_speed_check.py).
   Deployed 11:29 UTC; runners again: tmp/i75.log (i17 SEND_FIRST 38,39,22,23,24,25), tmp/i76.log (i16 SEND_FIRST
   26-29,31,43-46 + images 47-50). robots.txt: ClaudeBot Crawl-delay 5 (owner; it was most of the VPS load).
+  11:46 UTC (owner: faster, several at a time): i17 runner replaced by two tmp/i18.py runners (i17 + PUB_WORKERS
+  -> publish opts workers=10): tmp/i77.log SEND_FIRST 38,22,24 and tmp/i78.log SEND_FIRST 39,23,25; i16 (i76.log) keeps
+  27-29,31,43-46 + images 47-50. Three prepares side by side (all three prep lanes), sends one at a time (site lane).
+  Note: settings.json has no 'publish' section merge (app.build_cfg) -> publish.workers there is ignored; restored.
 - Still to do: remove FTP account migr + ~/migr on the old host, test subdomain (DNS + nginx file + cert) after a few days,
   check the backup run (systemd unit shopbackup-now), Persian server guide for the owner, DMARC record.
