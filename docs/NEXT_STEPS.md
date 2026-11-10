@@ -51,3 +51,18 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
   Kenzax creation (tmp/kz3.py) allowed to finish on the old host. Held for the owner: 8 big updates, 3 x10 updates, 2 'off'.
 - Copy: DB dumped by cron PHP (~/migr/db.sql.gz, 134 MB, via mysqli; cron job '* * * * * php ~/migr/dump.php' must be deleted),
   files by lftp mirror on the VPS (tmux session 'mig', FTP account migr@caravansanat.com = temporary, delete after the move).
+- 10 Nov: test copy live at https://test.caravansanat.com (DNS A test -> VPS, Let's Encrypt via certbot webroot,
+  nginx /etc/nginx/sites-enabled/zz-test-caravan.conf proxies to Varnish 6081 with Host caravansanat.com + sub_filter, noindex).
+  Delete the DNS record + that file + certbot cert on switch day.
+- Copy method that works on this host (exec disabled, files stop at 2 GB): cron PHP ~/migr/dump.php (mysqli dump) and
+  ~/migr/files.php (PHP tar writer, parts < 1.8 GB), then lftp from the VPS (owner types the FTP password), then
+  /root/mig/restore.sh on the VPS. 501,806 files, 9.4 GB; tar in 5 min, download ~20 min, restore 5 min.
+- Tuning on the VPS (re-apply after the final DB copy): /root/mig/tune.sh (MariaDB 4G pool, FPM pool 40 dynamic,
+  LSCache object cache -> Redis in wp_options AND wp-content/.litespeed_conf.php), .user.ini prepend -> /home/caravan/.prepend.php
+  (CloudPanel Varnish controller + Wordfence), memory 512M, no cPanel session path; old /home/caravan2 paths in .user.ini,
+  wp-content/maintenance.php, wflogs/config-synced.php; plugin clp-varnish-cache active; Varnish TTL 600 s, excludes cart/checkout/
+  my-account/wp-admin/wc-api/wp-json. DISABLE_WP_CRON is already true in wp-config (the host runs wp-cron by wget cron):
+  on the VPS add a CloudPanel cron for wp-cron + caravan_core_rec_cron after the switch.
+- Load test (on the VPS): cached pages 307 req/s at 50 concurrent, 0 failures; uncached PHP ~13-15 req/s, 40 concurrent ->
+  2.7 s mean, 0 failures. CPU (4 x Broadwell 2 GHz) is the limit for uncached work: keep crawler sends to ~6-8 concurrent.
+- Backup: crawler host cron 00:30 UTC /root/shop_backup.sh -> /srv/shop-backup (DB 7 days + rsync of the site files).
