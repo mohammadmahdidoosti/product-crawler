@@ -24,6 +24,7 @@ import logging
 import os
 import re
 import time
+from functools import lru_cache
 from pathlib import Path
 
 import pandas as pd
@@ -75,7 +76,13 @@ def path(cfg: dict) -> Path:
 
 
 def key(s: str) -> str:
-    return norm_text(re.sub(r"\s+", " ", str(s or "")).strip()).casefold()
+    # (10 Nov) the same few thousand brand names are keyed for every product: remembered
+    return _key(s) if isinstance(s, str) else _key(str(s or ""))
+
+
+@lru_cache(maxsize=300_000)
+def _key(s: str) -> str:
+    return norm_text(re.sub(r"\s+", " ", s or "").strip()).casefold()
 
 
 def display(fa: str, en: str) -> str:
@@ -246,13 +253,22 @@ def site_brands(wc) -> list[dict] | None:
         return None
 
 
+_SITE_IDX: dict = {"sig": None, "idx": {}}
+
+
 def match_site(terms: list[dict], fa: str, en: str, disp: str) -> dict | None:
-    idx: dict[str, dict] = {}
-    for t in terms or []:
-        a, b = split_display(t.get("name", ""))
-        for k in (t.get("name", ""), a, b):
-            if key(k):
-                idx.setdefault(key(k), t)
+    # (10 Nov) the index of the site's terms was built again for every brand (4,700 terms): once per list now
+    terms = terms or []
+    sig = (id(terms), len(terms), terms[0].get("id") if terms else None, terms[-1].get("id") if terms else None)
+    if _SITE_IDX["sig"] != sig:
+        idx: dict[str, dict] = {}
+        for t in terms:
+            a, b = split_display(t.get("name", ""))
+            for k in (t.get("name", ""), a, b):
+                if key(k):
+                    idx.setdefault(key(k), t)
+        _SITE_IDX.update(sig=sig, idx=idx)
+    idx = _SITE_IDX["idx"]
     for k in (en, disp, fa):
         if key(k) and key(k) in idx:
             return idx[key(k)]
@@ -511,11 +527,16 @@ def resolve(rec: dict, t: dict[str, dict]) -> dict:
 
 def _contains(text_key: str, w: str) -> bool:
     w = key(w)
-    if len(re.sub(r"[\s\u200c]", "", w)) < 3:
+    if len(re.sub(r"[\s\u200c]", "", w)) < 3 or w not in text_key:   # (10 Nov) the plain test first: fast
         return False
+    return _word_re(w).search(text_key) is not None
+
+
+@lru_cache(maxsize=100_000)
+def _word_re(w: str) -> re.Pattern:
     if LAT_CHARS.search(w):
-        return bool(re.search(rf"(?<![a-z0-9]){re.escape(w)}(?![a-z0-9])", text_key))
-    return bool(re.search(rf"(?<![\u0600-\u06FF]){re.escape(w)}(?![\u0600-\u06FF])", text_key))
+        return re.compile(rf"(?<![a-z0-9]){re.escape(w)}(?![a-z0-9])")
+    return re.compile(rf"(?<![\u0600-\u06FF]){re.escape(w)}(?![\u0600-\u06FF])")
 
 
 def from_name(name: str, t: dict[str, dict]) -> dict | None:

@@ -1459,12 +1459,27 @@ def save_index(cfg: dict, run: str, it: pd.DataFrame) -> int:
     return n
 
 
+_SEP = re.compile(r"[\s\-_/.]")
+_STRIPPED: dict = {"id": None, "keys": {}}
+
+
+def _stripped_keys(idx: dict) -> dict[str, str]:
+    """Each index key without the separators contains_model allows between its characters (cached per index)."""
+    if _STRIPPED["id"] != id(idx) or len(_STRIPPED["keys"]) != len(idx):
+        _STRIPPED.update(id=id(idx), keys={k: _SEP.sub("", k) for k in idx})
+    return _STRIPPED["keys"]
+
+
 def list_price(cfg: dict, name: str, sku: str = "", idx: dict | None = None) -> dict | None:
     """A model of an applied price list inside a product's name (for publish); the longest code wins."""
     idx = load_index(cfg) if idx is None else idx
     best, flat = None, _flat(name)
+    # (10 Nov) a quick test first: a key contains_model finds is, without separators, inside the text without
+    # separators. Skipping the others saves one regex per index key per product (10 min per batch of 189)
+    text = _SEP.sub("", f"{name} {sku}".translate(FA_DIGITS).upper())
+    stripped = _stripped_keys(idx)
     for k, v in idx.items():
-        if not contains_model(f"{name} {sku}", k):
+        if stripped.get(k, k) not in text or not contains_model(f"{name} {sku}", k):
             continue
         bn = v.get("brand_names") or []
         if bn and not any(b in flat for b in bn):
