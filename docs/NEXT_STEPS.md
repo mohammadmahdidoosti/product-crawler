@@ -83,5 +83,12 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
   Owner approved: mu-plugin caravan-image-sizes.php drops the 1536/2048 subsizes of new uploads (theme never uses them;
   delete the file to undo). Keep workers at 8. Idea for the next 50 batches: server-side importer over SSH
   (pre-resized images, 100 at a time, nice) — about a day of work, after the current batches. Leftovers of 1-10 not started.
+  Measured batch 36 (189 products, 37 min): prepare 7, photo check 7, spec+brand list 9, per-product checks ~10,
+  the site upload itself only ~5 min -> an SSH importer would save little. The time went to Python loops:
+  pricelist.list_price (one regex per 5,207 keys per product) and brands_fa.from_name (6,623 brands, key() and a
+  new regex each time). Fixed in 0fabce2 (substring pre-tests, cached keys/regex, one site-brand index):
+  0.2 s vs 246 s and 11 s vs 338 s on real names, identical answers (tools/lp_speed_check.py, brand_speed_check.py).
+  Deployed 11:29 UTC; runners again: tmp/i75.log (i17 SEND_FIRST 38,39,22,23,24,25), tmp/i76.log (i16 SEND_FIRST
+  26-29,31,43-46 + images 47-50). robots.txt: ClaudeBot Crawl-delay 5 (owner; it was most of the VPS load).
 - Still to do: remove FTP account migr + ~/migr on the old host, test subdomain (DNS + nginx file + cert) after a few days,
   check the backup run (systemd unit shopbackup-now), Persian server guide for the owner, DMARC record.
