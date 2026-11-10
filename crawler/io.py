@@ -6,6 +6,8 @@ Excel. Each step reads the previous step's file from the same run folder.
 from __future__ import annotations
 
 import csv
+import os
+import threading
 from pathlib import Path
 from typing import Iterable
 
@@ -64,7 +66,15 @@ def write_csv(df: pd.DataFrame, path: Path, columns: list[str] | None = None) ->
                 df[c] = ""
         extra = [c for c in df.columns if c not in columns]
         df = df[columns + extra]
-    df.to_csv(path, index=False, encoding=ENCODING, quoting=csv.QUOTE_MINIMAL)
+    # (10 Nov) written beside and then moved into place: a job reading the file while another one writes it
+    # (shared files such as crawl_pool.csv, several batches side by side) never sees half a file
+    path = Path(path)
+    tmp = path.with_name(f".{path.name}.{os.getpid()}.{threading.get_ident()}.tmp")
+    try:
+        df.to_csv(tmp, index=False, encoding=ENCODING, quoting=csv.QUOTE_MINIMAL)
+        os.replace(tmp, path)
+    finally:
+        tmp.unlink(missing_ok=True)
     return path
 
 
