@@ -1,4 +1,18 @@
 
+## Sends done 10 Nov 2026 — start here on 11 Nov
+- All 50 batches sent (last: batch 4 at 16:08 UTC, created 171, updated 64, error 0). Batches 8 and 9 went through
+  the app's own job (app log: created 44 / 29). Roughly 1,800 products created today, all drafts except Kenzax.
+- Crawler redeployed at 16:12 UTC with 84e2031 (atomic write_csv), so the hot patch is now permanent.
+- Owner's order for 11 Nov: first the small fixes, then plan the next 50 batches:
+  1. 114 doubtful Kenzax photos (owner reviews on the site-fix page)
+  2. Pooka CS9291 photo (owner sends a photo or link)
+  3. Hyundai 36V drill (owner says which product)
+  4. Noyan / Black Panther comparison against dashtesabz-shop.ir (approved)
+  5. Eye-check of the 60 rows flagged x10 (approved)
+  6. Publishing today's drafts: only when the owner says so
+  Then: plan batches 51-100. Thursday 10:00 reminders are scheduled (backup, old host cleanup, test subdomain,
+  server guide, DMARC, Netafraz E1 ticket).
+
 ## After batch 50 (owner, 8 Nov 2026)
 When every batch up to 50 (and the unseen products 11-50) is done and published, before the next 50 batches:
 1. Shop host (DirectAdmin, server192e.irwebspace.com): inodes were 494k / 768k on 8 Nov. Images are ~320k of it
