@@ -38,3 +38,10 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
 - Access: key /root/.ssh/shop_vps on the crawler host; owner adds its .pub to root's authorized_keys (SSH port 9011).
 - Until the move: next 50 batches may be crawled/prepared, but sending waits for the new server (host inodes).
 - Owner enters all passwords/payments himself.
+
+### Shop VPS status 10 Nov
+- International internet active (9 Nov evening). Key added via ssh-copy-id (owner typed the root password); crawler host alias `ssh shop`.
+- CloudPanel 2.5.4 installed with DB_ENGINE=MARIADB_11.8 (MYSQL_8.4 needs repo.percona.com, blocked from Iran).
+  Owner created the panel admin. ufw: 22, 80, 443, 8443, 9011.
+- Site caravansanat.com created (PHP 8.3, WooCommerce vhost, site user caravan; its password only in /root/.caravan_site_pw on the VPS).
+- Next: copy files + DB from the DirectAdmin host (needs SSH there or a DA full backup), test on the VPS via hosts file, then DNS (A record only; MX stays on the old host).
