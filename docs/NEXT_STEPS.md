@@ -17,6 +17,10 @@
   Owner (12:03): watch the costs. Promised: prepare (photos + texts) at most 2 batches at a time, a batch whose
   prepare passes $2 is stopped and looked at, and the OpenRouter balance is reported every few hours
   (balance 11 Nov 08:00 UTC: $279 credits, $143.4 used).
+- Shop VPS (11 Nov 08:48 UTC, owner «بلاکش کن»): PerplexityBot made 2,008 of 3,000 requests (load 11). Blocked:
+  nginx `if ($http_user_agent ~* "PerplexityBot|Perplexity-User") { return 403; }` in the caravansanat.com 443 server
+  block (backup /root/mig/caravansanat.com.conf.bak-20261111; a CloudPanel vhost save may drop it) + Disallow in
+  robots.txt (backup /root/mig/robots.txt.bak-20261111). Load back to ~2.
 - Owner (11 Nov 11:42): kalasanati.com goes on the promising-shops list for a dedicated full crawl later (its site is
   larger than the 1,500-page cap of a price-list site read; the Salem Ab dosing pump SMA-D-1 was not reached).
   Also from 11 Nov: abzarfarshid.com (Silver dealer; robots.txt blocks crawlers, only its Store API search was read).
