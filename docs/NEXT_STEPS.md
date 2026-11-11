@@ -12,6 +12,11 @@
   in pricelists/pl-*-site/held_owner2.csv (imentamin 26, eramardin 23, matinfidar 8).
   Geokala D510 (#142192 -> 100M) and DW088K (#109143 -> 8M) were applied (guard missed them); old values in backup.jsonl.
 - Crawler redeployed with 2eabcfe.
+- Batches 51-100: routing probed and approved by the owner (11 Nov 11:53); crawl started 08:24 UTC in three lanes
+  (tmp/c3.py: 51-67, 68-84, 85-100; a lane stops on a failed batch or a crawl over $1).
+  Owner (12:03): watch the costs. Promised: prepare (photos + texts) at most 2 batches at a time, a batch whose
+  prepare passes $2 is stopped and looked at, and the OpenRouter balance is reported every few hours
+  (balance 11 Nov 08:00 UTC: $279 credits, $143.4 used).
 - Owner (11 Nov 11:42): kalasanati.com goes on the promising-shops list for a dedicated full crawl later (its site is
   larger than the 1,500-page cap of a price-list site read; the Salem Ab dosing pump SMA-D-1 was not reached).
   Also from 11 Nov: abzarfarshid.com (Silver dealer; robots.txt blocks crawlers, only its Store API search was read).
