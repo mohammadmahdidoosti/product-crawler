@@ -12,6 +12,9 @@
   in pricelists/pl-*-site/held_owner2.csv (imentamin 26, eramardin 23, matinfidar 8).
   Geokala D510 (#142192 -> 100M) and DW088K (#109143 -> 8M) were applied (guard missed them); old values in backup.jsonl.
 - Crawler redeployed with 2eabcfe.
+- Owner (11 Nov 11:42): kalasanati.com goes on the promising-shops list for a dedicated full crawl later (its site is
+  larger than the 1,500-page cap of a price-list site read; the Salem Ab dosing pump SMA-D-1 was not reached).
+  Also from 11 Nov: abzarfarshid.com (Silver dealer; robots.txt blocks crawlers, only its Store API search was read).
 
 ## Sends done 10 Nov 2026 — start here on 11 Nov
 - All 50 batches sent (last: batch 4 at 16:08 UTC, created 171, updated 64, error 0). Batches 8 and 9 went through
