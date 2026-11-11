@@ -23,6 +23,11 @@
   nginx `if ($http_user_agent ~* "PerplexityBot|Perplexity-User") { return 403; }` in the caravansanat.com 443 server
   block (backup /root/mig/caravansanat.com.conf.bak-20261111; a CloudPanel vhost save may drop it) + Disallow in
   robots.txt (backup /root/mig/robots.txt.bak-20261111). Load back to ~2.
+- Price lists read with the wrong unit (11 Nov): PAP (pl-pap-1405-08) pages of toman were read as rial -> 40 products
+  x10 (tmp/pap10.py, owner OK), DH-810 x3 set to 17.9M + out of stock, 2 other-brand products restored, index fixed.
+  PM/Anchor: 71 prices applied (37 as read + 34 nearest of list/list x10 within 35%), 14 new (Torob ok/x10), its index
+  entries removed; 17 updates + ~50 new held. Mahak: 6 x10 applied. Open: Tosan 3 doubtful (100115, 149539, 35877).
+  Lesson: a list whose read.json shows mixed units needs the per-page unit checked before apply.
 - Owner (11 Nov 11:42): kalasanati.com goes on the promising-shops list for a dedicated full crawl later (its site is
   larger than the 1,500-page cap of a price-list site read; the Salem Ab dosing pump SMA-D-1 was not reached).
   Also from 11 Nov: abzarfarshid.com (Silver dealer; robots.txt blocks crawlers, only its Store API search was read).
