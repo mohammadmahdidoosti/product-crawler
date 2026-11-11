@@ -1598,7 +1598,8 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
         if c not in pl:
             pl[c] = ""
     rate = float(json.loads((d / "match.json").read_text())["rate"])
-    if complete and (d / "read.json").exists() and json.loads((d / "read.json").read_text()).get("shop"):
+    shop = (d / "read.json").exists() and bool(json.loads((d / "read.json").read_text()).get("shop"))
+    if complete and shop:
         complete = False                                 # a shop of many brands is not any brand's whole list
     x10 = pl.apply(_tenfold, axis=1) if len(pl) else pd.Series(dtype=bool)
     # (5 Nov, Parkside: every price x10 from a '2800000.0') a gap of about ten times is a unit slip, not a
@@ -1608,6 +1609,10 @@ def apply(cfg: dict, run: str, wc=None, include_big: bool = False, spread: bool 
     terms = _brand_terms(wc, pl[pl["brand"].astype(str).str.strip() != ""], cfg) if len(pl) else {}
 
     def brand_of(r) -> dict | None:
+        if shop:
+            # (11 Nov) a shop of many brands: the row's brand is a word found in its name ('کفش ایمنی',
+            # 'پاکستانی', 'اتوماتیک' went onto products as brands), never a reason to change the product's brand
+            return None
         br = (terms.get(str(r["brand"]).strip()) or {}).get("resolved")
         bid = brands.id_for(br)[0] if br and br.get("status") == "ok" else None
         return {"brands": [{"id": int(bid)}]} if bid else None
