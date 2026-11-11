@@ -21,7 +21,10 @@ from pathlib import Path
 log = logging.getLogger(__name__)
 
 GENERIC = {"برند", "brand", "سمپاش", "پاور", "power", "اره", "ابزار", "صنعت", "اصل", "گاردن", "ورکس", "works",
-           "مارک", "mark", "استار", "star", "مدل", "model"}
+           "مارک", "mark", "استار", "star", "مدل", "model",
+           # (11 Nov) brand terms that are plain words: a name holding 'cordless' or 'plus' is no such brand's product
+           "کوردلس", "cordless", "پلاس", "plus", "کانونشنال", "conventional", "دایموند", "diamond", "ایرانی",
+           "سنس", "sens"}
 
 
 def _n(s) -> str:
