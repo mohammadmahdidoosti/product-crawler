@@ -46,7 +46,8 @@ def term_names(t: dict) -> list[str]:
 def find_terms(terms: list[dict], wanted: list[str]) -> list[dict]:
     """The site's brand terms for the names asked (Persian or Latin, either part of 'fa (en)')."""
     w = {_n(x) for x in wanted if _n(x)}
-    return [t for t in terms if w & set(term_names(t)) or any(x in _n(t.get("slug")) for x in w if len(x) >= 4)]
+    # (11 Nov) the slug only when it IS the name: 'flex' inside 'orientflex' or 'wdf-flex' is another maker
+    return [t for t in terms if w & set(term_names(t)) or _n(t.get("slug")).replace("-", " ") in w]
 
 
 def brand_products(rows: list[dict], term_ids: set, names: list[str], name_filter: str = "") -> list[dict]:
