@@ -1,4 +1,18 @@
 
+## 11 Nov 2026 (morning) — done
+- Batches 1-50 published (tmp/pub11.py: 28,347 products, 0 failed; doubtful price / no category stay draft).
+- Shop names as brands (ابزار ماتریس, فروشگاه فایر ایران, ...): 52 products fixed (tmp/snb.py, brandtools.shop_not_brand).
+  37 more brand terms equal a seller name in the crawl data (JBH, محک, شیوا امواج, ...): most are real makers, not touched.
+- Flex (#15777) out of stock, 8 products. Kenzax doubtful photos: all approved and published (owner).
+- Hyundai 36V drill #101438: photo without the shop's flag, price 9,350,000 locked (Torob same kit).
+- Supplier sites as price lists (pricelist.site_as_list, tmp/sal.py -> sal2.py -> sal3.py; owner: current prices):
+  Noyan/Morayco + Black Panther (dashtesabz-shop.ir), matinfidar.ir, imen-tamin.ir, geokala.com (prices are TOMAN,
+  the parser said IRR: fixed in site/products.jsonl), eramardin.ir. No redirects, no brand-wide out of stock, no spread.
+  Rows matched to another brand's product were made as new. Still for the owner: same brand, |change| > 50%,
+  in pricelists/pl-*-site/held_owner2.csv (imentamin 26, eramardin 23, matinfidar 8).
+  Geokala D510 (#142192 -> 100M) and DW088K (#109143 -> 8M) were applied (guard missed them); old values in backup.jsonl.
+- Crawler redeployed with 2eabcfe.
+
 ## Sends done 10 Nov 2026 — start here on 11 Nov
 - All 50 batches sent (last: batch 4 at 16:08 UTC, created 171, updated 64, error 0). Batches 8 and 9 went through
   the app's own job (app log: created 44 / 29). Roughly 1,800 products created today, all drafts except Kenzax.
