@@ -17,6 +17,8 @@
   Owner (12:03): watch the costs. Promised: prepare (photos + texts) at most 2 batches at a time, a batch whose
   prepare passes $2 is stopped and looked at, and the OpenRouter balance is reported every few hours
   (balance 11 Nov 08:00 UTC: $279 credits, $143.4 used).
+  Prepare + send: tmp/i22.py, two lanes (waits for 'C3 batch N ok', stops a lane over $2). Sent as drafts.
+  Owner (13:44): publish batches 51-100 together only when all 50 are done. Real cost so far $0.37-0.62/batch.
 - Shop VPS (11 Nov 08:48 UTC, owner «بلاکش کن»): PerplexityBot made 2,008 of 3,000 requests (load 11). Blocked:
   nginx `if ($http_user_agent ~* "PerplexityBot|Perplexity-User") { return 403; }` in the caravansanat.com 443 server
   block (backup /root/mig/caravansanat.com.conf.bak-20261111; a CloudPanel vhost save may drop it) + Disallow in
