@@ -167,3 +167,5 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
   shop_backup.sh (crawler host) now also dumps caravandrive + mirrors its files to /srv/shop-backup/drive.
 - Backups trimmed (owner): crawler keeps only the newest shop dump; Drive vps-backups/caravansanat-db keeps only the
   newest (caravan-db-pull.sh removes the local pulled copy after upload). Backups of scripts: *.bak-20261112*.
+- Waiting for the owner's go (12 Nov 10:11, "when I tell you"): dedicated crawl of the promising-shops list, incl.
+  kalasanati.com (Saleem SMA-D-1 dosing pump) and abzarfarshid.com. Do NOT start on our own; remind after batches 51-100.
