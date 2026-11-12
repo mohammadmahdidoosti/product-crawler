@@ -156,3 +156,14 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
 - PM/Anchor 11 Nov: pack chisels priced per pack (piece x count, owner OK); 26 unconfirmed new products back to
   pending; PM run removed from the price index (apply() re-indexes the whole run: drop it after any apply on this run).
 - Pooka CS9291 (#156824): Arva photos removed, pending; no right photo found on the web.
+- Old host (DirectAdmin server192e.irwebspace.com, Netafraz) cleaned 12 Nov with owner OKs: migr, backups, old WP
+  public_html, DBs 9FPGo1pd + akhavan (Woodmart demo) + carvandrive, FTP migr/tmpdrive, DNS test. Left: e-mail, DNS
+  (DNS zone lives here: never cancel this host), .well-known. Owner downgrades it to plan E1 (ticket via Netafraz
+  client area; DirectAdmin ticket system is off).
+- Nextcloud drive.caravansanat.com (sales invoices, uploaded by hand; 2 users, 424 files, v32.0.6) moved to the shop
+  VPS: CloudPanel site user caravandrive, /home/caravandrive/htdocs/drive.caravansanat.com, DB caravandrive
+  (/root/.my.cnf.drive), cron */5 as caravandrive, Let's Encrypt via clpctl. DNS drive -> 87.107.104.175 (TTL 300).
+  Full old-host DirectAdmin backup kept on the shop VPS: /root/mig/drive/backup-Nov-12-2026-1.tar.gz (+ x/).
+  shop_backup.sh (crawler host) now also dumps caravandrive + mirrors its files to /srv/shop-backup/drive.
+- Backups trimmed (owner): crawler keeps only the newest shop dump; Drive vps-backups/caravansanat-db keeps only the
+  newest (caravan-db-pull.sh removes the local pulled copy after upload). Backups of scripts: *.bak-20261112*.
