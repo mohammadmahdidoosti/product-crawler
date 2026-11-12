@@ -143,3 +143,16 @@ When every batch up to 50 (and the unseen products 11-50) is done and published,
   Note: settings.json has no 'publish' section merge (app.build_cfg) -> publish.workers there is ignored; restored.
 - Still to do: remove FTP account migr + ~/migr on the old host, test subdomain (DNS + nginx file + cert) after a few days,
   check the backup run (systemd unit shopbackup-now), Persian server guide for the owner, DMARC record.
+
+## 12 Nov 2026 (owner approved items 2 and 4 of the Thursday list)
+- test.caravansanat.com removed on the shop VPS: nginx zz-test-caravan.conf (copy /root/mig/zz-test-caravan.conf.bak-20261112)
+  + certbot cert deleted, nginx reloaded, main site 200. The owner removes the DNS record "test" himself.
+- Persian server guide for the owner: Docs artifact https://claude.ai/artifact/PnUrfcWyXGJJ7evnVrDVre
+- Backup check: DB dump nightly OK (146M); files rsync takes ~8 h (500k files) and logs FILES FAILED on rsync code 24
+  (vanished files) -> proposed to treat 24 as ok (waiting for the owner).
+- Batches 51-100: all crawled by 22:00 UTC 11 Nov; 27 sent (7,987 drafts) by 04:45 UTC. Lane 1 hung on batch 56
+  (100% CPU, no output 2.5 h) -> killed; owner asked for more speed: 4 prepare lanes (i23-2 94-100, i23-3 56-60,
+  i23-4 61-65, i23-5 66 67 90 91 92).
+- PM/Anchor 11 Nov: pack chisels priced per pack (piece x count, owner OK); 26 unconfirmed new products back to
+  pending; PM run removed from the price index (apply() re-indexes the whole run: drop it after any apply on this run).
+- Pooka CS9291 (#156824): Arva photos removed, pending; no right photo found on the web.
