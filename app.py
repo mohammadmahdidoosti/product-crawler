@@ -509,7 +509,7 @@ JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health"),
 # (9 Nov) prepares of several batches side by side: the health lane and these. The slow part of a prepare
 # (texts, paid photo fixes) touches only its own batch's files; the shared brands go one at a time
 # (crawler.publish.BRANDS_LOCK).
-PREP_LANES = ("health", "prep2", "prep3")
+PREP_LANES = ("health", "prep2", "prep3", "prep4", "prep5", "prep6")   # 13 Nov: 6 (owner: faster)
 for _l in PREP_LANES[1:]:
     JOBS[_l] = Job(_l)
 JOB = JOBS["crawl"]
