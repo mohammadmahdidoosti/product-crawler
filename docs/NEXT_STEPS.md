@@ -1,3 +1,25 @@
+## 13 Nov 2026 — start here on 14 Nov (owner: first publish the drafts, then new batches)
+- Top 30 batches (placed products into new / near-empty categories, plf.py kept only sites with <10 products):
+  27 sent as drafts (847 created, 169 updated); 60, 52, 100 were never sent (their lane's sender thread died on an
+  app timeout after images+texts) -> tmp/pp.py prepares + sends them (pp-60/52/100.log). Cost ~$33 (images+texts
+  of 6 batches paid twice after the 15:40 restart from 4 to 6 lanes). Drafts of batches 51-100 + these: publish first.
+- Speed: the app's single site lane was the bottleneck. tmp/i25.py now sends directly via publish() holding one of
+  3 slot files (/data/tmp/sendslot-N) instead of the site lane (backup i25.py.bak-direct); tmp/q25.sh = shared queue
+  lanes. 6 lanes OOM'd once with 1 GB swap; crawler host got /swapfile2 (8 GB, in fstab). CPU (8 cores) and the
+  app's 6 prep lanes are the next limits; smaller batches avoid a long tail.
+- Live changes (owner): Crown CT15205 #107675 = 41,400,000 (prices are stored in USD: regular price = toman / rate
+  273,000, display rounds down to 1,000); out of stock: Endress+Hauser 34, Minco 4, Sens 40, AWLOP 7 (backup
+  /tmp/ap1_backup_*.csv on the shop); Saba INV-250 #190437 -> 74.1M (abzarsara; other Saba untouched, owner);
+  Zimberg #100076 39.95M, #218731 22.95M, #102800 17.95M (catalog).
+- Zimberg catalog (pl-zimberg-1405-08): the vision read had 60 of 151 prices wrong (x10 both ways, digit slips);
+  tmp/zv.py re-read every price from the PDF text (all pages rial) — items.csv fixed (backup .bak-zv). 4 models not
+  in the text skipped. New: pl-zimberg-1405-08-new (66, crawl started 16:05 UTC) and -new2 (78, LLM categories,
+  tmp/zc.py, not started). Owner wants them built with photos and PUBLISHED.
+- Active (pl-active-1405-08): 123 image pages, 377 rows (134 corrected by the verify pass). plz.py still matching.
+  Owner: catalog has priority — catalog products updated + in stock (>50% changes checked first), every other
+  'اکتیو' product (term 15788, 87) out of stock, new models crawled with photos. Not applied yet.
+- Lesson: a catalog read by vision must be checked against the PDF text when the PDF has text (pdfplumber).
+
 
 ## 11 Nov 2026 (morning) — done
 - Batches 1-50 published (tmp/pub11.py: 28,347 products, 0 failed; doubtful price / no category stay draft).
