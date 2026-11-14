@@ -35,7 +35,7 @@ TRIES = 3
 
 def qdir(cfg: dict, name: str) -> Path:
     d = Path(cfg["_data_dir"]) / "lanes" / name
-    for sub in ("todo", "doing", "done", "failed"):
+    for sub in ("todo", "doing", "done", "failed", "ready"):
         (d / sub).mkdir(parents=True, exist_ok=True)
     return d
 
@@ -161,7 +161,10 @@ def images_and_texts(app, lane: str, run: str) -> None:
         app.STEPS[:] = steps
 
 
-def run_lane(name: str, lane: str, slots: int, max_usd: float, skip_prices: bool) -> None:
+PREPARED = "prepared.ok"      # (14 Nov) photos, texts and prepare are done: a restart goes straight to the send
+
+
+def run_lane(name: str, lane: str, slots: int, max_usd: float, skip_prices: bool, no_send: bool = False) -> None:
     import app
     from crawler.config import run_dir
     from crawler.costs import summary
@@ -178,15 +181,26 @@ def run_lane(name: str, lane: str, slots: int, max_usd: float, skip_prices: bool
         since = time.strftime("%Y-%m-%d %H:%M")
         t0 = time.time()
         try:
-            say(lane, run, "route")
-            retry(lane, f"{run} route", lambda: route_batch(app, run))
-            say(lane, run, "photos+texts")
-            retry(lane, f"{run} photos+texts", lambda: images_and_texts(app, lane, run))
-            say(lane, run, "prepare")
-            retry(lane, f"{run} prepare", lambda: prepare(app.build_cfg(), run))
-            usd = summary(run_dir(cfg, run), since=since).get("usd", 0.0)
-            if max_usd and usd > max_usd:
-                raise RuntimeError(f"cost ${usd:.2f} over the ${max_usd:.2f} limit: not sent, look at it")
+            ready = run_dir(cfg, run) / PREPARED
+            if not ready.exists():
+                say(lane, run, "route")
+                retry(lane, f"{run} route", lambda: route_batch(app, run))
+                say(lane, run, "photos+texts")
+                retry(lane, f"{run} photos+texts", lambda: images_and_texts(app, lane, run))
+                say(lane, run, "prepare")
+                retry(lane, f"{run} prepare", lambda: prepare(app.build_cfg(), run))
+                usd = summary(run_dir(cfg, run), since=since).get("usd", 0.0)
+                if max_usd and usd > max_usd:
+                    raise RuntimeError(f"cost ${usd:.2f} over the ${max_usd:.2f} limit: not sent, look at it")
+                ready.write_text(time.strftime("%Y-%m-%d %H:%M"), encoding="utf-8")
+            if no_send:
+                # (14 Nov, owner) the shop's memory gave out under the sends: crawl and prepare everything now,
+                # the products go in later in one go on the shop server; the batch waits in ready/
+                usd = summary(run_dir(cfg, run), since=since).get("usd", 0.0)
+                note = f"prepared, not sent usd={usd:.3f} min={(time.time() - t0) / 60:.0f}"
+                say(lane, run, "READY", note)
+                finish(q, item, "ready", note)
+                continue
             retry(lane, f"{run} site categories", lambda: site_categories(app, run))
             with Slot(q, slots):
                 say(lane, run, "send")
@@ -207,7 +221,7 @@ def run_lane(name: str, lane: str, slots: int, max_usd: float, skip_prices: bool
 
 def status(cfg: dict, name: str) -> None:
     q = qdir(cfg, name)
-    for sub in ("todo", "doing", "done", "failed"):
+    for sub in ("todo", "doing", "done", "failed", "ready"):
         files = sorted(p.name for p in (q / sub).iterdir())
         print(sub, len(files), " ".join(files)[:300])
     for p in sorted((q / "failed").iterdir()):
@@ -222,6 +236,7 @@ def main() -> None:
     ap.add_argument("--slots", type=int, default=3, help="lanes that may write to the shop at once")
     ap.add_argument("--max-usd", type=float, default=2.0, help="a batch costing more is not sent")
     ap.add_argument("--with-prices", action="store_true", help="also run the price detective step")
+    ap.add_argument("--no-send", action="store_true", help="crawl and prepare only; the batch waits in ready/")
     a = ap.parse_args()
     import app
     cfg = app.build_cfg()
@@ -233,7 +248,7 @@ def main() -> None:
     elif a.cmd == "status":
         status(cfg, a.name)
     else:
-        run_lane(a.name, a.args[0] if a.args else "1", a.slots, a.max_usd, not a.with_prices)
+        run_lane(a.name, a.args[0] if a.args else "1", a.slots, a.max_usd, not a.with_prices, a.no_send)
 
 
 if __name__ == "__main__":

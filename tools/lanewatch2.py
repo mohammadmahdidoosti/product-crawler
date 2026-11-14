@@ -6,12 +6,14 @@ and watch them. Every 2 minutes:
   * a lane that died puts its batch back (kw1 doing -> kw2 todo, kw2 doing -> kw2 todo);
   * a lane whose log has not moved for 150 minutes is stopped and its batch put back;
   * a failed batch is tried once more (not when the reason is no credit).
+  * (14 Nov) while /data/lanes/kw2/NOSEND exists, new lanes start with --no-send: a batch is crawled and
+    prepared, then waits in kw2/ready/ for the bulk import on the shop server.
 Ends when both queues are empty and no lane runs. Log: /data/tmp/kw2-watch.log"""
 import os, re, time, signal, subprocess
 Q1, Q2 = "/data/lanes/kw1", "/data/lanes/kw2"
 LANES = range(1, 6)
 HUNG = 150 * 60
-for sub in ("todo", "doing", "done", "failed"):
+for sub in ("todo", "doing", "done", "failed", "ready"):
     os.makedirs(f"{Q2}/{sub}", exist_ok=True)
 # (14 Nov) the shop gave HTTP 500s with three sends + categories: kw1 and kw2 lanes share the same send slots
 # (kw2 slot files are links to kw1's), and slot 2 is held by a holder process, so at most 2 send at once
@@ -65,9 +67,10 @@ def put_back(q, k):
         say("lane", k, q, "batch", b, "back to the queue")
 
 def start(k):
-    subprocess.Popen(f"cd /app && exec python3 tools/batch_lanes.py lane kw2 {k} --slots 3 >> {log_of('kw2', k)} 2>&1",
+    flag = " --no-send" if os.path.exists(f"{Q2}/NOSEND") else ""
+    subprocess.Popen(f"cd /app && exec python3 tools/batch_lanes.py lane kw2 {k} --slots 3{flag} >> {log_of('kw2', k)} 2>&1",
                      shell=True, start_new_session=True)
-    say("lane", k, "started on kw2")
+    say("lane", k, "started on kw2" + flag)
 
 # the old watch must not start kw1 lanes again
 for p, c in procs("lanewatch.py").items():
