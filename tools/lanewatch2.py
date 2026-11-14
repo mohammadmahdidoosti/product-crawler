@@ -13,6 +13,14 @@ LANES = range(1, 7)
 HUNG = 150 * 60
 for sub in ("todo", "doing", "done", "failed"):
     os.makedirs(f"{Q2}/{sub}", exist_ok=True)
+# (14 Nov) the shop gave HTTP 500s with three sends + categories: kw1 and kw2 lanes share the same send slots
+# (kw2 slot files are links to kw1's), and slot 2 is held by a holder process, so at most 2 send at once
+for i in range(3):
+    s2 = f"{Q2}/sendslot-{i}"
+    if not os.path.islink(s2):
+        if os.path.exists(s2):
+            os.remove(s2)
+        os.symlink(f"{Q1}/sendslot-{i}", s2)
 
 def say(*a):
     with open("/data/tmp/kw2-watch.log", "a") as f:
@@ -57,7 +65,7 @@ def put_back(q, k):
         say("lane", k, q, "batch", b, "back to the queue")
 
 def start(k):
-    subprocess.Popen(f"cd /app && exec python3 tools/batch_lanes.py lane kw2 {k} --slots 3 >> {log_of('kw2', k)} 2>&1",
+    subprocess.Popen(f"cd /app && exec python3 tools/batch_lanes.py lane kw2 {k} --slots 2 >> {log_of('kw2', k)} 2>&1",
                      shell=True, start_new_session=True)
     say("lane", k, "started on kw2")
 

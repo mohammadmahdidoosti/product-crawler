@@ -301,8 +301,8 @@ def ensure_wp(cfg: dict, tax_ids, wc=None) -> dict:
 
     The keyword taxonomy of 14 Nov adds ~5,000 categories to the crawler only; a category is made on the
     site when its batch sends its first product there, so no empty category shows up on the site. A new main
-    category (no parent) is made at the top. Lanes run side by side: the site calls are made without a lock
-    (a category two lanes make at once comes back as 'exists' with its ID); only the file is written one at a time."""
+    category (no parent) is made at the top. One lane at a time makes categories on the site (heavy for WordPress);
+    a category that is already there comes back as 'exists' with its ID; the file is written under its own lock."""
     from .publish import _ProcLock
     want = [str(t).strip() for t in tax_ids if str(t).strip()]
     if not want:
@@ -316,7 +316,9 @@ def ensure_wp(cfg: dict, tax_ids, wc=None) -> dict:
     if wc is None and any(t not in tree.wp_of for t in want):
         from .wc import WC
         wc = WC()
-    try:
+    lock = _ProcLock("categories-site")                  # (14 Nov) one lane at a time makes categories: each one
+    lock.__enter__()                                     # is heavy work for WordPress (20,000 terms); three lanes at
+    try:                                                 # once with the sends gave the shop HTTP 500s
         for t in dict.fromkeys(want):
             chain, x = [], t
             while x and x in parent_of and x not in tree.wp_of:
@@ -335,6 +337,7 @@ def ensure_wp(cfg: dict, tax_ids, wc=None) -> dict:
                 tree.wp_of[c] = wp
                 made.append({"taxonomy_id": c, "wp_id": wp, "path": path_of.get(c, "")})
     finally:
+        lock.__exit__(None, None, None)
         if made:
             with _ProcLock("categories"):               # another lane may have written since: read it again
                 cur = read_csv(tree.wp_p) if tree.wp_p.exists() else pd.DataFrame(columns=["ID", "wp_id"])
