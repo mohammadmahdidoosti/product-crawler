@@ -1,3 +1,16 @@
+## 14 Nov 2026 (evening) — sends stopped, crawl-only overnight; start here on 15 Nov
+- Shop MariaDB was OOM-killed 4 times (10:36, 10:47, 14:19, 14:42 UTC). Causes: php-fpm pm.max_children=40
+  (200-400 MB each) and Redis without maxmemory (1.44 GB, RDB saves on). Proposed, owner has NOT approved yet:
+  max_children 40 -> 15, Redis maxmemory 1gb + `save ""`.
+- /data/tmp/sendblock.py holds all 3 send slots (kw1/sendslot-*): nothing is sent to the shop.
+- Owner (18:18 Tehran): crawl everything tonight, import tomorrow in one go over SSH/WP-CLI.
+- Lanes now run `--no-send` (ed20a86): route, photos+texts, prepare, then `runs/<batch>/prepared.ok` and the
+  batch goes to lanes/kw2/ready/. lanewatch2 starts lanes with --no-send while lanes/kw2/NOSEND exists.
+  To send a ready batch later: move it to todo/ and remove NOSEND (prepared.ok skips straight to the send).
+- Sent today: 101-110, 113, 116, 117 (~2,480 drafts). Send errors to redo: 102 (14), 104 (15), 105 (4), 116, 117 (1 each).
+- Tomorrow: shop fixes (with approval), bulk importer test on 10 products, then night import in chunks;
+  final report (cost from the OpenRouter balance: $88.01 at the start of the day).
+
 ## 14 Nov 2026 (later) — keyword taxonomy, batches 101-150 running
 - Owner's sheet «سید کیوردها» (5,143 seeds, 38 families) -> assets/seeds/seed_taxonomy_1405-08.csv (4,841 categories),
   built by assets/seeds/build_tax.py. Owner's rules: sizes and brands stay their own categories; spelling-only
