@@ -9,7 +9,7 @@ and watch them. Every 2 minutes:
 Ends when both queues are empty and no lane runs. Log: /data/tmp/kw2-watch.log"""
 import os, re, time, signal, subprocess
 Q1, Q2 = "/data/lanes/kw1", "/data/lanes/kw2"
-LANES = range(1, 9)
+LANES = range(1, 7)
 HUNG = 150 * 60
 for sub in ("todo", "doing", "done", "failed"):
     os.makedirs(f"{Q2}/{sub}", exist_ok=True)
