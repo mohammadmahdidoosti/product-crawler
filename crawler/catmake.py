@@ -52,7 +52,8 @@ def clean_name(name: str) -> str:
     s = _EMOJI.sub("", s)
     s = _GLUED.sub("", s)
     for w in ("قیمت و خرید", "خرید و قیمت", "قیمت", "خرید") + SHOP_NAMES:
-        s = s.replace(w, " ")
+        # whole words only (14 Nov): 'سنگ قیمتی' (gemstone) is a product, not a price
+        s = re.sub(rf"(?<![\w\u200c]){re.escape(w)}(?![\w\u200c])", " ", s)
     return re.sub(r"\s+", " ", s).strip(" -|/")
 
 
@@ -275,3 +276,54 @@ def apply_placements(cfg: dict, df: pd.DataFrame, crawled: pd.DataFrame) -> pd.D
         log.info("placed by hand (new categories): %d page(s)", len(add))
         df = pd.concat([df, pd.DataFrame(add)], ignore_index=True)
     return df
+
+
+# ------------------------------------------------------------------ seed-keyword categories (14 Nov, owner)
+
+def ensure_wp(cfg: dict, tax_ids, wc=None) -> dict:
+    """Make on the site the WordPress category of each taxonomy ID (and of its parents) that has none yet.
+
+    The keyword taxonomy of 14 Nov adds ~5,000 categories to the crawler only; a category is made on the
+    site when its batch sends its first product there, so no empty category shows up on the site. A new main
+    category (no parent) is made at the top. Lanes run side by side: one writer at a time (a file lock)."""
+    from .publish import _ProcLock
+    want = [str(t).strip() for t in tax_ids if str(t).strip()]
+    if not want:
+        return {"made": 0}
+    with _ProcLock("categories"):
+        tree = Tree(cfg)
+        ids = tree.raw[tree.c_id].astype(str).str.strip()
+        parent_of = dict(zip(ids, tree.raw[tree.c_parent].astype(str).str.strip().str.replace(r"\.0$", "", regex=True)))
+        name_of = dict(zip(ids, tree.raw[_col(tree.raw, "Category_Name") or tree.c_path].astype(str)))
+        path_of = dict(zip(ids, tree.raw[tree.c_path].astype(str)))
+        made = []
+        if wc is None and any(t not in tree.wp_of for t in want):
+            from .wc import WC
+            wc = WC()
+        for t in dict.fromkeys(want):
+            chain, x = [], t
+            while x and x in parent_of and x not in tree.wp_of:
+                chain.append(x)
+                x = parent_of.get(x, "")
+            for c in reversed(chain):
+                p = parent_of.get(c, "")
+                parent_wp = int(tree.wp_of[p]) if p and p in tree.wp_of else 0
+                if p and p not in tree.wp_of:
+                    break                               # the parent could not be made: never at the top by mistake
+                name = (name_of.get(c) or path_of.get(c, "").split(">")[-1]).strip()
+                if bad_name(name):
+                    log.warning("category %s %s not made on the site: %s", c, name, bad_name(name))
+                    break
+                wp = str(_site_term(wc, name, parent_wp))
+                tree.wp_of[c] = wp
+                tree.new_wp.append({"ID": c, "wp_id": wp})
+                made.append({"taxonomy_id": c, "wp_id": wp, "path": path_of.get(c, "")})
+        if tree.new_wp:
+            stamp = time.strftime("%Y%m%d")
+            bak = tree.wp_p.with_name(f"{tree.wp_p.name}.bak-{stamp}")
+            if tree.wp_p.exists() and not bak.exists():
+                shutil.copy(tree.wp_p, bak)
+            write_csv(pd.concat([tree.wp, pd.DataFrame(tree.new_wp)], ignore_index=True), tree.wp_p)
+    if made:
+        log.info("site categories made for the batch: %d (%s)", len(made), ", ".join(m["path"] for m in made[:5]))
+    return {"made": len(made), "rows": made}

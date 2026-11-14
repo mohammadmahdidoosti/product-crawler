@@ -104,6 +104,44 @@ class Slot:
         return False
 
 
+def route_batch(app, run: str) -> None:
+    """(14 Nov) A batch of the keyword taxonomy has no queue yet: the market check (one search per group), the
+    route as the check decides (the owner's review step counts every row as right, as for batches 51-100), then
+    the queue. A batch with a queue is left as it is."""
+    from crawler import routing_state as RS
+    from crawler.config import run_dir
+    from crawler.io import FILES
+    cfg = app.build_cfg()
+    if (run_dir(cfg, run) / FILES["queue"]).exists() or not run.startswith("batch-"):
+        return
+    n = int(run.split("-")[1])
+    with _routing_lock():
+        RS.probe_batch(cfg, n)
+        RS.review_batch(cfg, n, [])
+        RS.make_queue(cfg, n, run)
+
+
+def _routing_lock():
+    from crawler.publish import _ProcLock
+    return _ProcLock("routing")
+
+
+def site_categories(app, run: str) -> None:
+    """(14 Nov) The new keyword categories are made on the site only when a product goes there."""
+    from crawler.catmake import ensure_wp
+    from crawler.config import run_dir
+    from crawler.io import read_csv
+    d = run_dir(app.build_cfg(), run)
+    p = d / "05_new_products.csv"
+    if not p.exists():
+        return
+    df = read_csv(p)
+    ids = list(df.get("taxonomy_id", []))
+    for v in df.get("extra_taxonomy_ids", []):
+        ids += [x.strip() for x in str(v or "").split("|") if x.strip()]
+    ensure_wp(app.build_cfg(), ids)
+
+
 def images_and_texts(app, lane: str, run: str) -> None:
     """The pipeline from the first step not yet done (a crawled batch is not crawled again)."""
     from crawler.config import run_dir
@@ -140,6 +178,8 @@ def run_lane(name: str, lane: str, slots: int, max_usd: float, skip_prices: bool
         since = time.strftime("%Y-%m-%d %H:%M")
         t0 = time.time()
         try:
+            say(lane, run, "route")
+            retry(lane, f"{run} route", lambda: route_batch(app, run))
             say(lane, run, "photos+texts")
             retry(lane, f"{run} photos+texts", lambda: images_and_texts(app, lane, run))
             say(lane, run, "prepare")
@@ -147,6 +187,7 @@ def run_lane(name: str, lane: str, slots: int, max_usd: float, skip_prices: bool
             usd = summary(run_dir(cfg, run), since=since).get("usd", 0.0)
             if max_usd and usd > max_usd:
                 raise RuntimeError(f"cost ${usd:.2f} over the ${max_usd:.2f} limit: not sent, look at it")
+            retry(lane, f"{run} site categories", lambda: site_categories(app, run))
             with Slot(q, slots):
                 say(lane, run, "send")
                 res = retry(lane, f"{run} send", lambda: publish(app.build_cfg(), run, limit=3000, keep_draft=True))
