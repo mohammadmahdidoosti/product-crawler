@@ -1,3 +1,20 @@
+## 14 Nov 2026 — published; lessons now in code (cda3517, deployed 06:50 UTC)
+- Published 16,985 new products (batches 51-100, top-30 placed, 18 Zimberg; 4 parallel set_status, 0 failed);
+  119 new without a photo back to draft; then 82 held drafts/pending WITH a photo published (owner), 4 with absurd
+  prices kept (Dana Kod Negar lasers/CIJ 5-8 billion toman, a check valve: toman stored as USD — fix later).
+  Left: ~1,100 products without a photo (price-list creations of 4/8 Nov, pending of 10/11 Nov) -> photo crawl last.
+- Active applied (owner: catalog priority): 44 prices, 29 out of stock (all 25 not in the catalog); 32 big/x10
+  changes held (image-only catalog misread x8-10); 299 new Active models not made until their prices are sure.
+- Zimberg: only 18 of the 51 '-new' products were catalog models -> sent at catalog prices; 78 more queued in
+  pl-zimberg-1405-08-new2 (LLM categories), not crawled yet.
+- In code now: 3 send lanes in the app (publish/status of batch-*/pl-*-new); tools/batch_lanes.py (shared queue,
+  in-process prepare+send with retries, N send slots, no re-crawl/top-up of crawled batches, failed/ with reason,
+  cost since start); set_status 4 requests side by side + never publishes above publish.max_publish_toman (2e9);
+  BRANDS_LOCK across processes; costs.summary(since=); pricelist.text_check (PDF text beats the picture reading);
+  queue_new LLM category fallback; lock_new_to_list at export of a -new run.
+- Cost: take it from the OpenRouter balance (owner: ~$6 for the ~900 drafts of 13 Nov), never from summed
+  lifetime 'usd' of batch logs.
+
 ## 13 Nov 2026 — start here on 14 Nov (owner: first publish the drafts, then new batches)
 - Top 30 batches (placed products into new / near-empty categories, plf.py kept only sites with <10 products):
   27 sent as drafts (847 created, 169 updated); 60, 52, 100 were never sent (their lane's sender thread died on an
