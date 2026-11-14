@@ -1344,6 +1344,11 @@ def export_rows(cfg: dict, run: str) -> list[tuple[dict, dict]]:
 
 def step_export(cfg: dict, run: str) -> list[Path]:
     d = run_dir(cfg, run)
+    try:                                                  # (14 Nov) a price list's '-new' run: only its own models
+        from .pricelist import lock_new_to_list
+        lock_new_to_list(cfg, run)
+    except Exception as e:                                # noqa: BLE001 - the export goes on as before
+        log.warning("export %s: list lock skipped: %s", run, e)
     step = int(cfg.get("price", {}).get("round_to_toman", 1000))
     out = []
     rows = [row for _, row in export_rows(cfg, run)]

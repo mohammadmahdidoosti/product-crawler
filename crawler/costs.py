@@ -33,12 +33,17 @@ def add(d: Path, step: str, units: int, usd: float, note: str = "", estimated: b
         log.warning("cost not written (%s): %s", step, e)
 
 
-def summary(d: Path) -> dict:
-    """{'steps': {step: {'units', 'usd'}}, 'usd': total, 'estimated': share of the total that is estimated}."""
+def summary(d: Path, since: str | None = None) -> dict:
+    """{'steps': {step: {'units', 'usd'}}, 'usd': total, 'estimated': share of the total that is estimated}.
+    The total is the batch's whole life (every crawl, every re-run). since='YYYY-MM-DD HH:MM' keeps only the
+    lines written from then on: what THIS run of the batch cost (14 Nov: the lifetime total read as a day's
+    cost reported $33 for a $6 day)."""
     p = Path(d) / FILE
     if not p.exists():
         return {"steps": {}, "usd": 0.0, "estimated": 0.0}
     x = read_csv(p)
+    if since:
+        x = x[x["time"].astype(str) >= since]
     x["usd_f"] = pd.to_numeric(x["usd"], errors="coerce").fillna(0.0)
     x["units_i"] = pd.to_numeric(x["units"], errors="coerce").fillna(0).astype(int)
     steps = {s: {"units": int(g["units_i"].sum()), "usd": round(float(g["usd_f"].sum()), 4)}

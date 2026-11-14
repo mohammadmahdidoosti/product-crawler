@@ -265,6 +265,128 @@ def add_url(cfg: dict, run: str, url: str) -> dict:
     return add_file(cfg, run, r.content, _unq(url.split("?")[0].rstrip("/").split("/")[-1]) or "file")
 
 
+_TXT_PRICE = re.compile(r"(?<![\d,])(\d{1,3}(?:,\d{3}){1,3})(?![\d,])")
+_PAGE_REF = re.compile(r"ص\s*(\d+)")
+
+
+def _page_unit(text: str) -> str:
+    """'rial' / 'toman' when the page says so (pdfplumber gives Persian right-to-left text reversed)."""
+    t = text or ""
+    rial = "ریال" in t or "لایر" in t
+    toman = "تومان" in t or "ناموت" in t
+    return "rial" if rial and not toman else "toman" if toman and not rial else ""
+
+
+def text_check(cfg: dict, run: str) -> dict:
+    """(14 Nov) A PDF that has a text layer: every row's price is read again from the text of its own page, next to
+    its model number, and the text wins over the picture reading. Zimberg: 60 of 151 prices read from the page
+    pictures were wrong (ten times too small or too big, a digit off); the text had every one right. A row whose
+    model is not found in the text is left as read. Nothing changes for a scanned PDF (no text)."""
+    d = run_path(cfg, run)
+    p = d / "items.csv"
+    if not p.exists():
+        return {"checked": 0}
+    try:
+        import pdfplumber
+    except ImportError:
+        return {"checked": 0, "note": "no pdfplumber"}
+    items = read_csv(p).fillna("")
+    pages: dict[str, list[list[str]]] = {}
+    for f in sorted((d / "files").glob("*.pdf")) if (d / "files").exists() else []:
+        try:
+            with pdfplumber.open(f) as pdf:
+                pages[f.name] = [(pg.extract_text() or "").translate(FA_DIGITS).splitlines() for pg in pdf.pages]
+        except Exception as e:                           # noqa: BLE001 - a broken file keeps its picture reading
+            log.warning("text check %s: %s", f.name, e)
+    if not any(any(any(ln.strip() for ln in pg) for pg in v) for v in pages.values()):
+        return {"checked": 0, "note": "no text layer"}
+    fixed, same, missing = [], 0, 0
+    for i, r in items.iterrows():
+        f, pm = str(r.get("file", "")), _PAGE_REF.search(str(r.get("file", "")).translate(FA_DIGITS))
+        name = next((n for n in pages if f.startswith(n)), None)
+        nums = [x for x in re.split(r"[^0-9A-Za-z.]+", str(r.get("model", ""))) if re.search(r"\d", x)]
+        if not name or not pm or not nums or int(pm.group(1)) > len(pages[name]):
+            missing += 1
+            continue
+        lines = pages[name][int(pm.group(1)) - 1]
+        unit = _page_unit("\n".join(lines)) or str(r.get("unit", "")) or "toman"
+        price = None
+        for j, ln in enumerate(lines):
+            if re.search(rf"(?<![\dA-Za-z]){re.escape(nums[-1])}(?![\d])", ln):
+                for k in (j, j - 1, j + 1):              # the price is on the model's line or the one next to it
+                    if 0 <= k < len(lines) and (ps := _TXT_PRICE.findall(lines[k])):
+                        price = int(ps[0].replace(",", ""))
+                        break
+            if price:
+                break
+        if not price:
+            missing += 1
+            continue
+        toman = price // 10 if unit == "rial" else price
+        try:
+            old = int(float(str(r.get("toman", "")).translate(FA_DIGITS).replace(",", "") or 0))
+        except ValueError:
+            old = 0
+        if old == toman:
+            same += 1
+            continue
+        fixed.append((r.get("model", ""), old, toman))
+        items.at[i, "toman"], items.at[i, "price"], items.at[i, "unit"] = str(toman), str(price), unit
+        items.at[i, "note"] = (str(r.get("note", "")) + f" | متن PDF: {price:,} {unit}").strip(" |")
+    if fixed:
+        import shutil
+        shutil.copy(p, d / "items.csv.bak-text")
+        write_csv(items, p, ITEM_COLS)
+    for m, a, b in fixed[:30]:
+        log.info("PRICELIST text check %s: %s %s -> %s", run, m, a, b)
+    return {"checked": same + len(fixed), "same": same, "fixed": len(fixed), "not_in_text": missing}
+
+
+NEW_RUN = re.compile(r"^(pl-[\w\-]+?)-new\d*$")
+
+
+def lock_new_to_list(cfg: dict, run: str) -> dict | None:
+    """(14 Nov, Zimberg) A '<list>-new' crawl run makes products for the list's models that are not on the site,
+    but its searches also bring other makers' products of the same categories (51 made, 18 were Zimberg). Only
+    the products that ARE one of the list's models stay new, one per model, at the list price (the list beats the
+    shop it was found in); the rest go to 05_other_products.csv. None when the run is not such a run."""
+    from .config import run_dir
+    m = NEW_RUN.match(run)
+    if not m:
+        return None
+    src = run_path(cfg, m.group(1)) / "items.csv"
+    d = run_dir(cfg, run)
+    p = d / "05_new_products.csv"
+    if not src.exists() or not p.exists():
+        return None
+    it = read_csv(src).fillna("")
+    cat = {}
+    for mod, t in zip(it.get("model", []), it.get("toman", [])):
+        k = model_key(mod)
+        try:
+            if len(k) >= 4 and str(t).strip():
+                cat[k] = int(float(str(t).replace(",", "")))
+        except ValueError:
+            continue
+    keys = sorted(cat, key=len, reverse=True)
+    new = read_csv(p).fillna("")
+    keep, seen = [], set()
+    for i, r in new.iterrows():
+        k = model_key(f"{r.get('model', '')} {r.get('name', '')}")
+        hit = next((c for c in keys if c in k), None)
+        if hit and hit not in seen:
+            seen.add(hit)
+            keep.append(i)
+            new.at[i, "price_toman"] = str(cat[hit])
+    out = new.loc[[i for i in new.index if i not in set(keep)]]
+    if len(out):
+        write_csv(out, d / "05_other_products.csv")
+    write_csv(new.loc[keep], p)
+    log.info("PRICELIST %s: %d of %d new products are the list's models (list price); %d others set aside",
+             run, len(keep), len(new), len(out))
+    return {"kept": len(keep), "other": len(out)}
+
+
 def model_key(s) -> str:
     """'VR2402-BCK', 'vr 2402 bck' and 'VR2402BCK' are one model."""
     return re.sub(r"[^A-Z0-9]", "", str(s or "").translate(FA_DIGITS).upper())
@@ -553,6 +675,10 @@ def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progr
                                              "usd": round(usd, 4), "calls": calls, "failed": failed,
                                              "at": time.strftime("%Y-%m-%d %H:%M")}, ensure_ascii=False))
     log.info("PRICELIST read %s: %d files, %d rows, %d models, $%.4f", run, len(files), len(rows), len(items), usd)
+    try:                                                 # (14 Nov, Zimberg) the PDF's own text beats the picture
+        log.info("PRICELIST read %s: text check %s", run, text_check(cfg, run))
+    except Exception as e:                               # noqa: BLE001 - the reading stands
+        log.warning("pricelist text check %s: %s", run, e)
     try:                                                 # every price checked on its page once more (5 Nov, DCA)
         v = verify(cfg, run, hold=True)
         log.info("PRICELIST read %s: verify %s", run, v)
@@ -1745,6 +1871,12 @@ def queue_new(cfg: dict, run: str) -> dict:
         m = [x for x in idx.match(str(r["list_name"]), n=25)
              if not leaf_brand(x["leaf"]) and all(w in words or re.fullmatch(r"[\d.]+", w)
                                                   for w in norm_text(x["leaf"]).split())]
+        if not m and cfg.get("pricelist", {}).get("queue_llm_category", True):
+            # (14 Nov, Zimberg: 79 of 148 rows had no category whose every word is in the name) the cheap model
+            # picks the closest category, else a broader one, as create_new does
+            x = _leaf_llm(cfg, idx, str(r["list_name"]), tax=tax) or _broad_llm(cfg, str(r["list_name"]), tax=tax)
+            if x:
+                m = [x]
         if not m:
             skipped.append(r["model"])
             continue

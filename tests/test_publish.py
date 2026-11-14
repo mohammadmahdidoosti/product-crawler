@@ -294,6 +294,33 @@ class Publish(unittest.TestCase):
         self.assertEqual({p["status"] for p in FakeWoo.products.values()}, {"publish"})
         self.assertEqual(set(read_csv(self.d / PB.RESULT_FILE)["status"]), {"publish", ""})   # '' = the skipped one
 
+    def test_absurd_price_never_published(self):
+        """(14 Nov) a toman price stored as dollars (8 billion toman laser markers) stays a draft."""
+        PB.publish(self.cfg, "batch-1", limit=10)
+        df = read_csv(self.d / PB.RESULT_FILE)
+        sent = df[df["product_id"].astype(str) != ""]
+        bad = sent.iloc[0]["sku"]
+        df.loc[df["sku"] == bad, "price"] = "29270"                     # dollars x 273,000 = 8 billion toman
+        write_csv(df, self.d / PB.RESULT_FILE)
+        with mock.patch("crawler.pipeline._send_rate", lambda cfg: {"usd_rate_toman": 273000}):
+            res = PB.set_status(self.cfg, "batch-1", "publish")
+        self.assertEqual(res["requested"], len(sent) - 1)
+        st = {p["sku"]: p["status"] for p in FakeWoo.products.values()}
+        self.assertEqual(st[bad], "draft")
+
+    def test_status_requests_side_by_side(self):
+        """(14 Nov) requests of 50 go side by side; the result is the same as one at a time."""
+        PB.publish(self.cfg, "batch-1", limit=10)
+        res = PB.set_status(self.cfg, "batch-1", "publish", workers=4)
+        self.assertEqual(res["changed"], res["requested"])
+        self.assertEqual({p["status"] for p in FakeWoo.products.values()}, {"publish"})
+
+    def test_brands_lock_works_across_uses(self):
+        with PB.BRANDS_LOCK:
+            pass
+        with PB.BRANDS_LOCK:                                             # released: taken again
+            pass
+
     def test_doubtful_price_goes_out_by_default(self):
         """(6 Nov, the owner) publish everything; the market's feedback corrects a doubtful price."""
         PB.publish(self.cfg, "batch-1", limit=10)

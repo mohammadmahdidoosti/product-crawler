@@ -36,7 +36,40 @@ from .wc import WC, WCError, category_map, price_locked
 log = logging.getLogger(__name__)
 
 RESULT_FILE = "07_published.csv"
-BRANDS_LOCK = threading.Lock()   # (9 Nov) prepares run side by side; brands are shared: one at a time
+class _ProcLock:
+    """A lock for threads of this process AND for other processes (14 Nov: batch lanes run their prepares in
+    separate processes; the shared brands table must still be written by one at a time). The file lives in the
+    system temp dir, which every process of the container shares."""
+
+    def __init__(self, name: str):
+        import tempfile
+        self._t = threading.Lock()
+        self._path = Path(tempfile.gettempdir()) / f"caravan-{name}.lock"
+        self._f = None
+
+    def __enter__(self):
+        self._t.acquire()
+        try:
+            import fcntl
+            self._f = open(self._path, "w")
+            fcntl.flock(self._f, fcntl.LOCK_EX)
+        except (ImportError, OSError):                   # no fcntl (Windows) or no temp dir: threads only
+            self._f = None
+        return self
+
+    def __exit__(self, *exc):
+        try:
+            if self._f is not None:
+                import fcntl
+                fcntl.flock(self._f, fcntl.LOCK_UN)
+                self._f.close()
+        finally:
+            self._f = None
+            self._t.release()
+        return False
+
+
+BRANDS_LOCK = _ProcLock("brands")   # (9 Nov) prepares run side by side; brands are shared: one at a time
 PARKED = "پیش‌نویس: بی‌دسته؛ وضعیت قبلی"      # resync put the product back to draft; its old status follows
 RESULT_COLS = ["sku", "action", "product_id", "status", "name", "brand", "price", "categories", "images",
                "edit_url", "error", "source_url", "published_at", "payload_hash"]
@@ -800,7 +833,7 @@ def results(cfg: dict, run: str) -> list[dict]:
 
 
 def set_status(cfg: dict, run: str, status: str = "publish", skus: list[str] | None = None,
-               wc: WC | None = None, progress=None, stop=None, force: bool = False) -> dict:
+               wc: WC | None = None, progress=None, stop=None, force: bool = False, workers: int = 0) -> dict:
     """Publish (or return to draft) every product of a run that is on the site, 50 per request.
     Publishing never takes along what waits for a person (a doubtful price, a product parked for
     want of a category), with or without a SKU list: on 28 Oct a SKU list published 86 doubtful
@@ -826,26 +859,45 @@ def set_status(cfg: dict, run: str, status: str = "publish", skus: list[str] | N
         if held.any():
             log.info("status publish: %d product(s) left as they are (doubtful price / no category)", int(held.sum()))
         on_site = on_site[~held]
+        absurd = absurd_prices(cfg, on_site)
+        if absurd.any():
+            log.warning("status publish: %d product(s) left as they are: final price above %s toman (unit error?)",
+                        int(absurd.sum()), f"{_max_publish_toman(cfg):,.0f}")
+        on_site = on_site[~absurd]
     ids = [int(float(x)) for x in on_site["product_id"]]
     log.info("status %s: %d product(s) of %s", status, len(ids), run)
     changed, failed = {}, []
-    for start in range(0, len(ids), 50):
+    chunks = [ids[i:i + 50] for i in range(0, len(ids), 50)]
+    done_n = [0]
+    lock = threading.Lock()
+
+    def one(chunk: list[int]) -> None:
         if stop and stop():
-            break
-        chunk = ids[start:start + 50]
+            return
         try:
             j = wc.batch_update([{"id": i, "status": status} for i in chunk])
         except WCError as e:
-            failed += [{"id": i, "error": str(e)[:200]} for i in chunk]
+            with lock:
+                failed.extend({"id": i, "error": str(e)[:200]} for i in chunk)
             log.warning("status batch failed: %s", e)
-            continue
-        for p in j.get("update") or []:
-            if p.get("error"):
-                failed.append({"id": p.get("id"), "error": str(p["error"].get("message", p["error"]))[:200]})
-            else:
-                changed[int(p["id"])] = p.get("status", "")
-        if progress:
-            progress(min(start + 50, len(ids)), len(ids))
+            return
+        with lock:
+            for p in j.get("update") or []:
+                if p.get("error"):
+                    failed.append({"id": p.get("id"), "error": str(p["error"].get("message", p["error"]))[:200]})
+                else:
+                    changed[int(p["id"])] = p.get("status", "")
+            done_n[0] += len(chunk)
+            if progress:
+                progress(done_n[0], len(ids))
+    # (14 Nov, owner: faster) several requests of 50 side by side; 1 = the old one-at-a-time
+    n = max(1, int(workers or cfg.get("publish", {}).get("status_workers", 4)))
+    if n == 1:
+        for c in chunks:
+            one(c)
+    else:
+        with ThreadPoolExecutor(n) as ex:
+            list(ex.map(one, chunks))
     if changed:
         df = done.copy()
         pid = df["product_id"].astype(str).str.replace(r"\.0$", "", regex=True)
@@ -855,6 +907,27 @@ def set_status(cfg: dict, run: str, status: str = "publish", skus: list[str] | N
     res = {"requested": len(ids), "changed": len(changed), "failed": failed[:20]}
     log.info("status %s done: %s", status, {k: (v if k != "failed" else len(failed)) for k, v in res.items()})
     return res
+
+
+def _max_publish_toman(cfg: dict) -> float:
+    return float(cfg.get("publish", {}).get("max_publish_toman", 2_000_000_000))
+
+
+def absurd_prices(cfg: dict, rows: pd.DataFrame) -> pd.Series:
+    """(14 Nov) A product whose final price would be absurd is never published: a toman price stored as dollars
+    showed laser markers at 8 billion toman. 07_published.csv keeps the dollar price that was sent; the site
+    multiplies it by its rate. Rows with no price or no rate are let through (the old behaviour)."""
+    if rows.empty or "price" not in rows:
+        return pd.Series(False, index=rows.index)
+    try:
+        from .pipeline import _send_rate
+        rate = float((_send_rate(cfg) or {}).get("usd_rate_toman") or 0)
+    except Exception:                                    # noqa: BLE001 - no rate: no check
+        rate = 0.0
+    if rate <= 0:
+        return pd.Series(False, index=rows.index)
+    usd = pd.to_numeric(rows["price"], errors="coerce").fillna(0.0)
+    return usd * rate > _max_publish_toman(cfg)
 
 
 def live_price_jump(cur: dict, data: dict, factor: float = 3.0) -> bool:

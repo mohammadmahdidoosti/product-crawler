@@ -117,8 +117,9 @@ class Job:
         own = {"site": ("crawler.publish", "crawler.catmake", "crawler.brands_fa", "crawler.wc", "crawler.catalog_publish",
                         "crawler.merge_site", "crawler.sitefix.apply"),
                "health": ("crawler.health", "crawler.shops", "crawler.leads")}
-        others = tuple(x for k, v in own.items() if k != lane for x in v)
-        h.addFilter(lambda r: (r.name.startswith(own[lane]) if lane in own else True) and not r.name.startswith(others))
+        key = "site" if lane.startswith("send") else lane          # (14 Nov) the extra send lanes log like the site lane
+        others = tuple(x for k, v in own.items() if k != key for x in v)
+        h.addFilter(lambda r: (r.name.startswith(own[key]) if key in own else True) and not r.name.startswith(others))
         logging.getLogger("crawler").addHandler(h)
 
     def _saved(self) -> Path:
@@ -135,6 +136,9 @@ class Job:
 
     def start(self, step: str, run: str, opts: dict, tries: int = 0) -> str | None:
         other = JOBS["site" if self.lane == "crawl" else "crawl"] if "JOBS" in globals() else None
+        if "JOBS" in globals() and any(j is not self and j.state["running"] and j.state["run"] == run
+                                       for ln, j in JOBS.items() if ln in SEND_LANES):
+            return f"اجرای «{run}» الان در خط ارسال دیگری در حال کار است؛ بعد از تمام شدنش دوباره بزنید."
         with self.lock:
             if self.state["running"]:
                 return "یک مرحله در حال اجراست؛ صبر کنید یا متوقفش کنید."
@@ -512,6 +516,14 @@ JOBS = {"crawl": Job("crawl"), "site": Job("site"), "health": Job("health"),
 PREP_LANES = ("health", "prep2", "prep3", "prep4", "prep5", "prep6")   # 13 Nov: 6 (owner: faster)
 for _l in PREP_LANES[1:]:
     JOBS[_l] = Job(_l)
+# (14 Nov, owner) sending to the site was one batch at a time (the site lane) and held finished batches for
+# hours: a batch's own publish / status may go on any of these. Other site steps (brands, catmake, resync...)
+# change shared things and stay on the one site lane.
+SEND_LANES = ("site", "send2", "send3")
+SEND_STEPS = {"publish", "status"}
+SEND_RUN = re.compile(r"^(batch-\d+|pl-[\w\-]+-new\d*)$")
+for _l in SEND_LANES[1:]:
+    JOBS[_l] = Job(_l)
 JOB = JOBS["crawl"]
 
 
@@ -531,6 +543,14 @@ def start_job(step: str, run: str, opts: dict) -> str | None:
                 if not err:
                     return None
         return err or "همه‌ی خط‌های آماده‌سازی مشغول‌اند؛ صبر کنید."
+    if step in SEND_STEPS and SEND_RUN.match(run):
+        err = None
+        for ln in SEND_LANES:
+            if not JOBS[ln].state["running"]:
+                err = JOBS[ln].start(step, run, opts)
+                if not err:
+                    return None
+        return err or "همه‌ی خط‌های ارسال مشغول‌اند؛ صبر کنید."
     lane ="health" if step in ("health", "shops", "leads", "specs", "prepare") else "site" if step in SITE_STEPS else "crawl"
     return JOBS[lane].start(step, run, opts)
 
@@ -1088,6 +1108,10 @@ class Handler(BaseHTTPRequestHandler):
             if parts[:2] == ["api", "job"]:
                 if q.get("lane") in JOBS:
                     return self._json(JOBS[q["lane"]].status())
+                if q.get("lane") == "send":                # (14 Nov) the send lanes together
+                    st = {ln: JOBS[ln].state for ln in SEND_LANES}
+                    return self._json({"free": sum(not s["running"] for s in st.values()),
+                                       "runs": [s["run"] for s in st.values() if s["running"]]})
                 if q.get("lane") == "prep":                # (9 Nov) the prepare lanes together
                     st = {ln: JOBS[ln].state for ln in PREP_LANES}
                     return self._json({"free": sum(not s["running"] for s in st.values()),
