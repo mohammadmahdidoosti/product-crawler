@@ -280,26 +280,43 @@ def apply_placements(cfg: dict, df: pd.DataFrame, crawled: pd.DataFrame) -> pd.D
 
 # ------------------------------------------------------------------ seed-keyword categories (14 Nov, owner)
 
+def _new_term(wc, name: str, parent_wp: int) -> int:
+    """Make the category; when the site already has it (another lane made it a moment ago) its ID comes back
+    in the refusal. No search first: a name search on the site's ~20,000 categories took ~20 s each (14 Nov)."""
+    r = wc._wc("POST", "products/categories", json={"name": name, "parent": parent_wp})
+    try:
+        j = r.json()
+    except ValueError:
+        j = {}
+    if r.ok and isinstance(j, dict) and j.get("id"):
+        return int(j["id"])
+    rid = (j.get("data") or {}).get("resource_id") if isinstance(j, dict) else None
+    if isinstance(j, dict) and j.get("code") == "term_exists" and rid:
+        return int(rid)
+    return _site_term(wc, name, parent_wp)             # anything else: the careful way
+
+
 def ensure_wp(cfg: dict, tax_ids, wc=None) -> dict:
     """Make on the site the WordPress category of each taxonomy ID (and of its parents) that has none yet.
 
     The keyword taxonomy of 14 Nov adds ~5,000 categories to the crawler only; a category is made on the
     site when its batch sends its first product there, so no empty category shows up on the site. A new main
-    category (no parent) is made at the top. Lanes run side by side: one writer at a time (a file lock)."""
+    category (no parent) is made at the top. Lanes run side by side: the site calls are made without a lock
+    (a category two lanes make at once comes back as 'exists' with its ID); only the file is written one at a time."""
     from .publish import _ProcLock
     want = [str(t).strip() for t in tax_ids if str(t).strip()]
     if not want:
         return {"made": 0}
-    with _ProcLock("categories"):
-        tree = Tree(cfg)
-        ids = tree.raw[tree.c_id].astype(str).str.strip()
-        parent_of = dict(zip(ids, tree.raw[tree.c_parent].astype(str).str.strip().str.replace(r"\.0$", "", regex=True)))
-        name_of = dict(zip(ids, tree.raw[_col(tree.raw, "Category_Name") or tree.c_path].astype(str)))
-        path_of = dict(zip(ids, tree.raw[tree.c_path].astype(str)))
-        made = []
-        if wc is None and any(t not in tree.wp_of for t in want):
-            from .wc import WC
-            wc = WC()
+    tree = Tree(cfg)
+    ids = tree.raw[tree.c_id].astype(str).str.strip()
+    parent_of = dict(zip(ids, tree.raw[tree.c_parent].astype(str).str.strip().str.replace(r"\.0$", "", regex=True)))
+    name_of = dict(zip(ids, tree.raw[_col(tree.raw, "Category_Name") or tree.c_path].astype(str)))
+    path_of = dict(zip(ids, tree.raw[tree.c_path].astype(str)))
+    made = []
+    if wc is None and any(t not in tree.wp_of for t in want):
+        from .wc import WC
+        wc = WC()
+    try:
         for t in dict.fromkeys(want):
             chain, x = [], t
             while x and x in parent_of and x not in tree.wp_of:
@@ -307,23 +324,27 @@ def ensure_wp(cfg: dict, tax_ids, wc=None) -> dict:
                 x = parent_of.get(x, "")
             for c in reversed(chain):
                 p = parent_of.get(c, "")
-                parent_wp = int(tree.wp_of[p]) if p and p in tree.wp_of else 0
                 if p and p not in tree.wp_of:
                     break                               # the parent could not be made: never at the top by mistake
+                parent_wp = int(tree.wp_of[p]) if p else 0
                 name = (name_of.get(c) or path_of.get(c, "").split(">")[-1]).strip()
                 if bad_name(name):
                     log.warning("category %s %s not made on the site: %s", c, name, bad_name(name))
                     break
-                wp = str(_site_term(wc, name, parent_wp))
+                wp = str(_new_term(wc, name, parent_wp))
                 tree.wp_of[c] = wp
-                tree.new_wp.append({"ID": c, "wp_id": wp})
                 made.append({"taxonomy_id": c, "wp_id": wp, "path": path_of.get(c, "")})
-        if tree.new_wp:
-            stamp = time.strftime("%Y%m%d")
-            bak = tree.wp_p.with_name(f"{tree.wp_p.name}.bak-{stamp}")
-            if tree.wp_p.exists() and not bak.exists():
-                shutil.copy(tree.wp_p, bak)
-            write_csv(pd.concat([tree.wp, pd.DataFrame(tree.new_wp)], ignore_index=True), tree.wp_p)
+    finally:
+        if made:
+            with _ProcLock("categories"):               # another lane may have written since: read it again
+                cur = read_csv(tree.wp_p) if tree.wp_p.exists() else pd.DataFrame(columns=["ID", "wp_id"])
+                have = set(cur["ID"].astype(str).str.strip())
+                add = [{"ID": m["taxonomy_id"], "wp_id": m["wp_id"]} for m in made if m["taxonomy_id"] not in have]
+                if add:
+                    bak = tree.wp_p.with_name(f"{tree.wp_p.name}.bak-{time.strftime('%Y%m%d')}")
+                    if tree.wp_p.exists() and not bak.exists():
+                        shutil.copy(tree.wp_p, bak)
+                    write_csv(pd.concat([cur, pd.DataFrame(add)], ignore_index=True), tree.wp_p)
     if made:
         log.info("site categories made for the batch: %d (%s)", len(made), ", ".join(m["path"] for m in made[:5]))
     return {"made": len(made), "rows": made}

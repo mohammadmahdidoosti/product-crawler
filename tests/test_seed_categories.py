@@ -30,6 +30,11 @@ class FakeWC:
     def _wc(self, method, path, json=None, params=None):
         if method == "GET":
             return [t for t in self.made if t["name"] == params["search"] and t["parent"] == params["parent"]]
+        same = [t for t in self.made if t["name"] == json["name"] and t["parent"] == json["parent"]]
+        if same:                                        # what WooCommerce answers for a name it has
+            r = FakeResp({"code": "term_exists", "data": {"status": 400, "resource_id": same[0]["id"]}})
+            r.ok, r.status_code = False, 400
+            return r
         self.next += 1
         t = {"id": self.next, "name": json["name"], "parent": json["parent"]}
         self.made.append(t)
@@ -63,6 +68,15 @@ class EnsureWP(unittest.TestCase):
         self.assertEqual(set(wp), {"1", "2", "3", "4", "5"})
         self.assertEqual(CM.ensure_wp(self.cfg, ["3", "5"], wc=wc)["made"], 0)   # nothing twice
         self.assertEqual(len(wc.made), 4)
+
+
+    def test_made_by_another_lane_meanwhile(self):
+        wc = FakeWC()
+        wc.made.append({"id": 77, "name": "الکترود", "parent": 50})    # another lane made it a moment ago
+        CM.ensure_wp(self.cfg, ["3"], wc=wc)
+        wp = dict(zip(*[read_csv(self.d / "wp_categories.csv")[c] for c in ("ID", "wp_id")]))
+        self.assertEqual(wp["2"], "77")
+        self.assertEqual(sum(t["name"] == "الکترود" for t in wc.made), 1)
 
 
 if __name__ == "__main__":
