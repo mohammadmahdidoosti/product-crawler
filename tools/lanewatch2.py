@@ -9,7 +9,7 @@ and watch them. Every 2 minutes:
 Ends when both queues are empty and no lane runs. Log: /data/tmp/kw2-watch.log"""
 import os, re, time, signal, subprocess
 Q1, Q2 = "/data/lanes/kw1", "/data/lanes/kw2"
-LANES = range(1, 7)
+LANES = range(1, 9)
 HUNG = 150 * 60
 for sub in ("todo", "doing", "done", "failed"):
     os.makedirs(f"{Q2}/{sub}", exist_ok=True)
@@ -65,7 +65,7 @@ def put_back(q, k):
         say("lane", k, q, "batch", b, "back to the queue")
 
 def start(k):
-    subprocess.Popen(f"cd /app && exec python3 tools/batch_lanes.py lane kw2 {k} --slots 2 >> {log_of('kw2', k)} 2>&1",
+    subprocess.Popen(f"cd /app && exec python3 tools/batch_lanes.py lane kw2 {k} --slots 3 >> {log_of('kw2', k)} 2>&1",
                      shell=True, start_new_session=True)
     say("lane", k, "started on kw2")
 
