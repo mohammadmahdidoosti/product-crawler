@@ -1,3 +1,19 @@
+## 14 Nov 2026 (later) — keyword taxonomy, batches 101-150 running
+- Owner's sheet «سید کیوردها» (5,143 seeds, 38 families) -> assets/seeds/seed_taxonomy_1405-08.csv (4,841 categories),
+  built by assets/seeds/build_tax.py. Owner's rules: sizes and brands stay their own categories; spelling-only
+  variants merged (45); modifier-only pairs ('صنعتی', 'دستگاه', 'کوچک'...) merged only when Google shows >= 6 of the
+  same top-10 results (256 merged; tmp/serp.py, Serper ~1,064 searches); misplaced seeds moved (die grinders to power
+  tools, chain-stitch machines to sewing, spray guns to pneumatic, heat-gun elements to heat guns); families with a
+  place on the site go under it (مشعل، تسمه و نوار نقاله، گیربکس، روغن و روانکار، عایق رطوبتی، برش پلاسما).
+  New main categories: رنگ و پوشش، ملزومات بسته‌بندی، ورق ام دی اف، نئوپان و تخته، ماشین‌آلات صنعتی و تولید.
+- tools/seed_tax_import.py go (07:30 UTC): taxonomy +4,859 rows (crawler only, nothing on the site), routing batches
+  102-150 (4,825 rows); 16 seeds already in the taxonomy were skipped.
+- Site categories are made only when a batch sends a product there (catmake.ensure_wp in tools/batch_lanes.py),
+  so no empty category appears on the site.
+- Lanes: queue "kw1" = batches 101-150, 6 lanes (tmp/kw1-lane{1..6}.log), --slots 3, drafts, $2 cap per batch.
+  The route step (probe + all rows ok + queue) runs inside the lane. A redeploy kills the lanes: restart with
+  `python3 tools/batch_lanes.py lane kw1 K --slots 3` (doing/ files must be moved back to todo/ first).
+
 ## 14 Nov 2026 — published; lessons now in code (cda3517, deployed 06:50 UTC)
 - Published 16,985 new products (batches 51-100, top-30 placed, 18 Zimberg; 4 parallel set_status, 0 failed);
   119 new without a photo back to draft; then 82 held drafts/pending WITH a photo published (owner), 4 with absurd
