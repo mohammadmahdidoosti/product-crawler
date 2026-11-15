@@ -758,3 +758,47 @@ class ShopOfManyBrands(unittest.TestCase):
         self.assertTrue(res["shop"])
         self.assertEqual(set(it["brand"]), {"کلایماست", "هانیول"})
         self.assertEqual(int(float(it.loc["T6861", "toman"])), 8_540_000)
+
+
+def test_table_side_by_side_blocks_and_red_rows(tmp_path):
+    """(15 Nov, IVEK) two product blocks side by side; a row written in red is out of stock."""
+    import openpyxl
+    from openpyxl.styles import Font
+    from crawler.pricelist import _table_rows
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.append(["کد کالا", "نام کالا", "قیمت کالا", "تعداد", "کد کالا", "نام کالا", "قیمت کالا", "تعداد"])
+    ws.append(["K-1010", "ست مته", 13990000, 100, "K-7311", "دریل 10", 74990000, 10])
+    ws.append(["K-2516", "اینورتر", 184990000, 1, None, None, None, None])
+    for c in ws[2][:4]:
+        c.font = Font(color="FFFF0000")
+    p = tmp_path / "l.xlsx"
+    wb.save(p)
+    rows = _table_rows(p)
+    by = {r["model"]: r for r in rows}
+    assert set(by) == {"K-1010", "K-7311", "K-2516"}
+    assert by["K-1010"]["stock"] == "no" and by["K-7311"]["stock"] == "" and by["K-2516"]["price"] == "184990000"
+
+
+def test_table_stock_column(tmp_path):
+    from crawler.pricelist import _table_rows
+    p = tmp_path / "l.csv"
+    p.write_text("مدل,نام,قیمت (تومان),موجودی\nAB-12,دریل,1000000,ناموجود\nAB-13,فرز,2000000,موجود\n", encoding="utf-8")
+    by = {r["model"]: r for r in _table_rows(p)}
+    assert by["AB-12"]["stock"] == "no" and by["AB-13"]["stock"] == "yes" and by["AB-12"]["unit"] == "toman"
+
+
+def test_new_price_doubt(monkeypatch):
+    """(15 Nov, Active) a new row far under the market waits; near it goes out."""
+    from crawler import pricelist as PL
+    import crawler.aggregators as AG
+    import crawler.pricemem as PM
+    monkeypatch.setattr(PM, "recall", lambda cfg, name, days=45: [])
+    monkeypatch.setattr(PM, "remember", lambda cfg, items: None)
+    monkeypatch.setattr(AG, "torob_offers", lambda f, rec, same: [("a.ir", 16_700_000), ("b.ir", 17_000_000), ("c.ir", 16_900_000)])
+    import crawler.pipeline as PP
+    monkeypatch.setattr(PP, "_fetchers", lambda cfg: {"iran": None})
+    r = {"list_toman": "2200000", "brand": "اکتیو", "model": "AC-2109", "note": ""}
+    assert "نمی‌خواند" in PL._new_price_doubt({}, r, "فرز آهنگری اکتیو AC-2109")
+    r["list_toman"] = "16500000"
+    assert PL._new_price_doubt({}, r, "فرز آهنگری اکتیو AC-2109") == ""

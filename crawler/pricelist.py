@@ -552,6 +552,25 @@ def _crop(d: Path, pic: bytes, box: list, row: dict) -> str:
         return ""
 
 
+def _hires(f: Path, label: str, pic: bytes, memo: dict) -> bytes:
+    """The page of a PDF drawn at 300 dpi, once per page (for photo crops); a picture file stays as it is."""
+    m = re.search(r" ص(\d+)$", label)
+    if not (m and f.name.lower().endswith(".pdf")):
+        return pic
+    if label not in memo:
+        try:
+            import pdfplumber
+            with pdfplumber.open(str(f)) as pdf:
+                buf = io.BytesIO()
+                pdf.pages[int(m.group(1)) - 1].to_image(resolution=300).original.convert("RGB").save(buf, "JPEG", quality=92)
+                memo[label] = buf.getvalue()
+        except Exception:                                # noqa: BLE001 - the reading's picture will do
+            memo[label] = pic
+        if len(memo) > 3:                                # a few pages kept, not a 300-page catalog
+            memo.pop(next(iter(memo)))
+    return memo.get(label, pic)
+
+
 def _images_of(f: Path) -> list[tuple[str, bytes, str]]:
     """(label, picture bytes, mime) of one file: a picture as it is, a PDF page by page."""
     low = f.name.lower()
@@ -571,20 +590,86 @@ def _images_of(f: Path) -> list[tuple[str, bytes, str]]:
     return []
 
 
-def _table_rows(f: Path) -> list[dict]:
-    """Excel/CSV: the model, name and price columns found by their headers."""
-    df = pd.read_excel(f) if f.name.lower().endswith((".xlsx", ".xlsm")) else read_csv(f)
-    cols = {str(c): str(c).strip().lower() for c in df.columns}
+STOCK_WORDS = ("موجودی", "وضعیت", "موجود", "stock", "available")
+NO_STOCK = re.compile(r"ناموجود|نا موجود|عدم موجود|اتمام|تمام شد|out\s*of\s*stock|^\s*(0|no|خیر|✗|×|-)\s*$", re.I)
 
-    def pick(*words):
-        return next((c for c, l in cols.items() if any(w in l for w in words)), None)
-    cm, cn, cp = pick("مدل", "کد", "model", "code"), pick("نام", "شرح", "عنوان", "name", "product"), \
-        pick("قیمت", "price", "مبلغ")
-    if not cm or not cp:
+
+def _red(cell) -> bool:
+    """A cell written or filled in red (15 Nov, IVEK: 'the red rows are out of stock, do not define them')."""
+    for col in (getattr(cell.font, "color", None) if cell.font else None,
+                cell.fill.fgColor if cell.fill is not None and cell.fill.fill_type else None):
+        try:
+            rgb = col.rgb if col is not None else None
+            if isinstance(rgb, str) and len(rgb) >= 6:
+                r, g, b = int(rgb[-6:-4], 16), int(rgb[-4:-2], 16), int(rgb[-2:], 16)
+                if r >= 0xC0 and g <= 0x60 and b <= 0x60:
+                    return True
+        except (ValueError, TypeError, AttributeError):
+            continue
+    return False
+
+
+def _table_rows(f: Path) -> list[dict]:
+    """Excel/CSV: the model, name and price columns found by their headers.
+    (15 Nov, IVEK) a sheet can hold two or more product blocks side by side (the same headers again further
+    right): every block is read. A stock column (موجود / ناموجود) or a row written in red says out of stock."""
+    xl = f.name.lower().endswith((".xlsx", ".xlsm"))
+    if xl:
+        import openpyxl
+        ws = openpyxl.load_workbook(f, data_only=True).active
+        grid = [list(r) for r in ws.iter_rows()]
+        if not grid:
+            return []
+        hi = next((i for i, r in enumerate(grid[:15]) if sum(1 for c in r if isinstance(c.value, str) and c.value.strip()) >= 2), 0)
+        head = [str(c.value or "").strip().lower() for c in grid[hi]]
+        body = grid[hi + 1:]
+        val = lambda c: c.value                                  # noqa: E731
+    else:
+        df = read_csv(f)
+        head = [str(c).strip().lower() for c in df.columns]
+        body = df.values.tolist()
+        val = lambda c: c                                        # noqa: E731
+
+    def is_(h, *words):
+        return any(w in h for w in words)
+    # the blocks: a model column starts one, each block runs to the next model column
+    starts = [i for i, h in enumerate(head) if is_(h, "مدل", "کد", "model", "code") and not is_(h, "قیمت", "price")]
+    if not starts:
         raise ValueError(f"{f.name}: ستون مدل یا قیمت پیدا نشد")
-    unit = "rial" if "ریال" in cp else "toman" if "تومان" in cp else "unknown"
-    return [{"brand": "", "model": str(r[cm]), "name": str(r[cn]) if cn else "", "price": str(r[cp]), "unit": unit}
-            for r in df.to_dict("records") if str(r.get(cm) or "").strip() and str(r.get(cp) or "").strip()]
+    # a new block starts at a model column with a price column since the last start («کد» and «مدل» side by side
+    # are one block)
+    blocks = []
+    for i in starts:
+        if not blocks or any(is_(head[j], "قیمت", "price", "مبلغ") for j in range(blocks[-1], i)):
+            blocks.append(i)
+    out = []
+    for b, s0 in enumerate(blocks):
+        e0 = blocks[b + 1] if b + 1 < len(blocks) else len(head)
+        cols = range(s0, e0)
+        cm = [i for i in cols if is_(head[i], "مدل", "model")] or [i for i in cols if is_(head[i], "کد", "code")]
+        cn = next((i for i in cols if is_(head[i], "نام", "شرح", "عنوان", "name", "product")), None)
+        cp = next((i for i in cols if is_(head[i], "قیمت", "price", "مبلغ")), None)
+        cs = next((i for i in cols if is_(head[i], *STOCK_WORDS) and not is_(head[i], "قیمت")), None)
+        if not cm or cp is None:
+            continue
+        unit = "rial" if "ریال" in head[cp] else "toman" if "تومان" in head[cp] else "unknown"
+        for row in body:
+            if len(row) <= max(cm[0], cp):
+                continue
+            model, price = str(val(row[cm[0]]) or "").strip(), str(val(row[cp]) or "").strip()
+            if not model or not price or model.lower() == "nan" or price.lower() == "nan":
+                continue
+            stock = ""
+            if cs is not None and cs < len(row):
+                sv = str(val(row[cs]) or "").strip()
+                stock = "no" if sv and NO_STOCK.search(sv) else "yes" if sv else ""
+            if xl and any(_red(c) for c in row[s0:e0]):
+                stock = "no"
+            out.append({"brand": "", "model": model, "name": str(val(row[cn]) or "") if cn is not None else "",
+                        "price": price, "unit": unit, "stock": stock})
+    if not out:
+        raise ValueError(f"{f.name}: ستون مدل یا قیمت پیدا نشد")
+    return out
 
 
 def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progress=None) -> dict:
@@ -646,6 +731,7 @@ def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progr
                         cache_p.write_text(json.dumps(cache, ensure_ascii=False))
                     if progress:
                         progress(n_done, len(todo))
+            hires: dict = {}
             for label, pic, mime, h in pics:
                 if h not in cache:
                     failed.append(f"{label}: خوانده نشد")
@@ -664,7 +750,9 @@ def read(cfg: dict, run: str, default_unit: str = "auto", brand: str = "", progr
                                "vat": "yes" if r.get("vat") is True else "", "photo": ""}
                         box = r.get("photo")
                         if isinstance(box, list) and len(box) == 4:
-                            row["photo"] = _crop(d, pic, box, row)
+                            # (15 Nov) a PDF page's photo is cut from the page drawn again at 300 dpi: at the
+                            # reading's 150 dpi most catalog photos were too small and were left out
+                            row["photo"] = _crop(d, _hires(f, label, pic, hires), box, row)
                         rows.append(row)
         except Exception as e:                           # noqa: BLE001 - one file never stops the others
             log.warning("pricelist read %s: %s", f.name, e)
@@ -2336,6 +2424,45 @@ def _similar_photos(cfg: dict, name: str, brand: str, n: int = 2) -> list[Path]:
     return out
 
 
+def _new_price_doubt(cfg: dict, r: dict, name: str) -> str:
+    """(15 Nov) A new product's list price against the market before it goes on the shop. The page-level
+    market check samples two rows a page, so a list read in another unit or a dealer list (Active, 15 Nov:
+    2.2 million in the list, 16.7 at Torob) still made products at a fraction of their price. Each new row is
+    looked up (crawl pool / price memory / Torob, all free); two shops or more far from the list (outside
+    0.6-1.6x) -> the product is made but waits (pending) with the market's figure in its note."""
+    if str(r.get("note") or "").find("با بازار نمی‌خواند") >= 0:
+        return str(r["note"])[:200]
+    if not cfg.get("pricelist", {}).get("new_market_check", True):
+        return ""
+    try:
+        v = float(r.get("list_toman") or 0)
+    except (TypeError, ValueError):
+        return ""
+    if v <= 0:
+        return ""
+    try:
+        from .detective import _same_model, decide
+        from .pipeline import _codes, _fetchers
+        from .pricemem import recall, remember
+        rec = {"name": name, "brand": r.get("brand", ""), "url": ""}
+        if not _codes(f"{name} {r.get('model', '')}"):
+            return ""                                    # no model code: a name alone finds other products
+        others = [(dm, pr) for dm, pr, nm in recall(cfg, name) if _same_model(rec, nm)]
+        if len({o[0] for o in others}) < 2:
+            from .aggregators import torob_offers
+            tb = torob_offers(_fetchers(cfg)["iran"], rec, _same_model)
+            others += tb
+            remember(cfg, [{"name": name, "dom": dm, "price": pr, "source": "torob"} for dm, pr in tb])
+        if len({o[0] for o in others}) < 2:
+            return ""
+        new, why = decide(v, others, None)
+        if new and not (0.6 <= new / v <= 1.6):
+            return f"قیمت لیست {v:,.0f} با بازار ({new:,.0f}) نمی‌خواند؛ منتظر بررسی"
+    except Exception as e:                               # noqa: BLE001 - the check never stops a product
+        log.info("pricelist new market %s: %s", name, e)
+    return ""
+
+
 def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: int = 0, workers: int = 3) -> dict:
     """(3 Nov) The list's rows not on the site -> products made from the list itself, as 'pending' for a
     person: the name (with the brand), the list price (locked), a category, a description by the text model.
@@ -2426,7 +2553,11 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
                 data["images"] = [{"id": wc.upload_media(f, f"{sku.lower()}-{n}.webp", alt=name)["id"]}
                                   for n, f in enumerate(files, 1)]
             res["photos"] = len(data.get("images") or [])
-            if res["photos"]:                            # a photo and a category: on the shop at once (3 Nov)
+            doubt = _new_price_doubt(cfg, r, name)
+            if doubt:                                    # (15 Nov, Active: list ~8x under the market) waits for a person
+                res["error"] = doubt
+                data["meta_data"] = data["meta_data"] + [{"key": "_caravan_price_doubt", "value": doubt}]
+            elif res["photos"]:                          # a photo and a category: on the shop at once (3 Nov)
                 data["status"] = "publish"
             prod = wc.create_product(data)
             res.update(product_id=prod["id"], status=data["status"], category=leaf["breadcrumb"])
