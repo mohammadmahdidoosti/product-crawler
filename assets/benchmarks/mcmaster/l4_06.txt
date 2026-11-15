@@ -1,0 +1,241 @@
+@1.0.1 Pipe Hangers
+Strut Channel Routing Clamps(468)|بست لوله ناودانی (یونیسترات)|
+Strut Channel Suspension Mounts(1)|پایه آویز ناودانی|
+Strut Mount Hangers(8)|آویز نصب روی ناودانی|
+Strut Channel Routing Saddles(6)|زین لوله ناودانی|
+Strut Channel Beam Mounts(4)|پایه تیر ناودانی|
+Strut Channel Spool Rack Mounts(3)|پایه قرقره‌گیر ناودانی|
+Strut Channel(18)|ناودانی مشبک (یونیسترات)|
+Strut Channel Adapters(15)|تبدیل ناودانی|
+Strut Channel Brackets(1)|براکت ناودانی|
+@1.0.2 Pipe Joints
+Pipe Joiners(1)|اتصال لوله|
+Manual On/Off Valves(2834)|شیر قطع‌ووصل دستی|
+Solenoid On/Off Valves(677)|شیر برقی (سلونوئیدی)|
+Air-Actuated On/Off Valves(209)|شیر پنوماتیکی|
+Motor-Actuated On/Off Valves(69)|شیر موتوری|
+Liquid-Dispensing Metering Valves(3)|شیر دوزینگ مایع|
+Check Valves(870)|شیر یک‌طرفه|
+Slip-On Framing and Fittings(434)|قاب‌بندی لوله‌ای کشویی و اتصالات|
+Clamp-On Framing and Fittings(248)|قاب‌بندی لوله‌ای کلمپی و اتصالات|
+Flush-Fit Framing and Fittings(11)|قاب‌بندی لوله‌ای هم‌سطح|
+Aluminum(43)|آلومینیوم|
+Scaffold Clamps(2)|بست داربست|
+Connectors for Telescoping Tubes(15)|اتصال لوله تلسکوپی|
+@1.0.3 Pipe & Tube Repair Clamps
+Low-Pressure Pipe Repair Clamps(162)|بست تعمیر لوله فشار پایین|
+Medium-Pressure Pipe Repair Clamps(61)|بست تعمیر لوله فشار متوسط|
+High-Pressure Pipe Repair Clamps(9)|بست تعمیر لوله فشار بالا|
+Pipe Joint Repair Clamps(10)|بست تعمیر محل اتصال لوله|
+Low-Pressure Easy-Install Pipe Repair Clamps(2)|بست تعمیر نصب آسان|
+Tube Repair Clamps(18)|بست تعمیر تیوب|
+Pipe Freeze Repair Kits(5)|کیت تعمیر ترکیدگی یخ‌زدگی لوله|
+@1.0.5 Tubing
+Tubing(5024)|تیوب و لوله|
+Steel(573)|لوله فولادی|
+Plastic(909)|لوله پلاستیکی|
+Stainless Steel(773)|لوله استیل|
+Duct Hose and Fittings(1227)|شیلنگ داکت و اتصالات|
+Brass(135)|لوله برنجی|
+Garolite(289)|لوله گارولیت (فنولی)|
+Glass(58)|لوله شیشه‌ای|
+Bronze(229)|بوش برنزی|
+Conduit and Fittings(1351)|لوله برق (کاندوئیت) و اتصالات|
+Ceramic(159)|لوله سرامیکی|
+Copper(32)|لوله مسی|
+Tube Fitting Gaskets(435)|واشر اتصال تیوب|
+Tubing Samples(4)|نمونه تیوب|
+Hose Drainers(1)|تخلیه‌کن شیلنگ|
+Hose and Tube Clamps(1689)|بست شیلنگ|
+Hose Kink Absorbers(6)|ضدتاخوردگی شیلنگ|
+Gauge Glass Gaskets(5)|واشر شیشه آب‌نما|
+Flow Sights(8)|سایت‌گلاس جریان|
+Gauge Glass(114)|شیشه آب‌نما|
+Thermocouple and RTD Protection Tubes(16)|غلاف ترموکوپل|
+Gauge Siphon Tubes(30)|سیفون گیج (لوله سیفون فشارسنج)|
+Centrifuge Tubes(3)|لوله سانتریفیوژ|
+Wraparound Heaters(30)|هیتر پیچشی|
+Titanium(8)|لوله تیتانیومی|
+Fiberglass(38)|لوله فایبرگلاس|
+Hard Fiber(9)|لوله فیبر سخت|
+Rubber(281)|لوله لاستیکی|
+Foam(46)|لوله فومی|
+Mica(54)|لوله میکا|
+Weld-Together Framing and Fittings(39)|قاب‌بندی جوشی و اتصالات|
+Bolt-Together Framing and Fittings(122)|قاب‌بندی پیچی و اتصالات|
+Press-Fit Framing and Fittings(89)|قاب‌بندی پرسی و اتصالات|
+Locking-Slotted Framing and Fittings(12)|قاب‌بندی شیاردار قفلی|
+Wire Sleeving Installation Tools(7)|ابزار نصب غلاف سیم|
+Heat-Shrink Tubing Splitters(23)|انشعاب وارنیش حرارتی|
+Cable and Hose Carriers(369)|زنجیر کابل (انرژی‌چین)|
+Cold-Shrink Tubing(17)|وارنیش سرد|
+Heat-Shrink Tubing End Caps(22)|کلاهک وارنیش حرارتی|
+Cold-Shrink Tubing End Caps(4)|کلاهک وارنیش سرد|
+Pipe Insulation Jacketing(153)|روکش عایق لوله|
+Pipe Insulation Banding(14)|تسمه عایق لوله|
+Chimney Pipe and Fittings(57)|لوله دودکش و اتصالات|
+Shipping Tubes(383)|لوله بسته‌بندی ارسال|
+Shipping Tube End Caps(33)|درپوش لوله بسته‌بندی|
+Inner Tubes(14)|تیوب لاستیک|
+Robot Pedestal Adapter Kits(1)|کیت تبدیل پایه ربات|
+Hydraulic Jack Hose and Fittings(21)|شیلنگ جک هیدرولیک|
+Gear Box Shafts(10)|شفت گیربکس|
+Appliance Hose(18)|شیلنگ لوازم خانگی|ترکیبی
+Sink Faucet Hose(10)|شیلنگ شیر روشویی|ترکیبی
+Sink Drain Tailpieces(16)|لوله خروجی سینک|ترکیبی
+Sink Drains(47)|سوپاپ سینک|ترکیبی
+Sink Drain Traps(24)|سیفون سینک|ترکیبی
+Sink Drain Strainers(6)|صافی سینک|ترکیبی
+Sink Drain Trap Extension Tubing(8)|لوله رابط سیفون|ترکیبی
+Toilet Hose(8)|شیلنگ توالت|ترکیبی
+Faucet Spout Thread Adapters(4)|تبدیل رزوه سرشیر|ترکیبی
+Riser Tubes(6)|لوله رابط شیر|ترکیبی
+Dual-Connection Sink Drain Outlets(7)|خروجی دوتایی سینک|ترکیبی
+Sink Pipe Covers(2)|روکش لوله سینک|ترکیبی
+Concrete Form Tubes(2)|قالب ستون بتنی (لوله‌ای)|
+Drain Pipe Filter Sleeves(4)|غلاف فیلتر لوله زهکش|
+Test Tubes(18)|لوله آزمایش|
+Stacking Caps and Targets(6)|کلاهک و هدف ستون|
+Tube Benders(6)|لوله‌خم‌کن|
+Tool Holder Coolant Tubes(18)|لوله آب صابون ابزارگیر|
+Coolant Hose and Fittings(260)|شیلنگ مفصلی آب صابون|
+Coolant Nozzles(90)|نازل آب صابون|
+Respirator Temperature Controllers(2)|کنترل دمای ماسک|
+Fire Hose and Fittings(146)|شیلنگ آتش‌نشانی و اتصالات|
+Tags(4)|پلاک|
+@1.0.6 Tube Fittings
+Push-to-Connect Tube Fittings for Air and Water(3198)|اتصال فشاری (پنوماتیک) هوا و آب|
+Yor-Lok Tube Fittings for Stainless Steel Tubing(905)|اتصال دوبوشی (یورلاک) استیل|
+Compression Tube Fittings for Air and Water(610)|اتصال جوشی‌نشو (کمپرشن) هوا و آب|
+37° Flared Tube Fittings for Stainless Steel Tubing(384)|اتصال فلر ۳۷ درجه استیل (JIC)|
+Barbed Tube Fittings for Air and Water(1125)|اتصال شلنگی (سرشلنگی) هوا و آب|
+High-Temperature Push-to-Connect Tube Fittings for Air and Water(271)|اتصال فشاری دمای بالا|
+Ultra-High-Temperature Barbed Tube Fittings for Air and Water(580)|اتصال شلنگی دمای خیلی بالا|
+Compression Tube Fittings for Copper Tubing(505)|اتصال کمپرشن لوله مسی|
+Precision 37° Flared Tube Fittings for Stainless Steel Tubing(248)|اتصال فلر ۳۷ دقیق استیل|
+Butt-Weld Tube Fittings for Stainless Steel Tubing(405)|اتصال جوشی سربه‌سر تیوب استیل|
+Compression Tube Fittings for Stainless Steel Tubing(338)|اتصال کمپرشن استیل|
+Yor-Lok Tube Fittings for Copper Tubing(353)|اتصال دوبوشی لوله مسی|
+Push-to-Connect Tube Fittings for Food and Beverage(439)|اتصال فشاری غذایی|
+37° Flared Tube Fittings for Steel Tubing(352)|اتصال فلر ۳۷ فولادی|
+Push-to-Connect Tube Fittings for Drinking Water(533)|اتصال فشاری آب شرب (تصفیه آب)|
+45° Flared Tube Fittings for Brass and Copper Tubing(220)|اتصال فلر ۴۵ درجه مسی (تبرید)|
+Push-to-Connect Tube Fittings for Chemicals(212)|اتصال فشاری شیمیایی|
+High-Polish Quick-Clamp Tube Fittings for Stainless Steel Tubing(695)|اتصال کلمپی (تری‌کلمپ) استیل صیقلی|
+Quick-Disconnect Tube Couplings for Air and Water(366)|کوپلینگ قطع‌سریع هوا و آب|
+Socket-Connect Tube Fittings for Copper Tubing(449)|اتصال لحیمی ساکتی مسی|
+Push-to-Connect Tube Fittings for Vehicle Air Systems(243)|اتصال فشاری ترمز بادی خودرو|
+Yor-Lok Tube Fittings for Steel Tubing(226)|اتصال دوبوشی فولادی|
+Compression Tube Fittings for Chemicals(145)|اتصال کمپرشن شیمیایی|
+Barbed Tube Fittings for Food and Beverage(375)|اتصال شلنگی غذایی|
+Tight-Seal Compression Tube Fittings for Air and Water(75)|اتصال کمپرشن آب‌بندی بالا|
+Compression Tube Fittings for Steel Tubing(231)|اتصال کمپرشن فولادی|
+Cleaned-and-Bagged Yor-Lok Tube Fittings for Stainless Steel Tubing(71)|اتصال دوبوشی استیل تمیزشده و بسته‌بندی|
+Push-to-Connect Tube Fittings for Brass and Copper Tubing(134)|اتصال فشاری لوله مسی|
+Barbed Tube Fittings for Chemicals(147)|اتصال شلنگی شیمیایی|
+Extra-High-Polish Quick-Clamp Tube Fittings for Stainless Steel Tubing(285)|اتصال تری‌کلمپ فوق‌صیقلی|
+Luer-Lock Tube Couplings for Air and Water(241)|کوپلینگ لوئرلاک|
+Compression Tube Fittings for Food and Beverage(149)|اتصال کمپرشن غذایی|
+Compression Tube Fittings for Vehicle Air Systems(78)|اتصال کمپرشن ترمز بادی|
+37° Flared Tube Fittings for Copper Tubing(92)|اتصال فلر ۳۷ مسی|
+Continuous-Swivel Push-to-Connect Tube Fittings for Air and Water(63)|اتصال فشاری گردان|
+Weld-Spatter-Resistant Push-to-Connect Tube Fittings for Air and Water(115)|اتصال فشاری مقاوم جرقه جوش|
+Cleaned-and-Bagged Socket-Connect Tube Fittings for Copper Tubing(95)|اتصال لحیمی مسی تمیزشده (گازهای طبی)|
+Push-to-Connect Tube Fitting Assortments for Air and Water(5)|ست اتصال فشاری|
+37° Flared Tube Fittings for Aluminum Tubing(65)|اتصال فلر ۳۷ آلومینیومی|
+High-Pressure Compression Tube Fittings for Stainless Steel Tubing(84)|اتصال کمپرشن استیل فشار بالا|
+High-Vacuum Quick-Clamp Tube Fittings for Stainless Steel Tubing(224)|اتصال کلمپی خلأ بالا (KF)|
+Clamps for High-Polish and Extra-High-Polish Quick-Clamp Tube Fittings for Stainless Steel Tubing(192)|کلمپ تری‌کلمپ|
+Sleeve and Nut Sets for Yor-Lok Tube Fittings for Stainless Steel Tubing(16)|ست بوش و مهره یورلاک استیل|
+Press-Socket Tube Fittings for Copper Tubing(323)|اتصال پرسی مسی|
+Static-Dissipative Push-to-Connect Tube Fittings for Air and Water(78)|اتصال فشاری آنتی‌استاتیک|
+Extra-Support 45° Flared Tube Fittings for Brass and Copper Tubing(24)|اتصال فلر ۴۵ تقویت‌شده|
+High-Pressure Push-to-Connect Tube Fittings for Air and Water(62)|اتصال فشاری فشار بالا|
+Compression Tube Fittings with Built-in Sleeve for Air and Water(62)|اتصال کمپرشن با بوش سرخود|
+Cleaned-and-Bagged 37° Flared Tube Fittings for Stainless Steel Tubing(41)|اتصال فلر ۳۷ استیل تمیزشده|
+Ultra-High-Polish Gasket Tube Fittings for Stainless Steel Tubing(80)|اتصال واشری فوق‌صیقلی (VCR)|
+Barbed Tube Fittings for Drinking Water(63)|اتصال شلنگی آب شرب|
+Yor-Lok Tube Fittings for Nickel Tubing(50)|اتصال دوبوشی نیکلی|
+O-Ring Face Seal Tube Fittings for Stainless Steel Tubing(42)|اتصال اورینگ‌فیس (ORFS) استیل|
+High-Pressure Socket-Connect Tube Fittings for Stainless Steel Tubing(42)|اتصال ساکتی استیل فشار بالا|
+Luer-Lock Tube Couplings for Chemicals(17)|کوپلینگ لوئرلاک شیمیایی|
+High-Pressure Quick-Disconnect Tube Couplings for Air and Water(43)|کوپلینگ قطع‌سریع فشار بالا|
+Socket-Connect Tube Fittings for Stainless Steel Tubing(19)|اتصال ساکتی استیل|
+High-Pressure Compression Tube Fittings for Steel Tubing(60)|اتصال کمپرشن فولادی فشار بالا|
+Compression Tube Fitting Assortments for Steel Tubing(1)|ست اتصال کمپرشن فولادی|
+Cleaned-and-Bagged Push-to-Connect Tube Fittings for Air and Water(75)|اتصال فشاری تمیزشده|
+Vibration-Resistant Compression Tube Fittings for Stainless Steel Tubing(19)|اتصال کمپرشن ضدلرزش استیل|
+Tight-Seal Precision 37° Flared Tube Fittings for Stainless Steel Tubing(39)|اتصال فلر ۳۷ آب‌بندی بالا|
+Quick-Disconnect Tube Couplings for Food and Beverage(41)|کوپلینگ قطع‌سریع غذایی|
+30° Flared Tube Fittings for Steel Tubing(38)|اتصال فلر ۳۰ درجه|
+Barbed Tube Fittings for Fuel and Lubricant(39)|اتصال شلنگی سوخت و روغن|
+Quick-Disconnect Tube Couplings for Chemicals(81)|کوپلینگ قطع‌سریع شیمیایی|
+Compression Tube Fittings with Built-In Sleeve for Copper Tubing(35)|اتصال کمپرشن مسی با بوش سرخود|
+Vibration-Resistant Screw-On Nut Barbed Tube Fittings for Air(45)|اتصال شلنگی مهره‌دار ضدلرزش|
+Choose-a-Color Barbed Tube Fittings for Air and Water(59)|اتصال شلنگی رنگی|
+Vacuum Clamp-On Tube Fittings for Steel Tubing(131)|اتصال کلمپی خلأ فولادی|
+Build-Your-Own Quick-Disconnect Tube Couplings for Air and Water(29)|کوپلینگ قطع‌سریع سفارشی|
+Cleaned-and-Bagged Barbed Tube Fittings for Food and Beverage(104)|اتصال شلنگی غذایی تمیزشده|
+30° Flared Tube Fitting Assortments for Steel Tubing(1)|ست اتصال فلر ۳۰|
+Sleeve and Nut Sets for Yor-Lok Tube Fittings for Copper Tubing(15)|ست بوش و مهره یورلاک مسی|
+O-Ring Face Seal Tube Fittings for Steel Tubing(43)|اتصال اورینگ‌فیس فولادی|
+Push-to-Connect Tube Fittings for Stainless Steel-to-Plastic Tubing(12)|اتصال فشاری استیل به پلاستیک|
+High-Flow Quick-Disconnect Tube Couplings for Air and Water(68)|کوپلینگ قطع‌سریع دبی بالا|
+Luer-Lock Tube Couplings for Stainless Steel Tubing(2)|کوپلینگ لوئرلاک استیل|
+Cleaned-and-Bagged Luer-Lock Tube Couplings for Air and Water(69)|کوپلینگ لوئرلاک تمیزشده|
+Socket-Connect Tube Fittings for Air and Water(7)|اتصال ساکتی هوا و آب|
+Extra-Support High-Polish Quick-Clamp Tube Fittings for Stainless Steel Tubing(66)|اتصال تری‌کلمپ تقویت‌شده|
+Socket-Connect Tube Fittings for Drinking Water(12)|اتصال ساکتی آب شرب|
+O-Ring Face Seal Tube Fittings Assortments for Steel Tubing(1)|ست اتصال اورینگ‌فیس|
+High-Polish Gasket Tube Fittings for Stainless Steel Tubing(63)|اتصال واشری صیقلی|
+High-Vacuum Quick-Connect Tube Fittings for Stainless Steel Tubing(32)|اتصال سریع خلأ بالا|
+High-Flow Quick-Disconnect Tube Couplings for Chemicals(14)|کوپلینگ دبی بالا شیمیایی|
+Vibration-Resistant Compression Tube Fittings for Copper Tubing(38)|اتصال کمپرشن ضدلرزش مسی|
+Multiline Quick-Disconnect Tube Couplings for Air(44)|کوپلینگ چندخطی هوا|
+Extreme-Pressure Yor-Lok Tube Fittings for Stainless Steel Tubing(12)|اتصال دوبوشی فشار فوق‌بالا|
+Sanitary Compression Tube Fittings for Food and Beverage(4)|اتصال کمپرشن بهداشتی|
+Vibration-Resistant Compression Tube Fittings for Steel Tubing(32)|اتصال کمپرشن ضدلرزش فولادی|
+37° Flared Tube Fitting Assortments for Steel Tubing(1)|ست اتصال فلر ۳۷|
+High-Vacuum Claw-Clamp Tube Fittings for Stainless Steel Tubing(34)|اتصال پنجه‌ای خلأ بالا|
+Ultra-High-Temperature Barbed Tube Fittings for Food and Beverage(10)|اتصال شلنگی غذایی دمای بالا|
+High-Vacuum Quick-Clamp Tube Fittings for Aluminum Tubing(62)|اتصال کلمپی خلأ آلومینیومی|
+Vibration-Resistant Ultra-High-Polish Gasket Tube Fittings for Stainless Steel Tubing(20)|اتصال واشری فوق‌صیقلی ضدلرزش|
+Single-Use Quick-Clamp Tube Fittings for Food and Beverage(14)|اتصال کلمپی یک‌بارمصرف|
+Ultra-High-Vacuum Flanged Tube Fittings for Stainless Steel Tubing(42)|اتصال فلنجی خلأ فوق‌بالا (CF)|
+Quick-Disconnect Tube Couplings for Fuel and Lubricant(9)|کوپلینگ قطع‌سریع سوخت|
+Press-Socket Tube Fittings for Drinking Water(56)|اتصال پرسی آب شرب|
+Sanitary Sampling Quick-Clamp Tube Fittings for Stainless Steel Tubing(11)|اتصال نمونه‌گیری بهداشتی|
+Single-Use Cleaned-and-Bagged Quick-Disconnect Tube Couplings for Food and Beverage(8)|کوپلینگ یک‌بارمصرف غذایی|
+High-Vacuum Flanged Tube Fittings for Stainless Steel Tubing(20)|اتصال فلنجی خلأ بالا|
+Choose-a-Color Quick-Disconnect Tube Couplings for Air(11)|کوپلینگ قطع‌سریع رنگی|
+Quick-Connect Tube Fittings for Copper Tubing(10)|اتصال سریع مسی|
+Push-to-Connect Tube Fittings for Stainless Steel Tubing(3)|اتصال فشاری استیل|
+Hose Coupling Size-Identification Kits(1)|کیت سایزیاب کوپلینگ|
+Grease Fitting Adapters(41)|تبدیل گریس‌خور|
+Flow-Adjustment Valves(206)|شیر تنظیم جریان|
+Manifolds(739)|منیفولد|
+Air Flow Check Valves(9)|شیر یک‌طرفه هوا|
+Diverting Valves(68)|شیر تقسیم|
+Sampling Valves(5)|شیر نمونه‌گیری|
+Orifice Valves(216)|شیر اوریفیس|
+Air Chucks(28)|سرباد|
+Expansion Plugs(1)|درپوش انبساطی|
+Junction Blocks(88)|بلوک انشعاب|
+Mufflers(25)|صداخفه‌کن|
+Grease Fittings(9)|گریس‌خور|
+Pressure-Relief Valves(17)|شیر اطمینان|
+Hydraulic Flow-Regulating Valves(50)|شیر تنظیم جریان هیدرولیک|
+Tube Crimpers(26)|پرس تیوب|
+Grease Gun Swivels(10)|مفصل گریس‌پمپ|
+Tubing Flow Stops(18)|بست قطع جریان تیوب|
+Fire Hose Fittings(86)|اتصالات شیلنگ آتش‌نشانی|
+Drinking Fountain Replacement Parts(2)|قطعات آبخوری|
+Strainer Screens(4)|توری صافی|
+Filter Housings(20)|هوزینگ فیلتر|
+Pipe Crimper Jaws and Rings(2)|فک پرس لوله|
+Drain Cleanouts(3)|دریچه بازدید فاضلاب|
+Air Admittance Valves(2)|شیر ورود هوا|
+Compressed Air Filter/Regulator/Lubricator Manifolds(28)|منیفولد واحد مراقبت (FRL)|
+Hydraulic Flow-Adjustment Valves(4)|شیر تنظیم هیدرولیک|
+Drain Cleanout Hole Covers(26)|درپوش دریچه بازدید|
+Abrasive Blasting Nozzle Couplings(5)|کوپلینگ نازل سندبلاست|
