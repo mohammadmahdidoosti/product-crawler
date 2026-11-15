@@ -1,14 +1,14 @@
 @19.1.6 Door Track & Hangers
 Roller Tracks for Doors(176)|ریل درب کشویی (ریلی)|
-Curved Roller Tracks for Doors, Curtains, and Strip Doors(39)|ریل منحنی درب، پرده و پرده نواری|
+Curved Roller Tracks for Doors, Curtains, and Strip Doors(39)|ریل منحنی درب، پرده و پرده نواری|
 Floor-Mount Tracks for Hanging Doors(2)|ریل کف درب آویز|
 Roller Track Kits for Doors(21)|کیت ریل درب کشویی|
-I-Beam Roller Track Kits for Doors(31)|کیت ریل تیرآهنی درب کشویی|
+I-Beam Roller Track Kits for Doors(31)|کیت ریل تیرآهنی درب کشویی|
 Roller Track Kits for Bypassing Doors(13)|کیت ریل درب کشویی دولنگه عبوری|
-Soft-Closing Roller Track Kits for Doors(7)|کیت ریل درب کشویی آرام‌بند|
-Dust-Resistant Roller Tracks for Doors(21)|ریل درب کشویی ضدگردوغبار|
-Corrosion-Resistant I-Beam Roller Tracks for Doors and Curtains(18)|ریل تیرآهنی ضدخوردگی درب و پرده|
-Low-Profile Roller Tracks for Doors(4)|ریل درب کشویی کم‌ارتفاع|
+Soft-Closing Roller Track Kits for Doors(7)|کیت ریل درب کشویی آرام‌بند|
+Dust-Resistant Roller Tracks for Doors(21)|ریل درب کشویی ضدگردوغبار|
+Corrosion-Resistant I-Beam Roller Tracks for Doors and Curtains(18)|ریل تیرآهنی ضدخوردگی درب و پرده|
+Low-Profile Roller Tracks for Doors(4)|ریل درب کشویی کم‌ارتفاع|
 Track Kits for Bypassing Cabinet Doors(12)|کیت ریل درب کشویی کابینت|
 Roller Track Kits for Bypassing Cabinet Doors(4)|کیت ریل غلتکی درب کشویی کابینت|
 Overhead Door Tracks(12)|ریل درب سقفی (سکشنال)|
@@ -65,7 +65,7 @@ Push-Button Compression Paddle-Handle Screw Cam Latches(18)|چفت بادامک�
 Compression L-Handle Cam Latches(1)|چفت بادامکی فشاری دسته L|
 Lift-and-Turn Compression L-Handle Cam Latches(18)|چفت بادامکی فشاری کشیدنی-چرخشی دسته L|
 Adjustable-Tension Compression Slotted-Drive Cam Locks(14)|قفل بادامکی فشاری پیچ‌گوشتی‌خور کشش قابل‌تنظیم|
-Compression Hex-Drive Recessed T-Handle Cam Locks(1)|قفل بادامکی فشاری آلنی دسته T توکار|
+Compression Hex-Drive Recessed T-Handle Cam Locks(1)|قفل بادامکی فشاری آلنی دسته T توکار|
 Spring-Loaded Ball Stop Slotted-Drive Cam Locks(2)|قفل بادامکی پیچ‌گوشتی‌خور ساچمه فنری|
 Wing-Handle Padlockable Cam Latches(9)|چفت بادامکی دسته پروانه‌ای قفل‌آویزخور|
 Knob Spring-Cam Latches(10)|چفت بادامک فنری دستگیره‌ای|
