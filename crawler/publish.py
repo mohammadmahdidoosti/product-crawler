@@ -122,16 +122,28 @@ def payload(cfg: dict, rec: dict, row: dict, cats: dict[str, str]) -> tuple[dict
     return data, missing
 
 
+_BRANDS_KEPT: list | None = None                 # the site's brands, kept for the bulk send's next batches
+
+
 class SiteBrands:
     """Brand terms on the site, matched by Persian or Latin name; missing ones are created once."""
 
     def __init__(self, wc: WC, dry_run: bool = False):
         self.wc, self.dry = wc, dry_run
+        global _BRANDS_KEPT
+        from . import wcbridge
+        if _BRANDS_KEPT is not None and wcbridge.enabled() and not dry_run:
+            # (15 Nov) one bulk process sends batch after batch: the ~7,800 brands (78 pages, ~2.5 min)
+            # are read once, and brands made since are in the list (create_brand also finds a made one)
+            self.terms, self.made = _BRANDS_KEPT, 0
+            return
         try:
             self.terms = wc.list_brands() if wc.ok() else []
         except WCError as e:
             log.warning("site brands not read (%s): brand kept as an attribute only", e)
             self.terms = None
+        if self.terms is not None and wcbridge.enabled() and not dry_run:
+            _BRANDS_KEPT = self.terms
         self.made = 0
 
     @property
