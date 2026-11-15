@@ -1,0 +1,219 @@
+@1.0.0 Pipe Fittings & Pipe
+Low-Pressure Stainless Steel Threaded Pipe Fittings(1387)|اتصالات دنده‌ای استیل فشار پایین|
+Standard-Wall Stainless Steel Threaded Pipe Nipples and Pipe(1308)|مغزی و لوله دنده‌ای استیل جداره استاندارد|
+High-Pressure Stainless Steel Threaded Pipe Fittings(563)|اتصالات دنده‌ای استیل فشار بالا|
+Thick-Wall Stainless Steel Threaded Pipe Nipples and Pipe(479)|مغزی و لوله دنده‌ای استیل جداره ضخیم|
+Precision Extreme-Pressure Stainless Steel Threaded Pipe Fittings(243)|اتصالات دنده‌ای استیل فشار فوق‌بالا دقیق|
+Medium-Pressure Stainless Steel Threaded Pipe Fittings(175)|اتصالات دنده‌ای استیل فشار متوسط|
+Extreme-Pressure Stainless Steel Threaded Pipe Fittings(437)|اتصالات دنده‌ای استیل فشار فوق‌بالا|
+Premium Low-Pressure Stainless Steel Threaded Pipe Fittings(181)|اتصالات دنده‌ای استیل فشار پایین ممتاز|
+Standard-Wall Stainless Steel Threaded Pipe Nipples and Pipe with Sealant(206)|مغزی و لوله استیل با آب‌بند|
+Low-Pressure Stainless Steel Threaded Pipe Flanges(98)|فلنج دنده‌ای استیل فشار پایین|
+Low-Pressure Stainless Steel Threaded Pipe Fittings with Sealant(141)|اتصالات دنده‌ای استیل با آب‌بند|
+Miniature Medium-Pressure Stainless Steel Threaded Pipe Fittings(204)|اتصالات دنده‌ای استیل مینیاتوری|
+High-Pressure Stainless Steel Threaded Pipe Flanges(34)|فلنج دنده‌ای استیل فشار بالا|
+Standard-Wall Stainless Steel Threaded Pipe Nipples and Pipe Assortments(22)|ست مغزی استیل|
+SAE High-Pressure Stainless Steel Threaded Pipe Flanges(9)|فلنج دنده‌ای استیل SAE|
+SAE High-Pressure Stainless Steel Threaded Two-Piece Pipe Flanges(14)|فلنج دوتکه استیل SAE|
+Low-Pressure Iron and Steel Threaded Pipe Fittings(728)|اتصالات دنده‌ای چدنی و فولادی فشار پایین|
+Standard-Wall Iron and Steel Threaded Pipe Nipples and Pipe(669)|مغزی و لوله دنده‌ای فولادی جداره استاندارد|
+High-Pressure Iron and Steel Threaded Pipe Fittings(396)|اتصالات دنده‌ای فولادی فشار بالا|
+Thick-Wall Iron and Steel Threaded Pipe Nipples and Pipe(538)|مغزی و لوله فولادی جداره ضخیم|
+Medium-Pressure Iron and Steel Threaded Pipe Fittings(176)|اتصالات دنده‌ای فولادی فشار متوسط|
+Extreme-Pressure Iron and Steel Threaded Pipe Fittings(663)|اتصالات دنده‌ای فولادی فشار فوق‌بالا|
+Low-Pressure Iron and Steel Threaded Pipe Flanges(70)|فلنج دنده‌ای فولادی فشار پایین|
+Low-Pressure Iron and Steel Threaded Pipe Fittings with Sealant(83)|اتصالات دنده‌ای فولادی با آب‌بند|
+Extra-Thick-Wall Iron and Steel Threaded Pipe Nipples and Pipe(108)|مغزی و لوله فولادی جداره خیلی ضخیم|
+Ultra-Thick-Wall Iron and Steel Threaded Pipe Nipples and Pipe(84)|مغزی و لوله فولادی جداره فوق‌ضخیم|
+Low-Pressure Threaded Pipe Fittings for Joining Dissimilar Metals(25)|اتصال عایق فلزات غیرهمجنس (دی‌الکتریک)|
+FM-Approved Low-Pressure Iron and Steel Threaded Pipe Fittings(98)|اتصالات دنده‌ای فولادی تأییدیه FM (آتش‌نشانی)|
+Quick-Tighten Low-Pressure Iron and Steel Threaded Pipe Fittings(6)|اتصالات دنده‌ای فولادی سفت‌شونده سریع|
+High-Pressure Iron and Steel Threaded Pipe Flanges(17)|فلنج دنده‌ای فولادی فشار بالا|
+Standard-Wall Iron and Steel Threaded Pipe Nipples and Pipe with Sealant(57)|مغزی فولادی با آب‌بند|
+FM-Approved Low-Pressure Iron and Steel Threaded Pipe Flanges(16)|فلنج دنده‌ای فولادی تأییدیه FM|
+Standard-Wall Iron and Steel Threaded Pipe Nipples and Pipe Assortments(11)|ست مغزی فولادی|
+Extreme-Pressure Iron and Steel Threaded Pipe Flanges(8)|فلنج دنده‌ای فولادی فشار فوق‌بالا|
+High-Pressure Iron and Steel Threaded Pipe Fitting Assortments(2)|ست اتصالات فولادی فشار بالا|
+Quick-Tighten Standard-Wall Iron and Steel Threaded Pipe Nipples and Pipe(16)|مغزی فولادی سفت‌شونده سریع|
+SAE High-Pressure Iron and Steel Threaded Pipe Flanges(14)|فلنج دنده‌ای فولادی SAE|
+SAE High-Pressure Iron and Steel Threaded Two-Piece Pipe Flanges(9)|فلنج دوتکه فولادی SAE|
+SAE Extreme-Pressure Iron and Steel Threaded Two-Piece Pipe Flanges(12)|فلنج دوتکه فولادی SAE فشار فوق‌بالا|
+Thick-Wall Plastic Pipe Fittings for Water(929)|اتصالات پلاستیکی جداره ضخیم آب (UPVC کلاس ۸۰)|
+Standard-Wall Plastic Pipe Fittings for Water(899)|اتصالات پلاستیکی جداره استاندارد آب (UPVC کلاس ۴۰)|
+CPVC Pipe Fittings for Chemicals(586)|اتصالات CPVC شیمیایی|
+Thick-Wall Plastic Pipe Nipples and Pipe for Water(324)|مغزی و لوله پلاستیکی جداره ضخیم آب|
+Standard-Wall Plastic Pipe Nipples and Pipe for Water(68)|مغزی و لوله پلاستیکی جداره استاندارد آب|
+UV-Resistant Polypropylene Pipe Fittings for Chemicals(150)|اتصالات پلی‌پروپیلن مقاوم UV شیمیایی|
+Thick-Wall Plastic Pipe Flanges for Water(86)|فلنج پلاستیکی جداره ضخیم آب|
+CPVC Pipe Nipples and Pipe for Chemicals(244)|مغزی و لوله CPVC شیمیایی|
+Plastic Barbed Pipe Fittings for Water(125)|اتصالات شلنگی پلاستیکی آب|
+CPVC Pipe Flanges for Chemicals(63)|فلنج CPVC شیمیایی|
+Clear-View Standard-Wall Plastic Pipe Nipples and Pipe for Water(65)|لوله پلاستیکی شفاف جداره استاندارد|
+Clear-View Standard-Wall Plastic Pipe Fittings for Water(78)|اتصالات پلاستیکی شفاف|
+Clear-View Thick-Wall Plastic Pipe Nipples and Pipe for Water(65)|لوله پلاستیکی شفاف جداره ضخیم|
+Plastic Pipe Fittings for Oil(120)|اتصالات پلاستیکی روغن|
+UV-Resistant Standard-Wall Plastic Pipe Fittings for Water(40)|اتصالات پلاستیکی مقاوم UV آب|
+Plastic Pipe Fittings for Gasoline(86)|اتصالات پلاستیکی بنزین|
+High-Temperature PTFE Pipe Fittings for Harsh Chemicals(61)|اتصالات تفلونی دمای بالا|
+Polypropylene Barbed Pipe Fittings for Chemicals(30)|اتصالات شلنگی پلی‌پروپیلن|
+UV-Resistant Polypropylene Pipe Nipples and Pipe for Chemicals(45)|مغزی و لوله پلی‌پروپیلن مقاوم UV|
+High-Purity Polypropylene Pipe Fittings for Drinking Water(77)|اتصالات پلی‌پروپیلن آب شرب|
+Flame-Retardant PVDF Pipe Fittings for Food and Beverage(38)|اتصالات PVDF غذایی|
+Semi-Flexible Plastic Pipe Nipples and Pipe for Water(24)|لوله پلاستیکی نیمه‌انعطاف آب|
+Plastic Pipe Fittings for Food and Beverage(44)|اتصالات پلاستیکی غذایی|
+Flame-Retardant High-Purity PVDF Pipe Fittings for Harsh Chemicals(67)|اتصالات PVDF خلوص بالا|
+Easy-Access CPVC Pipe Fittings for Chemicals(21)|اتصالات CPVC بازشو|
+Easy-Access UV-Resistant Polypropylene Pipe Fittings for Chemicals(32)|اتصالات پلی‌پروپیلن بازشو|
+Flame-Retardant PVDF Pipe Fittings for Harsh Chemicals(26)|اتصالات PVDF شیمیایی|
+Crack-Resistant PFA Pipe Fittings for Harsh Chemicals(41)|اتصالات PFA شیمیایی|
+High-Temperature PTFE Pipe Nipples and Pipe for Harsh Chemicals(42)|مغزی و لوله تفلونی|
+ABS Threaded Cleanout Plugs(8)|درپوش بازدید ABS|
+Rubber Drain Pipe Plugs(17)|درپوش لاستیکی لوله فاضلاب|
+UV-Resistant Standard-Wall Plastic Pipe Nipples and Pipe for Water(15)|لوله پلاستیکی مقاوم UV جداره استاندارد|
+UV-Resistant Polypropylene Pipe Flanges for Chemicals(17)|فلنج پلی‌پروپیلن مقاوم UV|
+Low-Pressure Plastic Compression Pipe Fittings for Water(8)|اتصالات فشاری پلاستیکی آب|
+High-Purity Polypropylene Pipe Nipples and Pipe for Drinking Water(16)|لوله پلی‌پروپیلن آب شرب|
+Spin-Weld Plastic Pipe Fittings for Water(14)|اتصالات جوش چرخشی پلاستیکی|
+UV-Resistant Thick-Wall Plastic Pipe Nipples and Pipe for Water(19)|لوله پلاستیکی مقاوم UV جداره ضخیم|
+Fiberglass Pipe Fittings for Chemicals(23)|اتصالات فایبرگلاس|
+Flame-Retardant PVDF Pipe Nipples and Pipe for Harsh Chemicals(21)|مغزی و لوله PVDF|
+Flame-Retardant High-Purity PVDF Pipe Nipples and Pipe for Harsh Chemicals(16)|لوله PVDF خلوص بالا|
+Easy-Access CPVC Pipe Flanges for Chemicals(3)|فلنج CPVC بازشو|
+Fiberglass Pipe Nipples and Pipe for Chemicals(10)|لوله فایبرگلاس|
+High-Purity Polypropylene Pipe Flanges for Drinking Water(10)|فلنج پلی‌پروپیلن آب شرب|
+Easy-Access CPVC Pipe Nipples and Pipe for Chemicals(13)|لوله CPVC بازشو|
+Flame-Retardant PVDF Pipe Flanges for Harsh Chemicals(6)|فلنج PVDF|
+Fiberglass Pipe Flanges for Chemicals(10)|فلنج فایبرگلاس|
+High-Temperature PTFE Pipe Flanges for Harsh Chemicals(4)|فلنج تفلونی|
+High-Pressure Brass and Bronze Threaded Pipe Fittings(881)|اتصالات دنده‌ای برنجی و برنزی فشار بالا|
+Low-Pressure Brass and Bronze Threaded Pipe Fittings(705)|اتصالات دنده‌ای برنجی فشار پایین|
+Standard-Wall Brass and Bronze Threaded Pipe Nipples and Pipe(438)|مغزی و لوله برنجی جداره استاندارد|
+High-Pressure Brass and Bronze Threaded Pipe Nipples and Pipe(140)|مغزی و لوله برنجی فشار بالا|
+Medium-Pressure Brass and Bronze Threaded Pipe Fittings(119)|اتصالات دنده‌ای برنجی فشار متوسط|
+High-Pressure Brass and Bronze Threaded Pipe Fittings with Sealant(79)|اتصالات برنجی فشار بالا با آب‌بند|
+High-Pressure Brass and Bronze Threaded Pipe Fittings for Drinking Water(123)|اتصالات برنجی آب شرب|
+Precision High-Pressure Brass and Bronze Threaded Pipe Fittings(127)|اتصالات برنجی دقیق فشار بالا|
+Low-Pressure Brass and Bronze Threaded Pipe Fittings with Sealant(60)|اتصالات برنجی فشار پایین با آب‌بند|
+Thick-Wall Brass and Bronze Threaded Pipe Nipples and Pipe(144)|مغزی و لوله برنجی جداره ضخیم|
+Universal-Thread Medium-Pressure Brass and Bronze Threaded Pipe Fittings(22)|اتصالات برنجی رزوه یونیورسال|
+Standard-Wall Brass and Bronze Threaded Pipe Nipples and Pipe with Sealant(88)|مغزی برنجی با آب‌بند|
+Miniature High-Pressure Brass and Bronze Threaded Pipe Fittings(25)|اتصالات برنجی مینیاتوری فشار بالا|
+High-Pressure Brass and Bronze Threaded Pipe Nipples and Pipe for Drinking Water(11)|مغزی برنجی آب شرب فشار بالا|
+Brass and Bronze Threaded Cleanout Plugs(17)|درپوش بازدید برنجی|
+Easy-Install High-Pressure Brass and Bronze Threaded Pipe Fittings(15)|اتصالات برنجی نصب آسان|
+Low-Pressure Brass and Bronze Threaded Pipe Flanges(14)|فلنج دنده‌ای برنجی|
+Standard-Wall Brass and Bronze Threaded Pipe Nipples and Pipe Assortments for Drinking Water(11)|ست مغزی برنجی آب شرب|
+High-Pressure Brass and Bronze Threaded Pipe Nipples and Pipe with Sealant(16)|مغزی برنجی فشار بالا با آب‌بند|
+Standard-Wall Brass and Bronze Threaded Pipe Nipples and Pipe for Drinking Water(68)|مغزی و لوله برنجی آب شرب|
+Miniature Low-Pressure Brass and Bronze Threaded Pipe Fittings(16)|اتصالات برنجی مینیاتوری فشار پایین|
+Brass and Bronze Threaded Laboratory Pipe Flanges(5)|فلنج برنجی آزمایشگاهی|
+Medium-Pressure Stainless Steel Butt-Weld Pipe Fittings(164)|اتصالات جوشی سربه‌سر استیل فشار متوسط|
+Standard-Wall Stainless Steel Unthreaded Pipe Nipples and Pipe(286)|لوله استیل بدون رزوه جداره استاندارد|
+Low-Pressure Stainless Steel Butt-Weld Pipe Fittings(258)|اتصالات جوشی سربه‌سر استیل فشار پایین|
+Low-Pressure Stainless Steel Unthreaded Pipe Flanges(252)|فلنج جوشی استیل فشار پایین|
+Thin-Wall Stainless Steel Unthreaded Pipe Nipples and Pipe(139)|لوله استیل جداره نازک|
+High-Pressure Stainless Steel Socket-Connect Pipe Fittings(194)|اتصالات ساکتی استیل فشار بالا|
+Low-Pressure Stainless Steel Socket-Connect Pipe Fittings(60)|اتصالات ساکتی استیل فشار پایین|
+Thick-Wall Stainless Steel Unthreaded Pipe Nipples and Pipe(60)|لوله استیل بدون رزوه جداره ضخیم|
+High-Pressure Stainless Steel Unthreaded Pipe Flanges(152)|فلنج جوشی استیل فشار بالا|
+High-Pressure Stainless Steel Butt-Weld Pipe Fittings(69)|اتصالات جوشی سربه‌سر استیل فشار بالا|
+Extra-Thick-Wall Stainless Steel Unthreaded Pipe Nipples and Pipe(30)|لوله استیل جداره خیلی ضخیم|
+Low-Pressure Stainless Steel Press-Socket Pipe Fittings(60)|اتصالات پرسی استیل|
+Extreme-Pressure Stainless Steel Socket-Connect Pipe Fittings(29)|اتصالات ساکتی استیل فشار فوق‌بالا|
+Low-Pressure Stainless Steel Clamp-On Pipe Fittings(15)|اتصالات کلمپی استیل|
+Easy-Access Low-Pressure Stainless Steel Clamp-On Pipe Fittings(9)|اتصالات کلمپی استیل بازشو|
+SAE High-Pressure Stainless Steel Unthreaded Pipe Flanges(10)|فلنج جوشی استیل SAE|
+Low-Pressure Stainless Steel Compression Pipe Fittings(23)|اتصالات فشاری استیل|
+Low-Pressure Galvanized Iron and Steel Threaded Pipe Fittings(495)|اتصالات دنده‌ای گالوانیزه فشار پایین|
+Standard-Wall Galvanized Iron and Steel Threaded Pipe Nipples and Pipe(394)|مغزی و لوله گالوانیزه جداره استاندارد|
+Low-Pressure Galvanized Iron and Steel Threaded Pipe Fittings with Sealant(64)|اتصالات گالوانیزه با آب‌بند|
+High-Pressure Galvanized Iron and Steel Threaded Pipe Fittings(127)|اتصالات دنده‌ای گالوانیزه فشار بالا|
+Precision Extreme-Pressure Galvanized Iron and Steel Threaded Pipe Fittings(98)|اتصالات گالوانیزه دقیق فشار فوق‌بالا|
+Medium-Pressure Galvanized Iron and Steel Threaded Pipe Fittings(100)|اتصالات دنده‌ای گالوانیزه فشار متوسط|
+Thick-Wall Galvanized Iron and Steel Threaded Pipe Nipples and Pipe(108)|مغزی و لوله گالوانیزه جداره ضخیم|
+Standard-Wall Galvanized Iron and Steel Threaded Pipe Nipples and Pipe for Joining Dissimilar Metals(11)|مغزی عایق گالوانیزه (دی‌الکتریک)|
+Quick-Tighten Low-Pressure Galvanized Iron and Steel Threaded Pipe Fittings(6)|اتصالات گالوانیزه سفت‌شونده سریع|
+Low-Pressure Galvanized Iron and Steel Threaded Pipe Flanges(13)|فلنج دنده‌ای گالوانیزه|
+Standard-Wall Galvanized Iron and Steel Threaded Pipe Nipples and Pipe with Sealant(17)|مغزی گالوانیزه با آب‌بند|
+Standard-Wall Galvanized Iron and Steel Threaded Pipe Nipples and Pipe Assortments(11)|ست مغزی گالوانیزه|
+Extra-Thick-Wall Galvanized Iron and Steel Threaded Pipe Nipples and Pipe(31)|مغزی گالوانیزه جداره خیلی ضخیم|
+High-Pressure Galvanized Iron and Steel Threaded Pipe Flanges(7)|فلنج دنده‌ای گالوانیزه فشار بالا|
+Low-Pressure Iron and Steel Butt-Weld Pipe Fittings(126)|اتصالات جوشی سربه‌سر فولادی فشار پایین|
+Standard-Wall Iron and Steel Unthreaded Pipe Nipples and Pipe(117)|لوله فولادی بدون رزوه جداره استاندارد|
+Low-Pressure Iron and Steel Unthreaded Pipe Flanges(135)|فلنج جوشی فولادی فشار پایین|
+High-Pressure Iron and Steel Socket-Connect Pipe Fittings(161)|اتصالات ساکتی فولادی فشار بالا|
+High-Pressure Iron and Steel Butt-Weld Pipe Fittings(78)|اتصالات جوشی سربه‌سر فولادی فشار بالا|
+Thick-Wall Iron and Steel Unthreaded Pipe Nipples and Pipe(82)|لوله فولادی بدون رزوه جداره ضخیم|
+High-Pressure Iron and Steel Unthreaded Pipe Flanges(97)|فلنج جوشی فولادی فشار بالا|
+Medium-Pressure Iron and Steel Butt-Weld Pipe Fittings(17)|اتصالات جوشی فولادی فشار متوسط|
+FM-Approved Medium-Pressure Iron and Steel Grooved-End Pipe Fittings(56)|اتصالات شیاردار (گرووی) فولادی تأییدیه FM|
+FM-Approved Low-Pressure Iron and Steel Flanged-End Pipe Fittings(14)|اتصالات فلنجی فولادی تأییدیه FM|
+Ultra-Thick-Wall Iron and Steel Unthreaded Pipe Nipples and Pipe(15)|لوله فولادی جداره فوق‌ضخیم|
+Low-Pressure Iron and Steel Press-Socket Pipe Fittings(136)|اتصالات پرسی فولادی|
+Extreme-Pressure Iron and Steel Socket-Connect Pipe Fittings(30)|اتصالات ساکتی فولادی فشار فوق‌بالا|
+FM-Approved Low-Pressure Iron and Steel Unthreaded Pipe Flanges(8)|فلنج جوشی فولادی تأییدیه FM|
+FM-Approved Standard-Wall Iron and Steel Grooved-End Pipe Nipples and Pipe(23)|لوله شیاردار فولادی تأییدیه FM|
+Extreme-Pressure Iron and Steel Unthreaded Pipe Flanges(18)|فلنج جوشی فولادی فشار فوق‌بالا|
+High-Pressure Iron and Steel Clamp-On Pipe Fittings for Drinking Water(11)|اتصالات کلمپی فولادی آب شرب|
+SAE High-Pressure Iron and Steel Unthreaded Pipe Flanges(16)|فلنج جوشی فولادی SAE|
+Low-Pressure Iron and Steel Compression Pipe Fittings(29)|اتصالات فشاری فولادی|
+Low-Pressure Aluminum Threaded Pipe Fittings(372)|اتصالات دنده‌ای آلومینیومی فشار پایین|
+Standard-Wall Aluminum Threaded Pipe Nipples and Pipe(374)|مغزی و لوله آلومینیومی جداره استاندارد|
+Medium-Pressure Aluminum Threaded Pipe Fittings(28)|اتصالات دنده‌ای آلومینیومی فشار متوسط|
+Miniature Low-Pressure Aluminum Threaded Pipe Fittings(59)|اتصالات آلومینیومی مینیاتوری|
+High-Pressure Aluminum Threaded Pipe Fittings(43)|اتصالات دنده‌ای آلومینیومی فشار بالا|
+Low-Pressure Aluminum Threaded Pipe Flanges(21)|فلنج دنده‌ای آلومینیومی|
+Thick-Wall Aluminum Threaded Pipe Nipples and Pipe(24)|مغزی آلومینیومی جداره ضخیم|
+Drain, Waste, and Vent Standard-Wall PVC Pipe Fittings for Water(102)|اتصالات PVC فاضلابی جداره استاندارد|
+Drain, Waste, and Vent PVC Clamp-On Pipe Fittings for Water(111)|اتصالات کلمپی PVC فاضلابی|
+Drain, Waste, and Vent ABS Pipe Fittings for Chemicals(99)|اتصالات ABS فاضلابی|
+Underground Drain, Waste, and Vent PVC Pipe Fittings for Water(55)|اتصالات PVC فاضلاب زیرزمینی|
+Drain, Waste, and Vent Iron and Steel Pipe Fittings(40)|اتصالات چدنی فاضلابی|
+Underground Drain, Waste, and Vent PVC Pipe Nipples and Pipe for Water(8)|لوله PVC فاضلاب زیرزمینی|
+Drain, Waste, and Vent ABS Pipe Nipples and Pipe for Chemicals(9)|لوله ABS فاضلابی|
+Flame-Retardant Drain, Waste, and Vent Polypropylene Pipe Fittings for Chemicals(67)|اتصالات پلی‌پروپیلن فاضلاب شیمیایی|
+Drain, Waste, and Vent Standard-Wall PVC Pipe Flanges for Water(5)|فلنج PVC فاضلابی|
+Easy-Access Underground Drain, Waste, and Vent Polyethylene Pipe Fittings for Water(12)|اتصالات پلی‌اتیلن فاضلاب زیرزمینی|
+Drain, Waste, and Vent PVC Pipe Fittings for Joining Metal to Plastic(4)|تبدیل فلز به PVC فاضلابی|
+Flame-Retardant Drain, Waste, and Vent CPVC Pipe Fittings for Chemicals(17)|اتصالات CPVC فاضلاب شیمیایی|
+Drain, Waste, and Vent Iron and Steel Pipe Nipples and Pipe(5)|لوله چدنی فاضلابی|
+Drain, Waste, and Vent ABS Pipe Flanges for Chemicals(5)|فلنج ABS فاضلابی|
+Cut-to-Length Drain, Waste, and Vent PVC Clamp-On Pipe Fittings for Water(6)|اتصالات کلمپی PVC برش‌خور|
+Easy-Access Underground Drain, Waste, and Vent Polyethylene Pipe Nipples and Pipe for Water(8)|لوله پلی‌اتیلن فاضلاب زیرزمینی|
+Flame-Retardant Drain, Waste, and Vent CPVC Pipe Nipples and Pipe for Chemicals(7)|لوله CPVC فاضلاب شیمیایی|
+Flame-Retardant Drain, Waste, and Vent Polypropylene Pipe Nipples and Pipe for Chemicals(9)|لوله پلی‌پروپیلن فاضلاب شیمیایی|
+Standard-Wall Aluminum Unthreaded Pipe Nipples and Pipe(108)|لوله آلومینیومی بدون رزوه جداره استاندارد|
+Medium-Pressure Aluminum Butt-Weld Pipe Fittings(39)|اتصالات جوشی آلومینیومی فشار متوسط|
+Thick-Wall Aluminum Unthreaded Pipe Nipples and Pipe(59)|لوله آلومینیومی جداره ضخیم|
+Thin-Wall Aluminum Unthreaded Pipe Nipples and Pipe(48)|لوله آلومینیومی جداره نازک|
+Low-Pressure Aluminum Quick-Connect Pipe Fittings(109)|اتصالات سریع آلومینیومی (لوله هوای فشرده)|
+Low-Pressure Aluminum Butt-Weld Pipe Fittings(21)|اتصالات جوشی آلومینیومی فشار پایین|
+Low-Pressure Aluminum Socket-Connect Pipe Fittings(35)|اتصالات ساکتی آلومینیومی|
+Low-Pressure Aluminum Unthreaded Pipe Flanges(33)|فلنج جوشی آلومینیومی|
+High-Pressure Aluminum Butt-Weld Pipe Fittings(16)|اتصالات جوشی آلومینیومی فشار بالا|
+Standard-Wall Aluminum Quick-Connect Pipe Nipples and Pipe(13)|لوله آلومینیومی اتصال سریع|
+Standard-Wall Copper Unthreaded Pipe Nipples and Pipe(18)|لوله مسی بدون رزوه|
+Low-Pressure Copper Butt-Weld Pipe Fittings(18)|اتصالات جوشی مسی|
+Low-Pressure Brass and Bronze Braze-Socket Pipe Fittings(35)|اتصالات لحیمی برنجی|
+Standard-Wall Brass and Bronze Unthreaded Pipe Nipples and Pipe(32)|لوله برنجی بدون رزوه|
+Low-Pressure Brass and Bronze Unthreaded Pipe Flanges(12)|فلنج برنجی بدون رزوه|
+High-Pressure Titanium Threaded Pipe Fittings(19)|اتصالات دنده‌ای تیتانیومی|
+Low-Pressure Copper Threaded Pipe Fittings(9)|اتصالات دنده‌ای مسی|
+Standard-Wall Copper Threaded Pipe Nipples and Pipe(3)|مغزی مسی|
+Low-Pressure Galvanized Iron and Steel Clamp-On Pipe Fittings(28)|اتصالات کلمپی گالوانیزه|
+Low-Pressure Galvanized Iron and Steel Compression Pipe Fittings(7)|اتصالات فشاری گالوانیزه|
+Tape Measures(1)|متر|
+Pipe Stub Ends(154)|استاب‌اند لوله|
+Thread Size Identifiers(8)|شناساگر سایز رزوه|
+Pipe Gaskets(1392)|واشر فلنج|
+Pipe Traps(59)|سیفون لوله|
+Rotary Joints(102)|اتصال دوار (روتاری جوینت)|
+Pipe Repair Clamps(244)|بست تعمیر لوله|
+Pipe Expansion Joints(197)|انبساط لوله (اکسپنشن جوینت)|
+Pipe Wrenches(115)|آچار لوله‌گیر|
+Pipe Size Measuring Kits(4)|کیت سایزسنج لوله|
+Pipe Size Chart/Rulers(3)|خط‌کش سایز لوله|
+Pipeline Fluid Blockers(47)|مسدودکننده خط لوله|
+Drain Gaskets(3)|واشر کف‌شور|
+Pipe Bleed Rings(22)|حلقه تخلیه فلنج|
+Pipe Groovers(11)|شیارزن لوله (گرووینگ)|
