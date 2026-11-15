@@ -1,0 +1,217 @@
+7218|5|Garden Hose Wyes|سه‌راهی Y شیلنگ باغبانی|
+7219|4|Hose Ferrules|بوش پرسی (فرول) شیلنگ|
+7220|4|Hydraulic Hose Fittings & Couplings|اتصالات و کوپلینگ شیلنگ هیدرولیک|
+7221|5|Hydraulic Quick-Connect Couplings|کوپلینگ سریع هیدرولیک|
+7222|6|ISO A Hydraulic Quick-Connect Couplings|کوپلینگ سریع هیدرولیک ISO A|
+7223|6|ISO B Hydraulic Quick-Connect Couplings|کوپلینگ سریع هیدرولیک ISO B|
+7224|6|ISO Flat Face Hydraulic Quick-Connect Couplings|کوپلینگ سریع هیدرولیک سرتخت (فلت‌فیس) ISO|
+7225|6|Pioneer Hydraulic Quick-Connect Couplings|کوپلینگ سریع هیدرولیک Pioneer|
+7226|6|Screw-to-Connect Hydraulic Quick-Connect Couplings|کوپلینگ سریع هیدرولیک پیچی|
+7227|6|Screw-to-Connect Flat Face Hydraulic Quick-Connect Couplings|کوپلینگ سریع هیدرولیک پیچی سرتخت|
+7228|6|Ball-Lock Hydraulic Quick-Connect Couplings|کوپلینگ سریع هیدرولیک ساچمه‌ای|
+7229|6|Snap-Tite Hydraulic Quick-Connect Couplings|کوپلینگ سریع هیدرولیک Snap-Tite|
+7230|6|Liquid Cooling & Transfer Quick-Connect Couplings|کوپلینگ سریع خنک‌کاری و انتقال مایع|
+7231|6|Instrumentation Hydraulic Quick-Connect Couplings|کوپلینگ سریع هیدرولیک ابزار دقیق|
+7232|6|Vacuum Hydraulic Quick-Connect Couplings|کوپلینگ سریع وکیوم|
+7233|6|Diagnostic Port & Sampling Hydraulic Quick-Connect Couplings|کوپلینگ تست پوینت و نمونه‌گیری هیدرولیک|
+7234|6|Non-Interchangeable Hydraulic Quick-Connect Couplings|کوپلینگ سریع هیدرولیک غیرقابل‌تعویض|
+7235|6|Water Blasting Quick-Connect Couplings|کوپلینگ سریع واترجت|
+7236|6|Dust Caps for Hydraulic Quick-Connect Couplings|درپوش گردگیر کوپلینگ هیدرولیک|
+7237|5|Crimp Hydraulic Hose Fittings|سرشیلنگ پرسی هیدرولیک|
+7238|6|Crimp Hydraulic Hose Fittings with BSP Connection|سرشیلنگ پرسی هیدرولیک BSP|
+7239|6|Crimp Hydraulic Hose Fittings with Flange Connection|سرشیلنگ پرسی هیدرولیک فلنجی|
+7240|6|Crimp Hydraulic Hose Fittings with Inverted Flare Connection|سرشیلنگ پرسی هیدرولیک فلر معکوس|
+7241|6|Crimp Hydraulic Hose Fittings with JIC Connection|سرشیلنگ پرسی هیدرولیک JIC|
+7242|6|Crimp Hydraulic Hose Fittings with Metric Connection|سرشیلنگ پرسی هیدرولیک متریک|
+7243|6|Crimp Hydraulic Hose Fittings with NPSM Connection|سرشیلنگ پرسی هیدرولیک NPSM|
+7244|6|Crimp Hydraulic Hose Fittings with NPTF Connection|سرشیلنگ پرسی هیدرولیک NPTF|
+7245|6|Crimp Hydraulic Hose Fittings with ORB Connection|سرشیلنگ پرسی هیدرولیک ORB|
+7246|6|Crimp Hydraulic Hose Fittings with ORFS Connection|سرشیلنگ پرسی هیدرولیک ORFS|
+7247|6|Crimp Hydraulic Hose Fittings with SAE Connection|سرشیلنگ پرسی هیدرولیک SAE|
+7248|5|Hydraulic Hose Fitting Adapters|تبدیل هیدرولیک|
+7249|6|316 Stainless Steel Hydraulic Hose Adapters|تبدیل هیدرولیک استیل 316|
+7250|6|Brass Hydraulic Hose Adapters|تبدیل هیدرولیک برنجی|
+7251|6|Steel Hydraulic Hose Adapters|تبدیل هیدرولیک فولادی|
+7252|6|Hydraulic Hose Adapter Assortments|ست تبدیل هیدرولیک|
+7253|6|Hydraulic Hose Caps & Plugs|درپوش و توپی هیدرولیک|
+7254|6|Hydraulic Flange Adapters|تبدیل فلنج هیدرولیک|
+7255|5|Barbed Hydraulic Hose Fittings|سرشیلنگ خاردار هیدرولیک|
+7256|5|Reusable Hydraulic Hose Fittings|سرشیلنگ هیدرولیک پیچی (قابل استفاده مجدد)|
+7257|5|Swivel-Body Hydraulic Hose Fittings|سرشیلنگ هیدرولیک گردان|
+7258|4|Multipurpose Hose Fittings & Couplings|اتصالات و کوپلینگ شیلنگ چندمنظوره|
+7259|5|Multipurpose Quick-Connect Air Couplings|کوپلینگ سریع باد چندمنظوره|
+7260|6|ARO Quick-Connect Air Couplings|کوپلینگ سریع باد ARO|
+7261|6|Bowes Quick-Connect Air Couplings|کوپلینگ سریع باد Bowes|
+7262|6|European High-Flow Quick-Connect Air Couplings|کوپلینگ سریع باد اروپایی پرجریان|
+7263|6|Global-Style High-Flow Quick-Connect Air Couplings|کوپلینگ سریع باد پرجریان استاندارد جهانی|
+7264|6|Industrial Interchange Quick-Connect Air Couplings|کوپلینگ سریع باد صنعتی (Industrial)|
+7265|6|Japanese-Style High-Flow Quick-Connect Air Couplings|کوپلینگ سریع باد ژاپنی پرجریان|
+7266|6|Lincoln Quick-Connect Air Couplings|کوپلینگ سریع باد Lincoln|
+7267|6|Schrader Quick-Connect Air Couplings|کوپلینگ سریع باد Schrader|
+7268|6|Thor Quick-Connect Air Couplings|کوپلینگ سریع باد Thor|
+7269|6|Tru-Flate Automotive Quick-Connect Air Couplings|کوپلینگ سریع باد خودرویی Tru-Flate|
+7270|6|Universal Interchange Quick-Connect Air Couplings|کوپلینگ سریع باد یونیورسال|
+7271|5|Threaded Swivel Air Fittings|اتصال باد گردان دنده‌ای|
+7272|5|Reusable Multipurpose Hose Fittings|سرشیلنگ چندمنظوره قابل استفاده مجدد|
+7273|5|Barbed & Beaded Multipurpose Hose Fittings|سرشیلنگ خاردار و برجسته چندمنظوره|
+7274|6|Push-On Barbed Hose Fittings|سرشیلنگ خاردار فشاری (پوش‌آن)|
+7275|6|Barbed Hose Fittings and Menders|سرشیلنگ خاردار و وصله شیلنگ|
+7276|6|Beaded Barbed Hose Fittings|سرشیلنگ خاردار لبه‌دار|
+7277|4|Steam Hose Fittings, Couplings & Clamps|اتصالات، کوپلینگ و بست شیلنگ بخار|
+7278|5|Steam Hose Barbed Fittings|سرشیلنگ خاردار بخار|
+7279|5|Steam Hose Clamps|بست شیلنگ بخار|
+7280|5|Steam Hose Ground-Joint Couplings|کوپلینگ گراند‌جوینت شیلنگ بخار|
+7281|5|Steam Hose Ground-Joint Coupling Spuds|سرشیلنگ کوپلینگ گراند‌جوینت بخار|
+7282|4|Abrasive Blasting Hose Couplings|کوپلینگ شیلنگ سندبلاست|
+7283|4|Duct Hose Connectors|رابط شیلنگ خرطومی|
+7284|3|Hose Reels|قرقره شیلنگ|
+7285|4|Air & Electric Combination Spring-Return Hose Reels|قرقره فنری ترکیبی باد و برق|
+7286|4|Air & Water Spring-Return Hose Reels|قرقره شیلنگ فنری باد و آب|
+7287|5|Air-Only Spring-Return Hose Reels|قرقره شیلنگ فنری باد|
+7288|5|Air or Water Spring-Return Hose Reels|قرقره شیلنگ فنری باد یا آب|
+7289|5|Pre-Rinse, Garden & Potable Water Spring-Return Hose Reels|قرقره شیلنگ فنری پیش‌شستشو، باغبانی و آب شرب|
+7290|5|Washdown & Pressure Washer Spring-Return Hose Reels|قرقره شیلنگ فنری شستشو و کارواش|
+7291|4|Fuel Spring-Return Hose Reels|قرقره شیلنگ فنری سوخت|
+7292|5|DEF Spring-Return Hose Reels|قرقره شیلنگ فنری ادبلو (DEF)|
+7293|5|Gas Spring-Return Hose Reels|قرقره شیلنگ فنری گاز|
+7294|4|Garden Hose Reels & Hangers|قرقره و آویز شیلنگ باغبانی|ترکیبی
+7295|4|Grease Spring-Return Hose Reels|قرقره شیلنگ فنری گریس|
+7296|4|Hose Reel Parts & Accessories|قطعات و لوازم جانبی قرقره شیلنگ|
+7297|5|Hose Reel Bumper Stops|ضربه‌گیر توقف قرقره شیلنگ|
+7298|5|Hose Reel Drive Spring Assemblies|مجموعه فنر قرقره شیلنگ|
+7299|5|Hose Reel Latch Pawl Assemblies & Latch Springs|ضامن و فنر ضامن قرقره شیلنگ|
+7300|5|Hose Reel Leader Hoses|شیلنگ رابط قرقره|
+7301|5|Hose Reel Mounting & Stacking Brackets|براکت نصب و روی‌هم‌چینی قرقره|
+7302|5|Hose Reel Roller Guide Assemblies|راهنمای غلتکی قرقره شیلنگ|
+7303|5|Hose Reel Swivels|گردان (سوییول) قرقره شیلنگ|
+7304|4|Multipurpose Hand-Crank Hose Reels|قرقره شیلنگ دستی (هندلی) چندمنظوره|
+7305|4|Multipurpose Motorized Hose Reels|قرقره شیلنگ موتوری چندمنظوره|
+7306|4|Oil & Hydraulic Oil Spring-Return Hose Reels|قرقره شیلنگ فنری روغن و روغن هیدرولیک|
+7307|4|Vacuum Hose Reels|قرقره شیلنگ وکیوم|
+7308|4|Welding Hose Reels|قرقره شیلنگ جوشکاری|
+7309|3|Hose Protection|محافظ شیلنگ|
+7310|4|Hose Protection Sleeves & Tape|غلاف و نوار محافظ شیلنگ|
+7311|4|Hose Protection Wraps & Guards|روکش مارپیچ و گارد محافظ شیلنگ|
+7312|4|Hose Bend Restrictors & Strain Relievers|محدودکننده خمش و ضدکشش شیلنگ|
+7313|4|Hose Spacers & Looms|فاصله‌انداز و غلاف شیلنگ|
+7314|4|Hose Bundling & Camlock Straps|تسمه دسته‌کن شیلنگ و تسمه کام‌لاک|
+7315|4|Hose Hanging Straps|تسمه آویز شیلنگ|
+7316|3|Hose Safety Restraints|مهار ایمنی شیلنگ (ویپ‌چک)|
+7317|3|Flexible Hose Systems|سیستم شیلنگ مفصلی|
+7318|4|Loc-Line Coolant Hose Systems|سیستم شیلنگ مفصلی آب صابون Loc-Line|
+7319|5|Loc-Line Coolant Hose Kits|کیت شیلنگ مفصلی Loc-Line|
+7320|5|Loc-Line Coolant Hose|شیلنگ مفصلی Loc-Line|
+7321|5|Nozzles for Loc-Line Coolant Hose|نازل شیلنگ مفصلی Loc-Line|
+7322|5|Fittings & Adapters for Loc-Line Coolant Hose|اتصال و تبدیل شیلنگ مفصلی Loc-Line|
+7323|5|Valves for Loc-Line Coolant Hose|شیر شیلنگ مفصلی Loc-Line|
+7324|5|Manifolds for Loc-Line Coolant Hose|منیفولد شیلنگ مفصلی Loc-Line|
+7325|5|Installation Tools for Loc-Line Coolant Hose Systems|ابزار نصب شیلنگ مفصلی Loc-Line|
+7326|4|Snap-Loc Coolant Hose Systems|سیستم شیلنگ مفصلی آب صابون Snap-Loc|
+7327|4|Acid-Resistant Loc-Line Coolant Hose Systems|سیستم شیلنگ مفصلی Loc-Line ضداسید|
+7328|4|Loc-Line Vacuum Hose Systems|سیستم شیلنگ مفصلی وکیوم Loc-Line|
+7329|4|Antistatic Loc-Line Vacuum Hose Systems|سیستم شیلنگ مفصلی وکیوم Loc-Line آنتی‌استاتیک|
+7330|2|Tube & Tube Fittings|تیوب و اتصالات تیوب|
+7331|3|Tubing|تیوب (لوله باریک)|
+7332|4|Metal Tubing|تیوب فلزی|
+7333|5|Copper Tubing for Plumbing & HVAC|لوله مسی لوله‌کشی و تاسیسات|
+7334|5|Corrosion-Resistant Stainless Steel Tubing|تیوب استیل ضدخوردگی|
+7335|6|Stainless Steel Sanitary Tubing|تیوب استیل بهداشتی (سنیتری)|
+7336|6|General Purpose Stainless Steel Tubing|تیوب استیل همه‌منظوره|
+7337|6|Stainless Steel Vacuum Tubing|تیوب استیل وکیوم|
+7338|5|Multipurpose Steel Tubing|تیوب فولادی چندمنظوره|
+7339|6|1/4 in|1/4 اینچ|
+7340|5|Lightweight Aluminum Tubing|تیوب آلومینیومی سبک|
+7341|5|Heat-Resistant Nickel-Chromium Tubing|تیوب نیکل‌کروم نسوز|
+7342|4|Plastic & Rubber Tubing|تیوب (شلنگ) پلاستیکی و لاستیکی|
+7343|5|Multipurpose PVC Tubing|شلنگ PVC چندمنظوره|
+7344|6|Food & Beverage PVC Tubing|شلنگ PVC مواد غذایی|
+7345|6|Industrial Air & Water PVC Tubing|شلنگ PVC صنعتی باد و آب|
+7346|6|Chemical-Resistant PVC Tubing|شلنگ PVC مقاوم شیمیایی|
+7347|6|Fuel & Lubricant PVC Tubing|شلنگ PVC سوخت و روان‌کار|
+7348|6|Drain Line PVC Tubing|شلنگ PVC تخلیه (درین)|
+7349|6|Breathing Air PVC Tubing|شلنگ PVC هوای تنفسی|
+7350|6|Pond & Fountain PVC Tubing|شلنگ PVC حوضچه و آبنما|
+7351|5|Abrasion-Resistant Polyurethane Tubing|شلنگ پلی‌اورتان (PU) ضدسایش|
+7352|6|Food & Beverage Polyurethane Tubing|شلنگ پلی‌اورتان مواد غذایی|
+7353|6|Air & Water Polyurethane Tubing|شلنگ پلی‌اورتان باد و آب (پنوماتیک)|
+7354|6|Fuel & Lubricant Polyurethane Tubing|شلنگ پلی‌اورتان سوخت و روان‌کار|
+7355|6|Laboratory & Medical Polyurethane Tubing|شلنگ پلی‌اورتان آزمایشگاهی و پزشکی|
+7356|5|Lightweight Polyethylene Tubing|شلنگ پلی‌اتیلن سبک|
+7357|6|Food & Beverage Polyethylene Tubing|شلنگ پلی‌اتیلن مواد غذایی|
+7358|6|Air & Water Polyethylene Tubing|شلنگ پلی‌اتیلن باد و آب|
+7359|6|Gas Line Polyethylene Tubing|لوله پلی‌اتیلن گاز|
+7360|6|Laboratory & Medical Polyethylene Tubing|شلنگ پلی‌اتیلن آزمایشگاهی و پزشکی|
+7361|5|High-Pressure Nylon Tubing|شلنگ نایلونی (پلی‌آمید) فشار بالا|
+7362|6|General Purpose Nylon Tubing|شلنگ نایلونی همه‌منظوره|
+7363|6|Air Brake Nylon Tubing & Coiled Assemblies|شلنگ نایلونی و فنری ترمز بادی|
+7364|5|Crack-Resistant Polypropylene Tubing|شلنگ پلی‌پروپیلن ضدترک|
+7365|5|High-Temperature & Chemical-Resistant PTFE Tubing|شلنگ تفلونی (PTFE) نسوز و مقاوم شیمیایی|
+7366|6|Food & Beverage PTFE Tubing|شلنگ تفلونی مواد غذایی|
+7367|6|Chemical-Resistant PTFE Tubing|شلنگ تفلونی مقاوم شیمیایی|
+7368|5|Chemical-Resistant FEP Tubing|شلنگ FEP مقاوم شیمیایی|
+7369|5|Low Temperature Chemical-Resistant EVA Tubing|شلنگ EVA مقاوم شیمیایی دمای پایین|
+7370|5|Chemical-Resistant PFA Tubing|شلنگ PFA مقاوم شیمیایی|
+7371|5|PEX Tubing for Plumbing|لوله پکس (PEX) لوله‌کشی|
+7372|5|High-Temperature Silicone Tubing|شلنگ سیلیکونی دمای بالا|
+7373|6|Food & Beverage Silicone Tubing|شلنگ سیلیکونی مواد غذایی|
+7374|6|Biopharmaceutical & Medical Silicone Tubing|شلنگ سیلیکونی دارویی و پزشکی|
+7375|5|Flame-Resistant Neoprene Tubing|شلنگ نئوپرن مقاوم شعله|
+7376|6|Food & Beverage Neoprene Tubing|شلنگ نئوپرن مواد غذایی|
+7377|6|Chemical-Resistant Neoprene Tubing|شلنگ نئوپرن مقاوم شیمیایی|
+7378|5|Chemical-Resistant Santoprene Tubing|شلنگ سانتوپرن مقاوم شیمیایی|
+7379|5|Chemical-Resistant Viton Tubing|شلنگ وایتون مقاوم شیمیایی|
+7380|5|Weather-Resistant EPDM Tubing|شلنگ EPDM مقاوم آب‌وهوا|
+7381|5|Oil-Resistant Buna-N Tubing|شلنگ نیتریل (بونا-N) ضدروغن|
+7382|5|Flexible Latex Tubing|شلنگ لاتکس انعطاف‌پذیر|
+7383|5|Abrasion-Resistant Natural Gum Rubber Tubing|شلنگ لاستیک طبیعی ضدسایش|
+7384|3|Tube Fittings|اتصالات تیوب|
+7385|4|Press Tube Fittings|اتصالات پرسی تیوب|
+7386|5|Copper & Bronze Press Tube Fittings|اتصالات پرسی مسی و برنزی|
+7387|5|Stainless Steel Press Tube Fittings|اتصالات پرسی استیل|
+7388|4|Sweat & Solder Copper Tube Fittings|اتصالات مسی لحیمی|
+7389|4|Push-to-Connect Tube Fittings|اتصال فشاری (پنوماتیک)|
+7390|5|Air & Fluid Push-to-Connect Tube Fittings|اتصال فشاری باد و سیال|
+7391|5|Food & Beverage Push-to-Connect Tube Fittings|اتصال فشاری مواد غذایی|
+7392|5|Potable Water Push-to-Connect Tube Fittings|اتصال فشاری آب شرب|
+7393|5|DOT Push-to-Connect Tube Fittings|اتصال فشاری DOT (ترمز بادی)|
+7394|5|Refrigerant Push-to-Connect Tube Fittings|اتصال فشاری مبرد|
+7395|5|Weld Spatter-Resistant Push-to-Connect Tube Fittings|اتصال فشاری مقاوم به پاشش جوش|
+7396|5|Cleanroom Push-to-Connect Tube Fittings|اتصال فشاری اتاق تمیز|
+7397|5|Antistatic Push-to-Connect Tube Fittings|اتصال فشاری آنتی‌استاتیک|
+7398|4|Compression Tube Fittings|اتصالات دوبل (فشاری مهره‌ای)|
+7399|5|Brass Compression Tube Fittings|اتصالات دوبل برنجی|
+7400|6|Standard Brass Compression Tube Fittings|اتصالات دوبل برنجی استاندارد|
+7401|6|Instrumentation Brass Compression Tube Fittings|اتصالات دوبل برنجی ابزار دقیق|
+7402|6|Fleet & Vehicle Brass Compression Tube Fittings|اتصالات دوبل برنجی خودرو و ناوگان|
+7403|6|Compressed Air System Brass Compression Tube Fittings|اتصالات دوبل برنجی سیستم هوای فشرده|
+7404|6|Waterworks Service Brass Compression Fittings|اتصالات دوبل برنجی شبکه آب‌رسانی|
+7405|5|Steel Compression Tube Fittings|اتصالات دوبل فولادی|
+7406|6|Steel Compression Tube Fittings for Buriable Gas|اتصالات دوبل فولادی گاز دفنی|
+7407|6|Hydraulic Steel Compression Tube Fittings|اتصالات دوبل فولادی هیدرولیک|
+7408|6|Instrumentation Steel Compression Tube Fittings|اتصالات دوبل فولادی ابزار دقیق|
+7409|5|Stainless Steel Compression Tube Fittings|اتصالات دوبل استیل|
+7410|6|Hydraulic Stainless Steel Compression Tube Fittings|اتصالات دوبل استیل هیدرولیک|
+7411|6|Instrumentation Stainless Steel Compression Tube Fittings|اتصالات دوبل استیل ابزار دقیق|
+7412|5|Nickel-Copper Alloy Compression Tube Fittings|اتصالات دوبل مونل (نیکل-مس)|
+7413|5|Nylon Compression Tube Fittings|اتصالات دوبل نایلونی|
+7414|5|PFA Compression Tube Fittings|اتصالات دوبل PFA|
+7415|5|Polypropylene Compression Tube Fittings|اتصالات دوبل پلی‌پروپیلن|
+7416|5|PVDF Compression Tube Fittings|اتصالات دوبل PVDF|
+7417|5|Acetal Compression Tube Fittings|اتصالات دوبل استال (پلی‌استال)|
+7418|4|Barbed Tube & PEX Fittings|اتصالات خاردار و اتصالات پکس|
+7419|5|Acetal Barbed Tube Fittings|اتصال خاردار استال|
+7420|5|Aluminum Barbed Tube Fittings|اتصال خاردار آلومینیومی|
+7421|5|Brass & Polymer Barbed Tube Fittings for PEX|اتصال خاردار برنجی و پلیمری پکس|
+7422|5|Brass Barbed Tube Fittings|اتصال خاردار برنجی (سرشیلنگی)|
+7423|5|Nylon Barbed Tube Fittings|اتصال خاردار نایلونی|
+7424|5|Polyethylene Barbed Tube Fittings|اتصال خاردار پلی‌اتیلن|
+7425|5|Polypropylene Barbed Tube Fittings|اتصال خاردار پلی‌پروپیلن|
+7426|5|PVC Barbed Tube Fittings|اتصال خاردار PVC|
+7427|5|PVDF Barbed Tube Fittings|اتصال خاردار PVDF|
+7428|5|Stainless Steel Barbed Tube Fittings|اتصال خاردار استیل|
+7429|4|Flare Tube Fittings|اتصالات فلر (پرچی)|
+7430|5|45-Degree Flare Tube Fittings|اتصالات فلر 45 درجه|
+7431|5|Bubble Flare Tube Fittings|اتصالات فلر حبابی (بابل)|
+7432|5|Inverted Flare Tube Fittings|اتصالات فلر معکوس|
+7433|4|Solvent-Weld Tube Fittings|اتصالات چسبی (سالونت‌ولد)|
+7434|4|Quick-Disconnect Tube Fittings|اتصال سریع تیوب|

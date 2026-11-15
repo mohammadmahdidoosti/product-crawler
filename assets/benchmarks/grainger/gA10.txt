@@ -1,0 +1,103 @@
+2442|4|Poly Top Food Service Worktables|میز کار رویه پلی‌اتیلن|
+2443|4|Portable Prep Worktables|میز آماده‌سازی قابل حمل|
+2444|4|Food Service Equipment Stands & Filler Tables|پایه تجهیزات آشپزخانه و میز پرکننده|
+2445|4|Food Service Worktable Shelves, Drawers & Casters|طبقه، کشو و چرخ میز کار آشپزخانه|
+2446|2|Tableware & Service Supplies|ظروف سرو و ملزومات پذیرایی|
+2447|3|Tableware|ظروف غذاخوری|ترکیبی
+2448|4|Dinnerware|سرویس غذاخوری (بشقاب و کاسه)|
+2449|4|Drinkware|لیوان و ظروف نوشیدنی|
+2450|5|Coffee Mugs & Travel Cups|ماگ قهوه و لیوان سفری|
+2451|5|Glassware|ظروف شیشه‌ای (لیوان شیشه‌ای)|
+2452|5|Tumblers & Plastic Drinkware|تامبلر و لیوان پلاستیکی|
+2453|4|Flatware|قاشق و چنگال|
+2454|4|Sauce Cups & Ramekins|ظرف سس و رامکین|
+2455|4|Food Baskets|سبد سرو غذا|
+2456|4|Table & Chair Linens|رومیزی و روکش صندلی|
+2457|5|Tablecloths & Table Skirts|رومیزی و دامن میز|
+2458|5|Chair Covers|روکش صندلی|
+2459|5|Cloth Napkins|دستمال سفره پارچه‌ای|
+2460|4|Condiment Racks & Containers|جای سس و ادویه|
+2461|4|Candles & Votives|شمع و جاشمعی|
+2462|4|Table Numbers & Card Holders|شماره میز و جاکارتی|
+2463|4|Table Crumbers|خرده‌جمع‌کن میز|
+2464|4|Server Trays & Tray Stands|سینی سرو و پایه سینی|
+2465|4|Ash Trays|زیرسیگاری|
+2466|4|Money Maids|کیف پول گارسون|
+2467|4|High Chairs, Booster Seats & Trays|صندلی غذای کودک، بوستر و سینی|
+2468|3|Buffet Service & Serving Line Equipment|تجهیزات سرو بوفه و سلف‌سرویس|
+2469|4|Beverage Pitchers & Servers|پارچ و ظرف سرو نوشیدنی|
+2470|4|Beverage Dispensers|دیسپنسر نوشیدنی (کلمن شیردار)|
+2471|4|Coffee Decanters, Airpots & Urns|قوری قهوه، فلاسک پمپی و سماور|
+2472|4|Carving Stations|ایستگاه برش گوشت|
+2473|4|Heat Lamps|لامپ گرم‌نگهدار غذا|
+2474|4|Food Display Trays, Platters & Covers|دیس، سینی نمایش و درپوش غذا|
+2475|4|Chafers, Buffet Servers, Griddles & Warming Fuels|سوفله‌خوری (شیفینگ دیش)، ظرف بوفه و سوخت ژله‌ای|
+2476|4|Serving Bowls|کاسه سرو|
+2477|4|Serving Utensils|ابزار سرو (ملاقه و کفگیر)|
+2478|4|Ladles, Dishers & Portion Control Spoons|ملاقه، اسکوپ و قاشق پیمانه|
+2479|4|Condiment Pumps, Cylinders & Organizers|پمپ سس، ظرف و نظم‌دهنده چاشنی|
+2480|4|Buffet Signs, Plate Stands & Riser Sets|تابلو بوفه، پایه بشقاب و پایه طبقاتی|
+2481|4|Food Stations|ایستگاه سرو غذا|
+2482|4|Bain Marie Pots & Food Crocks|ظرف بن‌ماری و ظرف سفالی|
+2483|4|Cafeteria Food Service Trays|سینی سلف‌سرویس|
+2484|4|Steam Table Pans & Covers|ظرف گاسترونوم و درب|
+2485|4|Syrup & Dressing Dispensers|دیسپنسر شربت و سس سالاد|
+2486|4|Beverage Stations|ایستگاه نوشیدنی|
+2487|3|Bartending Supplies|ملزومات بار و کافه|
+2488|4|Beverage Tubs & Wine & Ice Buckets|تشت نوشیدنی و سطل یخ|
+2489|4|Drainboards|آبچکان|
+2490|4|Cocktail Shakers|شیکر|
+2491|4|Corkscrews, Bottle Openers & Stoppers|چوب‌پنبه‌کش، درباز‌کن بطری و درپوش|ترکیبی
+2492|4|Liquor Display Cabinets|ویترین نمایش بطری|
+2493|4|Bar Utensils|ابزار بار (جیگر، قاشق بار)|
+2494|4|Liquor Pourers|سرریز بطری (پورر)|
+2495|4|Bar Towels|حوله بار|
+2496|4|Bar Caddies|جاابزاری بار|
+2497|4|Condiment Bars|ظرف چاشنی بار|
+2498|4|Bar Mats, Coasters & Shelf Liners|زیرلیوانی، مت بار و کفی قفسه|
+2499|4|Glass & Speed Racks|قفسه لیوان و قفسه بطری سریع|
+2500|4|Portable Bars|بار سیار (کانتر قابل حمل)|
+2501|4|Bar Sinks & Baskets|سینک بار و سبد|
+2502|3|Food Service Apparel|پوشاک آشپزخانه|
+2503|4|Aprons|پیش‌بند|ترکیبی
+2504|4|Chef Coats|روپوش سرآشپز|
+2505|4|Chef Pants|شلوار آشپزی|
+2506|4|Kitchen Shirts|پیراهن آشپزخانه|
+2507|4|Kitchen Headwear|کلاه آشپزی و تور مو|
+2508|2|Food Service Transportation|حمل‌ونقل غذا|
+2509|3|Meal Delivery Service Equipment for Institutions|تجهیزات توزیع غذای مراکز (بیمارستان و سازمان)|
+2510|4|Meal Delivery Carts|ترولی توزیع غذا|
+2511|4|Meal Trays for Institutions|سینی غذای سازمانی|
+2512|4|Healthcare Tableware|ظروف غذای بیمارستانی|
+2513|4|High-Heat Disposable Dishware|ظروف یک‌بارمصرف مقاوم به حرارت|
+2514|4|Pellet Underliners, Bases & Domes|زیربشقابی، پایه گرم‌نگهدار و درپوش گنبدی|
+2515|4|Induction Charger Stands|پایه شارژ القایی گرم‌نگهدار|
+2516|4|Convalescent Gowns|گان بیمار|
+2517|4|Patient Protectors & Bibs|پیش‌بند غذای بیمار|
+2518|3|Vending & Kiosk Carts|ترولی فروش و کیوسک سیار|
+2519|3|Merchandising & Carryout Shelving|قفسه فروش و بیرون‌بر|
+2520|3|Meal Service & Bussing Transport|حمل غذا و جمع‌آوری ظروف|
+2521|4|Banquet Carts|ترولی گرم‌نگهدار ضیافت|
+2522|4|Insulated Food Carriers|باکس عایق حمل غذا (ترموباکس)|
+2523|4|Bus Tubs & Lids|تشت جمع‌آوری ظروف و درب|
+2524|4|Dishwasher Racks|سبد ماشین ظرفشویی|
+2525|4|Dish & Glass Dollies|دالی حمل بشقاب و لیوان|
+2526|4|Bussing & Kitchen Utility Carts|ترولی جمع‌آوری ظروف و ترولی آشپزخانه|
+2527|4|Dish & Tray Drying Racks|آبچکان بشقاب و سینی|
+2528|4|Tray, Plate & Flatware Dispensers|دیسپنسر سینی، بشقاب و قاشق چنگال|
+2529|4|Kitchen Utility Dollies|دالی آشپزخانه|
+2530|4|Flatware Cylinders & Cutlery Dispensers|جاقاشقی استوانه‌ای و دیسپنسر قاشق چنگال|
+2531|4|Room Service Carts & Tables|ترولی و میز روم‌سرویس|
+2532|4|Plate Covers|درپوش بشقاب|
+2533|4|Flatware Retrievers|جمع‌کن قاشق و چنگال (مغناطیسی)|
+2534|2|Food & Beverage Processing Supplies|ملزومات فرآوری غذا و نوشیدنی|
+2535|3|Hygienic Shovels|بیل بهداشتی|
+2536|3|Hygienic Hand & Bowl Scoops|اسکوپ دستی و کاسه‌ای بهداشتی|
+2537|3|Hygienic Scrapers & Hoes|کاردک و کج‌بیل بهداشتی|
+2538|3|Hygienic Mixing Paddles|پارو همزن بهداشتی|
+2539|3|Hygienic Rakes & Forks|شن‌کش و چنگک بهداشتی|
+2540|3|Hygienic Dairy Pails|سطل لبنیات بهداشتی|
+2541|3|Food Processing Cutlery & Shears|کارد و قیچی فرآوری غذا (قصابی)|
+2542|3|Beverage Regulators|رگولاتور گاز نوشیدنی (CO2)|
+2543|3|Food Processing Brushes|برس فرآوری غذا|
+2544|3|Large Food Processing Mixers|همزن بزرگ فرآوری غذا|

@@ -266,7 +266,7 @@
 4730|4|End Mill Holders & Adapters|فرزگیر (ساید لاک) و تبدیل|
 4731|4|End Mill Holder Blanks|بلنک فرزگیر|
 4732|4|End Mill Holder Accessories|لوازم جانبی فرزگیر|
-4733|3|Milling Chucks|فرزگیر هیدرولیکی/قوی (میلینگ چاک)|
+4733|3|Milling Chucks|میلینگ چاک (فرزگیر قوی)|
 4734|3|Face Mill Holders|هولدر کف‌تراش|
 4735|3|Shell Mill Holders|هولدر فرز پوسته‌ای (شل میل)|
 4736|3|Boring Heads & Holders|سر بورینگ و هولدر|

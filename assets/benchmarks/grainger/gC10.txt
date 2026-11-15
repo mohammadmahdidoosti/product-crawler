@@ -1,0 +1,81 @@
+7435|4|High-Purity Stainless Steel Compression Tube Fittings|اتصالات دوبل استیل خلوص بالا|
+7436|4|Sanitary Tube Fittings & Gaskets|اتصالات و واشر بهداشتی (سنیتری)|
+7437|5|3A Sanitary Tube Fittings for Food & Dairy|اتصالات بهداشتی 3A صنایع غذایی و لبنی|
+7438|5|BPE Sanitary Tube Fittings for Bioprocessing|اتصالات بهداشتی BPE فرایندهای زیستی|
+7439|5|Unpolished Sanitary Fittings for Industrial Use|اتصالات بهداشتی پولیش‌نشده صنعتی|
+7440|5|Sanitary Gaskets|واشر بهداشتی (تری‌کلمپ)|
+7441|6|Food & Dairy Sanitary Gaskets|واشر بهداشتی صنایع غذایی و لبنی|
+7442|6|Bioprocessing Sanitary Gaskets|واشر بهداشتی فرایندهای زیستی|
+7443|6|Cleanroom Sanitary Gaskets|واشر بهداشتی اتاق تمیز|
+7444|4|Vacuum Tube Fittings|اتصالات وکیوم|
+7445|2|Tube & Hose Fitting Clamps|بست شیلنگ و تیوب|
+7446|3|Worm Gear Tube & Hose Clamps|بست شیلنگ حلزونی (پیچی)|
+7447|3|Bolt-Close Clamps for Tube & Hose|بست شیلنگ پیچ‌دار (T-bolt)|
+7448|3|Crimp-On Ear Clamps for Tube & Hose|بست گوش‌دار پرسی (اوتیکر)|
+7449|3|Buckle-On Band Clamps for Tube & Hose|بست تسمه‌ای سگک‌دار|
+7450|3|Snap-On Clamps for Tube & Hose|بست کلیپسی شیلنگ|
+7451|3|Spring-Tension Clamps for Tube & Hose|بست فنری شیلنگ|
+7452|3|Heat-Shrink Clamps for Tube & Hose|بست حرارتی (شرینک) شیلنگ|
+7453|3|Tube & Hose Clamp Kits|ست بست شیلنگ|
+7454|2|Tube & Pipe Routing Clamps, Supports & Hangers|بست، ساپورت و آویز لوله و تیوب|
+7455|3|Surface-Mount Tube & Pipe Clamps|بست لوله نصب سطحی|
+7456|4|Strut Channel Tube & Pipe Clamps|بست لوله ریل یونیسترات|
+7457|4|Cushioned Beta Clamps for Tube & Pipe|بست لوله لاستیک‌دار (بتا کلمپ)|
+7458|4|Strap Clamps for Tube & Pipe|بست امگا (تسمه‌ای) لوله|
+7459|4|Loop Clamps for Tube & Pipe|بست حلقوی لوله (P کلمپ)|
+7460|4|Nail Clamps for Tube & Pipe|بست میخی لوله|
+7461|4|Tube Fastening Clips|کلیپس نگهدارنده تیوب|
+7462|4|Bell Hangers for Tube & Pipe|بست آویز زنگوله‌ای لوله|
+7463|4|Bolt-Close Clamps for Tube & Pipe|بست لوله پیچ‌دار|
+7464|4|Clip Clamps for Tube & Pipe|بست کلیپسی لوله|
+7465|4|Stud-Mounted Hangers for Tube & Pipe|بست آویز پیچ‌دار (روی استاد)|
+7466|3|Surface-Mount Tube & Pipe Supports|ساپورت لوله نصب سطحی|
+7467|4|Tube & Pipe Rollers|غلتک ساپورت لوله|
+7468|4|Support Stanchions for Tube & Pipe|پایه ساپورت لوله|
+7469|4|Support Blocks for Tube & Pipe|بلوک ساپورت لوله|
+7470|4|Support Brackets for Tube & Pipe|براکت ساپورت لوله|
+7471|4|Insulation Saddles & Shields for Tube & Pipe|زین و محافظ عایق لوله|
+7472|4|Tube & Pipe Racks|رک لوله (پایپ رک)|
+7473|4|Routing Supports for PEX Tubing|ساپورت مسیر لوله پکس|
+7474|3|Suspended Tube & Pipe Hangers|آویز لوله و تیوب|
+7475|4|Loop Hangers for Tube & Pipe|آویز حلقوی لوله|
+7476|4|Split-Ring Hangers for Tube & Pipe|آویز دوتکه (اسپلیت رینگ) لوله|
+7477|4|Hanger Straps for Tube & Pipe|تسمه آویز لوله (تسمه سوراخ‌دار)|
+7478|4|Suspended Pipe Rollers|غلتک آویز لوله|
+7479|4|Wire Rope Hangers|آویز سیم‌بکسلی|
+7480|4|Riser Clamps for Tube & Pipe|بست رایزر لوله|
+7481|4|Snap-On Hangers for Tube|آویز کلیپسی تیوب|
+7482|4|Beam Clamps for Threaded Rod|بست تیرآهن (بیم کلمپ) میله رزوه‌ای|
+7483|4|Hanging Plates for Threaded Rod|صفحه آویز میله رزوه‌ای|
+7484|2|Tube & Pipe Insulation, Jacketing & Coatings|عایق، روکش و پوشش لوله|
+7485|3|Equipment, Tube & Pipe Insulation|عایق تجهیزات و لوله|
+7486|4|Flexible Foam Rubber Insulation|عایق فوم الاستومری انعطاف‌پذیر|
+7487|5|Lightweight Polyethylene Foam Rubber Insulation|عایق فوم پلی‌اتیلن سبک|
+7488|5|Oil-Resistant Buna-N Foam Rubber Insulation|عایق فوم نیتریل ضدروغن (آرمافلکس)|
+7489|5|Weather-Resistant EPDM Foam Rubber Insulation|عایق فوم EPDM مقاوم آب‌وهوا|
+7490|4|Breathable Melamine Foam Insulation|عایق فوم ملامینه تنفسی|
+7491|4|Rigid Polyisocyanurate Foam Insulation|عایق فوم سخت پلی‌ایزوسیانورات (PIR)|
+7492|4|Lightweight Fiberglass Insulation|عایق پشم شیشه سبک|
+7493|4|High-Temperature Mineral Wool Insulation|عایق پشم سنگ دمای بالا|
+7494|4|High-Temperature Cell Glass Insulation|عایق شیشه سلولی (فوم گلاس) دمای بالا|
+7495|4|Extreme-Temperature Ceramic Fiber Insulation|عایق الیاف سرامیکی (پشم سرامیک) دمای خیلی بالا|
+7496|4|Soft Cotton Insulation|عایق پنبه‌ای نرم|
+7497|4|Removable Insulation Covers|کاور عایق قابل‌جداشدن (ژاکت عایق)|
+7498|4|Compressed-Fiber Rope-Edge Seals|نوار آب‌بندی طنابی الیاف فشرده|
+7499|4|High-Temperature Rigid Mica Insulation|عایق میکا سخت دمای بالا|
+7500|3|Insulation Shielding Jackets|روکش محافظ عایق (جکتینگ)|
+7501|3|Insulation Tapes, Coatings & Adhesives|نوار، پوشش و چسب عایق|
+7502|4|Insulation Tape|نوار عایق لوله|
+7503|4|Contact Adhesives for Insulation|چسب تماسی عایق|
+7504|4|Insulation Coatings|پوشش عایق (ماستیک)|
+7505|4|Insulation Banding|تسمه بست عایق|
+7506|2|Tube & Pipe Blocking Plugs|توپی مسدودکننده لوله (پلاگ تست)|
+7507|3|Mechanical Blocking Plugs|توپی مسدودکننده مکانیکی|
+7508|3|Mechanical Blocking Plugs with Bypass|توپی مسدودکننده مکانیکی با بای‌پس|
+7509|3|Inflatable Blocking Plugs|توپی بادی مسدودکننده لوله|
+7510|3|Inflatable Blocking Plugs with Bypass|توپی بادی مسدودکننده با بای‌پس|
+7511|3|Blocking Plug Replacement Parts & Accessories|قطعات یدکی و لوازم جانبی توپی مسدودکننده|
+7512|3|Pipe Testing Equipment|تجهیزات تست لوله (تست فشار)|
+7513|2|Tube & Pipe Repair Clamps & Kits|بست و کیت تعمیر لوله|
+7514|2|Pipe, Hose, Tube Cleaners & Accessories|تمیزکننده لوله و شیلنگ و لوازم جانبی|
+7515|2|Tube & Pipe Manifolds|منیفولد لوله|

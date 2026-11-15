@@ -1,0 +1,259 @@
+4740|3|Retention Knobs|پول استاد (ریتنشن ناب)|
+4741|3|CNC Toolholder Tightening Fixtures|فیکسچر بستن هولدر CNC|
+4742|3|CNC Toolholder Storage|جای نگهداری هولدر CNC|
+4743|4|CNC Toolholder Carts|ترولی هولدر CNC|
+4744|4|CNC Toolholder Lockers|کمد هولدر CNC|
+4745|4|CNC Toolholder Racks|رک هولدر CNC|
+4746|4|CNC Toolholder Workstations|میز کار هولدر CNC|
+4747|4|CNC Toolholder Storage Accessories|لوازم جانبی نگهداری هولدر|
+4748|2|Clamping, Workholding & Positioning|قیدوبند، نگهداری قطعه‌کار و موقعیت‌دهی|
+4749|3|Manual Toggle & Hold-Down Clamps|کلمپ ضامن‌دار (تاگل) دستی|
+4750|4|Hold-Down Toggle Clamps|کلمپ تاگل عمودی (نگهدارنده)|
+4751|4|Straight-Line Toggle Clamps|کلمپ تاگل خطی (فشاری)|
+4752|4|Latch-Action Toggle Clamps|کلمپ تاگل قلابی (چفتی)|
+4753|4|Plier Toggle Clamps|انبر قفلی تاگل|
+4754|4|Bench-Mount Hold-Down Clamps|کلمپ نگهدارنده رومیزی|
+4755|4|Toggle & Hold-Down Clamp Parts|قطعات کلمپ تاگل|
+4756|3|Air-Powered Swing & Toggle Clamps|کلمپ تاگل و چرخشی پنوماتیک|
+4757|4|Air-Powered Hold-Down Toggle Clamps|کلمپ تاگل عمودی پنوماتیک|
+4758|4|Air-Powered Straight-Line Toggle Clamps|کلمپ تاگل خطی پنوماتیک|
+4759|4|Air-Powered Latch-Action Toggle Clamps|کلمپ تاگل قلابی پنوماتیک|
+4760|4|Air-Powered Swing Clamps|کلمپ چرخشی پنوماتیک|
+4761|4|Air-Powered Swing & Toggle Clamp Parts|قطعات کلمپ پنوماتیک|
+4762|3|Machine Table Clamps & Hardware|کلمپ و یراق میز ماشین|
+4763|4|Machine Clamping Kits|کیت کلمپ میز ماشین (ست گیره فرز)|
+4764|4|Setup Clamps|کلمپ تنظیم (گیره دم‌گیر)|
+4765|4|Step Blocks|بلوک پله‌ای|
+4766|4|Toggle Pads|پد کلمپ|
+4767|4|T-Slot Clamps|کلمپ T شیار|
+4768|4|T-Slot Nuts & Bolts|مهره و پیچ T شیار|
+4769|5|T-Slot Nut & Stud Kits|کیت مهره و استاد T|
+4770|5|T-Slot Nuts|مهره T شیار|
+4771|5|T-Bolts & T-Slot Bolts|پیچ T|
+4772|4|Setup Studs|استاد (پیچ دوسر) کلمپ|
+4773|3|Fixture Clamps|کلمپ فیکسچر|
+4774|4|Cam-Action Fixture Clamps|کلمپ بادامکی|
+4775|4|Edge & Toe Clamps|کلمپ لبه‌گیر|
+4776|4|Wedge Clamps|کلمپ گوه‌ای|
+4777|4|Inside-Diameter Fixture Clamps|کلمپ قطر داخلی|
+4778|3|Machine Vises & Accessories|گیره ماشینی و لوازم جانبی|
+4779|4|Machine Vises|گیره ماشینی|
+4780|5|Drill Press Vises|گیره دریل ستونی|
+4781|5|Milling Machine Vises|گیره فرز|
+4782|5|Precision Toolmaker Vises|گیره دقیق ابزارسازی|
+4783|4|Machine Vise Parts & Accessories|قطعات و لوازم جانبی گیره|
+4784|5|Machine Vise Handles|دسته گیره|
+4785|5|Machine Vise Parallels|موازی گیره (پارالل)|
+4786|5|Modular Machine Vise Jaws & Components|فک و اجزای ماژولار گیره|
+4787|5|Replacement Parts for Machine Vises|قطعات یدکی گیره|
+4788|3|Indexing & Positioning Equipment|تجهیزات تقسیم و موقعیت‌دهی|
+4789|4|Ball & Spring Plungers|ساچمه فنری و پلانجر فنری|
+4790|5|Ball Plungers|ساچمه فنری (بال پلانجر)|
+4791|5|Spring Plungers|پلانجر فنری|
+4792|5|Ball & Spring Plunger Accessories|لوازم جانبی پلانجر|
+4793|4|Indexing Plungers|پین تقسیم (ایندکس پلانجر)|
+4794|5|Knurled-Knob Retractable Spring Plungers|پین تقسیم دسته آج‌دار|
+4795|5|Pull-Ring Retractable Spring Plungers|پین تقسیم حلقه‌دار|
+4796|5|L-Handle Retractable Spring Plungers|پین تقسیم دسته L|
+4797|5|Cam-Action Indexing Plungers|پین تقسیم بادامکی|
+4798|5|Pull-Knob Indexing Plungers|پین تقسیم دسته کششی|
+4799|5|T-Handle Indexing Plungers|پین تقسیم دسته T|
+4800|5|Flange-Mount Indexing Plungers|پین تقسیم فلنجی|
+4801|5|Keyed Indexing Plungers|پین تقسیم خاردار|
+4802|5|Weld-Mount Indexing Plungers|پین تقسیم جوشی|
+4803|5|Indexing Plunger Accessories|لوازم جانبی پین تقسیم|
+4804|4|Locating Pins|پین راهنما (لوکیتینگ)|
+4805|4|Locating Pin Bushings|بوش پین راهنما|
+4806|4|Threaded Positioning Feet|پایه موقعیت‌دهی پیچی|
+4807|4|Tapped Positioning Feet|پایه موقعیت‌دهی مهره‌ای|
+4808|4|Positioning Grippers|گریپر موقعیت‌دهی|
+4809|5|Threaded Self-Aligning Grippers|گریپر خودتنظیم پیچی|
+4810|5|Fully-Threaded Self-Aligning Grippers|گریپر خودتنظیم تمام‌رزوه|
+4811|5|One-Piece Hex-Head Gripper Screws|پیچ گریپر سرشش‌گوش یکپارچه|
+4812|5|Tapped Self-Aligning Grippers|گریپر خودتنظیم مهره‌ای|
+4813|5|Square Gripper Pads|پد گریپر مربعی|
+4814|5|Round Gripper & Positioning Inserts|اینسرت گریپر گرد|
+4815|3|Lathe Centers, Chucks & Jaws|مرغک، سه‌نظام و فک تراش|
+4816|4|Live Centers|مرغک گردان|
+4817|4|Dead Centers|مرغک ثابت|
+4818|4|Lathe Jaws|فک سه‌نظام تراش|
+4819|4|Lathe Chuck Jaw Nuts|مهره فک سه‌نظام|
+4820|3|Stationary Fixturing|فیکسچر ثابت|
+4821|4|Angle Plates|گونیا صفحه‌ای (انگل پلیت)|
+4822|4|Box Parallels|موازی جعبه‌ای|
+4823|4|Collet Indexers|دستگاه تقسیم کولتی|
+4824|4|Fixture Plates|صفحه فیکسچر|
+4825|4|Locating Rails|ریل موقعیت‌دهی|
+4826|4|Magnetic Chucks|صفحه مغناطیس (مگنت چاک)|
+4827|4|Machining Positioning Tables|میز صلیبی (موقعیت‌دهی)|
+4828|4|Rotary Machining Tables|میز گردان (دوار) فرز|
+4829|2|Precision Measuring Tools|ابزار اندازه‌گیری دقیق|
+4830|3|Calipers & Accessories|کولیس و لوازم جانبی|
+4831|4|Dial Calipers|کولیس ساعتی|
+4832|4|Digital Calipers with Standard & Specialty Designs|کولیس دیجیتال استاندارد و خاص|
+4833|5|General-Purpose & Harsh-Environment Digital Calipers|کولیس دیجیتال عمومی و ضدآب|
+4834|5|Fractional-Display Digital Calipers|کولیس دیجیتال نمایش کسری (اینچی)|
+4835|5|Left-Handed Digital Calipers|کولیس دیجیتال چپ‌دست|
+4836|5|Specialty Digital Calipers|کولیس دیجیتال خاص|
+4837|4|Layout & Spring Calipers & Dividers|پرگار فنری و کولیس داخل‌سنج/خارج‌سنج|
+4838|4|Vernier Calipers & Compact Slide Calipers|کولیس ورنیه و کولیس جیبی|
+4839|4|Digital & Dial Caliper Gauges|گیج کولیسی دیجیتال و ساعتی|
+4840|4|Parts & Accessories for Calipers|قطعات و لوازم جانبی کولیس|
+4841|5|Caliper Battery Covers & Replacement Parts|درب باتری و قطعات یدکی کولیس|
+4842|5|Caliper Jaw Points, Styli & Extensions|نوک فک، سوزن و رابط کولیس|
+4843|5|Depth Stops for Calipers|پایه عمق‌سنج کولیس|
+4844|5|Dial Parts, Rollers & Adjustment Hardware|قطعات ساعت، غلتک و یراق تنظیم|
+4845|3|Micrometers, Depth Gauges & Accessories|میکرومتر، عمق‌سنج و لوازم جانبی|
+4846|4|Specialty Micrometers|میکرومتر خاص|
+4847|4|Outside Micrometers & Sets|میکرومتر خارج‌سنج و ست|
+4848|5|Digital Outside Micrometers|میکرومتر خارج‌سنج دیجیتال|
+4849|5|Mechanical Outside Micrometers|میکرومتر خارج‌سنج مکانیکی|
+4850|5|Outside Micrometer Sets|ست میکرومتر خارج‌سنج|
+4851|4|Inside Micrometers & Sets|میکرومتر داخل‌سنج و ست|
+4852|5|Digital 3-Point Inside Micrometers & Sets|میکرومتر داخل‌سنج سه‌فک دیجیتال|
+4853|5|Digital Caliper-Jaw Micrometers|میکرومتر فک‌دار دیجیتال|
+4854|5|Digital Tubular-Rod Inside Micrometers & Sets|میکرومتر داخل‌سنج میله‌ای دیجیتال|
+4855|5|Mechanical 3-Point Inside Micrometers & Sets|میکرومتر داخل‌سنج سه‌فک مکانیکی (هلتست)|
+4856|5|Mechanical Caliper-Jaw Micrometers|میکرومتر فک‌دار مکانیکی|
+4857|5|Mechanical Solid-Rod Inside Micrometers & Sets|میکرومتر داخل‌سنج میله توپر مکانیکی|
+4858|5|Mechanical Tubular-Rod Inside Micrometers & Sets|میکرومتر داخل‌سنج میله‌ای مکانیکی|
+4859|4|Depth Micrometers & Depth Gauges|میکرومتر عمق‌سنج و عمق‌سنج|
+4860|5|Digital Depth Gauges|عمق‌سنج دیجیتال|
+4861|5|Dial Depth Gauges|عمق‌سنج ساعتی|
+4862|5|Digital Depth Micrometers|میکرومتر عمق‌سنج دیجیتال|
+4863|5|Mechanical Depth Micrometers|میکرومتر عمق‌سنج مکانیکی|
+4864|5|Vernier Depth Gauges|عمق‌سنج ورنیه|
+4865|4|Laser Scan & Bench Micrometers|میکرومتر لیزری و رومیزی|
+4866|4|Micrometer Heads|هد میکرومتر|
+4867|5|Digital Micrometer Heads|هد میکرومتر دیجیتال|
+4868|5|Mechanical Micrometer Heads|هد میکرومتر مکانیکی|
+4869|4|Parts & Accessories for Micrometers & Depth Gauges|قطعات و لوازم جانبی میکرومتر و عمق‌سنج|
+4870|5|Depth Gauge Base Extensions|رابط پایه عمق‌سنج|
+4871|5|Micrometer Anvils, Tips & Tip Sets|فک ثابت، نوک و ست نوک میکرومتر|
+4872|5|Micrometer Battery Covers & Replacement Parts|درب باتری و قطعات یدکی میکرومتر|
+4873|5|Micrometer Calibrating Standards & Sets|میله استاندارد کالیبراسیون میکرومتر|
+4874|5|Micrometer Setting Rings|رینگ تنظیم میکرومتر|
+4875|5|Micrometer Stands, Clamps, Holsters & Cases|پایه، گیره و جعبه میکرومتر|
+4876|3|Height Gauges & Accessories|ارتفاع‌سنج (کولیس پایه‌دار) و لوازم جانبی|
+4877|4|Dial & Vernier Height Gauges|ارتفاع‌سنج ساعتی و ورنیه|
+4878|4|Digital Height Gauges|ارتفاع‌سنج دیجیتال|
+4879|4|Height Gauge Control Panels, Power Supplies & Accessories|پنل کنترل، تغذیه و لوازم جانبی ارتفاع‌سنج|
+4880|4|Height Gauge Scribers, Inserts & Accessory Kits|سوزن خط‌کش، اینسرت و کیت ارتفاع‌سنج|
+4881|3|Indicators, Indicator Holders & Accessories|ساعت اندیکاتور، پایه و لوازم جانبی|
+4882|4|Dial Indicators & Sets|ساعت اندیکاتور و ست|
+4883|4|Digital Indicators & Sets|اندیکاتور دیجیتال و ست|
+4884|4|Dial Test Indicators & Sets|ساعت شیطونکی (تست اندیکاتور) و ست|
+4885|4|Digital Test Indicators|ساعت شیطونکی دیجیتال|
+4886|4|Touchscreen Digital Indicators|اندیکاتور دیجیتال لمسی|
+4887|4|Specialty Application Indicators|اندیکاتور کاربرد خاص|
+4888|4|Dial Comparator Gauges|گیج مقایسه‌گر ساعتی|
+4889|4|Comparison Gauges|گیج مقایسه‌ای|
+4890|4|Indicator Holders, Magnetic Bases & Stands|پایه ساعت، پایه مغناطیسی و استند|
+4891|4|Transfer Stands for Indicators & Comparators|استند انتقال اندیکاتور و مقایسه‌گر|
+4892|4|Parts & Accessories for Indicators & Bases|قطعات و لوازم جانبی اندیکاتور و پایه|
+4893|5|Indicator Attachments, Backs & Snugs|متعلقات، درب پشت و گیره اندیکاتور|
+4894|5|Indicator Contact Points, Extensions & Adapters|نوک تماس، رابط و تبدیل اندیکاتور|
+4895|5|Measuring Probes & Displays|پراب و نمایشگر اندازه‌گیری|
+4896|5|Indicator & Indicator Holder Replacement Parts|قطعات یدکی اندیکاتور و پایه|
+4897|3|Pin, Plug & Ring Gauges|گیج پین، توپی و رینگی|
+4898|4|Pin Gauges|پین گیج|
+4899|5|Class X Go (Plus) Pin Gauges|پین گیج کلاس X برو (مثبت)|
+4900|5|Class X No-Go (Minus) Pin Gauges|پین گیج کلاس X نرو (منفی)|
+4901|5|Class ZZ Go (Plus) Pin Gauges|پین گیج کلاس ZZ برو (مثبت)|
+4902|5|Class ZZ No-Go (Minus) Pin Gauges|پین گیج کلاس ZZ نرو (منفی)|
+4903|4|Pin Gauge Sets & Libraries|ست پین گیج|
+4904|5|Go (Plus) Pin Gauge Sets & Libraries|ست پین گیج برو (مثبت)|
+4905|5|No-Go (Minus) Pin Gauge Sets & Libraries|ست پین گیج نرو (منفی)|
+4906|4|Threaded Plug Gauges|گیج توپی رزوه (برو-نرو)|
+4907|4|Threaded Pipe Plug Gauges|گیج توپی رزوه لوله|
+4908|4|Threaded Ring Gauges|گیج رینگی رزوه|
+4909|4|Threaded Pipe Ring Gauges|گیج رینگی رزوه لوله|
+4910|4|Plug Gauge Handles, Bushings & Accessories|دسته، بوش و لوازم جانبی گیج توپی|
+4911|3|Inside Diameter Gauges|گیج قطر داخلی|
+4912|4|Digital & Dial Bore Gauges|بورگیج (داخل‌سنج ساعتی) دیجیتال و ساعتی|
+4913|4|Bore Gauge Setters|تنظیم‌کننده بورگیج|
+4914|4|Large Diameter & Specialty Diameter Gauges|گیج قطر بزرگ و خاص|
+4915|4|Small Hole Gauge Sets|ست گیج سوراخ ریز|
+4916|4|Telescoping Gauges & Sets|گیج تلسکوپی و ست|
+4917|4|Taper Slot Gauges|گیج شیار مخروطی|
+4918|4|Bore Gauge Accessories|لوازم جانبی بورگیج|
+4919|3|Inspection & Calibration Tools & Equipment|ابزار و تجهیزات بازرسی و کالیبراسیون|
+4920|4|Gauge Blocks & Sets|گیج بلوک و ست|
+4921|5|Rectangular & Square Gauge Blocks|گیج بلوک مستطیلی و مربعی|
+4922|5|Rectangular & Square Gauge Block Sets|ست گیج بلوک|
+4923|5|Gauge Block Holders, Gauge Checkers & Accessories|نگهدارنده و لوازم جانبی گیج بلوک|
+4924|4|Optical Measuring & Inspecting Tools & Systems|ابزار و سیستم اندازه‌گیری نوری|
+4925|5|Optical Comparators|پروفیل پروژکتور (مقایسه‌گر نوری)|
+4926|5|Optical Comparator Stands|پایه پروفیل پروژکتور|
+4927|5|Vision Measuring Systems|سیستم اندازه‌گیری تصویری (ویژن)|
+4928|5|Optical Comparator Accessories|لوازم جانبی پروفیل پروژکتور|
+4929|4|Bench Centers & Concentricity Gauges|مرغک رومیزی و گیج هم‌مرکزی|
+4930|4|Thread Measuring Machines & Accessories|دستگاه اندازه‌گیری رزوه و لوازم جانبی|
+4931|4|Surface Plates & Stands|صفحه صافی و پایه|
+4932|5|Surface Plates|صفحه صافی (گرانیتی)|
+4933|5|Surface Plate Cases|جعبه صفحه صافی|
+4934|5|Surface Plate Covers|کاور صفحه صافی|
+4935|5|Surface Plate Stands|پایه صفحه صافی|
+4936|3|Magnification Instruments|ابزار بزرگنمایی|
+4937|4|Magnifiers|ذره‌بین|
+4938|4|Loupes|لوپ|
+4939|4|Magnifier Measuring Scales|ذره‌بین مدرج|
+4940|3|Precision Measuring Tool Kits|کیت ابزار اندازه‌گیری دقیق|
+4941|3|Protractors, Machinists Squares & Sets|نقاله، گونیا و ست|
+4942|4|Digital & Mechanical Protractors|نقاله دیجیتال و مکانیکی (زاویه‌سنج)|
+4943|4|Machinist Squares & Sets|گونیا ماشین‌کاری و ست|
+4944|4|Protractor & Machinist Square Parts & Accessories|قطعات و لوازم جانبی نقاله و گونیا|
+4945|3|Quick-Check Reference Gauges|گیج‌های کنترل سریع|
+4946|4|Radius Gauges & Angle Gauges|شابلون شعاع و زاویه|
+4947|4|Tap, Drill & Screw Checker Gauges|شابلون کنترل قلاویز، مته و پیچ|
+4948|4|Center Gauges|شابلون رزوه (سنتر گیج)|
+4949|4|Drill Point Gauges|شابلون نوک مته|
+4950|4|Thread Measuring Wires|سیم اندازه‌گیری رزوه (سه‌سیمه)|
+4951|4|Thread Pitch Gauges|شانه رزوه (پیچ‌سنج)|
+4952|4|Wire & Sheet Metal Thickness Gauges|شابلون ضخامت سیم و ورق|
+4953|3|Setup, Layout & Alignment Tools|ابزار تنظیم، خط‌کشی و هم‌راستایی|
+4954|4|Straight Edges|خط‌کش صافی|
+4955|4|Shaft Alignment Lasers & Tools|ابزار و لیزر الاینمنت شفت|
+4956|4|V-Blocks|وی‌بلوک (بلوک V)|
+4957|4|1-2-3 Setup Blocks|بلوک ۱-۲-۳|
+4958|4|Pin Vises & Sets|گیره سوزنی (پین‌وایس) و ست|
+4959|4|Dial Tool Setters|تول‌ستر ساعتی|
+4960|4|Spindle Squares|گونیا اسپیندل (تراز اسپیندل)|
+4961|4|Digital Readout (DRO) Counters|نمایشگر دیجیتال (DRO)|
+4962|4|Precision & Machinist Levels|تراز دقیق ماشین‌کاری|
+4963|4|Sine Bars|خط‌کش سینوسی|
+4964|4|Sine Plates|میز سینوسی|
+4965|4|Digital Scales & Linear Scales for DRO|خط‌کش دیجیتال و خطی DRO|
+4966|5|Linear Scales for Digital Readouts (DRO)|خط‌کش خطی (اسکیل) DRO|
+4967|5|Digital Linear Scales with LCD Displays|خط‌کش خطی دیجیتال با نمایشگر LCD|
+4968|4|Edge & Center Finders & Accessories|لبه‌یاب و مرکزیاب و لوازم جانبی|
+4969|5|Edge Finders, Center Finders & Wiggler Sets|لبه‌یاب، مرکزیاب و ست ویگلر|
+4970|5|3D Edge & Center Finders for Milling Machines|لبه‌یاب سه‌بعدی (3D تستر) فرز|
+4971|5|Replacement Parts & Accessories for Edge & Center Finders|قطعات یدکی و لوازم جانبی لبه‌یاب|
+4972|4|Parallels & Sets|موازی (پارالل) و ست|
+4973|5|Granite Straight Edges, Parallels & Tri-Squares|خط‌کش، موازی و گونیا گرانیتی|
+4974|5|Adjustable Parallel Pairs & Sets|موازی قابل تنظیم و ست|
+4975|5|Steel Parallel Pairs & Sets|موازی فولادی و ست|
+4976|5|Planer Gauges|گیج رنده (پلنر گیج)|
+4977|3|Surface Property Testing|آزمایش خواص سطح|
+4978|4|Surface Roughness Testers|زبری‌سنج سطح|
+4979|4|Durometers|سختی‌سنج شور (دورومتر)|
+4980|4|Durometer Calibration Sets & Test Blocks|ست کالیبراسیون و بلوک تست دورومتر|
+4981|4|Surface Profile Gauges|پروفیل‌سنج سطح|
+4982|4|Surface Roughness Tester Accessories|لوازم جانبی زبری‌سنج|
+4983|5|Surface Roughness Tester Cables, Printers, Adapters & Software|کابل، پرینتر، تبدیل و نرم‌افزار زبری‌سنج|
+4984|5|Surface Roughness Tester Probes & Extension Rods|پراب و رابط زبری‌سنج|
+4985|5|Surface Roughness Tester Reference Specimens & Sets|نمونه مرجع زبری‌سنج|
+4986|5|Surface Roughness Tester Stands & Brackets|پایه و براکت زبری‌سنج|
+4987|3|Thickness Gauges, Feeler Gauges & Snap Gauges|ضخامت‌سنج، فیلر و گیج دهانه‌ای|
+4988|4|Feeler Gauges|فیلر (لقی‌سنج)|
+4989|4|Feeler Gauge Sets|ست فیلر|
+4990|4|Digital Thickness Gauges|ضخامت‌سنج دیجیتال|
+4991|4|Dial Thickness Gauges|ضخامت‌سنج ساعتی|
+4992|4|Snap Gauges|گیج دهانه‌ای (اسنپ گیج)|
+4993|4|Feeler Gauge Holders & Accessories|جای فیلر و لوازم جانبی|
+4994|4|Feeler Gauge Rolls & Stock|رول و نوار فیلر|
+4995|3|SPC Components for Precision Measuring Tools|اجزای SPC ابزار اندازه‌گیری|
+4996|4|Wireless SPC Data Transfer Components|اجزای انتقال داده بی‌سیم SPC|
+4997|4|SPC Cables & Adapters|کابل و تبدیل SPC|
+4998|4|SPC Processors, Multiplexers, Hardware & Software|پردازنده، مالتی‌پلکسر، سخت‌افزار و نرم‌افزار SPC|

@@ -1,0 +1,50 @@
+4999|4|Replacement Batteries, Printing Paper & Ink Ribbons for SPC Processors|باتری، کاغذ چاپ و ریبون یدکی پردازنده SPC|
+5000|3|Coordinate Measuring Machines (CMM), Components & Accessories|دستگاه CMM، اجزا و لوازم جانبی|
+5001|4|Coordinate Measuring Machines (CMMs)|دستگاه اندازه‌گیری مختصات (CMM)|
+5002|4|CMM Fixturing Jig Sets & Components|ست فیکسچر و اجزای CMM|
+5003|4|CMM Styli, Extensions & Accessories|سوزن (استایلوس)، رابط و لوازم جانبی CMM|
+5004|2|Metalworking Fluids|سیالات فلزکاری|
+5005|3|Cutting Fluids|مایع برش (روغن برش)|
+5006|4|Ready-to-Use Cutting Fluids & Cutting Oils|روغن برش آماده مصرف|
+5007|4|Concentrated Cutting Fluids|مایع برش غلیظ|
+5008|5|Soluble Cutting Oils|روغن حل‌شونده (صابونی)|
+5009|5|Semisynthetic Cutting Fluids|مایع برش نیمه‌سنتتیک|
+5010|5|Synthetic Cutting Fluids|مایع برش سنتتیک|
+5011|4|Solid, Paste & Gel Cutting Lubricants|روانکار برش جامد، خمیری و ژله‌ای|
+5012|3|Metalworking Fluid Additives|افزودنی سیالات فلزکاری|
+5013|3|Layout Fluids|جوهر خط‌کشی (رنگ ترسیم)|
+5014|3|Cutting Tool Cleaners|پاک‌کننده ابزار برش|
+5015|3|Machine Tool Sump Cleaners|پاک‌کننده مخزن کولانت ماشین‌ابزار|
+5016|3|Electrical-Discharge Machining Fluids|روغن وایرکات و اسپارک (EDM)|
+5017|2|Coolant Systems & Accessories|سیستم کولانت (آب‌صابون) و لوازم جانبی|
+5018|3|Mist Coolant Systems|سیستم کولانت مه‌پاش|
+5019|3|Flood Coolant Systems|سیستم کولانت جریانی|
+5020|3|Minimum-Quantity Lubrication Systems|سیستم روانکاری حداقلی (MQL)|
+5021|3|Cold Air Coolant Systems|سیستم خنک‌کاری هوای سرد (ورتکس)|
+5022|3|Coolant Mixers|میکسر کولانت|
+5023|3|Coolant Nozzles|نازل کولانت (شلنگ مفصلی)|
+5024|3|Flexible Coolant Shields|حفاظ انعطاف‌پذیر کولانت|
+5025|3|Oil Skimmers & Coalescers|روغن‌گیر (اسکیمر) و جداکننده کوالسر|
+5026|4|Oil Skimmers|اسکیمر روغن|
+5027|4|Replacement Parts & Accessories for Oil Skimmers|قطعات یدکی و لوازم جانبی اسکیمر|
+5028|4|Oil Coalescers|کوالسر روغن|
+5029|4|Oil/Water Separators for Coolant Systems|جداکننده آب و روغن کولانت|
+5030|3|Coolant Cleaner Vacuums|مکنده و تمیزکن کولانت|
+5031|3|Coolant System Filtration|فیلتراسیون کولانت|
+5032|3|Machine Tool Coolant Pumps & Mounting Brackets|پمپ آب‌صابون ماشین‌ابزار و براکت|
+5033|4|Machine Tool Coolant Pumps|پمپ آب‌صابون (کولانت)|
+5034|4|Machine Tool Coolant Pump Repair Parts|قطعات تعمیر پمپ کولانت|
+5035|4|Motors for Machine Tool Coolant Pumps|موتور پمپ کولانت|
+5036|4|Mounting Brackets for Machine Tool Coolant Pumps|براکت نصب پمپ کولانت|
+5037|2|Tool Blanks|شمش ابزار (بلنک)|
+5038|2|3D Printing|پرینت سه‌بعدی|
+5039|3|3D Printers|پرینتر سه‌بعدی|ترکیبی
+5040|3|3D Printing Filament|فیلامنت پرینتر سه‌بعدی|ترکیبی
+5041|3|3D Printing Resin|رزین پرینتر سه‌بعدی|
+5042|3|3D Printing Pellets|گرانول پرینتر سه‌بعدی|
+5043|3|3D Printing Accessories|لوازم جانبی پرینتر سه‌بعدی|
+5044|2|Injection Molding|قالب تزریق|
+5045|3|Injection Molding Ejector & Core Pins|پین پران و ماهیچه قالب تزریق|
+5046|3|Injection Molding Locking & Stopping Components|قفل و استاپر قالب تزریق|
+5047|3|Injection Molding Leader Pins & Ejector Bushings|پین راهنما و بوش پران قالب|
+5048|3|Injection Molding Support Pillars|ستون نگهدارنده (ساپورت) قالب|

@@ -1,0 +1,281 @@
+2161|3|Vehicle Snow Brushes, Brooms & Ice Scrapers|برس برف، جارو و یخ‌تراش خودرو|ترکیبی
+2162|3|Electro-hydraulic Third Function Kits for Tractors|کیت عملکرد سوم الکتروهیدرولیک تراکتور|
+2163|2|Vehicle Cleaning Supplies|لوازم نظافت خودرو|
+2164|3|Brake Cleaners & Degreasers|اسپری ترمزشوی و چربی‌زدا|
+2165|3|Vehicle Parts Cleaners & Degreasers|قطعه‌شوی و چربی‌زدای قطعات خودرو|
+2166|3|Parts Washer Equipment|تجهیزات قطعه‌شوی|
+2167|4|Parts Washers|دستگاه قطعه‌شوی|
+2168|4|Parts Washer Cleaning Solutions|محلول قطعه‌شوی|
+2169|4|Parts Washer Baskets|سبد قطعه‌شوی|
+2170|4|Parts Washer Brushes|برس قطعه‌شوی|
+2171|4|Parts Washer Pumps|پمپ قطعه‌شوی|
+2172|4|Replacement Parts for Parts Washers|قطعات یدکی قطعه‌شوی|
+2173|3|Vehicle Interior Care & Detailing|نظافت و دیتیلینگ داخل خودرو|ترکیبی
+2174|4|Interior Vehicle Cleaners|پاک‌کننده داخل خودرو|
+2175|4|Vehicle Air Fresheners|خوشبوکننده خودرو|
+2176|3|Vehicle Exterior Care & Detailing|نظافت و دیتیلینگ بیرون خودرو|ترکیبی
+2177|4|Vehicle & Car Wash Soaps|شامپو کارواش|
+2178|4|Vehicle Polishes, Waxes & Sealants|پولیش، واکس و سیلر بدنه خودرو|
+2179|4|Tire & Wheel Cleaners|پاک‌کننده لاستیک و رینگ|
+2180|4|Headlight Restoration|کیت ترمیم و پولیش چراغ جلو|
+2181|3|Vehicle Cleaning Applicators & Equipment|ابزار و تجهیزات شستشوی خودرو|
+2182|4|Vehicle Hand Cleaning Brushes|برس دستی شستشوی خودرو|
+2183|4|Car Wash Stall Equipment|تجهیزات جایگاه کارواش|
+2184|4|Vehicle Detailing Applicators|پد و اپلیکاتور دیتیلینگ|
+2185|4|Vehicle Blowers & Dryers|دمنده و خشک‌کن خودرو|
+2186|2|Vehicle Windshield Maintenance|سرویس شیشه جلو خودرو|
+2187|3|Vehicle Windshield Washer Fluids & Parts|مایع شیشه‌شوی و قطعات|
+2188|4|Windshield Washer Fluids & Treatments|مایع شیشه‌شوی خودرو|ترکیبی
+2189|4|Windshield Washer Fluid Pumps|پمپ شیشه‌شوی|
+2190|4|Windshield Washer Reservoir Containers|مخزن آب شیشه‌شوی|
+2191|4|Windshield Washer Tubing|شیلنگ آب شیشه‌شوی|
+2192|3|Windshield Wiper Blades & Parts|تیغه برف‌پاک‌کن و قطعات|
+2193|4|Windshield Wiper Arm Adaptor Plates|صفحه تبدیل بازوی برف‌پاک‌کن|
+2194|4|Windshield Wiper Arms|بازوی برف‌پاک‌کن|
+2195|4|Windshield Wiper Blades|تیغه برف‌پاک‌کن|ترکیبی
+2196|4|Windshield Wiper Kits|کیت برف‌پاک‌کن|
+2197|4|Windshield Wiper Motors, Motor Kits, & Switches|موتور برف‌پاک‌کن، کیت موتور و کلید|
+2198|2|Auto Body Repair|صافکاری و نقاشی بدنه خودرو|
+2199|3|Auto Body Sealants & Fillers|درزگیر و بتونه بدنه خودرو|
+2200|3|Auto Body Tools|ابزار صافکاری|
+2201|3|Auto Body Equipment|تجهیزات صافکاری|
+2202|3|Auto Body Tapes|نوار چسب بدنه خودرو|
+2203|3|Auto Body Masking Machines|دستگاه ماسکینگ نقاشی خودرو|
+2204|3|Body Clips|خار و کلیپس بدنه خودرو|
+2205|3|Door Hinge Pin & Brushing Kits|کیت پین و بوش لولای درب|
+2206|2|Fleet & Vehicle Maintenance Replacement Parts|قطعات یدکی تعمیر و نگهداری خودرو|
+2207|3|AIMS POWER|AIMS POWER|
+2208|1|Food Service & Food Processing|تجهیزات آشپزخانه صنعتی و فرآوری غذا|
+2209|2|Refrigerators, Freezers & Blast Chillers|یخچال، فریزر و بلاست‌چیلر|
+2210|3|Refrigerators|یخچال|ترکیبی
+2211|3|Combination Refrigerator-Microwaves|یخچال و مایکروویو ترکیبی|ترکیبی
+2212|3|Commercial Refrigerators|یخچال صنعتی|
+2213|3|Walk-in Refrigerators|سردخانه بالای صفر (واک‌این)|
+2214|3|Walk-in Freezers|سردخانه زیر صفر (واک‌این)|
+2215|3|Freezers|فریزر|ترکیبی
+2216|3|Commercial Freezers|فریزر صنعتی|
+2217|3|Blast Chillers|بلاست‌چیلر (سردکن سریع)|
+2218|3|Refrigerated Merchandisers & Display Cases|یخچال ویترینی و نمایشی|
+2219|3|Kegerators|یخچال بشکه‌ای نوشیدنی (کگریتور)|
+2220|3|Replacement Parts for Refrigerators & Freezers|قطعات یدکی یخچال و فریزر|
+2221|2|Ice Machines & Accessories|یخ‌ساز و لوازم جانبی|
+2222|3|Ice Machines|دستگاه یخ‌ساز|
+2223|3|Ice Bins|مخزن یخ|
+2224|3|Manual-Fill Ice Dispensers|دیسپنسر یخ دستی|
+2225|3|Ice Machine Cleaners & Disinfectants|پاک‌کننده و ضدعفونی‌کننده یخ‌ساز|
+2226|3|Ice Caddies & Totes|ظرف حمل یخ|
+2227|3|Ice Bags, Picks, Scoops & Holders|کیسه یخ، یخ‌شکن، اسکوپ یخ و نگهدارنده|
+2228|3|Ice Machine Pumps|پمپ یخ‌ساز|
+2229|3|Ice Machine & Dispenser Replacement Parts|قطعات یدکی یخ‌ساز و دیسپنسر|
+2230|2|Coffee, Snacks & Condiments|قهوه، تنقلات و چاشنی|ترکیبی
+2231|3|Coffee, Tea & Beverage Mixes|قهوه، چای و پودر نوشیدنی|
+2232|3|Creamers & Sweeteners|کافی‌میت و شیرین‌کننده|
+2233|3|Snack Foods|تنقلات|
+2234|3|Juices & Energy Drinks|آبمیوه و نوشیدنی انرژی‌زا|
+2235|3|Condiments|چاشنی و سس|
+2236|3|Pet Treats|تشویقی حیوانات خانگی|مصرفی
+2237|2|Breakroom & Food Service Disposables|ظروف یک‌بارمصرف آبدارخانه و پذیرایی|ترکیبی
+2238|3|Disposable Drinking Cups & Sleeves|لیوان یک‌بارمصرف و دورلیوانی|
+2239|3|Disposable Lids for Drinking Cups|درب لیوان یک‌بارمصرف|
+2240|3|Disposable Plates|بشقاب یک‌بارمصرف|
+2241|3|Disposable Bowls|کاسه یک‌بارمصرف|
+2242|3|Disposable Napkins|دستمال سفره کاغذی|
+2243|3|Disposable Cutlery|قاشق و چنگال یک‌بارمصرف|
+2244|4|Dixie Ultra SmartStock Disposable Cutlery|قاشق و چنگال یک‌بارمصرف Dixie Ultra SmartStock|
+2245|4|Bulk Disposable Cutlery|قاشق و چنگال یک‌بارمصرف فله|
+2246|3|Dispensers for Food Service Disposables|دیسپنسر ظروف یک‌بارمصرف|
+2247|4|Dixie Disposable SmartStock Cutlery Dispensers|دیسپنسر قاشق و چنگال Dixie SmartStock|
+2248|4|Disposable Drinking Cup Dispensers|دیسپنسر لیوان یک‌بارمصرف|
+2249|4|Disposable Lid Dispensers|دیسپنسر درب لیوان|
+2250|4|Disposable Napkin Dispensers|جادستمالی سفره|
+2251|4|Combination Dispensers for Food Service Disposables|دیسپنسر ترکیبی ظروف یک‌بارمصرف|
+2252|4|Straw & Toothpick Dispensers|جای نی و خلال دندان|
+2253|4|Disposable Portion Cup Dispensers|دیسپنسر ظرف سس یک‌بارمصرف|
+2254|3|Disposable Carry-Out Containers & Lids|ظرف و درب یک‌بارمصرف بیرون‌بر|
+2255|4|Foam Carry-Out Containers & Lids|ظرف یونولیتی بیرون‌بر و درب|
+2256|4|Paper Carry-Out Containers & Lids|ظرف کاغذی بیرون‌بر و درب|
+2257|4|Molded Fiber Carry-Out Containers & Lids|ظرف خمیر کاغذی (گیاهی) بیرون‌بر و درب|
+2258|4|Plastic Carry-Out Containers & Lids|ظرف پلاستیکی بیرون‌بر و درب|
+2259|4|Foil Carry-Out Containers & Lids|ظرف آلومینیومی بیرون‌بر و درب|
+2260|4|Beverage Trays & Carriers|سینی و حمل‌کننده لیوان|
+2261|3|Disposable Portion & Dessert Cups|ظرف سس و دسر یک‌بارمصرف|
+2262|3|Disposable Placemats, Tray & Table Covers|رومیزی، زیربشقابی و روکش سینی یک‌بارمصرف|
+2263|3|Disposable Food Wrap, Dispensers & Safety Labeling|سلفون غذا، دیسپنسر و برچسب ایمنی غذا|
+2264|4|Disposable Food Wraps, Liners & Dispensers|سلفون، کاغذ آستر و دیسپنسر|
+2265|5|Aluminum Foil & Plastic Film Wrap|فویل آلومینیوم و سلفون|
+2266|5|Food Paper & Pan Liners|کاغذ غذا و کاغذ روغنی سینی|
+2267|4|Food Safety Labels & Date Coders|برچسب ایمنی غذا و تاریخ‌زن|
+2268|4|Disposable Food Service Bags|کیسه یک‌بارمصرف غذا|
+2269|3|Straws, Toothpicks & Stirrers|نی، خلال دندان و همزن|
+2270|3|Disposable Coffee Filters|فیلتر قهوه یک‌بارمصرف|
+2271|3|Disposables for Serving & Heated Cart Systems|یک‌بارمصرف سرو و ترولی گرم|
+2272|4|0|۰|
+2273|3|Food Service Towels|حوله و دستمال آشپزخانه|
+2274|2|Kitchen Equipment|تجهیزات آشپزخانه|
+2275|3|Kitchen Prepware, Cutlery & Cookware|ابزار آماده‌سازی، کارد و ظروف پخت|ترکیبی
+2276|4|Food Service Preparation Tools|ابزار آماده‌سازی غذا|
+2277|5|Food Service Thermometers|دماسنج غذا|
+2278|5|Spatulas, Spreaders & Whisks|کاردک، لیسک و همزن دستی|
+2279|5|Tongs|انبر سرو (انبر آشپزخانه)|
+2280|5|Kitchen Scrapers|کاردک آشپزخانه|
+2281|5|Oven Mitts & Pot Grippers|دستکش فر و دستگیره قابلمه|
+2282|5|Colanders & Mesh Strainers|آبکش و صافی توری|
+2283|5|Batter Dispensers|دیسپنسر خمیر مایع|
+2284|5|Cake Fillers|قیف پرکن کیک|
+2285|5|Can Openers|درب‌بازکن کنسرو|
+2286|5|Culinary Torches & Lighters|مشعل آشپزی و فندک|
+2287|5|Dough Dockers & Pastry Cutters|غلتک سوراخ‌کن خمیر و کاتر شیرینی|
+2288|5|Flour Sifters & Sieves|الک آرد|
+2289|5|Food Chillers|سردکن غذا|
+2290|5|Food Service Funnels|قیف آشپزخانه|
+2291|5|Food Service Graters, Cutters & Slicers|رنده، کاتر و اسلایسر دستی|
+2292|5|Food Service Skimmers|کفگیر توری (کف‌گیر)|
+2293|5|Food Turners|کفگیر برگردان|
+2294|5|Fruit & Vegetable Peelers, Corers & Scoops|پوست‌کن، هسته‌گیر و اسکوپ میوه|
+2295|5|Grill & Griddle Brushes|برس گریل و صفحه گریل|
+2296|5|Kitchen Scoops|اسکوپ آشپزخانه|
+2297|5|Meat & Seafood Prep|ابزار آماده‌سازی گوشت و غذای دریایی|
+2298|6|Boning & Meat Hooks|قلاب گوشت|
+2299|6|Meat Tenderizers|بیفتک‌کوب (گوشت‌کوب)|
+2300|6|Seafood Crackers|انبر صدف و خرچنگ|
+2301|6|Steak Weights|وزنه استیک|
+2302|5|Measuring Cups & Spoons|پیمانه و قاشق اندازه‌گیری|
+2303|5|Mixing Bowls|کاسه همزن (لگن)|
+2304|5|Pastry & Basting Brushes|فرچه شیرینی‌پزی و روغن‌زنی|
+2305|5|Pizza Cutters|پیتزابر|
+2306|5|Potato Mashers|گوشت‌کوب سیب‌زمینی|
+2307|5|Rolling Pins|وردنه|
+2308|5|Shakers & Dredges|نمکدان و ادویه‌پاش|
+2309|5|Squeeze Bottles|بطری سس فشاری|
+2310|4|Food Service Cutlery & Cutting Boards|کارد آشپزخانه و تخته برش|
+2311|5|Kitchen Knives|کارد آشپزخانه|
+2312|5|Kitchen Knife Sets|ست کارد آشپزخانه|
+2313|5|Cutting Boards & Cutting Board Racks|تخته برش و جای تخته|
+2314|5|Knife Steels & Sharpeners|مسن و چاقوتیزکن|
+2315|5|Knife Racks, Guards & Cases|جای چاقو، محافظ تیغه و کیف چاقو|
+2316|5|Kitchen Shears|قیچی آشپزخانه|
+2317|4|Cookware|ظروف پخت (قابلمه و تابه)|
+2318|5|Stock Pots|قابلمه بزرگ (دیگ)|
+2319|5|Frying Pans & Woks|ماهیتابه و ووک|
+2320|5|Sauce Pans|شیرجوش (سوس‌پن)|
+2321|5|Saute & Braising Pans|تابه سوته و تابه دیواره‌بلند|
+2322|5|Crepe Pans|تابه کرپ|
+2323|4|Bakeware|ظروف پخت فر|
+2324|5|Pizza Paddles, Pans & Stones|پارو پیتزا، سینی و سنگ پیتزا|
+2325|5|Baking Pans & Sheet Pans|قالب و سینی فر|
+2326|5|Cooling Racks|توری خنک‌کن|
+2327|5|Oven-To-Table Baking Dishes|ظرف پخت فر و سرو|
+2328|4|Food Service Call Bells|زنگ رومیزی سرویس|
+2329|4|Food Sanitizing Equipment & Test Kits|تجهیزات ضدعفونی غذا و کیت تست|
+2330|3|Beverage & Frozen Food Appliances|دستگاه‌های نوشیدنی و بستنی|
+2331|4|Coffee & Tea Brewing Equipment|دستگاه قهوه‌ساز و چای‌ساز|ترکیبی
+2332|5|Coffee Brewers & Warmers|قهوه‌ساز و گرم‌نگهدار قهوه|
+2333|6|Single-Cup & Drip Coffee Makers|قهوه‌ساز کپسولی و قطره‌ای (دمی)|
+2334|6|Coffee Brewers with Pourover Water Reservoir|قهوه‌ساز مخزن‌دار|
+2335|6|Coffee Brewers with Direct Water Line|قهوه‌ساز اتصال مستقیم به آب|
+2336|6|Automatic Espresso Machines|اسپرسوساز اتوماتیک|
+2337|6|Coffee Urns & Percolators|سماور قهوه و پرکولاتور|
+2338|6|Coffee Warmers|گرم‌کن قهوه|
+2339|5|Electric Kettles & Hot Water Dispensers|کتری برقی و آبجوش‌کن|
+2340|5|Grinders & Frothers|آسیاب قهوه و کف‌ساز شیر|
+2341|5|Iced Tea Brewers & Dispensers|دستگاه چای سرد و دیسپنسر|
+2342|5|Replacement Parts for Coffee & Tea Brewing Equipment|قطعات یدکی قهوه‌ساز و چای‌ساز|
+2343|4|Juicers & Juicer Filters|آبمیوه‌گیری و فیلتر|ترکیبی
+2344|4|Frozen Slushy Machines|دستگاه اسلاش|
+2345|4|Soft Serve Machines|دستگاه بستنی قیفی|
+2346|4|Snow Cone Machine Replacement Parts|قطعات یدکی دستگاه یخ در بهشت|
+2347|3|Toasters|توستر|ترکیبی
+2348|3|Ovens & Microwaves|فر و مایکروویو|
+2349|4|Microwaves|مایکروویو|ترکیبی
+2350|4|Countertop Convection Ovens and Stands|فر کانوکشن رومیزی و پایه|
+2351|4|Oven Cabinets & Deck Ovens|کابینت فر و فر طبقاتی|
+2352|4|Ventless Exhaust Systems|سیستم تهویه بدون دودکش|
+2353|4|Countertop Finishing Ovens|فر رومیزی سالاماندر|
+2354|4|Replacement Parts for Ovens & Warming Equipment|قطعات یدکی فر و گرم‌کن|
+2355|3|Fryers|سرخ‌کن|
+2356|4|Air Fryers|سرخ‌کن بدون روغن (هواپز)|ترکیبی
+2357|4|Electric & Gas Fryers|سرخ‌کن برقی و گازی|
+2358|3|Food Warming & Display|گرم‌نگهدار و ویترین غذا|
+2359|4|Countertop Holding Drawers|کشوی گرم‌نگهدار رومیزی|
+2360|4|Countertop Warmers & Trays|گرم‌کن رومیزی و سینی|
+2361|4|Heated Display Cases|ویترین گرم|
+2362|4|Popcorn Makers & Supplies|پاپ‌کورن‌ساز و ملزومات|
+2363|4|Hot Dog Rollers, Steamers & Broilers|دستگاه هات‌داگ غلتکی، بخارپز و گریل|
+2364|4|Cotton Candy Machines & Supplies|دستگاه پشمک‌ساز و ملزومات|
+2365|4|Built-In Heated Food Wells|بن‌ماری توکار|
+2366|4|Induction Rethermalizers|گرم‌کن مجدد القایی|
+2367|4|Replacement Parts for Countertop Cookers, Warmers & Rethermalizers|قطعات یدکی پخت‌وپز رومیزی و گرم‌کن|
+2368|3|Ranges & Stoves|اجاق گاز و اجاق برقی|
+2369|4|Ranges|اجاق گاز فردار|
+2370|4|Electric Hot Plates|اجاق برقی (هات‌پلیت)|ترکیبی
+2371|4|Induction Ranges|اجاق القایی|
+2372|4|Gas Countertop Ranges|اجاق گاز رومیزی|
+2373|4|Cooking Appliance Controls|کنترل لوازم پخت‌وپز|
+2374|5|Gas Cooking Appliance Controls|شیر و کنترل لوازم گازسوز|
+2375|5|Electric Cooking Appliance Controls|کنترل لوازم پخت برقی|
+2376|3|Grills & Griddles|گریل و صفحه گریل|
+2377|4|Charbroilers|گریل ذغالی (چاربرویلر)|
+2378|4|Outdoor Grills & Cooking Equipment|باربیکیو و تجهیزات پخت فضای باز|ترکیبی
+2379|5|Portable Grills, Griddles & Fryers|باربیکیو، گریل و سرخ‌کن قابل حمل|
+2380|5|Stationary Outdoor Grills|باربیکیو ثابت|
+2381|5|Outdoor Grill Accessories|لوازم جانبی باربیکیو|
+2382|4|Countertop Griddles|صفحه گریل رومیزی|
+2383|4|Sandwich Presses|ساندویچ‌ساز (پنینی)|
+2384|4|Crepe & Waffle Makers|کرپ‌ساز و وافل‌ساز|
+2385|4|Vertical Broilers|دستگاه کباب ترکی (گریل عمودی)|
+2386|4|Replacement Parts for Charbroilers, Griddles & Presses|قطعات یدکی گریل و ساندویچ‌ساز|
+2387|3|Food Preparation Appliances|دستگاه‌های آماده‌سازی غذا|
+2388|4|Carafe Blenders|مخلوط‌کن|ترکیبی
+2389|4|Carafe Blender Accessories|لوازم جانبی مخلوط‌کن|
+2390|4|Immersion Blenders & Accessories|گوشت‌کوب برقی و لوازم|ترکیبی
+2391|4|Food Processors & Blades|غذاساز و تیغه|ترکیبی
+2392|4|Food Mixers & Attachments|همزن برقی و متعلقات|
+2393|4|Spindle Mixers|میکسر میلک‌شیک|
+2394|4|Food Dehydrators|میوه‌خشک‌کن|
+2395|4|Dough Sheeters|دستگاه پهن‌کن خمیر|
+2396|4|Slicers & Grinders|اسلایسر و چرخ گوشت|
+2397|4|Salad Spinners|سالادخشک‌کن|ترکیبی
+2398|4|Growing Cabinets|کابینت کشت|
+2399|4|Rice Cookers|پلوپز|ترکیبی
+2400|4|Commercial Peeler Replacement Parts|قطعات یدکی پوست‌کن صنعتی|
+2401|4|Meat Tenderizer Replacement Parts|قطعات یدکی دستگاه بیفتک‌کوب|
+2402|3|Steam Cooking|پخت با بخار|
+2403|4|Steam Kettles|دیگ بخار (کتل)|
+2404|4|Braising Pans|تابه گردان صنعتی (تیلتینگ)|
+2405|4|Oven Steamers|فر بخارپز|
+2406|3|Power Pasta Cookers|پاستاپز صنعتی|
+2407|4|6 ft|۶ فوت|
+2408|3|Vacuum Pack Machines & Bags|دستگاه وکیوم و کیسه وکیوم|
+2409|3|Warewashing Equipment|تجهیزات ظرفشویی|
+2410|4|Dishwashers|ماشین ظرفشویی|
+2411|5|Undercounter Dishwashers|ماشین ظرفشویی زیرکانتری|
+2412|5|Portable Dishwashers|ماشین ظرفشویی رومیزی|
+2413|5|Upright Dishwashers|ماشین ظرفشویی کلاهکی (ایستاده)|
+2414|5|Dishwasher Replacement Parts|قطعات یدکی ماشین ظرفشویی|
+2415|4|Garbage Disposals & Mounting Hardware|زباله‌خردکن سینک و متعلقات|
+2416|5|Garbage Disposals|زباله‌خردکن سینک|ترکیبی
+2417|5|Garbage Disposal Hardware & Replacement Parts|متعلقات و قطعات یدکی زباله‌خردکن|
+2418|4|Glass Washers & Polishers|لیوان‌شوی و براق‌کن لیوان|
+2419|4|Cutlery Polishers|براق‌کن قاشق و چنگال|
+2420|2|Food Service Worktables, Stations & Storage|میز کار، ایستگاه و انبارش آشپزخانه صنعتی|
+2421|3|Food & Kitchen Storage|انبارش مواد غذایی و آشپزخانه|
+2422|4|Plastic Food Storage Shelving|قفسه پلاستیکی مواد غذایی|
+2423|5|Cambro Basics Plus Shelving|قفسه Cambro Basics Plus|
+2424|5|Cambro Elements Xtra Shelving|قفسه Cambro Elements Xtra|
+2425|5|Cambro Premium Shelving|قفسه Cambro Premium|
+2426|5|Cambro Elevation Wall-Mount Shelving & Pegboards|قفسه دیواری و پگ‌بورد Cambro Elevation|
+2427|4|Wire Food Storage Shelving|قفسه مفتولی مواد غذایی|
+2428|4|Pan Racks & Pan Rack Covers|ترولی سینی و کاور|
+2429|4|Pot Racks & Accessories|آویز قابلمه و لوازم|
+2430|4|Mobile Bulk Ingredient Storage Bins|سطل چرخ‌دار مواد اولیه فله|
+2431|4|Food Storage Containers, Trays, Boxes & Pails|ظرف نگهداری غذا، سینی، باکس و سطل|ترکیبی
+2432|4|Can Storage Racks|قفسه کنسرو|
+2433|4|Dish Cabinets|کابینت ظروف|
+2434|4|Kitchen Bin Carts|ترولی سطل آشپزخانه|
+2435|4|Kitchen Drawer Organizers & Cabinet Racks|نظم‌دهنده کشو و قفسه کابینت|ترکیبی
+2436|4|Kitchen Workstation Carts|ترولی ایستگاه کار آشپزخانه|
+2437|4|Kitchen Wall Shelves|طبقه دیواری آشپزخانه|
+2438|4|Mobile Fry Basket Carts|ترولی سبد سرخ‌کن|
+2439|3|Food Service Worktables|میز کار آشپزخانه صنعتی|
+2440|4|Stainless Steel Top Food Service Worktables|میز کار رویه استیل|
+2441|4|Wood Top Food Service Worktables|میز کار رویه چوبی|
