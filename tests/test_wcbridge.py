@@ -124,3 +124,19 @@ def test_a_wrong_token_is_a_connection_error(env, tmp_path, monkeypatch):
     monkeypatch.setattr("crawler.wc.time.sleep", lambda s: None)
     with pytest.raises(WCError):
         WC().get_product(1)
+
+
+def test_no_bridge_listening_is_a_retried_connection_error(monkeypatch, tmp_path):
+    s = socket.socket()
+    s.bind(("127.0.0.1", 0))
+    port = s.getsockname()[1]
+    s.close()                                           # nothing listens there
+    tok = tmp_path / "t"
+    tok.write_text("x" * 30)
+    monkeypatch.setenv("WC_BRIDGE", f"127.0.0.1:{port}")
+    monkeypatch.setenv("WC_BRIDGE_TOKEN_FILE", str(tok))
+    monkeypatch.setattr("crawler.wc.time.sleep", lambda s: None)
+    wcbridge.close()
+    with pytest.raises(WCError) as e:
+        WC().get_product(1)
+    assert e.value.status is None

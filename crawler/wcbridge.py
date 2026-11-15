@@ -107,11 +107,13 @@ def request(api: str, method: str, path: str, params=None, json_body=None, data:
         q["body_b64"] = base64.b64encode(data).decode()
     if headers:
         q["headers"] = headers
-    c = _conn(max(int(timeout or 0), 120))
+    c = None
     try:
+        c = _conn(max(int(timeout or 0), 120))
         a = c.call(q)
     except (OSError, ValueError, requests.ConnectionError) as e:
-        c.close()
+        if c is not None:
+            c.close()
         _local.c = None
         raise requests.ConnectionError(f"bridge: {e}") from e
     return Response(a.get("status", 500), a.get("body"), a.get("headers"))
