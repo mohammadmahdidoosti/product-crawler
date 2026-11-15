@@ -7,7 +7,7 @@
  * workers and memory are not used for it.
  *
  * Run (on the shop server, by bridge_proxy.py on the crawler host over ssh):
- *   cd /home/caravan/htdocs/caravansanat.com && sudo -u caravan wp eval-file shop_bridge.php --user=caravan-crawler
+ *   cd /home/caravan/htdocs/caravansanat.com && sudo -u caravan wp eval-file shop_bridge.php --user=caravancrawler
  *
  * Protocol, one JSON object per line both ways:
  *   in:  {"api": "wc"|"wp", "method": "GET", "path": "products", "params": {...}, "json": {...},

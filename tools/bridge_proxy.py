@@ -19,7 +19,7 @@ import threading
 import time
 
 REMOTE = ("cd /home/caravan/htdocs/caravansanat.com && sudo -u caravan "
-          "wp eval-file /opt/caravan-bridge/shop_bridge.php --user=caravan-crawler")
+          "wp eval-file /opt/caravan-bridge/shop_bridge.php --user=caravancrawler")
 
 
 def log(*a):
