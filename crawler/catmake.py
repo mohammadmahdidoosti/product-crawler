@@ -184,6 +184,22 @@ def _site_term(wc, name: str, parent_wp: int) -> int:
     rid = (j.get("data") or {}).get("resource_id") if isinstance(j, dict) else None
     if j.get("code") == "term_exists" and rid:       # the search missed it (spelling): the site says which one
         return int(rid)
+    if j.get("code") == "db_insert_error":
+        # (15 Nov) the same name exists under another parent: WordPress then adds the parent's slug to the
+        # new one's, and the long Persian slug (url-encoded) no longer fits the database column. A short
+        # slug of its own: the name with -2, -3 ... ("دستگاه پرس هیدرولیک برقی", batch 119)
+        for n in range(2, 7):
+            r2 = wc._wc("POST", "products/categories", json={"name": name, "parent": parent_wp,
+                                                             "slug": f"{re.sub(r'[\s‌]+', '-', name.strip())}-{n}"})
+            try:
+                j2 = r2.json()
+            except ValueError:
+                j2 = {}
+            if r2.ok and isinstance(j2, dict) and j2.get("id"):
+                return int(j2["id"])
+            rid = (j2.get("data") or {}).get("resource_id") if isinstance(j2, dict) else None
+            if isinstance(j2, dict) and j2.get("code") == "term_exists" and rid:
+                return int(rid)
     from .wc import WCError
     raise WCError(f"category create {name}: HTTP {r.status_code} {j.get('code', '')} {j.get('message', '')}", r.status_code)
 

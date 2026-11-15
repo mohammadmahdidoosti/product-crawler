@@ -81,3 +81,32 @@ class EnsureWP(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_a_long_slug_refusal_gets_a_short_slug_of_its_own():
+    """(15 Nov, batch 119) the name exists under another parent: WordPress' parent-suffixed slug is too long."""
+    from crawler.catmake import _site_term
+
+    class R:
+        def __init__(self, ok, body):
+            self.ok, self._b, self.status_code = ok, body, (201 if ok else 400)
+
+        def json(self):
+            return self._b
+
+    class FakeWC:
+        def __init__(self):
+            self.posts = []
+
+        def _call(self, fn, what):
+            return []
+
+        def _wc(self, method, path, **kw):
+            self.posts.append(kw.get("json"))
+            if "slug" not in kw["json"]:
+                return R(False, {"code": "db_insert_error", "message": "x"})
+            return R(True, {"id": 991})
+
+    wc = FakeWC()
+    assert _site_term(wc, "دستگاه پرس هیدرولیک برقی", 77) == 991
+    assert wc.posts[-1]["slug"] == "دستگاه-پرس-هیدرولیک-برقی-2" and wc.posts[-1]["parent"] == 77
