@@ -1,0 +1,225 @@
+@1.0.7 Tube Cutters
+Metal Tube and Conduit Cutters(15)|لوله‌بر فلزی و کاندوئیت|
+Compact Metal Tube and Conduit Cutters(12)|لوله‌بر فلزی کوچک|
+Smooth-Operating Metal Tube and Conduit Cutters(6)|لوله‌بر فلزی نرم‌کار|
+Ratcheting Metal Tube and Conduit Cutters for Tight Spots(6)|لوله‌بر جغجغه‌ای فضای تنگ|
+Nonsparking Metal Tube and Conduit Cutters(1)|لوله‌بر ضدجرقه|
+Electrical Insulating Metal Tube and Conduit Cutters(1)|لوله‌بر عایق برق|
+Compact Metal and Plastic Tube Cutters for Tight Spots(13)|لوله‌بر کوچک فلز و پلاستیک فضای تنگ|
+Quick-Adjusting Metal Tube and Conduit Cutters(6)|لوله‌بر فلزی تنظیم سریع|
+Corrugated Stainless Steel Tube and Conduit Cutters(4)|لوله‌بر لوله خرطومی استیل|
+Economy Metal Tube and Conduit Cutters(2)|لوله‌بر فلزی اقتصادی|
+Compact Metal and Plastic Tube Cutter Sets for Tight Spots(2)|ست لوله‌بر کوچک فضای تنگ|
+Quick-Adjusting Smooth-Operating Metal Tube and Conduit Cutters(2)|لوله‌بر فلزی تنظیم سریع نرم‌کار|
+Combination Metal Tube and Conduit Cutters and Crimpers(2)|لوله‌بر و پرس ترکیبی|
+Compact Flexible Tube and Hose Cutters(6)|شیلنگ‌بر کوچک|
+Flexible Tube and Hose Cutters(5)|شیلنگ‌بر و تیوب‌بر نرم|
+Polyethylene Tube Cutters(1)|لوله‌بر پلی‌اتیلن|
+Bench-Mount Flexible Tube and Hose Cutters(2)|شیلنگ‌بر رومیزی|
+Multipurpose Pipe, Tube, and Hose Cutters(17)|لوله‌بر و شیلنگ‌بر چندمنظوره|
+Easy-Cut Multipurpose Pipe, Tube, and Hose Cutters(16)|لوله‌بر چندمنظوره برش آسان|
+Cutting Tools for Weld-Spatter-Resistant Firm Rubber Tubing(1)|ابزار برش لوله لاستیکی ضدپاشش جوش|
+Compact Glass Tube Cutters(2)|شیشه‌بر لوله کوچک|
+Glass Tube Cutters(9)|شیشه‌بر لوله|
+Economy Metal and Plastic Pipe Cutters(1)|لوله‌بر اقتصادی فلز و پلاستیک|
+Ridgid Metal Pipe Cutters(17)|لوله‌بر فلزی ریجید|
+Quarter-Turn Metal Pipe Cutters for Tight Spots(9)|لوله‌بر ربع‌گرد فضای تنگ|
+Ratcheting Metal and Plastic Pipe Cutters for Tight Spots(2)|لوله‌بر جغجغه‌ای فلز و پلاستیک|
+Cordless Copper Tube Cutters(5)|لوله‌بر مسی شارژی|
+Quick-Adjusting Plastic Pipe and Tube Cutters(8)|لوله‌بر پلاستیکی تنظیم سریع|
+Cordless Plastic Pipe Cutters(4)|لوله‌بر پلاستیکی شارژی|
+Clay Pipe Cutters(2)|لوله‌بر سفالی|
+Pipe, Tube, and Hose Cutter Cutting Wheels(44)|تیغه گرد لوله‌بر|
+Tube and Pipe Notchers(2)|دستگاه فاق‌زن لوله|
+Nozzle Cutters(1)|نازل‌بر|
+Cutoff Saw Wheels(9)|صفحه برش اره پروفیل‌بر|
+Multipurpose Cutters(11)|قیچی چندمنظوره|
+@1.0.10 Manifolds
+Right-Angle Flow Rectangular Manifolds(455)|منیفولد مکعبی جریان ۹۰ درجه|
+Straight-Flow Rectangular Manifolds(138)|منیفولد مکعبی جریان مستقیم|
+Low-Profile Square Manifolds(63)|منیفولد مربعی کم‌ارتفاع|
+Round Manifolds for Hose Lines(38)|منیفولد گرد خط شیلنگ|
+Dual-Section Right-Angle Flow Rectangular Manifolds(20)|منیفولد دوبخشی جریان ۹۰ درجه|
+Low-Profile Hex Manifolds(103)|منیفولد شش‌گوش کم‌ارتفاع|
+Compact Manifolds for Hydraulic Jacks(1)|منیفولد کوچک جک هیدرولیک|
+Cleaned-and-Bagged Right-Angle Flow Rectangular Manifolds(10)|منیفولد ۹۰ درجه تمیز و بسته‌بندی‌شده|
+Color-Coded Irregular Hex Manifolds(24)|منیفولد شش‌گوش رنگی|
+Miniature Hex Manifolds(10)|منیفولد شش‌گوش مینیاتوری|
+Manifolds for Supplied-Air Respirators for Plant Air Lines(1)|منیفولد ماسک هوارسان|
+Oil Manifolds(4)|منیفولد روغن|
+Grease Fitting Junction Blocks(9)|بلوک انشعاب گریس‌خور|
+Hose Manifolds(9)|منیفولد شیلنگ|
+Air Directional Control Valves(97)|شیر کنترل جهت پنوماتیک|
+Valve Mounts(8)|پایه شیر|
+Well Plate Fillers(1)|پرکن پلیت آزمایشگاهی|
+Grease Fitting Manifolds(3)|منیفولد گریس‌خور|
+Flow-Adjustment Valve Manifolds(9)|منیفولد شیر تنظیم جریان|
+Spray Nozzle Bars(15)|بار نازل اسپری|
+T-Slotted Framing Manifolds(22)|منیفولد پروفیل شیاردار|
+Compressed Air Regulator Manifolds(108)|منیفولد رگولاتور باد|
+Refrigerant Pressure Testing Manifolds(12)|گیج منیفولد مبرد|
+Compressed Air Filter/Regulator Manifolds(13)|منیفولد فیلتر رگولاتور باد|
+Oil-Dispensing Pump Metering Valves(6)|شیر دوزینگ پمپ روغن|
+Hydraulic Accumulator Charging and Gauging Kits(2)|کیت شارژ و گیج آکومولاتور|
+@1.0.11 Hose
+Hose Fitting Installation Tools(1)|ابزار نصب اتصال شیلنگ|
+Hose and Tube Pliers(14)|انبر شیلنگ|
+Hose Impact Absorbers(21)|ضربه‌گیر شیلنگ|
+Pipe(213)|لوله|
+Pipe Straights(48)|لوله مستقیم|
+Pipe Elbows(51)|زانو|
+Pipe Plugs(6)|درپوش لوله|
+Pipe Tees(28)|سه‌راهی|
+Pipe Saddle Taps(15)|انشعاب زینی (کمربند انشعاب)|
+Hose Bender Springs(7)|فنر خم‌کن شیلنگ|
+Hose Nozzles(33)|سرشیلنگ|
+Hose Supports(6)|نگهدارنده شیلنگ|
+Hose Stops(7)|استاپر شیلنگ|
+Hose Fitting Lock Rings(7)|حلقه قفل اتصال شیلنگ|
+Hose Fitting Retaining Chains(2)|زنجیر نگهدارنده اتصال شیلنگ|
+Hose and Tube Clamp Guards(4)|محافظ بست شیلنگ|
+Air Nozzles(46)|نازل باد|
+Sump Pump Hose Kits(2)|کیت شیلنگ پمپ کف‌کش|
+Dewatering Pump Hose Kits(4)|کیت شیلنگ پمپ آبکش|
+Cold-Air Dispensers(10)|خنک‌کن هوای فشرده (ورتکس)|
+Faucet Sprayers(1)|سرشیر اسپری|ترکیبی
+Vacuum Cleaner Hose(19)|شیلنگ جاروبرقی|
+Vacuum Cleaner Attachments(1)|سری جاروبرقی|
+Vacuum Cleaner Hose Connectors(11)|رابط شیلنگ جاروبرقی|
+Wash Guns(49)|تفنگ شستشو|
+Garden Hose Nozzles(23)|سرشیلنگ باغبانی|ترکیبی
+Garden Hose Faucets(32)|شیر شیلنگ باغبانی|ترکیبی
+Coolant Dispensers(68)|توزیع‌کننده آب صابون|
+Grease Gun Nozzles(35)|سرگریس‌پمپ|
+Grease Fitting Repair Tools(2)|ابزار تعمیر گریس‌خور|
+Coolant Nozzle and Hose Adapters(4)|تبدیل نازل و شیلنگ آب صابون|
+Coolant Hose Tools(8)|ابزار شیلنگ مفصلی آب صابون|
+Grease Gun Tip Adapters(2)|تبدیل سرگریس‌پمپ|
+Coolant Aerators(2)|هواده آب صابون|
+Grease Gun Couplers(3)|کوپلر گریس‌پمپ|
+Fire Hose Nozzles(37)|سرلوله آتش‌نشانی|
+Fire Hose Reels(8)|قرقره شیلنگ آتش‌نشانی|
+Eye Wash Station Replacement Parts(1)|قطعات یدکی چشم‌شوی|
+Eye Wash Stations(5)|ایستگاه چشم‌شوی|
+Hose Holders(1)|نگهدارنده شیلنگ دیواری|
+Syringe Adapters(8)|تبدیل سرنگ|
+Hose Identification Bands(2)|نوار شناسایی شیلنگ|
+Pipe, Tube, and Hose Cutters(174)|لوله‌بر و شیلنگ‌بر|
+Parts Washer Replacement Parts(11)|قطعات یدکی قطعه‌شوی|
+Fume Exhaust Hoses(8)|شیلنگ تخلیه دود|
+@1.0.12 Hose Fittings
+Metal Barbed Hose Fittings for Air and Water(1140)|سرشیلنگی فلزی هوا و آب|
+Plastic Barbed Hose Fittings for Water(217)|سرشیلنگی پلاستیکی آب|
+Metal Push-On Barbed Hose Fittings for Air and Water(243)|سرشیلنگی فشاری فلزی هوا و آب|
+Industrial Quick-Disconnect Hose Couplings for Air(366)|کوپلینگ سریع باد صنعتی|
+Metal Cam-and-Groove Hose Couplings for Water(438)|کوپلینگ کاملاک فلزی آب|
+Metal Cam-and-Groove Hose Couplings for Chemicals and Petroleum(672)|کوپلینگ کاملاک فلزی شیمیایی و نفتی|
+Metal Barbed Hose Fittings for Chemicals and Petroleum(225)|سرشیلنگی فلزی شیمیایی و نفتی|
+Plastic Cam-and-Groove Hose Couplings for Water(154)|کوپلینگ کاملاک پلاستیکی آب|
+Threaded Hose Fittings for Compressed Gas(148)|اتصال دنده‌ای شیلنگ گاز فشرده|
+Low-Profile Metal Barbed Hose Fittings for Air and Water(71)|سرشیلنگی فلزی کم‌ارتفاع هوا و آب|
+Metal Barbed Hose Fittings for Coolant(34)|سرشیلنگی فلزی آب صابون|
+Plastic Barbed Hose Fittings for Coolant(253)|سرشیلنگی پلاستیکی آب صابون|
+Crimp-On Hose Fittings for Hydraulic Fluid(82)|سرشیلنگ پرسی هیدرولیک|
+Open-Flow Quick-Disconnect Hose Couplings for Air and Water(106)|کوپلینگ سریع جریان آزاد هوا و آب|
+Metal Threaded Garden Hose Fittings(86)|اتصال دنده‌ای فلزی شیلنگ باغبانی|
+Push-On Barbed Hose Fittings for Hydraulic Fluid(64)|سرشیلنگی فشاری هیدرولیک|
+Universal Quick-Disconnect Hose Sockets for Air(27)|مادگی کوپلینگ سریع باد یونیورسال|
+Threaded Hose Fittings for Hydraulic Fluid(191)|اتصال دنده‌ای شیلنگ هیدرولیک|
+Barbed Hose Fittings for Compressed Gas(41)|سرشیلنگی گاز فشرده|
+Metal Barbed Hose Fittings for Drinking Water(60)|سرشیلنگی فلزی آب شرب|
+Screw-On Hose Fittings for Air and Water(41)|سرشیلنگ پیچی هوا و آب|
+Metal Barbed Garden Hose Fittings(43)|سرشیلنگی فلزی باغبانی|
+Twist-Claw Hose Couplings for Air and Water(66)|کوپلینگ چنگالی (کلاو) هوا و آب|
+Tight-Seal Metal Barbed Hose Fittings for Air and Water(14)|سرشیلنگی فلزی آب‌بندی بالا|
+ISO Series B Quick-Disconnect Hose Couplings for Hydraulic Fluid(94)|کوپلینگ سریع هیدرولیک ISO سری B|
+Low-Profile Metal Barbed Hose Fittings for Chemicals and Petroleum(40)|سرشیلنگی فلزی کم‌ارتفاع شیمیایی|
+Metal Barbed Hose Fitting Kits for Air and Water(8)|کیت سرشیلنگی فلزی|
+Plastic Cam-and-Groove Hose Couplings for Chemicals and Petroleum(127)|کوپلینگ کاملاک پلاستیکی شیمیایی|
+Plastic Push-On Barbed Hose Fittings for Water(18)|سرشیلنگی فشاری پلاستیکی آب|
+Plastic Barbed Hose Fittings for Food and Beverage(44)|سرشیلنگی پلاستیکی غذایی|
+Plastic Barbed Hose Fittings for Drinking Water(15)|سرشیلنگی پلاستیکی آب شرب|
+Screw-On Hose Fittings for Hydraulic Fluid(61)|سرشیلنگ پیچی هیدرولیک|
+Screw-On Hose Fittings for Lubricant(4)|سرشیلنگ پیچی روغن‌کاری|
+ARO Quick-Disconnect Hose Couplings for Air(75)|کوپلینگ سریع باد ARO|
+Barbed Hose Fittings for Steam(94)|سرشیلنگی بخار|
+Crimp-On Hose Ferrules for Air and Water(60)|بوش پرسی شیلنگ هوا و آب|
+Cam-and-Groove Hose Couplings for Abrasive Material(53)|کوپلینگ کاملاک مواد ساینده|
+Metal Barbed Garden Hose Fittings for Drinking Water(16)|سرشیلنگی فلزی باغبانی آب شرب|
+Plastic Barbed Hose Fittings for Chemicals and Petroleum(9)|سرشیلنگی پلاستیکی شیمیایی|
+Cleaned and Bagged Metal Barbed Hose Fittings for Chemicals and Petroleum(16)|سرشیلنگی فلزی تمیز و بسته‌بندی‌شده|
+Quick-Disconnect Hose Couplings for Coolant(56)|کوپلینگ سریع آب صابون|
+Threaded Hose Fittings for Water(4)|اتصال دنده‌ای شیلنگ آب|
+Plastic Cam-and-Groove Hose Couplings for Food and Beverage(74)|کوپلینگ کاملاک پلاستیکی غذایی|
+Tru-Flate Quick-Disconnect Hose Couplings for Air(72)|کوپلینگ سریع باد Tru-Flate|
+Minimal-Spill Quick-Disconnect Hose Couplings for Electronics Cooling(32)|کوپلینگ سریع بدون نشتی خنک‌کاری الکترونیک|
+Metal Threaded Garden Hose Fittings for Drinking Water(13)|اتصال دنده‌ای فلزی باغبانی آب شرب|
+Screw-On Hose Fittings for Vehicle Air Systems(16)|سرشیلنگ پیچی سیستم باد خودرو|
+European Quick-Disconnect Hose Couplings for Air(37)|کوپلینگ سریع باد اروپایی|
+Metal Quick-Disconnect Garden Hose Couplings(10)|کوپلینگ سریع فلزی شیلنگ باغبانی|
+Threaded Hose Fittings for Air(21)|اتصال دنده‌ای شیلنگ باد|
+Plastic Barbed Garden Hose Fittings(19)|سرشیلنگی پلاستیکی باغبانی|
+Japanese Quick-Disconnect Hose Couplings for Air(26)|کوپلینگ سریع باد ژاپنی|
+ISO Series A Quick-Disconnect Hose Couplings for Hydraulic Fluid(21)|کوپلینگ سریع هیدرولیک ISO سری A|
+Snap-Tite H-Shape Quick-Disconnect Hose Couplings for Hydraulic Fluid(98)|کوپلینگ سریع هیدرولیک Snap-Tite سری H|
+ISO Minimal-Spill Quick-Disconnect Hose Couplings for Chemicals and Petroleum(22)|کوپلینگ سریع بدون نشتی ISO شیمیایی|
+Interlocking-Clamp Barbed Hose Fittings for Steam(29)|سرشیلنگی بخار با بست قفلی|
+Double Grip-Lock Claw Hose Couplings for Air and Water(19)|کوپلینگ چنگالی قفل دوبل|
+Barbed Hose Fittings for Refrigerant(39)|سرشیلنگی مبرد|
+Plastic Threaded Garden Hose Fittings(21)|اتصال دنده‌ای پلاستیکی باغبانی|
+Vapor Recovery Metal Cam-and-Groove Hose Couplings for Petroleum(3)|کوپلینگ کاملاک بازیافت بخار نفتی|
+Schrader Quick-Disconnect Hose Couplings for Air(27)|کوپلینگ سریع باد شریدر|
+Threaded Hose Fittings for Chemicals and Petroleum(11)|اتصال دنده‌ای شیلنگ شیمیایی|
+Minimal-Spill Metal Cam-and-Groove Hose Couplings for Water(13)|کوپلینگ کاملاک فلزی بدون نشتی آب|
+Quick-Disconnect Hose Couplings for Natural and LP Gas(23)|کوپلینگ سریع گاز طبیعی و مایع|
+ISO Minimal-Spill Quick-Disconnect Hose Couplings for Hydraulic Fluid(47)|کوپلینگ سریع بدون نشتی ISO هیدرولیک|
+Threaded Garden Hose Couplings(6)|کوپلینگ دنده‌ای شیلنگ باغبانی|
+Color/Shape-Match Quick-Disconnect Hose Couplings for Air and Water(12)|کوپلینگ سریع رنگی/کددار|
+Strain-Relief Screw-On Hose Fittings for Air and Water(11)|سرشیلنگ پیچی با ضدخمش|
+High-Pressure Minimal-Spill Quick-Disconnect Hose Couplings for Hydraulic Fluid(30)|کوپلینگ سریع بدون نشتی هیدرولیک فشار بالا|
+Threaded Hose Fittings for Coolant(7)|اتصال دنده‌ای شیلنگ آب صابون|
+Compact Quick-Disconnect Hose Couplings for Air(16)|کوپلینگ سریع باد کوچک|
+Lincoln Quick-Disconnect Hose Couplings for Air(20)|کوپلینگ سریع باد لینکلن|
+Quick-Disconnect Hose Couplings for Compressed Gas(3)|کوپلینگ سریع گاز فشرده|
+Grip-Lock Claw Hose Couplings for Air(41)|کوپلینگ چنگالی قفل‌دار باد|
+Minimal-Spill Metal Cam-and-Groove Hose Couplings for Chemicals and Petroleum(11)|کوپلینگ کاملاک فلزی بدون نشتی شیمیایی|
+Threaded Hose Fittings for Diesel Exhaust Fluid(3)|اتصال دنده‌ای شیلنگ ادبلو (DEF)|
+Pressure-Testing Quick-Disconnect Hose Couplings for Hydraulic Fluid(10)|کوپلینگ سریع تست فشار هیدرولیک|
+Pioneer Quick-Disconnect Hose Couplings for Hydraulic Fluid(29)|کوپلینگ سریع هیدرولیک پایونیر|
+Quick-Disconnect Hose Couplings for Steam(16)|کوپلینگ سریع بخار|
+High-Pressure Thread-Lock Quick-Disconnect Hose Couplings for Hydraulic Fluid(14)|کوپلینگ سریع رزوه‌ای هیدرولیک فشار بالا|
+Plastic Cam-and-Groove Garden Hose Couplings(9)|کوپلینگ کاملاک پلاستیکی باغبانی|
+Plastic Quick-Disconnect Hose Couplings for Air and Water(2)|کوپلینگ سریع پلاستیکی هوا و آب|
+Push-and-Turn Hose Couplings for Chemicals and Petroleum(14)|کوپلینگ فشاری-چرخشی شیمیایی|
+Laboratory Barbed Hose Fittings(2)|سرشیلنگی آزمایشگاهی|
+Threaded Hose Fittings for Petroleum(3)|اتصال دنده‌ای شیلنگ نفتی|
+Twist-Claw Hose Couplings for Dry Abrasive Material(17)|کوپلینگ چنگالی مواد ساینده خشک|
+Plastic Quick-Disconnect Garden Hose Couplings(7)|کوپلینگ سریع پلاستیکی باغبانی|
+Spring-Lock Twist-Claw Hose Couplings for Air and Water(8)|کوپلینگ چنگالی قفل فنری|
+High-Pressure Open-Flow Quick-Disconnect Hose Couplings for Water(4)|کوپلینگ سریع جریان آزاد آب فشار بالا|
+Ring-Lock Quick-Disconnect Hose Couplings for Air(16)|کوپلینگ سریع باد قفل حلقه‌ای|
+Heavy Duty Thread-Lock Quick-Disconnect Hose Couplings for Hydraulic Fluid(6)|کوپلینگ سریع رزوه‌ای هیدرولیک سنگین|
+Minimal-Spill Plastic Cam-and-Groove Hose Couplings for Chemicals(4)|کوپلینگ کاملاک پلاستیکی بدون نشتی|
+Breakaway Quick-Disconnect Hose Couplings for Chemicals and Petroleum(13)|کوپلینگ جداشونده ایمنی شیمیایی|
+Push-and-Turn Hose Couplings for Natural and LP Gas(4)|کوپلینگ فشاری-چرخشی گاز|
+Push-and-Turn Hose Couplings for Petroleum(6)|کوپلینگ فشاری-چرخشی نفتی|
+Thread-Lock Quick-Disconnect Hose Couplings for Hydraulic Fluid(6)|کوپلینگ سریع رزوه‌ای هیدرولیک|
+Breakaway Quick-Disconnect Hose Couplings for Diesel Exhaust Fluid(3)|کوپلینگ جداشونده ایمنی ادبلو|
+Minimal-Spill Self-Aligning Hose Couplings for Electronics Cooling(8)|کوپلینگ خودتراز بدون نشتی خنک‌کاری|
+Fire Hydrants(4)|شیر آتش‌نشانی (هیدرانت)|
+Garden Hose Valves(30)|شیر شیلنگ باغبانی|ترکیبی
+Duct and Fittings(1248)|کانال و اتصالات|
+Fire Hydrant Plugs(3)|درپوش هیدرانت|
+Coolant Nozzle Adjustment Tools(1)|ابزار تنظیم نازل آب صابون|
+Diffuser Collars(4)|طوقه دیفیوزر|
+Fire Hydrant Caps(6)|کلاهک هیدرانت|
+Hydraulic Check Valves(34)|شیر یک‌طرفه هیدرولیک|
+Siphon Guns(23)|تفنگ سیفونی|
+Dust Hoods(12)|هود غبار|
+Die Grinders(3)|فرز انگشتی|
+@1.0.13 Hose Nozzles
+Pressure Washer Guns(24)|تفنگ کارواش|
+Wash Gun Nozzle Extensions(2)|رابط نازل تفنگ شستشو|
+Steam Cleaners(13)|بخارشوی|
+Water Jet Drain Cleaner Nozzles(17)|نازل لوله‌بازکن واترجت|
+Spray Nozzles(1018)|نازل اسپری|

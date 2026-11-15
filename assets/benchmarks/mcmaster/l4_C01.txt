@@ -1,0 +1,335 @@
+@9.0.17 Broaches
+Keyway Broaches(66)|خان‌کش جای خار|
+Square Broaches(20)|خان‌کش چهارگوش|
+Hex Broaches(16)|خان‌کش شش‌گوش|
+Rotary Hex Broaches(31)|خان‌کش دوار شش‌گوش|
+Keyseat Broaches(52)|خان‌کش شیار خار محور|
+Keyway Broach Sets(10)|ست خان‌کش جای خار|
+Rotary Square Broaches(15)|خان‌کش دوار چهارگوش|
+Single-Pass Keyway Broaches(17)|خان‌کش جای خار تک‌پاس|
+@9.0.18 Layout Fluid & Scribers
+Marking Fluid(9)|جوهر خط‌کشی|
+Center Finders(1)|مرکزیاب|
+Layout Compasses(19)|پرگار خط‌کشی|
+Compass Point-Holding Clamps(2)|گیره نوک پرگار|
+Layout-Marking Supplies(1)|لوازم خط‌کشی و علامت‌گذاری|
+Hole-Marking Chalk(2)|گچ علامت‌گذاری سوراخ|
+Combination Square Blades(17)|تیغه گونیا ترکیبی|
+Combination Square Heads(11)|سر گونیا ترکیبی|
+Height Gauges(47)|ارتفاع‌سنج (کولیس ارتفاع)|
+Height Gauge Scribers(2)|سوزن خط‌کش ارتفاع‌سنج|
+Height Gauge Calibrators(11)|کالیبراتور ارتفاع‌سنج|
+Scribers(23)|سوزن خط‌کش|
+Awls(6)|درفش|
+Rotary Tool Engraving Bits(1)|سر حکاکی فرز مینیاتوری|
+Engravers(29)|قلم حکاکی برقی|
+Pencils(5)|مداد علامت‌گذاری|
+Dot Peen-Marking Machines(3)|دستگاه حکاکی نقطه‌زنی (دات‌پین)|
+Marking Fluid Removers(3)|پاک‌کن جوهر خط‌کشی|
+@9.1.0 Presses
+Presses(49)|پرس|
+Press Plates(4)|صفحه پرس|
+Clamping Screw Clamps(3)|گیره پیچی پرس|
+Drill Presses(20)|دریل ستونی|
+Shears/Benders/Curvers(3)|دستگاه برش/خم/فرم ورق|
+Stamp Presses(10)|پرس سنبه‌زنی (مهرزنی)|
+@9.1.3 Punches
+Hole Punch Drivers(3)|دسته سنبه سوراخ‌کن|
+Punch, Stamp, and Chisel Holders(6)|نگهدارنده سنبه، حروف‌زن و قلم|
+Ice Picks(3)|درفش یخ‌شکن|
+Nail Set Punches(4)|سنبه میخ‌فروکن|
+@9.2.0 Clamps
+Draw Latches(467)|قفل کلیپسی (چفت کششی)|
+Holders for Locking Pliers(1)|نگهدارنده انبر قفلی|
+Panel Alignment Clamps(20)|گیره هم‌تراز کردن پنل|
+Band Clamps(2)|گیره تسمه‌ای|
+Vise Stops(5)|استاپر گیره|
+Spring Clamp Workholders(7)|نگهدارنده گیره فنری|
+Swivel Pads(58)|پد گردان (سر پیچ گیره)|
+Ring Stands(12)|پایه حلقه آزمایشگاهی|
+Vise Jaws(133)|فک گیره|
+Hemostats(31)|پنس قفلی (همواستات)|
+Tongs(49)|انبر گیره (انبرک)|
+Vise Jaw Liners(44)|روکش فک گیره|
+Vise Handles(5)|دسته گیره|
+Vacuum Workholding Plates(11)|صفحه نگهدارنده وکیوم|
+Vise Handle Hangers(2)|آویز دسته گیره|
+Vise Tube Holders(2)|نگهدارنده لوله گیره|
+Vise Bases(2)|پایه گیره|
+Vise Repair Kits(10)|کیت تعمیر گیره|
+Support Blocks(16)|بلوک تکیه‌گاه|
+T-Slot Clamp Supports(7)|تکیه‌گاه گیره شیار T|
+Parallel Keepers(3)|نگهدارنده موازی‌ساز (پارالل)|
+Plate Clamps(90)|گیره بالابر ورق|
+Cylinder Grabbers(1)|گیره کپسول|
+Suction Cup Lifters(94)|بادکش بالابر|
+Pail Lifters(1)|بالابر سطل|
+Pick-and-Place Gripper Fingers(9)|انگشتی گریپر برداشت و گذاشت|
+Lifting Tongs(13)|انبر بالابر|
+Drum Lifters(25)|بالابر بشکه|
+Drum Slings(8)|اسلینگ بشکه|
+Puller Tongs(3)|انبر کشنده|
+Drum Dispensers(10)|پایه تخلیه بشکه|
+Conveyor Brackets(78)|براکت نوار نقاله|
+Conveyor Guide Cross Blocks(48)|بلوک اتصال راهنمای نوار نقاله|
+Conveyor Guide Clamps(39)|گیره راهنمای نوار نقاله|
+Conveyor Guide Mounting Rods(138)|میله نصب راهنمای نوار نقاله|
+Conveyor Accessory Mounts(61)|پایه لوازم نوار نقاله|
+Conveyor Guide Mounting Rod Caps(7)|درپوش میله راهنمای نوار نقاله|
+Conveyor Guides(114)|ریل راهنمای نوار نقاله|
+Conveyor Lane Dividers(9)|جداکننده مسیر نوار نقاله|
+Snap Hooks(276)|قلاب فنری (کارابین)|
+Rope Clamps(12)|بست طناب|
+Rope Compression Sleeves(25)|بوش پرس طناب|
+Pallet Pullers(4)|پالت‌کش|
+Drum Grabbers(12)|گیره بشکه|
+Ratchet Strap Webbing Bags(1)|کیف تسمه جغجغه‌ای|
+Ratchet Straps(581)|تسمه جغجغه‌ای (تسمه بار)|
+Webbing Buckles(3)|سگک تسمه|
+Box Clips(4)|گیره جعبه|
+Cam Handles(102)|دسته بادامکی|
+Steering Wheel Knobs(6)|دستگیره فرمان|
+Ball Knobs(8)|دستگیره توپی|
+Wheel Clamp Locks(5)|قفل چرخ|
+Variance Indicator Holder Fine-Adjustment Attachments(1)|متعلقات تنظیم دقیق پایه ساعت اندیکاتور|
+Variance Indicator Clamps(61)|گیره ساعت اندیکاتور|
+Variance Indicator Holders(50)|پایه ساعت اندیکاتور|
+Variance Indicator Holder Bases(2)|کفی پایه ساعت اندیکاتور|
+Variance Indicator Holder Arms(1)|بازوی پایه ساعت اندیکاتور|
+Variance Indicators(12)|ساعت اندیکاتور|
+Micrometer Head Mounting Brackets(15)|براکت نصب هد میکرومتر|
+Variance Indicator Holder Posts(2)|میله پایه ساعت اندیکاتور|
+Square Holding Clamps(1)|گیره نگهدارنده گونیا|
+Height Gauge Scriber Clamps(5)|گیره سوزن ارتفاع‌سنج|
+Bench Centers(5)|مرغک رومیزی (کنترل لنگی)|
+Shaft Alignment Kits(9)|کیت هم‌محوری شفت (الاینمنت)|
+Inspection V-Blocks(10)|بلوک V کنترل|
+Inspection Parallels(8)|پارالل کنترل|
+Lugs(45)|زبانه جوشی (لاگ)|
+Panel Clips(3)|گیره پنل|
+Clinch Clips(4)|گیره پرسی|
+Chain Wrenches(28)|آچار زنجیری|
+Pegboard Tool Holders(9)|آویز ابزار پگبورد|
+Pegboard Clips(2)|گیره پگبورد|
+Mirror Holders(4)|نگهدارنده آینه|
+Pegboard Organizer Kits(4)|کیت نظم‌دهی پگبورد|
+Pipettor Holders(4)|پایه پیپت|
+Drum Locking Rings(7)|حلقه قفل درب بشکه|
+Drum Lids(16)|درب بشکه|
+Cylinder Racks(46)|رک کپسول گاز|
+Microphone Clips(1)|گیره میکروفون|
+Sign Mounts(3)|پایه تابلو|
+Hair Clips(1)|گیره مو|مصرفی
+Glove Box Clamps(4)|گیره گلاوباکس|
+@9.2.1 Vises
+Bench Vises(18)|گیره رومیزی|
+Heavy Duty Bench Vises(41)|گیره رومیزی سنگین|
+Rotating-Head Bench Vises(4)|گیره رومیزی سرگردان|
+High-Visibility Bench Vises(5)|گیره رومیزی رنگ هشدار|
+Miniature Bench Vises(2)|گیره رومیزی مینیاتوری|
+Clamp-On Bench Vises(6)|گیره رومیزی پیچی (قابل نصب روی لبه)|
+Any-Orientation Tilting-Head Bench Vises(2)|گیره رومیزی سرکج‌شو همه‌جهته|
+Miniature Clamp-On Bench Vises(4)|گیره رومیزی مینیاتوری پیچی|
+Stainless Steel Bench Vises for Washdown Applications(9)|گیره رومیزی استیل شست‌وشوپذیر|
+Tilting-Head Bench Vises(6)|گیره رومیزی سرکج‌شو|
+Extra-Wide-Opening Tilting-Head Bench Vises(3)|گیره رومیزی سرکج‌شو دهانه خیلی باز|
+Extra-Wide-Opening Bench Vises(4)|گیره رومیزی دهانه خیلی باز|
+Weather-Resistant Bench Vises(9)|گیره رومیزی مقاوم در فضای باز|
+Tilting-Head Suction-Mount Bench Vises(5)|گیره رومیزی بادکشی سرکج‌شو|
+Undermount Quick-Adjust Bench Vises(2)|گیره رومیزی زیرنصب تنظیم سریع|
+Nonsparking Bench Vises(1)|گیره رومیزی ضدجرقه|
+Drill-Press Vises(6)|گیره دریل ستونی|
+Any-Orientation Drill-Press Vises(5)|گیره دریل ستونی همه‌جهته|
+Quick-Clamp Drill-Press Vises(12)|گیره دریل ستونی سریع‌بند|
+Cross-Slide Drill-Press Vises(3)|گیره دریل ستونی دومحوره (کراس)|
+Pivoting-Head Drill-Press Vises(3)|گیره دریل ستونی سرچرخان|
+Milling-Machine Vises(17)|گیره فرز (گیره ماشین‌ابزار)|
+Compact Milling-Machine Vises(6)|گیره فرز کامپکت|
+High-Precision Milling-Machine Vises(9)|گیره فرز دقیق|
+Dovetail Milling-Machine Vises(12)|گیره فرز دم‌چلچله‌ای|
+Sine Vises(1)|گیره سینوسی|
+Hand Vises for Irregularly Shaped Material(1)|گیره دستی قطعات نامنظم|
+Hand Vises(4)|گیره دستی|
+Nonmarring Hand Vises(1)|گیره دستی بی‌خش|
+Precise-Control Pin Vises(1)|گیره سوزنی کنترل دقیق|
+Hollow-Body Pin Vise Sets(1)|ست گیره سوزنی بدنه توخالی|
+Chuck-Style Hand Vises(2)|گیره دستی سه‌نظامی|
+Quick-Clamp Hollow-Body Pin Vises(1)|گیره سوزنی توخالی سریع‌بند|
+Hollow-Body Pin Vises(4)|گیره سوزنی بدنه توخالی|
+Cushion-Grip Precise-Control Pin Vises(1)|گیره سوزنی دسته نرم کنترل دقیق|
+Two-Tip Hollow-Body Pin Vises(1)|گیره سوزنی توخالی دوسر|
+Squeeze-to-Open Hand Vises(5)|گیره دستی فشاری|
+Bench Vises for Dremel(1)|گیره رومیزی دریمل|
+Self-Centering Machine Vises(1)|گیره ماشین‌ابزار خودمرکز|
+Machine Vises(4)|گیره ماشین‌ابزار|
+Any-Angle Machine Vises(3)|گیره ماشین‌ابزار زاویه‌دار|
+Air-Powered Machine Vises(5)|گیره ماشین‌ابزار پنوماتیک|
+Ultra-Precision Machine Vises(2)|گیره ماشین‌ابزار فوق‌دقیق|
+Trailer-Hitch Vises(1)|گیره نصب روی کوپلینگ یدک‌کش|
+Bench-Mount Pipe Vises(13)|گیره لوله‌گیر رومیزی|
+Nonmarring Bench-Mount Pipe Vises(1)|گیره لوله‌گیر رومیزی بی‌خش|
+Freestanding Pipe Vises for Clean Rooms(1)|گیره لوله‌گیر پایه‌دار اتاق تمیز|
+Freestanding Pipe Vises(5)|گیره لوله‌گیر پایه‌دار|
+Easy-Carry Pipe Vises(4)|گیره لوله‌گیر قابل حمل|
+Nonmarring Freestanding Pipe Vises(1)|گیره لوله‌گیر پایه‌دار بی‌خش|
+Tilting-Head Circuit Board Vises(2)|گیره برد مدار سرکج‌شو|
+Static-Control Circuit Board Vises(1)|گیره برد مدار آنتی‌استاتیک|
+Circuit Board Vises(2)|گیره برد مدار|
+Electronic-Component Positioning Stands(1)|پایه نگهدارنده قطعات الکترونیکی|
+Angle Plates(64)|نبشی ماشین‌کاری (انگل‌پلیت)|
+Workholding and Positioning Bases(2)|پایه نگهدارنده و موقعیت‌دهی قطعه|
+Vise Mounts(2)|پایه نصب گیره|
+Vise Stands(3)|پایه ایستاده گیره|
+@9.2.3 Positioning Arms
+Monitor Mounts(47)|پایه مانیتور|ترکیبی
+Laptop Mounts(2)|پایه لپ‌تاپ|ترکیبی
+Torque-Absorbing Arms(7)|بازوی گشتاورگیر|
+Phone Mounts(6)|پایه گوشی|ترکیبی
+Tablet Mounts(15)|پایه تبلت|ترکیبی
+Teach Pendant Holders(6)|نگهدارنده تیچ‌پندنت ربات|
+Radio Mounts(3)|پایه بی‌سیم|
+Monitor Mount Adapters(2)|آداپتور پایه مانیتور|ترکیبی
+Air Knife Positioning Arms(1)|بازوی تنظیم ایرنایف|
+Cranes(244)|جرثقیل|
+Robot Arms(25)|بازوی رباتیک|
+Delta Robots(10)|ربات دلتا|
+@9.2.4 Spring Plungers
+Long-Nose Spring Plungers(412)|پلانجر فنری دماغه بلند|
+Ball-Nose Spring Plungers(237)|پلانجر فنری ساچمه‌ای|
+Knob-Grip Retractable Spring Plungers(132)|پلانجر جمع‌شو دستگیره‌دار|
+Ring-Grip Retractable Spring Plungers(102)|پلانجر جمع‌شو حلقه‌دار|
+Press-Fit Ball-Nose Spring Plungers(153)|پلانجر ساچمه‌ای پرسی|
+L-Handle Retractable Spring Plungers(100)|پلانجر جمع‌شو دسته L|
+Plate-Mount Retractable Spring Plungers(74)|پلانجر جمع‌شو نصب روی ورق|
+T-Handle Weld-On Retractable Spring Plungers(29)|پلانجر جمع‌شو جوشی دسته T|
+T-Handle Retractable Spring Plungers(16)|پلانجر جمع‌شو دسته T|
+Press-Fit Long-Nose Spring Plungers(46)|پلانجر دماغه بلند پرسی|
+Add-a-Handle Retractable Spring Plungers(13)|پلانجر جمع‌شو دسته‌خور|
+Ball-Grip Weld-On Retractable Spring Plungers(29)|پلانجر جمع‌شو جوشی دستگیره توپی|
+Hex-Nose Spring Plungers(17)|پلانجر فنری سر شش‌گوش|
+Hex-Nose Spring Plungers For Ejecting(7)|پلانجر سر شش‌گوش پران (اجکتور)|
+Tight-Hold Ball-Nose Spring Plungers(6)|پلانجر ساچمه‌ای نگهدارنده محکم|
+L-Handle Weld-On Retractable Spring Plungers(16)|پلانجر جمع‌شو جوشی دسته L|
+Retractable Spring Plungers for Panels(8)|پلانجر جمع‌شو پنل|
+Low-Profile Knob-Grip Retractable Spring Plungers(8)|پلانجر جمع‌شو دستگیره‌دار کوتاه|
+Add-a-Handle Weld-On Retractable Spring Plungers(10)|پلانجر جمع‌شو جوشی دسته‌خور|
+Sanitary Retractable Spring Plungers(5)|پلانجر جمع‌شو بهداشتی|
+@9.2.5 Tool Balancers
+T-Slotted Framing Workbench Uprights(18)|ستون پروفیل شیاردار میز کار|
+Blade Balancers(1)|بالانسر تیغه|
+@9.3.0 Parts Washers
+Parts Washers(39)|قطعه‌شوی|
+Ultrasonic Cleaners(33)|التراسونیک شستشو|
+Parts Washing Brushes(14)|برس قطعه‌شوی|
+Parts Washer Filters(16)|فیلتر قطعه‌شوی|
+Tube Brushes(1117)|برس لوله‌شور|
+Parts Washing Solutions(10)|محلول قطعه‌شوی|
+Parts Washing Cans(15)|ظرف قطعه‌شوی|
+Parts Washing Tubs(6)|تشت قطعه‌شوی|
+Abrasive Hand Brushes(195)|برس دستی ساینده|
+Scrub Brushes(124)|برس شستشو|ترکیبی
+End Brushes(211)|برس انگشتی (سرکاسه)|
+Pipette Washers(1)|شوینده پیپت|
+Rinsing Solutions for Ultrasonic Cleaners(1)|محلول آبکشی التراسونیک|
+Disinfecting Solutions for Ultrasonic Cleaners(1)|محلول ضدعفونی التراسونیک|
+Cleaning Solutions for Ultrasonic Cleaners(7)|محلول شستشوی التراسونیک|
+Autoclaves(2)|اتوکلاو|
+Dipping Racks(7)|رک غوطه‌وری|
+Autoclave Bags(9)|کیسه اتوکلاو|
+Sander Cleaners(7)|تمیزکن سنباده|
+File Cleaners(3)|برس تمیزکن سوهان|
+Electropolishers(10)|دستگاه الکتروپولیش|
+Electropolishing Solutions(2)|محلول الکتروپولیش|
+Air Knife Mounting Brackets(1)|براکت نصب ایرنایف|
+Air Nozzle Swivels(4)|مفصل گردان نازل هوا|
+Swabs(101)|سواب (گوش‌پاک‌کن صنعتی)|
+Pipe Cleaners(2)|برس مفتولی لوله‌پاک‌کن|
+Floor Machine Brushes(39)|برس دستگاه کف‌شوی|
+Glassware Rinsers(2)|آبکش ظروف آزمایشگاهی|
+@9.3.1 Wire Baskets
+Tote Baskets(15)|سبد دسته‌دار|
+Bulk Containers(12)|مخزن فله|
+Bins(21)|سبد (بین)|
+Slatwall Baskets(1)|سبد اسلت‌وال|
+Pegboard Baskets(5)|سبد پگبورد|
+@9.3.2 Nozzles
+Abrasive Blasting Air Jets(15)|نازل سندبلاست|
+Heat Gun Replacement Parts(4)|قطعات یدکی سشوار صنعتی|
+Tube Cleaner Gun and Nozzle Kits(1)|کیت تفنگ و نازل لوله‌شوی|
+Aerosol Spray Straws(1)|نی اسپری|
+@9.3.3 Blowguns
+Plastic-Body Blowguns(10)|بادپاش بدنه پلاستیکی|
+Blowguns with Nonmarring Tip(8)|بادپاش نوک بی‌خش|
+Long-Reach High-Output Blowguns(26)|بادپاش بلند پرقدرت|
+Plastic-Body High-Output Blowguns(1)|بادپاش پلاستیکی پرقدرت|
+Long-Reach Blowguns(31)|بادپاش لوله بلند|
+Dual Air-Inlet Blowguns(1)|بادپاش دو ورودی|
+Plastic-Body Long-Reach Blowguns(20)|بادپاش پلاستیکی لوله بلند|
+Pocket Blowguns(8)|بادپاش جیبی|
+High-Output Blowguns(6)|بادپاش پرقدرت|
+Long-Reach Blowguns with Nonmarring Tip(5)|بادپاش لوله بلند نوک بی‌خش|
+Inline Blowguns(1)|بادپاش خطی|
+Blowguns with Air Hose(2)|بادپاش با شیلنگ|
+Low-Noise Blowguns(3)|بادپاش کم‌صدا|
+Low-Noise Long-Reach Blowguns(16)|بادپاش کم‌صدا لوله بلند|
+Chip-Guard Long-Reach Blowguns(13)|بادپاش لوله بلند محافظ براده|
+Wide-Airflow Blowguns(3)|بادپاش جریان پهن|
+Chip-Guard Blowguns(3)|بادپاش محافظ براده|
+Hands-Free Static-Eliminating Blowguns(2)|بادپاش یونایزر بدون دست|
+Static-Eliminating Blowguns(5)|بادپاش یونایزر (ضدالکتریسیته)|
+Adjustable-Length Blowguns(2)|بادپاش طول قابل تنظیم|
+High-Output Static-Eliminating Blowguns(2)|بادپاش یونایزر پرقدرت|
+90° Airflow Blowguns(4)|بادپاش زاویه ۹۰ درجه|
+Compressed-Air Blowguns for Large Areas(15)|بادپاش هوای فشرده سطوح بزرگ|
+Clean-Air Blowguns(2)|بادپاش هوای تمیز|
+Reverse-Airflow Blowguns(3)|بادپاش جریان معکوس (مکنده)|
+Long-Reach Blowguns with Air Hose(5)|بادپاش لوله بلند با شیلنگ|
+Electric Blowguns for Large Areas(5)|بادپاش برقی سطوح بزرگ|
+Electrical Insulating Blowguns(2)|بادپاش عایق برق|
+Personnel Cleaning Blow-Off Systems(6)|سیستم بادزنی تمیزکاری پرسنل|
+Blowgun Holders(1)|نگهدارنده بادپاش|
+Tube Cleaners(25)|لوله‌شوی (تیوب‌کلینر)|
+Vacuum Cleaners(23)|جاروبرقی صنعتی|
+@9.3.6 Heat Guns & Lamps
+Heat Gun Stands(2)|پایه سشوار صنعتی|
+Heat-Treating Bags(16)|کیسه عملیات حرارتی|
+Vacuum Formers(5)|دستگاه وکیوم فرمینگ|
+Heat Gun Cases(1)|کیف سشوار صنعتی|
+Drying Racks(8)|رک خشک‌کن|
+@10.0.0 Sanding Abrasives
+Backup Pads(123)|پد پشت سنباده|
+Sanding Sleeves(311)|سنباده استوانه‌ای (اسلیو)|
+Cartridge Sanding Rolls(125)|سنباده لوله‌ای (کارتریجی)|
+Sanding Sleeve Drums(83)|درام سنباده استوانه‌ای|
+Sanding Bits(210)|سنباده انگشتی|
+Sanding Sticks and Bricks(93)|سنباده چوبی و بلوکی|
+Rotary Sanding Pads(53)|پد سنباده دوار|
+Sanding Guide Coats(1)|پودر راهنمای سنباده|
+Sanding Cords(39)|سنباده نخی|
+Rotary Sanding Pad Arbors(14)|شفت پد سنباده دوار|
+Sanding Drum and Sleeve Kits(9)|کیت درام و سنباده استوانه‌ای|
+Sanding Abrasive Dispensers(6)|دیسپنسر سنباده|
+Sanding Belt Wheels(26)|چرخ تسمه سنباده|
+Sanding Disc Adapters(4)|آداپتور دیسک سنباده|
+Oscillating Tool Sanding Plates(6)|صفحه سنباده ابزار نوسانی (همه‌کاره)|
+Flap Wheels(618)|فلاپ ویل (سنباده پره‌ای)|
+Grinding Wheels(78)|سنگ سنباده|
+Flap Wheel Adapters(2)|آداپتور فلاپ ویل|
+Grinder Spindle Adapters(3)|آداپتور شفت فرز سنگ|
+Cartridge Sanding Roll Arbors(22)|شفت سنباده لوله‌ای|
+Flap Wheel Arbors(7)|شفت فلاپ ویل|
+Flap Wheel Arbor Hole Reducers(2)|تبدیل سوراخ فلاپ ویل|
+Rotary Tool Sanding Sleeves(1)|سنباده استوانه‌ای فرز مینیاتوری|
+Lapping Film(180)|فیلم لپینگ|
+File Handles(1)|دسته سوهان|
+Deburring Pads(4)|پد پلیسه‌گیر|
+Sanding Disc Trimmers(8)|برش‌دهنده دیسک سنباده|
+@10.0.1 Sanders
+Die Grinder Drill Attachments(1)|متعلقات فرز انگشتی برای دریل|
+Angle Grinders(76)|فرز آهنگری (سنگ‌فرز)|
+Oscillating Tools(12)|ابزار نوسانی (همه‌کاره مولتی‌تول)|
+Oscillating Tool Blades(39)|تیغ ابزار نوسانی|
+Vertical Grinders(2)|فرز عمودی|
+Straight Grinders(3)|فرز مستقیم (سنگ‌زن)|
+Rotary Tool Accessory Kits(10)|کیت لوازم فرز مینیاتوری|
+Buffing and Polishing Pads(38)|پد پولیش|

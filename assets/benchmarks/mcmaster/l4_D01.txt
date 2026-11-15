@@ -1,0 +1,324 @@
+@15.0.7 Beam Clamps
+Beam Clamps for Threaded Rods(41)|بست تیرآهن میله‌دنده‌ای|
+Beam Clamps for Hooks and Hangers(19)|بست تیرآهن قلاب و آویز|
+Perpendicular Beam-to-Beam Clamps(1)|بست تیر به تیر عمودی|
+Center-Mount Beam Clamps for Threaded Rods(30)|بست تیرآهن وسط‌نصب میله‌دنده‌ای|
+Easy-Position Beam Clamps for Pipe, Tube, and Conduit(19)|بست تیرآهن لوله و کاندوئیت تنظیم آسان|
+Parallel Beam-to-Beam Clamps(9)|بست تیر به تیر موازی|
+Angle Iron Beam Clamps for Threaded Rods(1)|بست نبشی میله‌دنده‌ای|
+Sloped Beam Clamps for Threaded Rods(5)|بست تیرآهن شیب‌دار میله‌دنده‌ای|
+Beam Clamps for Pipe, Tube, and Conduit(23)|بست تیرآهن لوله و کاندوئیت|
+Press-Fit Beam Clamps for Threaded Rods(6)|بست تیرآهن پرسی میله‌دنده‌ای|
+Angled Beam Clamps for Threaded Rods(2)|بست تیرآهن زاویه‌دار میله‌دنده‌ای|
+Beam Clamps with Tie Wire Hangers(2)|بست تیرآهن با آویز مفتولی|
+@15.0.8 Turnbuckles
+Clevis-to-Clevis Turnbuckles—Not for Lifting(57)|مهارکش دوشاخ-دوشاخ (غیربالابری)|
+Clevis-to-Clevis Turnbuckles—For Lifting(30)|مهارکش دوشاخ-دوشاخ بالابری|
+Eye-to-Eye Turnbuckles—Not for Lifting(71)|مهارکش چشمی-چشمی (غیربالابری)|
+Threaded Stud-to-Stud Turnbuckles—Not for Lifting(46)|مهارکش دوسر رزوه (غیربالابری)|
+Closed-Body Eye-to-Eye Turnbuckles—Not for Lifting(18)|مهارکش بدنه‌بسته چشمی-چشمی (غیربالابری)|
+Hook-to-Hook Turnbuckles—Not for Lifting(63)|مهارکش قلاب-قلاب (غیربالابری)|
+Hook-to-Eye Turnbuckles—Not for Lifting(63)|مهارکش قلاب-چشمی (غیربالابری)|
+Clevis-to-Eye Turnbuckles—Not for Lifting(54)|مهارکش دوشاخ-چشمی (غیربالابری)|
+Closed-Body Clevis-to-Clevis Turnbuckles—Not for Lifting(7)|مهارکش بدنه‌بسته دوشاخ-دوشاخ (غیربالابری)|
+Clevis-to-Eye Turnbuckles—For Lifting(26)|مهارکش دوشاخ-چشمی بالابری|
+Closed-Body Clevis-to-Wire Rope Turnbuckles—For Lifting(8)|مهارکش بدنه‌بسته دوشاخ به سیم بکسل بالابری|
+Eye-to-Eye Turnbuckles—For Lifting(7)|مهارکش چشمی-چشمی بالابری|
+Closed-Body Hook-to-Eye Turnbuckles—Not for Lifting(11)|مهارکش بدنه‌بسته قلاب-چشمی (غیربالابری)|
+Unthreaded Stub-to-Stub Turnbuckles—Not for Lifting(55)|مهارکش دوسر ساده جوشی (غیربالابری)|
+Closed-Body Mounting-Plate-to-Wire Rope Turnbuckles—Not for Lifting(7)|مهارکش بدنه‌بسته صفحه‌نصب به سیم بکسل (غیربالابری)|
+Closed-Body Hook-to-Hook Turnbuckles—Not for Lifting(11)|مهارکش بدنه‌بسته قلاب-قلاب (غیربالابری)|
+Hook-to-Clevis Turnbuckles—Not for Lifting(6)|مهارکش قلاب-دوشاخ (غیربالابری)|
+Closed-Body Clevis-to-Eye Turnbuckles—Not for Lifting(6)|مهارکش بدنه‌بسته دوشاخ-چشمی (غیربالابری)|
+Jam Nuts for Turnbuckles(34)|مهره قفلی مهارکش|
+Turnbuckle Bodies—Not for Lifting(49)|بدنه مهارکش (غیربالابری)|
+Clevis End Fittings for Turnbuckles—Not for Lifting(74)|سر دوشاخ مهارکش (غیربالابری)|
+Closed Turnbuckle Bodies—Not for Lifting(6)|بدنه بسته مهارکش (غیربالابری)|
+Turnbuckle Bodies—For Lifting(3)|بدنه مهارکش بالابری|
+Eye End Fittings for Turnbuckles—Not for Lifting(48)|سر چشمی مهارکش (غیربالابری)|
+Threaded Stud End Fittings for Turnbuckles—Not for Lifting(48)|سر رزوه‌ای مهارکش (غیربالابری)|
+Clevis End Fittings for Turnbuckles—For Lifting(6)|سر دوشاخ مهارکش بالابری|
+Hook End Fittings for Turnbuckles—Not for Lifting(26)|سر قلاب مهارکش (غیربالابری)|
+Unthreaded Stub End Fittings for Turnbuckles—Not for Lifting(50)|سر ساده جوشی مهارکش (غیربالابری)|
+Eye End Fittings for Turnbuckles—For Lifting(6)|سر چشمی مهارکش بالابری|
+@16.0.0 Grease
+Moisture-Resistant Grease(31)|گریس ضدآب|
+Grease(47)|گریس|
+High-Pressure Grease(22)|گریس فشار بالا (EP)|
+Biodegradable Moisture-Resistant Grease(1)|گریس ضدآب زیست‌تخریب‌پذیر|
+Heavy Duty Moisture-Resistant Grease(4)|گریس ضدآب سنگین‌کار|
+Food and Beverage Petroleum Jelly(1)|وازلین گرید غذایی|
+Petroleum Jelly(8)|وازلین|
+Chemical-Resistant Grease(5)|گریس مقاوم شیمیایی|
+Lanolin(2)|لانولین|
+Bearing Grease(38)|گریس بلبرینگ|
+High-Speed Bearing Grease(11)|گریس بلبرینگ دور بالا|
+High-Pressure Bearing Grease(7)|گریس بلبرینگ فشار بالا|
+Moisture-Resistant Bearing Grease(32)|گریس بلبرینگ ضدآب|
+Electric Motor Bearing Grease(8)|گریس بلبرینگ الکتروموتور|
+Chemical-Resistant Bearing Grease(5)|گریس بلبرینگ مقاوم شیمیایی|
+High-Pressure Moisture-Resistant Bearing Grease(2)|گریس بلبرینگ ضدآب فشار بالا|
+Food and Beverage Bearing Grease(6)|گریس بلبرینگ گرید غذایی|
+High-Pressure Food and Beverage Bearing Grease(2)|گریس بلبرینگ غذایی فشار بالا|
+Food and Beverage Grease(36)|گریس گرید غذایی|
+High-Pressure Food and Beverage Grease(5)|گریس غذایی فشار بالا|
+Moisture-Resistant Food and Beverage Grease(5)|گریس غذایی ضدآب|
+Controlled-Use Food and Beverage Grease(3)|گریس غذایی مصرف کنترل‌شده|
+Gear Box Grease(2)|گریس گیربکس|
+Open Gear and Chain Grease(12)|گریس چرخ‌دنده باز و زنجیر|
+Gear Box Grease for Leaky Gear Boxes(1)|گریس گیربکس نشت‌دار|
+Moisture-Resistant Open Gear and Chain Grease(6)|گریس چرخ‌دنده باز و زنجیر ضدآب|
+Food and Beverage Open Gear and Chain Grease(5)|گریس چرخ‌دنده و زنجیر غذایی|
+Moisture-Resistant Gear Box Grease(2)|گریس گیربکس ضدآب|
+Moisture-Resistant Food and Beverage Open Gear and Chain Grease(2)|گریس چرخ‌دنده و زنجیر غذایی ضدآب|
+Seal and O-Ring Grease(11)|گریس کاسه‌نمد و اورینگ|
+High-Vacuum Seal and O-Ring Grease(8)|گریس اورینگ خلأ بالا|
+Clean Room Seal and O-Ring Grease(3)|گریس اورینگ اتاق تمیز|
+Food and Beverage Seal and O-Ring Grease(6)|گریس اورینگ غذایی|
+Moisture-Resistant Seal and O-Ring Grease(2)|گریس اورینگ ضدآب|
+Chemical-Resistant Seal and O-Ring Grease(5)|گریس اورینگ مقاوم شیمیایی|
+Clean Room Grease(1)|گریس اتاق تمیز|
+Food and Beverage Electrical Insulating Grease(10)|گریس عایق برق غذایی|
+Electrical Insulating Grease(12)|گریس عایق برق (دی‌الکتریک)|
+Grease for Electrical Contacts(5)|گریس کنتاکت برق|
+Electrically and Thermally Conductive Grease(4)|گریس رسانای برق و حرارت|
+Carriage and Guide Rail Grease(4)|گریس ریل و واگن خطی|
+High-Speed Carriage and Guide Rail Grease(4)|گریس ریل خطی دور بالا|
+Fine-Movement Carriage and Guide Rail Grease(4)|گریس ریل خطی حرکت ظریف|
+Clean Room Carriage and Guide Rail Grease(4)|گریس ریل خطی اتاق تمیز|
+Food and Beverage Carriage and Guide Rail Grease(2)|گریس ریل خطی غذایی|
+High-Pressure Carriage and Guide Rail Grease(6)|گریس ریل خطی فشار بالا|
+Chuck Grease(3)|گریس سه‌نظام|
+Ball Screw Grease(4)|گریس بال‌اسکرو|
+High-Pressure Ball Screw Grease(4)|گریس بال‌اسکرو فشار بالا|
+Wire Rope and Cable Grease(1)|گریس سیم بکسل|
+Air Tool Grease(2)|گریس ابزار بادی|
+Grease Guns(3)|گریس‌پمپ|
+Air Tool Lubricant Kits(1)|کیت روان‌کار ابزار بادی|
+Grease Dispenser Monitors(3)|نمایشگر گریس‌زن خودکار|
+Mold-Release Lubricants(31)|جداکننده قالب (رهاساز)|
+@16.0.1 Grease Guns
+Quick-Prime Pistol-Grip Grease Guns(1)|گریس‌پمپ تفنگی هواگیری سریع|
+Pistol-Grip Grease Guns(14)|گریس‌پمپ تفنگی|
+Lever-Grip Grease Guns(16)|گریس‌پمپ اهرمی|
+Clear-Barrel Pistol-Grip Grease Guns(1)|گریس‌پمپ تفنگی مخزن شفاف|
+Compact Pistol-Grip Grease Guns(6)|گریس‌پمپ تفنگی کوچک|
+Quick-Prime Lever-Grip Grease Guns(1)|گریس‌پمپ اهرمی هواگیری سریع|
+Battery-Powered Pistol-Grip Grease Guns(10)|گریس‌پمپ شارژی|
+Air-Powered Pistol-Grip Grease Guns(1)|گریس‌پمپ بادی|
+Compact Pistol-Grip Grease Guns for Grease Tubes(1)|گریس‌پمپ تفنگی کوچک کارتریجی|
+Clear-Barrel Lever-Grip Grease Guns(2)|گریس‌پمپ اهرمی مخزن شفاف|
+Push-Action Grease Guns(2)|گریس‌پمپ فشاری|
+Lever-Grip Grease Guns for THK Grease(7)|گریس‌پمپ اهرمی گریس THK|
+Guns for Container-Mount Grease Dispensers(3)|تفنگ گریس‌زن بشکه‌ای|
+Grease-Filled Disposable Push-Action Grease Guns(1)|گریس‌پمپ یک‌بارمصرف پرشده|
+Extreme-Pressure Lever-Grip Grease Guns(1)|گریس‌پمپ اهرمی فشار فوق‌بالا|
+Dual-Output Pistol-Grip Grease Guns(2)|گریس‌پمپ تفنگی دوحالته|
+Compact Lever-Grip Grease Guns(2)|گریس‌پمپ اهرمی کوچک|
+Pressure-Monitoring Lever-Grip Grease Guns(1)|گریس‌پمپ اهرمی گیج‌دار|
+Pressure-Booster Guns for Container-Mount Grease Dispensers(2)|تفنگ تقویت فشار گریس‌زن بشکه‌ای|
+Controlled-Use Food and Beverage Lever-Grip Grease Guns(1)|گریس‌پمپ اهرمی غذایی مصرف کنترل‌شده|
+High-Output Lever-Grip Grease Guns(3)|گریس‌پمپ اهرمی پربازده|
+Metering Guns for Container-Mount Grease Dispensers(2)|تفنگ پیمانه‌ای گریس‌زن بشکه‌ای|
+Dual-Output Lever-Grip Grease Guns(2)|گریس‌پمپ اهرمی دوحالته|
+Grease Gun Tips(84)|سرگریس‌پمپ|
+Grease Gun Filler Nipples(2)|نیپل پرکن گریس‌پمپ|
+Grease Gun Accessory Kits(2)|کیت لوازم گریس‌پمپ|
+Grease Gun Holders(1)|نگهدارنده گریس‌پمپ|
+Grease Gun Filler Pumps(6)|پمپ پرکن گریس‌پمپ|
+Cable Oilers(2)|روغن‌زن کابل|
+Oil Dispenser Nozzles(9)|نازل روغن‌دان|
+Pipe Threader Oil Guns(1)|تفنگ روغن حدیده لوله|
+Grease Gun Filler Pump Dispensing Tips(2)|سرنازل پمپ پرکن گریس|
+@16.0.2 Grease Fittings
+Remote-Access Grease Fittings(3)|گریس‌خور از راه دور|
+Button Head Grease Fittings(38)|گریس‌خور سرتخت (دکمه‌ای)|
+Flush-Style Grease Fittings(22)|گریس‌خور توکار|
+Grease Fitting Assortments(22)|ست گریس‌خور|
+Grease Fittings for Unthreaded Holes(27)|گریس‌خور پرسی (سوراخ بدون رزوه)|
+Leakproof Grease Fittings(4)|گریس‌خور ضدنشت|
+Self-Tapping Grease Fittings for Unthreaded Holes(18)|گریس‌خور خودرزوه‌کن|
+Pressure-Venting Grease Fittings(1)|گریس‌خور تخلیه فشار|
+Flush-Style Grease Fittings for Unthreaded Holes(9)|گریس‌خور توکار پرسی|
+Pin-Style Grease Fittings(3)|گریس‌خور سوزنی|
+Self-Tapping Flush-Style Grease Fittings for Unthreaded Holes(3)|گریس‌خور توکار خودرزوه‌کن|
+Oil Fittings(36)|روغن‌خور|
+Grease Fitting Caps(14)|درپوش گریس‌خور|
+Grease Fitting Cleaning Tools(2)|ابزار تمیزکن گریس‌خور|
+Grease Fitting Installation Tools(2)|ابزار نصب گریس‌خور|
+@16.0.3 Oil
+Gear Oil(110)|روغن دنده (واسکازین)|
+Slide and Way Oil(22)|روغن راهنما (اسلاید‌وی)|
+Bearing Oil(21)|روغن بلبرینگ|
+Air Compressor Oil(38)|روغن کمپرسور هوا|
+Engine Oil(37)|روغن موتور|
+Vacuum Pump Oil(14)|روغن پمپ وکیوم|
+Food and Beverage Gear and Chain Oil(17)|روغن دنده و زنجیر غذایی|
+Air Tool Oil(18)|روغن ابزار بادی|
+Synthetic Engine Oil(24)|روغن موتور سنتتیک|
+Precision Measuring Tool Oil(4)|روغن ابزار دقیق اندازه‌گیری|
+Chemical-Resistant Oil(2)|روغن مقاوم شیمیایی|
+High-Pressure Food and Beverage Gear and Chain Oil(6)|روغن دنده و زنجیر غذایی فشار بالا|
+Food and Beverage Air Tool Oil(15)|روغن ابزار بادی غذایی|
+Food and Beverage Air Compressor Oil(15)|روغن کمپرسور غذایی|
+Food and Beverage Vacuum Pump Oil(2)|روغن پمپ وکیوم غذایی|
+Chain Oil(3)|روغن زنجیر|
+High-Pressure Gear Oil(5)|روغن دنده فشار بالا|
+Two-Cycle Engine Oil(2)|روغن موتور دوزمانه|
+Refrigerant Compressor Oil(4)|روغن کمپرسور یخچالی|
+High-Pressure Oil(4)|روغن فشار بالا|
+Seal and O-Ring Oil(2)|روغن کاسه‌نمد و اورینگ|
+Mineral Oil(8)|روغن معدنی (پارافین)|
+Kerosene(1)|نفت سفید|
+Air Tool Cleaners(1)|تمیزکننده ابزار بادی|
+Quenching Oil(12)|روغن کوئنچ (آب‌دهی)|
+Honing Oil(4)|روغن هونینگ|
+@16.0.4 Lubrication Systems
+Oil-Dispensing Pumps(23)|پمپ روغن‌کشی|
+Oil Dispensing Stations(2)|ایستگاه توزیع روغن|
+Grease Cups(1)|گریس‌دان|
+Oil Cups(14)|روغن‌دان (فنجانی)|
+Bearing Grease Packers(2)|گریس‌زن بلبرینگ|
+Double Diaphragm Pumps(56)|پمپ دیافراگمی دوبل|
+Centrifugal Pumps(82)|پمپ گریز از مرکز (سانتریفیوژ)|
+Spray Bottles(1)|بطری اسپری|ترکیبی
+Push-Top Dispensers(57)|ظرف پمپی فشاری|
+Sprayers(10)|سم‌پاش دستی|
+Pitchers(15)|پارچ مدرج|
+Pipe Threader Oilers(1)|روغن‌زن حدیده لوله|
+@16.0.6 Lubricants
+Powder Lubricants(8)|روان‌کار پودری|
+Flake Lubricants(4)|روان‌کار پولکی|
+Molybdenum Disulfide(1)|مولیبدن دی‌سولفید|
+Corn Starch(3)|نشاسته ذرت|
+De-Icers(1)|یخ‌زدا|
+Aerosol Spray Extensions(2)|نازل رابط اسپری|
+Aerosol Can Recycling Systems(7)|دستگاه بازیافت قوطی اسپری|
+@16.0.7 Metalworking Fluids
+Biocides(1)|ضدباکتری (بیوساید) آب صابون|
+Coolant Anti-Foaming Liquids(1)|ضدکف آب صابون|
+Deodorizers(2)|بوگیر آب صابون|
+Coolant Cleaners(2)|تمیزکننده سیستم آب صابون|
+@16.0.8 Coolant Hose & Dispensers
+Loc-Line Coolant Hose and Fittings(123)|شیلنگ مفصلی آب صابون (لاک‌لاین) و اتصالات|
+Loc-Line Coolant Hose and Fitting Kits(3)|کیت شیلنگ مفصلی لاک‌لاین|
+Snap-Loc Coolant Hose and Fitting Kits(1)|کیت شیلنگ مفصلی اسنپ‌لاک|
+Snap-Loc Coolant Hose and Fittings(61)|شیلنگ مفصلی اسنپ‌لاک و اتصالات|
+Metal Coolant Hose(45)|شیلنگ فلزی آب صابون|
+Acid-Resistant Loc-Line Coolant Hose and Fittings(30)|شیلنگ مفصلی لاک‌لاین ضداسید|
+Antifreeze/Coolant Testers(1)|تستر ضدیخ|
+@17.0.0 Hammers
+Ball Peen Hammers(23)|چکش سرگرد (مهندسی)|
+Mallets(93)|چکش لاستیکی و پلاستیکی|
+Sledge Hammers(51)|پتک|
+High-Visibility Dead Blow Mallets(13)|چکش بی‌برگشت رنگ روشن|
+Nail Hammers(39)|چکش میخ‌کش (نجاری)|
+Replaceable-Face Mallets(63)|چکش سر تعویضی|
+Dead Blow Ball Peen Hammers(1)|چکش سرگرد بی‌برگشت|
+Ball-Peen Hammer Sets(1)|ست چکش سرگرد|
+Replaceable-Face Dead Blow Mallets(32)|چکش بی‌برگشت سر تعویضی|
+Dead Blow Mallets(9)|چکش بی‌برگشت (ساچمه‌ای)|
+Blacksmiths' Hammers(6)|چکش آهنگری|
+Nonsparking Ball Peen Hammers(7)|چکش سرگرد ضدجرقه|
+Spike Hammers(1)|چکش میخ ریل|
+High-Visibility Replaceable-Face Dead Blow Mallets(36)|چکش بی‌برگشت سر تعویضی رنگ روشن|
+Nonsparking Sledge Hammers(8)|پتک ضدجرقه|
+Nonsparking Mallets(3)|چکش ضدجرقه|
+Welding Hammers(9)|چکش گل‌جوش (سرباره)|
+Create-Your-Own Mallets(68)|چکش سفارشی (سر و دسته جدا)|
+Dead Blow Sledge Hammers(2)|پتک بی‌برگشت|
+Riveting Hammers(7)|چکش پرچ‌کاری|
+Air-Powered Palm Grip Hammers(10)|چکش بادی کف‌دستی|
+Tack Hammers(7)|چکش ریزه‌میخ|
+Masonry Hammers(6)|چکش بنایی|
+Nonsparking Nail Hammers(3)|چکش میخ‌کش ضدجرقه|
+Delicate Metal Forming Hammers(4)|چکش فرم‌دهی ظریف فلز|
+Palm Grip Hammers(4)|چکش کف‌دستی|
+Replaceable-Face Dead Blow Sledge Hammers(14)|پتک بی‌برگشت سر تعویضی|
+Nonsparking Blacksmiths' Hammers(3)|چکش آهنگری ضدجرقه|
+Slide Sledge Hammers(3)|پتک کشویی (اسلاید)|
+Sheet Metal Forming Hammers(22)|چکش فرم‌دهی ورق (صافکاری)|
+Create-Your-Own Sledge Hammers(5)|پتک سفارشی (سر و دسته جدا)|
+Hammer Faces(114)|سر یدکی چکش|
+Anvils(7)|سندان|
+Sheet Metal Hammers(1)|چکش ورق‌کاری|
+Dent Pullers(1)|صافکش (فرورفتگی‌کش)|
+Hammer Handles(32)|دسته چکش|
+Axes(2)|تبر|
+Finishing Nail Drivers(1)|سنبه میخ|
+Demolition Hammers(45)|چکش تخریب (هیلتی)|
+Hammer Handle Wedges(6)|گوه دسته چکش|
+Needle Scalers(36)|زنگ‌زدای سوزنی بادی|
+Scaler Needles(8)|سوزن زنگ‌زدای بادی|
+@17.0.1 Screwdrivers
+Ratchet Wrench/Screwdrivers(1)|آچار جغجغه/پیچ‌گوشتی|
+One-Way Screw Removers(4)|پیچ‌درآر یک‌طرفه|
+Screw Feeders(22)|پیچ‌خوران (فیدر پیچ)|
+Socket Drivers(10)|پیچ‌گوشتی بکسی|
+Impact Wrenches(71)|بکس ضربه‌ای|
+Torque Wrenches(409)|آچار ترک‌متر|
+Socket Bits(37)|سری بکس|
+Wrench Heads(135)|سر آچار ترک‌متر|
+Wrench Handles(48)|دسته آچار|
+Pry Bars(8)|دیلم|
+Hex Key Organizers(12)|نگهدارنده آچار آلن|
+@17.0.2 Wrenches
+Combination Wrenches(598)|آچار یک‌سر تخت یک‌سر رینگی|
+Open-End Wrenches(470)|آچار تخت|
+Adjustable Wrenches(107)|آچار فرانسه|
+Box Wrenches(339)|آچار رینگی|
+Spanner Wrenches(79)|آچار قلاب‌دار (اسپانر)|
+Drum Plug Wrenches(10)|آچار درب بشکه|
+Strap Wrenches(26)|آچار تسمه‌ای|
+Plug Wrenches(1)|آچار درپوش|
+Fire Hose and Hydrant Wrenches(5)|آچار شیر آتش‌نشانی و شیلنگ|
+Tank Wrenches(5)|آچار مخزن|
+Nut Pullers(1)|مهره‌کش|
+Pipe/Valve Wheel Wrenches(1)|آچار فلکه شیر/لوله|
+Drum Plug Sockets(1)|بکس درب بشکه|
+Shut-Off Valve Wrenches(3)|آچار شیر قطع‌کن|
+Water Meter Wrenches(1)|آچار کنتور آب|
+Valve Wheel Wrenches(25)|آچار فلکه شیر|
+Pipe Wrench Jaws(22)|فک آچار لوله‌گیر|
+Backup Wrenches(16)|آچار نگهدارنده (بک‌آپ)|
+Straps for Strap Wrenches(15)|تسمه آچار تسمه‌ای|
+Torque Multipliers(22)|ضریب‌دهنده گشتاور (مولتی‌پلایر)|
+Oil Filter Sockets(2)|بکس فیلتر روغن|
+Drain Wrenches(3)|آچار تخلیه|
+Ball Joint Sockets(2)|بکس سیبک|
+Pail Lid Openers(3)|درب‌بازکن سطل|
+Ratchet Handles(24)|دسته جغجغه|
+Compression-Sleeve Pullers(1)|بوش‌کش اتصال فشاری|
+Torque Gauges(5)|گشتاورسنج|
+@17.0.3 Pliers
+Retaining Ring Pliers(113)|انبر خار|
+Wire-Twisting Pliers(9)|انبر مفتول‌تاب|
+Slide Hammer Adapters for Locking Pliers(3)|رابط چکش کشویی انبر قفلی|
+Tile Cutters(1)|کاشی‌بر|
+Glass Cutters(3)|الماس شیشه‌بری|
+Seam-Opening Pliers(1)|انبر بازکن درز|
+Sheet Metal Bender/Crimpers(4)|انبر خم و پرس ورق|
+Duct Crimpers(1)|انبر چین کانال|
+Tube Expanders(3)|گشادکن لوله|
+Snap Lock Punches(2)|پانچ قفل ورق|
+Sheet Metal Benders(16)|انبر خم ورق|
+Split Ring Pliers(2)|انبر حلقه‌جاکلیدی|
+Breakaway Collar Pliers(1)|انبر طوقه شکستنی|
+Clinch Clip Pliers(2)|انبر گیره کلینچ|
+Pliers Organizers(1)|نگهدارنده انبر|
+@17.0.6 Hex Keys & Drivers
+Lathe Tool Insert Holder Hex Keys(1)|آچار آلن هلدر اینسرت تراش|
+@17.0.13 Pry Bars
+Screwdriver-Style Pry Bars(7)|دیلم پیچ‌گوشتی|
+Screwdriver-Style Pry Bar Sets(1)|ست دیلم پیچ‌گوشتی|
+Pry Bar Sets(1)|ست دیلم|
+Nail-Pulling Pry Bars(24)|دیلم میخ‌کش|
+Adjustable-Head Pry Bars(5)|دیلم سر متحرک|
+Miniature Pry Bars(1)|دیلم مینیاتوری|
+Screwdriver-Style Nail-Pulling Pry Bars(1)|دیلم پیچ‌گوشتی میخ‌کش|
+Electrical Insulating Pry Bars(1)|دیلم عایق برق|
+Nonsparking Pry Bars(4)|دیلم ضدجرقه|
+Nail-Pulling Nonsparking Pry Bars(5)|دیلم میخ‌کش ضدجرقه|
+Nonmarring Pry Bars(2)|دیلم بدون خط‌اندازی|
+Pallet Busters(1)|پالت‌شکن|
+Tire Irons(7)|دیلم لاستیک|

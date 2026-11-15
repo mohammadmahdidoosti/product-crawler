@@ -1,0 +1,332 @@
+@1.0.14 Hose & Tube Clamps
+Worm-Drive Clamps(327)|بست حلزونی (بست شیلنگ پیچی)|
+Rounded-Edge Worm-Drive Clamps(112)|بست حلزونی لبه گرد|
+Pinch Clamps(161)|بست گوش‌دار (اتیکر)|
+Bolt Clamps(31)|بست پیچ‌دار|
+Worm-Drive Clamps with Antislip Screw(40)|بست حلزونی پیچ ضدلغزش|
+Rounded-Edge Bolt Clamps(112)|بست پیچ‌دار لبه گرد|
+Wide-Band Spring Clamps(32)|بست فنری تسمه پهن|
+Snap-Grip Clamps(94)|بست پلاستیکی ضامنی|
+Spring Clamps(70)|بست فنری|
+Tight-Seal Pinch Clamps(85)|بست گوش‌دار آب‌بندی بالا|
+High-Torque Worm-Drive Clamps(20)|بست حلزونی گشتاور بالا|
+Easy-Turn Worm-Drive Clamps(27)|بست حلزونی پروانه‌ای (دستی)|
+Quick-Release Bolt Clamps(34)|بست پیچ‌دار بازشو سریع|
+High-Torque Quick-Release Worm-Drive Clamps for Duct Hose(25)|بست حلزونی بازشو گشتاور بالا شیلنگ داکت|
+High-Torque Bolt Clamps(21)|بست پیچ‌دار گشتاور بالا|
+Worm-Drive Clamps for Spiral Duct Hose(29)|بست حلزونی شیلنگ داکت فنری|
+Constant-Tension Bolt Clamps(60)|بست پیچ‌دار کشش ثابت|
+Quick-Release Worm-Drive Clamps(32)|بست حلزونی بازشو سریع|
+Twin-Ring Clamps(20)|بست دوحلقه مفتولی|
+Constant-Tension Worm-Drive Clamps(44)|بست حلزونی کشش ثابت|
+Band-and-Buckle Clamps(59)|تسمه و قفل بست (باندیت)|
+Rounded-Edge Worm-Drive Clamp Assortments(7)|ست بست حلزونی لبه گرد|
+Build-Your-Own Worm-Drive Clamps(14)|بست حلزونی برش‌دادنی (رولی)|
+Worm-Drive Clamp Assortments(12)|ست بست حلزونی|
+Interlocking Bolt Clamps for Steam(8)|بست پیچ‌دار قفلی بخار|
+Quick-Release Clamps for Duct Hose(10)|بست بازشو سریع شیلنگ داکت|
+Quick-Release Worm-Drive Clamps for Duct Hose(8)|بست حلزونی بازشو شیلنگ داکت|
+Tamper-Resistant Worm-Drive Clamps(10)|بست حلزونی ضددستکاری|
+Screw Clamps(9)|بست پیچی|
+Tapered-End Band-and-Buckle Clamps(52)|بست تسمه‌ای سرمخروطی|
+Rounded-Edge Quick-Release Worm-Drive Clamps(15)|بست حلزونی بازشو لبه گرد|
+Pinch Clamp Assortments(4)|ست بست گوش‌دار|
+Shrink-to-Fit Clamps(17)|بست حرارتی جمع‌شونده|
+Pinch Clamps for Hard Plastic Tubing(6)|بست گوش‌دار لوله پلاستیکی سخت|
+Rounded-Edge Bolt Clamp Assortments(2)|ست بست پیچ‌دار لبه گرد|
+Plastic Worm-Drive Clamps(6)|بست حلزونی پلاستیکی|
+Worm-Drive Grounding Clamps for Spiral Duct Hose(11)|بست حلزونی ارت شیلنگ داکت|
+Build-Your-Own Band-and-Buckle Clamps(58)|تسمه و قفل بست برش‌دادنی|
+Easy-Turn Plastic Worm-Drive Clamps(5)|بست حلزونی پلاستیکی دستی|
+Hose Clamp Installation Tools(23)|ابزار نصب بست شیلنگ|
+Duct Clamps(30)|بست کانال|
+Cable and Hose Carrier Accessories(131)|لوازم زنجیر کابل (انرژی‌چین)|
+Strapping Buckles(8)|قفل تسمه بسته‌بندی|
+Cable Trays and Fittings(76)|سینی کابل و اتصالات|
+Strapping(7)|تسمه بسته‌بندی|
+@1.0.15 Hose Reels
+Reels with Air Hose with Threaded Fittings(48)|قرقره شیلنگ باد با اتصال دنده‌ای|
+Compact Reels with Air Hose(15)|قرقره شیلنگ باد کوچک|
+Reels with Garden Hose(1)|قرقره شیلنگ باغبانی|ترکیبی
+Reels with Air Hose with Quick-Disconnect and Threaded Fittings(5)|قرقره شیلنگ باد با کوپلینگ سریع|
+Reels with Low-Pressure Water Hose(1)|قرقره شیلنگ آب فشار پایین|
+Enclosed Reels with Low-Pressure Water Hose(2)|قرقره محفظه‌دار شیلنگ آب فشار پایین|
+Reels with Lightweight Air Hose with Threaded Fittings(30)|قرقره شیلنگ باد سبک با اتصال دنده‌ای|
+Enclosed Reels with Lightweight Air Hose(13)|قرقره محفظه‌دار شیلنگ باد سبک|
+Reels with Medium-Pressure Water Hose(2)|قرقره شیلنگ آب فشار متوسط|
+Reels with Lubricated-Air Hose with Threaded Fittings(28)|قرقره شیلنگ باد روغن‌دار با اتصال دنده‌ای|
+Reels with Hydraulic Hose(9)|قرقره شیلنگ هیدرولیک|
+Corrosion-Resistant Reels with Lightweight Air Hose(7)|قرقره ضدخوردگی شیلنگ باد سبک|
+Reels with Medium-Pressure Chemical Hose(7)|قرقره شیلنگ شیمیایی فشار متوسط|
+Reels with Welding Hose(5)|قرقره شیلنگ جوشکاری|
+Reels with Lightweight Air Hose with Quick-Disconnect and Threaded Fittings(3)|قرقره شیلنگ باد سبک با کوپلینگ سریع|
+Reels with Double Lightweight Air Hose(5)|قرقره شیلنگ باد سبک دوقلو|
+Reels with Lightweight Air Hose and Electric Cord(2)|قرقره شیلنگ باد و کابل برق|
+Reels with Lubricated-Air Hose with Quick-Disconnect and Threaded Fittings(2)|قرقره شیلنگ باد روغن‌دار با کوپلینگ سریع|
+Manual Reels with Lightweight Air Hose(1)|قرقره دستی شیلنگ باد سبک|
+Manual-Winding Hose Reels(12)|قرقره شیلنگ دستی|
+Wall-Mount Reels for Garden Hose(11)|قرقره دیواری شیلنگ باغبانی|ترکیبی
+Heavy Duty Automatic-Winding Hose Reels(12)|قرقره شیلنگ اتوماتیک سنگین|
+Medium Duty Automatic-Winding Hose Reels(21)|قرقره شیلنگ اتوماتیک نیمه‌سنگین|
+Heavy Duty Corrosion-Resistant Automatic-Winding Hose Reels(4)|قرقره اتوماتیک ضدخوردگی سنگین|
+Mobile Reels for Garden Hose(3)|قرقره چرخ‌دار شیلنگ باغبانی|ترکیبی
+Super Duty Corrosion-Resistant Automatic-Winding Hose Reels(2)|قرقره اتوماتیک ضدخوردگی فوق‌سنگین|
+Super Duty Automatic-Winding Hose Reels(3)|قرقره شیلنگ اتوماتیک فوق‌سنگین|
+Controlled-Retraction Heavy Duty Automatic-Winding Hose Reels(5)|قرقره اتوماتیک سنگین با جمع‌شدن کنترل‌شده|
+Medium Duty Corrosion-Resistant Automatic-Winding Hose Reels(6)|قرقره اتوماتیک ضدخوردگی نیمه‌سنگین|
+Controlled-Retraction Medium Duty Automatic-Winding Hose Reels(4)|قرقره اتوماتیک نیمه‌سنگین با جمع‌شدن کنترل‌شده|
+Tool Balancers(4)|بالانسر ابزار|
+@1.0.16 Tank Fittings
+Drain Valves(5)|شیر تخلیه|
+Drum Faucets(32)|شیر بشکه|
+@2.0.0 Bearings
+Ball Bearings(2153)|بلبرینگ ساچمه‌ای|
+Roller Bearings(437)|رولبرینگ (بلبرینگ غلتکی)|
+Bearing Housings(64)|یاتاقان (هوزینگ بلبرینگ)|
+Roller Bearing Shaft Liners(30)|رینگ داخلی رولبرینگ|
+Pivot Bearings(20)|بلبرینگ لولایی (پیوت)|
+Ball Splines and Bearings(51)|شفت هزارخار ساچمه‌ای و بلبرینگ|
+Sleeve Splines and Bearings(21)|شفت هزارخار و بوش لغزشی|
+Conveyor Roller Bearings(39)|بلبرینگ غلتک نوار نقاله|
+Wheel Bearings(29)|بلبرینگ چرخ|
+Router Bit Bearings(3)|بلبرینگ تیغ اورفرز|
+@2.0.1 Bushings
+Pipe Bushings(1758)|تبدیل توپیچ (بوشن لوله)|
+Bushing-Bore Hubs(20)|توپی بوش‌خور|
+Linear Bearing Housings(22)|هوزینگ بلبرینگ خطی|
+Rigid Shaft Couplings(696)|کوپلینگ صلب|
+Precision Lead Screw Nuts(320)|مهره بال‌اسکرو/لیداسکرو دقیق|
+Lead Screw Nuts(55)|مهره لیداسکرو|
+Swivel Joints(136)|اتصال گردان (سوئیول)|
+Hydraulic Cylinders(274)|جک هیدرولیک|
+Drill Bushing Lock Rings(30)|حلقه قفل بوش مته|
+Drill Bushing Installation Tools(4)|ابزار نصب بوش مته|
+Lathe Tool Holder Bushings(19)|بوش ابزارگیر تراش|
+Wheel Brush Arbor Hole Reducers(9)|تبدیل سوراخ برس سیمی|
+Broach Bushings(37)|بوش خان‌کشی (بروچ)|
+Broach Holders(6)|نگهدارنده بروچ|
+Saw Blade Arbor Adapters(1)|تبدیل شفت تیغ اره|
+Saw Blade Bushings(7)|بوش تیغ اره|
+Grinding Wheel Reducer Bushings(3)|بوش تبدیل سنگ سنباده|
+Hose Ferrules(16)|بوش پرسی شیلنگ|
+Adjustable Handles(21)|دسته قابل تنظیم (اهرمی)|
+Cable Entry Panels(125)|پنل ورود کابل|
+Cord Grips(1186)|گلند کابل|
+Grounding Rings(22)|حلقه ارت شفت|
+EMI/RFI Suppressing Clips(64)|فریت کلیپسی (نویزگیر)|
+Wire and Cable Stripper Bushings(30)|بوش سیم‌لخت‌کن|
+Strain-Relief Connector Boots(2)|کاور ضدکشش کانکتور|
+Conveyor Brakes(5)|ترمز نوار نقاله|
+@2.0.2 Bearing & Gear Pullers
+Quick-Hold External-Grip Gear and Bearing Puller Sets(1)|ست بلبرینگ‌کش خارجی گیره سریع|
+Quick-Hold External-Grip Gear and Bearing Pullers(61)|بلبرینگ‌کش خارجی گیره سریع|
+Reversible-Jaw External/Internal-Grip Gear and Bearing Puller Sets with Locking Storage Box(1)|ست بلبرینگ‌کش داخلی/خارجی با جعبه قفل‌دار|
+Internal-Grip Gear and Bearing Pullers(3)|بلبرینگ‌کش داخلی|
+External-Grip Gear and Bearing Pullers(6)|بلبرینگ‌کش خارجی (پولی‌کش)|
+Quick-Hold Reversible-Jaw External/Internal-Grip Gear and Bearing Pullers(32)|بلبرینگ‌کش داخلی/خارجی گیره سریع|
+Reversible-Jaw External/Internal-Grip Gear and Bearing Pullers(8)|بلبرینگ‌کش داخلی/خارجی فک برگشت‌پذیر|
+Face-Grip Gear and Bearing Pullers(19)|بلبرینگ‌کش پیشانی‌گیر|
+Reversible-Jaw External/Internal-Grip Gear and Bearing Puller Sets(10)|ست بلبرینگ‌کش داخلی/خارجی|
+Expanding-Collar Internal-Grip Gear and Bearing Pullers(19)|بلبرینگ‌کش داخلی انبساطی|
+Expanding-Collar Internal-Grip Gear and Bearing Puller Sets(4)|ست بلبرینگ‌کش داخلی انبساطی|
+High-Force External-Grip Gear and Bearing Puller Sets(2)|ست بلبرینگ‌کش خارجی پرقدرت|
+Adjustable Face-Grip Gear and Bearing Puller Sets(2)|ست بلبرینگ‌کش پیشانی‌گیر قابل تنظیم|
+Quick-Hold Reversible-Jaw External/Internal-Grip Gear and Bearing Puller Sets(2)|ست بلبرینگ‌کش داخلی/خارجی گیره سریع|
+Pitman Arm Pullers(1)|سیبک‌کش (پیتمن‌کش)|
+Bearing Separators(10)|بلبرینگ‌کش دوتکه (جداکن)|
+Bearing and V-Belt Pulley Separator Sets(8)|ست جداکن بلبرینگ و پولی|
+Hub and Fan Blade Grip Pullers(4)|توپی‌کش و پروانه‌کش|
+V-Belt Pulley Separators(2)|جداکن پولی تسمه‌ای|
+@2.0.4 Motors
+Electric Motors(380)|الکتروموتور|
+Stepper Motors(197)|استپر موتور|
+Electric Gearmotors(304)|گیربکس‌موتور برقی (موتورگیربکس)|
+Servomotors(97)|سروو موتور|
+Air-Powered Motors(23)|موتور بادی|
+Stepper Gearmotors(20)|استپر موتور گیربکس‌دار|
+Air-Powered Gearmotors(16)|موتورگیربکس بادی|
+Motor Mounts(34)|پایه موتور|
+Hydraulic Motors(6)|هیدروموتور|
+Motor Brushes(72)|زغال موتور|
+Electric Actuators(41)|عملگر برقی (اکچویتور)|
+Electric Slides(86)|اسلاید خطی برقی|
+Hydraulic Actuators(16)|عملگر هیدرولیک|
+Gear Boxes(187)|گیربکس|
+Brakes(9)|ترمز موتور|
+Fan Motors(17)|موتور فن|
+Stepper Motor Drives(6)|درایو استپر موتور|
+DC Motor Drives(18)|درایو موتور DC|
+VFDs(37)|اینورتر (درایو دور متغیر VFD)|
+Motor Starters(425)|استارتر موتور (کنتاکتور و بی‌متال)|
+Motor Starter Overload Protectors(8)|بی‌متال (رله اضافه‌بار)|
+Motor Voltage Monitors(5)|کنترل فاز و ولتاژ|
+Motor Switches(45)|کلید موتور|
+Capacitors(93)|خازن|
+Phase Converters(11)|مبدل فاز|
+Equipment-Cooling Fan Motors(5)|موتور فن خنک‌کاری تجهیزات|
+Engine Stands(5)|پایه موتور تعمیرگاهی|
+Motor Cleaners(1)|تمیزکننده موتور|
+@2.0.5 Speed Reducers
+Gear Box Mounts(6)|پایه گیربکس|
+Worm Gears(96)|چرخ‌دنده حلزونی|
+Speed Limiters(137)|محدودکننده سرعت (دمپر چرخشی)|
+@2.0.6 Clutches
+Torque Limiters(127)|محدودکننده گشتاور (تورک‌لیمیتر)|
+Clutches(58)|کلاچ|
+Clutch/Brakes(5)|کلاچ ترمز|
+Brake and Clutch Friction Lining(145)|لنت ترمز و کلاچ|
+Chain and Belt Torque Limiters(109)|تورک‌لیمیتر زنجیر و تسمه|
+Drive Sprockets(11)|چرخ‌زنجیر محرک|
+Ratchet Gears and Pawls(39)|چرخ جغجغه و ضامن|
+@2.0.8 Shafts
+Tungsten(200)|تنگستن|
+Mixer Shafts(44)|شفت همزن|
+Flexible Shafts(41)|شفت انعطاف‌پذیر (فلکسی)|
+Spur Gears(706)|چرخ‌دنده ساده|
+Bevel Gears(48)|چرخ‌دنده مخروطی|
+Miter Gears(74)|چرخ‌دنده مخروطی ۱:۱ (میتر)|
+Internal Spur Gears(10)|چرخ‌دنده داخلی|
+Helical Gears(32)|چرخ‌دنده مارپیچ|
+Timing Belt Pulley Stock(17)|شفت خام پولی تایمینگ|
+Idler Sprockets(85)|چرخ‌زنجیر هرزگرد|
+Niobium(4)|نیوبیوم|
+Nickel(84)|نیکل|
+Cobalt(3)|کبالت|
+Zinc(22)|روی|
+Molybdenum(29)|مولیبدن|
+Rotary Shaft Covers(4)|کاور شفت گردان|
+Mechanical Control Cables(16)|کابل کنترل مکانیکی (سیم گاز)|
+@2.0.9 Shaft Couplings
+U-Joints(180)|چهارشاخ (یونیورسال)|
+Rigid Shaft Coupling Covers(13)|کاور کوپلینگ صلب|
+Rod Alignment Couplers(94)|کوپلر هم‌راستاکن میله جک|
+Joint Covers(25)|گردگیر مفصل|
+@2.0.10 Shaft Collars
+Two-Piece Shaft Collars(726)|طوقه شفت دوتکه|
+Set Screw Shaft Collars(433)|طوقه شفت پیچ‌دار (آلن)|
+Flange-Mount Shaft Collars(92)|طوقه شفت فلنج‌دار|
+Quick-Release Shaft Collars with Lever(45)|طوقه شفت اهرمی بازشو سریع|
+Oversized Two-Piece Shaft Collars(94)|طوقه شفت دوتکه قطور|
+Face-Mount Shaft Collars(49)|طوقه شفت نصب پیشانی|
+Hinged Shaft Collars(49)|طوقه شفت لولایی|
+Plastic Two-Piece Shaft Collars(67)|طوقه شفت دوتکه پلاستیکی|
+Set Screw Two-Piece Shaft Collars(55)|طوقه شفت دوتکه پیچ‌دار|
+Top-and-Bottom-Mount Two-Piece Shaft Collars(58)|طوقه شفت دوتکه نصب بالا و پایین|
+Two-Piece Shaft Collars with Wrench Flats(69)|طوقه شفت دوتکه آچارخور|
+Extra-Wide Two-Piece Shaft Collars(35)|طوقه شفت دوتکه پهن|
+Oversized Shaft Collars(38)|طوقه شفت قطور|
+Plastic Set Screw Shaft Collars(18)|طوقه شفت پیچ‌دار پلاستیکی|
+Square Two-Piece Shaft Collars(34)|طوقه شفت دوتکه مربعی|
+Two-Piece Shaft Collars with Lever(108)|طوقه شفت دوتکه اهرمی|
+Plastic Shaft Collars(43)|طوقه شفت پلاستیکی|
+Shaft Collars with Lever(108)|طوقه شفت اهرمی|
+Extra-Wide Shaft Collars(38)|طوقه شفت پهن|
+Finish-Your-Own-Bore Two-Piece Shaft Collars(19)|طوقه شفت دوتکه سوراخ‌نخورده|
+Quick-Release Shaft Collars with Pull Ring(26)|طوقه شفت بازشو سریع حلقه‌دار|
+Support-Rail Two-Piece Shaft Collars(6)|طوقه شفت دوتکه ریل نگهدارنده|
+D-Profile Shaft Collars(17)|طوقه شفت مقطع D|
+Hex Shaft Collars(14)|طوقه شفت شش‌گوش|
+Top-and-Bottom-Mount Shaft Collars(15)|طوقه شفت نصب بالا و پایین|
+Adjustable-Width Shaft Collars(8)|طوقه شفت عرض متغیر|
+Tight-Hold Shaft Collars(6)|طوقه شفت گیرش بالا|
+Plastic Quick-Release Shaft Collars with Pull Ring(13)|طوقه شفت پلاستیکی بازشو حلقه‌دار|
+Finish-Your-Own-Face Shaft Collars(11)|طوقه شفت پیشانی‌تراش‌نخورده|
+Finish-Your-Own-Bore Shaft Collars(6)|طوقه شفت سوراخ‌نخورده|
+Hex Two-Piece Shaft Collars(14)|طوقه شفت دوتکه شش‌گوش|
+D-Profile Two-Piece Shaft Collars(8)|طوقه شفت دوتکه مقطع D|
+Precision-Ground-Face Shaft Collars(11)|طوقه شفت پیشانی سنگ‌خورده|
+Support-Rail Shaft Collars(12)|طوقه شفت ریل نگهدارنده|
+Tube Fitting Clamps(67)|بست اتصال لوله‌ای|
+Drill Stops(145)|طوقه عمق‌گیر مته|
+T-Slotted Framing Locking Collars(4)|طوقه قفلی پروفیل شیاردار|
+@2.0.11 U-Joints
+Single U-Joints(44)|چهارشاخ تک|
+High-Torque Single U-Joints(12)|چهارشاخ تک گشتاور بالا|
+Precision Single U-Joints(16)|چهارشاخ تک دقیق|
+Constant-Velocity Single U-Joints(6)|چهارشاخ سرعت ثابت (CV)|
+Clamp-On Single U-Joints(7)|چهارشاخ تک کلمپی|
+Extreme-Angle Geared Single U-Joints(3)|چهارشاخ دنده‌ای زاویه زیاد|
+Corrosion-Resistant High-Speed Single U-Joints(10)|چهارشاخ ضدخوردگی دور بالا|
+Corrosion-Resistant Single U-Joints(5)|چهارشاخ تک ضدخوردگی|
+Sealed Single U-Joints(10)|چهارشاخ تک آب‌بندی‌شده|
+Corrosion-Resistant Mil. Spec. Machinable-Bore Single U-Joints(11)|چهارشاخ ضدخوردگی استاندارد نظامی سوراخ‌کاری‌شدنی|
+Mil. Spec. Machinable-Bore Single U-Joints(6)|چهارشاخ استاندارد نظامی سوراخ‌کاری‌شدنی|
+Machinable-Bore Single U-Joints(3)|چهارشاخ تک سوراخ‌کاری‌شدنی|
+High-Speed Single U-Joints(5)|چهارشاخ تک دور بالا|
+Corrosion-Resistant Sealed Single U-Joints(8)|چهارشاخ آب‌بندی‌شده ضدخوردگی|
+Sanitary Sealed Single U-Joints(10)|چهارشاخ بهداشتی آب‌بندی‌شده|
+Adjustable-Length Precision Double U-Joints(1)|چهارشاخ دوبل دقیق طول متغیر|
+Precision Double U-Joints(6)|چهارشاخ دوبل دقیق|
+Quick-Change Adjustable-Length Double U-Joints(5)|چهارشاخ دوبل طول متغیر تعویض سریع|
+Double U-Joints(6)|چهارشاخ دوبل|
+Machinable-Bore Double U-Joints(6)|چهارشاخ دوبل سوراخ‌کاری‌شدنی|
+Bit Sockets(12)|بکس سرپیچ‌گوشتی|
+Socket Extensions(7)|رابط بکس|
+Ratchet Wrenches(3)|دسته جغجغه|
+@2.0.13 Pulleys
+Timing Belt Drive Pulleys(1261)|پولی تایمینگ|
+V-Belt Drive Pulleys(571)|پولی تسمه V|
+Timing Belt Idler Pulleys(24)|پولی هرزگرد تایمینگ|
+Flat Belt Idler Pulleys(31)|پولی هرزگرد تسمه تخت|
+Round Belt Idler Pulleys(21)|پولی هرزگرد تسمه گرد|
+Timing Belts(1638)|تسمه تایمینگ|
+V-Belt Idler Pulleys(14)|پولی هرزگرد تسمه V|
+Round Belt Drive Pulleys(15)|پولی تسمه گرد|
+V-Belts(1403)|تسمه V (پروانه)|
+Flat Belt Drive Pulleys(25)|پولی تسمه تخت|
+Round Belts(316)|تسمه گرد|
+Flat Belts(120)|تسمه تخت|
+Spur Gear Stock(18)|شفت چرخ‌دنده ساده خام|
+Pulleys(347)|قرقره (پولی)|
+Hoists(4)|بالابر (جرثقیل دستی)|
+Conveyor Belt Idler Pulleys(8)|غلتک هرزگرد نوار نقاله|
+Conveyor Belts(52)|نوار نقاله|
+Conveyor Pulley Coatings(8)|روکش لاستیکی پولی نقاله|
+Sheave Gauges(2)|گیج شیار پولی|
+V-Belt Size Gauges(1)|گیج سایز تسمه V|
+Chain Wheels(40)|چرخ زنجیر دستی|
+Window Balancers(32)|بالانسر پنجره|
+Flagpole Accessories(2)|لوازم میله پرچم|
+@2.0.14 Belts
+Timing Belt End Plates(12)|صفحه انتهایی تسمه تایمینگ|
+Round Belt Connectors(27)|اتصال تسمه گرد|
+V-Belt Connectors(4)|اتصال تسمه V|
+Conveyor Belt Skivers(3)|پخ‌زن نوار نقاله|
+@2.0.16 Gears
+Spur Gear Racks(117)|شانه دنده ساده (رک)|
+Helical Gear Racks(4)|شانه دنده مارپیچ|
+Gear Tooth Gauges(4)|گیج دنده (شابلون مدول)|
+Calipers(2)|کولیس|
+Gear and Bearing Pullers(182)|بلبرینگ‌کش و پولی‌کش|
+Gear Cutters(96)|فرز دنده‌زنی|
+Conveyor Belt Drive Sprockets(23)|چرخ‌زنجیر نوار نقاله|
+Oil(164)|روغن|
+@2.0.17 Chain
+Roller Chain and Links(252)|زنجیر غلتکی و رابط|
+Heavy Duty Roller Chain and Links(60)|زنجیر غلتکی سنگین|
+Flat-Edge Roller Chain and Links(68)|زنجیر غلتکی لبه تخت|
+Attachment Roller Chain Links(102)|رابط زنجیر پره‌دار|
+Low-Maintenance Roller Chain and Links(30)|زنجیر غلتکی کم‌نگهداری|
+Hollow-Pin Roller Chain and Links(18)|زنجیر غلتکی پین توخالی|
+Attachment Roller Chain(13)|زنجیر غلتکی پره‌دار|
+Quick-Connect Roller Chain(4)|زنجیر غلتکی اتصال سریع|
+Dry-Running Roller Chain and Links(8)|زنجیر غلتکی خشک‌کار (بدون روغن)|
+Flat-Edge Attachment Roller Chain Links(29)|رابط زنجیر پره‌دار لبه تخت|
+Clog-Resistant Flat-Edge Roller Chain and Links(4)|زنجیر لبه تخت ضدگرفتگی|
+Flexible Roller Chain and Links(6)|زنجیر غلتکی انعطاف‌پذیر|
+Roller Chain Link Assortments(2)|ست رابط زنجیر|
+Roller Chain Alignment Tools(1)|ابزار هم‌راستاکن زنجیر|
+Roller Chain Guides(34)|راهنمای زنجیر|
+Roller Chain Spring Clips(7)|خار فنری زنجیر|
+Chain and Belt Tensioners(93)|سفت‌کن زنجیر و تسمه|
+Chain Wear Gauges(19)|گیج سایش زنجیر|
+Leaf Chain and Links(9)|زنجیر لیفتراکی (صفحه‌ای)|
+Roller Chain Breakers(18)|زنجیرباز کن|
+Inverted-Tooth Chain(12)|زنجیر دندانه‌ای (بی‌صدا)|
+Roller Chain Pullers(4)|زنجیرجمع‌کن|
+Roller Chain Spring Clip Removal Tools(2)|ابزار باز کردن خار زنجیر|
+Chain and Belt Guards(25)|حفاظ زنجیر و تسمه|
+Flexible Shaft Coupling Roller Chain(4)|زنجیر کوپلینگ زنجیری|
+Inverted-Tooth Chain Pins(6)|پین زنجیر دندانه‌ای|
+@2.0.18 Chain Tools
+Conveyor Belt Installation Tools(1)|ابزار نصب نوار نقاله|

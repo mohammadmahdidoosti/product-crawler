@@ -1,0 +1,255 @@
+@7.0.2 Extension Cords & Power Strips
+Extension Cord Reels(94)|قرقره سیم سیار|
+Extension Cord Locks(3)|قفل اتصال سیم سیار|
+Raceway Outlet Strips(9)|پریز داکتی (نواری)|
+Fiber-Optic Flashlight Cable(1)|کابل فیبر نوری چراغ‌قوه|
+Robot Teach Pendant Cord Reels(16)|قرقره کابل تیچ‌پندنت ربات|
+Power Cord Holders(2)|نگهدارنده سیم برق|
+Robot Controller Cords(3)|کابل کنترلر ربات|
+Robot Teach Pendant Cords(25)|کابل تیچ‌پندنت ربات|
+USB Cord Locks(2)|قفل کابل USB|
+Breakaway Cords(6)|کابل جداشونده ایمنی|
+Battery Cords(31)|کابل باتری|
+@7.0.3 Heat-Shrink Tubing
+High-Strength Heat-Shrink Tubing(54)|وارنیش حرارتی مقاوم|
+Moisture-Seal Heat-Shrink Tubing(108)|وارنیش حرارتی چسب‌دار (آب‌بند)|
+Heat-Shrink Tubing Assortments(17)|ست وارنیش حرارتی|
+Chemical-Resistant Heat-Shrink Tubing(56)|وارنیش حرارتی مقاوم شیمیایی|
+Extra-Thick Moisture-Seal Heat-Shrink Tubing(41)|وارنیش حرارتی چسب‌دار ضخیم|
+High-Shrink-Ratio High-Temperature Heat-Shrink Tubing(30)|وارنیش حرارتی دمای بالا ضریب جمع‌شدگی بالا|
+Harsh-Environment Heat-Shrink Tubing Assortments(20)|ست وارنیش حرارتی محیط سخت|
+Tapered Heat-Shrink Tubing(22)|وارنیش حرارتی مخروطی|
+High-Temperature Heat-Shrink Tubing(40)|وارنیش حرارتی دمای بالا|
+Miniature Heat-Shrink Tubing(12)|وارنیش حرارتی مینیاتوری|
+Electrical Insulating Heat-Shrink Tubing(11)|وارنیش حرارتی عایق برق|
+Extra-Thick Heat-Shrink Tubing(8)|وارنیش حرارتی ضخیم|
+Extra-Thick High-Shrink-Ratio Heat-Shrink Tubing(18)|وارنیش حرارتی ضخیم ضریب جمع‌شدگی بالا|
+Thin-Wall High-Temperature Heat-Shrink Tubing(28)|وارنیش حرارتی جداره نازک دمای بالا|
+Thin-Wall High-Strength Heat-Shrink Tubing(8)|وارنیش حرارتی جداره نازک مقاوم|
+High-Temperature Moisture-Seal Heat-Shrink Tubing(14)|وارنیش حرارتی چسب‌دار دمای بالا|
+Abrasion-Resistant Fabric Heat-Shrink Tubing(36)|وارنیش حرارتی پارچه‌ای ضدسایش|
+Chemical-Resistant Moisture-Seal Heat-Shrink Tubing(18)|وارنیش حرارتی چسب‌دار مقاوم شیمیایی|
+High-Shrink-Ratio Heat-Shrink Tubing(8)|وارنیش حرارتی ضریب جمع‌شدگی بالا|
+High-Shrink-Ratio Moisture-Seal Heat-Shrink Tubing(5)|وارنیش حرارتی چسب‌دار ضریب جمع‌شدگی بالا|
+Wraparound Heat-Shrink Tubing(15)|وارنیش حرارتی بازشو (پیچشی)|
+Flame-Retardant Abrasion-Resistant Heat-Shrink Tubing(12)|وارنیش حرارتی نسوز ضدسایش|
+Heat-Shrink Tubing for Ground Wire(16)|وارنیش حرارتی سیم ارت|
+Fuel-Resistant Heat-Shrink Tubing(16)|وارنیش حرارتی مقاوم سوخت|
+Easy-Removal Heat-Shrink Tubing(5)|وارنیش حرارتی جداشونده آسان|
+Food and Beverage Heat-Shrink Tubing(15)|وارنیش حرارتی صنایع غذایی|
+Tight-Seal Chemical-Resistant Heat-Shrink Tubing(18)|وارنیش حرارتی آب‌بند کامل مقاوم شیمیایی|
+Continuous-Flex Abrasion-Resistant Heat-Shrink Tubing(13)|وارنیش حرارتی ضدسایش انعطاف دائم|
+Tight-Seal High-Strength Heat-Shrink Tubing(2)|وارنیش حرارتی آب‌بند کامل مقاوم|
+Low-Smoke Flame-Retardant Heat-Shrink Tubing(14)|وارنیش حرارتی نسوز کم‌دود|
+Interference-Shielding Heat-Shrink Tubing(19)|وارنیش حرارتی شیلددار (ضدنویز)|
+Heat-Shrink Sealing Grommets(3)|گرومت آب‌بند حرارتی|
+Clean Room Heat-Shrink Tubing(6)|وارنیش حرارتی اتاق تمیز|
+@7.0.4 Sleeving
+Expandable Wire Sleeving(9)|غلاف بافته انبساطی سیم|
+Wraparound Wire Sleeving(17)|غلاف پیچشی سیم|
+Slit Corrugated Wire Sleeving(18)|لوله خرطومی شکاف‌دار|
+No-Fray Expandable Wire Sleeving(18)|غلاف بافته انبساطی ضدریش|
+Spiral Wire Sleeving(15)|اسپیرال سیم (مارپیچ)|
+Hook and Loop Wraparound Wire Sleeving(23)|غلاف پیچشی چسبی (ولکرو)|
+High-Temperature Expandable Wire Sleeving(30)|غلاف بافته انبساطی دمای بالا|
+Corrugated Wire Sleeving(30)|لوله خرطومی سیم|
+High-Strength Slit Corrugated Wire Sleeving(11)|لوله خرطومی شکاف‌دار مقاوم|
+Interference-Shielding Expandable Wire Sleeving(21)|غلاف بافته انبساطی شیلددار|
+Abrasion-Resistant Wraparound Wire Sleeving(28)|غلاف پیچشی ضدسایش|
+Fiberglass High-Temperature Wire Sleeving(20)|غلاف فایبرگلاس نسوز سیم|
+High-Temperature Tube Wire Sleeving(28)|غلاف لوله‌ای دمای بالا|
+High-Temperature Electrical Insulating Tube Wire Sleeving(23)|غلاف لوله‌ای عایق برق دمای بالا|
+Abrasion-Resistant Expandable Wire Sleeving(40)|غلاف بافته انبساطی ضدسایش|
+Chemical-Resistant Tube Wire Sleeving(27)|غلاف لوله‌ای مقاوم شیمیایی|
+Flame-Retardant Expandable Wire Sleeving(9)|غلاف بافته انبساطی نسوز|
+UV-Resistant Spiral Wire Sleeving(13)|اسپیرال سیم مقاوم UV|
+Expandable Electrical Insulating Tube Wire Sleeving(9)|غلاف لوله‌ای عایق انبساطی|
+Abrasion-Resistant Wire Sleeving(22)|غلاف سیم ضدسایش|
+High-Strength Spiral Wire Sleeving(17)|اسپیرال سیم مقاوم|
+Electrical Insulating Tube Wire Sleeving(28)|غلاف لوله‌ای عایق برق (وارنیش)|
+Spark-Resistant Hook and Loop Wraparound Wire Sleeving(12)|غلاف پیچشی چسبی ضدجرقه|
+High-Strength Two-Piece Interlocking Corrugated Wire Sleeving(7)|لوله خرطومی دوتکه قفل‌شو مقاوم|
+Silica High-Temperature Wire Sleeving(20)|غلاف سیلیکا نسوز سیم|
+Flame-Retardant Slit Corrugated Wire Sleeving(9)|لوله خرطومی شکاف‌دار نسوز|
+Interference-Shielding Wraparound Wire Sleeving(17)|غلاف پیچشی شیلددار|
+Heat-Reflecting Wraparound Wire Sleeving(9)|غلاف پیچشی بازتابنده حرارت|
+Snap-Close Wraparound Wire Sleeving(6)|غلاف پیچشی کلیپسی|
+Chemical-Resistant Spiral Wire Sleeving(7)|اسپیرال سیم مقاوم شیمیایی|
+Spark-Resistant Tube Wire Sleeving(22)|غلاف لوله‌ای ضدجرقه (جوشکاری)|
+High-Strength Expandable Wire Sleeving(5)|غلاف بافته انبساطی مقاوم|
+No-Irritation Ceramic High-Temperature Wire Sleeving(13)|غلاف سرامیکی نسوز بدون خارش|
+Flame-Retardant Wraparound Wire Sleeving(3)|غلاف پیچشی نسوز|
+Low-Profile Corrugated Wire Sleeving(6)|لوله خرطومی کم‌ارتفاع|
+Extra-Thick Spark-Resistant Tube Wire Sleeving(17)|غلاف لوله‌ای ضدجرقه ضخیم|
+High-Strength Wire Sleeving(11)|غلاف سیم مقاوم|
+Heat-Reflecting Wire Sleeving(3)|غلاف سیم بازتابنده حرارت|
+Slotted Spiral Wire Sleeving(7)|اسپیرال سیم شیاردار|
+Zippered Wraparound Wire Sleeving(4)|غلاف پیچشی زیپی|
+Chemical-Resistant Expandable Wire Sleeving(5)|غلاف بافته انبساطی مقاوم شیمیایی|
+Heat-Reflecting Corrugated Wire Sleeving(6)|لوله خرطومی بازتابنده حرارت|
+High-Temperature Tape Wire Sleeving(12)|نوار غلاف سیم دمای بالا|
+Antislip Expandable Wire Sleeving(16)|غلاف بافته انبساطی ضدلغزش|
+Heat-Reflecting Slit Corrugated Wire Sleeving(7)|لوله خرطومی شکاف‌دار بازتابنده حرارت|
+Self-Extinguishing Spiral Wire Sleeving(48)|اسپیرال سیم خودخاموش‌شو|
+Hinged Interlocking Corrugated Wire Sleeving(5)|لوله خرطومی لولایی قفل‌شو|
+Static-Control Spiral Wire Sleeving(5)|اسپیرال سیم آنتی‌استاتیک|
+Heat-Reflecting Hook and Loop Wraparound Wire Sleeving(4)|غلاف پیچشی چسبی بازتابنده حرارت|
+Two-Piece Interlocking Corrugated Wire Sleeving(3)|لوله خرطومی دوتکه قفل‌شو|
+Wear-Indicating Spiral Wire Sleeving(3)|اسپیرال سیم با نشانگر سایش|
+Fire and Electrical Arc Proofing Tape Wire Sleeving(3)|نوار غلاف ضدآتش و قوس الکتریکی|
+Chemical-Resistant Wraparound Wire Sleeving(5)|غلاف پیچشی مقاوم شیمیایی|
+Abrasion-Resistant Tape Wire Sleeving(4)|نوار غلاف سیم ضدسایش|
+Slit Corrugated Wire Sleeving with Closure Strip(5)|لوله خرطومی شکاف‌دار با نوار بست|
+Wraparound Wire Sleeving for Cable and Hose Carriers(48)|غلاف پیچشی زنجیر کابل (انرژی‌چین)|
+Wraparound Flat Wire Sleeving(8)|غلاف پیچشی تخت|
+Duct-Rated Flame-Retardant Expandable Wire Sleeving(4)|غلاف بافته نسوز مخصوص داکت هوا|
+Flame-Retardant Hook and Loop Wraparound Wire Sleeving(2)|غلاف پیچشی چسبی نسوز|
+Rodent-Repelling Wraparound Wire Sleeving(6)|غلاف پیچشی ضدجونده|
+Hook and Loop Wraparound Wire Sleeving for Universal Robots(3)|غلاف پیچشی چسبی ربات یونیورسال|
+Glow-in-the-Dark Spiral Wire Sleeving(4)|اسپیرال سیم شب‌رنگ|
+Chemical-Resistant Interlocking Wraparound Wire Sleeving(5)|غلاف پیچشی قفل‌شو مقاوم شیمیایی|
+Interference-Shielding Tape Wire Sleeving(6)|نوار غلاف شیلددار|
+Heavy Duty Antistatic Tape Wire Sleeving(6)|نوار غلاف آنتی‌استاتیک سنگین|
+Electrical Insulating Tape Wire Sleeving(3)|نوار غلاف عایق برق|
+Metal-Detectable Spiral Wire Sleeving(8)|اسپیرال سیم قابل ردیابی فلزیاب|
+Refrigerant-Resistant Wire Sleeving(8)|غلاف سیم مقاوم مبرد|
+@7.0.5 Cord Grips
+Liquid-Tight Plastic Cord Grips(188)|گلند کابل پلاستیکی ضدآب|
+Liquid-Tight Aluminum Cord Grips(193)|گلند کابل آلومینیومی ضدآب|
+Aluminum Cord Grips(131)|گلند کابل آلومینیومی|
+Liquid-Tight Brass Cord Grips(41)|گلند کابل برنجی ضدآب|
+Liquid-Tight Plastic Multi-Cord Grips(32)|گلند چندکابله پلاستیکی ضدآب|
+Sure-Grip Aluminum Cord Grips(37)|گلند کابل آلومینیومی گیره‌دار|
+Continuous-Flex Liquid-Tight Plastic Cord Grips(60)|گلند پلاستیکی ضدآب انعطاف دائم|
+Liquid-Tight Stainless Steel Cord Grips(39)|گلند کابل استیل ضدآب|
+Plastic Cord Grips(44)|گلند کابل پلاستیکی|
+Iron and Steel Cord Grips(42)|گلند کابل فولادی|
+Split-Compression Liquid-Tight Plastic Cord Grips(12)|گلند پلاستیکی ضدآب دوتکه|
+Screw-Down Zinc Cord Grips for Building Cable(6)|گلند پیچی زاماک کابل ساختمانی|
+Break-Through Liquid-Tight Plastic Multi-Cord Grips(14)|گلند چندکابله پلاستیکی سوراخ‌شو|
+Snap-In Plastic Cord Grips(22)|گلند پلاستیکی کلیپسی|
+Stainless Steel Cord Grips(22)|گلند کابل استیل|
+Sure-Grip Liquid-Tight Plastic Cord Grips(46)|گلند پلاستیکی ضدآب گیره‌دار|
+Liquid-Tight Iron and Steel Cord Grips(33)|گلند کابل فولادی ضدآب|
+Sure-Grip Liquid-Tight Aluminum Cord Grips(57)|گلند آلومینیومی ضدآب گیره‌دار|
+Sure-Grip Liquid-Tight Stainless Steel Cord Grips(21)|گلند استیل ضدآب گیره‌دار|
+Venting Liquid-Tight Plastic Cord Grips(6)|گلند پلاستیکی ضدآب تنفسی|
+Liquid-Tight Plastic Cord Grips for Building Cable(9)|گلند پلاستیکی ضدآب کابل ساختمانی|
+Sanitary Liquid-Tight Stainless Steel Cord Grips(4)|گلند استیل بهداشتی ضدآب|
+Liquid-Tight Aluminum Cord Grips for Building Cable(23)|گلند آلومینیومی ضدآب کابل ساختمانی|
+Screw-Down Liquid-Tight Plastic Cord Grips(15)|گلند پلاستیکی ضدآب پیچی|
+Liquid-Tight Brass Multi-Cord Grips(17)|گلند چندکابله برنجی ضدآب|
+Flared Liquid-Tight Plastic Cord Grips(8)|گلند پلاستیکی ضدآب شیپوری|
+EMI-Shielding Liquid-Tight Brass Cord Grips(6)|گلند برنجی ضدآب EMI|
+Snap-In Liquid-Tight Plastic Cord Grips(15)|گلند پلاستیکی ضدآب کلیپسی|
+Heat-Shrink Liquid-Tight Plastic Multi-Cord Grips(3)|گلند چندکابله حرارتی ضدآب|
+Continuous-Flex Snap-In Liquid-Tight Plastic Cord Grips(10)|گلند کلیپسی ضدآب انعطاف دائم|
+Heat-Shrink Liquid-Tight Plastic Cord Grips(3)|گلند پلاستیکی حرارتی ضدآب|
+Snap-In Plastic Cord Grips for Building Cable(2)|گلند کلیپسی کابل ساختمانی|
+Continuous-Flex Snap-In Plastic Cord Grips(3)|گلند کلیپسی انعطاف دائم|
+Liquid-Tight Aluminum Multi-Cord Grips for Building Cable(22)|گلند چندکابله آلومینیومی کابل ساختمانی|
+Aluminum Cord Grips for Building Cable(4)|گلند آلومینیومی کابل ساختمانی|
+Continuous-Flex Liquid-Tight Brass Cord Grips(8)|گلند برنجی ضدآب انعطاف دائم|
+Venting Liquid-Tight Brass Cord Grips(8)|گلند برنجی ضدآب تنفسی|
+Snap-In Locking Tab Plastic Cord Grips for Building Cable(5)|گلند کلیپسی زبانه‌دار کابل ساختمانی|
+Cable Support Grips(75)|جوراب نگهدارنده کابل|
+Cord Grip Pliers(1)|انبر گلند|
+Fish Tape Pullers(1)|کشنده فنر سیم‌کشی|
+Pendant Cable Hardware Kits(1)|کیت یراق کابل آویز|
+Fish Tape Leaders(1)|سرفنر سیم‌کشی|
+Conduit Threading Line(1)|نخ کشش لوله برق|
+Cable Pulling Grips(14)|جوراب کابل‌کشی|
+Fish Tape(13)|فنر سیم‌کشی|
+Wire and Cable Push-Pull Rods(4)|میله سیم‌کشی (هل‌وکش)|
+Ring Links(4)|حلقه اتصال|
+@7.0.6 Electrical Connectors
+Battery Terminals(131)|سرباتری|
+Battery Connectors(43)|کانکتور باتری|
+Mil. Spec. Connector Caps(12)|درپوش کانکتور نظامی (MIL)|
+Metric Circular Connector Caps(11)|درپوش کانکتور گرد متریک|
+Power Connector Caps(38)|درپوش کانکتور برق|
+RJ45 Connector Caps(1)|درپوش کانکتور RJ45|
+Mini Connector Caps(13)|درپوش کانکتور مینی|
+Coaxial Connector Caps(2)|درپوش کانکتور کواکسیال|
+USB Connector Caps(3)|درپوش کانکتور USB|
+Extension Cord Circuit Interrupter Converters(9)|مبدل محافظ جان سیم سیار (GFCI)|
+Wire Splice Covers(3)|روکش محل اتصال سیم|
+Terminal Adapters(7)|تبدیل ترمینال|
+Electrical Connector Holding Tools(1)|ابزار نگهدارنده کانکتور|
+Terminal Splitters(4)|انشعاب ترمینال|
+Slip Rings(4)|اسلیپ رینگ|
+Weatherheads(10)|سرلوله ضدباران (ودرهد)|
+Battery Contacts(18)|کنتاکت باتری|
+Battery Terminal Adapters(6)|تبدیل سرباتری|
+Battery Holders(52)|جاباتری|
+Jumper Cable Clamps(2)|انبر کابل باتری به باتری|
+Battery Terminal Fasteners(3)|پیچ سرباتری|
+Jumper Cables(12)|کابل باتری به باتری|
+Grounding Blocks(8)|ترمینال ارت|
+Grounding Bars(15)|شینه ارت|
+Transformers(237)|ترانسفورماتور|
+Circuit Board Terminals(9)|ترمینال برد مدار|
+Circuit Board Voltage Regulators(15)|رگولاتور ولتاژ برد|
+Signal Isolators(15)|ایزولاتور سیگنال|
+Electronic Component Assortments(2)|ست قطعات الکترونیکی|
+Ribbon Switch Termination Kits(3)|کیت ترمینال کلید نواری|
+Decade Boxes(3)|جعبه دهه‌ای (مقاومت متغیر)|
+Light Transmitters(18)|فرستنده نوری|
+Light Pipes(16)|لوله نوری (لایت‌پایپ)|
+Strut Channel Conduit Connection Plates(4)|صفحه اتصال لوله برق به ناودانی|
+@7.0.7 Electrical Tape
+Color-Coded Electrical Tape(8)|چسب برق رنگی|
+High-Temperature Fiberglass Electrical Tape(64)|چسب برق فایبرگلاس نسوز|
+High-Voltage EPM Electrical Tape(28)|چسب برق فشار قوی EPM|
+Liquid Electrical Tape(5)|چسب برق مایع|
+Self-Fusing Mastic Electrical Tape(30)|چسب برق ماستیک خودجوش|
+High-Temperature Self-Fusing Silicone Electrical Tape(12)|چسب سیلیکونی خودجوش نسوز|
+Cotton Friction Electrical Tape(8)|چسب برق پارچه‌ای کتان|
+Ultra-Thin Polyester Electrical Tape(10)|چسب برق پلی‌استر فوق‌نازک|
+Puncture-Resistant Varnished Cotton Electrical Tape(6)|چسب برق کتان وارنیشی ضدسوراخ|
+High-Strength Polyester Fiberglass Filament Electrical Tape(6)|چسب برق پلی‌استر الیاف‌دار مقاوم|
+Clean Room Electrical Tape(2)|چسب برق اتاق تمیز|
+Wire Markers(56)|نشانگر سیم (شماره سیم)|
+@7.0.8 Bonding & Grounding Equipment
+Bonding and Grounding Clamps(50)|گیره ارت و هم‌بندی|
+Grounding Straps(22)|تسمه ارت|
+Bonding and Grounding Reels(12)|قرقره کابل ارت|
+Grounding Splices(4)|اتصال سیم ارت|
+Lightning Rods(17)|میله برقگیر|
+Bonding and Grounding Cable(7)|کابل ارت و هم‌بندی|
+Grounding Rods(18)|میله ارت|
+Static Control Grounding Cords(1)|سیم ارت آنتی‌استاتیک|
+Static Control Wrist Straps(13)|مچ‌بند آنتی‌استاتیک|
+Static Control Grounding Stations(2)|ایستگاه ارت آنتی‌استاتیک|
+Static Control Mats(31)|پد آنتی‌استاتیک|
+Static Control Cord(4)|سیم آنتی‌استاتیک|
+Static Control Brushes(14)|برس آنتی‌استاتیک|
+Static Control Tinsel(23)|ریسه آنتی‌استاتیک|
+Static Control Foot Straps(2)|پابند آنتی‌استاتیک|
+Static Control Wrist Strap Testers(1)|تستر مچ‌بند آنتی‌استاتیک|
+Hand Brushes(8)|برس دستی|
+T-Slotted Framing Grounding Terminals(2)|ترمینال ارت پروفیل شیاردار|
+@7.0.9 Conduit & Fittings
+Medium-Wall (IMC) and Thick-Wall (RMC) Metal Conduit and Fittings(240)|لوله برق فولادی جداره متوسط و ضخیم (IMC/RMC) و اتصالات|
+Thin-Wall (EMT) Metal Conduit and Fittings(237)|لوله برق فولادی جداره نازک (EMT) و اتصالات|
+Liquid-Tight Flexible Metal (LFMC) Conduit and Fittings(161)|لوله فلکسی فلزی روکش‌دار ضدآب (LFMC) و اتصالات|
+Conduit Bodies(114)|جعبه تقسیم لوله برق (کاندوئیت بادی)|
+Flexible Metal (FMC) Conduit and Fittings(110)|لوله فلکسی فلزی (FMC) و اتصالات|
+Rigid Plastic (PVC) Conduit and Fittings(66)|لوله برق PVC و اتصالات|
+Liquid-Tight Flexible Plastic (LFNC-B) Conduit and Fittings(37)|لوله فلکسی پلاستیکی ضدآب (LFNC-B) و اتصالات|
+Flexible Plastic (MPT) Conduit and Fittings(110)|لوله خرطومی پلاستیکی (MPT) و اتصالات|
+Conduit Adapters(25)|تبدیل لوله برق|
+Ultra-Flexible Plastic (MPT) Conduit and Fittings(35)|لوله خرطومی پلاستیکی فوق‌انعطاف (MPT) و اتصالات|
+Liquid-Tight Flexible Plastic (LFNC-A) Conduit and Fittings(29)|لوله فلکسی پلاستیکی ضدآب (LFNC-A) و اتصالات|
+Conduit and Cord Grip Thread Adapters(42)|تبدیل رزوه لوله برق و گلند|
+Continuous-Flex Plastic (MPT) Conduit and Fittings(47)|لوله خرطومی پلاستیکی انعطاف دائم (MPT) و اتصالات|
+Flexible Plastic (ENT and MPT) Conduit Support Clips(8)|بست نگهدارنده لوله خرطومی (ENT/MPT)|
+EMI-Shielding Flexible Plastic (MPT) Conduit and Fittings(18)|لوله خرطومی شیلددار EMI و اتصالات|
+Flexible Plastic (ENT) Conduit and Fittings(15)|لوله خرطومی برق ساختمانی (ENT) و اتصالات|
+Liquid-Tight Flexible Metal Conduit for Fiber Optic Cable (LFMC-FO)(11)|لوله فلکسی فلزی ضدآب فیبر نوری (LFMC-FO)|
+Wire Duct(71)|داکت شیاردار تابلو|
+@7.0.11 Raceway
+Wire Duct Cutters(1)|قیچی داکت|
+Cable and Hose Trolleys(73)|ترولی کابل و شیلنگ|
+@7.0.12 Cable Carriers
+Cable Rollers(1)|غلتک کابل‌کشی|
