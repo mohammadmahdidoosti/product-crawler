@@ -18,6 +18,8 @@ from pathlib import Path
 
 import requests
 
+from . import wcbridge as bridge
+
 log = logging.getLogger(__name__)
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -59,16 +61,22 @@ class WC:
         return s
 
     def ok(self) -> bool:
-        return bool(self.base and self.key and self.secret)
+        return bool(self.base and ((self.key and self.secret) or bridge.enabled()))
 
     def can_upload(self) -> bool:
-        return bool(self.base and self.wp_user and self.wp_pass)
+        return bool(self.base and ((self.wp_user and self.wp_pass) or bridge.enabled()))
 
     def _wc(self, method: str, path: str, **kw):
+        if bridge.enabled():                            # (15 Nov) through the SSH bridge (wcbridge.py)
+            return bridge.request("wc", method, path, params=kw.get("params"), json_body=kw.get("json"),
+                                  data=kw.get("data"), headers=kw.get("headers"))
         return self.s.request(method, f"{self.base}/wp-json/wc/v3/{path.lstrip('/')}", auth=(self.key, self.secret),
                               timeout=self.timeout, **kw)
 
     def _wp(self, method: str, path: str, **kw):
+        if bridge.enabled():
+            return bridge.request("wp", method, path, params=kw.get("params"), json_body=kw.get("json"),
+                                  data=kw.get("data"), headers=kw.get("headers"))
         return self.s.request(method, f"{self.base}/wp-json/wp/v2/{path.lstrip('/')}",
                               auth=(self.wp_user, self.wp_pass.replace(" ", "")), timeout=self.timeout, **kw)
 
