@@ -1,0 +1,261 @@
+@5.1.0 Thermo- meters
+Threaded Thermometers(60)|دماسنج عقربه‌ای رزوه‌ای (بی‌متال)|
+Adjustable-Angle Quick-Response Threaded Thermometers(54)|دماسنج رزوه‌ای زاویه متغیر پاسخ سریع|
+Compact Threaded Thermometers(12)|دماسنج رزوه‌ای کوچک|
+Heavy Duty Threaded Thermometers with Thermowell(6)|دماسنج رزوه‌ای سنگین با غلاف (ترموول)|
+Threaded Thermometers with Calibration Certificate(10)|دماسنج رزوه‌ای با گواهی کالیبراسیون|
+Vibration-Resistant Threaded Thermometers(31)|دماسنج رزوه‌ای روغنی ضدلرزش|
+Heavy Duty Quick-Response Threaded Thermometers with Thermowell(8)|دماسنج رزوه‌ای سنگین پاسخ سریع با غلاف|
+Side-Connection Threaded Thermometers(6)|دماسنج رزوه‌ای اتصال از پشت/کنار|
+Threaded Thermometers with Corrosion-Resistant Stem(20)|دماسنج رزوه‌ای ساقه ضدخوردگی|
+Long-Reach Threaded Thermometers(19)|دماسنج رزوه‌ای ساقه بلند|
+Food and Beverage Threaded Thermometers(6)|دماسنج رزوه‌ای صنایع غذایی|
+High-Accuracy Threaded Thermometers with Calibration Certificate(16)|دماسنج رزوه‌ای دقیق با گواهی کالیبراسیون|
+Vibration-Resistant Threaded Thermometers with Calibration Certificate(5)|دماسنج روغنی ضدلرزش با گواهی کالیبراسیون|
+Adjustable-Angle Solar-Powered Threaded Thermometers(2)|دماسنج دیجیتال خورشیدی رزوه‌ای|
+Minimum/Maximum-Indicating Threaded Thermometers(5)|دماسنج رزوه‌ای با نمایش حداقل/حداکثر|
+Long-Reach Water-Resistant Digital Pocket Thermometers with Calibration Certificate(1)|دماسنج جیبی دیجیتال ضدآب ساقه بلند با گواهی|
+Digital Pocket Thermometers with Calibration Certificate(1)|دماسنج جیبی دیجیتال با گواهی کالیبراسیون|
+Water-Resistant Digital Pocket Thermometers(3)|دماسنج جیبی دیجیتال ضدآب|
+Long-Reach Digital Pocket Thermometers with Calibration Certificate(6)|دماسنج جیبی دیجیتال ساقه بلند با گواهی|
+Pocket Thermometers(1)|دماسنج جیبی (قلمی)|
+Miniature Digital Pocket Thermometers with Calibration Certification(1)|دماسنج جیبی دیجیتال مینیاتوری با گواهی|
+Long-Life Digital Pocket Thermometers(2)|دماسنج جیبی دیجیتال عمر بالا|
+Digital Pocket Thermometers(3)|دماسنج جیبی دیجیتال|
+Digital Food and Beverage Pocket Thermometers(3)|دماسنج جیبی دیجیتال غذایی|
+Food and Beverage Pocket Thermometers(3)|دماسنج جیبی غذایی|
+Heavy Duty Quick-Response Pocket Thermometers(4)|دماسنج جیبی سنگین پاسخ سریع|
+Quick-Response Pocket Thermometers(4)|دماسنج جیبی پاسخ سریع|
+Floating Pocket Thermometers(4)|دماسنج جیبی شناور|
+Glow-in-the-Dark Pocket Thermometers(4)|دماسنج جیبی شب‌تاب|
+Long-Life Handheld Thermometers with Calibration Certificate(1)|دماسنج دستی عمر بالا با گواهی|
+Remote-Reading Handheld Thermometers with Calibration Certificate(5)|دماسنج دستی پراب‌دار با گواهی|
+Fluke High-Accuracy Handheld Thermometers(5)|دماسنج دستی دقیق فلوک|
+High-Temperature Handheld Thermometers with Calibration Certificate(2)|دماسنج دستی دمای بالا با گواهی|
+Data-Logging Handheld Thermometers(7)|دماسنج دستی دیتالاگر|
+High-Temperature Water-Resistant Handheld Thermometers(2)|دماسنج دستی ضدآب دمای بالا|
+Food and Beverage Handheld Thermometers(2)|دماسنج دستی غذایی|
+Water-Resistant Handheld Thermometers(1)|دماسنج دستی ضدآب|
+Handheld Glass Thermometers(24)|دماسنج شیشه‌ای (جیوه‌ای/الکلی)|
+Fluke High-Accuracy Data-Logging Thermometers(5)|دماسنج دیتالاگر دقیق فلوک|
+Heavy Duty Handheld Glass Thermometers(22)|دماسنج شیشه‌ای سنگین|
+Shatter-Resistant Hand-Held Glass Thermometers(16)|دماسنج شیشه‌ای نشکن|
+Long-Life Data-Logging Thermometers with Calibration Certificate(2)|دماسنج دیتالاگر عمر بالا با گواهی|
+Remote-Reading Panel-Mount Thermometers(12)|دماسنج تابلویی پراب‌دار|
+Miniature Remote-Reading Panel-Mount Thermometers(2)|دماسنج تابلویی پراب‌دار مینیاتوری|
+High-Temperature Panel-Mount Thermometers(9)|دماسنج تابلویی دمای بالا|
+Remote-Reading Panel-Mount Freezer Thermometers with Audible Alarm(2)|دماسنج تابلویی فریزر با آلارم|
+Panel-Mount Thermometers(5)|دماسنج تابلویی|
+High-Accuracy Panel-Mount Thermometers with Calibration Certificate(5)|دماسنج تابلویی دقیق با گواهی|
+Quick-Response Food and Beverage Panel-Mount Thermometers(2)|دماسنج تابلویی غذایی پاسخ سریع|
+Remote-Reading Outdoor Thermometers(1)|دماسنج فضای باز با سنسور جدا|ترکیبی
+Easy-Read Outdoor Thermometers(4)|دماسنج فضای باز خوانا|ترکیبی
+Outdoor Thermometers(3)|دماسنج فضای باز|ترکیبی
+Infrared Thermometers(7)|دماسنج لیزری (ترمومتر تفنگی)|
+Infrared Thermometers with Calibration Certificate(10)|دماسنج لیزری با گواهی کالیبراسیون|
+Hazardous Location Infrared Thermometers(1)|دماسنج لیزری ضدانفجار|
+Noncontact Forehead Thermometers(1)|تب‌سنج پیشانی غیرتماسی|ترکیبی
+Pocket Infrared Thermometers(6)|دماسنج لیزری جیبی|
+Pocket Infrared Thermometers with Calibration Certificate(4)|دماسنج لیزری جیبی با گواهی|
+Clip-On Thermometers(6)|دماسنج گیره‌ای|
+Clip-On Oven Thermometers(1)|دماسنج گیره‌ای فر|
+Clip-On Freezer Thermometers(5)|دماسنج گیره‌ای فریزر|
+Pipe-Mount Surface-Temperature Thermometers(1)|دماسنج سطحی نصب روی لوله|
+Pipe-Mount Hazardous Location Thermometers(2)|دماسنج لوله‌ای ضدانفجار|
+Magnetic-Back Surface-Temperature Thermometers(8)|دماسنج سطحی مگنتی|
+Remote-Reading Magnetic-Back Thermometers with Calibration Certificate(2)|دماسنج مگنتی پراب‌دار با گواهی|
+Remote-Reading Magnetic-Back Thermometers(3)|دماسنج مگنتی پراب‌دار|
+Minimum/Maximum Indicating Magnetic-Back Surface-Temperature Thermometers(8)|دماسنج سطحی مگنتی حداقل/حداکثر|
+Food and Beverage Thermometers with Sanitary Quick-Clamp Connection(8)|دماسنج غذایی اتصال تری‌کلمپ|
+Soldering Iron Tip Thermometers(4)|دماسنج نوک هویه|
+Temperature and Humidity Meters(13)|دماسنج و رطوبت‌سنج|
+Thermocouples(758)|ترموکوپل|
+RTDs(175)|سنسور دما RTD (PT100)|
+Oscilloscope/Multimeters(4)|اسیلوسکوپ مولتی‌متر|
+Thermowells(119)|غلاف دماسنج (ترموول)|
+Thermometer Cooling Jackets(1)|ژاکت خنک‌کن دماسنج|
+Thermal Cameras(5)|دوربین حرارتی (ترموویژن)|
+Data Recorders(56)|دیتالاگر (ثبات)|
+Electrical Resistance Meters(4)|اهم‌متر (میگر)|
+Thermometer Air Purges(1)|پرج هوای دماسنج|
+Multimeters(38)|مولتی‌متر|
+Thermometer Insulating Tubes(1)|لوله عایق دماسنج|
+Thermocouple and RTD Fittings(50)|اتصال ترموکوپل و RTD|
+HVAC Flame Detectors(1)|شعله‌پای تأسیسات|
+Thermometer Covers(1)|کاور دماسنج|
+Noncontact Temperature Sensors(31)|سنسور دمای مادون قرمز (پیرومتر)|
+Water Detectors(2)|سنسور نشت آب|
+Thermostats(37)|ترموستات|
+Thermocouple Connector Covers(1)|کاور کانکتور ترموکوپل|
+Humidity Meters(3)|رطوبت‌سنج|
+Temperature-Indicating Sheets(8)|برچسب دمانما (ترمواستیکر)|
+Test Lead Sensors(2)|سنسور سیم تست|
+Thermocouple Connector Adapters(10)|تبدیل کانکتور ترموکوپل|
+Thermocouple Transmitters(9)|ترانسمیتر ترموکوپل|
+Enclosure Thermostats(17)|ترموستات تابلو برق|
+Temperature-Indicating Liquids(22)|مایع دمانما|
+Data Recorder Charts(16)|کاغذ چارت ثبات|
+Thermocouple Connectors(155)|کانکتور ترموکوپل|
+RTD Transmitters(10)|ترانسمیتر RTD|
+Temperature and Humidity Transmitters(2)|ترانسمیتر دما و رطوبت|
+Heat Stress Monitors(9)|سنجشگر استرس حرارتی (WBGT)|
+Terminal Blocks(23)|ترمینال (ترمینال ریلی)|
+Temperature Sensors for 3D Printer Extruder Heating Elements(4)|سنسور دمای اکسترودر پرینتر سه‌بعدی|
+Vibration Monitors(7)|ویبره‌سنج|
+Light Meters(2)|نورسنج (لوکس‌متر)|
+RTD Connectors(2)|کانکتور RTD|
+@5.1.2 Thermo- couples
+Thermocouples for Liquids and Gases(245)|ترموکوپل غلاف‌دار مایع و گاز|
+Thermocouples for Air and Surfaces(30)|ترموکوپل هوا و سطح|
+Bayonet-Mount Thermocouples for Surfaces(10)|ترموکوپل سرنیزه‌ای (بایونت)|
+Threaded Thermocouples for Liquids and Gases(66)|ترموکوپل رزوه‌ای مایع و گاز|
+Bolt-On Thermocouples for Surfaces(25)|ترموکوپل واشری (پیچی) سطح|
+Thermocouples with Armored Cable for Air and Surfaces(31)|ترموکوپل کابل زره‌دار هوا و سطح|
+High-Temperature Thermocouples for Air and Surfaces(16)|ترموکوپل دمای بالا هوا و سطح|
+Adhesive-Back Thermocouples for Surfaces(6)|ترموکوپل چسبی سطح|
+Hazardous Location Threaded Thermocouples for Liquids and Gases(24)|ترموکوپل رزوه‌ای ضدانفجار|
+Thermocouples with Armored Cable for Liquids and Gases(52)|ترموکوپل کابل زره‌دار مایع و گاز|
+Threaded Thermocouples for Surfaces(28)|ترموکوپل رزوه‌ای سطح|
+Magnetic Thermocouples for Surfaces(11)|ترموکوپل مگنتی سطح|
+Threaded Thermocouple Transmitters for Liquids and Gases(40)|ترموکوپل رزوه‌ای با ترانسمیتر|
+Thermocouples with Armored Cable for Solids(6)|ترموکوپل کابل زره‌دار جامدات|
+Thermocouples for Pipe, Tube, and Hose(12)|ترموکوپل بستی لوله|
+Noninsulated Thermocouples for Liquids and Gases(27)|ترموکوپل بدون عایق مایع و گاز|
+Cut-to-Length Thermocouples for Liquids and Gases(26)|ترموکوپل برش‌دادنی|
+Threaded Thermocouple Transmitters with Thermowell for Liquids and Gases(15)|ترموکوپل ترانسمیتردار با ترموول|
+Handheld Thermocouples for Surfaces(3)|پراب ترموکوپل دستی سطح|
+Thermocouples for Solids(5)|ترموکوپل جامدات (نفوذی)|
+Reduced-Tip Thermocouples for Liquids and Gases(12)|ترموکوپل نوک باریک|
+Handheld Thermocouples for Air(2)|پراب ترموکوپل دستی هوا|
+Dual-Output Thermocouples for Liquids and Gases(12)|ترموکوپل دوبل (دوخروجی)|
+Handheld Magnetic Thermocouples for Surfaces(2)|پراب ترموکوپل مگنتی دستی|
+Hazardous Location Threaded Thermocouple Transmitters for Liquids and Gases(15)|ترموکوپل ترانسمیتردار ضدانفجار|
+Hazardous Location Threaded Thermocouples with Thermowell for Liquids and Gases(12)|ترموکوپل ضدانفجار با ترموول|
+Clip-On Thermocouples for Air(6)|ترموکوپل گیره‌ای هوا|
+Threaded Thermocouples with Thermowell for Liquids and Gases(9)|ترموکوپل رزوه‌ای با ترموول|
+Sanitary Thermocouples for Liquids and Gases(6)|ترموکوپل بهداشتی|
+Pilot-Light Thermocouples for Natural Gas Water Heaters(4)|ترموکوپل پیلوت آبگرمکن گازی|
+Thermocouple Wire(64)|سیم ترموکوپل|
+Thermocouple Cords(46)|کابل رابط ترموکوپل|
+Thermocouple and RTD Mounts(18)|پایه ترموکوپل و RTD|
+Thermocouple and RTD Connection Heads(7)|کلاهک (هد) ترموکوپل و RTD|
+Thermocouple Connector Brackets(3)|براکت کانکتور ترموکوپل|
+Terminals(3)|ترمینال|
+Thermocouple Insulating Sleeves(13)|غلاف عایق ترموکوپل|
+@5.1.3 Resistance Temperature Detectors (RTDs)
+Threaded RTDs for Liquids and Gas(37)|سنسور PT100 رزوه‌ای مایع و گاز|
+Bolt-On RTDs for Surfaces(10)|سنسور PT100 پیچی سطح|
+Adhesive-Back RTDs for Surfaces(13)|سنسور PT100 چسبی سطح|
+RTDs for Air(6)|سنسور PT100 هوا|
+Threaded RTD Transmitters for Liquids and Gas(22)|سنسور PT100 رزوه‌ای با ترانسمیتر|
+Threaded RTDs for Surfaces(7)|سنسور PT100 رزوه‌ای سطح|
+RTDs for Liquids and Gas(42)|سنسور PT100 مایع و گاز|
+Threaded RTDs with Thermowell for Liquids and Gas(3)|سنسور PT100 رزوه‌ای با ترموول|
+Cut-to-Length RTDs for Liquids and Gas(12)|سنسور PT100 برش‌دادنی|
+RTDs with Stainless Steel Cable for Liquids and Gas(6)|سنسور PT100 کابل استیل|
+Sanitary RTDs for Liquids and Gas(2)|سنسور PT100 بهداشتی|
+Threaded RTD Transmitters with Digital Display for Liquids and Gas(7)|سنسور PT100 ترانسمیتردار با نمایشگر|
+Signal-Averaging Adhesive-Back RTDs for Surfaces(2)|سنسور PT100 چسبی میانگین‌گیر|
+Dual-Output Threaded RTDs for Liquids and Gas(3)|سنسور PT100 رزوه‌ای دوبل|
+Dual-Output Cut-to-Length RTDs for Liquids and Gas(3)|سنسور PT100 برش‌دادنی دوبل|
+Sanitary RTD Transmitters with Digital Display for Liquids and Gas(2)|سنسور PT100 بهداشتی ترانسمیتردار با نمایشگر|
+RTD Wire(6)|سیم RTD|
+RTD Connector Brackets(1)|براکت کانکتور RTD|
+@5.1.4 Switches
+Fixed-Setpoint Threaded Temperature Switches(76)|ترموسوئیچ رزوه‌ای نقطه ثابت|
+Wall-Mount Temperature Switches(16)|ترموسوئیچ دیواری|
+Compact Threaded Temperature Switches(8)|ترموسوئیچ رزوه‌ای کوچک|
+Surface-Mount Temperature Switches(5)|ترموسوئیچ سطحی (کلیکسون)|
+Threaded Temperature Switches(2)|ترموسوئیچ رزوه‌ای|
+Washdown Wall-Mount Temperature Switches(8)|ترموسوئیچ دیواری شستشوپذیر|
+Washdown Threaded Temperature Switches(3)|ترموسوئیچ رزوه‌ای شستشوپذیر|
+Insertion Temperature Switches(4)|ترموسوئیچ الحاقی|
+Adjustable-Reset Electronic Temperature Switches(3)|ترموسوئیچ الکترونیکی دیفرانسیل متغیر|
+Harsh Environment Surface-Mount Temperature Switches(5)|ترموسوئیچ سطحی محیط سخت|
+Dual-Setpoint Electronic Temperature Switches(4)|ترموسوئیچ الکترونیکی دو نقطه تنظیم|
+Hazardous Location Threaded Temperature Switches(2)|ترموسوئیچ رزوه‌ای ضدانفجار|
+Electronic Temperature Switches with Digital Display(2)|ترموسوئیچ الکترونیکی دیجیتال|
+Hazardous Location Wall-Mount Temperature Switches(3)|ترموسوئیچ دیواری ضدانفجار|
+Temperature Controllers(95)|کنترلر دما|
+Temperature-Controlled Outlet Adapters(3)|پریز کنترل دما|
+Ceiling Fan Speed Controls(8)|دیمر پنکه سقفی|ترکیبی
+Water Heater Thermostats(3)|ترموستات آبگرمکن|
+Fusible Link Switches(10)|سوئیچ فیوز حرارتی|
+@5.1.5 Thermostats
+Programmable Low-Voltage Thermostats(5)|ترموستات برنامه‌پذیر ولتاژ پایین|
+Line-Voltage Thermostats(3)|ترموستات ولتاژ شبکه|
+Low-Voltage Thermostats(5)|ترموستات ولتاژ پایین|
+Plug-In Line-Voltage Thermostats(1)|ترموستات پریزی|
+DIN-Rail Mount Remote-Sensing Line-Voltage Thermostats(2)|ترموستات ریلی با سنسور جدا|
+Wi-Fi Enabled Programmable Low-Voltage Thermostats(5)|ترموستات هوشمند وای‌فای|ترکیبی
+Remote-Sensing Line-Voltage Thermostats with Thermowell(1)|ترموستات سنسور جدا با ترموول|
+Remote-Sensing Line-Voltage Thermostats(2)|ترموستات با سنسور جدا (بالب)|
+Snap-Acting Thermostats(7)|ترموستات قطع‌ووصل سریع (کلیکسون)|
+Line-Voltage Thermostats with Thermowell(1)|ترموستات ولتاژ شبکه با ترموول|
+Remote-Sensing Room-Monitoring Adjustable Thermostats(4)|ترموستات اتاقی با سنسور جدا|
+Remote-Sensing Hazardous Location Line-Voltage Thermostats(1)|ترموستات ضدانفجار با سنسور جدا|
+Wet-Location Line-Voltage Thermostats(3)|ترموستات محیط مرطوب|
+Multispeed Line-Voltage Thermostats(1)|ترموستات چنددور (فن‌کویل)|
+Programmable Line-Voltage Thermostats(3)|ترموستات برنامه‌پذیر ولتاژ شبکه|
+Direct-Action Air-Powered Thermostats(1)|ترموستات پنوماتیکی مستقیم|
+Hazardous Location Line-Voltage Thermostats(2)|ترموستات ضدانفجار|
+Reverse-Action Air-Powered Thermostats(1)|ترموستات پنوماتیکی معکوس|
+Tamper-Resistant Line-Voltage Thermostats(2)|ترموستات ضددستکاری|
+Temperature Switches(138)|ترموسوئیچ|
+Thermostat Guards(12)|محافظ ترموستات|
+Duct Damper Actuators(5)|موتور دمپر کانال|
+@5.1.6 Controllers
+Autotuning Temperature Controllers(50)|کنترلر دما PID اتوتیون|
+High-Limit Temperature Controllers(6)|کنترلر دما حد بالا (لیمیت)|
+Adjustable-Power Temperature Controllers for Plug-In Heaters(1)|کنترلر توان هیتر پریزی|
+Washdown Autotuning Temperature Controllers(14)|کنترلر دما PID شستشوپذیر|
+On/Off Temperature Controllers(7)|کنترلر دما قطع‌ووصل (On/Off)|
+Washdown Wall-Mount Autotuning Temperature Controllers(5)|کنترلر دما PID دیواری شستشوپذیر|
+DIN-Rail-Mount Autotuning Temperature Controllers(4)|کنترلر دما PID ریلی|
+Bench-Top Autotuning Temperature Controllers(8)|کنترلر دما PID رومیزی|
+On/Off Temperature Controllers for Plug-in Heaters(2)|کنترلر دما On/Off هیتر پریزی|
+Washdown On/Off Temperature Controllers(3)|کنترلر دما On/Off شستشوپذیر|
+Proportional Temperature Controllers(7)|کنترلر دما تناسبی|
+@5.1.7 Heat Exchangers
+Heat Exchangers(34)|مبدل حرارتی|
+High-Efficiency Heat Exchangers(19)|مبدل حرارتی راندمان بالا|
+Open-Tank Heat Exchangers(15)|مبدل حرارتی کویلی مخزن باز|
+High-Pressure Heat Exchangers(5)|مبدل حرارتی فشار بالا|
+Heat Exchangers for Sampling(5)|مبدل حرارتی نمونه‌گیری (سمپل کولر)|
+Enclosure-Cooling Heat Exchangers(38)|مبدل حرارتی خنک‌کن تابلو برق|
+Heat Sinks(50)|هیت‌سینک|
+Cold Plates(12)|صفحه خنک‌کن (کلدپلیت)|
+Electrical Component Heat Sinks(50)|هیت‌سینک قطعات الکترونیکی|
+Heat Pipes(33)|هیت‌پایپ (لوله حرارتی)|
+Heat Transfer Fluids(44)|روغن انتقال حرارت|
+@5.1.8 Chillers
+Fans(305)|پنکه و فن|
+Chip Fans(1)|فن چیپ|
+Equipment-Cooling Fans(416)|فن خنک‌کن تجهیزات (فن تابلویی)|
+Exhaust Fans(318)|هواکش (اگزاست فن)|
+Thermoelectric Coolers(27)|خنک‌کن ترموالکتریک|
+Thermoelectric Modules(6)|ماژول پلتیر|
+Drinking Fountains(19)|آبخوری|
+Manual-to-Touch-Free Drinking Fountain Converters(1)|کیت تبدیل آبخوری به غیرلمسی|
+Enclosure Air Conditioners(32)|کولر تابلو برق|
+Vortex Tubes(89)|لوله ورتکس|
+Evaporative Air Coolers(12)|کولر آبی|ترکیبی
+Wraparound Coolers(5)|خنک‌کن پیچشی|
+Drinking Water Chillers(2)|آبسردکن|
+Equipment-Cooling Blowers(19)|بلوئر خنک‌کن تجهیزات|
+Equipment-Cooling Fan Guards(75)|توری محافظ فن تجهیزات|
+Equipment-Cooling Fan Trays(8)|سینی فن رک|
+Fan Blades(156)|پروانه فن|
+Forced-Air Ventilation Fans(4)|فن تهویه دمشی|
+Exhaust Fan Guards(15)|توری محافظ هواکش|
+Exhaust Fan Collars(17)|طوقه هواکش|
+Fan Filters(15)|فیلتر فن|
+Fan Guards(3)|توری محافظ فن|
+Duct Fans(57)|فن کانالی|
+Bottle Fillers(17)|آبخوری پرکن بطری|
+Drinking Fountain Nozzles(6)|نازل آبخوری|
+Water Dispensers(8)|آبسردکن (دیسپنسر آب)|ترکیبی
+Water Dispenser Spouts(3)|شیر آبسردکن|
+Electrical Enclosures(14)|تابلو برق (جعبه)|
+Enclosure-Cooling Blowers(6)|بلوئر خنک‌کن تابلو|
+Freeze Sprays(5)|اسپری سرماساز (فریز)|

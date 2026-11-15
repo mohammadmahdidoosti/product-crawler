@@ -1,0 +1,258 @@
+@19.1.6 Door Track & Hangers
+Roller Tracks for Doors(176)|ریل درب کشویی (ریلی)|
+Curved Roller Tracks for Doors, Curtains, and Strip Doors(39)|ریل منحنی درب، پرده و پرده نواری|
+Floor-Mount Tracks for Hanging Doors(2)|ریل کف درب آویز|
+Roller Track Kits for Doors(21)|کیت ریل درب کشویی|
+I-Beam Roller Track Kits for Doors(31)|کیت ریل تیرآهنی درب کشویی|
+Roller Track Kits for Bypassing Doors(13)|کیت ریل درب کشویی دولنگه عبوری|
+Soft-Closing Roller Track Kits for Doors(7)|کیت ریل درب کشویی آرام‌بند|
+Dust-Resistant Roller Tracks for Doors(21)|ریل درب کشویی ضدگردوغبار|
+Corrosion-Resistant I-Beam Roller Tracks for Doors and Curtains(18)|ریل تیرآهنی ضدخوردگی درب و پرده|
+Low-Profile Roller Tracks for Doors(4)|ریل درب کشویی کم‌ارتفاع|
+Track Kits for Bypassing Cabinet Doors(12)|کیت ریل درب کشویی کابینت|
+Roller Track Kits for Bypassing Cabinet Doors(4)|کیت ریل غلتکی درب کشویی کابینت|
+Overhead Door Tracks(12)|ریل درب سقفی (سکشنال)|
+Top Mounting Plates for Hanging Track Doors(4)|صفحه نصب بالای درب ریلی آویز|
+@19.1.7 Magnetic Contacts
+Magnetic Contact Alarm Switches(12)|مگنت درب و پنجره (سنسور دزدگیر)|
+Magnetically Actuated Switches(90)|سوئیچ مغناطیسی (رید سوئیچ)|
+Smart Magnetic Contact Alarm Switches(1)|مگنت درب هوشمند|ترکیبی
+Tamper-Resistant Magnetic Contact Alarm Switches(3)|مگنت درب ضددستکاری|
+Tamper-Resistant Magnetically Actuated Switches(12)|سوئیچ مغناطیسی ضددستکاری|
+Circuit Board Magnetically Actuated Switches(2)|سوئیچ مغناطیسی برد مدار|
+Audible Door Alarms(7)|آلارم صوتی درب|
+@19.1.8 Catches
+Rotary Latches(47)|قفل زبانه گردان (روتاری)|
+Gate Latches(23)|چفت درب حیاط|
+Swinging Latches(61)|چفت تاب‌خور|
+Hasps(94)|قفل‌بند (کلون)|
+Padlockable Eyes(4)|چشمی قفل‌آویز|
+Multipoint Latch Conversion Kits(12)|کیت تبدیل قفل چندنقطه‌ای|
+Drawer and Cabinet Deadbolt Locks(116)|قفل کشو و کمد|
+Door Strike Plates(15)|زبانه‌گیر درب|
+Cargo Door Locks(18)|قفل درب کانتینر و بار|
+Cam Lock and Latch Handles(4)|دسته قفل بادامکی|
+Lock Cylinders(34)|سیلندر قفل|
+Deadbolt Locks(40)|قفل زبانه ثابت (دِدبولت)|
+Toilet Partition Latches(20)|قفل پارتیشن سرویس بهداشتی|
+Cabinet Locking Bars(5)|میله قفل کمد|
+File Cabinet Locking Bars(21)|میله قفل فایل|
+Locker Locks(34)|قفل کمد رختکن|
+@19.1.9 Cam Latches
+Slotted-Drive Cam Locks(44)|قفل بادامکی پیچ‌گوشتی‌خور|
+Wing-Handle Cam Latches(28)|چفت بادامکی دسته پروانه‌ای|
+Keyed Cam Locks(223)|قفل بادامکی کلیدی (قفل تابلویی)|
+L-Handle Cam Latches(17)|چفت بادامکی دسته L|
+L-Handle Keyed Cam Locks(25)|قفل بادامکی کلیدی دسته L|
+T-Handle Cam Latches(26)|چفت بادامکی دسته T|
+Compression T-Handle Cam Latches(9)|چفت بادامکی فشاری دسته T|
+Miniature L-Handle Cam Latches(1)|چفت بادامکی مینیاتوری دسته L|
+Food and Beverage L-Handle Cam Latches(1)|چفت بادامکی غذایی دسته L|
+T-Handle Keyed Cam Locks(21)|قفل بادامکی کلیدی دسته T|
+Compression Hex-Drive Cam Locks(13)|قفل بادامکی فشاری آلنی|
+Miniature Keyed Cam Locks(21)|قفل بادامکی کلیدی مینیاتوری|
+Compression Wing-Handle Cam Latches(14)|چفت بادامکی فشاری دسته پروانه‌ای|
+Square-Drive Cam Locks(23)|قفل بادامکی آچار چهارگوش|
+Slotted-Drive Spring-Cam Locks(12)|قفل بادامک فنری پیچ‌گوشتی‌خور|
+Hex-Drive Cam Locks(10)|قفل بادامکی آلنی|
+Miniature Slotted-Drive Cam Locks(7)|قفل بادامکی پیچ‌گوشتی‌خور مینیاتوری|
+Miniature Wing-Handle Cam Latches(7)|چفت بادامکی دسته پروانه‌ای مینیاتوری|
+Two-Way-Drive Cam Locks(33)|قفل بادامکی آچار دوشاخ (دابل‌بیت)|
+Food and Beverage T-Handle Cam Latches(1)|چفت بادامکی غذایی دسته T|
+Circular-Keyway Cam Locks(49)|قفل بادامکی کلید توبولار|
+Knob Cam Latches(4)|چفت بادامکی دستگیره‌ای|
+Push-Button Compression Paddle-Handle Screw Cam Latches(18)|چفت بادامکی پیچی فشاری دسته تخت دکمه‌ای|
+Compression L-Handle Cam Latches(1)|چفت بادامکی فشاری دسته L|
+Lift-and-Turn Compression L-Handle Cam Latches(18)|چفت بادامکی فشاری کشیدنی-چرخشی دسته L|
+Adjustable-Tension Compression Slotted-Drive Cam Locks(14)|قفل بادامکی فشاری پیچ‌گوشتی‌خور کشش قابل‌تنظیم|
+Compression Hex-Drive Recessed T-Handle Cam Locks(1)|قفل بادامکی فشاری آلنی دسته T توکار|
+Spring-Loaded Ball Stop Slotted-Drive Cam Locks(2)|قفل بادامکی پیچ‌گوشتی‌خور ساچمه فنری|
+Wing-Handle Padlockable Cam Latches(9)|چفت بادامکی دسته پروانه‌ای قفل‌آویزخور|
+Knob Spring-Cam Latches(10)|چفت بادامک فنری دستگیره‌ای|
+Recessed T-Handle Cam Latches(1)|چفت بادامکی دسته T توکار|
+Adjustable-Tension Compression Knob Cam Latches(16)|چفت بادامکی فشاری دستگیره‌ای کشش قابل‌تنظیم|
+Lift-and-Turn Compression Recessed T-Handle Cam Latches(3)|چفت بادامکی فشاری کشیدنی-چرخشی دسته T توکار|
+Ring-Handle Cam Latches(1)|چفت بادامکی دسته حلقه‌ای|
+Recessed Ring-Handle Cam Latches(1)|چفت بادامکی دسته حلقه‌ای توکار|
+T-Handle Spring-Cam Latches(2)|چفت بادامک فنری دسته T|
+Compression Square-Drive Cam Locks(31)|قفل بادامکی فشاری آچار چهارگوش|
+Long-Reach L-Handle Padlockable Cam Latches(3)|چفت بادامکی دسته L بلند قفل‌آویزخور|
+Triangle-Drive Cam Locks(15)|قفل بادامکی آچار مثلثی|
+Compression L-Handle Screw Cam Latches(1)|چفت بادامکی پیچی فشاری دسته L|
+L-Handle Padlockable Cam Latches(5)|چفت بادامکی دسته L قفل‌آویزخور|
+Compression Recessed Ring-Handle Cam Latches(4)|چفت بادامکی فشاری دسته حلقه‌ای توکار|
+Push-Button Compression Paddle-Handle Keyed Screw Cam Locks(15)|قفل بادامکی پیچی فشاری کلیدی دسته تخت دکمه‌ای|
+Compression Slotted-Drive Cam Locks(8)|قفل بادامکی فشاری پیچ‌گوشتی‌خور|
+Miniature Compression Wing-Handle Cam Latches(3)|چفت بادامکی فشاری دسته پروانه‌ای مینیاتوری|
+Wing-Handle Keyed Cam Locks(8)|قفل بادامکی کلیدی دسته پروانه‌ای|
+Recessed-Handle Cam Latches(2)|چفت بادامکی دسته توکار|
+Lift-and-Turn Compression Paddle-Handle Cam Latches(11)|چفت بادامکی فشاری کشیدنی-چرخشی دسته تخت|
+Swing-Handle Cam Latches(4)|چفت بادامکی دسته تاشو (تابلویی)|
+Miniature Circular-Keyway Cam Locks(6)|قفل بادامکی کلید توبولار مینیاتوری|
+Squeeze-Release T-Handle Keyed Cam Locks(1)|قفل بادامکی کلیدی دسته T ضامن فشاری|
+L-Handle Keyed Padlockable Cam Locks(6)|قفل بادامکی کلیدی دسته L قفل‌آویزخور|
+Resettable Combination Cam Locks(9)|قفل بادامکی رمزی قابل‌تغییر رمز|
+Mailbox Cam Locks(2)|قفل بادامکی صندوق پست|ترکیبی
+Compression Recessed Ring-Handle Keyed Cam Locks(5)|قفل بادامکی فشاری کلیدی دسته حلقه‌ای توکار|
+Push-Button Compression Paddle-Handle Hex-Drive Screw Cam Locks(5)|قفل بادامکی پیچی فشاری آلنی دسته تخت دکمه‌ای|
+Lift-and-Turn Compression Recessed T-Handle Keyed Cam Locks(3)|قفل بادامکی فشاری کشیدنی-چرخشی کلیدی دسته T توکار|
+Compression Two-Way-Drive Cam Locks(28)|قفل بادامکی فشاری آچار دوشاخ|
+Swing-Handle Keyed Cam Locks(5)|قفل بادامکی کلیدی دسته تاشو|
+Swing-Handle Slotted-Drive Padlockable Cam Locks(1)|قفل بادامکی دسته تاشو پیچ‌گوشتی‌خور قفل‌آویزخور|
+Recessed Ring-Handle Keyed Cam Locks(4)|قفل بادامکی کلیدی دسته حلقه‌ای توکار|
+Compression T-Handle Keyed Cam Locks(9)|قفل بادامکی فشاری کلیدی دسته T|
+L-Handle Roller-Cam Latches(2)|چفت بادامک غلتکی دسته L|
+Miniature Hex-Drive Cam Locks(5)|قفل بادامکی آلنی مینیاتوری|
+Compression Wing-Handle Padlockable Cam Latches(2)|چفت بادامکی فشاری دسته پروانه‌ای قفل‌آویزخور|
+Swing-Handle Combination Keyed Cam Locks(1)|قفل بادامکی رمزی-کلیدی دسته تاشو|
+Recessed-Handle Keyed Cam Locks(4)|قفل بادامکی کلیدی دسته توکار|
+Compression Triangle-Drive Cam Locks(23)|قفل بادامکی فشاری آچار مثلثی|
+Food and Beverage Compression Square-Drive Cam Locks(6)|قفل بادامکی فشاری آچار چهارگوش غذایی|
+Compression Circular-Keyway Cam Locks(9)|قفل بادامکی فشاری کلید توبولار|
+Replaceable-Cylinder Cam Locks(1)|قفل بادامکی سیلندر تعویضی|
+Compression T-Handle Padlockable Cam Latches(2)|چفت بادامکی فشاری دسته T قفل‌آویزخور|
+L-Handle Slotted-Drive Cam Locks(4)|قفل بادامکی دسته L پیچ‌گوشتی‌خور|
+Lift-and-Turn Compression T-Handle Cam Latches(2)|چفت بادامکی فشاری کشیدنی-چرخشی دسته T|
+Miniature Compression Slotted-Drive Cam Locks(6)|قفل بادامکی فشاری پیچ‌گوشتی‌خور مینیاتوری|
+Compression Wing-Handle Screw Cam Latches(1)|چفت بادامکی پیچی فشاری دسته پروانه‌ای|
+L-Handle Roller-Cam Padlockable Cam Latches(3)|چفت بادامک غلتکی دسته L قفل‌آویزخور|
+Lift-and-Turn Compression T-Handle Keyed Cam Locks(3)|قفل بادامکی فشاری کشیدنی-چرخشی کلیدی دسته T|
+L-Handle Hex-Drive Cam Locks(4)|قفل بادامکی دسته L آلنی|
+Compression Knob Cam Latches(2)|چفت بادامکی فشاری دستگیره‌ای|
+Lift-and-Turn Compression Paddle-Handle Keyed Cam Locks(6)|قفل بادامکی فشاری کشیدنی-چرخشی کلیدی دسته تخت|
+Lift-and-Turn Compression L-Handle Padlockable Cam Latches(2)|چفت بادامکی فشاری کشیدنی-چرخشی دسته L قفل‌آویزخور|
+Padlockable Cam Latches(2)|چفت بادامکی قفل‌آویزخور|
+Compression Paddle-Handle Phillips-Drive Screw Cam Locks(2)|قفل بادامکی پیچی فشاری دسته تخت چهارسو|
+Open-Indicating Compression Square-Drive Cam Locks(5)|قفل بادامکی فشاری آچار چهارگوش نشانگر باز/بسته|
+Magnetic Key-Fob Cam Locks(3)|قفل بادامکی جاکلیدی مغناطیسی|
+Miniature L-Handle Keyed Cam Locks(2)|قفل بادامکی کلیدی دسته L مینیاتوری|
+Miniature Compression Hex-Drive Cam Locks(6)|قفل بادامکی فشاری آلنی مینیاتوری|
+Snap-In Keyed Cam Locks(13)|قفل بادامکی کلیدی کلیپسی|
+Spring-Loaded Ball Stop Triangle-Drive Cam Locks(6)|قفل بادامکی آچار مثلثی ساچمه فنری|
+L-Handle Keyed Roller-Cam Locks(3)|قفل بادامک غلتکی کلیدی دسته L|
+L-Handle Hex-Drive Padlockable Cam Locks(4)|قفل بادامکی دسته L آلنی قفل‌آویزخور|
+L-Handle Slotted-Drive Padlockable Cam Locks(4)|قفل بادامکی دسته L پیچ‌گوشتی‌خور قفل‌آویزخور|
+L-Handle Keyed Padlockable Roller-Cam Locks(3)|قفل بادامک غلتکی کلیدی دسته L قفل‌آویزخور|
+Compression Wing-Handle Keyed Cam Locks(5)|قفل بادامکی فشاری کلیدی دسته پروانه‌ای|
+Slotted-Drive Protected-Cam Locks(2)|قفل بادامک محافظت‌شده پیچ‌گوشتی‌خور|
+Swing-Handle Keyed Padlockable Cam Locks(8)|قفل بادامکی کلیدی دسته تاشو قفل‌آویزخور|
+Food and Beverage Square-Drive Cam Locks(4)|قفل بادامکی آچار چهارگوش غذایی|
+Open-Indicating Compression Hex-Drive Cam Locks(3)|قفل بادامکی فشاری آلنی نشانگر باز/بسته|
+Spring-Loaded Ball Stop Two-Way-Drive Cam Locks(8)|قفل بادامکی آچار دوشاخ ساچمه فنری|
+Keyed Cam Locks with No-Copy Keys(10)|قفل بادامکی کلید غیرقابل‌کپی|
+Two-Way-Drive Protected-Cam Locks(6)|قفل بادامک محافظت‌شده آچار دوشاخ|
+Push-Button Compression Paddle-Handle Slotted-Drive Screw Cam Locks(3)|قفل بادامکی پیچی فشاری پیچ‌گوشتی‌خور دسته تخت دکمه‌ای|
+Miniature Compression Slotted-Drive Screw Cam Locks(2)|قفل بادامکی پیچی فشاری پیچ‌گوشتی‌خور مینیاتوری|
+Open-Indicating Compression Slotted-Drive Cam Locks(2)|قفل بادامکی فشاری پیچ‌گوشتی‌خور نشانگر باز/بسته|
+Shared-Use Resettable Combination Cam Locks(2)|قفل بادامکی رمزی اشتراکی قابل‌تغییر رمز|
+Hex-Drive Roller-Cam Locks(4)|قفل بادامک غلتکی آلنی|
+Open-Indicating Compression Two-Way-Drive Cam Locks(3)|قفل بادامکی فشاری آچار دوشاخ نشانگر باز/بسته|
+Miniature Compression Hex-Drive Screw Cam Locks(2)|قفل بادامکی پیچی فشاری آلنی مینیاتوری|
+Miniature Compression Square-Drive Cam Locks(2)|قفل بادامکی فشاری آچار چهارگوش مینیاتوری|
+Miniature Wing-Handle Keyed Cam Locks(5)|قفل بادامکی کلیدی دسته پروانه‌ای مینیاتوری|
+Slotted-Drive Padlockable Cam Locks(2)|قفل بادامکی پیچ‌گوشتی‌خور قفل‌آویزخور|
+Spring-Loaded Ball Stop Hex-Drive Cam Locks(3)|قفل بادامکی آلنی ساچمه فنری|
+Slotted-Drive Roller-Cam Locks(2)|قفل بادامک غلتکی پیچ‌گوشتی‌خور|
+Spring-Loaded Ball Stop Square-Drive Cam Locks(6)|قفل بادامکی آچار چهارگوش ساچمه فنری|
+Hex-Drive Protected-Cam Locks(2)|قفل بادامک محافظت‌شده آلنی|
+Keyed Cam Lock Sets(7)|ست قفل بادامکی کلیدی|
+Square-Drive Protected-Cam Locks(3)|قفل بادامک محافظت‌شده آچار چهارگوش|
+Padlockable Knob Cam Latches(3)|چفت بادامکی دستگیره‌ای قفل‌آویزخور|
+L-Handle Hex-Drive Roller-Cam Locks(2)|قفل بادامک غلتکی دسته L آلنی|
+Snap-In Square-Drive Cam Locks(3)|قفل بادامکی آچار چهارگوش کلیپسی|
+Snap-In Triangle-Drive Cam Locks(7)|قفل بادامکی آچار مثلثی کلیپسی|
+Miniature Square-Drive Cam Locks(6)|قفل بادامکی آچار چهارگوش مینیاتوری|
+Swing-Handle Triangle-Drive Padlockable Cam Locks(2)|قفل بادامکی دسته تاشو آچار مثلثی قفل‌آویزخور|
+L-Handle Slotted-Drive Roller-Cam Locks(2)|قفل بادامک غلتکی دسته L پیچ‌گوشتی‌خور|
+Miniature Triangle-Drive Cam Locks(6)|قفل بادامکی آچار مثلثی مینیاتوری|
+Electronic Remote-Release Wing-Handle Keyed Cam Locks(5)|قفل بادامکی الکترونیکی بازشو از راه دور دسته پروانه‌ای|
+Swing-Handle Resettable Combination Keyed Cam Locks(2)|قفل بادامکی رمزی-کلیدی دسته تاشو قابل‌تغییر رمز|
+Swing-Handle Padlockable Cam Latches(4)|چفت بادامکی دسته تاشو قفل‌آویزخور|
+Pry-Resistant Swing-Handle Keyed Cam Locks(2)|قفل بادامکی کلیدی دسته تاشو ضداهرم|
+Pressure-Venting Compression Square-Drive Cam Locks(2)|قفل بادامکی فشاری آچار چهارگوش تخلیه فشار|
+Open-Indicating Compression Triangle-Drive Cam Locks(5)|قفل بادامکی فشاری آچار مثلثی نشانگر باز/بسته|
+Triangle-Drive Protected-Cam Locks(3)|قفل بادامک محافظت‌شده آچار مثلثی|
+Electronic Open-Indicating Slotted-Drive Cam Locks(9)|قفل بادامکی پیچ‌گوشتی‌خور با سنسور الکترونیکی باز/بسته|
+Swing-Handle Two-Way-Drive Padlockable Cam Locks(6)|قفل بادامکی دسته تاشو آچار دوشاخ قفل‌آویزخور|
+Square-Drive Padlockable Cam Locks(3)|قفل بادامکی آچار چهارگوش قفل‌آویزخور|
+Pressure-Venting Compression Triangle-Drive Cam Locks(2)|قفل بادامکی فشاری آچار مثلثی تخلیه فشار|
+Electronic Remote-Release Swing-Handle Keyed Cam Locks(2)|قفل بادامکی الکترونیکی بازشو از راه دور دسته تاشو|
+Food and Beverage Compression Triangle-Drive Cam Locks(2)|قفل بادامکی فشاری آچار مثلثی غذایی|
+Electronic Open-Indicating Square-Drive Cam Locks(10)|قفل بادامکی آچار چهارگوش با سنسور الکترونیکی باز/بسته|
+Snap-In Two-Way-Drive Cam Locks(7)|قفل بادامکی آچار دوشاخ کلیپسی|
+Pressure-Venting Compression Two-Way-Drive Cam Locks(4)|قفل بادامکی فشاری آچار دوشاخ تخلیه فشار|
+Swing-Handle Hex-Drive Padlockable Cam Locks(2)|قفل بادامکی دسته تاشو آلنی قفل‌آویزخور|
+Electronic Open-Indicating Hex-Drive Cam Locks(9)|قفل بادامکی آلنی با سنسور الکترونیکی باز/بسته|
+Electronic Open-Indicating Two-Way-Drive Cam Locks(17)|قفل بادامکی آچار دوشاخ با سنسور الکترونیکی باز/بسته|
+Electronic Open-Indicating Triangle-Drive Cam Locks(10)|قفل بادامکی آچار مثلثی با سنسور الکترونیکی باز/بسته|
+Turn Latches(13)|چفت چرخشی|
+Window Latches(2)|چفت پنجره|
+@19.1.10 Draw Latches
+Weather-Resistant Draw Latches(41)|قفل کشویی (کلیپس قفلی) ضدآب‌وهوا|
+Adjustable-Grip Draw Latches(21)|قفل کلیپسی کشش قابل‌تنظیم|
+Tight-Hold Draw Latches(25)|قفل کلیپسی محکم‌گیر|
+Corner-Mount Draw Latches(11)|قفل کلیپسی گوشه‌ای|
+Snap-In Draw Latches(1)|قفل کلیپسی جاخور|
+Strikeless Draw Latches(61)|قفل کلیپسی بدون زبانه‌گیر|
+Adjustable-Grip Draw Latches with Safety Catch(24)|قفل کلیپسی کشش قابل‌تنظیم با ضامن ایمنی|
+Nonmarring Strikeless Draw Latches(1)|قفل کلیپسی بدون زبانه‌گیر بدون خط‌اندازی|
+Tight-Hold Draw Latches with Safety Catch(6)|قفل کلیپسی محکم‌گیر با ضامن ایمنی|
+Strikeless Adjustable-Grip Draw Latches(9)|قفل کلیپسی بدون زبانه‌گیر کشش قابل‌تنظیم|
+Draw Latches with Safety Catch(8)|قفل کلیپسی با ضامن ایمنی|
+Strikeless Draw Latches with Safety Catch(9)|قفل کلیپسی بدون زبانه‌گیر با ضامن ایمنی|
+T-Handle Tight-Hold Draw Latches(10)|قفل کلیپسی محکم‌گیر دسته T|
+Ultra-Tight-Hold Draw Latches(12)|قفل کلیپسی فوق‌محکم|
+Gasket-Sealing Draw Latches with Safety Catch(10)|قفل کلیپسی فشاری واشردار با ضامن ایمنی|
+Corner-Mount Tight-Hold Draw Latches(7)|قفل کلیپسی گوشه‌ای محکم‌گیر|
+Multiple-Strike Draw Latches with Safety Catch(10)|قفل کلیپسی چندزبانه‌گیر با ضامن ایمنی|
+Multiple-Strike Draw Latches(9)|قفل کلیپسی چندزبانه‌گیر|
+Gasket-Sealing Draw Latches(2)|قفل کلیپسی فشاری واشردار|
+Clean Room Draw Latches(2)|قفل کلیپسی اتاق تمیز|
+Adjustable-Grip Padlockable Draw Latches(21)|قفل کلیپسی کشش قابل‌تنظیم قفل‌آویزخور|
+Padlockable Draw Latches(23)|قفل کلیپسی قفل‌آویزخور|
+Corner-Mount Padlockable Draw Latches(1)|قفل کلیپسی گوشه‌ای قفل‌آویزخور|
+Weather-Resistant Padlockable Draw Latches(1)|قفل کلیپسی ضدآب‌وهوا قفل‌آویزخور|
+Turn-to-Open Padlockable Draw Latches(3)|قفل کلیپسی چرخشی قفل‌آویزخور|
+Corner-Mount Tight-Hold Padlockable Draw Latches with Safety Catch(1)|قفل کلیپسی گوشه‌ای محکم‌گیر قفل‌آویزخور با ضامن|
+Strikeless Padlockable Draw Latches(3)|قفل کلیپسی بدون زبانه‌گیر قفل‌آویزخور|
+Ultra-Tight-Hold Padlockable Draw Latches(6)|قفل کلیپسی فوق‌محکم قفل‌آویزخور|
+Multiple-Strike Padlockable Draw Latches(3)|قفل کلیپسی چندزبانه‌گیر قفل‌آویزخور|
+Tight-Hold Padlockable Draw Latches(8)|قفل کلیپسی محکم‌گیر قفل‌آویزخور|
+Gasket-Sealing Padlockable Draw Latches with Safety Catch(4)|قفل کلیپسی فشاری واشردار قفل‌آویزخور با ضامن|
+Tight-Hold Turn-to-Open Draw Latches(9)|قفل کلیپسی چرخشی محکم‌گیر|
+Turn-to-Open Draw Latches(11)|قفل کلیپسی چرخشی|
+L-Handle Light Duty Turn-to-Open Draw Latches(1)|قفل کلیپسی چرخشی سبک دسته L|
+Light Duty Turn-to-Open Draw Latches(1)|قفل کلیپسی چرخشی سبک|
+Hex-Socket Draw Locks(3)|قفل کلیپسی آلنی|
+Snap-Down Draw Latches(12)|قفل کلیپسی ضربه‌ای (اسنپ)|
+Slide-Snap Draw Latches(6)|قفل کلیپسی کشویی|
+Slotted-Drive Draw Locks(2)|قفل کلیپسی پیچ‌گوشتی‌خور|
+Torx-Drive Draw Locks(7)|قفل کلیپسی تورکس|
+Keyed Draw Locks(3)|قفل کلیپسی کلیدی|
+Turn-to-Open Keyed Draw Locks(1)|قفل کلیپسی چرخشی کلیدی|
+Keyed Corner-Mount Draw Locks(3)|قفل کلیپسی گوشه‌ای کلیدی|
+Gasket-Sealing Keyed Draw Locks(3)|قفل کلیپسی فشاری واشردار کلیدی|
+@19.1.11 Slide Bolts
+Lift-and-Drop Barrel Slide-Bolt Latches(17)|کلون کشویی (چفت زبانه‌ای) بالا-پایین‌شو|
+Push-Button Release Slide-Bolt Latches(1)|کلون کشویی دکمه‌ای|
+Spring-Loaded Slide-Bolt Latches(12)|کلون کشویی فنری|
+Slide-Bolt Locks for Double Doors(1)|کلون کشویی درب دولنگه|
+Easy-Grip Lift-and-Drop Barrel Slide-Bolt Latches(11)|کلون کشویی بالا-پایین‌شو دسته راحت|
+Easy-Grip Lift-and-Drop Barrel Padlockable Slide-Bolt Latches(8)|کلون کشویی بالا-پایین‌شو دسته راحت قفل‌آویزخور|
+Foot-Operated Slide-Bolt Latches(1)|کلون کشویی پایی|
+Tamper-Resistant Lift-and-Drop Barrel Padlockable Slide-Bolt Latches(1)|کلون کشویی بالا-پایین‌شو ضددستکاری قفل‌آویزخور|
+Tamper-Resistant Padlockable Slide-Bolt Latches(1)|کلون کشویی ضددستکاری قفل‌آویزخور|
+Long-Reach Slide-Bolt Latches(13)|کلون کشویی بلند|
+Self-Aligning Slide-Bolt Latches(11)|کلون کشویی خودتنظیم|
+Spring-Loaded Lift-and-Drop Barrel Slide-Bolt Latches(4)|کلون کشویی بالا-پایین‌شو فنری|
+Lift-and-Drop Barrel Padlockable Slide-Bolt Latches(4)|کلون کشویی بالا-پایین‌شو قفل‌آویزخور|
+Tamper-Resistant Slide-Bolt Latches(7)|کلون کشویی ضددستکاری|
+Tamper-Resistant Keyed Alike Slide-Bolt Locks(1)|کلون کشویی کلیدی هم‌کلید ضددستکاری|
+Padlockable Slide-Bolt Latches(6)|کلون کشویی قفل‌آویزخور|
+Spring-Loaded Padlockable Slide-Bolt Latches(3)|کلون کشویی فنری قفل‌آویزخور|
+Tamper-Resistant Keyed Slide-Bolt Locks(1)|کلون کشویی کلیدی ضددستکاری|
+Chain-Grip Spring-Loaded Slide-Bolt Latches(2)|کلون کشویی فنری زنجیردار|
+Long-Reach Padlockable Slide-Bolt Latches(3)|کلون کشویی بلند قفل‌آویزخور|
+Open-Indicating Keyed Slide-Bolt Locks(2)|کلون کشویی کلیدی نشانگر باز/بسته|
+Flush Bolt Locks(12)|کلون توکار درب (فلاش‌بولت)|
+Toilet Partition Door Hardware(4)|یراق درب پارتیشن سرویس بهداشتی|

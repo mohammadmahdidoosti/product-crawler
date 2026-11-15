@@ -1,0 +1,206 @@
+@13.0.12 Winches
+Electric Winches for Wire Rope—For Lifting(1)|وینچ برقی سیم بکسل بالابری|
+Hand Winches for Wire Rope—For Lifting(17)|وینچ دستی سیم بکسل بالابری|
+Heavy Duty Electric Winches for Wire Rope—For Lifting(4)|وینچ برقی سنگین سیم بکسل بالابری|
+Electric Winches for Wire Rope—For Horizontal Pulling(10)|وینچ برقی سیم بکسل کشش افقی|
+Drill-Wind Precise-Positioning Heavy Duty Hand Winches for Wire Rope—For Lifting(1)|وینچ دستی سنگین دریل‌خور دقیق بالابری|
+Drill-Wind Precise-Positioning Hand Winches for Wire Rope—For Horizontal Pulling(1)|وینچ دستی دریل‌خور دقیق کشش افقی|
+Portable Electric Winches for Wire Rope—For Horizontal Pulling(1)|وینچ برقی قابل حمل کشش افقی|
+Hand Winches for Wire Rope—For Horizontal Pulling(6)|وینچ دستی سیم بکسل کشش افقی|
+Hydraulic Winches for Wire Rope—For Horizontal Pulling(3)|وینچ هیدرولیک سیم بکسل کشش افقی|
+Heavy Duty Hand Winches for Wire Rope—For Lifting(4)|وینچ دستی سنگین سیم بکسل بالابری|
+Electric Winches for Rope—For Horizontal Pulling(1)|وینچ برقی طنابی کشش افقی|
+Tie-Down Winches(6)|وینچ مهار بار|
+Wall-Mount Heavy Duty Hand Winches for Wire Rope—For Lifting(2)|وینچ دستی سنگین دیواری بالابری|
+Precise-Positioning Hand Winches for Wire Rope—For Horizontal Pulling(2)|وینچ دستی دقیق کشش افقی|
+Air-Powered Winches for Wire Rope—For Lifting(1)|وینچ بادی سیم بکسل بالابری|
+Precise-Positioning Heavy Duty Hand Winches for Wire Rope—For Horizontal Pulling(4)|وینچ دستی سنگین دقیق کشش افقی|
+Corrosion-Resistant Heavy Duty Hand Winches for Wire Rope—For Lifting(2)|وینچ دستی سنگین ضدخوردگی بالابری|
+Heavy Duty Air-Powered Winches for Wire Rope—For Lifting(1)|وینچ بادی سنگین بالابری|
+Hand Winches for Webbing—For Horizontal Pulling(9)|وینچ دستی تسمه‌ای کشش افقی|
+Precise-Positioning Heavy Duty Hand Winches for Wire Rope—For Lifting(2)|وینچ دستی سنگین دقیق بالابری|
+Straps for Winches and Ratchet Straps(102)|تسمه یدک وینچ و جغجغه|
+@13.0.13 Cranes
+Floor-Mount Rotating Cranes(26)|جرثقیل بازویی گردان کف‌نصب|
+Workstation Cranes(9)|جرثقیل ایستگاه کار (سقفی سبک)|
+Column-Mount Rotating Cranes(40)|جرثقیل بازویی گردان ستونی (جیب)|
+Hydraulic Cranes(4)|جرثقیل هیدرولیک کارگاهی|
+Adjustable Gantry Cranes(25)|جرثقیل دروازه‌ای قابل تنظیم|
+Electric Motor-Driven Cranes(1)|جرثقیل موتوری برقی|
+Hitch-Mount Hand-Winch Cranes(1)|جرثقیل وینچ دستی نصب روی کوپلینگ خودرو|
+Gantry Cranes(6)|جرثقیل دروازه‌ای|
+Close-Lift Hydraulic Cranes(9)|جرثقیل هیدرولیک بالابر نزدیک|
+Hand-Winch Cranes(29)|جرثقیل وینچ دستی|
+Foundation-Mount Rotating Cranes(16)|جرثقیل بازویی گردان فونداسیونی|
+Tripod Cranes(1)|جرثقیل سه‌پایه|
+Build-Your-Own Workstation Cranes(6)|جرثقیل ایستگاه کار ماژولار|
+Easy-Store Adjustable Gantry Cranes(10)|جرثقیل دروازه‌ای قابل تنظیم جمع‌شو|
+Movable Rotating Cranes(3)|جرثقیل گردان متحرک|
+Close-Lift Battery-Powered Cranes(4)|جرثقیل شارژی بالابر نزدیک|
+Electric Winch Cranes(21)|جرثقیل وینچ برقی|
+Telescoping Hand-Winch Cranes(15)|جرثقیل وینچ دستی تلسکوپی|
+Lightweight Hand-Winch Cranes(15)|جرثقیل وینچ دستی سبک|
+Articulating Desktop Cranes(2)|جرثقیل رومیزی مفصلی|
+Desktop Cranes(4)|جرثقیل رومیزی|
+Articulating Cranes(5)|جرثقیل مفصلی|
+Adjustable Gantry Cranes for Rough Surfaces(3)|جرثقیل دروازه‌ای قابل تنظیم سطوح ناهموار|
+Easy-Store Hydraulic Cranes(2)|جرثقیل هیدرولیک تاشو|
+Forklift Booms(31)|بوم لیفتراک|
+Forklift Lifting Hooks(8)|قلاب بالابر لیفتراک|
+Bulk Bag Lifters(2)|بالابر جامبوبگ|
+@13.0.14 Jacks
+Scissor Jacks(1)|جک قیچی|
+Leveling Jacks(13)|جک تراز|
+Wrench-Adjustable Screw Jacks(5)|جک پیچی تنظیم با آچار|
+Ratchet Jacks(2)|جک جغجغه‌ای|
+Two-Height Ratchet Jacks(8)|جک جغجغه‌ای دوارتفاعی|
+Bar-Adjustable Screw Jacks(11)|جک پیچی تنظیم با میله|
+Leveling Jacks with Wheel(5)|جک تراز چرخ‌دار|
+Hydraulic Bottle Jacks(11)|جک روغنی (بطری)|
+Hydraulic Scissor Jacks(1)|جک قیچی هیدرولیک|
+Hydraulic Jacks with Wheels(4)|جک هیدرولیک چرخ‌دار (سوسماری)|
+Heavy Duty Hydraulic Bottle Jacks(10)|جک روغنی سنگین|
+Hydraulic Jacks(19)|جک هیدرولیک|
+Hand-Operated Tall-Body Hydraulic Bottle Jacks(4)|جک روغنی بلند دستی|
+Low-Profile Hydraulic Bottle Jacks(5)|جک روغنی کوتاه|
+Hydraulic Jacks with Extenders and Pryers(4)|جک هیدرولیک با رابط و اهرم|
+Two-Height Hydraulic Jacks(3)|جک هیدرولیک دوارتفاعی|
+Foot-Operated Tall-Body Hydraulic Bottle Jacks(3)|جک روغنی بلند پدالی|
+Acme Screw Jacks(104)|جک پیچی ذوزنقه‌ای (اسکرو جک)|
+Acme Screw Jacks with Mounting Plate(24)|جک پیچی ذوزنقه‌ای با صفحه نصب|
+Ball Screw Jacks(14)|جک بال‌اسکرو|
+Air-Powered Hydraulic Lifting Jacks with Wheels(1)|جک هیدرولیک بادی چرخ‌دار|
+Air-Powered Hydraulic Bottle Jacks(2)|جک روغنی بادی|
+Scaffold Leveling Jacks(2)|جک تراز داربست|
+Air-Powered Lifting Bags(15)|بالشتک بادی بالابر|
+Panel Lifters(3)|بالابر پنل (کناف)|
+Forklift Pallet Dumpers(1)|تخلیه‌کن پالت لیفتراک|
+Lift Trucks(35)|استاکر (بالابر دستی)|
+Jack Stands(12)|خرک (پایه جک)|
+Pallet Trucks(25)|جک پالت|
+Forklift Forks(11)|شاخک لیفتراک|
+Jack Pads(5)|پد جک|
+Laboratory Jacks(11)|جک آزمایشگاهی|
+Tilt Tables(5)|میز کج‌شو|
+@13.0.15 Pulleys & Blocks
+Hanging Pulleys for Rope—For Horizontal Pulling(35)|قرقره آویز طناب کشش افقی|
+Mounted Pulleys for Rope—For Horizontal Pulling(18)|قرقره پایه‌دار طناب کشش افقی|
+Pulleys for Wire Rope—For Lifting(120)|قرقره سیم بکسل بالابری|
+Pulleys for Rope—For Horizontal Pulling(19)|قرقره طناب کشش افقی|
+Pulleys for Wire Rope—For Horizontal Pulling(61)|قرقره سیم بکسل کشش افقی|
+Mounted Pulleys for Wire Rope—For Lifting(12)|قرقره پایه‌دار سیم بکسل بالابری|
+Hanging Pulleys for Wire Rope—For Horizontal Pulling(10)|قرقره آویز سیم بکسل کشش افقی|
+Mounted Pulleys for Wire Rope—For Horizontal Pulling(14)|قرقره پایه‌دار سیم بکسل کشش افقی|
+Hanging Pulleys for Wire Rope—For Lifting(19)|قرقره آویز سیم بکسل بالابری|
+Easy-Open Hanging Pulleys for Wire Rope—For Lifting(16)|قرقره آویز بغل‌باز سیم بکسل بالابری|
+Easy-Open Hanging Pulleys for Rope—For Horizontal Pulling(4)|قرقره آویز بغل‌باز طناب کشش افقی|
+Easy-Open Hanging Pulleys for Wire Rope—For Horizontal Pulling(7)|قرقره آویز بغل‌باز سیم بکسل کشش افقی|
+Hanging Pulleys for Rope—For Lifting(4)|قرقره آویز طناب بالابری|
+Machinable Pulleys(6)|قرقره خام قابل ماشین‌کاری|
+Easy-Open Hanging Pulleys for Rope—For Lifting(2)|قرقره آویز بغل‌باز طناب بالابری|
+@13.0.17 Vacuum Cups
+Push-On Vacuum Cups for Curved and Irregularly Shaped Items(33)|بادکش وکیوم فشاری قطعات منحنی و نامنظم|
+Height-Adjusting Vacuum Cups(122)|بادکش وکیوم فنری (تنظیم ارتفاع)|
+Push-On Vacuum Cups(26)|بادکش وکیوم فشاری|
+Food and Beverage Vacuum Cups for Curved and Irregularly Shaped Items(162)|بادکش وکیوم صنایع غذایی قطعات منحنی و نامنظم|
+Bend-Preventing Vacuum Cups(10)|بادکش وکیوم ضدخمش|
+Vacuum Cups for Bagged Materials(25)|بادکش وکیوم کیسه‌ای|
+Nonmarking Vacuum Cups(12)|بادکش وکیوم بی‌اثر (بدون لک)|
+Food and Beverage Push-On Vacuum Cups for Curved and Irregularly Shaped Items(26)|بادکش وکیوم فشاری صنایع غذایی قطعات منحنی|
+Height-Adjusting Bend-Preventing Push-On Vacuum Cups(4)|بادکش وکیوم فشاری فنری ضدخمش|
+Food and Beverage Push-On Vacuum Cups for Soft and Porous Items(3)|بادکش وکیوم فشاری صنایع غذایی اقلام نرم و متخلخل|
+Static-Control Push-On Vacuum Cups(8)|بادکش وکیوم فشاری آنتی‌استاتیک|
+Food and Beverage Vacuum Cups for Long and Narrow Items(10)|بادکش وکیوم صنایع غذایی اقلام بلند و باریک|
+Food and Beverage Vacuum Cups for Soft and Porous Items(30)|بادکش وکیوم صنایع غذایی اقلام نرم و متخلخل|
+Antislip Vacuum Cups(12)|بادکش وکیوم ضدلغزش|
+Static-Control Vacuum Cups(26)|بادکش وکیوم آنتی‌استاتیک|
+Food and Beverage Vacuum Cups(42)|بادکش وکیوم صنایع غذایی|
+Bend-Preventing Push-On Vacuum Cups(5)|بادکش وکیوم فشاری ضدخمش|
+Food and Beverage Push-On Vacuum Cups(2)|بادکش وکیوم فشاری صنایع غذایی|
+Food and Beverage Push-On Vacuum Cups for Delicate Bags and Film(4)|بادکش وکیوم فشاری صنایع غذایی کیسه و فیلم ظریف|
+Food and Beverage Vacuum Cups for Delicate Bags and Film(18)|بادکش وکیوم صنایع غذایی کیسه و فیلم ظریف|
+Replacement Pads for Vacuum Pads(14)|لاستیک یدک بادکش وکیوم|
+Vacuum Cup Leveler Mounts(2)|پایه فنری بادکش وکیوم|
+@13.0.18 Robotics
+Robot Tool Mounts(46)|پایه ابزار ربات|
+Robot Pedestals(47)|پایه ایستاده ربات|
+Robot Mounts(13)|پایه نصب ربات|
+Robot Tool Changers(24)|ابزارعوض‌کن ربات (تول‌چنجر)|
+Gripper Compensation Devices(7)|جبران‌کننده گریپر|
+Conduit(15)|لوله برق (کاندوئیت)|
+Screen Protectors(14)|محافظ صفحه نمایش|
+Teach Pendant Cases(29)|کیف تیچ‌پندنت ربات|
+Tote Boxes(17)|جعبه حمل (توت‌باکس)|
+@14.0.0 Conveyors
+Conveyor Belt Take-Up Frames(42)|قاب کشش (تیک‌آپ) نوار نقاله|
+Material Support Stands(45)|پایه تکیه‌گاه غلتکی (رولری)|
+Conveyor Belt Take-Up Bearings(14)|یاتاقان کشش نوار نقاله|
+Ball Transfer Plate Covers(18)|کاور صفحه ساچمه‌ای انتقال|
+Chutes(2)|ناودان (شوت) تخلیه|
+Conveyor Belt Cleats(12)|زائده (کلیت) نوار نقاله|
+Conveyor Belt Lacing Templates(9)|شابلون منگنه نوار نقاله|
+Conveyor Roller Belts(15)|تسمه غلتک نوار نقاله|
+Wheel Transfers(2)|انتقال چرخی|
+Vacuum Conveyors(40)|نوار نقاله وکیومی (مکنده)|
+Jam Removers(13)|رفع‌کن گیر بار|
+Bulk Dispensers(5)|دیسپنسر فله|
+@14.0.1 Dollies
+Dollies(171)|دالی|
+Hand Trucks(105)|چرخ‌دستی (کارتن‌بر)|
+Cylinder Trucks(28)|چرخ کپسول‌بر|
+Rail Trucks(14)|چرخ ریلی|
+Drum Trucks(34)|چرخ بشکه‌بر|
+Sheet and Panel Trucks(7)|چرخ ورق و پنل‌بر|
+Bar and Pipe Trucks(4)|چرخ میله و لوله‌بر|
+Moving Slides(12)|سرسره جابه‌جایی مبلمان|ترکیبی
+Lifting Straps(2)|تسمه حمل بار (دوش)|ترکیبی
+Workbenches(1)|میز کار|
+Table Racks(3)|رک حمل میز|
+Chair Racks(4)|رک حمل صندلی|
+Dispensing Stands(16)|پایه تخلیه|
+Door Installation Dollies(1)|دالی نصب درب|
+Pry Lever Bars(4)|دیلم اهرمی|
+Forming Blocks(4)|بلوک فرم‌دهی|
+Forming Spoons(2)|قاشق فرم‌دهی (صافکاری)|
+@14.0.2 Pallet Trucks
+Pallet Truck Replacement Parts(23)|قطعات یدکی جک پالت|
+Forklift Lifting and Hitch Adapters(1)|آداپتور بالابر و کشش لیفتراک|
+Forklift Fork Extensions(24)|رابط شاخک لیفتراک|
+Forklift Roll-Lifting Poles(2)|میله بالابر رول لیفتراک|
+Forklift Fork Covers(15)|کاور شاخک لیفتراک|
+Forklift Bumpers(2)|ضربه‌گیر لیفتراک|
+@14.0.3 Carts & Trucks
+Platform Trucks(148)|چرخ‌دستی سکویی (پلتفرم)|
+Personnel Carriers(7)|خودرو حمل پرسنل|
+Tables(156)|میز|ترکیبی
+Wagons(54)|واگن دستی (گاری)|
+Pipe Racks(13)|رک لوله|
+Shelving(238)|قفسه‌بندی|ترکیبی
+Cabinets(63)|کابینت|
+Box Trucks(42)|چرخ‌دستی جعبه‌ای|
+Bin Racks(53)|رک سبد|
+Hoppers(88)|هاپر (مخزن تخلیه)|
+Dump Trucks(47)|چرخ‌دستی تخلیه‌شو|
+Trailers(6)|تریلر|
+Wheelbarrows(16)|فرغون|ترکیبی
+Hampers(30)|سبد رخت (هامپر)|
+Hopper Lids(12)|درب هاپر|
+Box Truck Liners(5)|آستر چرخ‌دستی جعبه‌ای|
+Strapping Tensioners/Sealers(1)|کشنده و پلمپ‌زن تسمه|
+Strapping Dispensers(5)|دیسپنسر تسمه بسته‌بندی|
+Tray Racks(10)|رک سینی|
+Spool Racks(2)|رک قرقره|
+Computer Stands(3)|پایه کامپیوتر|ترکیبی
+Desks(4)|میز تحریر|ترکیبی
+Cages(6)|قفس|
+File Cabinets(2)|فایل اداری|ترکیبی
+Fuel Dispensers(5)|دیسپنسر سوخت|
+Trash Cans(25)|سطل زباله|ترکیبی
+Monitor Stands(1)|پایه مانیتور|ترکیبی
+Computer Cabinets(5)|کابینت کامپیوتر|
+Mop Buckets(14)|سطل تی|ترکیبی
+Wringers(6)|آبگیر تی|ترکیبی
+@14.0.4 Hitches
+Trailer Couplers(2)|کوپلینگ تریلر|
+Hitch-Ball Coupler Locks(4)|قفل کوپلینگ توپی|
+Kingpin Locks(3)|قفل کینگ‌پین|

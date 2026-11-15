@@ -1,0 +1,306 @@
+@5.1.9 Heaters
+Space Heaters(147)|بخاری برقی (هیتر فن‌دار)|
+Heating Pads(437)|پد حرارتی (هیتر سیلیکونی)|
+Heating Tape(206)|نوار گرمکن (هیت‌تریس)|
+Radiant Heaters(66)|هیتر تابشی|
+Vehicle Heaters(2)|بخاری خودرو|
+Enclosure Space Heaters(110)|هیتر تابلو برق|
+Equipment-Cooling Fan Heaters(12)|فن‌هیتر تابلویی|
+Heat Lamps(53)|لامپ حرارتی (مادون قرمز)|
+Conduit Benders(1)|خم‌کن لوله برق|
+Forges(2)|کوره آهنگری|
+Magnetic Heaters(2)|هیتر مگنتی|
+Baseboard Heaters(13)|بخاری قرنیزی|
+Heat Wands(11)|میله حرارتی|
+Water Heaters(24)|آبگرمکن|
+Heating Enclosures(3)|محفظه گرمایشی|
+Drum Base Heaters(2)|هیتر کف بشکه|
+Pipe Thawers(4)|دستگاه یخ‌زدایی لوله|
+Ceiling Tile Heaters(5)|هیتر سقفی تایل|
+Ovens(46)|آون (کوره آزمایشگاهی)|
+Water Baths(2)|بن‌ماری (حمام آب)|
+Vacuum Evaporation Boats(18)|بوته تبخیر خلأ|
+Plastic Sheet Benders(11)|خم‌کن ورق پلاستیک (حرارتی)|
+Insertion Heaters for 3D Printer Extruder Heating Elements(5)|هیتر فشنگی اکسترودر پرینتر سه‌بعدی|
+Heating Blocks for 3D Printer Extruder Heating Elements(3)|بلوک هیتر اکسترودر پرینتر سه‌بعدی|
+Filament Guides for 3D Printer Extruder Heating Elements(3)|راهنمای فیلامنت اکسترودر|
+3D Printer Extruder Heating Elements(17)|هات‌اند پرینتر سه‌بعدی|
+Ionizers(4)|یونایزر (ضدالکتریسیته ساکن)|
+Socks(3)|جوراب گرم‌کن|مصرفی
+Body Warmers(8)|گرم‌کن بدن|ترکیبی
+Footrests(1)|زیرپایی گرم‌کن|
+Heat Sealers(100)|دستگاه دوخت حرارتی (پرس پلاستیک)|
+Pails(3)|سطل|
+Roof and Gutter Heat Cables(10)|کابل گرمکن بام و ناودان|
+Floor Mats(3)|کفپوش گرمایشی|
+Bearing Heaters(9)|هیتر بلبرینگ|
+Antiseize Lubricants(2)|گریس ضدگیرپاژ (آنتی‌سیز)|
+Drum Dollies(2)|چرخ بشکه|
+@6.0.0 Cartridges, Bags & Housings
+Filter Bags(164)|کیسه فیلتر|
+Filter Bag Housings(185)|هوزینگ فیلتر کیسه‌ای|
+Filter Fabric(29)|پارچه فیلتر|
+Water Softeners(9)|سختی‌گیر آب|
+Ultraviolet Water Purifiers(27)|تصفیه آب UV|
+Water Deionizers(26)|دیونایزر آب|
+Water Deionizer Cartridges(8)|کارتریج دیونایزر|
+Sediment Traps(4)|تله رسوب|
+Pipette Tip Filters(2)|فیلتر سرسمپلر|
+@6.0.1 Strainers
+Filter Mesh(4297)|توری فیلتر|
+Cigarette Sifters(1)|الک سیگار (زیرسیگاری شنی)|
+Parts Baskets(360)|سبد قطعات|
+Sieves(304)|الک|
+Colanders(3)|آبکش|ترکیبی
+Pail and Drum Strainers(6)|صافی سطل و بشکه|
+Shower Drain Grates(1)|کفشور دوش|ترکیبی
+Catch Basin Scoops(1)|ملاقه چاهک|
+Funnels(23)|قیف|
+Sieve Bottoms(4)|کف الک|
+Sieve Screens(41)|توری الک|
+Sintered Filters(17)|فیلتر سینتری|
+Sieve Tops(4)|درب الک|
+Floor Drain Grates(23)|درپوش کفشور|
+Floor Drains(13)|کفشور|
+Floor Drain Funnels(2)|قیف کفشور|
+Manhole Covers(2)|درب منهول (دریچه آدم‌رو)|
+Roof Drains(7)|کفشور بام|
+Shovels(1)|بیلچه|
+Paint Strainers(7)|صافی رنگ|
+Vacuum Cleaner Filters(31)|فیلتر جاروبرقی|
+Vacuum Cleaner Collection Bags(21)|کیسه جاروبرقی|
+Urinal Screens(10)|توری یورینال|
+Dust Collector Filters(15)|فیلتر غبارگیر|
+Dust Separators(3)|جداکننده غبار (سیکلون)|
+Skimmers(19)|روغن‌گیر سطحی (اسکیمر)|
+@6.0.3 Steam Traps
+High-Flow Iron Steam Traps(31)|تله بخار چدنی دبی بالا|
+Energy-Saving Iron Steam Traps(35)|تله بخار چدنی کم‌مصرف|
+Energy-Saving Stainless Steel Steam Traps(12)|تله بخار استیل کم‌مصرف|
+Brass and Bronze Steam Traps(13)|تله بخار برنجی و برنزی|
+High-Flow Stainless Steel Steam Traps(9)|تله بخار استیل دبی بالا|
+Stainless Steel Steam Traps(3)|تله بخار استیل|
+Sanitary Stainless Steel Steam Traps(3)|تله بخار استیل بهداشتی|
+Sanitary Energy-Saving Stainless Steel Steam Traps(1)|تله بخار استیل بهداشتی کم‌مصرف|
+@6.0.5 Air Filters
+Air Filter Media(512)|مدیا فیلتر هوا (الیاف فیلتر)|
+Air Filter Frames(54)|قاب فیلتر هوا|
+Air Purifiers(49)|دستگاه تصفیه هوا|ترکیبی
+Breather Vents(155)|هواکش مخزن (بریدر)|
+Air Filter Sprays(2)|اسپری فیلتر هوا|
+3D Printer Air Cleaners(3)|تصفیه هوای پرینتر سه‌بعدی|
+Fume Exhausters(33)|دودگیر (فیوم اکستراکتور)|
+Fume Hoods(5)|هود آزمایشگاهی|
+Exhaust Filters(25)|فیلتر خروجی|
+Dust Collectors(110)|غبارگیر (داست کالکتور)|
+Spray Booth Filters(17)|فیلتر کابین رنگ|
+Respirator Filters(35)|فیلتر ماسک تنفسی|
+Respirator Eyeglass Kits(4)|کیت عینک ماسک تنفسی|
+Masks(10)|ماسک|
+Respirator Valves(11)|سوپاپ ماسک تنفسی|
+Electrical Enclosure Vents(10)|دریچه تهویه تابلو برق|
+@6.0.6 Oil Filters & Skimmers
+Oil Skimmers(102)|روغن‌گیر (اویل اسکیمر)|
+Oil-Absorbing Skimmers(3)|روغن‌گیر جاذب|
+Sorbents(118)|جاذب نشتی (پد جاذب)|
+@6.0.7 Perforated Sheets
+Steel Perforated Sheets(52)|ورق مشبک فولادی|
+Stainless Steel Perforated Sheets(39)|ورق مشبک استیل|
+Aluminum Perforated Sheets(87)|ورق مشبک آلومینیومی|
+High-Strength PVC Perforated Sheets(9)|ورق مشبک PVC مقاوم|
+High-Flow Steel Perforated Sheets(5)|ورق مشبک فولادی دبی بالا|
+Flexible Polypropylene Perforated Sheets(12)|ورق مشبک پلی‌پروپیلن انعطاف‌پذیر|
+Brass Perforated Sheets(15)|ورق مشبک برنجی|
+High-Flow Aluminum Perforated Sheets(8)|ورق مشبک آلومینیومی دبی بالا|
+Small-Particle-Filtering Stainless Steel Perforated Sheets(2)|ورق مشبک استیل سوراخ ریز|
+High-Strength Aluminum Perforated Sheets(8)|ورق مشبک آلومینیومی مقاوم|
+Metal Panels(253)|پنل فلزی (ورق تزئینی)|
+@6.0.8 Wire Cloth
+Stainless Steel Filter Mesh(2149)|توری استیل|
+Steel Filter Mesh(540)|توری فولادی|
+Stainless Steel Filter Mesh Discs(211)|دیسک توری استیل|
+Extra-Rigid Steel Filter Mesh(41)|توری فولادی خیلی سخت|
+Easy-Form Stainless Steel Filter Mesh(143)|توری استیل شکل‌پذیر|
+Extra-Rigid Stainless Steel Filter Mesh(27)|توری استیل خیلی سخت|
+Super-Small-Particle-Filtering Stainless Steel Filter Mesh(21)|توری استیل فوق‌ریز|
+Precision Stainless Steel Filter Mesh(7)|توری استیل دقیق|
+Aluminum Filter Mesh(75)|توری آلومینیومی|
+Copper Filter Mesh(100)|توری مسی|
+Rigid Plastic Filter Mesh(14)|توری پلاستیکی سخت|
+Galvanized Steel Filter Mesh(162)|توری گالوانیزه|
+Easy-Form PVC-Coated Galvanized Steel Filter Mesh(9)|توری گالوانیزه روکش PVC شکل‌پذیر|
+Sanitary Precision Stainless Steel Filter Mesh(2)|توری استیل دقیق بهداشتی|
+Lightweight-Particle-Filtering Stainless Steel Filter Mesh(198)|توری استیل سبک ذرات ریز|
+High-Volume Particle-Filtering Stainless Steel Filter Mesh(279)|توری استیل دبی بالا|
+Brass Filter Mesh(85)|توری برنجی|
+Easy-Form Galvanized Steel Filter Mesh(24)|توری گالوانیزه شکل‌پذیر|
+Stainless Steel Filter Mesh with Rectangular Openings(3)|توری استیل چشمه مستطیلی|
+Acid-Resistant 400 Nickel Filter Mesh(9)|توری مونل 400 ضداسید|
+Rigid High-Temperature Plastic Filter Mesh(5)|توری پلاستیکی سخت دمای بالا|
+Filter Mesh Selector Packs(12)|پک نمونه توری|
+Bronze Filter Mesh(55)|توری برنزی|
+Plastic Filter Mesh(23)|توری پلاستیکی|
+High-Temperature Nickel-Chromium Filter Mesh(3)|توری نیکل‌کروم دمای بالا|
+Moisture-Resistant Plastic Filter Mesh(21)|توری پلاستیکی ضدرطوبت|
+UV-Resistant Plastic Filter Mesh(5)|توری پلاستیکی ضد UV|
+Steel Filter Mesh Discs(22)|دیسک توری فولادی|
+Brass Filter Mesh with Rectangular Openings(5)|توری برنجی چشمه مستطیلی|
+Extra-Rigid Aluminum Filter Mesh(3)|توری آلومینیومی خیلی سخت|
+Epoxy-Coated Steel Filter Mesh(4)|توری فولادی روکش اپوکسی|
+Extra-Rigid Galvanized Steel Filter Mesh(2)|توری گالوانیزه خیلی سخت|
+Abrasion-Resistant Rubber Filter Mesh(12)|توری لاستیکی ضدسایش|
+Chemical-Resistant Plastic Filter Mesh(17)|توری پلاستیکی مقاوم شیمیایی|
+Plastic Filter Mesh Discs(4)|دیسک توری پلاستیکی|
+High-Temperature Plastic Filter Mesh(2)|توری پلاستیکی دمای بالا|
+Plastic Filter Mesh Selector Packs(3)|پک نمونه توری پلاستیکی|
+Insect Screening(36)|توری حشره (توری پشه‌بند)|ترکیبی
+Fencing(59)|فنس (حصار)|
+Insulation Fencing(3)|توری نگهدارنده عایق|
+@6.0.9 Plastic Mesh
+Perforated Sheets(21)|ورق مشبک|
+Animal Repellents(11)|دورکننده حیوانات|ترکیبی
+Dock Door Insect Screens(8)|توری حشره درب داک|
+Fence Screens(9)|توری پوششی فنس|
+Shower Mats(1)|کفپوش حمام|ترکیبی
+Tarps(26)|برزنت (چادر)|
+Tarp Patches(3)|وصله برزنت|
+Scouring Pads(2)|اسکاچ|ترکیبی
+Mesh Sleeves(23)|غلاف توری|
+T-Slotted Framing Panels(8)|پنل پروفیل شیاردار|
+Floor Mat Underlays(5)|زیرانداز کفپوش|
+Door Strips(4)|پرده نواری درب (PVC)|
+Machine Guards(22)|حفاظ دستگاه|
+Hair Covers(6)|کلاه توری (موبند)|
+Drawstring Bags(16)|کیسه بنددار|
+Abrasive Wool(5)|سیم ظرفشویی (پشم فولاد)|
+@6.0.11 Sieves
+Sieves for Large Material(46)|الک مواد درشت|
+Heavy Duty Sieves(15)|الک سنگین|
+Centrifuges(4)|سانتریفیوژ|
+@6.0.12 Breather Vents
+Corrosion Resistant Breather Vents(15)|بریدر ضدخوردگی|
+Weather Resistant Breather Vents(13)|بریدر مقاوم شرایط جوی|
+Washdown Weather Resistant Breather Vents(7)|بریدر شستشوپذیر مقاوم جوی|
+Self-Draining Breather Vents(4)|بریدر خودتخلیه|
+Moisture Absorbing Breather Vents(17)|بریدر رطوبت‌گیر (سیلیکاژلی)|
+Breather Vents with Cap(13)|بریدر درپوش‌دار|
+Lockable Breather Vents with Cap(5)|بریدر درپوش‌دار قفل‌شو|
+Submersible Threaded Breather Vents(22)|بریدر رزوه‌ای ضدآب (غوطه‌ورپذیر)|
+Hazardous Location Threaded Breather Vents(1)|بریدر رزوه‌ای ضدانفجار|
+Corrosion Resistant Washdown Threaded Breather Vents(4)|بریدر رزوه‌ای شستشوپذیر ضدخوردگی|
+Snap-In Breather Vents(8)|بریدر جاخوردنی|
+Submersible Snap-In Breather Vents(3)|بریدر جاخوردنی ضدآب|
+Wet Environment Breather Vents(2)|بریدر محیط مرطوب|
+Oil Dispenser Breather Vents(1)|بریدر روغن‌دان|
+Electrical Enclosure Drains(4)|درین تابلو برق|
+Electrical Enclosure Drain Vents(6)|هواکش درین تابلو برق|
+@6.0.13 Mufflers
+Sound Barrier Partitions(1)|پارتیشن عایق صدا|
+Duct Noise Reducers(36)|صداخفه‌کن کانال|
+Acoustic Insulation(53)|عایق صوتی|
+Ceiling Tile Sound Barriers(1)|عایق صدای تایل سقفی|
+Sound Barrier Sheets(16)|ورق عایق صدا|
+Doors(4)|درب|
+Ceiling Tiles(36)|تایل سقف کاذب|
+Access Panels(7)|دریچه بازدید|
+@7.0.0 Wire & Cable
+Power Cable(308)|کابل قدرت|
+Control Cable(589)|کابل کنترل (فرمان)|
+Lead Wire(317)|سیم افشان (سیم رابط)|
+Building Wire(42)|سیم ساختمانی|
+Vehicle Wire(112)|سیم خودرو|
+Security Cable(53)|کابل دزدگیر و امنیتی|
+Vehicle Cable(12)|کابل خودرو|
+Battery Wire(27)|کابل باتری|
+Building Cable(31)|کابل ساختمانی|
+Ethernet Cable(20)|کابل شبکه|
+Fieldbus Cable(1)|کابل فیلدباس|
+VFD Motor Cable(13)|کابل شیلددار اینورتر|
+Irrigation Cable(8)|کابل آبیاری|
+Servo Cable(8)|کابل سروو|
+Pendant Cable(8)|کابل آویز (پندانت)|
+Coaxial Cable(8)|کابل کواکسیال|
+CAN-Bus Cable(6)|کابل CAN-Bus|
+Thermostat Cable(12)|کابل ترموستات|
+Magnet Wire(26)|سیم لاکی|
+Speaker Cable(4)|کابل بلندگو|
+Circuit Board Cords(24)|کابل رابط برد|
+DeviceNet Cable(4)|کابل DeviceNet|
+Ribbon Cable(6)|کابل فلت|
+Outdoor Lighting Cable(3)|کابل روشنایی محوطه|
+Profinet Cable(2)|کابل پروفی‌نت|
+Modbus Cable(2)|کابل مدباس|
+Fiber-Optic Cable(12)|کابل فیبر نوری|
+Profibus Cable(3)|کابل پروفی‌باس|
+Phone Cable(6)|کابل تلفن|
+Fire Alarm Cable(6)|کابل اعلام حریق|
+Cable Repair Resins(8)|رزین تعمیر کابل (مفصل رزینی)|
+Submersible Pump Cable(2)|کابل پمپ شناور|
+Wrap Wire(11)|سیم وایروپ|
+Grounding Wire(38)|سیم ارت|
+Electrical Insulating Wire Caps(3)|سرسیم عایق (وایرنات)|
+Circuit Board Cable(20)|کابل برد|
+Test Lead Wire(4)|سیم پراب تست|
+@7.0.1 Plugs & Receptacles
+Mil. Spec. Connectors(167)|کانکتور نظامی (MIL)|
+Latching Connectors(206)|کانکتور قفل‌دار|
+Metric Circular Connectors(334)|کانکتور گرد متریک (M8/M12)|
+Mini Connectors(78)|کانکتور مینی|
+AMP Connectors(80)|کانکتور AMP|
+Metric Circular Cords(500)|کابل کانکتوردار M8/M12|
+Solenoid Valve Connectors(17)|سوکت شیر برقی|
+Light Switch Sensor Controllers(1)|کنترلر سنسور کلید روشنایی|
+Light Switch/Receptacles(3)|کلید و پریز ترکیبی|
+DisplayPort Connectors(1)|کانکتور DisplayPort|
+RJ45 Connectors(84)|سوکت شبکه RJ45|
+Outlet Strips(115)|چندراهی برق|
+Voltage Adapters(284)|تبدیل برق (آداپتور ولتاژ)|
+Amphenol Connectors(32)|کانکتور آمفنول|
+Audio Connectors(27)|کانکتور صوتی|
+Sure Seal Connectors(6)|کانکتور Sure Seal|
+Ecomate Connectors(14)|کانکتور Ecomate|
+Han Connectors(8)|کانکتور هارتینگ (Han)|
+Coaxial Connectors(59)|کانکتور کواکسیال|
+DMX Connectors(2)|کانکتور DMX|
+Ballast Connectors(2)|کانکتور بالاست|
+CB Radio Connectors(2)|کانکتور بیسیم CB|
+Breakaway Connectors(3)|کانکتور جداشونده|
+HDMI Adapters(14)|تبدیل HDMI|
+Micro 360 Connectors(24)|کانکتور Micro 360|
+ix Industrial Sockets(6)|سوکت ix Industrial|
+Video Adapters(7)|تبدیل تصویر|
+Fiber-Optic Connectors(9)|کانکتور فیبر نوری|
+Mini Connector Thread Adapters(6)|تبدیل رزوه کانکتور مینی|
+Mini Cords(218)|کابل کانکتوردار مینی|
+Ethernet Cord Reels(1)|قرقره کابل شبکه|
+USB Cords(259)|کابل USB|
+Solenoid Valve Cords(60)|کابل سوکت شیر برقی|
+Ethernet Cords(333)|کابل شبکه (پچ‌کورد)|
+D-Sub Cords(199)|کابل D-Sub (سریال)|
+Audio Cords(11)|کابل صوتی|
+Coaxial Cords(67)|کابل کواکسیال سرخورده|
+Sensor Signal Adapter Cords(2)|کابل تبدیل سیگنال سنسور|
+Thunderbolt Cords(2)|کابل تاندربولت|
+HDMI Cords(21)|کابل HDMI|
+DMX Cords(3)|کابل DMX|
+Fiber-Optic Cords(34)|پچ‌کورد فیبر نوری|
+Profibus Cords(4)|کابل پروفی‌باس سرخورده|
+Mitutoyo Cords(22)|کابل دیتای میتوتویو|
+Video Adapter Cords(8)|کابل تبدیل تصویر|
+ix Industrial Cords(6)|کابل ix Industrial|
+DisplayPort Cords(26)|کابل DisplayPort|
+USB Chargers(27)|شارژر USB|ترکیبی
+Distribution Bars(31)|شینه توزیع|
+Distribution Blocks(47)|ترمینال توزیع (بلوک تقسیم)|
+Distribution Posts(4)|پست توزیع|
+Outlet Strip Mounts(4)|پایه چندراهی|
+USB Extenders(3)|افزایش‌دهنده USB|
+Power Supplies(3)|منبع تغذیه|
+Inverters(12)|اینورتر (مبدل DC به AC)|
+Outlet Boxes(5)|قوطی پریز|
+Raceway and Fittings(297)|داکت و ترانکینگ و اتصالات|
+Electrical Enclosure Plugs(77)|درپوش تابلو برق|
+Battery Chargers(55)|شارژر باتری|
+Jumper Cords(3)|کابل جامپر|
+Circuit Board Connectors(10)|کانکتور برد|
+Power Consumption Meters(1)|کنتور مصرف برق|

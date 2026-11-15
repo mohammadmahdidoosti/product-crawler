@@ -1,0 +1,314 @@
+@19.1.12 Pull Handles
+Threaded-Hole-Mount Pull Handles(178)|دستگیره کشویی (U) نصب مهره‌ای|
+Unthreaded-Hole-Mount Pull Handles(86)|دستگیره کشویی سوراخ ساده|
+Static-Control Unthreaded Through-Hole-Mount Pull Handles(5)|دستگیره کشویی آنتی‌استاتیک|
+Weld-On-Mount Pull Handles(64)|دستگیره کشویی جوشی|
+Threaded-Hole-Mount Offset Pull Handles(85)|دستگیره کشویی آفست نصب مهره‌ای|
+Open-Ended Pull Handles(24)|دستگیره کشویی سرباز (L)|
+Unthreaded Through-Hole-Mount Folding Pull Handles with Mounting Plate(17)|دستگیره تاشو صفحه‌دار سوراخ ساده|
+Choose-a-Color Unthreaded Through-Hole-Mount Pull Handles(2)|دستگیره کشویی رنگ انتخابی|
+Extra-Long Threaded-Hole-Mount Pull Handles(38)|دستگیره کشویی بلند نصب مهره‌ای|
+Extra-Long Unthreaded Through-Hole-Mount Pull Handles(35)|دستگیره کشویی بلند سوراخ ساده|
+Comfort-Grip Create-Your-Own Unthreaded Through-Hole-Mount Pull Handles(1)|دستگیره کشویی سفارشی ارگونومیک|
+Unthreaded Through-Hole-Mount Recessed Folding Pull Handles with Mounting Plate(20)|دستگیره تاشو توکار صفحه‌دار|
+Threaded-Stud-Mount Pull Handles(32)|دستگیره کشویی پیچ‌دار|
+Spring-Loaded Unthreaded Through-Hole-Mount Folding Pull Handles with Mounting Plate(13)|دستگیره تاشو فنری صفحه‌دار|
+Unthreaded Through-Hole-Mount Offset Pull Handles(3)|دستگیره کشویی آفست سوراخ ساده|
+Weld-On-Mount Recessed Pull Handles(1)|دستگیره توکار جوشی|
+Unthreaded Through-Hole-Mount Recessed Pull Handles(11)|دستگیره توکار سوراخ ساده|
+Threaded-Hole-Mount Folding Pull Handles(3)|دستگیره تاشو نصب مهره‌ای|
+Weld-On-Mount Folding Pull Handles with Mounting Plate(6)|دستگیره تاشو جوشی صفحه‌دار|
+Snap-In Recessed Pull Handles(17)|دستگیره توکار کلیپسی|
+Threaded-Stud-Mount Recessed Pull Handles(10)|دستگیره توکار پیچ‌دار|
+Threaded-Hole-Mount Pull Knobs(18)|دستگیره قارچی نصب مهره‌ای|
+Unthreaded Through-Hole-Mount Folding Pull Handles(6)|دستگیره تاشو سوراخ ساده|
+Food and Beverage Threaded Through-Hole-Mount Pull Handles(20)|دستگیره کشویی غذایی|
+Edge Pulls(9)|دستگیره لبه‌ای|
+Miniature Threaded-Hole-Mount Pull Handles(13)|دستگیره کشویی مینیاتوری|
+Threaded-Hole-Mount Recessed Folding Pull Handles with Mounting Plate(2)|دستگیره تاشو توکار صفحه‌دار نصب مهره‌ای|
+Metal-Detectable Threaded Through-Hole-Mount Pull Handles(2)|دستگیره کشویی قابل‌تشخیص با فلزیاب|
+Threaded-Hole-Mount Recessed Pull Handles(5)|دستگیره توکار نصب مهره‌ای|
+Stay-Put Threaded-Stud-Mount Folding Pull Handles(16)|دستگیره تاشو پیچ‌دار ثابت‌شو|
+Unthreaded Through-Hole-Mount Pull Knobs(1)|دستگیره قارچی سوراخ ساده|
+Threaded-Stud-Mount Folding Pull Handles(8)|دستگیره تاشو پیچ‌دار|
+Create-Your-Own Unthreaded Through-Hole-Mount Pull Handles(7)|دستگیره کشویی سفارشی|
+Sanitary Threaded-Stud-Mount Pull Knobs(6)|دستگیره قارچی پیچ‌دار بهداشتی|
+Concealed Unthreaded Through-Hole-Mount Recessed Pull Handles(2)|دستگیره توکار مخفی|
+Arm and Foot Pull Handles(10)|دستگیره بازویی و پایی (درب‌بازکن)|
+Unthreaded-Hole-Mount Pull Knobs(3)|دستگیره قارچی سوراخ کور|
+Sanitary Threaded-Hole-Mount Pull Knobs(6)|دستگیره قارچی مهره‌ای بهداشتی|
+Recessed Pull Knobs(2)|دستگیره قارچی توکار|
+Curved Unthreaded Through-Hole-Mount Folding Pull Handles with Mounting Plate(6)|دستگیره تاشو قوس‌دار صفحه‌دار|
+Curved Weld-On-Mount Folding Pull Handles with Mounting Plate(3)|دستگیره تاشو قوس‌دار جوشی|
+T-Slotted Framing Handles(36)|دستگیره پروفیل شیاردار|
+Door Handles(1)|دستگیره درب|
+@19.1.13 Drawer Slides
+Lock-Open/Lock-Closed Drawer Slides(40)|ریل کشو قفل‌دار باز/بسته|
+Soft-Closing Drawer Slides(16)|ریل کشو آرام‌بند|
+Push-to-Open Drawer Slides(9)|ریل کشو فشاری (پوش‌اوپن)|
+Partial-Extension Drawer Slides(24)|ریل کشو نیمه‌باز|
+Over-Extension Drawer Slides(9)|ریل کشو بیش‌بازشو|
+Miniature Drawer Slides(6)|ریل کشو مینیاتوری|
+Self-Closing Drawer Slides(23)|ریل کشو خودبسته‌شو|
+Soft-Closing Over-Extension Drawer Slides(6)|ریل کشو بیش‌بازشو آرام‌بند|
+Miniature Pass-Through Drawer Slides(6)|ریل کشو دوطرفه مینیاتوری|
+Lock-Open Drawer Slides(10)|ریل کشو قفل در حالت باز|
+Long-Life Lock-Open Drawer Slides(10)|ریل کشو قفل باز عمر بالا|
+Stacked Drawer Slides(9)|ریل کشو طبقه‌ای|
+Pass-Through Drawer Slides(4)|ریل کشو دوطرفه|
+Hold-Open Drawer Slides(15)|ریل کشو نگهدارنده باز|
+Partial-Extension Lock-Open Drawer Slides(10)|ریل کشو نیمه‌باز قفل باز|
+Tilt Down Drawer Slides(3)|ریل کشو شیب‌شو|
+Food and Beverage Drawer Slides(4)|ریل کشو غذایی|
+Base-Mount Drawer Slides(39)|ریل کشو زیرنصب|
+Soft-Closing Heavy Duty Base- and Under-Mount Drawer Slides(1)|ریل کشو زیرنصب سنگین آرام‌بند|
+Soft-Open Base-Mount Drawer Slides(7)|ریل کشو زیرنصب آرام‌بازشو|
+Heavy Duty Base- and Under-Mount Drawer Slides(5)|ریل کشو زیرنصب سنگین|
+Hold-Closed Base-Mount Drawer Slides(8)|ریل کشو زیرنصب نگهدارنده بسته|
+Under-the-Counter Drawer Slides(8)|ریل کشو زیر کانتر|
+@19.1.14 Lid Supports
+Shelf Brackets(3)|براکت قفسه (نبشی طاقچه)|
+@19.1.15 Hooks
+Heavy Duty Hanging Hooks(18)|قلاب آویز سنگین|
+Food and Beverage Hanging Hooks(12)|قلاب آویز غذایی|
+Magnetic-Back Hanging Hooks(32)|قلاب آویز مغناطیسی|
+Over-Door-Mount Hanging Hooks(5)|قلاب آویز پشت‌دری|ترکیبی
+Hanging Hook Racks(15)|جالباسی قلاب‌دار (رک قلاب)|
+Under-Mount Hanging Hooks(8)|قلاب آویز زیرنصب|
+Reusable Adhesive-Back Hanging Hooks(16)|قلاب چسبی قابل استفاده مجدد|ترکیبی
+Heavy Duty Hanging Hook Racks(9)|رک قلاب سنگین|
+Lavatory Hanging Hooks(4)|قلاب آویز سرویس بهداشتی|
+Recessed Hanging Hooks(2)|قلاب آویز توکار|
+Magnetic-Back Hanging Hook Racks(2)|رک قلاب مغناطیسی|
+Suction Cup-Mount Hanging Hooks(4)|قلاب بادکشی|ترکیبی
+Hang Tabs(2)|زبانه آویز|
+@19.1.16 Brackets
+Clamp-On Framing Braces(1)|مهاربند کلمپی لوله‌ای|
+Slip-On Framing Connectors(245)|اتصال لوله‌ای پیچی (کی‌کلمپ)|
+Shelf Supports(11)|پایه قفسه (پین طبقه)|
+Coordinate Measuring Machine Angle Brackets(3)|براکت زاویه CMM|
+@19.2.0 Door Locks
+Door Lock Plates(1)|پلاک قفل درب|
+Lock Picks(1)|ابزار بازکردن قفل (شاه‌کلید)|
+Keypad Door Controls(4)|قفل رمزی صفحه‌کلیدی درب|
+Push Levers(6)|میله فشاری درب اضطراری (پنیک‌بار)|
+Electric Door Strike Plates(17)|قفل برقی زبانه‌گیر (استرایک)|
+Door Locking Bars(5)|میله قفل درب|
+Lock Rekeying Pins(6)|پین تعویض رمز سیلندر|
+Toilet Partitions(88)|پارتیشن سرویس بهداشتی|
+Toilet Partition Trim Shoes(11)|کفشک پارتیشن سرویس بهداشتی|
+Toilet Partition Mounting Hardware(18)|یراق نصب پارتیشن سرویس بهداشتی|
+@19.2.3 Padlocks
+Weather-Resistant Padlocks(213)|قفل آویز ضدآب‌وهوا|
+Choose-a-Color Lockout Padlocks(132)|قفل ایمنی لاک‌اوت رنگ انتخابی|
+Extra-Clearance Padlocks(144)|قفل آویز گردن بلند|
+Resettable Combination Padlocks(13)|قفل آویز رمزی قابل‌تغییر رمز|
+Weather-Resistant Extra-Clearance Padlocks(83)|قفل آویز گردن بلند ضدآب‌وهوا|
+Choose-a-Color Lockout Padlocks with Labels(77)|قفل لاک‌اوت رنگ انتخابی برچسب‌دار|
+Extra-Clearance Choose-a-Color Lockout Padlocks(94)|قفل لاک‌اوت گردن بلند رنگ انتخابی|
+Weather-Resistant Extra-Clearance Resettable Combination Padlocks(10)|قفل رمزی گردن بلند ضدآب‌وهوا|
+Weather- and Cut-Resistant Padlocks(60)|قفل آویز ضدآب‌وهوا ضدبرش|
+High-Security Padlocks(13)|قفل آویز امنیت بالا|
+Weather-Resistant Choose-a-Color Lockout Padlocks(6)|قفل لاک‌اوت رنگ انتخابی ضدآب‌وهوا|
+Weather-Resistant Resettable Combination Padlocks(9)|قفل رمزی ضدآب‌وهوا قابل‌تغییر رمز|
+Weather-Resistant Choose-a-Color Lockout Padlocks with Labels(20)|قفل لاک‌اوت رنگ انتخابی برچسب‌دار ضدآب‌وهوا|
+Key-Controlled Resettable Combination Padlocks(5)|قفل رمزی قابل‌تغییر رمز با کلید مدیریتی|
+Cut-Resistant Padlocks(24)|قفل آویز ضدبرش|
+Bluetooth Combination Padlocks(6)|قفل آویز بلوتوثی|
+Breakable-Shackle Padlocks(2)|قفل آویز گردن شکستنی|
+Key-Controlled Combination Padlocks(17)|قفل رمزی با کلید مدیریتی|
+Flexible-Shackle Padlocks(15)|قفل آویز گردن کابلی|
+Nonconductive Choose-a-Color Lockout Padlocks with Labels(8)|قفل لاک‌اوت عایق برق رنگ انتخابی برچسب‌دار|
+High-Security Extra-Clearance Padlocks(14)|قفل آویز گردن بلند امنیت بالا|
+Extra-Clearance Resettable Combination Padlocks(2)|قفل رمزی گردن بلند قابل‌تغییر رمز|
+Cut-Resistant Resettable Combination Padlocks(3)|قفل رمزی ضدبرش قابل‌تغییر رمز|
+Enclosed-Shackle Padlocks(12)|قفل آویز گردن مخفی (کتابی)|
+Adjustable-Shackle Padlocks(3)|قفل آویز گردن قابل‌تنظیم|
+Choose-a-Color Resettable Combination Padlocks(2)|قفل رمزی رنگ انتخابی قابل‌تغییر رمز|
+Lockout Padlock Sets(18)|ست قفل لاک‌اوت|
+Weather-Resistant Replaceable-Cylinder Padlocks(11)|قفل آویز سیلندر تعویضی ضدآب‌وهوا|
+Padlock Sets(16)|ست قفل آویز (هم‌کلید)|
+TSA-Accessible Flexible-Shackle Resettable Combination Padlocks(1)|قفل رمزی کابلی TSA (چمدان)|ترکیبی
+Quick-Attach Combination Padlocks(1)|قفل رمزی نصب سریع|
+Replaceable-Cylinder Padlocks(9)|قفل آویز سیلندر تعویضی|
+Post-Shackle Padlocks(2)|قفل آویز گردن میله‌ای|
+Choose-a-Color Combination Padlocks(1)|قفل رمزی رنگ انتخابی|
+Cut-Resistant High-Security Padlocks(3)|قفل آویز امنیت بالا ضدبرش|
+Combination Padlocks(8)|قفل آویز رمزی|
+Quick-Attach Choose-a-Color Combination Padlocks(1)|قفل رمزی نصب سریع رنگ انتخابی|
+U-Lock Padlocks(3)|قفل U (کمانی)|
+Key-Fob Bluetooth Padlocks(2)|قفل بلوتوثی با جاکلیدی هوشمند|
+Weather-Resistant Extra-Clearance Padlocks with Identification Tags(33)|قفل گردن بلند ضدآب‌وهوا با پلاک شناسایی|
+Enclosed-Shackle Resettable Combination Padlocks(2)|قفل رمزی گردن مخفی قابل‌تغییر رمز|
+Weather-Resistant Choose-a-Color Flexible-Shackle Lockout Padlocks with Labels(4)|قفل لاک‌اوت کابلی رنگ انتخابی برچسب‌دار ضدآب‌وهوا|
+Weather-Resistant Padlocks with Identification Tags(1)|قفل آویز ضدآب‌وهوا با پلاک شناسایی|
+Extra-Clearance Padlocks with Identification Tags(20)|قفل گردن بلند با پلاک شناسایی|
+Extra-Clearance Choose-a-Color Lockout Padlocks with Labels(6)|قفل لاک‌اوت گردن بلند رنگ انتخابی برچسب‌دار|
+Choose-a-Color Flexible-Shackle Lockout Padlocks(6)|قفل لاک‌اوت کابلی رنگ انتخابی|
+Key-Fob Padlocks(4)|قفل با جاکلیدی هوشمند|
+TSA-Accessible Resettable Combination Padlocks(2)|قفل رمزی TSA (چمدان)|ترکیبی
+Cut-Resistant Padlocks with No-Copy Keys(2)|قفل ضدبرش کلید غیرقابل‌کپی|
+Choose-a-Color Lockout Padlocks with No-Copy Keys(2)|قفل لاک‌اوت رنگ انتخابی کلید غیرقابل‌کپی|
+Padlocks with No-Copy Keys(4)|قفل آویز کلید غیرقابل‌کپی|
+Cut-Resistant Bluetooth Combination Padlocks(2)|قفل بلوتوثی ضدبرش|
+Choose-a-Color Flexible-Shackle Lockout Padlocks with Labels(4)|قفل لاک‌اوت کابلی رنگ انتخابی برچسب‌دار|
+Extra-Clearance Choose-a-Color Lockout Padlocks with No-Copy Keys(2)|قفل لاک‌اوت گردن بلند رنگ انتخابی کلید غیرقابل‌کپی|
+Flexible-Shackle Lockout Padlocks with Labels(3)|قفل لاک‌اوت کابلی برچسب‌دار|
+Chain Locks(1)|قفل زنجیری|
+Padlock Guards(2)|محافظ قفل آویز|
+Trailer Brake Locks(12)|قفل اتصال تریلر|
+@19.2.5 Key Holders
+Key-Control Cabinets(20)|کمد کلید (باکس مدیریت کلید)|
+Key Lock Boxes(11)|صندوقچه قفل‌دار کلید|
+Key-Control Cases(2)|کیف مدیریت کلید|
+Drop Boxes(4)|صندوق امانات (دراپ‌باکس)|
+@19.3.0 Doors
+Door Frames(4)|چارچوب درب|
+Door Window Frames(10)|قاب شیشه درب|
+Accordion Doors(17)|درب آکاردئونی|
+Air Curtains(23)|پرده هوا|
+Peepholes(5)|چشمی درب|ترکیبی
+Strip Doors(168)|پرده نواری (پرده پی‌وی‌سی)|
+Door Hole Covers(8)|درپوش سوراخ درب|
+Strip Door Mounting Plates(32)|ریل نصب پرده نواری|
+Roof Hatches(7)|دریچه پشت‌بام|
+Door Windows(18)|شیشه درب (ویژن)|
+Door Latch Guards(10)|محافظ زبانه قفل درب|
+Door Track Hangers(4)|آویز ریل درب|
+Door Handle and Knob Mounts(18)|پایه نصب دستگیره درب|
+Toilet Partition Color Samples(3)|نمونه رنگ پارتیشن سرویس بهداشتی|
+Door Track Straighteners(1)|صاف‌کن ریل درب|
+Duct Access Panels(41)|دریچه بازدید کانال|
+Duct(12)|کانال|
+@20.0.0 Tables
+Picnic Table Frames(1)|اسکلت میز پیک‌نیک|
+Standing Desk Converters(2)|میز ایستاده رومیزی|ترکیبی
+Podiums(4)|تریبون|
+Table Leg Hinges(4)|لولا پایه میز تاشو|
+@20.0.1 Workstations & Desks
+Organizer Boxes(182)|جعبه نظم‌دهنده (اورگانایزر)|
+Shadow Board Tape(1)|نوار تابلو ابزار (شدوبورد)|
+In-Plant Offices(9)|دفتر پیش‌ساخته داخل کارگاه|
+Workbench Tops(109)|رویه میز کار|
+Sawhorse Brackets(1)|براکت خرک|
+Table Legs(15)|پایه میز|
+Workbench Cabinets(2)|کابینت میز کار|
+Workbench Top Fasteners(1)|اتصال رویه میز کار|
+Workbench Back and End Stops(13)|لبه پشت و کنار میز کار|
+Downdraft Tables(5)|میز مکنده (داون‌درفت)|
+Cylinder Cabinets(29)|کابینت سیلندر گاز|
+Drawer Liners(7)|کفپوش کشو|
+Drawer Organizers(11)|نظم‌دهنده کشو|ترکیبی
+Clean Rooms(17)|اتاق تمیز|
+Pegboards(14)|تابلو ابزار سوراخ‌دار (پگ‌بورد)|
+Computers(18)|کامپیوتر صنعتی|
+Tablets(12)|تبلت صنعتی|
+@20.0.3 Framing & Railing Components
+T-Slotted Framing Brackets(526)|براکت پروفیل شیاردار|
+Linear Bearings for T-Slotted Framing(180)|بلبرینگ خطی پروفیل شیاردار|
+Caps for T-Slotted Framing(66)|درپوش پروفیل شیاردار|
+Feet for T-Slotted Framing(68)|پایه (پایه تنظیمی) پروفیل شیاردار|
+Panel Hanging Brackets for T-Slotted Framing(79)|براکت نصب پنل پروفیل شیاردار|
+Casters for T-Slotted Framing(82)|چرخ پروفیل شیاردار|
+Hinges for T-Slotted Framing(55)|لولا پروفیل شیاردار|
+Braces for T-Slotted Framing(91)|مهاربند پروفیل شیاردار|
+Rail Slides for T-Slotted Framing(25)|کشویی ریلی پروفیل شیاردار|
+Miniature T-Slotted Framing and Fittings(20)|پروفیل شیاردار مینیاتوری و اتصالات|
+Locks and Latches for T-Slotted Framing(49)|قفل و چفت پروفیل شیاردار|
+Handles for T-Slotted Framing(39)|دستگیره پروفیل شیاردار|
+Slot Covers for T-Slotted Framing(29)|نوار پوشش شیار پروفیل|
+T-Slotted Framing Bases(25)|کف‌گیر (بیس) پروفیل شیاردار|
+Roller Wheels for T-Slotted Framing(11)|غلتک پروفیل شیاردار|
+Cable Holders for T-Slotted Framing(51)|نگهدارنده کابل پروفیل شیاردار|
+Seals for T-Slotted Framing(41)|نوار آب‌بند پروفیل شیاردار|
+Mounting Plates for T-Slotted Framing(25)|صفحه نصب پروفیل شیاردار|
+Electronic Device Mounts for T-Slotted Framing(14)|پایه دستگاه الکترونیکی پروفیل شیاردار|
+Levels for T-Slotted Framing(1)|تراز پروفیل شیاردار|
+Panels for T-Slotted Framing(20)|پنل پروفیل شیاردار|
+Track Rollers for T-Slotted Framing(22)|غلتک ریلی پروفیل شیاردار|
+Panel Slides for T-Slotted Framing(6)|کشویی پنل پروفیل شیاردار|
+Tube Mounts for T-Slotted Framing(26)|پایه لوله پروفیل شیاردار|
+Bumpers for T-Slotted Framing(31)|ضربه‌گیر پروفیل شیاردار|
+Composite Wood T-Slotted Framing and Fittings(5)|پروفیل شیاردار چوب کامپوزیت و اتصالات|
+Positioning Arms for T-Slotted Framing(6)|بازوی موقعیت‌دهی پروفیل شیاردار|
+Machine Brackets for T-Slotted Framing(4)|براکت ماشین پروفیل شیاردار|
+Drill Jigs for T-Slotted Framing(17)|جیگ سوراخ‌کاری پروفیل شیاردار|
+Shaft Mounts for T-Slotted Framing(18)|پایه شفت پروفیل شیاردار|
+Lights for T-Slotted Framing(36)|چراغ پروفیل شیاردار|
+Machine Vision Camera Mounts for T-Slotted Framing(1)|پایه دوربین بینایی ماشین برای پروفیل|
+Manifolds for T-Slotted Framing(22)|منیفولد پروفیل شیاردار|
+Hooks for T-Slotted Framing(22)|قلاب پروفیل شیاردار|
+Outlet Strips for T-Slotted Framing(2)|چندراهی برق پروفیل شیاردار|
+Tool Holders for T-Slotted Framing(57)|نگهدارنده ابزار پروفیل شیاردار|
+Shelves for T-Slotted Framing(16)|طبقه پروفیل شیاردار|
+Guide Rail Mounts for T-Slotted Framing(7)|پایه ریل راهنما پروفیل شیاردار|
+Toggle Clamps for T-Slotted Framing(2)|کلمپ ضامن‌دار (تاگل) پروفیل شیاردار|
+Locking Collars for T-Slotted Framing(4)|طوقه قفلی پروفیل شیاردار|
+Tabletop Mounts for T-Slotted Framing(2)|پایه رومیزی پروفیل شیاردار|
+Switches for T-Slotted Framing(18)|کلید پروفیل شیاردار|
+Fixture Plates for T-Slotted Framing(2)|صفحه فیکسچر پروفیل شیاردار|
+Bin Box Mounts for T-Slotted Framing(16)|پایه جعبه قطعات پروفیل شیاردار|
+Hydraulic Lift Kits for T-Slotted Framing(3)|کیت بالابر هیدرولیک پروفیل شیاردار|
+Threaded Rod Mounts for T-Slotted Framing(4)|پایه میله‌دنده پروفیل شیاردار|
+Sensor Mounts for T-Slotted Framing(10)|پایه سنسور پروفیل شیاردار|
+Hangers for T-Slotted Framing(8)|آویز پروفیل شیاردار|
+Drawer Slides for T-Slotted Framing(6)|ریل کشو پروفیل شیاردار|
+Conveyor End Stops for T-Slotted Framing(1)|استاپ انتهای نقاله پروفیل شیاردار|
+Bottle Holders for T-Slotted Framing(13)|نگهدارنده بطری پروفیل شیاردار|
+Trays for T-Slotted Framing(18)|سینی پروفیل شیاردار|
+Document Clips for T-Slotted Framing(1)|گیره مدارک پروفیل شیاردار|
+Conveyors for T-Slotted Framing(5)|نوار نقاله پروفیل شیاردار|
+Conveyor Roller Mounts for T-Slotted Framing(3)|پایه غلتک نقاله پروفیل شیاردار|
+DIN Rails for T-Slotted Framing(33)|ریل DIN پروفیل شیاردار|
+Label Holders for T-Slotted Framing(8)|جالیبلی پروفیل شیاردار|
+Grounding Terminals for T-Slotted Framing(2)|ترمینال ارت پروفیل شیاردار|
+T-Slotted Slatwalls for T-Slotted Framing(6)|اسلت‌وال شیاردار پروفیل|
+Strut Channel for T-Slotted Framing(12)|ناودانی یونیسترات پروفیل شیاردار|
+Strip Doors for T-Slotted Framing(5)|پرده نواری پروفیل شیاردار|
+Pegboards for T-Slotted Framing(7)|پگ‌بورد پروفیل شیاردار|
+Baskets for T-Slotted Framing(6)|سبد پروفیل شیاردار|
+Ball Transfers for T-Slotted Framing(2)|ساچمه انتقال (بال ترنسفر) پروفیل شیاردار|
+Stack-Light Mounts for T-Slotted Framing(18)|پایه چراغ برج سیگنال پروفیل شیاردار|
+Gibs(62)|گیب (نوار تنظیم لقی)|
+@20.0.5 Stools & Seats
+Swivel Stools with Backrest(23)|چهارپایه گردان پشتی‌دار|
+Stools with Storage(17)|چهارپایه با جای وسایل|
+Stools with Backrest(17)|چهارپایه پشتی‌دار|
+Swivel Stools(12)|چهارپایه گردان|
+NSF-Certified Stools(1)|چهارپایه تأییدیه NSF|
+Washdown Stools(2)|چهارپایه شست‌وشوپذیر|
+Clean Room Stools(13)|چهارپایه اتاق تمیز|
+Folding Stools(3)|چهارپایه تاشو|ترکیبی
+Static-Control Stools(6)|چهارپایه آنتی‌استاتیک|
+Leaning Stools(2)|چهارپایه تکیه‌ای (نیمه‌ایستاده)|
+Spark- and Heat-Resistant Stools(3)|چهارپایه ضدجرقه و حرارت|
+Seat Belt Covers(1)|روکش کمربند ایمنی|
+Seat Cushions(8)|تشک صندلی|ترکیبی
+Vehicle Seats(7)|صندلی خودرو و ماشین‌آلات|
+Seat Covers(3)|روکش صندلی|
+Back Supports(4)|پشتی کمر|ترکیبی
+Seat Belts(8)|کمربند ایمنی صندلی|
+@20.0.6 Chairs
+Chairs(35)|صندلی|ترکیبی
+Benches(55)|نیمکت|
+Shower Seats(4)|صندلی حمام|ترکیبی
+@20.1.0 Cabinets
+Lockers(272)|کمد رختکن (لاکر)|
+Refrigerators(4)|یخچال|ترکیبی
+Cabinet Bases(5)|پایه کابینت|
+Sheds(9)|انبارک (سوله کوچک)|
+Lockout Organizing Cabinets(8)|کابینت لوازم لاک‌اوت|
+Pass-Through Cabinets(2)|کابینت دوطرفه (پاس‌باکس)|
+Spill-Control Sheds(11)|انبارک کنترل نشت مواد|
+@20.1.1 Lockers
+Cases(3)|کیف و جعبه حمل|
+@20.1.3 Shelving
+Pallet Racks(170)|قفسه پالت (رک پالتی)|
+Rack Decking(38)|کف رک (دکینگ)|
+Sheet Racks(2)|رک ورق|
+Drum Racks(5)|رک بشکه|
+Shelving Bases(2)|پایه قفسه|
+Pallet Rack Backing(6)|توری پشت رک پالتی|
+Pail Racks(3)|رک سطل|
+Rack Nets(23)|تور ایمنی رک|
+Forklift Fork Extension Racks(1)|رک نگهدارنده شاخک بلندکن لیفتراک|

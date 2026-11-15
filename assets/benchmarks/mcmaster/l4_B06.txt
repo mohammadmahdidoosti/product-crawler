@@ -1,0 +1,254 @@
+@9.0.0 Drill Bits
+High-Speed Steel Drill Bits(2136)|مته HSS (تندبر)|
+Cobalt Steel Drill Bits(1014)|مته کبالت|
+Reduced-Shank High-Speed Steel Drill Bits(242)|مته HSS دنباله‌کوتاه‌قطر (دنباله‌تراش)|
+Carbide Drill Bits(477)|مته کاربیدی (تنگستن)|
+Carbide-Tipped Drill Bits for Masonry and Concrete(297)|مته الماسه بتن (سرکاربید)|
+Carbide-Tipped Drill Bits(333)|مته سرکاربید|
+Expanded-Shank Carbide Drill Bits(254)|مته کاربیدی دنباله‌پهن|
+Reduced-Shank Cobalt Steel Drill Bits(82)|مته کبالت دنباله‌تراش|
+High-Speed Steel Step Drill Bits(29)|مته پله‌ای HSS|
+Chip-Clearing Cobalt Steel Drill Bits(244)|مته کبالت براده‌ریز (پارابولیک)|
+Left-Hand Cobalt Steel Drill Bits(58)|مته کبالت چپ‌گرد|
+Left-Hand High-Speed Steel Drill Bits(148)|مته HSS چپ‌گرد|
+Carbide Drill Bits for Carbon Fiber, Fiberglass, and Graphite(170)|مته کاربیدی کامپوزیت (فیبر کربن و فایبرگلاس)|
+High-Speed Steel Drill Bits for Plastic(116)|مته HSS پلاستیک|
+Short-Flute High-Speed Steel Drill Bits(180)|مته HSS کوتاه (استاب)|
+Chip-Clearing High-Speed Steel Drill Bits(476)|مته HSS براده‌ریز (پارابولیک)|
+Carbide Drill Bits for Hardened Steel(190)|مته کاربیدی فولاد سخت‌کاری‌شده|
+High-Speed Steel Precise-Cut Drill Bits for Wood(45)|مته چوب HSS دقیق (سرنیزه‌دار)|
+Quick-Change Hex High-Speed Steel Drill Bits(29)|مته HSS دنباله شش‌گوش|
+Short-Flute Cobalt Steel Drill Bits(159)|مته کبالت کوتاه (استاب)|
+Smooth-Finish Carbide Drill Bits(96)|مته کاربیدی پرداخت صاف|
+Reduced-Shank Carbide-Tipped Drill Bits(20)|مته سرکاربید دنباله‌تراش|
+Coolant-Fed Carbide-Tipped Drill Bits(50)|مته سرکاربید آبصابون‌خور|
+Short-Flute Carbide-Tipped Drill Bits(89)|مته سرکاربید کوتاه|
+Fast-Cutting Smooth-Finish Drill Bits for Wood(50)|مته چوب سریع‌بر پرداخت صاف|
+Carbide-Tipped Drill Bits for Hardened Steel(42)|مته سرکاربید فولاد سخت|
+Tapping Screw Installation Drill Bits for Masonry and Concrete(54)|مته بتن پیچ بتن (تپکن)|
+Coolant-Fed Carbide Drill Bits(50)|مته کاربیدی آبصابون‌خور|
+Hole-Starting Carbide Drill Bits(89)|مته نقطه‌زن کاربیدی (اسپات)|
+Multidiameter High-Speed Steel Drill Bits(5)|مته HSS چندقطره|
+Rebar-Cutting Core Drill Bits for Concrete(21)|مته کرگیری بتن میلگردبر|
+Chip-Clearing Drill Bits for Wood(32)|مته چوب براده‌ریز|
+Cobalt Steel Step Drill Bits(6)|مته پله‌ای کبالت|
+High-Speed Steel Drill Bits for Wood Screws(26)|مته خزینه‌دار پیچ چوب HSS|
+Drill Bits for Wood(23)|مته چوب|
+Rebar-Cutting Carbide-Tipped Drill Bits(36)|مته سرکاربید میلگردبر|
+Carbide-Tipped Drill Bits for Glass and Ceramic(10)|مته سرکاربید شیشه و سرامیک|
+Chip-Clearing Carbide Drill Bits(80)|مته کاربیدی براده‌ریز|
+Hole-Enlarging Reduced-Shank Drill Bits(6)|مته گشادکن دنباله‌تراش|
+Chip-Clearing Cobalt Steel Drill Bits for Nickel and Stainless Steel(29)|مته کبالت براده‌ریز استیل و نیکل|
+Drill Bits for Glass and Ceramic(19)|مته شیشه و سرامیک|
+Smooth-Finish Drill Bits for Wood(29)|مته چوب پرداخت صاف|
+Precise-Cut High-Speed Steel Drill Bits(11)|مته HSS دقیق|
+Carbide Drill Bits for Sheet Metal(19)|مته کاربیدی ورق|
+Anchor Installation Drill Bits for Masonry and Concrete(7)|مته بتن نصب انکر|
+Precise-Cut Carbide Drill Bits(11)|مته کاربیدی دقیق|
+High-Speed Steel Drill Bits for Sheet Metal(17)|مته HSS ورق|
+Hole-Starting Cobalt Steel Drill Bits(26)|مته نقطه‌زن کبالت|
+Carbide-Insert Drill Bits(70)|مته اینسرتی (الماس‌خور)|
+Carbide-Tipped Smooth-Finish Drill Bits for Wood(18)|مته چوب سرکاربید پرداخت صاف|
+Dust-Collecting Carbide-Tipped Drill Bits for Masonry and Concrete(7)|مته بتن مکنده گردوغبار|
+Chip-Clearing High-Speed Steel Drill Bits for Aluminum, Brass, and Bronze(29)|مته HSS براده‌ریز آلومینیوم و برنج|
+Carbide-Tipped Drill Bits for Stone(6)|مته سنگ سرکاربید|
+Flexible-Shaft Drill Bits for Wire Installation(11)|مته سیم‌کشی شفت انعطاف‌پذیر|
+Chip-Clearing Carbide-Tipped Drill Bits for Masonry and Concrete(29)|مته الماسه بتن براده‌ریز|
+Spot-Weld-Removal High-Speed Steel Drill Bits(7)|مته نقطه‌جوش‌بر HSS|
+Drill Bits with Countersunk-Hole Guide(16)|مته با راهنمای خزینه|
+Nonsparking Drill Bits(4)|مته ضدجرقه|
+Carbide-Tipped Core Drill Bits for Masonry and Concrete(23)|مته کرگیری بتن سرکاربید|
+Quick-Change Hex Carbide-Tipped Drill Bits for Masonry and Concrete(3)|مته الماسه بتن دنباله شش‌گوش|
+Changeable-Size Carbide-Tipped Core Drill Bits for Masonry and Concrete(32)|مته کرگیری بتن سرتعویضی|
+Adjustable-Blade Drill Bits for Wood(1)|مته چوب تیغه قابل تنظیم|
+Drill Bits for Paper and Fabric(7)|مته کاغذ و پارچه|
+Steel Precise-Cut Drill Bits for Wood(1)|مته چوب فولادی دقیق|
+Quick-Change Hex Tapping Screw Installation Drill Bits for Masonry and Concrete(5)|مته بتن پیچ بتن دنباله شش‌گوش|
+High-Speed Steel Drill Bits for Wire Installation(8)|مته سیم‌کشی HSS (بلند)|
+Carbide-Tipped Drill Bits for Wire Installation(6)|مته سیم‌کشی سرکاربید|
+Impact Wrench High-Speed Steel Drill Bits(40)|مته HSS پیچ‌گوشتی ضربه‌ای|
+Carbide Drill Bits for Port Counterbores(30)|مته کاربیدی پورت (جای اورینگ)|
+Impact Wrench High-Speed Steel Step Drill Bits(14)|مته پله‌ای HSS ضربه‌ای|
+Impact Wrench Left-Hand Cobalt Steel Drill Bits(16)|مته کبالت چپ‌گرد ضربه‌ای|
+Impact Wrench High-Speed Steel Multidiameter Drill Bits(11)|مته HSS چندقطره ضربه‌ای|
+High-Speed Steel Drill Bit Sets(64)|ست مته HSS|
+Cobalt Steel Drill Bit Sets(21)|ست مته کبالت|
+Left-Hand High-Speed Steel Drill Bit Sets(6)|ست مته HSS چپ‌گرد|
+Carbide Drill Bit Sets(5)|ست مته کاربیدی|
+Carbide-Tipped Drill Bit Sets for Masonry and Concrete(7)|ست مته الماسه بتن|
+Carbide-Tipped Drill Bit Sets(2)|ست مته سرکاربید|
+Hole-Enlarging Reduced-Shank Drill Bit Sets(1)|ست مته گشادکن دنباله‌تراش|
+High-Speed Steel Drill Bit Sets for Plastic(1)|ست مته HSS پلاستیک|
+Reduced-Shank High-Speed Steel Drill Bit Sets(10)|ست مته HSS دنباله‌تراش|
+Quick-Change Hex High-Speed Steel Drill Bit Sets(3)|ست مته HSS دنباله شش‌گوش|
+High-Speed Steel Precise-Cut Drill Bit Sets for Wood(1)|ست مته چوب HSS دقیق|
+Short-Flute Cobalt Steel Drill Bit Sets(1)|ست مته کبالت کوتاه|
+Cobalt Steel Reduced-Round Shank Drill Bit Sets(1)|ست مته کبالت دنباله گرد تراش‌خورده|
+High-Speed Steel Step Drill Bit Sets(3)|ست مته پله‌ای HSS|
+Quick-Change Hex Carbide-Tipped Drill Bit Sets for Masonry and Concrete(1)|ست مته الماسه بتن دنباله شش‌گوش|
+Fast-Cutting Smooth-Finish Drill Bit Sets for Wood(1)|ست مته چوب سریع‌بر|
+Chip-Clearing High-Speed Steel Drill Bit Sets(3)|ست مته HSS براده‌ریز|
+Drill Bit Sets for Wood(2)|ست مته چوب|
+Expanded-Shank Carbide Drill Bit Sets(3)|ست مته کاربیدی دنباله‌پهن|
+Smooth-Finish Drill Bit Sets for Wood(2)|ست مته چوب پرداخت صاف|
+Chip-Clearing Carbide-Tipped Drill Bit Sets for Masonry and Concrete(3)|ست مته الماسه بتن براده‌ریز|
+Impact Wrench High-Speed Steel Drill Bit Sets(12)|ست مته HSS ضربه‌ای|
+Impact Wrench High-Speed Steel Step Drill Bit Sets(10)|ست مته پله‌ای HSS ضربه‌ای|
+Impact Wrench High-Speed Steel Multidiameter Drill Bit Sets(9)|ست مته HSS چندقطره ضربه‌ای|
+Hollow-Core Cutters(223)|مته گردبر مگنت (اینیولار)|
+Tap, Die, and Drill Bit Sets(1)|ست قلاویز، حدیده و مته|
+Tap and Drill Bit Sets(26)|ست قلاویز و مته|
+Drill Taps(131)|قلاویز مته‌دار|
+Center Drills(369)|مته مرغک|
+Counterbores(526)|کف‌تراش (فرز جای سرپیچ)|
+Drill Bit Pouches(4)|کیف مته|
+Hole Saws(690)|گردبر|
+Cutting Tool Cabinets(27)|کابینت ابزار برشی|
+Countersinks(1848)|خزینه|
+End Mills(7713)|فرز انگشتی|
+Reamer Drill Bits(63)|مته برقو|
+Drill Bit Size Gauges(5)|گیج سایز مته|
+Tap and Drill Bit Stands(35)|پایه نگهدارنده قلاویز و مته|
+Drill Bit Extensions(121)|رابط بلندکن مته|
+Reamers(3194)|برقو|
+Hole Saw Arbors(25)|شفت گردبر (آربور)|
+Taps(74)|قلاویز|
+Drill Bit Sharpeners(7)|مته‌تیزکن|
+Bit Adapters(66)|تبدیل سری|
+Drill Chucks(261)|سه‌نظام دریل|
+Hollow-Core Cutter Arbor Adapters(3)|تبدیل آربور مته مگنت|
+Countersink Drill Bits(101)|مته خزینه‌دار|
+Friction Drills(8)|مته اصطکاکی (فلودریل)|
+Drill Bit Shank Adapters(21)|تبدیل دنباله مته|
+Router Bits(32)|تیغ اورفرز|
+Screw, Pipe, and Stud Extractors(69)|پیچ‌درآر (اکستراکتور)|
+Counterbore Drill Bits(39)|مته کف‌تراش|
+Drill Bit Inserts(36)|اینسرت مته|
+Drill Chuck Adapters(2)|تبدیل سه‌نظام|
+Cutting Tool Workbench Drawers(5)|کشوی میز کار ابزار برشی|
+Chip Catchers(2)|براده‌گیر|
+Drill Head Adapters(6)|تبدیل سر دریل|
+Friction Drill Bits(11)|سرمته اصطکاکی|
+Drill Rig Thread Adapters(1)|تبدیل رزوه دکل حفاری|
+Workbench Drawers(1)|کشوی میز کار|
+Wing Nut Driver Bits(1)|سری مهره پروانه‌ای|
+Driver Shafts(59)|شفت سری|
+Hole Saw Slug Removers(1)|ابزار خارج‌کن مغزی گردبر|
+Bit Organizers(6)|جعبه نظم‌دهنده سری|
+Plug Cutters(8)|مته درپوش‌بر چوب|
+Countersink and Counterbore Depth Stops(15)|محدودکننده عمق خزینه و کف‌تراش|
+Electrical Discharge Machining Electrodes(8)|الکترود اسپارک (EDM)|
+Drill/Screwdriver Bits(6)|سری مته و پیچ‌گوشتی|
+Hole Saw Arbor Extensions(2)|رابط بلندکن آربور گردبر|
+T-Slotted Framing Drill Jigs(17)|جیگ سوراخکاری پروفیل شیاردار|
+One-Way Screw Remover Bits(7)|سری بازکن پیچ یک‌طرفه|
+Magnetic-Base Drill Chuck/Adapters(5)|سه‌نظام و تبدیل دریل مگنت|
+Wood Screw Threaded Stud Driver Bits(3)|سری نصب پیچ دوسر چوب|
+Electrical Discharge Machining Electrode Guides(2)|راهنمای الکترود اسپارک|
+Hole Saw Pilots(2)|مته راهنمای گردبر|
+Impact Wrench Chucks(6)|سه‌نظام بکس ضربه‌ای|
+Reamer Organizers(4)|جعبه نظم‌دهنده برقو|
+Tap, Drill Bit, and Reamer Sets(11)|ست قلاویز، مته و برقو|
+Impact Driver Chucks(3)|سه‌نظام پیچ‌گوشتی ضربه‌ای|
+@9.0.1 Drill Bushings
+Press-Fit Drill Bushings(1764)|بوش راهنمای مته پرسی|
+Press-Fit Drill Bushings with Head(325)|بوش راهنمای مته پرسی لبه‌دار|
+Removable Drill Bushings(388)|بوش راهنمای مته تعویضی|
+Metric Press-Fit Drill Bushings with Head(314)|بوش راهنمای مته پرسی لبه‌دار متریک|
+Metric Press-Fit Drill Bushings(422)|بوش راهنمای مته پرسی متریک|
+Press-Fit Reamer Bushings(264)|بوش راهنمای برقو پرسی|
+Drill Bushings for Plastic(98)|بوش راهنمای مته برای قالب پلاستیکی|
+Strong-Hold Drill Bushings for Plastic(94)|بوش راهنمای مته پلاستیک گیرش قوی|
+Thin-Wall Press-Fit Drill Bushings(32)|بوش راهنمای مته پرسی جداره نازک|
+Drill Bushings for Extended-Length Drill Bits(14)|بوش راهنمای مته بلند|
+Made-to-Order Removable Drill Bushings(1)|بوش راهنمای تعویضی سفارشی|
+Threaded Drill Bushings(9)|بوش راهنمای مته رزوه‌ای|
+Removable Drill Bushings for Thin Metal(93)|بوش راهنمای تعویضی ورق نازک|
+Drill Bushings for Soft Metal and Wood(84)|بوش راهنمای مته فلز نرم و چوب|
+Made-to-Order Press-Fit Drill Bushings(1)|بوش راهنمای پرسی سفارشی|
+Made-to-Order Press-Fit Drill Bushings with Head(1)|بوش راهنمای پرسی لبه‌دار سفارشی|
+Corrosion-Resistant Press-Fit Drill Bushings(79)|بوش راهنمای مته پرسی ضدزنگ|
+Made-to-Order Metric Press-Fit Drill Bushings(1)|بوش راهنمای پرسی متریک سفارشی|
+Finish-Your-Own Press-Fit Drill Bushings(47)|بوش راهنمای پرسی نیمه‌تمام|
+Wear-Resistant Press-Fit Drill Bushings(11)|بوش راهنمای مته پرسی ضدسایش|
+Drill Bushing Lock Sleeves(25)|غلاف قفل بوش راهنما|
+Drill Bases(1)|پایه دریل|
+Milling Machine Depth Stops(2)|محدودکننده عمق فرز|
+Tap Guides(5)|راهنمای قلاویز|
+Drill Guides(2)|راهنمای دریل|
+@9.0.2 Drills
+Impact Drivers(46)|پیچ‌گوشتی ضربه‌ای (ایمپکت)|
+Screw Hole Starters(1)|سوراخ‌زن پیچ|
+Magnetic-Base Drills(13)|دریل مگنت|
+Cordless Tool Kits(1)|کیت ابزار شارژی|
+@9.0.3 Drill Chuck Arbors
+Morse Taper to Jacobs Taper Arbor and Drill Chuck Sets(1)|ست سه‌نظام و آربور مورس به جیکوب|
+Morse Taper to Jacobs Taper Drill Chuck Arbors(57)|آربور سه‌نظام مورس به جیکوب|
+Straight-Shank to Jacobs Taper Drill Chuck Arbors(40)|آربور سه‌نظام دنباله صاف به جیکوب|
+R8 Taper to Jacobs Taper Drill Chuck Arbors(14)|آربور سه‌نظام R8 به جیکوب|
+SDS-Plus to Thread-Mount Drill Chuck Arbors(1)|آربور سه‌نظام SDS-Plus به رزوه‌ای|
+Drill Chuck Arbors with Drill-Feed Attachment(3)|آربور سه‌نظام با پیشروی|
+Morse Taper to Thread-Mount Drill Chuck Arbors(6)|آربور سه‌نظام مورس به رزوه‌ای|
+Machinable-End Morse Taper Drill Chuck Arbors(5)|آربور مورس سرتراش‌پذیر|
+CAT Taper to Jacobs Taper Drill Chuck Arbors(18)|آربور سه‌نظام CAT به جیکوب|
+NMTB Taper to Jacobs Taper Drill Chuck Arbors(19)|آربور سه‌نظام NMTB به جیکوب|
+BT Taper to Jacobs Taper Drill Chuck Arbors(15)|آربور سه‌نظام BT به جیکوب|
+Milling Machine Tool Holders(39)|هولدر ابزار فرز|
+Machine Taper Shank Adapters(74)|تبدیل مورس (غلاف مورس)|
+Drill Drifts(10)|گوه مورس‌درآر|
+Tool Holder Cleaning Tools(44)|ابزار تمیزکاری هولدر|
+Retention Knobs(94)|پول‌استاد (ناب هولدر)|
+Machine Taper Shank Extensions(17)|رابط بلندکن مورس|
+Tool Holder Coolant Tube Wrenches(18)|آچار لوله آبصابون هولدر|
+@9.0.4 Chucks
+Rotary Tool Chucks(1)|سه‌نظام فرز مینیاتوری|
+Drill Chuck Arbors(164)|آربور سه‌نظام|
+Lathe Chucks(105)|سه‌نظام تراش|
+Drill Chuck Keys(51)|آچار سه‌نظام|
+Buffing and Polishing Wheel Chucks(1)|نگهدارنده پد پولیش|
+Milling Machine Collets(562)|کولت فرز|
+Rotary Tool Collets(1)|کولت فرز مینیاتوری|
+Jaw Fixtures(12)|فیکسچر فکی|
+Collet Fixtures(22)|فیکسچر کولتی|
+Vises(11)|گیره|
+Lathe Chuck Collet Adapters(3)|تبدیل کولت سه‌نظام تراش|
+Tap Wrenches(57)|دسته قلاویز|
+Lathe Chuck Stops(4)|استاپر سه‌نظام تراش|
+Die Grinder Collets(21)|کولت فرز انگشتی (مینی‌سنگ)|
+Tap Collets(164)|کولت قلاویز|
+Drill Chuck Wedges(3)|گوه سه‌نظام|
+Tapping Head Collets(72)|کولت سر قلاویززنی|
+Lathe Post Tool Holders(28)|هولدر رنده‌گیر تراش|
+Tapping Heads(117)|سر قلاویززنی|
+Tap Drivers(19)|نگهدارنده قلاویز|
+Drill Chuck Key Holders(2)|نگهدارنده آچار سه‌نظام|
+Tapping Head Replacement Parts(29)|قطعات یدکی سر قلاویززنی|
+Lathe Tap and Die Holders(22)|نگهدارنده قلاویز و حدیده تراش|
+Tapping Head Stop Bars(3)|میله استاپر سر قلاویززنی|
+Machine Spindle Cleaning Tools(34)|ابزار تمیزکاری اسپیندل|
+Deburring Tool Holders(5)|نگهدارنده ابزار پلیسه‌گیر|
+Lathe Collets(162)|کولت تراش|
+Lathe Chuck Jaws(90)|فک سه‌نظام تراش|
+Lathe Chuck Keys(21)|آچار سه‌نظام تراش|
+Lathe Chuck Jaw Boring Rings(8)|حلقه تراش فک نرم|
+Lathe Spindle Stops(3)|استاپر اسپیندل تراش|
+Collet Blocks(4)|بلوک کولت|
+Pipe Threader Adapters(9)|تبدیل حدیده لوله|
+Tap Holders(17)|قلاویزگیر|
+Pipe Threader Adapter Accessories and Replacement Parts(11)|متعلقات و یدکی تبدیل حدیده لوله|
+Pipe Threader Accessories and Replacement Parts(2)|متعلقات و یدکی حدیده لوله|
+Pipe Threader Die Heads(21)|سر حدیده لوله|
+Pipe Threaders(31)|حدیده لوله|
+Lathe Collet Wrenches(11)|آچار کولت تراش|
+@9.0.5 Collets
+Spiral Saw Collets(1)|کولت اره مارپیچ|
+Friction Drill Collets(4)|کولت مته اصطکاکی|
+Collet Stands(20)|پایه کولت|
+End Mill Holders(28)|هولدر فرز انگشتی|
+Lathe Tool Posts(48)|رنده‌گیر تراش (تول‌پست)|
+Lathe Collet Stops(3)|استاپر کولت تراش|
+Lathe Mandrels(33)|مندرل تراش|
+Spiral Saws(7)|اره مارپیچ (برش گچ)|
+CNC Tool Holder Racks(20)|رک هولدر CNC|
+Variance Indicator Collets(4)|کولت ساعت اندیکاتور|
+Variance Indicator Depth Base Attachments(6)|پایه عمق‌سنج ساعت اندیکاتور|

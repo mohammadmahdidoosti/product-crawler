@@ -1,0 +1,243 @@
+@9.0.6 Countersinks
+Countersinks for Screws(563)|خزینه پیچ|
+Fluteless Smooth-Finish Countersinks for Screws(46)|خزینه سوراخ‌دار (بی‌شیار) پیچ|
+Drill-Point Countersinks for Screws(66)|خزینه مته‌دار پیچ|
+Countersink Sets for Screws(54)|ست خزینه پیچ|
+Smooth-Finish Countersinks for Screws(29)|خزینه پیچ پرداخت صاف|
+Precise-Cutting Countersinks for Screws(24)|خزینه پیچ دقیق|
+Countersink Hand Tools(6)|خزینه دستی|
+Drill-Point Countersink Sets for Screws(2)|ست خزینه مته‌دار پیچ|
+Fluteless Smooth-Finish Countersinks with Pilot for Screws(5)|خزینه سوراخ‌دار راهنمادار پیچ|
+Drill-Bit Countersinks(106)|خزینه روی مته (مته‌خزینه)|
+Carbide-Insert Countersinks for Screws(24)|خزینه اینسرتی پیچ|
+Long-Reach Countersinks for Screws(18)|خزینه بلند پیچ|
+Countersinks with Two Countersinking Ends for Screws(45)|خزینه دوسر پیچ|
+Fluteless Smooth-Finish Countersink Sets with Pilot for Screws(1)|ست خزینه سوراخ‌دار راهنمادار پیچ|
+Hex-Bit Countersinks for Screws(7)|خزینه دنباله شش‌گوش پیچ|
+Hex-Bit Countersink Sets for Screws(3)|ست خزینه دنباله شش‌گوش پیچ|
+Threaded-Shank Countersinks for Screws(9)|خزینه دنباله رزوه‌ای پیچ|
+Fluteless Smooth-Finish Countersink Sets for Screws(7)|ست خزینه سوراخ‌دار پیچ|
+Drill-Point Countersinks with Two Countersinking Ends for Screws(15)|خزینه مته‌دار دوسر پیچ|
+Smooth-Finish Countersink Sets for Screws(2)|ست خزینه پیچ پرداخت صاف|
+Fluteless Smooth-Finish Countersinks with Two Countersinking Ends for Screws(2)|خزینه سوراخ‌دار دوسر پیچ|
+Reverse Countersinks for Screws(20)|خزینه معکوس (پشت‌زن) پیچ|
+Drill-Bit Countersink Sets(4)|ست مته‌خزینه|
+Threaded-Shank Countersinks with Pilot for Screws(21)|خزینه دنباله رزوه‌ای راهنمادار پیچ|
+Impact Wrench Countersinks for Screws(16)|خزینه ضربه‌ای پیچ|
+Long-Reach Drill-Bit Countersinks(12)|مته‌خزینه بلند|
+Countersinks for Magnetic-Base Drills(3)|خزینه دریل مگنت|
+Fluteless Smooth-Finish Hex-Bit Countersink Sets for Screws(2)|ست خزینه سوراخ‌دار دنباله شش‌گوش|
+Countersinks for Rivets(301)|خزینه پرچ (۱۰۰ درجه)|
+Fluteless Smooth-Finish Countersinks for Rivets(7)|خزینه سوراخ‌دار پرچ|
+Drill-Point Countersinks for Rivets(19)|خزینه مته‌دار پرچ|
+Smooth-Finish Countersinks for Rivets(18)|خزینه پرچ پرداخت صاف|
+Countersinks with Two Countersinking Ends for Rivets(28)|خزینه دوسر پرچ|
+Precise-Cutting Countersinks for Rivets(12)|خزینه پرچ دقیق|
+Drill-Point Countersinks with Two Countersinking Ends for Rivets(13)|خزینه مته‌دار دوسر پرچ|
+Fluteless Smooth-Finish Countersinks with Two Countersinking Ends for Rivets(1)|خزینه سوراخ‌دار دوسر پرچ|
+Threaded-Shank Countersinks for Rivets(7)|خزینه دنباله رزوه‌ای پرچ|
+Fluteless Smooth-Finish Countersink Sets for Rivets(2)|ست خزینه سوراخ‌دار پرچ|
+Countersink Sets for Rivets(22)|ست خزینه پرچ|
+Reverse Countersinks for Rivets(14)|خزینه معکوس پرچ|
+Carbide-Insert Countersinks for Rivets(13)|خزینه اینسرتی پرچ|
+Smooth-Finish Countersink Sets for Rivets(2)|ست خزینه پرچ پرداخت صاف|
+Threaded-Shank Countersinks with Pilot for Rivets(13)|خزینه دنباله رزوه‌ای راهنمادار پرچ|
+Countersinks for Lathe Centers(223)|خزینه ۶۰ درجه (جای مرغک)|
+Smooth-Finish Countersink Sets for Lathe Centers(1)|ست خزینه ۶۰ درجه پرداخت صاف|
+Fluteless Smooth-Finish Countersinks for Lathe Centers(9)|خزینه سوراخ‌دار ۶۰ درجه|
+Fluteless Smooth-Finish Countersink Sets for Lathe Centers(1)|ست خزینه سوراخ‌دار ۶۰ درجه|
+Smooth-Finish Countersinks for Lathe Centers(9)|خزینه ۶۰ درجه پرداخت صاف|
+Precise-Cutting Countersinks for Lathe Centers(12)|خزینه ۶۰ درجه دقیق|
+Drill-Point Countersinks for Lathe Centers(10)|خزینه مته‌دار ۶۰ درجه|
+Countersink Sets for Lathe Centers(6)|ست خزینه ۶۰ درجه|
+Carbide-Insert Countersinks for Lathe Centers(13)|خزینه اینسرتی ۶۰ درجه|
+Drill-Point Countersinks with Two Countersinking Ends for Lathe Centers(7)|خزینه مته‌دار دوسر ۶۰ درجه|
+Countersinks with Two Countersinking Ends for Lathe Centers(16)|خزینه دوسر ۶۰ درجه|
+Fluteless Smooth-Finish Countersinks with Two Countersinking Ends for Lathe Centers(1)|خزینه سوراخ‌دار دوسر ۶۰ درجه|
+Countersink and Counterbore Extensions(3)|رابط بلندکن خزینه و کف‌تراش|
+Burs(44)|فرز انگشتی سنگ‌فرز (بور)|
+Deburring Tools(5)|ابزار پلیسه‌گیر|
+Countersunk Hole Repair Tools(7)|ابزار تعمیر سوراخ خزینه|
+Counterbore Inserts(2)|اینسرت کف‌تراش|
+@9.0.7 Counterbores
+Changeable-Pilot Counterbores(140)|کف‌تراش راهنما تعویضی|
+Oversized Counterbores(87)|کف‌تراش اورسایز|
+Drill-Point Counterbores Sets(3)|ست کف‌تراش مته‌دار|
+Built-in-Pilot Counterbores(51)|کف‌تراش راهنما ثابت|
+Drill-Point Counterbores(27)|کف‌تراش مته‌دار|
+Built-in-Pilot Counterbore Sets(1)|ست کف‌تراش راهنما ثابت|
+Counterbores for High-Profile Rounded-Head Screws(10)|کف‌تراش پیچ سرگرد بلند|
+Changeable-Pilot Counterbore Sets(1)|ست کف‌تراش راهنما تعویضی|
+Drill-Bit Counterbore Sets for Wood and Plastic(1)|ست مته کف‌تراش چوب و پلاستیک|
+Fast-Cutting Smooth-Finish Drill-Bit Counterbores for Wood(7)|مته کف‌تراش چوب سریع‌بر|
+Adjustable-Diameter Counterbores(8)|کف‌تراش قطر قابل تنظیم|
+Drill-Bit Counterbores for Wood and Plastic(35)|مته کف‌تراش چوب و پلاستیک|
+Reverse Counterbores(14)|کف‌تراش معکوس (پشت‌زن)|
+Oversized Counterbore Sets(3)|ست کف‌تراش اورسایز|
+Carbide-Insert Counterbores(14)|کف‌تراش اینسرتی|
+Port Counterbores(64)|ابزار پورت (کف‌تراش جای اورینگ)|
+Port Counterbore Kits(42)|کیت ابزار پورت|
+Counterbores for Uneven Surfaces(7)|کف‌تراش سطوح ناهموار|
+Threaded-Shank Counterbores(39)|کف‌تراش دنباله رزوه‌ای|
+Carbide-Insert Port Counterbore Kits(25)|کیت ابزار پورت اینسرتی|
+Coolant-Fed Port Counterbores(15)|ابزار پورت آبصابون‌خور|
+Counterbore Pilots(48)|راهنمای کف‌تراش (پایلوت)|
+@9.0.8 Lathe Tools
+Lathe Tools(862)|رنده تراش|
+Lathe Tool Insert Holders(1078)|هولدر اینسرت تراش (الماس‌گیر)|
+Lathe Tool Inserts(1937)|اینسرت تراش (الماس)|
+Lathe Tool Blanks(48)|رنده خام (الماس‌تیز)|
+Cutoff Blades(52)|تیغه برش (پارتینگ)|
+Lathe Alignment Bars(1)|میله تنظیم هم‌راستایی تراش|
+Lathe Tool Blocks(7)|بلوک رنده‌گیر|
+Lathe Centers(137)|مرغک تراش|
+Lathes(8)|دستگاه تراش|
+Cutoff Blade Holders(16)|هولدر تیغه برش|
+Lathe Tool Holders(25)|رنده‌گیر تراش|
+Knurls(121)|آج‌زن (نورل)|
+Sanders(5)|سنباده‌زن|
+Lathe Drivers(11)|گیره‌گردان تراش (دوگ)|
+End Mill Insert Holders(101)|هولدر اینسرت فرز انگشتی|
+End Mill Inserts(67)|اینسرت فرز انگشتی|
+Countersink Inserts(12)|اینسرت خزینه|
+Cylinder Hones(89)|هون سیلندر|
+Linear Scales(2)|خط‌کش دیجیتال (DRO)|
+@9.0.9 Carbide Inserts & Holders
+Face Mill Inserts(63)|اینسرت فرز کف‌تراش|
+Face Mills(15)|فرز کف‌تراش (کله‌فرز)|
+Fly Cutters(7)|فلای‌کاتر|
+Bevelers(3)|پخ‌زن|
+@9.0.10 End Mills
+Carbide Square End Mills(948)|فرز انگشتی کاربیدی تخت|
+Miniature Carbide Square End Mills(481)|فرز انگشتی کاربیدی تخت مینیاتوری|
+Fast-Cut Carbide Square End Mills(142)|فرز انگشتی کاربیدی تخت پرسرعت|
+Carbide Square End Mills for Carbon Fiber, Fiberglass, and Graphite(87)|فرز انگشتی کاربیدی تخت کامپوزیت|
+Fast-Cut Carbide Square End Mills with Chamfer Corner(189)|فرز انگشتی کاربیدی پرسرعت لبه پخ‌دار|
+Carbide Square End Mills for Aluminum, Brass, and Bronze(46)|فرز انگشتی کاربیدی تخت آلومینیوم و برنج|
+Carbide Square End Mills for Stainless Steel and Titanium(43)|فرز انگشتی کاربیدی تخت استیل و تیتانیوم|
+Fast-Cut Carbide Square End Mills for Aluminum, Brass, and Bronze(12)|فرز انگشتی کاربیدی پرسرعت آلومینیوم|
+Fast-Cut Roughing Carbide Square End Mills(53)|فرز انگشتی کاربیدی خشن‌تراش پرسرعت|
+Long-Reach Fast-Cut Carbide Square End Mills(12)|فرز انگشتی کاربیدی پرسرعت گردن‌بلند|
+Long-Reach Fast-Cut Carbide Square End Mills with Chamfer Corner(10)|فرز انگشتی کاربیدی پرسرعت گردن‌بلند لبه پخ‌دار|
+Oversize-Tolerance Carbide Square End Mills(44)|فرز انگشتی کاربیدی تخت تلرانس مثبت|
+Roughing Carbide Square End Mills(38)|فرز انگشتی کاربیدی خشن‌تراش|
+Finishing Carbide Square End Mills(7)|فرز انگشتی کاربیدی پرداخت|
+Fast-Cut Roughing Carbide Square End Mills with Chamfer Corner(19)|فرز کاربیدی خشن‌تراش پرسرعت لبه پخ‌دار|
+Fast-Cut Carbide Square End Mills for Tool Steel, Hardened Steel, and Iron(7)|فرز انگشتی کاربیدی پرسرعت فولاد سخت و چدن|
+Fast-Cut Carbide Square End Mills for Nickel(36)|فرز انگشتی کاربیدی پرسرعت آلیاژ نیکل|
+Fast-Cut Roughing Carbide Square End Mills for Aluminum, Brass, and Bronze(7)|فرز کاربیدی خشن‌تراش پرسرعت آلومینیوم|
+Long-Reach Roughing Carbide Square End Mills with Chamfer Corner(6)|فرز کاربیدی خشن‌تراش گردن‌بلند لبه پخ‌دار|
+Carbide Square End Mills for Honeycomb Panels(4)|فرز انگشتی کاربیدی پنل لانه‌زنبوری|
+Roughing Carbide Square End Mills for Aluminum, Brass, and Bronze(5)|فرز کاربیدی خشن‌تراش آلومینیوم و برنج|
+Carbide Square End Mills with Chamfer Corner for Stainless Steel and Titanium(6)|فرز کاربیدی لبه پخ‌دار استیل و تیتانیوم|
+High-Speed Steel Square End Mills(478)|فرز انگشتی HSS تخت|
+High-Speed Steel Square End Mills with Two Milling Ends(168)|فرز انگشتی HSS تخت دوسر|
+High-Speed Steel Square End Mills for Aluminum, Brass, and Bronze(77)|فرز انگشتی HSS آلومینیوم و برنج|
+Roughing High-Speed Steel Square End Mills(43)|فرز انگشتی HSS خشن‌تراش (کنگره‌ای)|
+High-Speed Steel Square End Mills for Keyways in Rotary Shafts(11)|فرز انگشتی HSS جای خار شفت|
+Carbide Ball End Mills(568)|فرز سرگرد کاربیدی (بال‌نوز)|
+Miniature Carbide Ball End Mills(127)|فرز سرگرد کاربیدی مینیاتوری|
+Carbide Ball End Mills for Carbon Fiber, Fiberglass, and Graphite(71)|فرز سرگرد کاربیدی کامپوزیت|
+High-Speed Steel Ball End Mills(69)|فرز سرگرد HSS|
+Long-Reach Carbide Ball End Mills for Mold Making(56)|فرز سرگرد کاربیدی قالب‌سازی گردن‌بلند|
+Carbide Ball End Mills for Mold Making(8)|فرز سرگرد کاربیدی قالب‌سازی|
+Fast-Cut Carbide Ball End Mills(25)|فرز سرگرد کاربیدی پرسرعت|
+Carbide Ball End Mills with Two Milling Ends(58)|فرز سرگرد کاربیدی دوسر|
+Carbide Ball End Mills for Aluminum, Brass, and Bronze(13)|فرز سرگرد کاربیدی آلومینیوم و برنج|
+Carbide Ball End Mills for Tool Steel, Hardened Steel, and Iron(26)|فرز سرگرد کاربیدی فولاد سخت و چدن|
+Cobalt Steel Ball End Mills(32)|فرز سرگرد کبالت|
+Long-Reach Fast-Cut Carbide Ball End Mills(26)|فرز سرگرد کاربیدی پرسرعت گردن‌بلند|
+Carbide Ball End Mills for Stainless Steel and Titanium(13)|فرز سرگرد کاربیدی استیل و تیتانیوم|
+Roughing Cobalt Steel Ball End Mills(14)|فرز سرگرد کبالت خشن‌تراش|
+Cubic Boron Nitride Ball End Mills for Tool Steel and Hardened Steel(10)|فرز سرگرد CBN فولاد سخت|
+Cobalt Steel Ball End Mills with Two Milling Ends(39)|فرز سرگرد کبالت دوسر|
+High-Speed Steel Ball End Mills with Two Milling Ends(34)|فرز سرگرد HSS دوسر|
+High-Speed Steel Ball End Mills for Aluminum, Brass, and Bronze(8)|فرز سرگرد HSS آلومینیوم و برنج|
+Fast-Cut Carbide Rounded-Edge Square End Mills(483)|فرز کورنر رادیوس کاربیدی پرسرعت|
+Fast-Cut Carbide Rounded-Edge Square End Mills for Aluminum, Brass, and Bronze(35)|فرز کورنر رادیوس کاربیدی پرسرعت آلومینیوم|
+Carbide Rounded-Edge Square End Mills(86)|فرز کورنر رادیوس کاربیدی (لبه گرد)|
+High-Feed Carbide Rounded-Edge Square End Mills(48)|فرز کورنر رادیوس کاربیدی پیشروی بالا (هایفید)|
+Fast-Cut Carbide Rounded-Edge Square End Mills for Stainless Steel and Titanium(35)|فرز کورنر رادیوس کاربیدی پرسرعت استیل و تیتانیوم|
+Long-Reach Fast-Cut Carbide Rounded-Edge Square End Mills(198)|فرز کورنر رادیوس کاربیدی پرسرعت گردن‌بلند|
+Miniature Carbide Rounded-Edge Square End Mills(81)|فرز کورنر رادیوس کاربیدی مینیاتوری|
+Carbide Rounded-Edge Square End Mills for Copy Milling(37)|فرز کورنر رادیوس کاربیدی کپی‌تراش|
+Long-Reach Carbide Rounded-Edge Square End Mills for Copy Milling(6)|فرز کورنر رادیوس کپی‌تراش گردن‌بلند|
+Carbide Rounded-Edge Square End Mills for Stainless Steel and Titanium(20)|فرز کورنر رادیوس کاربیدی استیل و تیتانیوم|
+Carbide Rounded-Edge Square End Mills for Carbon Fiber, Fiberglass, and Graphite(18)|فرز کورنر رادیوس کاربیدی کامپوزیت|
+Carbide Rounded-Edge Square End Mills for Aluminum, Brass, and Bronze(11)|فرز کورنر رادیوس کاربیدی آلومینیوم و برنج|
+High-Speed Steel Tapered Square End Mills(160)|فرز انگشتی مخروطی HSS|
+Carbide Tapered Square End Mills(130)|فرز انگشتی مخروطی کاربیدی|
+Carbide Tapered Ball End Mills(40)|فرز سرگرد مخروطی کاربیدی|
+Cobalt Steel Tapered Square End Mills(160)|فرز انگشتی مخروطی کبالت|
+Cobalt Steel Square End Mills(122)|فرز انگشتی کبالت تخت|
+Cobalt Steel Square End Mills with Two Milling Ends(79)|فرز انگشتی کبالت دوسر|
+Roughing Cobalt Steel Square End Mills(97)|فرز انگشتی کبالت خشن‌تراش|
+Roughing Cobalt Steel Square End Mills for Aluminum, Brass, and Bronze(10)|فرز انگشتی کبالت خشن‌تراش آلومینیوم|
+Carbide Chamfering End Mills(240)|فرز پخ‌زن کاربیدی|
+High-Speed Steel Chamfering End Mills(48)|فرز پخ‌زن HSS|
+Carbide Double-Chamfering End Mills(18)|فرز پخ‌زن دوطرفه کاربیدی|
+Fast-Cut Carbide Chamfering End Mills(28)|فرز پخ‌زن کاربیدی پرسرعت|
+High-Speed Steel Double-Chamfering End Mills(8)|فرز پخ‌زن دوطرفه HSS|
+Carbide-Tipped Double-Chamfering End Mills(48)|فرز پخ‌زن دوطرفه سرکاربید|
+Outside Chamfering End Mills for Pipes, Tubes, and Rods(34)|فرز پخ‌زن بیرونی لوله و میله|
+Carbide Square End Mills with Two Milling Ends(160)|فرز انگشتی کاربیدی تخت دوسر|
+Engraving End Mills(64)|فرز حکاکی|
+Carbide Corner-Rounding End Mills with Two Milling Ends(204)|فرز گردکن لبه کاربیدی دوسر|
+High-Speed Steel Corner-Rounding End Mills(141)|فرز گردکن لبه HSS|
+Carbide Corner-Rounding End Mills(36)|فرز گردکن لبه کاربیدی|
+Cobalt Steel Corner-Rounding End Mills(18)|فرز گردکن لبه کبالت|
+Carbide Dovetail End Mills for O-Rings(11)|فرز دم‌چلچله‌ای کاربیدی جای اورینگ|
+High-Speed Steel Dovetail End Mills(88)|فرز دم‌چلچله‌ای HSS|
+Cobalt Steel Dovetail End Mills(10)|فرز دم‌چلچله‌ای کبالت|
+Carbide Dovetail End Mills for Dovetail Milling Vises(2)|فرز دم‌چلچله‌ای کاربیدی گیره دم‌چلچله|
+Carbide Drill/Mill End Mills(66)|فرز مته‌ای (اسپات‌فرز) کاربیدی|
+Cobalt Steel Drill/Mill End Mills(22)|فرز مته‌ای (اسپات‌فرز) کبالت|
+Undercutting End Mills(15)|فرز آندرکات|
+High-Speed Steel Keyseat End Mills(63)|فرز خار (کی‌سیت) HSS|
+Carbide Keyseat End Mills(33)|فرز خار (کی‌سیت) کاربیدی|
+Fast-Cut Carbide Keyseat End Mills(90)|فرز خار کاربیدی پرسرعت|
+Fast-Cut High-Speed Steel Keyseat End Mills(21)|فرز خار HSS پرسرعت|
+Cobalt Steel Keyseat End Mills(22)|فرز خار کبالت|
+High-Speed Steel Convex-Radius End Mills(8)|فرز شعاع محدب HSS|
+Carbide-Tipped Convex-Radius End Mills(4)|فرز شعاع محدب سرکاربید|
+High-Speed Steel T-Slot End Mills(36)|فرز T (شیار تی) HSS|
+Carbide-Tipped T-Slot End Mills(36)|فرز T (شیار تی) سرکاربید|
+Cobalt Steel Rounded-Edge Square End Mills(27)|فرز کورنر رادیوس کبالت|
+Fast-Cut Carbide Barrel End Mills for Aluminum, Brass, and Bronze(18)|فرز بشکه‌ای کاربیدی پرسرعت آلومینیوم|
+Fast-Cut Carbide Barrel End Mills(17)|فرز بشکه‌ای کاربیدی پرسرعت|
+Concave-Radius End Mills(8)|فرز شعاع مقعر|
+High-Speed Steel Square End Mill Sets(8)|ست فرز انگشتی HSS|
+Carbide Square End Mill Sets(8)|ست فرز انگشتی کاربیدی|
+Drill/Mill End Mill Sets(2)|ست فرز مته‌ای|
+Carbide Square End Mill Sets with Two Milling Ends(4)|ست فرز انگشتی کاربیدی دوسر|
+High-Speed Steel Square End Mill Sets with Two Milling Ends(4)|ست فرز انگشتی HSS دوسر|
+Carbide Ball End Mill Sets(5)|ست فرز سرگرد کاربیدی|
+Carbide Ball End Mill Sets with Two Milling Ends(4)|ست فرز سرگرد کاربیدی دوسر|
+High-Speed Steel Ball End Mill Sets(2)|ست فرز سرگرد HSS|
+Thread Mills(38)|فرز رزوه‌زن|
+Face Mill Insert Holders(35)|هولدر اینسرت کله‌فرز|
+Slitting Saws(184)|فرز اره‌ای (اره دیسکی)|
+Milling Machines(14)|دستگاه فرز|
+End Mill Extensions(5)|رابط بلندکن فرز انگشتی|
+@9.0.11 Milling Cutters
+Milling Machine Right-Angle Attachments(3)|کله‌گی زاویه‌ای فرز|
+Milling Machine Power Feeds(7)|اتوماتیک میز فرز (پاورفید)|
+Chip-Clearing Hooks(2)|قلاب براده‌کش|
+Broaches(224)|قلم خان‌کشی (بروچ)|
+Milling Machine Drawbars(8)|میله کششی فرز (درابار)|
+Beveler Adapters(5)|تبدیل پخ‌زن|
+Edge Finders(16)|لبه‌یاب (اج‌فایندر)|
+@9.0.12 Reamers
+Reamers for Hole Alignment(84)|برقو هم‌راستاکن سوراخ (مخروطی سازه‌ای)|
+Reamers for Taper-Pin Holes(85)|برقو مخروطی جای پین|
+Impact Wrench Reamers for Hole Alignment(76)|برقو هم‌راستاکن ضربه‌ای|
+Reamer Sets(22)|ست برقو|
+Reamers for Dowel-Pin Holes(39)|برقو جای پین راهنما|
+Reamers for Deburring(11)|برقو پلیسه‌گیر|
+Reamers for Taper Pipe(6)|برقو رزوه لوله مخروطی|
+Reamers for Morse Taper-Socket Holes(11)|برقو مورس|
+Reamer Sets for Dowel-Pin Holes(2)|ست برقو جای پین راهنما|
+Reamer Sets for Taper-Pin Holes(6)|ست برقو مخروطی جای پین|
+Impact Wrench Reamer Sets for Hole Alignment(11)|ست برقو هم‌راستاکن ضربه‌ای|
+Reamer Arbors(3)|آربور برقو|
+Tube Flarers(1)|ابزار گشادکن سر لوله (فلر)|
