@@ -1,0 +1,662 @@
+# Fastening & Joining > Fasteners
+Screws & Bolts|پیچ و پیچ‌سرشش‌گوش|
+Threaded Rods & Studs|میله رزوه‌ای و پیچ دوسر|
+Eyebolts|پیچ چشمی|
+U-Bolts|پیچ U (کمربندی)|
+Nuts|مهره|
+Washers|واشر|
+Shims|شیم (لایی تنظیم)|
+Helical & Threaded Inserts|هلی‌کویل و بوش رزوه‌ای|
+Spacers & Standoffs|اسپیسر و فاصله‌انداز|
+Pins|پین|
+Anchors|انکر و رولپلاک|
+Nails|میخ|
+Nailers|میخکوب|
+Rivets|پرچ|
+Rivet Tools|ابزار پرچ|
+Staples|سوزن منگنه|
+Staplers|منگنه‌کوب|
+Key Stock|خار تسمه‌ای (کلید محور)|
+Retaining Rings|خار حلقوی|
+Cable Ties|بست کمربندی|
+Lanyards|بند نگهدارنده (لنیارد)|
+Magnets|آهنربا|
+# Fastening & Joining > Adhesives & Tape
+Adhesives|چسب|
+Tape|نوار چسب|
+Hook & Loop|چسب پارچه‌ای (ولکرو)|
+# Fastening & Joining > Welding, Brazing & Soldering
+Electrodes & Wire|الکترود و سیم جوش|
+Welders|دستگاه جوش|
+Gas Regulators|رگولاتور گاز|
+Welding Gloves|دستکش جوشکاری|
+Welding Helmets & Glasses|ماسک و عینک جوشکاری|
+Protective Screens|پرده محافظ جوشکاری|
+Brazing Alloys|آلیاژ لحیم سخت|
+Torches|مشعل و تورچ|
+Solder|قلع لحیم|
+Soldering Irons|هویه|
+Melting Pots|پاتیل ذوب قلع|
+# Pipe, Tubing, Hose & Fittings > -
+Pipe Fittings & Pipe|لوله و اتصالات لوله|
+Pipe Hangers|آویز و بست لوله|
+Pipe Joints|اتصال انبساطی و انعطاف‌پذیر لوله|
+Pipe & Tube Repair Clamps|بست تعمیر لوله|
+Pipe Flange Spreaders|فلنج‌بازکن|
+Tubing|تیوب (لوله باریک)|
+Tube Fittings|اتصالات تیوب|
+Tube Cutters|لوله‌بر|
+Tube Flaring Tools|ابزار پرچ سر لوله (فلر)|
+Tube Benders|لوله‌خم‌کن|
+Manifolds|منیفولد|
+Hose|شیلنگ|
+Hose Fittings|اتصالات شیلنگ|
+Hose Nozzles|سرشیلنگ|
+Hose & Tube Clamps|بست شیلنگ|
+Hose Reels|قرقره شیلنگ|
+Tank Fittings|اتصالات مخزن|
+# Power Transmission > Rotary Motion
+Bearings|بلبرینگ و یاتاقان|
+Bushings|بوش|
+Bearing & Gear Pullers|پولی‌کش و بلبرینگ‌کش|
+Bearing Heaters|هیتر بلبرینگ|
+Motors|موتور|
+Speed Reducers|گیربکس کاهنده|
+Clutches|کلاچ|
+Brake & Clutch Lining|لنت ترمز و کلاچ|
+Shafts|شفت|
+Shaft Couplings|کوپلینگ|
+Shaft Collars|طوقه شفت|
+U-Joints|چهارشاخ (یونیورسال)|
+Key Stock|خار محور|
+Pulleys|پولی|
+Belts|تسمه|
+Belt Gauges|گیج تسمه|
+Gears|چرخ‌دنده|
+Chain|زنجیر|
+Chain Tools|ابزار زنجیر|
+Chain Tensioners|زنجیرسفت‌کن|
+Sprockets|چرخ‌زنجیر|
+Drive Rollers|غلتک محرک|
+Track Rollers|غلتک ریلی|
+Turntables|صفحه گردان|
+# Power Transmission > Linear Motion
+Actuators|عملگر خطی (جک)|
+Bearings|بلبرینگ خطی|
+Shafts|شفت خطی|
+Shaft Collars|طوقه شفت|
+Acme Threaded Rods|میله رزوه ذوزنقه‌ای|
+Shock Absorbers|ضربه‌گیر|
+Rod Ends|سیبک (رادند)|
+Springs|فنر|
+# Power Transmission > Hydraulics
+Pumps|پمپ هیدرولیک|
+Valves|شیر هیدرولیک|
+Hose|شیلنگ هیدرولیک|
+Hose Fittings|اتصالات هیدرولیک|
+Filters|فیلتر هیدرولیک|
+Oil|روغن هیدرولیک|
+Reservoirs|مخزن روغن|
+# Power Transmission > Pneumatics
+Compressors|کمپرسور باد|
+Tanks|مخزن هوا|
+Air Flow & Pressure Boosters|بوستر فشار هوا|
+Filter / Regulator / Lubricators (FRLs)|واحد مراقبت (FRL)|
+Dryers|درایر هوا|
+Moisture Separators & Drain Valves|آبگیر و شیر تخلیه|
+Hose|شیلنگ باد|
+Quick-Disconnect Hose Couplings|کوپلینگ سریع|
+Valves|شیر پنوماتیک|
+Mufflers|صداخفه‌کن|
+Pressure Gauges|گیج فشار|
+# Sealing > -
+O-Rings|اورینگ|
+Compression Packing|پکینگ آب‌بندی (گلند)|
+Packing Tools|ابزار پکینگ|
+Gaskets|واشر آب‌بندی (گسکت)|
+Mechanical Seals|مکانیکال سیل|
+Weather- stripping|نوار درزگیر|
+Sealants|درزگیر|
+# Flow & Level Control > Flow
+Pumps|پمپ|
+Valves|شیر|
+Orifices|اوریفیس|
+Switches|فلوسوئیچ|
+Flowmeters|فلومتر|
+Sights|سایت‌گلس|
+Mixers|همزن|
+Vibrators|ویبراتور|
+# Flow & Level Control > Liquid Level
+Switches|لول‌سوئیچ|
+Indicators|نمایشگر سطح|
+Gauges|گیج سطح|
+Sights|شیشه آب‌نما|
+Floats|فلوتر|
+# Pressure & Temperature Control > Pressure
+Gauges|گیج فشار|
+Recorders|ثبات فشار|
+Switches|پرشر سوئیچ|
+Transducers|ترانسدیوسر فشار|
+Regulators|رگولاتور فشار|
+# Pressure & Temperature Control > Temperature
+Thermo- meters|دماسنج|
+Recorders|ثبات دما|
+Thermo- couples|ترموکوپل|
+Resistance Temperature Detectors (RTDs)|سنسور دما RTD (PT100)|
+Switches|ترموسوئیچ|
+Thermostats|ترموستات|
+Controllers|کنترلر دما|
+Heat Exchangers|مبدل حرارتی|
+Chillers|چیلر|
+Heaters|هیتر و المنت|
+# Filtering > -
+Cartridges, Bags & Housings|کارتریج، کیسه و هوزینگ فیلتر|
+Strainers|صافی|
+Water Filters|فیلتر آب|
+Steam Traps|تله بخار|
+Filter / Regulator / Lubricators (FRLs)|واحد مراقبت|
+Air Filters|فیلتر هوا|
+Oil Filters & Skimmers|فیلتر و روغن‌گیر|
+Perforated Sheets|ورق مشبک|
+Wire Cloth|توری فلزی|
+Plastic Mesh|توری پلاستیکی|
+Magnetic Separators|جداکننده مغناطیسی|
+Sieves|الک|
+Breather Vents|هواکش مخزن (بریدر)|
+Mufflers|صداخفه‌کن|
+# Electrical & Lighting > Wiring & Connecting
+Wire & Cable|سیم و کابل|
+Plugs & Receptacles|دوشاخه و پریز|
+Extension Cords & Power Strips|سیم رابط و چندراهی|
+Heat-Shrink Tubing|وارنیش حرارتی|
+Sleeving|غلاف سیم|
+Cord Grips|گلند کابل|
+Electrical Connectors|کانکتور و سرسیم|
+Electrical Tape|چسب برق|
+Bonding & Grounding Equipment|تجهیزات ارت|
+Conduit & Fittings|لوله برق (کاندوئیت) و اتصالات|
+Tube Benders|لوله‌خم‌کن|
+Raceway|داکت|
+Cable Carriers|زنجیر کابل (انرژی‌چین)|
+Cable Ties|بست کمربندی|
+Enclosures|تابلو و جعبه برق|
+Outlet Boxes|قوطی کلید و پریز|
+Wire Strippers & Crimpers|سیم‌لخت‌کن و پرس سرسیم|
+Cord Reels|قرقره کابل|
+Data & Voice Equipment|تجهیزات شبکه و تلفن|
+# Electrical & Lighting > Switching & Controlling
+Switches & Relays|کلید و رله|
+Transformers|ترانسفورماتور|
+Circuit Breakers|کلید مینیاتوری و اتوماتیک|
+Fuses|فیوز|
+Ground Fault Circuit Interrupters (GFCIs)|کلید محافظ جان|
+Surge Suppressors|محافظ نوسان|
+# Electrical & Lighting > Motor Maintenance
+Electric Motors|الکتروموتور|
+Motor Controllers|کنترل موتور (اینورتر، راه‌انداز)|
+Motor Capacitors & Contactors|خازن و کنتاکتور موتور|
+Multimeters & Electrical Testers|مولتی‌متر و تستر برق|
+Dusters & Cleaners|اسپری تمیزکننده|
+# Electrical & Lighting > Power Generating
+Batteries|باتری|
+Battery Testers, Chargers & Accessories|تستر و شارژر باتری|
+Generators|ژنراتور|
+# Electrical & Lighting > Lighting
+Light Bulbs|لامپ|
+Lights|چراغ|
+Flashlights|چراغ‌قوه|
+Light Fixtures|چراغ و پایه روشنایی|
+Ballasts|بالاست|
+Lighting Accessories|لوازم روشنایی|
+# Raw Materials > -
+Metals|فلزات (ورق، میله، لوله)|
+Shim Stock|ورق شیم|
+Wire|مفتول|
+Wire Cloth|توری فلزی|
+Expanded Metal|توری منبسط|
+Plastics|پلاستیک‌های مهندسی|
+Ceramics|سرامیک|
+Graphite|گرافیت|
+Carbon Fiber|فیبر کربن|
+Casting Compounds|رزین و ترکیب قالب‌ریزی|
+Rubber|لاستیک|
+Foam|فوم|
+Insulation|عایق|
+Glass|شیشه|
+Wood|چوب|
+Fabrics|پارچه صنعتی|
+Felt|نمد|
+3D Printer Filaments|فیلامنت پرینتر سه‌بعدی|
+# Fabricating > Machining
+Drill Bits|مته|
+Drill Bushings|بوش راهنمای مته|
+Drills|دریل|
+Drill Chuck Arbors|کونیک سه‌نظام|
+Chucks|سه‌نظام|
+Collets|کولت|
+Countersinks|خزینه|
+Counterbores|کف‌تراش (کانتربور)|
+Lathe Tools|ابزار تراشکاری|
+Carbide Inserts & Holders|الماس و هولدر تراشکاری|
+End Mills|فرز انگشتی|
+Milling Cutters|فرز|
+Reamers|برقو|
+Routers & Bits|اورفرز و تیغ|
+Taps|قلاویز|
+Tapping & Threading Tools|ابزار قلاویززنی و رزوه|
+Dies|حدیده|
+Broaches|خان‌کش|
+Layout Fluid & Scribers|جوهر خط‌کشی و سوزن خط‌کش|
+# Fabricating > Forming
+Presses|پرس|
+Sheet Metal Formers|دستگاه فرم ورق|
+Tube Benders|لوله‌خم‌کن|
+Punches|سنبه|
+# Fabricating > Clamping & Positioning
+Clamps|پیچ‌دستی و گیره|
+Vises|گیره رومیزی|
+Turntables|صفحه گردان|
+Positioning Arms|بازوی نگهدارنده|
+Spring Plungers|پلانجر فنری|
+Tool Balancers|بالانسر ابزار|
+# Fabricating > Parts Cleaning & Treating
+Parts Washers|قطعه‌شوی|
+Wire Baskets|سبد سیمی|
+Nozzles|نازل|
+Blowguns|بادپاش|
+Dusters & Cleaners|اسپری تمیزکننده|
+Static Eliminating Blowers|یونایزر ضدالکتریسیته|
+Heat Guns & Lamps|هیتگان و لامپ حرارتی|
+Ovens & Furnaces|آون و کوره|
+Hot Plates|هیتر صفحه‌ای|
+Melting Pots|پاتیل ذوب|
+# Abrading & Polishing > Sanding, Filing & Grinding
+Sanding Abrasives|سنباده|
+Sanders|دستگاه سنباده|
+Files|سوهان|
+Grinding Wheels|سنگ سنباده|
+Grinders|فرز سنگ|
+Grinding Bits|سنگ انگشتی|
+Burs|فرز انگشتی کاربید (بور)|
+Deburring Tools|ابزار پلیسه‌گیر|
+Brushes|برس سیمی|
+Abrasive Blasters|سندبلاست|
+Abrasive Blasting Media|ساچمه سندبلاست|
+Sharpeners|تیزکن|
+# Abrading & Polishing > Polishing
+Cylinder Hones|هون سیلندر|
+Buffing Wheels|پولیش نمدی (کتانی)|
+Polishers|دستگاه پولیش|
+Lapping & Polishing Compounds|خمیر لپینگ و پولیش|
+Barrel Tumblers|دستگاه ویبره پولیش (بشکه‌ای)|
+Finishing Media|سنگ ویبره|
+# Sawing & Cutting > Sawing
+Reciprocating Saw Blades|تیغ اره افقی‌بر|
+Jigsaw Blades|تیغ اره عمودبر|
+Handsaw Blades|تیغ اره دستی|
+Band Saw Blades|تیغ اره نواری|
+Circular Saw Blades|تیغ اره گرد|
+Cutoff Wheels|صفحه برش|
+Saws|اره|
+Hole Saws|گردبر|
+# Sawing & Cutting > Cutting
+Knives|چاقو و کاتر|
+Scalpels|اسکالپل|
+Scissors|قیچی|
+Snips|قیچی ورق‌بر|
+Nibblers|ورق‌بر نیبلر|
+Bolt & Chain Cutters|قیچی مفتول‌بر|
+Scrapers|کاردک|
+Chisels|قلم|
+Tube Cutters|لوله‌بر|
+Tile Cutters|کاشی‌بر|
+Gasket Cutters|واشربر|
+Drum Deheaders|درب‌بازکن بشکه|
+Paper Cutters|کاغذبر|
+# Safety Supplies > Personal Protective Equipment
+Safety Glasses & Face Shields|عینک ایمنی و شیلد صورت|
+Earplugs|گوشی ایمنی|
+Hard Hats|کلاه ایمنی|
+Welding Helmets & Glasses|ماسک جوشکاری|
+Harnesses & Lanyards|هارنس و لنیارد|
+Clothing|لباس ایمنی|
+Respirators|ماسک تنفسی|
+# Safety Supplies > Protective Equipment
+First-Aid Supplies|کمک‌های اولیه|
+Wash Stations|ایستگاه چشم‌شوی و دوش اضطراری|
+Fire Extinguishers & Sprinklers|کپسول آتش‌نشانی و اسپرینکلر|
+Gas Detectors|گازسنج|
+Lockouts|قفل ایمنی (لاک‌اوت)|
+Machine Guards|حفاظ ماشین|
+Traffic Cones & Signs|مخروط و تابلو ترافیکی|
+Belt, Chain & Rope Barriers|راهبند تسمه‌ای و زنجیری|
+Safety Railings|نرده ایمنی|
+Protective Screens|پرده محافظ|
+Mirrors|آینه محدب ایمنی|
+Video Surveillance|دوربین مداربسته|
+Horns, Bells & Alarms|بوق، زنگ و آژیر|
+Status-Indicating Lights|چراغ وضعیت (برج سیگنال)|
+Warning Lights|چراغ هشدار|
+Gloves|دستکش|
+Footwear|کفش ایمنی|
+# Safety Supplies > Signs
+Signs|تابلو ایمنی|
+Tags|برچسب هشدار|
+Exit Signs|تابلو خروج|
+Floor Marking Tape & Paint|نوار و رنگ خط‌کشی کف|
+# Pulling & Lifting > -
+Chain|زنجیر|
+Wire Rope|سیم بکسل|
+Fibrous Rope|طناب|
+Chain & Rope Fittings|متعلقات زنجیر و سیم بکسل|
+Hooks|قلاب|
+Slings|اسلینگ|
+Lifting Magnets|آهنربای بالابر|
+Hoist Rings|حلقه بالابر|
+Eyebolts|پیچ چشمی|
+Lifting Clamps|گیره بالابر ورق|
+Hoists|جرثقیل زنجیری و وینچ|
+Trolleys|ترولی (واگن جرثقیل)|
+Winches|وینچ|
+Cranes|جرثقیل|
+Jacks|جک|
+Pulleys & Blocks|قرقره و بلوک|
+Suction Cups|بادکش|
+Vacuum Cups|بادکش وکیوم|
+Robotics|رباتیک|
+# Material Handling > -
+Conveyors|نوار نقاله|
+Dollies|دالی|
+Pallet Trucks|جک پالت|
+Carts & Trucks|چرخ‌دستی و ترولی|
+Hitches|اتصال یدک‌کش|
+Casters|چرخ صنعتی|
+Wheels|چرخ|
+Floor Locks|ترمز درب و چرخ|
+Jacks|جک|
+Lift Tables|میز بالابر|
+Drum Handling Equipment|تجهیزات جابه‌جایی بشکه|
+Suction Cups|بادکش|
+Vacuum Cups|بادکش وکیوم|
+Robotics|رباتیک|
+Ladders|نردبان|
+Step Stools|چهارپایه پله‌دار|
+Scaffolds|داربست|
+Work Platforms|سکوی کار|
+Adjustable Stands|پایه قابل‌تنظیم|
+Tie Downs|تسمه بار|
+Cycles|دوچرخه و سه‌چرخه صنعتی|
+Dock Equipment|تجهیزات سکوی بارگیری|
+# Suspending > -
+Strut Channel|ناودانی یونیسترات|
+Pipe Hangers|آویز لوله|
+Tool Balancers|بالانسر ابزار|
+U-Bolts|پیچ U|
+Eyebolts|پیچ چشمی|
+Cable Ties|بست کمربندی|
+Cable & Hose Carriers|زنجیر کابل و شیلنگ|
+Beam Clamps|بست تیرآهن|
+Turnbuckles|مهارکش|
+# Lubricating > -
+Grease|گریس|
+Grease Guns|گریس‌پمپ|
+Grease Fittings|گریس‌خور|
+Oil|روغن|
+Lubrication Systems|سیستم روغن‌کاری مرکزی|
+Oilers|روغن‌دان|
+Lubricants|روان‌کننده|
+Metalworking Fluids|سیال فلزکاری|
+Coolant Hose & Dispensers|شیلنگ و نازل خنک‌کاری|
+# Hand Tools > -
+Hammers|چکش|
+Screwdrivers|پیچ‌گوشتی|
+Wrenches|آچار|
+Pliers|انبردست|
+Sockets|بکس|
+Nutdrivers|آچار پیچ‌گوشتی بکسی|
+Hex Keys & Drivers|آچار آلن|
+Knives|چاقو|
+Saws|اره|
+Staplers|منگنه‌کوب|
+Nailers|میخکوب|
+Chisels|قلم|
+Scrapers|کاردک|
+Pry Bars|دیلم|
+Tweezers|پنس|
+Screw Extractors|پیچ‌درآر|
+Drills|دریل|
+Nonsparking Tools|ابزار ضدجرقه|
+Tape Rules|متر|
+Retrievers & Picks|آهنربای جمع‌کن و سوزن|
+Tool Balancers|بالانسر ابزار|
+Tool Sets|جعبه ابزار ست|
+# Measuring & Inspecting > Dimensional Measuring
+Rulers|خط‌کش|
+Tape Measures|متر نواری|
+Micrometers|میکرومتر|
+Calipers|کولیس|
+Feeler Gauges|فیلر|
+Height Gauges|ارتفاع‌سنج|
+Depth Gauges|عمق‌سنج|
+Bore Gauges|بورگیج|
+Thickness Gauges|ضخامت‌سنج|
+Variance Indicators|ساعت اندیکاتور|
+Layout Tools|ابزار خط‌کشی|
+Squares & Protractors|گونیا و نقاله|
+Levels|تراز|
+Compasses|پرگار|
+# Measuring & Inspecting > Calibrating
+Gauge Blocks|بلوک سنجه|
+Plug Gauges|گیج میله‌ای|
+Thread Gauges|شانه رزوه|
+Parallels|پارالل|
+Surface Plates|صفحه صافی|
+V-Blocks|بلوک V|
+Thermo- meters|دماسنج|
+Pressure Gauges|گیج فشار|
+Hydrostatic Pumps|پمپ تست هیدرواستاتیک|
+Test Weights|وزنه کالیبراسیون|
+# Measuring & Inspecting > Inspecting
+Microscopes|میکروسکوپ|
+Magnifiers|ذره‌بین|
+Inspection Mirrors|آینه بازرسی|
+Flaw & Leak Detectors|نشت‌یاب و عیب‌یاب|
+Light Meters|نورسنج|
+Hardness Testers|سختی‌سنج|
+Scales|ترازو|
+Counters|شمارنده|
+Force Gauges|نیروسنج|
+Water & Chemical Testers|تستر آب و مواد شیمیایی|
+Cameras|دوربین بازرسی|
+Multimeters & Electrical Testers|مولتی‌متر|
+Sound Level Meters|صداسنج|
+# Measuring & Inspecting > Motion & Speed Measuring
+Tachometers|دورسنج|
+Encoders & Transducers|انکودر|
+Stroboscopes|استروبوسکوپ|
+Vibration Meters|ارتعاش‌سنج|
+# Hardware > Machinery Hardware
+Knobs|پیچ دستی و دستگیره گرد|
+Hand Wheels|فلکه|
+Handles|دستگیره|
+Grips|روکش دسته|
+Machinery Mounts|پایه لرزه‌گیر|
+Glides|پایه تنظیم|
+Edge Trim|نوار لبه|
+Bumpers|ضربه‌گیر|
+Bellows|گردگیر آکاردئونی|
+Caps & Plugs|درپوش|
+Control Cables|کابل کنترل (سیم گاز)|
+Grommets|گرومت|
+# Hardware > Door & Cabinet Hardware
+Hinges|لولا|
+Door Closers|آرام‌بند|
+Push Bars|دستگیره خروج اضطراری (پوش‌بار)|
+Door Holders & Stops|نگهدارنده و استاپر درب|
+Hasps|قفل‌بند|
+Weather- stripping|نوار درزگیر|
+Door Track & Hangers|ریل و آویز درب|
+Magnetic Contacts|مگنت درب|
+Catches|چفت|
+Cam Latches|قفل کمدی (کم)|
+Draw Latches|گیره کلنگی|
+Slide Bolts|کلون کشویی|
+Pull Handles|دستگیره کششی|
+Drawer Slides|ریل کشو|
+Lid Supports|جک درب|
+Hooks|قلاب|
+Brackets|براکت|
+Window Hardware|یراق پنجره|
+# Hardware > Locks
+Door Locks|قفل درب|
+Deadbolt Locks|قفل سوئیچی (ددبولت)|
+Drawer Locks|قفل کشو|
+Padlocks|قفل آویز|
+Lockouts|قفل ایمنی|
+Key Holders|جاکلیدی|
+# Hardware > Doors
+Doors|درب|
+Vinyl Strip Doors|پرده نواری PVC|
+Folding Gates|درب آکاردئونی|
+Air Curtains|پرده هوا|
+# Furniture & Storage > Furniture
+Tables|میز|
+Workstations & Desks|ایستگاه کار و میز|
+Workbenches|میز کار|
+Framing & Railing Components|پروفیل و اتصالات قاب‌بندی|
+Benches|نیمکت|
+Stools & Seats|چهارپایه|
+Chairs|صندلی|
+# Furniture & Storage > Storage
+Cabinets|کمد و کابینت|
+Lockers|لاکر|
+Coat Racks|جالباسی|
+Shelving|قفسه|
+Racks|رک|
+Pallets|پالت|
+Chests|صندوق|
+Storage Buildings|انبار پیش‌ساخته|
+Partitions|پارتیشن|
+Tool Holders|نگهدارنده ابزار|
+Tool Boxes & Bags|جعبه و کیف ابزار|
+# Furniture & Storage > Containers
+Jars, Bottles & Pitchers|ظرف، بطری و پارچ|
+Pails|سطل|
+Tanks|مخزن|
+Drums|بشکه|
+Fuel & Safety Cans|ظرف ایمنی سوخت|
+Sprayers|سمپاش و افشانک|
+Spill Control Containers|ظرف کنترل نشت|
+Boxes|جعبه|
+Pans|سینی|
+Dump Trucks|چرخ تخلیه‌شونده|
+Waste Containers|سطل زباله|
+Garbage Bags|کیسه زباله|
+Funnels & Scoops|قیف و پیمانه|
+Wire Baskets|سبد سیمی|
+# Plumbing & Janitorial > -
+Faucets & Showers|شیرآلات و دوش|
+Sinks & Wash Fountains|سینک و کاسه شستشو|
+Drinking Fountains|آبسردکن و آبخوری|
+Toilets & Urinals|توالت و یورینال|
+Plungers & Drain Cleaners|تخلیه‌کن و فنر لوله‌بازکن|
+Test Pumps, Plugs & Fittings|پمپ تست و درپوش لوله|
+Privacy Partitions|پارتیشن سرویس بهداشتی|
+Lavatory Mirrors & Fixtures|آینه و اکسسوری سرویس|
+Personal Care Products|محصولات بهداشت شخصی|
+Paper Towels & Dispensers|حوله کاغذی و دیسپنسر|
+Dryers|دست‌خشک‌کن|
+Hand Cleaners|پاک‌کننده دست صنعتی|
+Cleaners & Deodorizers|شوینده و خوشبوکننده|
+Tissues, Towels & Wipes|دستمال و حوله|
+Sponges & Brushes|اسفنج و برس|
+Garbage Bags|کیسه زباله|
+Brooms, Mops & Squeegees|جارو، تی و طی|
+Vacuums|جاروبرقی|
+Floor & Carpet Cleaners|کف‌شوی و فرش‌شوی|
+Pressure Washers & Steam Cleaners|کارواش و بخارشوی|
+Wash Guns & Spray Nozzles|تفنگ شستشو|
+Sorbents|جاذب نشتی|
+# Heating & Cooling > -
+Heaters|بخاری و هیتر|
+Blowers|بلوئر|
+Roof Ventilators|هواکش سقفی|
+Fume Exhausters & Air Cleaners|دودکش و تصفیه هوا|
+Dust Collectors|غبارگیر|
+Fans|فن و پنکه|
+Equipment Cooling Fans|فن خنک‌کننده تجهیزات|
+Louvers|دریچه|
+Air Conditioners|کولر|
+Humidifiers & Dehumidifiers|رطوبت‌ساز و رطوبت‌گیر|
+Desiccants|رطوبت‌گیر (سیلیکاژل)|
+Duct & Fittings|کانال و اتصالات|
+Duct Tape|چسب برزنتی|
+Air Filters|فیلتر هوا|
+Insulation|عایق|
+Thermostats|ترموستات|
+# Building & Grounds > -
+Flags|پرچم|
+Weather Instruments|ابزار هواشناسی|
+Shovels|بیل|
+Landscaping Equipment|تجهیزات محوطه‌سازی|
+Garden Hose|شلنگ باغبانی|
+Concrete, Asphalt & Roof Repair|تعمیر بتن، آسفالت و بام|
+Matting|کفپوش|
+Tarps|برزنت|
+Window Screening & Shades|توری و سایه‌بان پنجره|
+Paint & Coatings|رنگ و پوشش|
+Paint Brushes & Sprayers|قلم‌مو و پیستوله رنگ|
+Grating & Stair Treads|گریتینگ و کف‌پله|
+Safety Railings|نرده ایمنی|
+Scaffolds|داربست|
+Ladders|نردبان|
+Step Stools|چهارپایه|
+Pest Control|کنترل آفات|
+Video Surveillance|دوربین مداربسته|
+Horns, Bells & Alarms|آژیر و زنگ|
+# Shipping > -
+Bags & Envelopes|کیسه و پاکت|
+Tubes|لوله مقوایی پستی|
+Boxes|جعبه و کارتن|
+Drums & Pails|بشکه و سطل|
+Packing Material|مواد بسته‌بندی|
+Stretch & Shrink Wrap|استرچ و شرینک|
+Strapping & Strapping Tools|تسمه و تسمه‌کش|
+Tape|چسب بسته‌بندی|
+Tape Dispensers|پایه چسب|
+Labels|لیبل|
+Tags|برچسب آویز|
+Security Seals|پلمب|
+Pallets|پالت|
+Scales|ترازو|
+Desiccants|رطوبت‌گیر|
+# Office Supplies & Signs > Office Supplies
+Markers, Pens & Pencils|ماژیک، خودکار و مداد|
+Clipboards & Binders|کلیپ‌بورد و کلاسور|
+Folders & Paper|پوشه و کاغذ|
+Organizers & Document Holders|نظم‌دهنده و جاکاغذی|
+Telephones|تلفن|
+Intercoms & Radios|اینترکام و بی‌سیم|
+Speakers|بلندگو|
+Data & Voice Equipment|تجهیزات شبکه|
+Computer Accessories|لوازم جانبی کامپیوتر|
+Calculators|ماشین حساب|
+Drafting Equipment|لوازم نقشه‌کشی|
+Clocks & Timers|ساعت و تایمر|
+Reference Books|کتاب مرجع|
+Food Service Equipment|تجهیزات پذیرایی|
+# Office Supplies & Signs > Signs
+Signs|تابلو|
+Sign Holders|پایه تابلو|
+Tags|برچسب|
+Exit Signs|تابلو خروج|
+Laminators|دستگاه لمینیت|
+Message & Bulletin Boards|تابلو اعلانات|
+# Office Supplies & Signs > Identification & Marking
+Floor Marking Tape & Paint|نوار خط‌کشی کف|
+Labels|لیبل|
+Label Printers|لیبل‌پرینتر|
+Stencils & Characters|شابلون و حروف|
+Hand Stamps|مهر و سنبه حروف|
+Engraving Plates & Tags|پلاک حکاکی|
+Engravers|دستگاه حکاکی|
