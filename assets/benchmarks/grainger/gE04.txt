@@ -192,13 +192,13 @@
 10245|7|Downward Diagonal Arrow Signs|تابلو فلش مورب رو به پایین|
 10246|7|Emergency Entrance Signs|تابلو ورودی اورژانس|
 10247|7|Emergency Vehicle Crossing Signs|تابلو گذرگاه خودروهای امدادی|
-10248|7|Equipment Crossing Signs|تابلو گذرگاه ماشین‌آلات|
+10248|7|Equipment Crossing Signs|تابلو گذرگاه تجهیزات|
 10249|7|Farm Vehicle Crossing Signs|تابلو گذرگاه ماشین‌آلات کشاورزی|
 10250|7|Fire Station Signs|تابلو ایستگاه آتش‌نشانی|
 10251|7|Fire Trucks Entering Signs|تابلو ورود خودروهای آتش‌نشانی|
 10252|7|Forklift Crossing Signs|تابلو گذرگاه لیفتراک|
 10253|7|Hairpin Curve Ahead Signs|تابلو پیچ تند در پیش|
-10254|7|Hidden Drive Signs|تابلو ورودی پنهان|
+10254|7|Hidden Drive Signs|تابلو خروجی پنهان (راه اختصاصی)|
 10255|7|Hidden Entrance Signs|تابلو ورودی پنهان|
 10256|7|High Water Signs|تابلو آبگرفتگی|
 10257|7|Hill Signs|تابلو سربالایی و سرازیری|
@@ -237,7 +237,7 @@
 10290|7|Truck Entrance Signs|تابلو ورودی کامیون|
 10291|7|Trucks Entering Highway Signs|تابلو ورود کامیون به بزرگراه|
 10292|7|Trucks Use Lower Gear Signs|تابلو کامیون‌ها با دنده سنگین|
-10293|7|Turn Ahead Signs|تابلو پیچ در پیش|
+10293|7|Turn Ahead Signs|تابلو گردش در پیش|
 10294|7|Two-Direction Large Arrow Signs|تابلو فلش بزرگ دوطرفه|
 10295|7|Two-Way Traffic Signs|تابلو ترافیک دوطرفه|
 10296|7|Watch For Cross Traffic Signs|تابلو مراقب ترافیک عرضی باشید|
