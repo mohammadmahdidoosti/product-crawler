@@ -1,0 +1,300 @@
+@0.0.10 Anchors
+Wedge Anchors for Concrete(358)|انکر گوه‌ای بتن|
+Anchors for Concrete(31)|انکر بتن|
+Vibration-Resistant Wedge Anchors for Concrete(27)|انکر گوه‌ای ضدلرزش|
+High-Strength Anchors for Concrete(15)|انکر بتن پرمقاومت|
+Hook Anchors for Concrete(144)|انکر قلابی بتن|
+Weld Anchors for Concrete(36)|انکر جوشی بتن|
+Quick-Twist Anchors for Concrete(3)|انکر پیچی سریع|
+Drive Rivet Anchors for Concrete(16)|انکر میخی بتن|
+Removable Taper-Bolt Anchors for Concrete(30)|انکر مخروطی قابل جدا|
+Light Duty Drive Rivet Anchors for Concrete(5)|انکر میخی سبک|
+Drilling Anchors for Drywall(12)|رولپلاک خودسوراخ‌کن کناف|
+Anchors for Drywall(14)|رولپلاک کناف|
+High-Strength Toggle Anchors for Drywall(20)|رولپلاک پروانه‌ای قوی|
+Toggle Bolt Anchors for Drywall(26)|پیچ پروانه‌ای کناف|
+Drilling Toggle Anchors for Drywall(6)|رولپلاک پروانه‌ای خودسوراخ‌کن|
+Stud-Style Drilling Anchors for Drywall(1)|رولپلاک دوسر کناف|
+Reusable Anchors for Drywall(6)|رولپلاک قابل استفاده مجدد|
+Hammer-In Anchors for Drywall(1)|رولپلاک کوبیدنی کناف|
+Toggle Anchors for Drywall(4)|رولپلاک پروانه‌ای|
+Toggle Bolt Anchor Assortments for Drywall(1)|ست پیچ پروانه‌ای|
+Stud-Style Toggle Anchors for Drywall(2)|رولپلاک پروانه‌ای دوسر|
+Reusable Anchor Assortments for Drywall(2)|ست رولپلاک مجدد|
+Light Duty Anchors for Block and Brick(36)|انکر سبک آجر|
+Sleeve Anchors for Block and Brick(39)|انکر غلافی آجر|
+High-Strength Anchors for Block and Brick(6)|انکر قوی آجر|
+Shallow-Install Anchors for Block and Brick(20)|انکر کم‌عمق|
+Drive Rivet Anchors for Block and Brick(16)|انکر میخی آجر|
+Bolt-Style Sleeve Anchors for Block and Brick(24)|انکر غلافی پیچی|
+Anchors for Block and Brick(6)|انکر آجر|
+Lag Anchors for Block and Brick(11)|انکر پیچ چوب در آجر|
+Light Duty Drive Rivet Anchors for Block and Brick(11)|انکر میخی سبک آجر|
+Vibration-Resistant Drive Anchors for Block and Brick(17)|انکر ضدلرزش آجر|
+Stud-Style Toggle Anchors for Hollow Block and Brick(11)|انکر پروانه‌ای بلوک توخالی|
+Anchors for Hollow Block and Brick(7)|انکر بلوک توخالی|
+Toggle Anchors for Hollow Block and Brick(2)|انکر پروانه‌ای بلوک|
+Mesh Anchors for Hollow Block and Brick(5)|انکر توری بلوک|
+Shackles(307)|شگل|
+Anchoring Adhesives(25)|چسب کاشت|
+Routing Clamps(690)|بست هدایت کابل|
+E-Track Beam Brackets(1)|براکت ریل E|
+Beam Clamps(158)|بست تیرآهن|
+Cable Ties(519)|بست کمربندی|
+Forklift Tie-Down Clamps(1)|گیره مهار لیفتراک|
+Drill Bits(59)|مته|
+S-Hooks(1)|قلاب S|
+Wire Rope End Fittings(181)|سرسیم بکسل|
+E-Track Couplings(1)|اتصال ریل E|
+Pipe Hangers(647)|آویز لوله|
+Bar Grating Clips(40)|گیره گریتینگ|
+Ground Anchors(22)|انکر زمینی|
+L-Track Cargo Nets(1)|تور بار ریل L|
+L-Track Covers(1)|کاور ریل L|
+Seismic Bracing Mounts(4)|پایه مهار لرزه‌ای|
+Cable Tie Mounts(45)|پایه بست کمربندی|
+Hook and Loop Straps(182)|تسمه چسبی|
+E-Track Cargo Nets(1)|تور بار ریل E|
+Cable Locks(2)|قفل کابلی|
+Wire Rope Compression Sleeves(116)|بوش پرس سیم بکسل|
+E-Track Storage Bags(1)|کیف ریل E|
+Fall-Rescue Packs(2)|کیت نجات سقوط|
+Wire Rope Thimbles(88)|کوسه سیم بکسل|
+Robot Workstations(1)|ایستگاه ربات|
+E-Track Webbing Guides(1)|راهنمای تسمه ریل E|
+Twist Ties(32)|مفتول بست|
+Tie-Down Hooks(2)|قلاب مهار|
+Fall-Arrest Harnesses(120)|هارنس ضدسقوط|
+Pipe Supports(83)|تکیه‌گاه لوله|
+L-Tracks(6)|ریل L|
+Wire Rope End Brackets(2)|براکت سرسیم|
+Railing Clamps(15)|بست نرده|
+E-Tracks(12)|ریل E|
+T-Slotted Framing and Fittings(59)|پروفیل شیاردار و اتصالات|
+Wire Rope Plugs(10)|توپی سیم بکسل|
+Riser Clamps(38)|بست لوله عمودی|
+Wire Rope Stops(33)|استاپر سیم بکسل|
+Routing J-Hooks(16)|قلاب J کابل|
+Bolt-Together Framing Anchors(3)|انکر قاب پیچی|
+Fall-Arrest Lanyards(21)|لنیارد ضدسقوط|
+Pipe Cradles(20)|زین لوله|
+L-Track Hooks(4)|قلاب ریل L|
+L-Track Mounting Studs(3)|پیچ نصب ریل L|
+Tool Tether Attachments(10)|اتصال بند ابزار|
+Cable Bundling Tools(2)|ابزار دسته‌بندی کابل|
+Stakes(17)|میخ زمین|
+Pipe Standoff Clamps(22)|بست فاصله‌دار لوله|
+Wire Rope Plug Installation Kits(5)|کیت نصب توپی سیم|
+Cable Pulling Clamps(2)|گیره کشش کابل|
+Lanyards(20)|بند نگهدارنده|
+L-Track Straps(4)|تسمه ریل L|
+Hook and Loop Strap Mounts(6)|پایه تسمه چسبی|
+Surface Fillers(2)|پرکننده سطح|
+Routing Clamp Rails(14)|ریل بست کابل|
+Wire Rope Cutting Bands(7)|نوار برش سیم بکسل|
+Routing Ring Bases(2)|پایه حلقه هدایت|
+E-Track Hooks(3)|قلاب ریل E|
+E-Track Straps(16)|تسمه ریل E|
+Fall-Rescue Kits(2)|کیت نجات|
+Travel-Limiting Lanyards(7)|لنیارد محدودکننده|
+E-Track Beams(2)|تیر ریل E|
+E-Track Webbing Tethers(2)|بند تسمه ریل E|
+Fall-Arrest Leg Straps(2)|بند پای هارنس|
+Strap Handles(6)|دسته تسمه|
+Tag Ties(5)|بست پلاک|
+Seismic Bracing Straps(4)|تسمه مهار لرزه‌ای|
+Fall-Arrest Harness Pads(3)|پد هارنس|
+Staples(2)|منگنه|
+Tube Fitting Clips(6)|گیره اتصال تیوب|
+Stake Pullers(2)|میخ‌کش زمین|
+@0.0.11 Nails
+Decorative Finishing Nails(18)|میخ تزئینی|
+Finishing Nails(31)|میخ بی‌سر|
+Nails for Soft Woods(21)|میخ چوب نرم|
+Nails for Brad Nailers(19)|میخ تفنگی ریز|
+Large-Head Nails(12)|میخ سرپهن|
+Easy-Drive Finishing Nails(15)|میخ بی‌سر آسان‌کوب|
+Heavy Duty Nails(10)|میخ سنگین|
+Nails for Hard Woods(10)|میخ چوب سخت|
+Finishing Nails for Soft Woods(6)|میخ بی‌سر چوب نرم|
+Nails for Masonry(6)|میخ بتن|
+Coils of Nails for Framing Nailers(6)|میخ رولی|
+30°-34° Angled Strips of Nails for Framing Nailers(9)|میخ شانه‌ای ۳۰ درجه|
+Finishing Nails for Hard Woods(7)|میخ بی‌سر چوب سخت|
+Easy-Drive Nails(6)|میخ آسان‌کوب|
+Angled Strips of Nails for Finishing Nailers(10)|میخ شانه‌ای زاویه‌دار|
+21° Angled Strips of Nails for Framing Nailers(3)|میخ شانه‌ای ۲۱ درجه|
+Straight Strips of Nails for Finishing Nailers(11)|میخ شانه‌ای صاف|
+Decorative Finishing Nails for Hard Woods(4)|میخ تزئینی چوب سخت|
+Nails for Soft Materials(4)|میخ مواد نرم|
+Double-Head Removable Nails(4)|میخ دوسر|
+28° Angled Strips of Nails for Framing Nailers(7)|میخ شانه‌ای ۲۸ درجه|
+Plastic Nails for Finishing Nailers(6)|میخ پلاستیکی|
+Railroad Spikes(2)|میخ ریل|
+Stud Finders(5)|ردیاب پشت دیوار|
+@0.0.13 Rivets
+Aluminum Domed Head Blind Rivets(86)|پرچ کور آلومینیومی سرگرد|
+18-8 Stainless Steel Domed Head Blind Rivets(65)|پرچ کور استیل سرگرد|
+Aluminum Flush-Mount Blind Rivets(57)|پرچ کور آلومینیومی خزینه|
+Zinc-Plated Steel Domed Head Blind Rivets(43)|پرچ کور فولاد گالوانیزه سرگرد|
+316 Stainless Steel Domed Head Blind Rivets(26)|پرچ کور استیل ۳۱۶|
+Aluminum Wide-Thickness-Range Domed Head Blind Rivets(16)|پرچ کور آلومینیومی ضخامت متغیر|
+Aluminum Large-Diameter Domed Head Blind Rivets(37)|پرچ کور آلومینیومی قطر بزرگ|
+Choose-a-Color Domed Head Blind Rivets(14)|پرچ کور رنگی|
+High-Strength Blind Rivets for Soft Materials(32)|پرچ کور قوی مواد نرم|
+18-8 Stainless Steel Flush-Mount Blind Rivets(23)|پرچ کور استیل خزینه|
+Domed-on-Both-Sides Blind Rivets(12)|پرچ کور دوسر گرد|
+Flush-Mount-on-Both-Sides Blind Rivets(8)|پرچ کور دوسر خزینه|
+18-8 Stainless Steel Domed Head Sealing Blind Rivets(23)|پرچ کور آب‌بند استیل|
+Blind Rivets for Soft Materials(13)|پرچ کور مواد نرم|
+18-8 Stainless Steel Wide-Thickness-Range Domed Head Blind Rivets(3)|پرچ کور استیل ضخامت متغیر|
+18-8 Stainless Steel Large-Diameter Domed Head Blind Rivets(19)|پرچ کور استیل قطر بزرگ|
+Wide-Thickness-Range Large-Diameter Domed Head Blind Rivets(9)|پرچ کور قطر بزرگ ضخامت متغیر|
+Aluminum Domed Head Sealing Blind Rivets(31)|پرچ کور آب‌بند آلومینیومی|
+18-8 Stainless Steel Wide-Thickness-Range Domed Head High-Strength Blind Rivets(4)|پرچ کور استیل قوی ضخامت متغیر|
+Miniature Domed Head Blind Rivets(5)|پرچ کور مینیاتوری|
+Choose-a-Color Large-Diameter Domed Head Blind Rivets(10)|پرچ کور رنگی قطر بزرگ|
+Plastic Blind Rivets(12)|پرچ کور پلاستیکی|
+Zinc-Plated Steel Large-Diameter Domed Head Blind Rivets(21)|پرچ کور فولادی قطر بزرگ|
+Aluminum Wide-Thickness-Range Flush-Mount High-Strength Blind Rivets(4)|پرچ کور آلومینیومی خزینه قوی|
+Zinc-Plated Steel Flush-Mount Blind Rivets(14)|پرچ کور فولادی خزینه|
+Nickel Flush-Mount Blind Rivets(1)|پرچ کور نیکلی خزینه|
+18-8 Stainless Steel Wide-Thickness-Range Flush-Mount High-Strength Blind Rivets(4)|پرچ کور استیل خزینه قوی|
+Flush-Mount Sealing Blind Rivets(7)|پرچ کور آب‌بند خزینه|
+Blind Rivets for Wood(6)|پرچ کور چوب|
+Wide-Thickness-Range Flush-Mount Blind Rivets(4)|پرچ کور خزینه ضخامت متغیر|
+Choose-a-Color Wide-Thickness-Range Domed Head Blind Rivets(4)|پرچ کور رنگی ضخامت متغیر|
+Zinc-Plated Steel Wide-Thickness-Range Domed Head High-Strength Blind Rivets(5)|پرچ کور فولادی قوی|
+Copper Domed Head Blind Rivets(8)|پرچ کور مسی|
+18-8 Stainless Steel Domed Head High-Strength Blind Rivets(12)|پرچ کور استیل قوی|
+Zinc-Plated Steel Domed Head High-Strength Blind Rivets(13)|پرچ کور فولادی گالوانیزه قوی|
+Aluminum Wide-Thickness-Range Domed Head High-Strength Blind Rivets(5)|پرچ کور آلومینیومی قوی ضخامت متغیر|
+Aluminum Domed Head High-Strength Blind Rivets(7)|پرچ کور آلومینیومی قوی|
+Aluminum Domed Head Sealing Blind Rivets with Plastic Seal(6)|پرچ کور آب‌بند با درزگیر|
+Large-Diameter Domed Head High-Strength Blind Rivets(2)|پرچ کور قوی قطر بزرگ|
+Mil. Spec. Aluminum Flush-Mount Solid Rivets(20)|پرچ توپر آلومینیومی خزینه نظامی|
+Mil. Spec. Aluminum Low-Profile Domed Head Solid Rivets(21)|پرچ توپر آلومینیومی سرکوتاه نظامی|
+Low-Profile Flat Head Solid Rivets(14)|پرچ توپر سرتخت کوتاه|
+Aluminum Flush-Mount Solid Rivets(26)|پرچ توپر آلومینیومی خزینه|
+Aluminum Domed Head Solid Rivets(38)|پرچ توپر آلومینیومی سرگرد|
+Steel Domed Head Solid Rivets(34)|پرچ توپر فولادی سرگرد|
+Steel Flush-Mount Solid Rivets(11)|پرچ توپر فولادی خزینه|
+18-8 Stainless Steel Flat Head Solid Rivets(34)|پرچ توپر استیل سرتخت|
+18-8 Stainless Steel Domed Head Solid Rivets(34)|پرچ توپر استیل سرگرد|
+Aluminum Flat Head Solid Rivets(38)|پرچ توپر آلومینیومی سرتخت|
+Steel Flat Head Solid Rivets(34)|پرچ توپر فولادی سرتخت|
+Large-Diameter Low-Profile Domed Head Solid Rivets(25)|پرچ توپر قطر بزرگ|
+18-8 Stainless Steel Flush-Mount Solid Rivets(13)|پرچ توپر استیل خزینه|
+Brass Flush-Mount Solid Rivets(16)|پرچ توپر برنجی خزینه|
+Brass Domed Head Solid Rivets(15)|پرچ توپر برنجی سرگرد|
+Aluminum Low-Profile Domed Head Solid Rivets(14)|پرچ توپر آلومینیومی سرکوتاه|
+Copper Domed Head Solid Rivets(13)|پرچ توپر مسی سرگرد|
+Copper Flat Head Solid Rivets(12)|پرچ توپر مسی سرتخت|
+Steel Low-Profile Domed Head Solid Rivets(11)|پرچ توپر فولادی سرکوتاه|
+Brass Flat Head Solid Rivets(14)|پرچ توپر برنجی سرتخت|
+Push-In Rivets(76)|پرچ فشاری پلاستیکی|
+Two-Piece Push-In Rivets(20)|پرچ فشاری دوتکه|
+Reusable Push-In Rivets(31)|پرچ فشاری قابل استفاده مجدد|
+Hollow Rivets(37)|پرچ توخالی|
+Solid Rivets with Washer for Soft Material(40)|پرچ توپر با واشر|
+Pin-Drive Rivets(19)|پرچ میخی|
+Two-Piece Press-Fit Rivets for Leather and Fabric(5)|پرچ دوتکه چرم و پارچه|
+Two-Piece Press-Fit Rivets for Wood(3)|پرچ دوتکه چوب|
+Rivet Assortments(1)|ست پرچ|
+Nickel-Plated Steel Split Rivets(6)|پرچ دوشاخه نیکلی|
+Brass Split Rivets(3)|پرچ دوشاخه برنجی|
+Locking-Collar Rivets(10)|پرچ طوقه‌دار (هاک‌بولت)|
+18-8 Stainless Steel Hex-Drive Rivets(6)|پرچ آلنی استیل|
+Steel Hex-Drive Rivets(6)|پرچ آلنی فولادی|
+Fabric Snaps(54)|دکمه قابلمه‌ای|
+Rivet Tool Accessories and Replacement Parts(158)|قطعات پرچ‌کن|
+Rivet Setters(32)|سنبه پرچ|
+Conveyor Wear Strip Rivets(2)|پرچ نوار سایشی نقاله|
+Chisel Bits(19)|قلم|
+Hammers(7)|چکش|
+Rivet Tool Bucking Bars(2)|سندان پرچ|
+Turn-Button Fastener Eyelets(3)|چشمی قفل چرخشی|
+Turn-Button Fastener Bases(6)|پایه قفل چرخشی|
+Roller Chain Breaker/Riveters(2)|زنجیربازکن|
+@0.0.14 Rivet Tools
+Rivet Nut Tool Calibrators(18)|کالیبراتور مهره‌پرچ‌کن|
+Drill Bit Guides(2)|راهنمای مته|
+@0.0.15 Staples
+High-Capacity Office Staples(7)|سوزن منگنه پرظرفیت|
+Staples for Double-Wall Corrugated Cardboard Boxes(3)|سوزن کارتن‌دوز دولا|
+Staples for Air-Powered Plier Staplers(8)|سوزن منگنه بادی|
+Power Crown Staples(4)|سوزن منگنه صنعتی|
+Hammer-In Staples for Wire Fencing(2)|منگنه فنس|
+Office Staples(2)|سوزن منگنه اداری|
+Staple Rolls for Double-Wall Corrugated Cardboard Boxes(2)|رول سوزن کارتن دولا|
+Staples for Single-Wall Corrugated Cardboard Boxes(3)|سوزن کارتن‌دوز یک‌لا|
+Staple Rolls for Single-Wall Corrugated Cardboard Boxes(2)|رول سوزن کارتن یک‌لا|
+Hog Rings(43)|حلقه منگنه (هاگ‌رینگ)|
+@0.0.16 Staplers
+Staplers(150)|منگنه‌کوب|
+Staple Removers(4)|سوزن‌کش|
+Hog Ring Pliers(17)|انبر هاگ‌رینگ|
+@0.0.17 Key Stock
+Fixture Keys(39)|خار فیکسچر|
+@0.0.18 Retaining Rings
+External Retaining Rings(427)|خار بیرونی|
+Internal Retaining Rings(394)|خار داخلی|
+Side-Mount External Retaining Rings(138)|خار E|
+Spiral Internal Retaining Rings(151)|خار مارپیچ داخلی|
+Spiral External Retaining Rings(145)|خار مارپیچ بیرونی|
+High-Load External Retaining Rings(86)|خار بیرونی سنگین|
+Push-On External Retaining Rings(122)|خار فشاری بیرونی|
+High-Load Spiral External Retaining Rings(153)|خار مارپیچ بیرونی سنگین|
+Tight-Clearance Side-Mount External Retaining Rings(117)|خار E کم‌فضا|
+High-Load Spiral Internal Retaining Rings(146)|خار مارپیچ داخلی سنگین|
+Reinforced Side-Mount External Retaining Rings(68)|خار E تقویت‌شده|
+Speared Ends External Retaining Rings(43)|خار بیرونی نوک‌تیز|
+Tight-Clearance Inverted Internal Retaining Rings(57)|خار داخلی معکوس|
+Tight-Clearance Inverted External Retaining Rings(43)|خار بیرونی معکوس|
+Side-Mount, Tapered External, Internal Retaining Rings Assortment(1)|ست خار|
+Mil. Spec. External Retaining Rings(41)|خار بیرونی نظامی|
+Self-Locking External Retaining Rings(33)|خار بیرونی خودقفل|
+Push-On Internal Retaining Rings(44)|خار فشاری داخلی|
+High-Load Internal Retaining Rings(19)|خار داخلی سنگین|
+Constant-Section External Retaining Rings(8)|خار بیرونی مقطع ثابت|
+High-Load Side-Mount External Retaining Rings(34)|خار E سنگین|
+Crimp-On External Retaining Rings(17)|خار پرسی|
+Clip-On External Retaining Rings(8)|خار کلیپسی|
+Tight-Hold Bowed Side-Mount External Retaining Rings(11)|خار E کمانی|
+Tight-Hold Bowed External Retaining Rings(21)|خار بیرونی کمانی|
+External Retaining Rings Assortment(11)|ست خار بیرونی|
+Tight-Hold Internal-Tooth Internal Retaining Rings(25)|خار داخلی دندانه‌دار|
+Tight-Hold Bowed Internal Retaining Rings(16)|خار داخلی کمانی|
+External and Internal Retaining Rings Assortment(3)|ست خار داخلی و بیرونی|
+Side-Mount External Retaining Rings Assortment(6)|ست خار E|
+Tapered and Side-Mount External Retaining Rings Assortment(1)|ست خار مخروطی و E|
+Internal Retaining Rings Assortment(6)|ست خار داخلی|
+Push-On External Retaining Rings Assortment(1)|ست خار فشاری بیرونی|
+Push-On Internal Retaining Rings Assortment(1)|ست خار فشاری داخلی|
+Spiral External and Internal Retaining Rings Assortment(2)|ست خار مارپیچ|
+Flexible Shaft Coupling Retaining Rings(3)|خار کوپلینگ|
+@0.0.19 Cable Ties
+Cinching Straps(64)|تسمه بست|
+Cable Tie Tensioners(21)|کشنده بست کمربندی|
+Cable Tie Cushions(9)|بالشتک بست|
+Baling Wire Tools(3)|ابزار مفتول عدل‌بندی|
+Baling Wire(25)|مفتول عدل‌بندی|
+Bungee Cords(156)|کش بار|
+Bungee Cord Locks(7)|قفل کش|
+Bungee Cord Hooks(26)|قلاب کش|
+Low-Friction Tape(273)|نوار کم‌اصطکاک (تفلون)|
+Rubber Bands(45)|کش لاستیکی|
+Tamper-Evident Seals(99)|پلمب|
+Cable Tie Holsters(1)|جای بست کمربندی|
+T-Slotted Framing Cable Holders(22)|نگهدارنده کابل پروفیل|
+Strut Channel Cable Tie Mounts(2)|پایه بست ناودانی|
+Protective Film and Tape(3)|فیلم محافظ|
+Electrical Tape(197)|چسب برق|
+Wire Sleeving(9)|غلاف سیم|
+Conductive Tape(59)|نوار رسانا|
+Thermal Interface Tape(6)|نوار حرارتی|
+Hook and Loop(511)|چسب پارچه‌ای|
+Snap-Together Fasteners(26)|بست قفلی|
+Masking Tape(125)|چسب کاغذی|
+Mounting Tape(27)|چسب نصب|
+Cable Tie Cutters(4)|بست‌بُر|

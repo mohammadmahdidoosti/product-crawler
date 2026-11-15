@@ -1,0 +1,207 @@
+@0.0.6 Shims
+Washers(5677)|واشر|
+Shim Stock(1260)|ورق شیم|
+Unthreaded Inserts(69)|بوش بدون رزوه|
+Drill Bushings(4038)|بوش راهنمای مته|
+Drill Bushing Sleeves(4)|غلاف بوش مته|
+Die Bushings(102)|بوش قالب|
+Broach Shims(29)|شیم خان‌کش|
+Wedges(6)|گوه|
+Padlock Shims(1)|شیم قفل‌بازکن|
+Tag Washers(18)|واشر پلاک‌دار|
+@0.0.7 Helical & Threaded Inserts
+Key-Locking Threaded Inserts for Soft Metal(657)|اینسرت قفل‌شونده فلزات نرم (کی‌سرت)|
+Screw-Locking Seize-Resistant Key-Locking Threaded Inserts for Soft Metal(128)|کی‌سرت قفل‌کن ضدگیرپاژ|
+Key-Locking Threaded Inserts with Drivers(116)|کی‌سرت با ابزار نصب|
+Key-Locking Threaded Insert Assortments with Installation Tools(10)|ست کی‌سرت با ابزار|
+Finish-Your-Own Key-Locking Threaded Inserts for Soft Metal(52)|کی‌سرت خام|
+Self-Aligning Key-Locking Threaded Inserts for Soft Metal(25)|کی‌سرت خودتنظیم|
+Closed-End Key-Locking Threaded Inserts for Soft Metal(29)|کی‌سرت ته‌بسته|
+Heat-Set Threaded Inserts for Plastic(217)|اینسرت حرارتی پلاستیک|
+Tapered Heat-Set Threaded Inserts For Plastic(159)|اینسرت حرارتی مخروطی|
+Any-Orientation Heat-Set Threaded Inserts for Plastic(76)|اینسرت حرارتی همه‌جهته|
+Tapered Heat-Set Threaded Insert Assortments with Installation Tools(9)|ست اینسرت حرارتی مخروطی|
+Male Heat-Set Threaded Inserts for Plastic(21)|اینسرت حرارتی نر|
+Tapered Male Heat-Set Threaded Inserts for Plastic(23)|اینسرت حرارتی نر مخروطی|
+Heat-Set Threaded Insert Assortments with Installation Tools(7)|ست اینسرت حرارتی|
+Helical Threaded Inserts(771)|هلی‌کویل|
+Screw-Locking Helical Threaded Inserts(411)|هلی‌کویل قفل‌کن|
+Helical Threaded Inserts with Installation Tools(134)|هلی‌کویل با ابزار|
+Seize-Resistant Helical Threaded Inserts(112)|هلی‌کویل ضدگیرپاژ|
+Lubricant-Free Seize-Resistant Helical Threaded Inserts(132)|هلی‌کویل خشک ضدگیرپاژ|
+Screw-Locking Seize-Resistant Helical Threaded Inserts(76)|هلی‌کویل قفل‌کن ضدگیرپاژ|
+Helical Threaded Insert Assortments with Installation Tools(33)|ست هلی‌کویل|
+Seize-Resistant Helical Threaded Inserts for Dissimilar Metals(78)|هلی‌کویل فلزات غیرهمجنس|
+Helical Threaded Inserts for Pipe Threads(28)|هلی‌کویل رزوه لوله|
+Lubricant-Free Screw-Locking Seize-Resistant Helical Threaded Inserts(51)|هلی‌کویل خشک قفل‌کن|
+Left-Hand Thread Helical Threaded Inserts(49)|هلی‌کویل چپ‌گرد|
+Helical Threaded Inserts for Pipe Threads with Installation Tools(4)|هلی‌کویل لوله با ابزار|
+Left-Hand Thread Helical Threaded Inserts with Installation Tools(11)|هلی‌کویل چپ‌گرد با ابزار|
+Helical Threaded Inserts For Spark Plug Repair(4)|هلی‌کویل تعمیر رزوه شمع|
+Thread-Locking Threaded Inserts(292)|اینسرت قفل‌شونده|
+Thread-Locking Threaded Inserts with Installation Tools(16)|اینسرت قفل‌شونده با ابزار|
+Thread-Locking Threaded Insert Assortments(12)|ست اینسرت قفل‌شونده|
+Screw-Locking Thread-Locking Threaded Inserts(11)|اینسرت قفل‌کن پیچ|
+Tapping Threaded Inserts for Softwood(53)|اینسرت خودرزوه چوب نرم|
+Tapping Threaded Inserts for Hardwood(63)|اینسرت خودرزوه چوب سخت|
+Tapping Threaded Inserts for Plastic(63)|اینسرت خودرزوه پلاستیک|
+Tapping Threaded Inserts for Soft Metal(64)|اینسرت خودرزوه فلز نرم|
+Tapping Threaded Insert Assortments for Hardwood(1)|ست اینسرت چوب سخت|
+Tapping Threaded Insert Assortments for Soft Metal(4)|ست اینسرت فلز نرم|
+Tapping Threaded Insert Assortments for Softwood(2)|ست اینسرت چوب نرم|
+Screw-to-Expand Press-In Threaded Inserts for Plastic(126)|اینسرت پرسی انبساطی پلاستیک|
+Press-In Threaded Inserts for Soft Metal(37)|اینسرت پرسی فلز نرم|
+Twist-Resistant Press-In Threaded Inserts for Plastic(28)|اینسرت پرسی ضدچرخش|
+Press-In Threaded Inserts for Plastic(35)|اینسرت پرسی پلاستیک|
+Screw-to-Expand Press-In Threaded Inserts For Through Holes in Plastic(26)|اینسرت انبساطی سوراخ سرتاسری|
+Strong-Grip Screw-to-Expand Press-In Threaded Inserts for Plastic(20)|اینسرت انبساطی گیرش قوی|
+Press-In Threaded Inserts for Carbon Fiber, Fiberglass, and Garolite(21)|اینسرت پرسی کامپوزیت|
+Ultra-Fine-Thread Press-In Threaded Inserts For Plastic(21)|اینسرت پرسی رزوه ریز|
+Push-to-Expand Press-In Threaded Inserts for Plastic(18)|اینسرت فشاری انبساطی|
+Mold-In Threaded Inserts for Plastic(45)|اینسرت قالب‌گیری|
+Closed-End Mold-In Threaded Inserts for Plastic(50)|اینسرت قالب‌گیری ته‌بسته|
+Twist-Resistant Closed-End Mold-In Threaded Inserts for Plastic(11)|اینسرت قالب‌گیری ضدچرخش|
+Tee-Nut Threaded Inserts for Wood(102)|مهره چنگکی چوب|
+Split-Preventing Tee-Nut Threaded Inserts for Hardwood(87)|مهره چنگکی ضدترک|
+Thread-Masking Tee-Nut Threaded Inserts for Wood and Plastic(1)|مهره چنگکی محافظ رزوه|
+Hammer-In Threaded Inserts for Hardwood(5)|اینسرت کوبیدنی چوب سخت|
+Twist-Resistant Tee-Nut Threaded Inserts for Softwood(12)|مهره چنگکی ضدچرخش|
+Hammer-In Threaded Inserts for Softwood(5)|اینسرت کوبیدنی چوب نرم|
+Tee-Nut Threaded Inserts for Fiberglass(5)|مهره چنگکی فایبرگلاس|
+Flush-Profile Hammer-In Threaded Inserts for Softwood(6)|اینسرت کوبیدنی هم‌سطح|
+Screw-Locking Tee-Nut Threaded Inserts for Wood(3)|مهره چنگکی قفل‌کن|
+Closed-End Hammer-In Threaded Inserts for Softwood(6)|اینسرت کوبیدنی ته‌بسته|
+Strong-Grip Tee-Nut Threaded Inserts for Softwood(5)|مهره چنگکی گیرش قوی|
+Swage-Locking Threaded Inserts(35)|اینسرت پرچی|
+Seize-Resistant Swage-Locking Threaded Inserts(35)|اینسرت پرچی ضدگیرپاژ|
+Threaded Insert Installation Tools(739)|ابزار نصب اینسرت|
+Heat-Set Insert Extraction Tips(19)|نوک درآوردن اینسرت حرارتی|
+Threaded Insert Removal Tools(60)|ابزار درآوردن اینسرت|
+Plug Gauges(32)|گیج میله‌ای|
+Heat-Set Insert Installation Tips(10)|نوک نصب اینسرت حرارتی|
+@0.0.8 Spacers & Standoffs
+Sleeve Bearings(3403)|بوش یاتاقانی|
+Flanged Sleeve Bearings(2012)|بوش فلنج‌دار|
+Bumpers(1781)|ضربه‌گیر|
+Shaft Collars(2723)|طوقه شفت|
+Locating and Support Buttons(168)|دکمه موقعیت‌یاب|
+Mounted Bearings(289)|یاتاقان پایه‌دار|
+Threaded Rod Collars(76)|طوقه میله رزوه|
+Linear Bearings(421)|بلبرینگ خطی|
+Bearing Adapter Sleeves(29)|بوش آداپتور بلبرینگ|
+Bore Reducers(31)|کاهنده قطر|
+Shaft Collar Adapters(12)|آداپتور طوقه|
+Machinable Shaft Ends(56)|سر شفت قابل ماشین‌کاری|
+Flexible Shaft Couplings(14)|کوپلینگ انعطاف‌پذیر|
+Pulley and Sprocket Bushings(714)|بوش پولی و چرخ‌زنجیر|
+Eccentric Bushings(7)|بوش خارج از مرکز|
+Locating and Support Pads(6)|پد موقعیت‌یاب|
+Parallels(92)|پارالل|
+Locating Rails(8)|ریل موقعیت‌یاب|
+Slotted Bushings(34)|بوش شیاردار|
+Lathe Tool Insert Holder Seats(35)|زیرالماس تراش|
+Door Stops(70)|استاپر درب|
+Grommets(43)|گرومت|
+Door Silencers(3)|ضربه‌گیر درب|
+Crane Bumpers(20)|ضربه‌گیر جرثقیل|
+Surface Guards(2)|محافظ سطح|
+Panel Hanging Brackets(58)|براکت آویز پنل|
+Vibration-Damping Mounts(50)|لرزه‌گیر|
+Rivet Hole Locators(1)|موقعیت‌یاب سوراخ پرچ|
+Wheel Reducer Bushings(20)|بوش کاهنده چرخ|
+Conveyor Bracket Spacers(1)|فاصله‌انداز براکت نقاله|
+Dock Bumpers(73)|ضربه‌گیر سکوی بارگیری|
+Cable Bundle Spacers(4)|فاصله‌انداز کابل|
+Forklift Fork Spacers(3)|فاصله‌انداز شاخک لیفتراک|
+DIN Rail Spacers(1)|فاصله‌انداز ریل DIN|
+DIN Rail Stops(11)|استاپر ریل DIN|
+Pipe Collars(24)|طوقه لوله|
+@0.0.9 Pins
+Dowel Pins(3492)|پین راهنما (داول)|
+Clevis Pins(2277)|پین مفصل (شاخه‌ای)|
+Quick-Release Pins(2248)|پین قفل سریع|
+Spring Pins(1774)|پین فنری|
+Cotter Pins(1016)|اشپیل|
+Core Pins(1274)|پین ماهیچه قالب|
+Ejector Pins(361)|پین پران|
+Taper Pins(667)|پین مخروطی|
+Linch Pins(20)|پین قفلی چرخ|
+Locating Pins(204)|پین موقعیت‌یاب|
+Gravity Pins(1)|پین وزنی|
+Quick-Release Pin Receptacles(35)|جای پین سریع|
+Hitch Pins(11)|پین یدک‌کش|
+Dowel Pin Stock(53)|میله پین|
+Weld Pins(28)|پین جوشی|
+Shear Pins(52)|پین برشی|
+Quick-Release Pin Retaining Caps(23)|کلاهک پین سریع|
+Safety Pins(8)|سنجاق قفلی|
+Push Pins(7)|پونز|
+Made-to-Order Pins(162)|پین سفارشی|
+Spring Button Clips(40)|گیره دکمه فنری|
+Document Clips(2)|گیره کاغذ|
+Machine Keys(1014)|خار ماشین|
+Split Rings(67)|حلقه شکاف‌دار|
+Machine Key Stock(822)|خار تسمه‌ای|
+Spring Plunger Catches(16)|چفت پلانجر فنری|
+Spring Plunger Mounts(14)|پایه پلانجر فنری|
+Tacks(8)|میخ‌پرچ|
+Wood Joiners(3)|اتصال چوب|
+Pin Extractors(16)|پین‌کش|
+Pin Removal Punches(165)|سنبه پین‌درآر|
+Spring Plunger Drivers(10)|ابزار نصب پلانجر|
+Pin Insertion Tools(16)|ابزار نصب پین|
+Stud Welders(40)|جوش گل‌میخ|
+Alignment Locks(10)|قفل هم‌راستایی|
+Ejector Sleeves(39)|بوش پران|
+Ejector Blades(106)|تیغه پران|
+Pin Removal Blocks(1)|بلوک پین‌درآر|
+Spring Locating Pins(52)|پین موقعیت‌یاب فنری|
+Index Plungers(6)|پلانجر تقسیم|
+Spring Stops(34)|استاپر فنری|
+Spring Locating Pin Installation Tools(6)|ابزار نصب پین فنری|
+Work Supports(3)|تکیه‌گاه قطعه‌کار|
+Punch Pins(30)|پین سنبه|
+Multitools(3)|ابزار چندکاره|
+Grinding Bits(130)|سنگ انگشتی|
+Clothespins(4)|گیره لباس|
+Drill Chuck Replacement Parts(52)|قطعات سه‌نظام دریل|
+Plug Gauge Drivers(7)|دسته گیج میله‌ای|
+Ring Gauges(37)|گیج حلقه‌ای|
+Plug Gauge Handles(12)|دسته گیج|
+Alignment Pins(148)|پین هم‌راستایی|
+Pipe Flange Aligners(17)|هم‌راستاکن فلنج|
+Coordinate Measuring Machine Plates and Fixtures(126)|صفحه و فیکسچر CMM|
+Spring Test Probes(79)|پراب تست فنری|
+Spring Test Probe Sockets(23)|سوکت پراب تست|
+Center Punches(4)|سنبه نشان|
+Forklift Hitch Receivers(2)|اتصال یدک‌کش لیفتراک|
+Hitch Inserts(32)|اینسرت یدک‌کش|
+Tow Eyes(14)|چشمی یدک‌کش|
+Tow Hooks(9)|قلاب یدک‌کش|
+Hitch Balls(9)|گوی یدک‌کش|
+Hitch Receivers(2)|گیرنده یدک‌کش|
+Hitch-Ball Couplers(10)|کوپلر گوی یدک|
+Kingpins(6)|کینگ‌پین|
+Drawbar Couplers(15)|کوپلر میله یدک|
+Hitch Kits(2)|کیت یدک‌کش|
+Scaffold Locking Pins(4)|پین قفل داربست|
+Conveyor Belt Lacing Pins(79)|پین اتصال تسمه نقاله|
+Conveyor Belt Lacing(248)|اتصال تسمه نقاله|
+Conveyor Belt Lacing Clips(4)|گیره اتصال تسمه|
+Conveyor Belt Lacers(18)|دستگاه اتصال تسمه|
+Molex Connectors(68)|کانکتور مولکس|
+Power Connectors(130)|کانکتور برق|
+D-Sub Connectors(18)|کانکتور D-Sub|
+USB Connectors(14)|کانکتور USB|
+Amphenol Plugs(13)|فیش آمفنول|
+Terminals, Ferrules, and Lugs(75)|سرسیم و وایرشو|
+Power Cords(4)|کابل برق|
+Circuit Board Headers(20)|هدر برد|
+Battery Clip Retaining Pins(2)|پین گیره باتری|
+Hydraulic Cylinder Mounts(33)|پایه جک هیدرولیک|
+Sleeve Splines(3)|بوش هزارخار|
+Rolling Pins(1)|وردنه|
+Door Closers(1)|آرام‌بند|
+Tag Rings(7)|حلقه پلاک|
+Pallet Rack Locking Pins(2)|پین قفل رک|
+Insulation Hanger Studs(21)|پین نصب عایق|
