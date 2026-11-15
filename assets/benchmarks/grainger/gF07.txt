@@ -1,0 +1,266 @@
+12449|4|Grease Pencils|مداد شمعی (گریس)|
+12450|4|Carpenter Pencils|مداد نجاری|
+12451|4|Chalk Line Reels & Kits|ریسمان رنگی (ریسمان گچی) و کیت|
+12452|4|Line Marking Chalks|پودر گچ ریسمان|
+12453|4|Hole Marking Chalks|گچ علامت‌گذاری سوراخ|
+12454|4|Railroad Chalks|گچ علامت‌گذاری راه‌آهن|
+12455|4|Torque Marking Pastes|خمیر نشانگر گشتاور (تورک‌مارک)|
+12456|4|Marking Systems|سیستم حکاکی و نشانه‌گذاری|
+12457|4|Marking System Inks & Solvents|جوهر و حلال سیستم نشانه‌گذاری|
+12458|4|Metal Marking Scribers|سوزن خط‌کش فلز|
+12459|4|Drafting Compasses & Trammels|پرگار نقشه‌کشی و پرگار میله‌ای|
+12460|2|Sockets & Bits|بکس و سری پیچ‌گوشتی|
+12461|3|Sockets & Sets|بکس (سری بکس) و ست|
+12462|4|Hand Sockets|سری بکس دستی|
+12463|5|General Purpose Hand Sockets|سری بکس عمومی|
+12464|5|External Torx & Torx Plus Hand Sockets|سری بکس ستاره‌ای (E-Torx)|
+12465|5|Male Pipe Plug Hand Sockets|سری بکس درپوش لوله|
+12466|5|Insulated Hand Sockets|سری بکس عایق|
+12467|5|Non-Sparking Hand Sockets|سری بکس ضدجرقه|
+12468|5|Specialty Automotive Hand Sockets|سری بکس مخصوص خودرو|
+12469|5|Flex Hand Sockets|سری بکس مفصلی|
+12470|5|Drum Bung Plug Hand Sockets|سری بکس درب بشکه|
+12471|5|Hygienic & Stainless Steel Hand Sockets|سری بکس استیل بهداشتی|
+12472|4|Hand Socket Sets|جعبه بکس دستی (ست بکس)|ترکیبی
+12473|5|General Purpose Hand Socket Sets|ست بکس عمومی|
+12474|5|Bolt Extraction Hand Socket Sets|ست بکس پیچ‌درآر|
+12475|5|Flex Hand Socket Sets|ست بکس مفصلی|
+12476|5|Insulated Hand Socket Sets|ست بکس عایق|
+12477|5|Non-Sparking Hand Socket Sets|ست بکس ضدجرقه|
+12478|5|Pass-Through Hand Socket Sets|ست بکس توخالی (پاس‌ترو)|
+12479|5|Specialty Automotive Hand Socket Sets|ست بکس مخصوص خودرو|
+12480|4|Impact Sockets|سری بکس ضربه‌ای (فشارقوی)|
+12481|5|General Purpose Impact Sockets|سری بکس ضربه‌ای عمومی|
+12482|5|External Torx Impact Sockets|سری بکس ضربه‌ای ستاره‌ای|
+12483|5|Flex Impact Sockets|سری بکس ضربه‌ای مفصلی|
+12484|5|Non-Sparking Impact Sockets|سری بکس ضربه‌ای ضدجرقه|
+12485|5|Castellated, Budd Wheel & Utility Impact Sockets|سری بکس ضربه‌ای کنگره‌ای و چرخ سنگین|
+12486|5|Bolt Extraction Impact Sockets|سری بکس ضربه‌ای پیچ‌درآر|
+12487|4|Impact Socket Sets|ست بکس ضربه‌ای|
+12488|5|General Purpose Impact Socket Sets|ست بکس ضربه‌ای عمومی|
+12489|5|Bolt Extraction Impact Socket Sets|ست بکس ضربه‌ای پیچ‌درآر|
+12490|5|Flex Impact Socket Sets|ست بکس ضربه‌ای مفصلی|
+12491|5|Budd Wheel Impact Socket Sets|ست بکس ضربه‌ای چرخ سنگین|
+12492|4|Power Sockets|سری بکس ابزار برقی|
+12493|4|Socket End Wrenches|آچار بکسی (بکس دسته‌دار)|
+12494|3|Bit Sockets & Sets|سری بکس پیچ‌گوشتی (بیت سوکت) و ست|
+12495|4|Hand Bit Sockets|بیت سوکت دستی|
+12496|5|Phillips Hand Bit Sockets|بیت سوکت چهارسو|
+12497|5|Square Hand Bit Sockets|بیت سوکت چهارگوش|
+12498|5|Torx & Torx Plus Hand Bit Sockets|بیت سوکت ستاره‌ای (تورکس)|
+12499|5|Slotted Hand Bit Sockets|بیت سوکت دوسو|
+12500|5|Hex & Ball-End Hex Hand Bit Sockets|بیت سوکت آلنی و آلنی سرگرد|
+12501|5|Pozidriv Hand Bit Sockets|بیت سوکت پوزیدرایو|
+12502|5|Security Hand Bit Sockets|بیت سوکت امنیتی|
+12503|5|12-Point Hand Bit Sockets|بیت سوکت ۱۲ پر (دوازده‌گوش)|
+12504|4|Hand Bit Socket Sets|ست بیت سوکت دستی|
+12505|4|Impact Bit Sockets|بیت سوکت ضربه‌ای|
+12506|4|Impact Bit Socket Sets|ست بیت سوکت ضربه‌ای|
+12507|3|Socket Adapters, Extensions & Accessories|تبدیل، رابط و لوازم بکس|
+12508|4|Hand Socket Adapters, Extensions & Accessories|تبدیل، رابط و لوازم بکس دستی|
+12509|5|Hand Socket Adapters|تبدیل بکس دستی|
+12510|5|Flex Hand Socket Adapters|تبدیل مفصلی (چهارشاخ) بکس|
+12511|5|Hand Socket Extensions|رابط بکس دستی|
+12512|4|Impact Socket Adapters, Extensions & Accessories|تبدیل، رابط و لوازم بکس ضربه‌ای|
+12513|5|Impact Socket Adapters|تبدیل بکس ضربه‌ای|
+12514|5|Flex Impact Socket Adapters|تبدیل مفصلی بکس ضربه‌ای|
+12515|5|Impact Socket Extensions|رابط بکس ضربه‌ای|
+12516|5|Impact Socket Retaining Rings & Pins|حلقه و پین نگهدارنده بکس ضربه‌ای|
+12517|4|Power Socket Adapters|تبدیل بکس ابزار برقی|
+12518|3|Screwdriver Bits|سری پیچ‌گوشتی (بیت)|
+12519|4|Phillips Screwdriver Bits|سری پیچ‌گوشتی چهارسو|
+12520|4|Square Screwdriver Bits|سری پیچ‌گوشتی چهارگوش|
+12521|4|Torx & Torx Plus Screwdriver Bits|سری پیچ‌گوشتی ستاره‌ای (تورکس)|
+12522|4|Slotted Screwdriver Bits|سری پیچ‌گوشتی دوسو|
+12523|4|Hex & Ball-End Hex Screwdriver Bits|سری پیچ‌گوشتی آلنی و آلنی سرگرد|
+12524|4|Security Screwdriver Bits|سری پیچ‌گوشتی امنیتی|
+12525|4|Specialty Screwdriver Bits|سری پیچ‌گوشتی خاص|
+12526|4|Insulated Screwdriver Bits|سری پیچ‌گوشتی عایق|
+12527|3|Screwdriver Bit Sets|ست سری پیچ‌گوشتی|ترکیبی
+12528|3|Double-Ended Driver Bits|سری پیچ‌گوشتی دوسر|
+12529|3|Nutsetters & Sets|سری بکس پیچ‌گوشتی برقی (نات‌ستر) و ست|
+12530|3|Bit Holders|سری‌نگهدار (بیت هولدر)|
+12531|2|Tool Storage|نگهداری ابزار (جعبه ابزار و کمد ابزار)|
+12532|3|Jobsite Boxes & Cabinets|صندوق و کمد ابزار کارگاهی|
+12533|3|Tool Cabinets, Chests & Carts|کمد ابزار، جعبه ابزار و ترولی|
+12534|4|Rolling Tool Cabinets|کمد ابزار چرخ‌دار (ترولی ابزار)|
+12535|4|Side Cabinets for Tool Storage|کمد جانبی ابزار|
+12536|4|Tool Cabinet & Chest Combos|ست کمد و جعبه ابزار|
+12537|4|Top Chests & Intermediate Chests for Tool Storage|جعبه ابزار رویی و میانی|
+12538|4|Tool Utility Carts|ترولی ابزار (چرخ دستی سرویس)|
+12539|3|Modular Tool Storage Systems|سیستم جعبه ابزار ماژولار|
+12540|4|Milwaukee PACKOUT|Milwaukee PACKOUT|
+12541|5|Milwaukee PACKOUT Rolling Storage & Tool Boxes|جعبه ابزار و باکس چرخ‌دار Milwaukee PACKOUT|
+12542|5|Milwaukee PACKOUT Tool Bags & Totes|کیف ابزار Milwaukee PACKOUT|
+12543|5|Milwaukee PACKOUT Organizers & Attachments|اورگانایزر و متعلقات Milwaukee PACKOUT|
+12544|5|Milwaukee PACKOUT Mounting Racks, Hooks & Holders|رک، قلاب و نگهدارنده Milwaukee PACKOUT|
+12545|5|Milwaukee PACKOUT Coolers & Drinkware|یخدان و لیوان Milwaukee PACKOUT|ترکیبی
+12546|5|Milwaukee PACKOUT Jobsite Aids|لوازم کارگاهی Milwaukee PACKOUT|
+12547|5|Milwaukee PACKOUT Socket Sets|ست بکس Milwaukee PACKOUT|
+12548|4|Klein MODbox|Klein MODbox|
+12549|5|Klein MODbox Rolling Storage & Tool Boxes|جعبه ابزار و باکس چرخ‌دار Klein MODbox|
+12550|5|Klein MODbox Tool Bags & Totes|کیف ابزار Klein MODbox|
+12551|5|Klein MODbox Organizers & Attachments|اورگانایزر و متعلقات Klein MODbox|
+12552|5|Klein MODbox Pouches & Vests|کیف کمری و جلیقه Klein MODbox|
+12553|4|DEWALT TSTAK|DEWALT TSTAK|
+12554|5|DEWALT TSTAK Rolling Storage & Tool Boxes|جعبه ابزار و باکس چرخ‌دار DEWALT TSTAK|
+12555|5|DEWALT TSTAK Tool Bags & Totes|کیف ابزار DEWALT TSTAK|
+12556|5|DEWALT TSTAK Organizers & Attachments|اورگانایزر و متعلقات DEWALT TSTAK|
+12557|5|DEWALT TSTAK Jobsite Aids|لوازم کارگاهی DEWALT TSTAK|
+12558|4|DEWALT Tough System|DEWALT Tough System|
+12559|5|DEWALT Tough System Rolling Storage & Tool Boxes|جعبه ابزار و باکس چرخ‌دار DEWALT Tough System|
+12560|5|DEWALT Tough System Tool Bags & Totes|کیف ابزار DEWALT Tough System|
+12561|5|DEWALT Tough System Organizers & Attachments|اورگانایزر و متعلقات DEWALT Tough System|
+12562|5|DEWALT Tough System Mounting Rack, Hooks & Holders|رک، قلاب و نگهدارنده DEWALT Tough System|
+12563|5|DEWALT Tough System Jobsite Aids|لوازم کارگاهی DEWALT Tough System|
+12564|4|ToughBuilt StackTech|ToughBuilt StackTech|
+12565|5|ToughBuilt StackTech Tool Bags & Totes|کیف ابزار ToughBuilt StackTech|
+12566|5|ToughBuilt StackTech Organizers & Attachments|اورگانایزر و متعلقات ToughBuilt StackTech|
+12567|5|ToughBuilt StackTech Mounting Racks, Hooks & Holders|رک، قلاب و نگهدارنده ToughBuilt StackTech|
+12568|5|ToughBuilt StackTech Jobsite Aids|لوازم کارگاهی ToughBuilt StackTech|
+12569|4|Makita MAKTRAK|Makita MAKTRAK|
+12570|5|Makita MAKTRAK Rolling Tool Storage & Tool Boxes|جعبه ابزار و باکس چرخ‌دار Makita MAKTRAK|
+12571|5|Makita MAKTRAK Organizers & Attachments|اورگانایزر و متعلقات Makita MAKTRAK|
+12572|3|Tool Backpacks & Rolling Tool Bags|کوله ابزار و کیف ابزار چرخ‌دار|
+12573|3|Tool Totes & Wide-Mouth Tool Bags|کیف ابزار دهانه‌باز|
+12574|3|Portable Tool Boxes & Cases|جعبه ابزار دستی و کیف ابزار|ترکیبی
+12575|3|Tool Pouches, Holsters & Sheaths|کیف کمری ابزار، جاابزاری و غلاف|
+12576|3|Tool Belts, Aprons, Suspenders & Vests|کمربند ابزار، پیش‌بند، بند شلوار و جلیقه ابزار|
+12577|3|Flat Zippered Tool Bags|کیف ابزار زیپی تخت|
+12578|3|Bucket Bags & Aerial Bucket Tool Storage|کیف سطلی و جاابزاری سبد بالابر|
+12579|3|Tool Organizers|اورگانایزر ابزار|
+12580|3|Tool Storage Accessories|لوازم جانبی نگهداری ابزار|
+12581|3|Cordless Tool & Battery Holders|نگهدارنده ابزار شارژی و باتری|
+12582|4|Cordless Tool Holders|نگهدارنده ابزار شارژی|
+12583|4|Cordless Tool Battery Holders|نگهدارنده باتری ابزار|
+12584|2|Tool Balancers, Retractors & Accessories|بالانسر ابزار، جمع‌کن و لوازم|
+12585|3|Tool Balancers & Retractors|بالانسر ابزار (فنر آویز) و جمع‌کن|
+12586|3|Balancer & Retractor Chains, Cables & Saddles|زنجیر، سیم و زین بالانسر|
+12587|3|Lanyards|بند نگهدارنده ابزار (لنیارد)|
+12588|1|Welding|جوشکاری|
+12589|2|Arc Welding|جوش قوس الکتریکی|
+12590|3|MIG Welding|جوش میگ (CO2)|
+12591|4|MIG Welders|دستگاه جوش میگ|
+12592|5|Miller MIG Welders|دستگاه جوش میگ Miller|
+12593|5|Lincoln Electric MIG Welders|دستگاه جوش میگ Lincoln Electric|
+12594|5|ESAB MIG Welders|دستگاه جوش میگ ESAB|
+12595|5|Hobart MIG Welders|دستگاه جوش میگ Hobart|
+12596|4|MIG Consumables|مصرفی‌های تورچ میگ|
+12597|5|MIG Nozzles|نازل تورچ میگ|
+12598|6|Miller, Bernard & Hobart MIG Nozzles|نازل میگ Miller، Bernard و Hobart|
+12599|6|Tweco MIG Nozzles|نازل میگ Tweco|
+12600|6|Lincoln Electric MIG Nozzles|نازل میگ Lincoln Electric|
+12601|5|MIG Contact Tips|کانتکت تیپ میگ|
+12602|6|Miller, Bernard & Hobart MIG Contact Tips|کانتکت تیپ Miller، Bernard و Hobart|
+12603|6|Tweco MIG Contact Tips|کانتکت تیپ Tweco|
+12604|6|Lincoln Electric MIG Contact Tips|کانتکت تیپ Lincoln Electric|
+12605|5|MIG Gas Diffusers|گازپخش‌کن (دیفیوزر) میگ|
+12606|5|MIG Insulators|عایق تورچ میگ|
+12607|5|MIG Liners|لاینر (فنر) تورچ میگ|
+12608|5|MIG Conductor Tubes|گردن تورچ میگ (لوله هادی)|
+12609|5|MIG Consumables Kits|کیت مصرفی میگ|
+12610|4|MIG Guns|تورچ میگ|
+12611|4|MIG Wire Feeders & Accessories|وایرفیدر (سیم‌تغذیه‌کن) میگ و لوازم|
+12612|5|Wire Feeders|وایرفیدر|
+12613|6|Miller Wire Feeders|وایرفیدر Miller|
+12614|6|Lincoln Electric Wire Feeders|وایرفیدر Lincoln Electric|
+12615|6|ESAB Wire Feeders|وایرفیدر ESAB|
+12616|5|Drive Rolls & Wire Guides|قرقره (رول) وایرفیدر و راهنمای سیم|
+12617|6|Drive Roll Kits|کیت رول وایرفیدر|
+12618|6|Drive Rolls|رول وایرفیدر|
+12619|6|Wire Guides|راهنمای سیم جوش|
+12620|5|Cleaning & Lubricating Pads for Wire Feeders|پد تمیزکن و روغن‌کاری سیم جوش|
+12621|5|Lubricants for Wire Feeders|روان‌کننده سیم جوش|
+12622|3|TIG Welding|جوش تیگ (آرگون)|
+12623|4|TIG Welders|دستگاه جوش تیگ (آرگون)|
+12624|5|Miller TIG Welders|دستگاه جوش تیگ Miller|
+12625|5|Lincoln Electric TIG Welders|دستگاه جوش تیگ Lincoln Electric|
+12626|5|ESAB TIG Welders|دستگاه جوش تیگ ESAB|
+12627|4|TIG Consumables|مصرفی‌های تورچ تیگ|
+12628|5|TIG Nozzles|نازل تورچ تیگ (سرامیک)|
+12629|5|TIG Gas Lenses & Collet Bodies|گس‌لنز و بدنه کولت تیگ|
+12630|5|TIG Collets|کولت تورچ تیگ|
+12631|5|TIG Insulators & Gaskets|عایق و واشر تورچ تیگ|
+12632|5|TIG Torch Back Caps|درپوش پشت تورچ تیگ|
+12633|5|TIG Consumables Kits|کیت مصرفی تیگ|
+12634|5|TIG Trailing Shields|شیلد محافظ پشت جوش تیگ|
+12635|4|Tungsten Electrodes|الکترود تنگستن|
+12636|4|TIG Torches|تورچ تیگ|
+12637|4|TIG Torch Bodies|بدنه تورچ تیگ|
+12638|4|TIG Torch Handles|دسته تورچ تیگ|
+12639|4|TIG Hoses & Fittings|شیلنگ و اتصالات تیگ|
+12640|5|TIG Gas Hoses|شیلنگ گاز تیگ|
+12641|5|TIG Water Hoses|شیلنگ آب تیگ|
+12642|5|TIG Hose Fittings & Couplings|اتصالات و کوپلینگ شیلنگ تیگ|
+12643|4|TIG Power Cables & Connectors|کابل برق و کانکتور تیگ|
+12644|5|TIG Power Cables|کابل برق تورچ تیگ|
+12645|5|TIG Torch-to-Machine Connectors|اتصال تورچ به دستگاه|
+12646|4|Tungsten Electrode Grinders|دستگاه تیزکن الکترود تنگستن|
+12647|3|Stick Welding|جوش الکترودی (برق)|
+12648|4|Stick Welders|دستگاه جوش الکترودی|
+12649|5|Lincoln Electric Stick Welders|دستگاه جوش الکترودی Lincoln Electric|
+12650|5|Miller Stick Welders|دستگاه جوش الکترودی Miller|
+12651|5|ESAB Stick Welders|دستگاه جوش الکترودی ESAB|
+12652|4|Stick Welding Electrode Holders|انبر جوش (انبر الکترودگیر)|
+12653|4|Stick Welding Electrode Holder & Cable Kits|کیت انبر جوش و کابل|
+12654|4|Stick Welding Electrode Containers|قوطی نگهداری الکترود|
+12655|4|Stick Welding Electrode Ovens|کوره (آون) خشک‌کن الکترود|
+12656|3|Multiprocess Welders|دستگاه جوش چندکاره|
+12657|4|Lincoln Electric Multiprocess Welders|دستگاه جوش چندکاره Lincoln Electric|
+12658|4|Miller Multiprocess Welders|دستگاه جوش چندکاره Miller|
+12659|4|ESAB Multiprocess Welders|دستگاه جوش چندکاره ESAB|
+12660|4|Hobart Multiprocess Welders|دستگاه جوش چندکاره Hobart|
+12661|3|Engine-Driven Welders & Accessories|موتورجوش و لوازم|
+12662|4|Welder Generators|موتورجوش (ژنراتور جوش)|
+12663|5|Miller Welder Generators|موتورجوش Miller|
+12664|5|Lincoln Electric Welder Generators|موتورجوش Lincoln Electric|
+12665|5|Hobart Welder Generators|موتورجوش Hobart|
+12666|5|ESAB Welder Generators|موتورجوش ESAB|
+12667|4|Welder Generator Accessories|لوازم جانبی موتورجوش|
+12668|3|Battery-Powered Welders|دستگاه جوش باتری‌دار|
+12669|3|Welding Cobots|ربات همکار جوشکاری (کوبات)|
+12670|3|Welding Cable, Connectors & Cable Grounds|کابل جوش، کانکتور و انبر اتصال زمین|
+12671|4|Welding Cable|کابل جوش|
+12672|4|Welding Cable Connectors|کانکتور (فیش) کابل جوش|
+12673|4|Welding Cable Lugs|کابلشو جوش|
+12674|4|Welding Cable Covers|روکش کابل جوش|
+12675|4|Welding Ground Clamps|انبر اتصال (انبر ارت) جوش|
+12676|4|Welding Cable, Clamp & Connector Kits|کیت کابل، انبر و کانکتور جوش|
+12677|4|Welding Cable Reels|قرقره کابل جوش|
+12678|4|Welder Power Cable Adapters|تبدیل کابل برق دستگاه جوش|
+12679|3|Welder Remote Controls|ریموت کنترل دستگاه جوش|
+12680|3|Welder Covers|کاور دستگاه جوش|
+12681|3|Welding Carts & Running Gear|ترولی دستگاه جوش و چرخ|
+12682|3|Welding Coolant Systems & Accessories|واترکولر جوش و لوازم|
+12683|3|Welding Training Systems|سیستم آموزش جوشکاری|
+12684|2|Filler Metals|فلز پرکننده (الکترود و سیم جوش)|
+12685|3|Stick Welding Electrodes|الکترود جوشکاری|
+12686|4|Aluminum Stick Welding Electrodes|الکترود آلومینیوم|
+12687|4|Carbon Steel Stick Welding Electrodes|الکترود فولاد کربنی|
+12688|4|Cast Iron Stick Welding Electrodes|الکترود چدن|
+12689|4|Cutting & Metal-Removing Stick Electrodes|الکترود برش و شیارزنی|
+12690|4|Hardfacing Stick Electrodes|الکترود سخت‌کاری (روکش سخت)|
+12691|4|Low-Alloy Steel Stick Welding Electrodes|الکترود فولاد کم‌آلیاژ|
+12692|4|Stainless Steel Stick Welding Electrodes|الکترود استیل|
+12693|3|Welding Wire|سیم جوش|
+12694|4|MIG Welding Wire|سیم جوش میگ (CO2)|
+12695|5|Aluminum MIG Welding Wire|سیم جوش میگ آلومینیوم|
+12696|5|Carbon Steel MIG Welding Wire|سیم جوش میگ فولاد کربنی|
+12697|5|Cast Iron MIG Welding Wire|سیم جوش میگ چدن|
+12698|5|Copper MIG Welding Wire|سیم جوش میگ مس|
+12699|5|Low-Alloy Steel MIG Welding Wire|سیم جوش میگ فولاد کم‌آلیاژ|
+12700|5|Nickel Alloy MIG Welding Wire|سیم جوش میگ آلیاژ نیکل|
+12701|5|Stainless Steel MIG Welding Wire|سیم جوش میگ استیل|
+12702|4|Flux-Cored Welding Wire|سیم جوش توپودری (فلاکس‌کور)|
+12703|5|Carbon Steel Flux-Cored Welding Wire|سیم توپودری فولاد کربنی|
+12704|5|Hardfacing Flux-Cored Wire|سیم توپودری سخت‌کاری|
+12705|5|Low-Alloy Steel Flux-Cored Welding Wire|سیم توپودری فولاد کم‌آلیاژ|
+12706|5|Stainless Steel Flux-Cored Welding Wire|سیم توپودری استیل|
+12707|4|Metal-Cored Welding Wire|سیم جوش متال‌کور|
+12708|5|Carbon Steel Metal-Cored Welding Wire|سیم متال‌کور فولاد کربنی|
+12709|5|Cast Iron Metal-Cored Welding Wire|سیم متال‌کور چدن|
+12710|5|Hardfacing Metal-Cored Wire|سیم متال‌کور سخت‌کاری|
+12711|3|TIG Welding Rods|سیم جوش تیگ (فیلر)|
+12712|4|Aluminum TIG Welding Rods|سیم جوش تیگ آلومینیوم|
+12713|4|Carbon Steel TIG Welding Rods|سیم جوش تیگ فولاد کربنی|
+12714|4|Cast Iron TIG Welding Rods|سیم جوش تیگ چدن|

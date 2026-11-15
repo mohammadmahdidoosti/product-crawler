@@ -1,0 +1,290 @@
+6685|3|Packaging Peanuts|پرکن یونولیتی (پاپ‌کورن بسته‌بندی)|
+6686|4|Packing Peanuts|پرکن یونولیتی|
+6687|4|Packing Peanut Dispensers|توزیع‌کننده پرکن یونولیتی|
+6688|3|Instant Foam|فوم تزریقی بسته‌بندی (فوم درجا)|
+6689|3|Anti-Static Packaging|بسته‌بندی آنتی‌استاتیک|
+6690|4|Anti-Static Bubble Wrap|نایلون حباب‌دار آنتی‌استاتیک|
+6691|5|Anti-Static Bubble Rolls|رول حباب‌دار آنتی‌استاتیک|
+6692|5|Anti-Static Bubble Dispensing Boxes|جعبه توزیع حباب‌دار آنتی‌استاتیک|
+6693|5|Anti-Static Bubble Bags|کیسه حباب‌دار آنتی‌استاتیک|
+6694|4|Anti-Static Foam|فوم آنتی‌استاتیک|
+6695|5|Anti-Static Foam Pouches|کیسه فوم آنتی‌استاتیک|
+6696|5|Anti-Static Foam Rolls|رول فوم آنتی‌استاتیک|
+6697|4|Anti-Static Peanuts|پرکن آنتی‌استاتیک|
+6698|3|Corrosion Inhibiting Packaging|بسته‌بندی ضدخوردگی (VCI)|
+6699|4|Corrosion Inhibiting VCI Paper Rolls|رول کاغذ ضدزنگ VCI|
+6700|4|Corrosion Inhibiting VCI Paper Sheets|برگ کاغذ ضدزنگ VCI|
+6701|4|Corrosion Inhibiting VCI Chipboard|مقوای ضدزنگ VCI|
+6702|4|Corrosion Inhibiting VCI Pads|پد ضدزنگ VCI|
+6703|4|Corrosion Inhibiting VCI Powder Packs|بسته پودر ضدزنگ VCI|
+6704|4|Corrosion Inhibiting VCI Bubble Bags|کیسه حباب‌دار ضدزنگ VCI|
+6705|4|Corrosion Inhibiting VCI Films|فیلم ضدزنگ VCI|
+6706|3|Temperature-Controlled Packaging|بسته‌بندی کنترل دما|
+6707|4|Cold Packs|آیس‌پک (کیسه سرمازا)|
+6708|4|Insulated Box Liners & Pallet Covers|لاینر عایق کارتن و کاور عایق پالت|
+6709|4|Insulated Bubble Rolls|رول حباب‌دار عایق (فویلی)|
+6710|4|Insulated Mailers|پاکت پستی عایق|
+6711|3|Bubble & Foam Dispensers & Cutters|توزیع‌کننده و برش رول حباب‌دار و فوم|
+6712|3|Moisture Absorbent Packaging|بسته‌بندی رطوبت‌گیر|
+6713|4|Desiccant Bags|کیسه رطوبت‌گیر (سیلیکاژل)|
+6714|4|Humidity Indicators|کارت نشانگر رطوبت|
+6715|4|Vermiculite & Obsidian for Shipping|ورمیکولیت و پرلیت جاذب حمل|
+6716|4|Packaging Absorbents|جاذب بسته‌بندی|
+6717|2|Stretch Wrap|سلفون کشی (استرچ)|
+6718|3|Stretch Wrap Rolls|رول استرچ|
+6719|4|General Purpose Stretch Wrap|استرچ همه‌منظوره|
+6720|5|Hand Grade Stretch Wrap|استرچ دستی|
+6721|5|Machine Length Stretch Wrap|استرچ ماشینی|
+6722|5|Stretch Wrap with Handles|استرچ دسته‌دار|
+6723|4|High Performance Stretch Wrap|استرچ کارایی بالا|
+6724|4|Pre-Stretched Wrap|استرچ پیش‌کشیده|
+6725|4|Extra-Wide Stretch Wrap|استرچ عریض|
+6726|4|Color Coding Stretch Wrap|استرچ رنگی کدگذاری|
+6727|5|Color-Coding Stretch Wrap|استرچ رنگی|
+6728|5|Color Coding Stretch Wrap with Handles|استرچ رنگی دسته‌دار|
+6729|4|Product Concealing Stretch Wrap|استرچ مات (پوشاننده کالا)|
+6730|4|Anti-Static Stretch Wrap|استرچ آنتی‌استاتیک|
+6731|4|Corrosion Inhibiting VCI Stretch Wrap|استرچ ضدزنگ VCI|
+6732|4|Breathable Stretch Wrap|استرچ تنفسی (مشبک)|
+6733|4|Identity Message Stretch Wrap|استرچ چاپ‌دار (پیام شناسایی)|
+6734|3|Stretch Wrap Dispensers|دسته استرچ (استرچ‌پیچ دستی)|
+6735|3|Stretch Wrap Machines & Turntables|دستگاه استرچ‌پیچ و صفحه گردان|
+6736|3|Top Sheeting|نایلون روپوش پالت|
+6737|2|Strapping|تسمه بسته‌بندی|
+6738|3|Strapping Bands|تسمه بسته‌بندی|
+6739|4|Steel Strapping|تسمه فلزی (فولادی)|
+6740|4|Stainless Steel Strapping|تسمه استیل|
+6741|4|Polyester Strapping|تسمه پلی‌استر (PET)|
+6742|4|Polypropylene Strapping|تسمه پلی‌پروپیلن (PP)|
+6743|4|Poly Cord Strapping|تسمه الیافی (کوردی)|
+6744|3|Strapping Seals & Buckles|بست (سیل) و سگک تسمه|
+6745|4|Seals for Steel Strapping|بست تسمه فلزی|
+6746|4|Seals for Stainless Steel Strapping|بست تسمه استیل|
+6747|4|Seals for Polyester Strapping|بست تسمه پلی‌استر|
+6748|4|Seals & Buckles for Polypropylene Strapping|بست و سگک تسمه پلی‌پروپیلن|
+6749|4|Buckles for Poly Cord & Composite Strapping|سگک تسمه الیافی و کامپوزیت|
+6750|3|Strapping Tools|ابزار تسمه‌کشی|
+6751|4|Tools for Steel Strapping|ابزار تسمه فلزی|
+6752|5|Combination Tools for Steel Strapping|ابزار ترکیبی تسمه فلزی|
+6753|5|Cutter Tools for Steel Strapping|قیچی تسمه فلزی|
+6754|5|Sealer Tools for Steel Strapping|پرس (بست‌زن) تسمه فلزی|
+6755|5|Tensioner Tools for Steel Strapping|تسمه‌کش (کشنده) تسمه فلزی|
+6756|4|Tools for Stainless Steel Strapping|ابزار تسمه استیل|
+6757|4|Tools for Plastic Strapping|ابزار تسمه پلاستیکی|
+6758|5|Combination Tools for Plastic Strapping|ابزار ترکیبی تسمه پلاستیکی|
+6759|5|Sealer Tools for Plastic Strapping|بست‌زن تسمه پلاستیکی|
+6760|5|Tensioner Tools for Plastic Strapping|تسمه‌کش تسمه پلاستیکی|
+6761|4|Tools for Poly Cord Strapping|ابزار تسمه الیافی|
+6762|3|Strapping Carts|ترولی تسمه|
+6763|3|Strapping Kits|کیت تسمه‌کشی|
+6764|4|Steel Strapping Kits|کیت تسمه فلزی|
+6765|4|Polyester Strapping Kits|کیت تسمه پلی‌استر|
+6766|4|Polypropylene Strapping Kits|کیت تسمه پلی‌پروپیلن|
+6767|4|Poly Cord Strapping Kits|کیت تسمه الیافی|
+6768|3|Strapping Machines|دستگاه تسمه‌کش|
+6769|3|Strapping Accessories|لوازم جانبی تسمه‌کشی|
+6770|3|Baling Wire & Ties|سیم عدل‌بندی|
+6771|3|Replacement Parts for Strapping Tools|قطعات یدکی ابزار تسمه‌کشی|
+6772|2|Edge & Corner Protectors|محافظ لبه و گوشه (نبشی کارتنی)|
+6773|3|Edge Protectors|محافظ لبه (نبشی کارتنی)|
+6774|3|Corner Protectors|محافظ گوشه|
+6775|3|Strapping Guards|محافظ زیر تسمه|
+6776|3|Edge Protector Cutters|برش نبشی کارتنی|
+6777|2|Packing & Shipping Bags|کیسه بسته‌بندی و ارسال|
+6778|3|Open-Ended Poly Bags|کیسه نایلونی سرباز|
+6779|4|Open Ended Poly Bags|کیسه نایلونی سرباز|
+6780|4|Bags on a Roll|کیسه رولی|
+6781|4|Gusseted Poly Bags|کیسه نایلونی دمبه‌دار (پهلودار)|
+6782|4|Furniture & Equipment Poly Bags|کاور نایلونی مبلمان و تجهیزات|
+6783|4|Antistatic Open-Ended Poly Bags|کیسه سرباز آنتی‌استاتیک|
+6784|4|Corrosion Inhibiting Open-Ended Poly Bags|کیسه سرباز ضدزنگ VCI|
+6785|4|UV Protection Open-Ended Poly Bags|کیسه سرباز ضد UV|
+6786|4|Doorknob Bags|کیسه آویز دستگیره درب|
+6787|4|Newspaper Holder Poly Bags|کیسه نایلونی روزنامه|
+6788|4|Chipboard Header Poly Bags|کیسه با سرآویز مقوایی|
+6789|4|Food-Grade Freezer Open-Ended Bags|کیسه فریزر سرباز خوراکی|
+6790|4|Static Shield Open-Ended Poly Bags|کیسه سرباز شیلد الکترواستاتیک|
+6791|4|Twist Ties|بست سیمی کیسه (تویست)|
+6792|3|Reclosable Bags|کیسه زیپ‌دار|
+6793|4|Reclosable Poly Bags|کیسه زیپ‌دار نایلونی|
+6794|4|Compartmented Reclosable Zip Poly Bags|کیسه زیپ‌دار چندخانه|
+6795|4|White Block Reclosable Poly Bags|کیسه زیپ‌دار با کادر سفید نوشتنی|
+6796|4|Slider Seal Poly Bags|کیسه زیپ کشویی|
+6797|4|Color-Coding Reclosable Poly Bags|کیسه زیپ‌دار رنگی|
+6798|4|Peel & Seal Reclosable Poly Bags|کیسه چسب‌دار (لب‌چسب)|
+6799|4|Hang-Hole Reclosable Poly Bags|کیسه زیپ‌دار سوراخ‌آویز|
+6800|4|Preprinted Reclosable Poly Bags|کیسه زیپ‌دار چاپ‌دار|
+6801|4|Antistatic Reclosable Poly Bags|کیسه زیپ‌دار آنتی‌استاتیک|
+6802|4|Corrosion Inhibiting Reclosable Poly Bags|کیسه زیپ‌دار ضدزنگ VCI|
+6803|3|Poly Tubing|رول نایلون لوله‌ای (تیوبی)|
+6804|4|Standard Poly Tubing|نایلون لوله‌ای استاندارد|
+6805|4|Antistatic Poly Tubing|نایلون لوله‌ای آنتی‌استاتیک|
+6806|4|Corrosion Inhibiting Poly Tubing|نایلون لوله‌ای ضدزنگ VCI|
+6807|4|Cleanroom Poly Tubing|نایلون لوله‌ای اتاق تمیز|
+6808|3|Drawstring Bags|کیسه بنددار|
+6809|3|Bin Liners & Pallet Covers|لاینر جعبه و کاور پالت|
+6810|3|Bulk Bags|جامبوبگ (کیسه فله)|
+6811|3|Retail Bags|کیسه خرده‌فروشی|
+6812|4|Paper Bags|پاکت کاغذی|
+6813|4|Merchandise Bags|کیسه کالا (فروشگاهی)|
+6814|4|Take-Out & Shopping Bags|کیسه خرید و بیرون‌بر|
+6815|4|Reusable Shopping Bags|کیسه خرید چندبارمصرف|
+6816|4|Garment Bags & Covers|کاور لباس|
+6817|4|High Clarity Bags|کیسه شفاف کریستالی|
+6818|4|Stick-On Carrying Handles|دسته حمل چسبی|
+6819|2|Shipping & Handling Labels, Tags & Stencils|برچسب، تگ و شابلون حمل‌ونقل|
+6820|3|Shipping & Handling Labels & Dispensers|برچسب حمل‌ونقل و برچسب‌زن|
+6821|4|International Handling Labels|برچسب هشدار حمل بین‌المللی|
+6822|4|FRAGILE Handling Labels|برچسب «شکستنی»|
+6823|4|Shipping & Receiving Message Labels|برچسب پیام ارسال و دریافت|
+6824|4|DO NOT Message Labels|برچسب هشدار «ممنوع»|
+6825|4|ENCLOSED Message Labels|برچسب «پیوست داخل»|
+6826|4|Climate & Environment Labels|برچسب شرایط محیطی و دما|
+6827|4|Bilingual Shipping & Handling Labels|برچسب حمل‌ونقل دوزبانه|
+6828|4|Country of Origin Labels|برچسب کشور سازنده|
+6829|4|Electric Label Dispensers & Rewinders|برچسب‌زن و ریوایندر برقی|
+6830|4|Manual Label Dispensers & Applicators|برچسب‌زن دستی (اتیکت‌زن)|
+6831|3|DOT & UN Handling Labels & Placards|برچسب و پلاکارد کالای خطرناک DOT و UN|
+6832|4|DOT & UN Container Labels & Placards|برچسب و پلاکارد کانتینر DOT و UN|
+6833|4|DOT Handling Labels|برچسب حمل DOT|
+6834|4|Placard Holders & Accessories|قاب پلاکارد و لوازم جانبی|
+6835|3|Damage Indicators|نشانگر آسیب حمل|
+6836|4|Temperature Indicators|نشانگر دما|
+6837|4|Shock Indicators|نشانگر ضربه|
+6838|4|Tilt Indicators|نشانگر کج‌شدگی|
+6839|4|Tamper Indicators|نشانگر دستکاری|
+6840|3|Shipping Tags|تگ (اتیکت) حمل|
+6841|4|Paper Shipping Tags|تگ کاغذی|
+6842|4|Tyvek Shipping Tags|تگ تایوک|
+6843|4|Plastic Shipping Tags|تگ پلاستیکی|
+6844|4|Self-Laminating Shipping Tags|تگ خودلمینیت|
+6845|4|Retail & Merchandising Tags|تگ قیمت و فروشگاهی|
+6846|3|Shipping Stencils|شابلون حمل|
+6847|4|Stencil Ink & Spray|جوهر و اسپری شابلون|
+6848|4|Stencil Oil Boards|مقوای روغنی شابلون|
+6849|4|Stencil Ink Rollers & Brushes|غلتک و برس جوهر شابلون|
+6850|4|Stencil Cutting Machines|دستگاه برش شابلون|
+6851|4|Stencil Coding Printers|کدزن شابلونی|
+6852|2|Heat Shrink Wrap|نایلون شرینک حرارتی|
+6853|3|Shrink Film Rolls|رول فیلم شرینک|
+6854|4|Polyolefin & PVC Shrink Film|فیلم شرینک پلی‌اولفین و PVC|
+6855|4|Industrial & Marine Shrink Film|فیلم شرینک صنعتی و دریایی|
+6856|4|Shrink Film Tape|چسب فیلم شرینک|
+6857|3|Shrink Film Bags|کیسه شرینک|
+6858|3|Shrink Film Tubing|شرینک لوله‌ای|
+6859|3|Shrink Film Bands|نوار شرینک (باند درب)|
+6860|2|Box Staplers & Staples|منگنه کارتن و سوزن|
+6861|3|Box Staplers|منگنه کارتن (کارتن‌دوز)|
+6862|3|Box Staples|سوزن منگنه کارتن|
+6863|2|Shipping Accessories & Equipment|لوازم و تجهیزات ارسال|
+6864|3|Bag Dispensers|نگهدارنده و توزیع‌کننده کیسه|
+6865|4|Poly Tubing Dispensers|پایه رول نایلون لوله‌ای|
+6866|4|Bag Stands|پایه کیسه|
+6867|3|Carton Stands|پایه کارتن|
+6868|3|Moving Blankets|پتوی اسباب‌کشی|
+6869|3|Pallet Accessories|لوازم جانبی پالت|
+6870|4|Pallet Cones|مخروط پالت|
+6871|4|Pallet Bands|کش پالت|
+6872|4|Pallet Cushions & Spacers|ضربه‌گیر و فاصله‌انداز پالت|
+6873|3|Poly Bag & Shrink Film Heat Sealers|دستگاه دوخت حرارتی (پرس) نایلون و شرینک|
+6874|4|Heat Sealers|دستگاه دوخت حرارتی (سیلر)|
+6875|4|Heat Sealer Replacement Parts & Repair Kits|قطعات یدکی و کیت تعمیر سیلر|
+6876|3|Packing Tables|میز بسته‌بندی|
+6877|3|Nonadhesive Material Cutters & Accessories|برش مواد بدون چسب و لوازم جانبی|
+6878|1|Paints, Equipment and Supplies|رنگ، تجهیزات و ملزومات رنگ‌آمیزی|
+6879|2|Spray Paints & Spray Primers|اسپری رنگ و اسپری آستر|ترکیبی
+6880|3|Spray Paints|اسپری رنگ|
+6881|3|Spray Primers|اسپری آستر|
+6882|3|Spray Can Applicator Grips|دسته اسپری|
+6883|3|Spray Paint Can Filling System|سیستم پرکن قوطی اسپری|
+6884|2|Striping & Marking Paints & Equipment|رنگ و تجهیزات خط‌کشی و علامت‌گذاری|
+6885|3|Striping & Marking Paints & Chalks|رنگ و گچ خط‌کشی و علامت‌گذاری|
+6886|3|Heat Activated Pavement Markings|خط‌کشی ترموپلاستیک حرارتی|
+6887|3|Line Stripers|دستگاه خط‌کشی|
+6888|4|Manual Line Stripers & Wands|دستگاه خط‌کشی دستی و لانس|
+6889|4|Powered Line Stripers|دستگاه خط‌کشی موتوری|
+6890|4|Line Striper Parts & Accessories|قطعات و لوازم جانبی دستگاه خط‌کشی|
+6891|3|Tree Marking Spray Gun|تفنگ اسپری علامت‌گذاری درخت|
+6892|2|Paints & Coatings|رنگ و پوشش|
+6893|3|Roof & Leak Coatings|پوشش سقف و ضدنشت (ایزوگام مایع)|ترکیبی
+6894|4|Roof Coatings & Accessories|پوشش سقف و لوازم جانبی|
+6895|4|Multisurface Rubberized Coatings|پوشش لاستیکی چندسطحی|
+6896|3|Floor Coatings|پوشش کف|
+6897|4|Concrete & Garage Floor Coatings|پوشش کف بتنی و پارکینگ (اپوکسی)|
+6898|4|Floor Chips|چیپس (فلیک) تزئینی کف|
+6899|3|Specialized Paints & Coatings|رنگ و پوشش‌های ویژه|
+6900|4|Corrosion Inhibitors & Rust Prevention|ضدخوردگی و ضدزنگ|
+6901|5|Corrosion Inhibitors|بازدارنده خوردگی|
+6902|5|Rust Coatings|رنگ ضدزنگ و زنگ‌بر|
+6903|5|Tool Blackeners|سیاه‌کننده (برنیزه) ابزار|
+6904|4|Extreme Temperature Coatings|رنگ نسوز (دمای بالا)|
+6905|4|HVAC Mold Resistant Coatings|پوشش ضدکپک تاسیسات HVAC|
+6906|4|Coating & Sealers for Lead-Based Paints|پوشش و سیلر رنگ‌های سرب‌دار|
+6907|4|Rubberized Dip Coatings|پوشش لاستیکی غوطه‌وری (پلاستی‌دیپ)|
+6908|4|Liquid Repellent Coatings|پوشش دافع مایعات (نانو)|
+6909|4|Plumbing & Appliance Paints|رنگ لوازم بهداشتی و خانگی|
+6910|4|Marine Coatings & Paints|رنگ و پوشش دریایی|
+6911|4|Recreational Paints & Coatings|رنگ و پوشش تفریحی (زمین ورزشی)|
+6912|4|Paint Additives|افزودنی رنگ|
+6913|4|Anti-Graffiti Coatings|پوشش ضدگرافیتی|
+6914|3|Multipurpose Protective Coatings|پوشش محافظ چندمنظوره|
+6915|3|Interior & Exterior Paints|رنگ ساختمانی داخلی و خارجی|ترکیبی
+6916|3|Paint Primers|آستر رنگ|ترکیبی
+6917|3|Stains & Sealers|رنگ چوب و سیلر|ترکیبی
+6918|3|Powder Coatings|رنگ پودری (الکترواستاتیک)|
+6919|3|Automotive Paints & Coatings|رنگ و پوشش خودرو|
+6920|4|Auto Body Paints, Primers & Sealers|رنگ، آستر و سیلر بدنه خودرو|
+6921|4|High Heat Engine & Exhaust Primers & Enamels|رنگ و آستر نسوز موتور و اگزوز|
+6922|4|Rust & Rubberized Treatment Undercoatings|پوشش زیرشاسی ضدزنگ و لاستیکی (آندرکوت)|
+6923|4|Truck Bed Coatings|پوشش کفی وانت (لاینر)|
+6924|4|Truck Bed Coating Spray Guns|پیستوله پوشش کفی وانت|
+6925|2|Paint Thinners & Removers|تینر و رنگ‌بر|
+6926|3|Paint Removers|رنگ‌بر (پاک‌کننده رنگ)|
+6927|3|Paint Thinners|تینر رنگ|
+6928|3|Paint Applicator Cleaners|تمیزکننده قلم‌مو و ابزار رنگ|
+6929|3|Mastic & Adhesive Removers|پاک‌کننده ماستیک و چسب|
+6930|3|Wax & Tar Removers|پاک‌کننده واکس و قیر|
+6931|3|Wallpaper Removal|کاغذدیواری‌کن|ترکیبی
+6932|2|Paint Preparation & Restoration|آماده‌سازی و ترمیم سطح رنگ|
+6933|3|Preparation Cleaning|تمیزکاری پیش از رنگ|
+6934|3|Restoration Coatings|پوشش ترمیمی|
+6935|2|Painting Equipment|تجهیزات رنگ‌آمیزی|
+6936|3|Paint & Coating Applicators|ابزار اعمال رنگ|ترکیبی
+6937|4|Paint Brushes|قلم‌مو|
+6938|4|Paint Rollers & Accessories|غلتک رنگ و لوازم جانبی|
+6939|5|Paint Roller Covers|روکش (پشم) غلتک رنگ|
+6940|5|Paint Roller Frames|دسته غلتک رنگ|
+6941|5|Roller Cover & Frame Sets|ست غلتک و دسته|
+6942|5|Paint Roller Poles|دسته بلند (عصایی) غلتک رنگ|
+6943|5|Paint Power Rollers|غلتک رنگ برقی (پمپی)|
+6944|5|Paint Roller Accessories|لوازم جانبی غلتک رنگ|
+6945|4|Paint Applicator Combination Kits|کیت ابزار رنگ‌آمیزی|
+6946|4|Paint Edgers & Pads|لبه‌زن و پد رنگ|
+6947|4|Paint Sponges, Mitts & Cloths|اسفنج، دستکش و پارچه رنگ‌آمیزی|
+6948|4|Coating Squeegees & Replacement Blades|کاردک لاستیکی پوشش و تیغه یدکی|
+6949|4|Preparation Tools|ابزار آماده‌سازی سطح|
+6950|4|Wood Finishing Clips|گیره رنگ‌کاری چوب|
+6951|4|Mud Loading Pumps|پمپ بتونه (ماد) کناف|
+6952|4|Painting & Finishing Hanging Hooks|قلاب آویز رنگ‌کاری|
+6953|3|Paint Trays & Buckets|سینی و سطل رنگ|ترکیبی
+6954|4|Paint & Coating Trays|سینی رنگ|
+6955|4|Paint & Coating Buckets, Pails & Cups|سطل و لیوان رنگ|
+6956|4|Paint Grids|توری سطل رنگ|
+6957|4|Paint Strainers & Holders|صافی رنگ و نگهدارنده|
+6958|4|Paint Trays & Buckets Accessories|لوازم جانبی سینی و سطل رنگ|
+6959|3|Surface Protection & Dust Barriers|محافظ سطح و مانع گردوغبار|
+6960|4|Carpet & Hard Surface Protection|محافظ فرش و سطوح سخت|
+6961|5|Carpet Protection Films|فیلم محافظ فرش|
+6962|5|Hard Surface Protection Boards, Films & Papers|صفحه، فیلم و کاغذ محافظ سطوح سخت|
+6963|5|Ducting & Register Protection Films|فیلم محافظ کانال و دریچه|
+6964|5|Countertop Films|فیلم محافظ کانتر|
+6965|5|Surface Protection Dispensers|رول‌کش محافظ سطح|
+6966|4|Wall & Window Sheeting Films|فیلم پوشش دیوار و پنجره|
+6967|5|Wall Barrier Sheeting Films|فیلم مانع دیوار|
+6968|5|Window Protection Films|فیلم محافظ پنجره|
+6969|4|Temporary Dust Barrier Equipment|تجهیزات مانع گردوغبار موقت|
+6970|4|Drop Cloths|پارچه و نایلون کف‌پوش رنگ‌کاری|
+6971|3|Paint Spray Guns & Systems|پیستوله و دستگاه رنگ‌پاش|
+6972|4|Paint Spray Guns|پیستوله رنگ|
+6973|4|Paint Spray Systems|دستگاه رنگ‌پاش (ایرلس)|
+6974|4|Spray Gun Tips, Guards & Extensions|نازل، گارد و رابط پیستوله|

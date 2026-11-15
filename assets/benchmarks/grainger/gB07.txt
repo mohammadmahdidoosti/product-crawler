@@ -1,0 +1,270 @@
+4195|3|Bearing Grease|گریس بلبرینگ|
+4196|3|Food-Grade Bearing Grease|گریس بلبرینگ خوراکی (فودگرید)|
+4197|3|O-Ring Grease|گریس اورینگ|
+4198|3|Open Gear Grease|گریس چرخ‌دنده باز|
+4199|3|Plumbing Grease|گریس شیرآلات (لوله‌کشی)|
+4200|2|Oils|روغن صنعتی|
+4201|3|Hydraulic Oils|روغن هیدرولیک|
+4202|3|Food-Grade Hydraulic Oils|روغن هیدرولیک خوراکی (فودگرید)|
+4203|3|Circulating Oils|روغن سیرکوله|
+4204|3|Gear Oils|روغن دنده (گیربکس)|
+4205|3|Food-Grade Gear Oils|روغن دنده خوراکی (فودگرید)|
+4206|3|Machine Oils|روغن ماشین‌آلات|
+4207|3|Food-Grade Machine Oils|روغن ماشین‌آلات خوراکی (فودگرید)|
+4208|3|Food-Grade Divider Oils|روغن جداکننده خمیر (فودگرید)|
+4209|3|Way Oils|روغن ریل (اسلاید) ماشین‌ابزار|
+4210|3|Spindle Oils|روغن اسپیندل|
+4211|2|Lubricants & Penetrating Lubricants|روان‌کننده و روان‌کننده نفوذی|
+4212|3|Lubricants|روان‌کننده|
+4213|4|General Purpose Lubricants|روان‌کننده همه‌کاره|
+4214|4|Food-Grade General Purpose Lubricants|روان‌کننده همه‌کاره خوراکی (فودگرید)|
+4215|4|High-Performance Lubricants|روان‌کننده پیشرفته|
+4216|4|Chain & Wire Rope Lubricants|روان‌کننده زنجیر و سیم‌بکسل|
+4217|4|Food-Grade Chain & Wire Rope Lubricants|روان‌کننده زنجیر خوراکی (فودگرید)|
+4218|4|Sugar-Dissolving Lubricants|روان‌کننده حل‌کننده شکر|
+4219|4|Cable & Wire Pulling Lubricants|ژل کابل‌کشی|
+4220|4|Electrical Lubricants|روان‌کننده الکتریکی (کنتاکت)|
+4221|4|Chute Lubricants|روان‌کننده شوت (ناودانی)|
+4222|4|Belt Dressing Compounds|اسپری تسمه|
+4223|4|Trolley Lubricants|روان‌کننده ترولی (نقاله سقفی)|
+4224|4|Assembly Lubricants|روان‌کننده مونتاژ|
+4225|3|Dry Lubricants|روان‌کننده خشک|
+4226|4|General Purpose Dry Lubricants|روان‌کننده خشک همه‌کاره|
+4227|4|Food-Grade General Purpose Dry Lubricants|روان‌کننده خشک خوراکی (فودگرید)|
+4228|4|High-Performance Dry Lubricants|روان‌کننده خشک پیشرفته|
+4229|4|Chain & Wire Rope Dry Lubricants|روان‌کننده خشک زنجیر و سیم‌بکسل|
+4230|4|Electrical Dry Lubricants|روان‌کننده خشک الکتریکی|
+4231|4|Garage Door Dry Lubricants|روان‌کننده خشک درب پارکینگ|
+4232|4|Lock Dry Lubricants|روان‌کننده خشک قفل (گرافیت)|
+4233|3|Penetrating Lubricants|روان‌کننده نفوذی (اسپری زنگ‌بر)|
+4234|2|Anti-Seize Compounds|گریس ضدقفل (آنتی‌سیز)|
+4235|2|Mold Release Agents|رهاساز قالب|
+4236|2|Grease Guns|گریس‌پمپ|
+4237|3|Manual Grease Guns|گریس‌پمپ دستی|
+4238|3|Battery-Powered Grease Guns|گریس‌پمپ شارژی|
+4239|3|Air-Operated Grease Guns|گریس‌پمپ بادی|
+4240|3|Electric Corded Grease Guns|گریس‌پمپ برقی|
+4241|3|Hoses, Pipes & Barrels for Grease Guns|شلنگ، لوله و مخزن گریس‌پمپ|
+4242|3|Couplers & Dispensing Tips for Grease Guns|سرگریس‌پمپ و نازل|
+4243|3|Accessories for Grease Guns|لوازم جانبی گریس‌پمپ|
+4244|3|Dispensing Syringes|سرنگ تزریق (روانکار)|
+4245|2|Grease Fittings for Equipment|گریس‌خور تجهیزات|
+4246|3|Grease Fittings|گریس‌خور|
+4247|3|Adapters & Manifolds for Grease Fittings|تبدیل و منیفولد گریس‌خور|
+4248|3|Washers, Caps & Tools for Grease Fittings|واشر، درپوش و ابزار گریس‌خور|
+4249|2|Handheld Oilers & Oil Measuring Containers|روغن‌دان دستی و پیمانه روغن|
+4250|3|Handheld Oil Dispensers|روغن‌دان دستی|
+4251|3|Oil Measuring Containers|پیمانه روغن|
+4252|2|Machine-Mount Lubricators|روانکار نصبی ماشین|
+4253|3|Single-Point Grease Lubricators|گریس‌خور اتوماتیک تک‌نقطه‌ای|
+4254|3|Service Kits for Single-Point Grease Lubricators|کیت سرویس گریس‌خور اتوماتیک|
+4255|3|Constant-Level & Drip-Feed Oilers|روغن‌دان سطح ثابت و قطره‌ای|
+4256|3|Accessories for Constant-Level & Drip-Feed Oilers|لوازم جانبی روغن‌دان سطح ثابت|
+4257|3|Lubrication Systems|سیستم روانکاری مرکزی|
+4258|4|Machine-Mount Lubrication Systems|سیستم روانکاری نصبی ماشین|
+4259|4|Pumps for Lubricator Systems|پمپ سیستم روانکاری|
+4260|4|Parts & Accessories for Lubricator Systems|قطعات و لوازم جانبی سیستم روانکاری|
+4261|2|Oil Storage & Dispensing Systems|سیستم نگهداری و توزیع روغن|
+4262|3|Oil Storage Containers & Transfer Lids|ظرف نگهداری روغن و درب انتقال|
+4263|3|Extension Hoses & Hand Pumps for Oil Containers|شلنگ و پمپ دستی ظرف روغن|
+4264|3|Bulk Oil Storage Tanks & Dispensing Systems|مخزن ذخیره روغن و سیستم توزیع|
+4265|2|Desiccant Breathers & Breather Vents|تنفسی رطوبت‌گیر و تنفسی|
+4266|3|Desiccant Breathers|تنفسی رطوبت‌گیر (سیلیکاژل)|
+4267|3|Breather Vents|درپوش تنفسی|
+4268|2|Level Gauges & Flow Sights for Lubrication Equipment|روغن‌نما و نمایشگر جریان|
+4269|3|Oil Level Gauges|روغن‌نما (سطح‌نما)|
+4270|3|Lubricant Flow Sights & Viewports|نمایشگر جریان روغن|
+4271|1|Machining|ماشین‌کاری|
+4272|2|Drilling & Holemaking|سوراخکاری|
+4273|3|Drill Bits|مته|
+4274|4|Drill Bits for Metal & Plastic|مته فلز و پلاستیک|
+4275|5|Jobber-Length Drill Bits|مته طول معمولی (جابر)|
+4276|6|High-Speed Steel Jobber-Length Drill Bits|مته HSS طول معمولی|
+4277|6|Cobalt Jobber-Length Drill Bits|مته کبالت طول معمولی|
+4278|6|Solid Carbide Jobber-Length Drill Bits|مته تمام‌کاربید طول معمولی|
+4279|6|Carbide-Tipped Jobber-Length Drill Bits|مته الماسه (سرکاربید) طول معمولی|
+4280|5|Screw-Machine Length Drill Bits|مته کوتاه (اسکرو ماشین)|
+4281|6|High-Speed Steel Screw-Machine Length Drill Bits|مته HSS کوتاه|
+4282|6|Cobalt Screw-Machine Length Drill Bits|مته کبالت کوتاه|
+4283|6|Solid Carbide Screw-Machine Length Drill Bits|مته تمام‌کاربید کوتاه|
+4284|5|Mechanics-Length Drill Bits|مته طول مکانیکی (نیمه‌کوتاه)|
+4285|5|Taper-Length Drill Bits|مته بلند (تیپر لنث)|
+4286|5|Extended-Length Drill Bits|مته خیلی بلند|
+4287|5|Aircraft-Extension Drill Bits|مته بلند هواپیمایی|
+4288|5|Step Drill Bits|مته پله‌ای (خزینه پله‌ای)|
+4289|5|Impact Drill Bits|مته شش‌گوش ایمپکت|
+4290|5|Silver & Deming Drill Bits|مته دنباله‌کوتاه (سیلور و دمینگ)|
+4291|5|Taper-Shank Drill Bits|مته دنباله مورس|
+4292|5|Threaded-Shank Drill Bits|مته دنباله رزوه‌ای|
+4293|5|Micro Drill Bits|مته ریز (میکرو)|
+4294|5|Double-Ended Drill Bits|مته دوسر|
+4295|5|Flat-Bottom Drill Bits|مته کف‌تخت|
+4296|5|Straight-Flute Drill Bits|مته شیار مستقیم|
+4297|5|Solid Spade Drill Bits|مته تخت (اسپید)|
+4298|5|Spot-Weld Drill Bits|مته نقطه‌جوش‌بازکن|
+4299|5|Drill Bit Sets|ست مته|
+4300|6|Jobber-Length Drill Bit Sets|ست مته طول معمولی|
+4301|6|Screw-Machine Length Drill Bit Sets|ست مته کوتاه|
+4302|6|Mechanics-Length Drill Bit Sets|ست مته طول مکانیکی|
+4303|6|Taper-Length Drill Bit Sets|ست مته بلند|
+4304|6|Extended-Length Drill Bit Sets|ست مته خیلی بلند|
+4305|6|Step Drill Bit Sets|ست مته پله‌ای|
+4306|6|Impact Drill Bit Sets|ست مته ایمپکت|
+4307|6|Silver & Deming Drill Bit Sets|ست مته دنباله‌کوتاه|
+4308|6|Taper-Shank Drill Bit Sets|ست مته دنباله مورس|
+4309|6|Straight-Flute Drill Bit Sets|ست مته شیار مستقیم|
+4310|6|Solid Spade Drill Bit Sets|ست مته تخت|
+4311|6|Spot-Weld Drill Bit Sets|ست مته نقطه‌جوش‌بازکن|
+4312|5|Friction Drill Bits|مته اصطکاکی (فلودریل)|
+4313|4|Drill Bits for Masonry & Concrete|مته بتن و آجر|
+4314|5|Rotary Hammer Drill Bits|مته بتن‌کن (SDS)|
+4315|5|Hammer Drill Bits|مته دریل چکشی|
+4316|5|Masonry & Concrete Drill Bits for Standard Drills|مته الماسه بتن برای دریل معمولی|
+4317|5|Carbide-Tipped Core Bits|مته گردبر (کرگیر) سرکاربید|
+4318|5|Diamond-Tipped Core Bits|مته کرگیری الماسه|
+4319|5|Chisel Bits|قلم چکش تخریب|
+4320|5|Wire & Cable Installer Drill Bits for Masonry & Concrete|مته بلند سیم‌کشی بتن|
+4321|5|Adapters, Extensions & Accessories for Drill Bits for Masonry & Concrete|تبدیل، رابط و لوازم جانبی مته بتن|
+4322|5|Wire & Cable Installer Drill Bits for Metal & Plastic|مته بلند سیم‌کشی فلز و پلاستیک|
+4323|4|Drill Bits for Wood|مته چوب|
+4324|5|Auger Drill Bits|مته مارپیچ چوب (اوگر)|
+4325|5|Bell-Hanger Drill Bits for Wire Systems|مته انعطاف‌پذیر سیم‌کشی|
+4326|5|Brad-Point Drill Bits for Smooth Finish|مته سه‌نیش چوب|
+4327|5|Cable Drill Bits for Wire Systems|مته کابل‌کشی|
+4328|5|Drill Bit Countersinks for Conical Holes|مته خزینه‌دار چوب|
+4329|5|Forstner Drill Bits for Smooth Finish & Flat-Bottom Holes|مته فورستنر (لولاخور)|
+4330|5|Hybrid Utility Drill Bits for Fast Rough-In Cutting|مته چندکاره چوب برش سریع|
+4331|5|Plug-Cutting Drill Bits for Concealing Fasteners|مته درپوش‌بر چوب|
+4332|5|Quick-Cutting Spade Drill Bits|مته پروانه‌ای (تخت) چوب|
+4333|5|Self-Feed Drill Bits for Boring|مته خودپیشرو چوب|
+4334|4|Drill Bits for Glass, Tile & Porcelain|مته شیشه، کاشی و سرامیک|
+4335|4|Drill Bit Storage|جعبه و جای مته|
+4336|3|Reamers|برقو|
+4337|4|Chucking Reamers|برقو ماشینی|
+4338|5|High-Speed Steel Chucking Reamers|برقو ماشینی HSS|
+4339|5|Solid Carbide Chucking Reamers|برقو ماشینی تمام‌کاربید|
+4340|5|Carbide-Tipped Chucking Reamers|برقو ماشینی سرکاربید|
+4341|5|Cobalt Chucking Reamers|برقو ماشینی کبالت|
+4342|4|Bridge & Car Reamers|برقو سازه‌ای (پل و واگن)|
+4343|4|Hand Reamers|برقو دستی|
+4344|4|Adjustable Hand Reamers|برقو دستی قابل تنظیم (بازشو)|
+4345|4|Dowel Pin Reamers|برقو جای پین راهنما|
+4346|4|Taper Pin Reamers|برقو پین مخروطی|
+4347|4|Taper Pipe Reamers|برقو لوله مخروطی|
+4348|4|Morse-Taper Socket Reamers|برقو مورس|
+4349|4|Expansion Reamers|برقو انبساطی|
+4350|4|Shell Reamers|برقو پوسته‌ای (شل)|
+4351|4|Drill Reamers|مته‌برقو|
+4352|4|Reamer Sets|ست برقو|
+4353|5|Chucking Reamer Sets|ست برقو ماشینی|
+4354|5|Adjustable Hand Reamer Sets|ست برقو دستی قابل تنظیم|
+4355|5|Bridge Reamer Sets|ست برقو سازه‌ای|
+4356|4|Reamer Storage|جعبه و جای برقو|
+4357|3|Countersinks, Center Drills & Spotting Drills|خزینه، مته مرغک و مته نقطه‌زن|
+4358|4|Countersinks|خزینه|
+4359|4|Countersink Sets|ست خزینه|
+4360|4|Countersink Cages|خزینه قفسه‌ای (عمق‌دار)|
+4361|4|Center Drills|مته مرغک|
+4362|4|Center Drill Sets|ست مته مرغک|
+4363|4|Spotting Drills|مته نقطه‌زن (اسپاتینگ)|
+4364|4|Spotting Drill Sets|ست مته نقطه‌زن|
+4365|3|Counterbores & Port Tools|کف‌تراش و ابزار پورت|
+4366|4|Counterbores|کف‌تراش (کانتربور)|
+4367|4|Counterbore Sets|ست کف‌تراش|
+4368|4|Counterbore Pilots|پایلوت کف‌تراش|
+4369|4|Counterbore Storage|جای کف‌تراش|
+4370|4|Port Tools|ابزار پورت (جای اتصال هیدرولیک)|
+4371|3|Broaches|خان‌کش (بروچ)|
+4372|4|Davis-Style Keyseating Broaches|خان‌کش جای خار دیویس|
+4373|4|Hex Broaches|خان‌کش شش‌گوش|
+4374|4|Keyway Broaches, Shims & Bushings|خان‌کش جای خار، شیم و بوش|
+4375|4|Keyway Broach Sets|ست خان‌کش جای خار|
+4376|4|Rotary Broaches, Holders & Accessories|خان‌کش دوار، نگهدارنده و لوازم جانبی|
+4377|5|Hex|شش‌گوش|
+4378|4|Square Broaches|خان‌کش چهارگوش|
+4379|3|Punches & Dies|سنبه و ماتریس|
+4380|3|Drill Bushings|بوش راهنمای مته|
+4381|4|Diamond Groove Drill Bushings (DG)|بوش راهنمای شیار الماسی (DG)|
+4382|4|Gun Drill Bushing Inserts (GDI)|اینسرت بوش گان‌دریل (GDI)|
+4383|4|Headed Gun Drill Bushings (GDE)|بوش گان‌دریل لبه‌دار (GDE)|
+4384|4|Headed Gun Drill Liners (GDL)|لاینر گان‌دریل لبه‌دار (GDL)|
+4385|4|Headed Liner Drill Bushings (HL)|بوش لاینر لبه‌دار (HL)|
+4386|4|Headed Press-Fit Drill Bushings (H)|بوش راهنمای پرسی لبه‌دار (H)|
+4387|4|Liner Drill Bushings (L)|بوش لاینر (L)|
+4388|4|Press-Fit Drill Bushings (P)|بوش راهنمای پرسی (P)|
+4389|4|Serrated Press-Fit Drill Bushings (SP)|بوش راهنمای پرسی آج‌دار (SP)|
+4390|4|Slip-Fixed/Renewable Drill Bushings (SF)|بوش راهنمای تعویضی (SF)|
+4391|3|Drill Bit Extensions|رابط بلندکننده مته|
+4392|3|Holemaking Blanks|شمش (بلنک) ابزار سوراخکاری|
+4393|4|Drill Bit Blanks|بلنک مته|
+4394|4|Drill Bit Blank Sets|ست بلنک مته|
+4395|4|Reamer Blanks|بلنک برقو|
+4396|2|Milling|فرزکاری|
+4397|3|End Mills|فرز انگشتی|
+4398|4|Roughing End Mills|فرز انگشتی خشن‌تراش (کرن‌کاتر)|
+4399|5|Carbide Roughing End Mills|فرز خشن‌تراش کاربیدی|
+4400|6|General Purpose Carbide Roughing End Mills|فرز خشن‌تراش کاربیدی همه‌کاره|
+4401|6|Carbide Roughing End Mills for Steel & Cast Iron|فرز خشن‌تراش کاربیدی فولاد و چدن|
+4402|6|Carbide Roughing End Mills for Nonferrous Materials|فرز خشن‌تراش کاربیدی غیرآهنی|
+4403|6|Carbide Roughing End Mills for Stainless Steel & Super Alloys|فرز خشن‌تراش کاربیدی استیل و سوپرآلیاژ|
+4404|6|Carbide Roughing End Mills for Hardened Materials|فرز خشن‌تراش کاربیدی مواد سخت‌کاری‌شده|
+4405|5|Cobalt Roughing End Mills|فرز خشن‌تراش کبالت|
+4406|5|High-Speed Steel Roughing End Mills|فرز خشن‌تراش HSS|
+4407|4|Square End Mills|فرز انگشتی تخت|
+4408|5|Carbide Square End Mills|فرز انگشتی تخت کاربیدی|
+4409|6|General Purpose Carbide Square End Mills|فرز تخت کاربیدی همه‌کاره|
+4410|6|Carbide Square End Mills for Steel & Cast Iron|فرز تخت کاربیدی فولاد و چدن|
+4411|6|Carbide Square End Mills for Nonferrous Materials|فرز تخت کاربیدی غیرآهنی|
+4412|6|Carbide Square End Mills for Stainless Steel & Super Alloys|فرز تخت کاربیدی استیل و سوپرآلیاژ|
+4413|6|Carbide Square End Mills for Hardened Materials|فرز تخت کاربیدی مواد سخت‌کاری‌شده|
+4414|5|Cobalt Square End Mills|فرز انگشتی تخت کبالت|
+4415|5|High-Speed Steel Square End Mills|فرز انگشتی تخت HSS|
+4416|4|Ball End Mills|فرز سرگرد (بال‌نوز)|
+4417|5|Carbide Ball End Mills|فرز سرگرد کاربیدی|
+4418|6|General Purpose Carbide Ball End Mills|فرز سرگرد کاربیدی همه‌کاره|
+4419|6|Carbide Ball End Mills for Steel & Cast Iron|فرز سرگرد کاربیدی فولاد و چدن|
+4420|6|Carbide Ball End Mills for Nonferrous Materials|فرز سرگرد کاربیدی غیرآهنی|
+4421|6|Carbide Ball End Mills for Stainless Steel & Super Alloys|فرز سرگرد کاربیدی استیل و سوپرآلیاژ|
+4422|6|Carbide Ball End Mills for Hardened Materials|فرز سرگرد کاربیدی مواد سخت‌کاری‌شده|
+4423|5|Cobalt Ball End Mills|فرز سرگرد کبالت|
+4424|5|High-Speed Steel Ball End Mills|فرز سرگرد HSS|
+4425|4|Corner-Radius End Mills|فرز انگشتی گوشه‌گرد (بول‌نوز)|
+4426|5|General Purpose Carbide Corner-Radius End Mills|فرز گوشه‌گرد کاربیدی همه‌کاره|
+4427|5|Carbide Corner-Radius End Mills for Steel & Cast Iron|فرز گوشه‌گرد کاربیدی فولاد و چدن|
+4428|5|Carbide Corner-Radius End Mills for Nonferrous Materials|فرز گوشه‌گرد کاربیدی غیرآهنی|
+4429|5|Carbide Corner-Radius End Mills for Stainless Steel & Super Alloys|فرز گوشه‌گرد کاربیدی استیل و سوپرآلیاژ|
+4430|5|Carbide Corner-Radius End Mills for Hardened Materials|فرز گوشه‌گرد کاربیدی مواد سخت‌کاری‌شده|
+4431|4|Corner-Chamfer End Mills|فرز انگشتی گوشه‌پخ|
+4432|4|Corner-Rounding End Mills|فرز گردکن لبه (کرنر راندینگ)|
+4433|4|Chamfer Mills|فرز پخ‌زن|
+4434|4|Drill Mills|فرز مته‌ای (دریل میل)|
+4435|4|Keyway End Mills|فرز جاخار|
+4436|4|Tapered End Mills|فرز انگشتی مخروطی|
+4437|4|End Mill Sets|ست فرز انگشتی|
+4438|5|Square End Mill Sets|ست فرز تخت|
+4439|5|Ball End Mill Sets|ست فرز سرگرد|
+4440|5|Corner-Radius End Mill Sets|ست فرز گوشه‌گرد|
+4441|5|Drill Mill Sets|ست فرز مته‌ای|
+4442|4|End Mill Storage|جای فرز انگشتی|
+4443|3|CNC Router Bits|تیغ CNC روتر|
+4444|4|Spiral-Flute CNC Router Bits|تیغ CNC مارپیچ|
+4445|4|Straight-Flute CNC Router Bits|تیغ CNC شیار صاف|
+4446|4|Diamond-Pattern CNC Router Bits|تیغ CNC آج الماسی (کامپوزیت)|
+4447|3|Engraving Tools & Blanks|ابزار حکاکی و بلنک|
+4448|4|Engraving Tools|ابزار حکاکی (قلم حکاکی)|
+4449|4|Engraving Tool Blanks|بلنک ابزار حکاکی|
+4450|3|Milling Cutters|تیغ فرز|
+4451|4|Keyseat Milling Cutters|فرز جاخار (وودراف)|
+4452|4|Dovetail Milling Cutters|فرز دم‌چلچله‌ای|
+4453|4|Slotting & Slitting Saws|اره فرز (فرز شیارزن)|
+4454|4|T-Slot Milling Cutters|فرز T شکل (تی‌اسلات)|
+4455|3|Mold & Die Milling Tools|ابزار فرز قالب‌سازی|
+4456|2|Threading|قلاویززنی و حدیده‌کاری|
+4457|3|Taps|قلاویز|
+4458|4|Hand Taps|قلاویز دستی|
+4459|4|Spiral-Flute Machine Taps|قلاویز ماشینی مارپیچ|
+4460|4|Spiral-Point Machine Taps|قلاویز ماشینی سرمارپیچ (گان)|
+4461|4|Straight-Flute Machine Taps|قلاویز ماشینی شیار صاف|
+4462|4|Thread-Forming Machine Taps|قلاویز فرمینگ (بی‌براده)|
+4463|4|Pipe Taps|قلاویز لوله|
+4464|4|Acme Taps|قلاویز ذوزنقه‌ای (اکمی)|

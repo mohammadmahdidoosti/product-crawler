@@ -1,0 +1,248 @@
+8975|4|Industrial Gas & Compressed Air Flowmeters|فلومتر گاز صنعتی و هوای فشرده|
+8976|4|Parts & Accessories for Flowmeters & Totalizers|قطعات و لوازم فلومتر|
+8977|4|Thermal Flowmeters|فلومتر حرارتی|
+8978|3|Sight Glass Flow Indicators|نشانگر جریان شیشه‌ای (سایت گلاس)|
+8979|4|Window-Style Sight Glass Flow Indicators|سایت گلاس پنجره‌ای|
+8980|4|Full-View Sight Glass Flow Indicators|سایت گلاس تمام‌دید|
+8981|3|Level Sensors & Transmitters|سنسور و ترانسمیتر سطح|
+8982|4|Contact Liquid Level Sensors & Transmitters|سنسور سطح مایع تماسی|
+8983|5|Float-Style Liquid Level Sensors|سنسور سطح فلوتری|
+8984|5|Capacitive Liquid Level Sensors|سنسور سطح خازنی|
+8985|5|Guided Wave Radar Liquid Level Sensors|سنسور سطح رادار موج هدایت‌شده|
+8986|5|Conductivity Liquid Level Sensors|سنسور سطح الکترودی (هدایتی)|
+8987|5|Vibration Sensing Liquid Level Sensors|سنسور سطح ارتعاشی (دوشاخه)|
+8988|5|Submersible Ultrasonic Liquid Level Sensors|سنسور سطح التراسونیک غوطه‌ور|
+8989|5|Parts & Accessories for Contact Liquid Level Sensors & Transmitters|قطعات و لوازم سنسور سطح تماسی|
+8990|4|Non-Contact Liquid Level Sensors & Transmitters|سنسور سطح مایع غیرتماسی|
+8991|5|Non-Contact Ultrasonic Liquid Level Sensors|سنسور سطح التراسونیک غیرتماسی|
+8992|5|Non-Contact Radar Liquid Level Sensors|سنسور سطح راداری|
+8993|5|Parts & Accessories for Non-Contact Ultrasonic Liquid Level Sensors|قطعات و لوازم سنسور سطح التراسونیک|
+8994|4|Liquid Level Transmitter Display|نمایشگر ترانسمیتر سطح|
+8995|3|Flow Switches|فلوسوئیچ|
+8996|4|Piston Flow Switches|فلوسوئیچ پیستونی|
+8997|4|Paddle Flow Switches|فلوسوئیچ پره‌ای|
+8998|4|Thermal-Dispersion Flow Switches|فلوسوئیچ حرارتی|
+8999|4|Variable Area Flow Switches|فلوسوئیچ سطح متغیر|
+9000|4|Repair Kits & Parts for Flow Switches|کیت تعمیر و قطعات فلوسوئیچ|
+9001|2|Pump Shaft Seals & Packing|آب‌بند شفت پمپ و گلند پکینگ|
+9002|3|Compression Packing|گلند پکینگ (طناب آب‌بندی)|
+9003|4|Braided Compression Packing|گلند پکینگ بافته|
+9004|4|Packing Rings|رینگ پکینگ|
+9005|4|Lantern Rings|رینگ فانوسی|
+9006|4|Injectable Packing & Accessories|پکینگ تزریقی و لوازم|
+9007|4|Packing Installation & Removal Tools|ابزار نصب و درآوردن پکینگ|
+9008|3|Mechanical Pump Shaft Seals|مکانیکال سیل پمپ|
+9009|2|Small Submersible Pumps|پمپ شناور کوچک|
+9010|2|Pumps Repair Parts|قطعات یدکی پمپ|
+9011|1|Raw Materials|مواد خام|
+9012|2|Metals|فلزات|
+9013|3|Aluminum|آلومینیوم|
+9014|4|Aluminum Sheets & Plates|ورق آلومینیوم|
+9015|5|Inch Standard Aluminum Sheets & Plates|ورق آلومینیوم اینچی|
+9016|5|Metric Standard Aluminum Sheets & Plates|ورق آلومینیوم متریک|
+9017|5|Textured Aluminum Sheets & Plates|ورق آلومینیوم آجدار|
+9018|5|Expanded Aluminum Sheets|ورق مش آلومینیوم (توری منبسط)|
+9019|5|Perforated Aluminum Sheets|ورق آلومینیوم مشبک|
+9020|5|Architectural Aluminum Sheets|ورق آلومینیوم نما|
+9021|4|Aluminum Bars, Rods & Discs|تسمه، میله و دیسک آلومینیوم|
+9022|5|Inch Aluminum Flat Bars|تسمه آلومینیوم اینچی|
+9023|5|Metric Aluminum Flat Bars|تسمه آلومینیوم متریک|
+9024|5|Aluminum Rods & Discs|میله گرد و دیسک آلومینیوم|
+9025|5|Aluminum Hex Bars|میله شش‌پر آلومینیوم|
+9026|4|Aluminum Angles & Channels|نبشی و ناودانی آلومینیوم|
+9027|5|Inch Aluminum Angle Stock|نبشی آلومینیوم اینچی|
+9028|5|Metric Aluminum Angle Stock|نبشی آلومینیوم متریک|
+9029|5|Aluminum U-Channel Stock|ناودانی آلومینیوم|
+9030|4|Aluminum Tubes|لوله و قوطی آلومینیوم|
+9031|5|Inch Round Aluminum Tubes|لوله آلومینیوم اینچی|
+9032|5|Metric Round Aluminum Tubes|لوله آلومینیوم متریک|
+9033|5|Inch Rectangular & Square Aluminum Tubes|قوطی آلومینیوم اینچی|
+9034|4|Aluminum Grating & Stair Treads|گریتینگ و کف پله آلومینیوم|
+9035|5|Aluminum Stair Treads|کف پله آلومینیوم|
+9036|5|Aluminum Grating|گریتینگ آلومینیوم|
+9037|4|Aluminum Foil|فویل آلومینیوم|
+9038|4|Aluminum Precision Blanks|بلوک دقیق آلومینیوم (سنگ‌خورده)|
+9039|5|6-Side Aluminum Precision Blanks|بلوک دقیق آلومینیوم ۶ طرف ماشین‌کاری|
+9040|5|2-Side Aluminum Precision Blanks|بلوک دقیق آلومینیوم ۲ طرف ماشین‌کاری|
+9041|5|Aluminum Rod Precision Blanks|میله دقیق آلومینیوم|
+9042|3|Stainless Steel|استیل|
+9043|4|Stainless Steel Sheets & Plates|ورق استیل|
+9044|5|Inch Standard Stainless Steel Sheets & Plates|ورق استیل اینچی|
+9045|5|Metric Standard Stainless Steel Sheets & Plates|ورق استیل متریک|
+9046|5|Expanded Stainless Steel Sheets|ورق مش استیل (توری منبسط)|
+9047|5|Perforated Stainless Steel Sheets|ورق استیل مشبک|
+9048|5|Architectural Stainless Steel Sheets|ورق استیل نما|
+9049|6|Colored Architectural Stainless Steel Sheets|ورق استیل رنگی نما|
+9050|6|Silver Architectural Stainless Steel Sheets|ورق استیل نقره‌ای نما|
+9051|4|Stainless Steel Bars, Rods & Discs|تسمه، میلگرد و دیسک استیل|
+9052|5|Inch Stainless Steel Flat Bars|تسمه استیل اینچی|
+9053|5|Metric Stainless Steel Flat Bars|تسمه استیل متریک|
+9054|5|Inch Stainless Steel Rods & Discs|میلگرد و دیسک استیل اینچی|
+9055|5|Metric Stainless Steel Rods & Discs|میلگرد و دیسک استیل متریک|
+9056|5|Inch Stainless Steel Hex Bars|شش‌پر استیل اینچی|
+9057|5|Metric Stainless Steel Hex Bars|شش‌پر استیل متریک|
+9058|4|Stainless Steel Tubes|لوله و قوطی استیل|
+9059|5|Inch Round Stainless Steel Tubes|لوله استیل اینچی|
+9060|5|Metric Round Stainless Steel Tubes|لوله استیل متریک|
+9061|5|Rectangular & Square Stainless Steel Tubes|قوطی استیل|
+9062|4|Stainless Steel Angle Stock|نبشی استیل|
+9063|4|Stainless Steel Precision Blanks|بلوک دقیق استیل|
+9064|5|6-Side Stainless Steel Precision Blanks|بلوک دقیق استیل ۶ طرف ماشین‌کاری|
+9065|5|2-Side Stainless Steel Precision Blanks|بلوک دقیق استیل ۲ طرف ماشین‌کاری|
+9066|4|Stainless Steel Grating & Stair Treads|گریتینگ و کف پله استیل|
+9067|5|Stainless Steel Stair Treads|کف پله استیل|
+9068|5|Stainless Steel Grating|گریتینگ استیل|
+9069|5|Clips for Stainless Steel Grating|گیره گریتینگ استیل|
+9070|4|Stainless Steel T-Bar|سپری استیل|
+9071|4|Stainless Steel Foil|فویل استیل|
+9072|4|Stainless Steel Wire|مفتول استیل|
+9073|4|Stainless Steel Ball Stock|ساچمه استیل|
+9074|3|Carbon Steel|فولاد کربنی (آهن)|
+9075|4|Carbon Steel Sheets & Plates|ورق فولادی|
+9076|5|Inch Standard Carbon Steel Sheets & Plates|ورق فولادی اینچی|
+9077|5|Metric Standard Carbon Steel Sheets & Plates|ورق فولادی متریک|
+9078|5|Textured Carbon Steel Plates|ورق آجدار فولادی|
+9079|5|Expanded Carbon Steel Sheets|ورق مش فولادی (توری منبسط)|
+9080|5|Perforated Carbon Steel Sheets|ورق فولادی مشبک|
+9081|4|Carbon Steel Bars, Rods & Discs|تسمه، میلگرد و دیسک فولادی|
+9082|5|Inch Carbon Steel Flat Bars|تسمه فولادی اینچی|
+9083|5|Metric Carbon Steel Flat Bars|تسمه فولادی متریک|
+9084|5|Inch Carbon Steel Rods & Discs|میلگرد و دیسک فولادی اینچی|
+9085|5|Metric Carbon Steel Rods|میلگرد فولادی متریک|
+9086|5|Inch Carbon Steel Hex Bars|شش‌پر فولادی اینچی|
+9087|5|Metric Carbon Steel Hex Bars|شش‌پر فولادی متریک|
+9088|4|Carbon Steel Angles & Channels|نبشی و ناودانی فولادی|
+9089|5|Inch Carbon Steel Angle Stock|نبشی فولادی اینچی|
+9090|5|Metric Carbon Steel Angle Stock|نبشی فولادی متریک|
+9091|5|Carbon Steel U-Channel Stock|ناودانی فولادی|
+9092|4|Carbon Steel Tubes|لوله و قوطی فولادی|
+9093|5|Inch Round Carbon Steel Tubes|لوله فولادی اینچی|
+9094|5|Metric Round Carbon Steel Tubes|لوله فولادی متریک|
+9095|5|Inch Rectangular & Square Carbon Steel Tubes|قوطی فولادی اینچی|
+9096|5|Metric Rectangular & Square Carbon Steel Tubes|قوطی فولادی متریک|
+9097|4|Carbon Steel Precision Blanks|بلوک دقیق فولادی|
+9098|5|0.25 in|۰٫۲۵ اینچ|
+9099|4|Carbon Steel Grating & Stair Treads|گریتینگ و کف پله فولادی|
+9100|5|Carbon Steel Stair Treads|کف پله فولادی|
+9101|5|Carbon Steel Grating|گریتینگ فولادی|
+9102|5|Clips for Carbon Steel Grating|گیره گریتینگ فولادی|
+9103|4|Carbon Steel Wire|مفتول فولادی|
+9104|4|Carbon Steel Ball Stock|ساچمه فولادی|
+9105|4|Carbon Steel Rebar|میلگرد آجدار|
+9106|3|Alloy Steel|فولاد آلیاژی|
+9107|4|Alloy Steel Sheets & Plates|ورق فولاد آلیاژی|
+9108|4|Alloy Steel Bars & Rods|تسمه و میلگرد فولاد آلیاژی|
+9109|5|Alloy Steel Flat Bars|تسمه فولاد آلیاژی|
+9110|5|Inch Alloy Steel Rods|میلگرد فولاد آلیاژی اینچی|
+9111|5|Metric Alloy Steel Rods|میلگرد فولاد آلیاژی متریک|
+9112|5|Inch Alloy Steel Hex Bars|شش‌پر فولاد آلیاژی اینچی|
+9113|5|Metric Alloy Steel Hex Bars|شش‌پر فولاد آلیاژی متریک|
+9114|4|Alloy Steel Tubes|لوله فولاد آلیاژی|
+9115|5|4140|4140|
+9116|4|Alloy Steel Precision Blanks|بلوک دقیق فولاد آلیاژی|
+9117|5|0.25 in|۰٫۲۵ اینچ|
+9118|3|Tool Steel|فولاد ابزار|
+9119|4|Tool Steel Rods & Discs|میلگرد و دیسک فولاد ابزار|
+9120|4|Tool Steel Flat Bars|تسمه فولاد ابزار|
+9121|3|Brass|برنج|
+9122|4|Brass Bars & Rods|تسمه و میلگرد برنجی|
+9123|5|Brass Rods|میلگرد برنجی|
+9124|5|Brass Flat Bars|تسمه برنجی|
+9125|5|Brass Hex Bars|شش‌پر برنجی|
+9126|4|Brass Tubes|لوله برنجی|
+9127|5|Round Brass Tubes|لوله گرد برنجی|
+9128|5|Rectangular Brass Tubes|قوطی برنجی|
+9129|4|Architectural Muntz Metal & Naval Brass Sheets|ورق برنج مانتز و برنج دریایی نما|
+9130|3|Bronze|برنز|
+9131|4|Bronze Sheets & Plates|ورق برنز|
+9132|4|Bronze Flat Bars|تسمه برنز|
+9133|4|Bronze Rods & Discs|میلگرد و دیسک برنز|
+9134|4|Bronze Round Tubes|لوله برنز|
+9135|3|Copper|مس|
+9136|4|Copper Sheets & Plates|ورق مس|
+9137|4|Copper Flat Bars|تسمه مسی|
+9138|4|Copper Rods|میلگرد مسی|
+9139|4|Copper Foil|فویل مس|
+9140|4|Architectural Copper Sheets|ورق مس نما|
+9141|3|Cast Iron|چدن|
+9142|4|65-45-12|چدن داکتیل 65-45-12|
+9143|3|Nickel|نیکل|
+9144|4|C276|آلیاژ نیکل C276|
+9145|2|Plastics|پلاستیک‌ها|
+9146|3|Plastic Sheets & Bars|ورق و تسمه پلاستیکی|
+9147|4|Clear Plastic Sheets & Bars|ورق و تسمه پلاستیک شفاف|
+9148|5|Clear Impact-Resistant Polycarbonate Sheets & Bars|ورق پلی‌کربنات شفاف ضدضربه|
+9149|5|Clear Scratch-Resistant Acrylic Sheets & Bars|ورق پلکسی (اکریلیک) شفاف ضدخش|
+9150|5|Clear Chemical-Resistant PVC Sheets & Bars|ورق PVC شفاف مقاوم شیمیایی|
+9151|5|Clear Chemical & Impact-Resistant PETG Sheets & Bars|ورق PETG شفاف|
+9152|4|General Purpose Plastic Sheets & Bars|ورق و تسمه پلاستیکی عمومی|
+9153|5|Slippery Impact Resistant UHMW Polyethylene Sheets & Bars|ورق پلی‌اتیلن UHMW|
+9154|5|Machinable Acetal Sheets & Bars|ورق پلی‌استال (POM)|
+9155|5|High-Strength Moisture-Resistant HDPE Sheets & Bars|ورق پلی‌اتیلن سنگین (HDPE)|
+9156|5|Flexible LDPE Sheets & Bars|ورق پلی‌اتیلن سبک (LDPE)|
+9157|5|Wear-Resistant Lightweight Nylon Sheets & Bars|ورق نایلون (پلی‌آمید)|
+9158|5|Chemical Resistant PVC Sheets & Bars|ورق PVC|
+9159|5|Scratch-Resistant Acrylic Sheets & Bars|ورق پلکسی (اکریلیک)|
+9160|5|Impact-Resistant ABS Sheets & Bars|ورق ABS|
+9161|5|Chemical & Moisture Resistant Polypropylene Sheets & Bars|ورق پلی‌پروپیلن|
+9162|5|Formable Polystyrene Sheets & Bars|ورق پلی‌استایرن|
+9163|5|Moisture Resistant Polyester Sheets & Bars|ورق پلی‌استر (PET)|
+9164|4|High-Performance Engineering Plastic Sheets & Bars|ورق پلاستیک مهندسی پیشرفته|
+9165|5|Chemical Resistant Slippery PTFE Sheets & Bars|ورق تفلون (PTFE)|
+9166|5|Impact Resistant Polycarbonate Sheets & Bars|ورق پلی‌کربنات|
+9167|5|Wear & Chemical-Resistant PEEK Sheets & Bars|ورق PEEK|
+9168|5|Heat & Chemical-Resistant PPS Sheets & Bars|ورق PPS|
+9169|5|Electrically Insulating PEI Sheets & Bars|ورق PEI|
+9170|5|High-Strength PAI Sheets & Bars|ورق PAI|
+9171|4|Mirrored Plastic Sheets & Bars|ورق پلاستیک آینه‌ای|
+9172|5|Mirrored Impact-Resistant Polycarbonate Sheets & Bars|ورق پلی‌کربنات آینه‌ای|
+9173|5|Mirrored Scratch-Resistant Acrylic Sheets & Bars|ورق پلکسی آینه‌ای|
+9174|3|Plastic Films & Rolls|فیلم و رول پلاستیکی|
+9175|4|Chemical-Resistant Slippery PTFE Films & Rolls|فیلم تفلون (PTFE)|
+9176|4|Slippery Impact-Resistant UHMW Polyethylene Films & Rolls|فیلم پلی‌اتیلن UHMW|
+9177|4|Flexible LDPE Films & Rolls|فیلم پلی‌اتیلن سبک (LDPE)|
+9178|4|Moisture-Resistant Polyester Films & Rolls|فیلم پلی‌استر|
+9179|4|Clear Impact-Resistant Polycarbonate Films & Rolls|فیلم پلی‌کربنات شفاف|
+9180|4|Electrically Insulating Polyimide Films & Rolls|فیلم پلی‌ایمید|
+9181|4|Formable Polystyrene Films & Rolls|فیلم پلی‌استایرن|
+9182|4|Electrically Insulating PEI Films & Rolls|فیلم PEI|
+9183|3|Plastic Rods & Discs|میله و دیسک پلاستیکی|
+9184|4|Clear Plastic Rods & Discs|میله و دیسک پلاستیک شفاف|
+9185|5|Clear Impact-Resistant Polycarbonate Rods & Discs|میله پلی‌کربنات شفاف|
+9186|5|Clear Scratch-Resistant Acrylic Rods & Discs|میله پلکسی شفاف|
+9187|4|General Purpose Plastic Rods & Discs|میله و دیسک پلاستیکی عمومی|
+9188|5|Slippery Impact-Resistant UHMW Polyethylene Rods & Discs|میله پلی‌اتیلن UHMW|
+9189|5|Machinable Acetal Rods & Discs|میله پلی‌استال (POM)|
+9190|5|Wear-Resistant Lightweight Nylon Rods & Discs|میله نایلون (پلی‌آمید)|
+9191|5|Chemical-Resistant PVC Rods & Discs|میله PVC|
+9192|5|Moisture-Resistant Polyester Rods & Discs|میله پلی‌استر|
+9193|5|Chemical & Moisture-Resistant Polypropylene Rods & Discs|میله پلی‌پروپیلن|
+9194|5|High Strength Moisture-Resistant HDPE Rods & Discs|میله پلی‌اتیلن سنگین (HDPE)|
+9195|5|Impact-Resistant ABS Rods & Discs|میله ABS|
+9196|4|High Performance Engineering Plastic Rods & Discs|میله و دیسک پلاستیک مهندسی پیشرفته|
+9197|5|Chemical Resistant Slippery PTFE Rods & Discs|میله تفلون (PTFE)|
+9198|5|Electrically Insulating PEI Rods & Discs|میله PEI|
+9199|5|Heat & Chemical-Resistant PPS Rods & Discs|میله PPS|
+9200|5|High-Strength PAI Rods & Discs|میله PAI|
+9201|5|Wear-& Chemical-Resistant PEEK Rods & Discs|میله PEEK|
+9202|5|High Purity PVDF Rods & Discs|میله PVDF|
+9203|3|Plastic Tubes|لوله پلاستیکی|
+9204|4|Chemical-Resistant PVC Tubes|لوله PVC|
+9205|4|Chemical-Resistant Slippery PTFE Tubes|لوله تفلون (PTFE)|
+9206|4|Slippery Impact-Resistant UHMW Polyethylene Tubes|لوله پلی‌اتیلن UHMW|
+9207|4|Impact-Resistant ABS Tubes|لوله ABS|
+9208|4|Clear Impact-Resistant Polycarbonate Tubes|لوله پلی‌کربنات شفاف|
+9209|4|Clear Chemical-Resistant PETG Tubes|لوله PETG شفاف|
+9210|4|Clear Scratch-Resistant Acrylic Tubes|لوله پلکسی شفاف|
+9211|3|Plastic Angles & Channels|نبشی و ناودانی پلاستیکی|
+9212|4|Plastic Angles|نبشی پلاستیکی|
+9213|4|Plastic U-Shaped Channels|ناودانی U پلاستیکی|
+9214|4|Plastic C Channels|ناودانی C پلاستیکی|
+9215|3|Plastic Full Rounds, J Legs & Snap-Ons|پروفیل پلاستیکی گرد، J و کلیپسی|
+9216|4|Plastic Snap Ons|پروفیل کلیپسی پلاستیکی|
+9217|4|Plastic Full Rounds|پروفیل گرد پلاستیکی|
+9218|4|Plastic J Legs|پروفیل J پلاستیکی|
+9219|3|Plastic Perforated Sheets|ورق پلاستیکی مشبک|
+9220|3|Plastic Lumber|تخته پلاستیکی (چوب پلاستیک)|
+9221|3|Plastic Pellets & Colorants|گرانول و مستربچ رنگ پلاستیک|
+9222|3|Plastic Balls|توپ (ساچمه) پلاستیکی|

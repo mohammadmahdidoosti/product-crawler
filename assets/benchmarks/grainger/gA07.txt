@@ -1,0 +1,324 @@
+1553|4|Speakers & Public Address Equipment|بلندگو و سیستم پیجینگ (صوت عمومی)|
+1554|5|Speakers, Subwoofers & Public Address Systems|بلندگو، ساب‌ووفر و سیستم پیجینگ|
+1555|5|Audio Amplifiers & Wiring Equipment|آمپلی‌فایر و تجهیزات سیم‌کشی صوت|
+1556|5|Mounts & Housings for Speakers|پایه و محفظه بلندگو|
+1557|5|Microphones for Public Address Systems|میکروفون سیستم پیجینگ|
+1558|5|Megaphones|بلندگوی دستی (مگافون)|
+1559|4|Intercoms|آیفون و اینترکام|
+1560|5|Audio Intercom Stations & Kits|آیفون صوتی و کیت|
+1561|5|Video Intercom Stations & Kits|آیفون تصویری و کیت|ترکیبی
+1562|5|Intercom Microphones, Keypads & Displays|میکروفون، کی‌پد و نمایشگر اینترکام|
+1563|5|Mounts, Boxes & Housings for Intercom Stations|پایه، قاب و محفظه آیفون|
+1564|5|Controls & Power Equipment for Intercoms|کنترل و منبع تغذیه آیفون|
+1565|3|Audio-Video Accessories|لوازم جانبی صوتی و تصویری|ترکیبی
+1566|4|Audio-Video Cables|کابل صوتی و تصویری (HDMI و...)|
+1567|4|Audio-Video Cable Connectors|کانکتور کابل صوتی و تصویری|
+1568|4|Audio-Video Splitters & Adapters|اسپلیتر و تبدیل صوتی و تصویری|
+1569|4|Audio-Video Scalers, Converters and Switchers|اسکیلر، مبدل و سوئیچر صوتی و تصویری|
+1570|4|Audio-Video Switches & Extenders|سوئیچ و اکستندر صوتی و تصویری|
+1571|4|Audio-Video Modular Switches and Extenders|سوئیچ و اکستندر ماژولار صوتی و تصویری|
+1572|4|USB & Lightning Cables|کابل USB و لایتنینگ|
+1573|4|USB Connectors & Hubs|کانکتور و هاب USB|
+1574|4|Audio-Video Cable Caps & Terminators|درپوش و ترمیناتور کابل صوتی و تصویری|
+1575|3|Antenna and Satellite Dish Mounts & Accessories|پایه و لوازم آنتن و دیش ماهواره|
+1576|3|Data Entry Devices & Accessories|دستگاه ورود اطلاعات و لوازم|
+1577|4|Data Entry Devices|دستگاه ورود اطلاعات (صفحه‌کلید، ماوس، اسکنر)|
+1578|4|Data Entry Device Accessories|لوازم جانبی دستگاه ورود اطلاعات|
+1579|1|Fasteners|پیچ، مهره و اتصالات (فاستنر)|
+1580|2|Bolts & Screws|پیچ|
+1581|3|Hex Head Bolts|پیچ سرشش‌گوش|
+1582|4|Standard Hex Head Cap Screws|پیچ سرشش‌گوش استاندارد|
+1583|4|Structural Bolts & Heavy Hex Bolts|پیچ سازه‌ای و سرشش‌گوش سنگین|
+1584|4|Flange Bolts|پیچ فلنج‌دار (سرشش‌گوش واشردار)|
+1585|4|Sealing Hex Head Cap Screws|پیچ سرشش‌گوش آب‌بند|
+1586|4|Sanitary Hex Head Cap Screws|پیچ سرشش‌گوش بهداشتی|
+1587|4|Vented Hex Head Cap Screws|پیچ سرشش‌گوش هواکش‌دار (سوراخ‌دار)|
+1588|4|Locking Hex Head Cap Screws|پیچ سرشش‌گوش قفل‌شو|
+1589|4|Coil Bolts|پیچ کویل (بتن)|
+1590|4|Hex Head Stop Bolts|پیچ استاپ سرشش‌گوش|
+1591|3|Socket Drive Cap Screws|پیچ آلن|
+1592|4|Standard Socket Head Cap Screws|پیچ آلن استوانه‌ای|
+1593|4|Flat Head Socket Cap Screws|پیچ آلن خزینه‌ای|
+1594|4|Button Head Socket Cap Screws|پیچ آلن سرگرد (عدسی)|
+1595|4|Locking Socket Head Cap Screws|پیچ آلن قفل‌شو|
+1596|4|Vented Socket Head Cap Screws|پیچ آلن هواکش‌دار|
+1597|3|Drilling & Tapping Screws|پیچ خودکار و سرمته|
+1598|4|Self-Drilling Screws|پیچ سرمته|
+1599|4|Sheet Metal Screws|پیچ خودکار ورق|
+1600|4|Drywall Screws|پیچ کناف (پیچ دیوار خشک)|
+1601|4|Wood Screws|پیچ چوب|
+1602|4|Hex Head Lag Screws|پیچ چوب سرشش‌گوش (لاگ)|
+1603|4|Thread-Cutting & Thread-Forming Screws|پیچ رزوه‌تراش و رزوه‌ساز|
+1604|4|Collated Screws|پیچ نواری (شانه‌ای)|
+1605|3|Machine Screws|پیچ ماشینی (مهره‌خور ریز)|
+1606|4|Standard Machine Screws|پیچ ماشینی استاندارد|
+1607|4|Tamper-Resistant Machine Screws|پیچ ماشینی ضدسرقت|
+1608|4|Sealing Machine Screws|پیچ ماشینی آب‌بند|
+1609|4|SEMS and Locking Machine Screws|پیچ واشرسرخود (SEMS) و قفل‌شو|
+1610|3|Eye Bolts|پیچ چشمی|
+1611|3|U-Bolts|پیچ U (کمربندی)|
+1612|3|Round Head Bolts|پیچ سرگرد|
+1613|4|Carriage Bolts & Step Bolts|پیچ سرگرد گردن‌چهارگوش (کالسکه‌ای) و پیچ پله‌ای|
+1614|4|Elevator Bolts|پیچ تخت‌سر بالابر (الواتور)|
+1615|4|Plow Bolts|پیچ خیش (خزینه‌ای گردن‌چهارگوش)|
+1616|4|Freight Car Bolts|پیچ واگن باری|
+1617|3|Shoulder Screws|پیچ شانه‌دار|
+1618|3|Set Screws|پیچ مغزی (بی‌سر)|
+1619|3|Hanger Bolts & Dowel Screws|پیچ دوسر چوب‌خور و پیچ دوسرچوبی|
+1620|3|Binding Posts|پیچ و مهره صحافی (شیکاگو)|
+1621|3|Thumb Screws|پیچ سرخزینه‌دار دستی (پیچ پروانه‌ای)|
+1622|3|Captive Panel Screws|پیچ پنلی ثابت (کپتیو)|
+1623|3|Square Head Bolts|پیچ سرچهارگوش|
+1624|3|Penta Head Bolts|پیچ سرپنج‌گوش|
+1625|3|Bolt & Screw Caps|کلاهک پیچ|
+1626|2|Nuts|مهره|
+1627|3|Hex Nuts|مهره شش‌گوش|
+1628|3|Lock Nuts|مهره قفلی (ناخنی و نایلونی)|
+1629|3|Cap Nuts|مهره کلاهکی (ماسوره‌ای)|
+1630|3|Coupling Nuts|مهره رابط (بلند)|
+1631|3|Flange Nuts|مهره فلنج‌دار|
+1632|3|Square Nuts|مهره چهارگوش|
+1633|3|Wing Nuts|مهره پروانه‌ای|
+1634|3|Thumb Nuts|مهره دستی (آج‌دار)|
+1635|3|Handle Nuts|مهره دسته‌دار|
+1636|3|Eye Nuts|مهره چشمی|
+1637|3|Weld Nuts|مهره جوشی|
+1638|3|Clinch Nuts|مهره پرسی (کلینچ)|
+1639|3|Cage Nuts & Spring Nuts|مهره قفسی و مهره فنری|
+1640|3|T-Nuts for Wood|مهره چنگکی چوب (T)|
+1641|3|Push Nuts & Retainers|مهره فشاری (استارلاک) و نگهدارنده|
+1642|3|Sealing Nuts|مهره آب‌بند|
+1643|3|Tamper-Resistant Nuts|مهره ضدسرقت|
+1644|3|Socket Nuts|مهره سوکتی (مهره صحافی ماده)|
+1645|2|Washers|واشر|
+1646|3|Flat Washers|واشر تخت|
+1647|3|Lock Washers|واشر فنری (قفلی)|
+1648|3|Sealing & Cushioning Washers|واشر آب‌بند و ضربه‌گیر|
+1649|3|Insulator Washers|واشر عایق|
+1650|3|Countersunk Washers|واشر خزینه‌ای|
+1651|3|Spherical Washers|واشر کروی|
+1652|3|Structural Washers|واشر سازه‌ای|
+1653|3|Ogee Washers|واشر چدنی اوجی (اسکله)|
+1654|3|Retaining Washers|واشر نگهدارنده|
+1655|2|Threaded Rods & Studs|میله رزوه‌ای و پیچ دوسر|
+1656|3|Fully-Threaded Rods & Studs|میله تمام‌رزوه (میله‌مهره‌خور)|
+1657|3|Double-End Threaded Rods & Studs|پیچ دوسر رزوه|
+1658|3|Single-End Threaded Studs|استاد یک‌سر رزوه|
+1659|3|Mounted Studs|استاد پایه‌دار|
+1660|3|Clinch Studs|استاد پرسی (کلینچ)|
+1661|2|Anchors|انکر و رولپلاک|
+1662|3|Anchors for Concrete, Block & Brick|انکر بتن، بلوک و آجر|
+1663|4|Wedge Anchors|انکر بولت گوه‌ای (انکر میخی)|
+1664|4|Sleeve Anchors|انکر غلافی (رول‌بولت)|
+1665|4|Screw Anchors|پیچ بتن (اسکرو انکر)|
+1666|4|Female-Threaded Anchors|انکر مادگی رزوه (انکر دراپ‌این)|
+1667|4|Light-Duty Plug-Style Anchors|رولپلاک سبک|
+1668|4|Quick Drive Anchors|انکر چکشی (میخ‌پرچ)|
+1669|4|Removable Bolt Anchors|انکر پیچی قابل جداشدن|
+1670|4|Anchors for Wet Concrete|انکر بتن تازه|
+1671|4|Anchors for Hollow Block & Brick|انکر بلوک و آجر توخالی|
+1672|4|Anchors for Asphalt|انکر آسفالت|
+1673|3|Anchors for Drywall & Plaster|رولپلاک کناف و گچ (پروانه‌ای)|ترکیبی
+1674|3|Adhesive Anchors|انکر شیمیایی (کاشت میلگرد)|
+1675|3|Rod Hangers|آویز میله رزوه‌ای|
+1676|3|Spring Anchors|انکر فنری (پروانه‌ای)|
+1677|2|Threaded Inserts|بوش رزوه‌ای (اینسرت)|
+1678|3|Helical Inserts|هلی‌کویل|
+1679|3|Self-Locking Inserts|اینسرت خودقفل‌شو|
+1680|3|Key-Locking Inserts|اینسرت خاردار (کی‌سرت)|
+1681|3|Rivet Nuts|مهره پرچی (پرچ‌مهره)|
+1682|3|Self-Tapping Inserts|اینسرت خودرزوه‌ساز|
+1683|3|Press-Fit Inserts|اینسرت پرسی|
+1684|3|Heat-Set Inserts|اینسرت حرارتی (پلاستیک)|
+1685|3|Weld Nuts|مهره جوشی|
+1686|3|T-Nuts for Wood|مهره چنگکی چوب (T)|
+1687|3|Socket Nuts|مهره سوکتی|
+1688|2|Rivets|پرچ|
+1689|3|Blind Rivets|پرچ پاپ (کور)|
+1690|3|Solid Rivets|پرچ توپر (میخ‌پرچ)|
+1691|3|Tubular Rivets|پرچ توخالی (لوله‌ای)|
+1692|3|Push-In Rivets|پرچ پلاستیکی فشاری (خار)|
+1693|3|Drive Pin Rivets|پرچ چکشی|
+1694|3|Rivet Washers|واشر پرچ|
+1695|3|Lock Bolts & Lock Bolt Collars|پرچ‌پیچ (لاک‌بولت) و کلر|
+1696|2|Nails & Spikes|میخ و میخ بلند|
+1697|3|Nails|میخ|ترکیبی
+1698|3|Collated Nails|میخ نواری (میخکوب)|
+1699|3|Spikes|میخ بلند (اسپایک)|
+1700|3|U-Drive Screw Nails For Masonry|میخ پیچی بنایی|
+1701|2|Staples|سوزن منگنه (منگنه‌کوب)|
+1702|2|Spacers|اسپیسر (فاصله‌انداز)|
+1703|3|Standard Spacers|اسپیسر استاندارد|
+1704|3|Swage-Mount Spacers|اسپیسر پرسی|
+1705|3|Retaining Spacers|اسپیسر نگهدارنده|
+1706|3|Compression Limiters|بوش محدودکننده فشار|
+1707|2|Standoffs|فاصله‌انداز رزوه‌ای (استنداف)|
+1708|3|Male x Female Standoffs|استنداف نر-ماده|
+1709|3|Female x Female Standoffs|استنداف ماده-ماده|
+1710|3|Clinch Standoffs|استنداف پرسی (کلینچ)|
+1711|3|Swage-Mount Standoffs|استنداف پرچی|
+1712|3|Panel-Mount Standoffs|استنداف پنلی|
+1713|2|Thread Adapters|تبدیل رزوه|
+1714|3|Male x Female Thread Adapters|تبدیل رزوه نر به ماده|
+1715|3|Male x Male Thread Adapters|تبدیل رزوه نر به نر|
+1716|3|Female x Female Thread Adapters|تبدیل رزوه ماده به ماده|
+1717|2|Pins|پین|
+1718|3|Dowel Pins|پین راهنما (داول)|
+1719|3|Clevis Pins|پین دوشاخ (گلنگدنی)|
+1720|3|Cotter Pins|اشپیل (خار مویی)|
+1721|3|Industrial Safety Pins|سنجاق قفلی صنعتی|
+1722|3|Grooved Pins|پین شیاردار|
+1723|3|Hitch Pins|خار R (پین هیچ)|
+1724|3|Spring Pins|پین فنری (رول‌پین)|
+1725|3|Lynch Pins|پین لینچ|
+1726|3|Taper Pins|پین مخروطی|
+1727|3|Snap Buttons|دکمه فنری (اسنپ)|
+1728|3|Quick-Release Pins & Receptacles|پین آزادسازی سریع و مادگی|
+1729|4|Quick-Release Pins|پین آزادسازی سریع (بال‌لاک)|
+1730|4|Quick-Release Pin Receptacles|مادگی پین آزادسازی سریع|
+1731|2|Retaining Rings|خار حلقوی|
+1732|3|External Retaining Rings|خار بیرونی (خار شفت)|
+1733|3|Internal Retaining Rings|خار داخلی (خار سوراخ)|
+1734|2|Keys & Key Stock|خار محور و خار تسمه‌ای|
+1735|3|Machine Keys|خار محور (خار گوه)|
+1736|3|Key Stock|خار تسمه‌ای (کلید محور)|
+1737|2|Shims & Shim Stock|شیم و ورق شیم|
+1738|3|Round Shims & Arbor Shims|شیم گرد و شیم شفت|
+1739|3|Round Arbor Spacers|فاصله‌انداز گرد شفت|
+1740|3|Slotted Shims|شیم شکاف‌دار (لایی U)|
+1741|3|Shim Stock|ورق شیم|
+1742|3|Wedge Shims|شیم گوه‌ای|
+1743|2|Safety Lockwire|سیم ایمنی (لاک‌وایر)|
+1744|1|Fleet & Vehicle Maintenance|تعمیر و نگهداری خودرو و ناوگان|
+1745|2|Garage Equipment|تجهیزات تعمیرگاه|
+1746|3|Vehicle Lifting & Support Equipment|تجهیزات بالابر و نگهدارنده خودرو|
+1747|4|Vehicle & Equipment Jacks|جک خودرو و تجهیزات|
+1748|5|Floor Service & Axle Jacks|جک سوسماری و جک اکسل|
+1749|5|Bottle Jacks|جک روغنی (بطری)|
+1750|5|Transmission & Clutch Jacks|جک گیربکس و کلاچ|
+1751|5|Screw Jacks|جک پیچی|
+1752|5|Farm, Ratchet & Reel Jacks|جک کشاورزی (های‌لیفت) و جک جغجغه‌ای|
+1753|5|Scissor Jacks|جک قیچی (لوزی)|ترکیبی
+1754|5|High-Tonnage Wheeled Jacks|جک چرخ‌دار تناژ بالا|
+1755|4|Vehicle Lifts|بالابر خودرو (جک دوستون)|
+1756|4|Vehicle Stands|خرک خودرو|
+1757|4|Engine Stands & Auxiliary Support Stands|پایه موتور و خرک کمکی|
+1758|4|Engine Hoists & Cranes|جرثقیل موتور (کرین موتور‌درآر)|
+1759|4|Service Ramps|رمپ سرویس خودرو|
+1760|4|Powertrain Lifts|بالابر پیشرانه|
+1761|4|Parts for Vehicle Lifting Equipment|قطعات تجهیزات بالابر خودرو|
+1762|3|Outrigger Pads|پد زیر جک (اوتریگر)|
+1763|3|Cribbing Blocks|بلوک زیرسری (کریبینگ)|
+1764|3|Mechanic Seats & Creepers|صندلی مکانیک و تخته زیرخودرو|
+1765|4|Creepers|تخته زیرخودرو (کریپر)|
+1766|4|Mechanic Seats|صندلی مکانیک|
+1767|4|Creeper Accessories|لوازم جانبی تخته زیرخودرو|
+1768|3|Garage Dollies|دالی تعمیرگاهی|
+1769|4|Vehicle Moving Dollies|دالی جابه‌جایی خودرو|
+1770|4|Brake Dollies|دالی ترمز|
+1771|4|Wheel Dollies|دالی چرخ|
+1772|3|Tire & Wheel Equipment|تجهیزات لاستیک و رینگ|
+1773|4|Vehicle & Trailer Wheel Boot Locks|قفل چرخ خودرو و تریلر|
+1774|4|Garage Storage Racks|قفسه نگهداری تعمیرگاه (قفسه لاستیک)|
+1775|4|Wheel Balancing Machines & Accessories|دستگاه بالانس چرخ و لوازم|
+1776|4|Tire Changing Machines & Accessories|دستگاه لاستیک‌درآر و لوازم|
+1777|4|Tire Inflation Cages & Accessories|قفس ایمنی باد لاستیک و لوازم|
+1778|3|Oil Filter Crushers|پرس فیلتر روغن|
+1779|3|Fuel Cans, Tanks & Caddies|گالن سوخت، مخزن و ترولی سوخت|
+1780|4|Fuel & Gas Cans|گالن بنزین و سوخت|ترکیبی
+1781|4|Fuel Caddies|ترولی سوخت|
+1782|4|Marine Fuel Tanks|مخزن سوخت قایق|
+1783|4|Portable Fuel Tanks|مخزن سوخت قابل حمل|
+1784|4|Diesel Fuel Filter Carts|ترولی فیلتر گازوئیل|
+1785|3|Vehicle Extended Reach Platforms|سکوی دسترسی خودرو|
+1786|3|Vehicle Key Tags|برچسب سوئیچ خودرو|
+1787|3|Vehicle Protection Covers|روکش محافظ خودرو|
+1788|4|Exterior Vehicle Protection Covers|روکش محافظ بیرونی خودرو (گلگیرپوش)|
+1789|4|Interior Vehicle Protection Covers|روکش محافظ داخلی خودرو (روصندلی یک‌بارمصرف)|
+1790|4|Vehicle Protection Cover Dispensing Racks|رک دیسپنسر روکش محافظ خودرو|
+1791|3|Vehicle AC Service Equipment|تجهیزات سرویس کولر خودرو|
+1792|4|AC Refrigerant Machines|دستگاه شارژ گاز کولر|
+1793|4|AC Refrigerant Machine Accessories|لوازم جانبی دستگاه شارژ گاز کولر|
+1794|3|Garage Tear Down Tables|میز دمونتاژ تعمیرگاه|
+1795|2|Tire & Brake Maintenance|سرویس لاستیک و ترمز|
+1796|3|Tire Repair|پنچرگیری و تعمیر لاستیک|
+1797|4|Tire Inflator & Deflator Equipment|تجهیزات باد و تخلیه باد لاستیک|
+1798|5|Tire Inflators & Deflators|گیج باد و تخلیه‌کن لاستیک|
+1799|5|Cordless Tool Inflators|پمپ باد شارژی|
+1800|5|12V Tire Inflators|پمپ باد فندکی ۱۲ ولت|ترکیبی
+1801|5|Inflator Accessories|لوازم جانبی پمپ باد|
+1802|4|Tire Inflator Gauges|گیج باد لاستیک (تفنگی)|
+1803|4|Tire Chucks|سرشیلنگ باد لاستیک (سر والوی)|
+1804|4|Tire Valve Maintenance|سرویس والو لاستیک|
+1805|4|Tire Pressure Gauges|فشارسنج باد لاستیک|ترکیبی
+1806|4|Tire Tread Gauges|عمق‌سنج آج لاستیک|
+1807|4|Tire Patching|وصله پنچرگیری|
+1808|4|Tire Buffing Wheels|برس سمباده پنچرگیری|
+1809|4|Tire Bead Sealers & Tire Lubricants|آب‌بند لبه لاستیک و روان‌کننده لاستیک|
+1810|3|Tire & Wheel Performance|لوازم عملکرد لاستیک و رینگ|
+1811|4|Tire Traction|زنجیر چرخ و افزایش کشش لاستیک|
+1812|4|Wheel Balancing|بالانس چرخ (وزنه بالانس)|
+1813|4|Wheel Lug Nut Maintenance|لوازم مهره چرخ|
+1814|4|Hub Caps & Dually Wheel Simulators|قالپاق و قالپاق چرخ جفت|
+1815|4|Tire & Wheel Accessories|لوازم جانبی لاستیک و رینگ|
+1816|3|Tire & Wheel Replacement|لاستیک و رینگ یدکی|
+1817|4|Trailer & Equipment Tires|لاستیک تریلر و تجهیزات|
+1818|4|Trailer & Equipment Inner Tubes|تیوب لاستیک تریلر و تجهیزات|
+1819|3|Brake Service|سرویس ترمز|
+1820|4|Air Brake Maintenance|سرویس ترمز بادی|
+1821|5|Air Brakes|قطعات ترمز بادی|
+1822|5|Air Brake Accessories|لوازم جانبی ترمز بادی|
+1823|5|Air Brake Hose & Cable Supports|نگهدارنده شیلنگ و کابل ترمز بادی|
+1824|5|Gladhands & Gladhand Accessories|سرشیلنگی ترمز تریلی (گلدهند) و لوازم|
+1825|6|Gladhand Accessories|لوازم جانبی گلدهند|
+1826|6|Gladhands|سرشیلنگی ترمز تریلی (گلدهند)|
+1827|6|Gladhand Seals|لاستیک آب‌بند گلدهند|
+1828|5|Air Brake Slack Adjusters|جغجغه ترمز (اسلک ادجستر)|
+1829|4|Hydraulic Brake Maintenance|سرویس ترمز هیدرولیک|
+1830|5|Hydraulic Brake Lines & Accessories|لوله ترمز و لوازم|
+1831|5|Brake Lathes & Accessories|دستگاه دیسک‌تراش و لوازم|
+1832|2|Vehicle Tools|ابزار خودرو|
+1833|3|Vehicle Diagnostic Tools|ابزار عیب‌یابی خودرو|
+1834|4|Digital Scan & Diagnostic Tools|دیاگ خودرو (اسکنر دیجیتال)|
+1835|4|Mechanical Diagnostic Testers & Tools|تستر و ابزار عیب‌یابی مکانیکی|
+1836|4|Vehicle Leak Detectors|نشت‌یاب خودرو|
+1837|5|A/C Leak Detectors|نشت‌یاب گاز کولر|
+1838|5|Leak Detecting UV Glasses|عینک UV نشت‌یابی|
+1839|4|Vehicle Circuit Testers|تستر مدار خودرو (فازمتر خودرو)|
+1840|4|Trailer Testers|تستر برق تریلر|
+1841|4|Fuel Injector Diagnostic Tools|ابزار عیب‌یابی انژکتور|
+1842|4|Vehicle Heating & Cooling Diagnostic Tools|ابزار عیب‌یابی سیستم گرمایش و سرمایش خودرو|
+1843|5|A/C Diagnostic Tools|ابزار عیب‌یابی کولر خودرو (گیج منیفولد)|
+1844|5|Radiator & Cooling System Diagnostic Tools|ابزار عیب‌یابی رادیاتور و سیستم خنک‌کاری|
+1845|4|Hydraulic Flow Meters, Kits & Components|فلومتر هیدرولیک، کیت و قطعات|
+1846|4|Mechanic Stethoscopes|گوشی مکانیکی|
+1847|4|Tire Pressure Monitoring System (TPMS) Tools & Components|ابزار و قطعات سیستم پایش باد تایر (TPMS)|
+1848|4|Diagnostic Tool Accessories|لوازم جانبی ابزار عیب‌یابی|
+1849|4|Battery Testers & Accessories|تستر باتری و لوازم|
+1850|3|Drivetrain Tools|ابزار انتقال قدرت خودرو (گیربکس و دیفرانسیل)|
+1851|3|Vehicle Electrical & Lighting Tools|ابزار برق و روشنایی خودرو|
+1852|4|Vehicle Battery Tools|ابزار باتری خودرو|
+1853|4|Spark Plug Tools|ابزار شمع (شمع‌بازکن)|
+1854|4|Vehicle Electrical Tools|ابزار برق خودرو|
+1855|5|10 in|۱۰ اینچ|
+1856|4|Vehicle Lighting Tools|ابزار روشنایی خودرو|
+1857|5|Headlight Aimers & Covers|دستگاه تنظیم چراغ جلو و کاور|
+1858|5|Light Socket Brush Kits|کیت برس سوکت چراغ|
+1859|3|Vehicle Engine Tools|ابزار موتور خودرو|
+1860|4|Crankshaft Tools|ابزار میل‌لنگ|
+1861|4|Camshaft Tools|ابزار میل‌سوپاپ (تایمینگ)|
+1862|4|Belt Tools|ابزار تسمه|
+1863|4|Oil Service Tools|ابزار سرویس روغن (فیلتربازکن)|
+1864|4|Engine Cylinder & Piston Tools|ابزار سیلندر و پیستون (رینگ‌جمع‌کن)|
+1865|4|Valve Spring Tools|فنرجمع‌کن سوپاپ|
+1866|4|Oil Pressure Tools|ابزار تست فشار روغن|
+1867|4|Vehicle Engine Hand Tools|ابزار دستی موتور خودرو|
+1868|5|Cylinder Gland Nut Wrenches|آچار مهره گلند سیلندر|
+1869|5|Vehicle E-Clips|خار E خودرو|
+1870|5|Engine Barring Sockets|بکس چرخاندن موتور|
+1871|5|STC Release Tools|ابزار آزادکردن اتصال STC|
+1872|4|Vehicle Gear Tools|ابزار دنده خودرو|
+1873|4|Vehicle Maintenance Assist Tools|ابزار کمکی تعمیر خودرو|
+1874|4|Vehicle Water Pump Tools|ابزار واترپمپ خودرو|
+1875|3|Vehicle Exhaust Tools|ابزار اگزوز خودرو|
+1876|3|Vehicle Fuel & Air Tools|ابزار سیستم سوخت و هوای خودرو|

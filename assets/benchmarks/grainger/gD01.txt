@@ -218,7 +218,7 @@
 7733|4|Dome Strainers, Grates & Repair Parts for Roof Drains|صافی گنبدی، شبکه و قطعات کف‌شور بام|
 7734|3|Cleanouts & Cleanout Covers|دریچه بازدید فاضلاب و درپوش آن|
 7735|3|Drain Air Vents & Valves|هواکش و شیر ورود هوای فاضلاب|
-7736|3|Drain Interceptors & Dilution Tanks|سپتیک (جداکننده) و مخزن رقیق‌سازی|
+7736|3|Drain Interceptors & Dilution Tanks|جداکننده فاضلاب (سپراتور) و مخزن رقیق‌سازی|
 7737|3|Gutter & Downspout Accessories|لوازم ناودان|
 7738|2|Plumbing Valves|شیرآلات صنعتی و تأسیساتی|
 7739|3|Shut-Off Valves|شیر قطع و وصل|

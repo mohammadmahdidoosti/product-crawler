@@ -1,0 +1,115 @@
+9223|3|Plastic Half Rounds|پروفیل نیم‌گرد پلاستیکی|
+9224|3|Plastic Dog Bones|پروفیل استخوانی پلاستیکی (داگ‌بون)|
+9225|3|Plastic Application Tools|ابزار کار با پلاستیک|
+9226|2|Fiberglass & Carbon Fiber Composites|کامپوزیت فایبرگلاس و فیبر کربن|
+9227|3|Structural Fiberglass Reinforced Plastics|پروفیل سازه‌ای فایبرگلاس (FRP)|
+9228|4|Fiberglass Grating, Stair Treads & Accessories|گریتینگ، کف پله و لوازم فایبرگلاس|
+9229|5|Fiberglass Grating|گریتینگ فایبرگلاس|
+9230|5|Fiberglass Stair Treads|کف پله فایبرگلاس|
+9231|5|Clips for Fiberglass Grating|گیره گریتینگ فایبرگلاس|
+9232|5|Pedestals for Fiberglass Grating|پایه گریتینگ فایبرگلاس|
+9233|5|Ramps for Fiberglass Grating|رمپ گریتینگ فایبرگلاس|
+9234|4|Fiberglass Sheets & Plates|ورق فایبرگلاس|
+9235|4|Fiberglass Rods|میله فایبرگلاس|
+9236|4|Fiberglass Angles, Channels & Beams|نبشی، ناودانی و تیرآهن فایبرگلاس|
+9237|5|Fiberglass Angles|نبشی فایبرگلاس|
+9238|5|Fiberglass U-Channels|ناودانی فایبرگلاس|
+9239|5|Fiberglass I-Beams|تیر I فایبرگلاس|
+9240|4|Fiberglass Tubes|لوله و قوطی فایبرگلاس|
+9241|5|Rectangular Fiberglass Tubes|قوطی فایبرگلاس|
+9242|5|Round Fiberglass Tubes|لوله فایبرگلاس|
+9243|3|Electrical Insulating Fiberglass Epoxy Laminates|لمینت اپوکسی فایبرگلاس عایق برق (G10/FR4)|
+9244|4|Fiberglass Epoxy Flat Bars|تسمه اپوکسی فایبرگلاس|
+9245|4|Fiberglass Epoxy Sheets & Plates|ورق اپوکسی فایبرگلاس|
+9246|4|Fiberglass Epoxy Rods|میله اپوکسی فایبرگلاس|
+9247|3|High-Strength Carbon Fiber Reinforced Plastics|کامپوزیت فیبر کربن استحکام بالا|
+9248|4|Carbon Fiber Flat Bars|تسمه فیبر کربن|
+9249|4|Carbon Fiber Sheets|ورق فیبر کربن|
+9250|4|Carbon Fiber Round Tubes|لوله فیبر کربن|
+9251|4|Carbon Fiber Rods|میله فیبر کربن|
+9252|2|Rubber|لاستیک|
+9253|3|Rubber Sheets, Strips & Rolls|ورق، نوار و رول لاستیکی|
+9254|4|Water-Resistant Neoprene Rubber|لاستیک نئوپرن|
+9255|4|High-Temperature Weather-Resistant Silicone Rubber|لاستیک سیلیکونی نسوز|
+9256|4|Oil-Resistant Buna-N Rubber|لاستیک نیتریل (NBR) ضدروغن|
+9257|4|Weather-Resistant EPDM Rubber|لاستیک EPDM|
+9258|4|Abrasion & Water-Resistant SBR Rubber|لاستیک SBR|
+9259|4|Recycled Eco-Friendly Rubber|لاستیک بازیافتی|
+9260|4|Elastic Abrasion-Resistant Natural Rubber|لاستیک طبیعی|
+9261|4|High-Performance Viton Rubber|لاستیک ویتون (FKM)|
+9262|4|Moisture & Chemical-Resistant Vinyl Rubber|لاستیک وینیلی|
+9263|4|High-Strength Abrasion-Resistant Polyurethane Sheets & Strips|ورق و نوار پلی‌اورتان|
+9264|4|Chemical & Weather-Resistant Hypalon Rubber|لاستیک هایپالون|
+9265|4|Air-Impermeable Butyl Rubber|لاستیک بوتیل|
+9266|4|Low-Temperature Fluorosilicone Rubber|لاستیک فلوروسیلیکون|
+9267|4|Heat & Ozone-Resistant HNBR Rubber|لاستیک HNBR|
+9268|3|Rubber Rods|میله لاستیکی|
+9269|3|Rubber Tubes|لوله لاستیکی|
+9270|3|Rubber Balls|توپ لاستیکی|
+9271|2|Foam|فوم|
+9272|3|Foam Sheets, Strips & Rolls|ورق، نوار و رول فوم|
+9273|4|Low-Density Polyether Acoustical Foam|فوم آکوستیک پلی‌اتر|
+9274|4|Weather & Chemical-Resistant Neoprene/EPDM/SBR Foam|فوم نئوپرن/EPDM/SBR|
+9275|4|Cushioning Polyethylene Foam|فوم پلی‌اتیلن ضربه‌گیر|
+9276|4|Abrasion-Resistant Cushioning Polyurethane Foam|فوم پلی‌اورتان (اسفنج)|
+9277|4|High-Temperature Weather-Resistant Silicone Foam|فوم سیلیکونی نسوز|
+9278|4|Water-Resistant Neoprene Foam|فوم نئوپرن|
+9279|4|Weather-Resistant EPDM Foam|فوم EPDM|
+9280|4|Super-Cushioning EVA Foam|فوم EVA|
+9281|4|Abrasion-Resistant Natural Foam|فوم لاستیک طبیعی|
+9282|4|Oil-Resistant Buna-N Foam|فوم نیتریل ضدروغن|
+9283|4|High-Performance Viton Foam|فوم ویتون|
+9284|4|Flexible Chemical-Resistant ECH Foam|فوم ECH مقاوم شیمیایی|
+9285|4|Impact-Absorbing Buna-N/PVC Foam|فوم نیتریل/PVC ضربه‌گیر|
+9286|4|Low-Temperature Fluorosilicone Foam|فوم فلوروسیلیکون|
+9287|4|Oil & Flame-Resistant Vinyl/Nitrile/Neoprene Foam|فوم وینیل/نیتریل/نئوپرن ضدروغن و ضدشعله|
+9288|3|Foam Tubes|لوله فوم|
+9289|3|Foam Rings|حلقه فوم|
+9290|3|Foam Cord Stock|طناب فوم (بکر راد)|
+9291|2|Wire Mesh & Accessories|توری فلزی و لوازم|
+9292|3|Wire Mesh U-Edging|لبه‌گیر U توری|
+9293|3|Wire Mesh|توری فلزی (مش)|
+9294|2|Cork|چوب‌پنبه|
+9295|3|Cork Sheets, Strips & Rolls|ورق، نوار و رول چوب‌پنبه|
+9296|3|Tapered Cork|چوب‌پنبه مخروطی (درپوش)|
+9297|2|Felt|نمد|
+9298|2|Fabrics|پارچه صنعتی|
+9299|3|Burlap Fabric|پارچه کنفی (گونی)|
+9300|3|Uncoated Fiberglass Fabric|پارچه فایبرگلاس ساده|
+9301|3|PTFE-Coated Non-Stick Fiberglass Fabric|پارچه فایبرگلاس با روکش تفلون|
+9302|3|Silicone-Coated High-Temperature Fiberglass Fabric|پارچه فایبرگلاس نسوز با روکش سیلیکون|
+9303|3|Vinyl-Coated Weather Resistant Polyester Fabric|پارچه پلی‌استر روکش وینیل (برزنت PVC)|
+9304|2|Graphite|گرافیت|
+9305|3|Graphite Flat Bars, Sheets & Plates|تسمه و ورق گرافیت|
+9306|3|Graphite Rods|میله گرافیت|
+9307|3|Graphite Round Tubes|لوله گرافیت|
+9308|1|Retail Supplies & Store Operations|لوازم فروشگاهی و عملیات فروشگاه|
+9309|2|Retail Display Fixtures & Counters|قفسه نمایش و کانتر فروشگاهی|
+9310|3|Retail Slatwall Systems|اسلت‌وال (دیوارپوش شیاردار) فروشگاهی|
+9311|3|Retail Pegboard Systems|پگ‌بورد (تخته سوراخ‌دار) فروشگاهی|
+9312|3|Retail Floor Displays|استند نمایش ایستاده|
+9313|3|Retail Tables & Tiered Displays|میز نمایش و استند طبقاتی|
+9314|3|Retail Dump Tables & Baskets|میز و سبد حراج (فله)|
+9315|3|Straight-Arm & Round Fixture Retail Displays|رگال لباس بازویی و گرد|
+9316|3|Display Mannequins|مانکن|
+9317|3|Merchandise Display Showcases|ویترین نمایش کالا|
+9318|3|Checkout Service Counters & Cashier Carts|کانتر صندوق و میز صندوقدار|
+9319|2|Shopping Carts, Corrals & Hand Baskets|چرخ خرید، پارکینگ چرخ و سبد خرید|
+9320|3|Shopping Baskets|سبد خرید دستی|
+9321|3|Shopping Carts|چرخ خرید فروشگاهی|
+9322|3|Motorized & Wheelchair Shopping Carts|چرخ خرید برقی و ویلچری|
+9323|3|Cart Corrals|پارکینگ چرخ خرید|
+9324|2|Cash Handling|مدیریت وجه نقد|
+9325|3|Cash Boxes, Deposit Bags & Drawers|صندوق پول، کیف واریز و کشوی پول|
+9326|3|Counterfeit Detection|دستگاه تشخیص اسکناس تقلبی|
+9327|3|Coin & Bill Counters|اسکناس‌شمار و سکه‌شمار|
+9328|3|Adding Machine & Point-of-Sale Paper Rolls|رول کاغذ ماشین‌حساب و فیش پرینتر (POS)|ترکیبی
+9329|2|Retail Tagging & Pricing|برچسب‌زنی و قیمت‌گذاری فروشگاهی|
+9330|3|Pricing Guns & Labels|دستگاه اتیکت‌زن قیمت و برچسب|
+9331|3|Tagging Guns & Fasteners|تفنگ اتیکت‌زن و سوزن (تگ پین)|
+9332|3|Hang Tabs|آویز کالا (هنگ تب)|
+9333|3|Retail Security Tags & Detachers|تگ امنیتی (دزدگیر) و جداکننده|
+9334|3|Retail Tags|اتیکت فروشگاهی|
+9335|2|Queuing Systems & Accessories|راهبند صف (استند صف) و لوازم|
+9336|2|Cashier Protective Counter Shields|شیلد محافظ صندوق|
+9337|2|Suggestion Boxes|صندوق پیشنهادات|
