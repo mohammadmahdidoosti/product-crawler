@@ -1,3 +1,17 @@
+## 15 Nov 2026 — bulk sends done, 101-150 published, benchmarks done
+- Bulk send (kw2, 3 workers via bridge): 37 batches, 5,294 created / 989 updated, 0 errors; batch-119 re-run OK;
+  yesterday's error batches 102/104/105/116/117 re-sent with `--run` (prepared.ok written by hand): 10 created, 25 updated.
+  OpenRouter balance 53.63 -> 48.85 (whole day, all uses).
+- Published batches 101-150 (/data/tmp/pub101.py, set_status workers=4): 8,560 changed, 60 failed (not yet looked at),
+  348 new without photo kept as drafts, 257 kept for final price above 2e9 toman (unit errors? check).
+- Shop: php-fpm max_children 15, Redis maxmemory 1G + save "" (in place); innodb_buffer_pool 4G -> 3G
+  (/etc/mysql/mariadb.conf.d/99-caravan.cnf, backup .bak-20261115), MariaDB restarted 12:12 UTC, site OK.
+- 499s: ~half are WooCommerce Action Scheduler loopback (as_async_request_queue_runner from the shop IP) = harmless.
+- Benchmarks: McMaster (608 L3 / 10,611 L4) and Grainger (12,955 nodes) translated by hand (helpers), xlsx in
+  assets/benchmarks; unified table all_benchmarks_fa.csv (tools/bench_unify.py). Site gap file (site vs benchmarks,
+  22,116 keywords for Google tests) kept OUT of the public repo (/home/claude/work/site-gap-vs-benchmarks.xlsx).
+- Next (owner): small fixes first, then Google Suggest/Ads tests on the keyword list.
+
 ## 14 Nov 2026 (evening) — sends stopped, crawl-only overnight; start here on 15 Nov
 - Shop MariaDB was OOM-killed 4 times (10:36, 10:47, 14:19, 14:42 UTC). Causes: php-fpm pm.max_children=40
   (200-400 MB each) and Redis without maxmemory (1.44 GB, RDB saves on). Proposed, owner has NOT approved yet:
