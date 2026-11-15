@@ -286,9 +286,9 @@ Antennas(1)|آنتن|
 Speaker/Microphones(2)|بلندگو/میکروفون بی‌سیم|
 Microphones(2)|میکروفون|ترکیبی
 Computer Monitors(9)|مانیتور|ترکیبی
-Development Boards(28)|برد توسعه (آردوینو)|
+Development Boards(28)|برد توسعه (دولپمنت برد)|
 Megaphones(3)|بلندگوی دستی (مگافون)|
-Single-Board Computers(16)|کامپیوتر تک‌برد (رزبری‌پای)|
+Single-Board Computers(16)|کامپیوتر تک‌برد (SBC)|
 @25.0.8 Computer Accessories
 Mice(10)|ماوس|ترکیبی
 Keyboards(29)|کیبورد|ترکیبی

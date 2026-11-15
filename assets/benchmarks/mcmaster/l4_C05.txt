@@ -1,0 +1,312 @@
+@12.2.0 Signs
+Fire Equipment Signs(44)|تابلو تجهیزات آتش‌نشانی|
+Flange-Mount Fire Equipment Signs(8)|تابلو آتش‌نشانی دوطرفه (عمود بر دیوار)|
+Glow-in-the-Dark Fire Equipment Signs(11)|تابلو آتش‌نشانی شب‌تاب|
+Security and Admittance Accident Prevention Signs(369)|تابلو ایمنی ورود ممنوع و امنیتی|
+Hazardous Material Signs(324)|تابلو مواد خطرناک|
+Made-to-Order Accident Prevention Signs(192)|تابلو ایمنی سفارشی|
+NFPA Diamond Signs(1)|تابلو لوزی NFPA|
+Electrical Hazard Signs(125)|تابلو خطر برق|
+Personal Protective Equipment Signs(175)|تابلو تجهیزات حفاظت فردی (PPE)|
+Machine and Equipment Operation Signs(152)|تابلو ایمنی کار با ماشین‌آلات|
+NFPA Diamond Signs with Reference Chart(1)|تابلو لوزی NFPA با جدول راهنما|
+Illustrated Security and Admittance Signs(40)|تابلو امنیتی و ورود تصویری|
+Slip and Fall Prevention Signs(104)|تابلو هشدار لغزندگی|
+Hazardous Material Instruction Signs(23)|تابلو دستورالعمل مواد خطرناک|
+Vehicle and Shipping Dock Signs(129)|تابلو خودرو و سکوی بارگیری|
+Traffic Cone-Mount Security and Admittance Signs(6)|تابلو امنیتی نصب روی مخروط ترافیکی|
+Confined Space Signs(59)|تابلو فضای بسته|
+Illustrated Hazardous Material Signs(36)|تابلو مواد خطرناک تصویری|
+Liquid and Gas Storage Signs(15)|تابلو انبار مایعات و گاز|
+Illustrated Electrical Hazard Signs(24)|تابلو خطر برق تصویری|
+Fold-Flat Slip and Fall Prevention Signs(7)|تابلو ایستاده تاشو هشدار لغزندگی|
+Illustrated Machine and Equipment Operation Signs(8)|تابلو ایمنی ماشین‌آلات تصویری|
+Fold-Flat Security and Admittance Signs(9)|تابلو ایستاده تاشو امنیتی|
+Write-On Accident Prevention Signs(36)|تابلو ایمنی قابل نوشتن|
+Color Stripe Signs(1)|تابلو نوار رنگی|
+Illustrated Personal Protective Equipment Signs(37)|تابلو PPE تصویری|
+Personal Protective Equipment Signs with Peel-and-Stick Symbols(4)|تابلو PPE با نماد برچسبی|
+Collapsible Slip and Fall Prevention Signs(1)|تابلو جمع‌شو هشدار لغزندگی|
+Lockout Signs(35)|تابلو لاک‌اوت|
+Illustrated Slip and Fall Prevention Signs(2)|تابلو هشدار لغزندگی تصویری|
+Fold-Flat Social Distancing Signs(4)|تابلو ایستاده تاشو فاصله‌گذاری اجتماعی|
+Made-to-Order California Proposition 65 Signs(18)|تابلو سفارشی پروپوزیشن ۶۵ کالیفرنیا|
+Stackable Slip and Fall Prevention Signs(3)|تابلو هشدار لغزندگی روی‌هم‌چین|
+Collapsible Security and Admittance Signs(2)|تابلو امنیتی جمع‌شو|
+Social Distancing Signs(6)|تابلو فاصله‌گذاری اجتماعی|
+Illustrated Vehicle and Shipping Dock Signs(2)|تابلو خودرو و سکوی بارگیری تصویری|
+Traffic Cone-Mount Slip and Fall Prevention Signs(2)|تابلو لغزندگی نصب روی مخروط|
+Reversed-Message Vehicle and Shipping Dock Signs(12)|تابلو سکوی بارگیری متن معکوس (آینه‌ای)|
+Three-Way View Lockout Signs(3)|تابلو لاک‌اوت سه‌طرفه|
+Illustrated Confined Space Signs(2)|تابلو فضای بسته تصویری|
+California Proposition 65 Signs(3)|تابلو پروپوزیشن ۶۵ کالیفرنیا|
+Traffic Control Signs(40)|تابلو کنترل ترافیک|
+Parking Signs(110)|تابلو پارکینگ|
+Multidirectional Traffic Control Signs(1)|تابلو ترافیکی چندجهته|
+Accessible Parking Signs(20)|تابلو پارکینگ معلولین|
+D.O.T. Vehicle Signs(45)|تابلو خودرو حمل مواد (DOT)|
+Railroad Signs(5)|تابلو راه‌آهن|
+Roll-Up Traffic Safety Signs(7)|تابلو ترافیکی رولی|
+Slow-Moving-Vehicle Signs(4)|تابلو خودرو کندرو|
+Portable Traffic Control Signs(2)|تابلو ترافیکی قابل حمل|
+Vehicle Banners(2)|بنر خودرو|
+Blank Signs(25)|تابلو خام (بدون متن)|
+Plastic Color-Contrasting Engraving Signs(15)|ورق حکاکی پلاستیکی دورنگ|
+Traffic Cone-Mount Blank Signs(1)|تابلو خام نصب روی مخروط|
+Metal Color-Contrasting Engraving Signs(4)|ورق حکاکی فلزی دورنگ|
+Flange-Mount Blank Signs(4)|تابلو خام دوطرفه (عمود بر دیوار)|
+Cut-to-Length Blank Signs(2)|تابلو خام برش به طول|
+Number and Letter Signs(3)|تابلو عدد و حروف|
+Department and Room Signs(84)|تابلو راهنمای واحد و اتاق|
+Restroom Signs(15)|تابلو سرویس بهداشتی|ترکیبی
+Directional Department and Room Signs(8)|تابلو راهنمای جهت‌دار واحد و اتاق|
+Assembly Point Signs(4)|تابلو محل تجمع اضطراری|
+Glow-in-the-Dark Emergency Shelter Signs(1)|تابلو پناهگاه اضطراری شب‌تاب|
+Write-On Department and Room Signs(1)|تابلو اتاق قابل نوشتن|
+ADA-Compliant Restroom Signs(26)|تابلو سرویس بهداشتی استاندارد ADA (بریل)|
+ADA-Compliant Department and Room Signs(7)|تابلو اتاق استاندارد ADA (بریل)|
+Emergency Shelter Signs(3)|تابلو پناهگاه اضطراری|
+Write-On Directional Department and Room Signs(2)|تابلو جهت‌نما اتاق قابل نوشتن|
+Engraved Department and Room Signs(5)|تابلو اتاق حکاکی‌شده|
+Flange-Mount Restroom Signs(9)|تابلو سرویس بهداشتی دوطرفه|
+Engraved Restroom Signs(8)|تابلو سرویس بهداشتی حکاکی‌شده|
+Security and Admittance Signs(52)|تابلو امنیتی و ورود|
+Engraved Security and Admittance Signs(14)|تابلو امنیتی حکاکی‌شده|
+Concealed Carry Signs(5)|تابلو حمل سلاح مخفی|
+Accessibility Signs(2)|تابلو دسترسی معلولین|
+Open/Closed Signs(5)|تابلو باز/بسته|ترکیبی
+Smoking Control Signs(75)|تابلو سیگار کشیدن ممنوع|
+Engraved Smoking Control Signs(1)|تابلو استعمال دخانیات حکاکی‌شده|
+ADA-Compliant Smoking Control Signs(2)|تابلو استعمال دخانیات استاندارد ADA|
+First-Aid Signs(42)|تابلو کمک‌های اولیه|
+Flange-Mount First-Aid Signs(7)|تابلو کمک‌های اولیه دوطرفه|
+First-Aid Instructional Signs(2)|تابلو آموزشی کمک‌های اولیه|
+5S Organization and Safety Signs(1)|تابلو نظم و ایمنی 5S|
+Safe-Lifting Signs(1)|تابلو بلند کردن صحیح بار|
+Housekeeping Signs(30)|تابلو نظافت و نظم کارگاه|
+Think and Safety-First Signs(11)|تابلو انگیزشی ایمنی (اول ایمنی)|
+Digital Safety Scoreboard Signs(1)|تابلو دیجیتال روزهای بدون حادثه|
+Hand-Washing Signs(25)|تابلو شستن دست|
+Globally Harmonized System (GHS) Signs(2)|تابلو GHS|
+Crane Hand-Signal Signs(11)|تابلو علائم دستی جرثقیل|
+Lockout/Tagout Signs(2)|تابلو لاک‌اوت/تگ‌اوت|
+Write-On Safety Scoreboard Signs(2)|تابلو آمار ایمنی قابل نوشتن|
+Exit Signs(75)|تابلو خروج|
+ADA-Compliant Exit Signs(13)|تابلو خروج استاندارد ADA|
+Glow-in-the-Dark Exit Signs(35)|تابلو خروج شب‌تاب|
+Backlit Exit Signs with Emergency Lights(8)|تابلو خروج نوردار با چراغ اضطراری|
+Backlit Exit Signs(15)|تابلو خروج نوردار (بک‌لایت)|
+No Exit Signs(15)|تابلو خروج ممنوع|
+Washdown Backlit Exit Signs(3)|تابلو خروج نوردار شست‌وشوپذیر|
+Glow-in-the-Dark No Exit Signs(5)|تابلو خروج ممنوع شب‌تاب|
+Traffic Cone-Mount Exit Signs(10)|تابلو خروج نصب روی مخروط|
+Hazardous Location Exit Signs(5)|تابلو خروج ضدانفجار|
+ISO Exit Signs(6)|تابلو خروج ISO|
+Fold-Flat Exit Signs(3)|تابلو خروج ایستاده تاشو|
+High-Traffic Projected Signs(22)|تابلو پروژکتوری (نوری روی زمین)|
+Made-to-Order Signs(28)|تابلو سفارشی|
+Engraved Made-to-Order Signs(2)|تابلو سفارشی حکاکی‌شده|
+Pipe Markers(905)|برچسب جهت جریان لوله|
+Characters(189)|حروف و اعداد برچسبی|
+Stack-Prevention Shipping Cones(1)|مخروط ضدچیدمان روی بار|
+Message Plates(276)|پلاک متن‌دار|
+Stencils(107)|شابلون|
+Sign Posts(23)|پایه تابلو|
+Legend Plates(62)|پلاک راهنمای کلید (لجند)|
+Sign Guards(1)|حفاظ تابلو|
+Pipe Marker Applicators(1)|ابزار نصب برچسب لوله|
+Label Printer Tape(520)|نوار لیبل‌پرینتر|
+Fire Hydrant Rings(4)|حلقه نشانگر شیر آتش‌نشانی|
+Sign Cases(1)|قاب تابلو|
+Safety Data Sheet Stations(4)|ایستگاه برگه ایمنی مواد (MSDS)|
+Name Badges(3)|اتیکت نام|
+Wall Lights(2)|چراغ دیواری|
+Inspection Indicators(4)|نشانگر بازرسی|
+Sign Post Bases(2)|کفی پایه تابلو|
+Lockout Organizing Boards(4)|تابلو نگهداری لاک‌اوت|
+Packing Slip Pouches(18)|پاکت چسبی بارنامه|
+Bulletin Boards(61)|تابلو اعلانات|ترکیبی
+Hand Sanitizer Dispenser Stands(4)|پایه دیسپنسر ژل ضدعفونی|
+Bottle Tags(3)|برچسب بطری|
+Chalkboards(9)|تخته گچی|ترکیبی
+Laminating Sheets(5)|طلق پرس (لمینت)|ترکیبی
+Locker Number Plates(12)|پلاک شماره کمد|
+Message Plate Holders(4)|نگهدارنده پلاک متن|
+Underground Warning Tape(20)|نوار هشدار زیرخاکی|
+Whiteboard/Bulletin Boards(6)|وایت‌برد/تابلو اعلانات|ترکیبی
+Display Monitors(4)|مانیتور نمایشگر|
+Letter Boards(3)|تابلو حروف چیدنی|ترکیبی
+Letter Board Characters(2)|حروف تابلو چیدنی|ترکیبی
+@12.2.1 Tags
+Tag Protectors(17)|محافظ برچسب|
+RFID Cards(1)|کارت RFID|
+RFID Tags(34)|تگ RFID|
+Bluetooth Tags(2)|تگ بلوتوث (ردیاب)|
+Tag Fasteners(6)|بست برچسب (پین تگ)|
+Tag Fastener Guns(8)|تفنگ اتیکت‌زن|
+Printer Toner(99)|تونر پرینتر|ترکیبی
+Inertial Measurement Units(1)|سنسور اینرسی (IMU)|
+Contour Markers(2)|علامت‌گذار پروفیل|
+Contour Gauges(7)|شابلون پروفیل (شانه‌ای)|
+Key Racks(2)|جاکلیدی|
+Keyhead Covers(2)|کاور سر کلید|ترکیبی
+Grease Gun Bands(1)|نوار شناسایی گریس‌پمپ|
+Pocket Protectors(2)|محافظ جیب|
+@12.2.3 Floor Marking Tape & Paint
+Marking Flags(11)|پرچم علامت‌گذاری|
+Ink(8)|جوهر|
+Chart-Marking Tape(4)|نوار چسب نمودار|
+@13.0.0 Chain
+Chain(318)|زنجیر|
+Quick Links(116)|قفل زنجیر (مهره‌ای)|
+Hooks(362)|قلاب|
+Chain Connecting Links(51)|قفل اتصال زنجیر|
+Bead Chain(103)|زنجیر ساچمه‌ای|
+Chain Rings(134)|حلقه زنجیر|
+Bead Chain Links(47)|اتصال زنجیر ساچمه‌ای|
+Transport Chain Assemblies(10)|زنجیر مهار بار (با قلاب)|
+Swivels(70)|گردان (هرزگرد) زنجیر|
+Trailer Safety Chains(10)|زنجیر ایمنی تریلر|
+Webbing Rings(63)|حلقه تسمه|
+Multi-Attachment Straps(3)|تسمه چنداتصاله|
+Wheel Chock Anchors(1)|انکر زیرچرخی|
+Ramps(1)|رمپ|
+Tire Chains(5)|زنجیر چرخ|ترکیبی
+Cycle Accessories and Replacement Parts(4)|لوازم و قطعات دوچرخه|ترکیبی
+Padlock Hanging Chains(9)|زنجیر آویز قفل|
+Chains for Chain Wrenches(13)|زنجیر آچار زنجیری|
+@13.0.1 Wire Rope
+Marlin Spikes(7)|سوزن طناب‌بافی (مارلین)|
+Hook Latches(65)|زبانه ایمنی قلاب|
+Winches(62)|وینچ|
+Ratchet Pullers(18)|جغجغه کششی (تیرفور)|
+@13.0.2 Fibrous Rope
+Wet-Environment Easy-Splice Rope—For Lifting(6)|طناب بالابری محیط مرطوب قابل اسپلایس|
+High-Temperature Wear-Resistant Rope—For Lifting(11)|طناب بالابری نسوز ضدسایش|
+Low-Stretch Easy-Splice Rope—For Lifting(7)|طناب بالابری کم‌کشش قابل اسپلایس|
+Low-Stretch Wear-Resistant Rope—For Lifting(5)|طناب بالابری کم‌کشش ضدسایش|
+Wet-Environment Wear-Resistant Rope—For Lifting(9)|طناب بالابری محیط مرطوب ضدسایش|
+Long-Life Ultra-Wear-Resistant Rope—For Lifting(3)|طناب بالابری فوق‌ضدسایش عمر بالا|
+High-Temperature Easy-Splice Rope—For Lifting(7)|طناب بالابری نسوز قابل اسپلایس|
+Rope with Eye—Not for Lifting(1)|طناب چشمی غیربالابری|
+Rope with Eye on Both Ends—Not for Lifting(16)|طناب دوسرچشمی غیربالابری|
+Extra-Sure-Grip Rope—Not for Lifting(11)|طناب غیربالابری گیرش خیلی خوب|
+Wet-Environment Sure-Grip Rope—Not for Lifting(18)|طناب غیربالابری محیط مرطوب گیرش خوب|
+Shock-Absorbing No-Flatten Rope—Not for Lifting(16)|طناب غیربالابری ضربه‌گیر غیرپهن‌شو|
+Low-Stretch Wear-Resistant Rope—Not for Lifting(16)|طناب غیربالابری کم‌کشش ضدسایش|
+UV-Resistant Wet-Environment Sure-Grip Rope—Not for Lifting(7)|طناب غیربالابری ضدUV محیط مرطوب گیرش خوب|
+Wear-Indicating Low-Stretch Rope—Not for Lifting(1)|طناب غیربالابری کم‌کشش با نشانگر سایش|
+Shock-Absorbing Flexible Rope—Not for Lifting(16)|طناب غیربالابری ضربه‌گیر انعطاف‌پذیر|
+Shock-Absorbing Wear-Resistant Rope—Not for Lifting(18)|طناب غیربالابری ضربه‌گیر ضدسایش|
+Low-Stretch Flexible Rope—Not for Lifting(20)|طناب غیربالابری کم‌کشش انعطاف‌پذیر|
+Shock-Absorbing Sure-Grip Rope—Not for Lifting(10)|طناب غیربالابری ضربه‌گیر گیرش خوب|
+Comfort-Grip Sure-Grip Rope—Not for Lifting(7)|طناب غیربالابری دست‌نواز گیرش خوب|
+Low-Stretch No-Flatten Rope—Not for Lifting(12)|طناب غیربالابری کم‌کشش غیرپهن‌شو|
+Low-Stretch Easy-Splice Rope—Not For Lifting(9)|طناب غیربالابری کم‌کشش قابل اسپلایس|
+Lightweight Low-Stretch Sure-Grip Rope—Not for Lifting(8)|طناب غیربالابری سبک کم‌کشش گیرش خوب|
+Comfort-Grip No-Flatten Rope—Not for Lifting(4)|طناب غیربالابری دست‌نواز غیرپهن‌شو|
+Easy-Knot Sure-Grip Rope—Not for Lifting(6)|طناب غیربالابری گره‌پذیر گیرش خوب|
+Wet-Environment Extra-Sure-Grip Rope—Not for Lifting(5)|طناب غیربالابری محیط مرطوب گیرش خیلی خوب|
+Wet-Environment No-Flatten Rope—Not for Lifting(6)|طناب غیربالابری محیط مرطوب غیرپهن‌شو|
+Wet-Environment Easy-Splice Rope—Not for Lifting(10)|طناب غیربالابری محیط مرطوب قابل اسپلایس|
+Comfort-Grip Wear-Resistant Rope—Not for Lifting(10)|طناب غیربالابری دست‌نواز ضدسایش|
+Low-Stretch Sure-Grip Rope—Not for Lifting(8)|طناب غیربالابری کم‌کشش گیرش خوب|
+Shock-Absorbing Easy-Splice Rope—Not for Lifting(8)|طناب غیربالابری ضربه‌گیر قابل اسپلایس|
+Wet-Environment Flexible Rope—Not for Lifting(7)|طناب غیربالابری محیط مرطوب انعطاف‌پذیر|
+Comfort-Grip Low-Stretch Sure-Grip Rope—Not for Lifting(4)|طناب غیربالابری دست‌نواز کم‌کشش گیرش خوب|
+Comfort-Grip Shock-Absorbing Wear-Resistant Rope—Not for Lifting(8)|طناب غیربالابری دست‌نواز ضربه‌گیر ضدسایش|
+Shock-Absorbing Reinforced Wire-Core Rope—Not for Lifting(4)|طناب غیربالابری ضربه‌گیر مغزی سیمی|
+Comfort-Grip Reinforced Wire-Core Rope—Not for Lifting(4)|طناب غیربالابری دست‌نواز مغزی سیمی|
+Rope with Hook—Not for Lifting(4)|طناب قلاب‌دار غیربالابری|
+Twine(80)|نخ کنفی (ریسمان)|ترکیبی
+Nylon Line(7)|نخ نایلونی|
+Rope Ends(8)|سرطناب|
+Rope Stops(4)|استاپر طناب|
+Rope Thimbles(6)|کوسه طناب|
+Rope Throw Weights(4)|وزنه پرتاب طناب|
+@13.0.4 Hooks
+Rope Hooks(7)|قلاب طناب|
+Coil Hooks(5)|قلاب کلاف (کویل)|
+@13.0.5 Slings
+Flat-Eye Web Slings(796)|اسلینگ تسمه‌ای چشمی تخت|
+Chain Slings with Latching Hooks(322)|اسلینگ زنجیری قلاب زبانه‌دار|
+Eyeless Round Slings(73)|اسلینگ گرد بی‌چشم (حلقوی)|
+Wear-Resistant Flat-Eye Web Slings(260)|اسلینگ تسمه‌ای چشمی تخت ضدسایش|
+Wire Rope Slings(404)|اسلینگ سیم بکسلی|
+Adjustable Chain Slings(19)|اسلینگ زنجیری قابل تنظیم|
+Web Slings with Hooks(144)|اسلینگ تسمه‌ای قلاب‌دار|
+Wear-Resistant Eyeless Round Slings(52)|اسلینگ گرد بی‌چشم ضدسایش|
+Eyeless Web Slings(180)|اسلینگ تسمه‌ای بی‌چشم (حلقوی)|
+Wire Rope Slings with Hooks(152)|اسلینگ سیم بکسلی قلاب‌دار|
+Chain Slings with Locking Hooks(168)|اسلینگ زنجیری قلاب قفل‌شو|
+Wear-Resistant Twisted-Eye Web Slings(296)|اسلینگ تسمه‌ای چشمی تابیده ضدسایش|
+Wear-Resistant Eyeless Web Slings(152)|اسلینگ تسمه‌ای بی‌چشم ضدسایش|
+Chain Slings with Grab Hooks(168)|اسلینگ زنجیری قلاب کوتاه‌کن (گرب)|
+Mesh Slings(90)|اسلینگ توری فلزی|
+Twisted-Eye Web Slings(424)|اسلینگ تسمه‌ای چشمی تابیده|
+Extra-Wide Basket Slings(120)|اسلینگ سبدی خیلی پهن|
+Round Slings(70)|اسلینگ گرد (راند اسلینگ)|
+Rope Slings(19)|اسلینگ طنابی|
+Adjustable Rope Slings(20)|اسلینگ طنابی قابل تنظیم|
+Web Slings with Choker Fittings(144)|اسلینگ تسمه‌ای با اتصال خفه‌کن (چوکر)|
+Wear-Resistant Web Slings with Choker Fittings(36)|اسلینگ تسمه‌ای چوکر ضدسایش|
+Strap Protectors(10)|محافظ تسمه (لبه‌گیر)|
+@13.0.6 Lifting Magnets
+Switch-Off Lifting Magnets(26)|آهنربای بالابر اهرمی (قطع‌شو)|
+Pry-Off Lifting Magnets(7)|آهنربای بالابر جداشونده با اهرم|
+Pull-Release Hand-Held Lifting Magnets(10)|آهنربای بالابر دستی کششی‌رهاشو|
+Pry-Off Hand-Held Lifting Magnets(17)|آهنربای بالابر دستی جداشونده با اهرم|
+Switch-Off Hand-Held Lifting Magnets(7)|آهنربای بالابر دستی قطع‌شو|
+Long-Reach Hand-Held Lifting Magnets(7)|آهنربای بالابر دستی دسته بلند|
+Battery-Powered Lifting Magnets(3)|آهنربای بالابر باتری‌دار|
+Hand-Held Magnetic Pullers(2)|آهنربای کشنده دستی|
+Magnetic Load Positioning Poles(3)|میله مغناطیسی هدایت بار|
+Lifting Beams(4)|شاهین بالابر (تیر بالابر)|
+@13.0.7 Hoist Rings
+Hoist Rings—For Lifting(264)|حلقه بالابر|
+Side-Mount Hoist Rings—For Lifting(53)|حلقه بالابر نصب کناری|
+Swivel-Under-Load Hoist Rings—For Lifting(21)|حلقه بالابر گردان زیر بار|
+Weld-on-Mount Hoist Rings—For Lifting(17)|حلقه بالابر جوشی|
+Nonswiveling Hoist Rings—For Lifting(9)|حلقه بالابر ثابت (غیرگردان)|
+Removable-Shackle Hoist Rings—For Lifting(11)|حلقه بالابر شگل جداشو|
+Quick-Release-Pin Hoist Rings—For Lifting(16)|حلقه بالابر پین سریع‌رها|
+Hoist Rings Assortments—For Lifting(3)|ست حلقه بالابر|
+Tension-Indicating Hoist Rings—For Lifting(34)|حلقه بالابر نشانگر کشش|
+Hand Tightened Hoist Rings—For Lifting(4)|حلقه بالابر سفت‌شونده با دست|
+Shock-Load-Preventing Hoist Rings—For Lifting(4)|حلقه بالابر ضدبار ضربه‌ای|
+@13.0.10 Hoists
+Electric Chain Hoists(20)|جرثقیل برقی زنجیری|
+Electric Wire Rope Hoists(2)|جرثقیل برقی سیم بکسلی (وینچ برقی)|
+Motorized Trolley-Mount Electric Chain Hoists(8)|جرثقیل برقی زنجیری با ترولی موتوری|
+Trolley-Mount Electric Chain Hoists(18)|جرثقیل برقی زنجیری ترولی‌دار|
+Hand Chain Hoists(10)|جرثقیل دستی زنجیری (تالیفت)|
+Air-Powered Chain Hoists(14)|جرثقیل زنجیری بادی|
+Battery-Powered Chain Hoists(3)|جرثقیل زنجیری شارژی|
+Trolley-Mount Hand Chain Hoists(4)|جرثقیل دستی زنجیری ترولی‌دار|
+Economy Electric Chain Hoists(10)|جرثقیل برقی زنجیری اقتصادی|
+Compact Electric Chain Hoists(2)|جرثقیل برقی زنجیری کامپکت|
+Battery-Powered Lift-Assist Hoists(6)|بالابر کمکی شارژی|
+Pulley Hoists(4)|بالابر قرقره‌ای|
+Fast-Lift Hand Chain Hoists(6)|جرثقیل دستی زنجیری سریع|
+Dual-Brake Electric Chain Hoists(10)|جرثقیل برقی زنجیری دوترمزه|
+Variable-Speed Precise-Positioning Electric Chain Hoists(6)|جرثقیل برقی زنجیری دور متغیر دقیق|
+Compact Lever Chain Hoists(2)|جغجغه زنجیری (لیور بلاک) کامپکت|
+Variable-Speed Precise-Positioning Compact Air-Powered Chain Hoists(9)|جرثقیل زنجیری بادی کامپکت دور متغیر دقیق|
+Air-Powered Wire Rope Hoists(1)|جرثقیل سیم بکسلی بادی|
+Heavy Duty Lever Chain Hoists(18)|جغجغه زنجیری (لیور بلاک) سنگین|
+Variable-Speed Precise-Positioning Trolley-Mount Electric Chain Hoists(4)|جرثقیل برقی زنجیری ترولی‌دار دور متغیر دقیق|
+Fast-Lift Trolley-Mount Hand Chain Hoists(5)|جرثقیل دستی زنجیری ترولی‌دار سریع|
+Lever Chain Hoists(12)|جغجغه زنجیری (لیور بلاک)|
+Corrosion-Resistant Electric Chain Hoists(3)|جرثقیل برقی زنجیری ضدخوردگی|
+Rotating Hand Chain Hoists(4)|جرثقیل دستی زنجیری گردان|
+Chain-Driven Trolley-Mount Hand Chain Hoists(4)|جرثقیل دستی زنجیری با ترولی زنجیری|
+Compact Heavy Duty Lever Chain Hoists(12)|جغجغه زنجیری سنگین کامپکت|
+Spark-Resistant Air-Powered Chain Hoists(3)|جرثقیل زنجیری بادی ضدجرقه|
+Compact Variable-Speed Precise-Positioning Electric Chain Hoists(3)|جرثقیل برقی زنجیری کامپکت دور متغیر دقیق|
+Spark-Resistant Hand Chain Hoists(2)|جرثقیل دستی زنجیری ضدجرقه|
+Chain Hoist Replacement Parts(51)|قطعات یدکی جرثقیل زنجیری|
+Hoist Hooks(7)|قلاب جرثقیل|
+Crane Bases(12)|پایه جرثقیل|
+@13.0.11 Trolleys
+Trailer Movers(4)|جابه‌جاکن تریلر|
+Clamp-On Framing Trolleys(1)|ترولی گیره‌ای پروفیل|
