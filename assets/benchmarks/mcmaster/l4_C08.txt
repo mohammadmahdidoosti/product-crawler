@@ -1,0 +1,232 @@
+@14.0.6 Wheels
+Tires(20)|لاستیک چرخ|
+Hand Wheels(336)|فلکه دستی (هندویل)|
+Valve Stem Cores(1)|سوزن والف|
+Valve Stem Rethreading Tools(1)|ابزار رزوه‌زنی والف|
+Valve Stem Extensions(1)|رابط والف|
+Wheel Covers(11)|کاور چرخ|
+Valve Stem Caps(2)|درپوش والف|
+Valve Stems(4)|والف لاستیک|
+Valve Stem Installation Tools(2)|ابزار نصب والف|
+Wheel Weights(3)|وزنه بالانس چرخ|
+Conveyor Stands(32)|پایه نوار نقاله|
+Wheel Chocks(45)|زیرچرخی (لاستیک‌گیر)|
+Wheel Risers(6)|بالابر چرخ (رمپ چرخ)|
+Carriages(110)|کالسکه (واگن ریلی)|
+Rotary Tool Arbors(2)|شفت فرز مینیاتوری|
+Cup Brushes(144)|برس کاسه‌ای|
+Hand Knurling Tools(7)|ابزار آج‌زنی دستی (رنگلت)|
+Steering Wheel Extensions(2)|رابط فرمان|
+Depth Gauges(2)|عمق‌سنج|
+Calendars(1)|تقویم|ترکیبی
+Valve Knobs(14)|دستگیره شیر|
+@14.0.9 Lift Tables
+Foot-Operated Rolling Lift Tables(31)|میز بالابر چرخ‌دار پدالی|
+Electric Stationary Lift Tables(25)|میز بالابر ثابت برقی|
+Bench-Top Hand-Crank Stationary Lift Tables(1)|میز بالابر رومیزی هندلی|
+Floor-Load Foot-Operated Rolling Lift Tables(3)|میز بالابر چرخ‌دار پدالی هم‌سطح زمین|
+Hand-Crank Rolling Lift Tables(7)|میز بالابر چرخ‌دار هندلی|
+Motor-Driven Battery-Powered Lift Tables(1)|میز بالابر شارژی موتوردار (خودرو)|
+Floor-Load Electric Stationary Lift Tables for Pallets(2)|میز بالابر ثابت برقی هم‌سطح زمین پالت|
+Roller-Top Foot-Operated Rolling Lift Tables(1)|میز بالابر چرخ‌دار پدالی رویه غلتکی|
+Foot-Operated Rolling Lift Tables for Rough Terrain(3)|میز بالابر چرخ‌دار پدالی زمین ناهموار|
+Long-Tabletop Foot-Operated Rolling Lift Tables(6)|میز بالابر چرخ‌دار پدالی رویه بلند|
+Battery-Powered Rolling Lift Tables(17)|میز بالابر چرخ‌دار شارژی|
+Easy-Carry Foot-Operated Rolling Lift Tables(1)|میز بالابر پدالی قابل حمل|
+Tilting Hand-Crank Rolling Lift Tables(1)|میز بالابر چرخ‌دار هندلی کج‌شو|
+Foot-Operated Stationary Lift Tables(9)|میز بالابر ثابت پدالی|
+Foot-Operated Rolling Lift Tables for Tight Spaces(3)|میز بالابر چرخ‌دار پدالی فضای تنگ|
+Turntable-Top Electric Stationary Lift Tables(6)|میز بالابر ثابت برقی رویه گردان|
+Floor-Load Electric Stationary Lift Tables(3)|میز بالابر ثابت برقی هم‌سطح زمین|
+Stationary Air-Lift Tables(3)|میز بالابر ثابت بالشتک بادی|
+Long-Tabletop Electric Stationary Lift Tables(4)|میز بالابر ثابت برقی رویه بلند|
+Air-Powered Stationary Lift Tables(6)|میز بالابر ثابت پنوماتیک|
+Turntable-Top Foot-Operated Rolling Lift Tables(4)|میز بالابر چرخ‌دار پدالی رویه گردان|
+@14.0.10 Drum Handling Equipment
+Drum Upenders(1)|برگردان بشکه|
+@14.0.14 Ladders
+Ladders(792)|نردبان|
+Stairs(73)|پله صنعتی|
+Step Stools(145)|چهارپایه پله‌دار|ترکیبی
+Ladder Cages(16)|قفس نردبان|
+Ladder Security Covers(1)|کاور امنیتی نردبان|
+Crossover Stairs(85)|پله عبور (پل روی موانع)|
+Steps(43)|پله (رکاب)|
+Ladder Feet(17)|پایه (کفشک) نردبان|
+Ladder Pads(1)|پد نردبان|
+Ladder Safety Gates(1)|درب ایمنی نردبان|
+Ladder Extensions(2)|رابط نردبان|
+Ladder Plank Supports(1)|تکیه‌گاه تخته نردبان|
+Ladder Hooks(4)|قلاب نردبان|
+Ladder Stabilizers(4)|پایدارکننده نردبان|
+Ladder Support Posts(4)|ستون تکیه‌گاه نردبان|
+Ladder-Stabilizing Anchors(2)|انکر مهار نردبان|
+Scaffold Planks(10)|تخته داربست|
+Ladder Levelers(2)|ترازکن پایه نردبان|
+Ladder Rung Treads(15)|روکش ضدلغزش پله نردبان|
+Extension Planks(6)|تخته رابط (قابل افزایش)|
+Ladder Racks(5)|رک نردبان|
+Stair Treads(105)|کف‌پله ضدلغزش|
+@14.0.15 Step Stools
+Foldable Step Stools(16)|چهارپایه پله‌دار تاشو|ترکیبی
+Rolling Step Stools(28)|چهارپایه پله‌دار چرخ‌دار|
+Stackable Step Stools(1)|چهارپایه پله‌دار روی‌هم‌چین|
+Foldable Step Stools with Handrail(13)|چهارپایه پله‌دار تاشو دسته‌دار|ترکیبی
+Nestable Step Stools(6)|چهارپایه پله‌دار تودرتو|
+Mobile Stairs(12)|پله متحرک چرخ‌دار|
+Step Stools with Handrail(9)|چهارپایه پله‌دار دسته‌دار|
+Foldable Clean Room Step Stools(3)|چهارپایه پله‌دار تاشو اتاق تمیز|
+Step Stools with Storage(1)|چهارپایه پله‌دار با جاابزار|
+Rolling Step Stools with Handrail(6)|چهارپایه پله‌دار چرخ‌دار دسته‌دار|
+Rolling Clean Room Step Stools(2)|چهارپایه پله‌دار چرخ‌دار اتاق تمیز|
+Clean Room Step Stools with Handrail(2)|چهارپایه پله‌دار اتاق تمیز دسته‌دار|
+@14.0.16 Scaffolds
+Plank Stands(3)|پایه تخته (خرک داربست)|
+@14.0.17 Work Platforms
+Build-Your-Own Fixed Work Platforms(30)|سکوی کار ثابت ماژولار|
+Fixed Work Platforms(74)|سکوی کار ثابت|
+Antifatigue Work Platforms(15)|سکوی کار ضدخستگی|
+Folding Work Platforms(2)|سکوی کار تاشو|
+Clean Room Work Platforms(1)|سکوی کار اتاق تمیز|
+Rolling Work Platforms(21)|سکوی کار چرخ‌دار|
+Modular Work Platforms(31)|سکوی کار پیش‌ساخته ماژولار|
+Nonconductive Build-Your-Own Fixed Work Platforms(16)|سکوی کار ثابت ماژولار نارسانا|
+Lightweight Antifatigue Work Platforms(15)|سکوی کار ضدخستگی سبک|
+Lightweight Work Platforms(5)|سکوی کار سبک|
+Uneven Surface Folding Work Platforms(1)|سکوی کار تاشو سطح ناهموار|
+Corrosion-Resistant Work Platforms(5)|سکوی کار ضدخوردگی|
+Equal-Rise Work Platforms(3)|سکوی کار پله‌دار هم‌ارتفاع|
+Tilt-to-Roll Work Platforms(6)|سکوی کار کج‌کن و جابه‌جاکن|
+Corrosion-Resistant Antifatigue Work Platforms(9)|سکوی کار ضدخستگی ضدخوردگی|
+Easy-Store Forklift Platforms(2)|سبد نفربر لیفتراک تاشو|
+Antifatigue Rolling Work Platforms(12)|سکوی کار چرخ‌دار ضدخستگی|
+Adjustable-Height Work Platforms(1)|سکوی کار ارتفاع قابل تنظیم|
+Nonconductive Work Platforms(8)|سکوی کار نارسانا|
+Overhead Access Work Platforms(3)|سکوی دسترسی ارتفاع|
+Forklift Platforms(10)|سبد نفربر لیفتراک|
+Truckbed Work Platforms(3)|سکوی کار کفی کامیون|
+@14.0.18 Adjustable Stands
+Tire Changers(5)|لاستیک‌درآر|
+Jack Posts(6)|جک ستونی (پایه سقف)|
+Reel Stands(3)|پایه قرقره|
+Tripods(7)|سه‌پایه|
+Turntables(93)|صفحه گردان|
+Tablet Stands(3)|پایه تبلت|ترکیبی
+Locking-Slotted Framing Feet(1)|پایه پروفیل شیاردار قفلی|
+Hinges(2)|لولا|
+Milling Tables(3)|میز فرز (میز مختصات)|
+T-Slot Fixture Plates(7)|صفحه فیکسچر شیار T|
+Workbench Bases(90)|پایه میز کار|
+Sawhorses(2)|خرک اره‌کاری|
+Hydraulic Lifts(30)|بالابر هیدرولیک|
+Workbench Shelves(6)|طبقه میز کار|
+Test Tube Holders(1)|جالوله آزمایش|
+Document Racks(11)|قفسه اسناد|ترکیبی
+Stacking Racks(9)|رک روی‌هم‌چین|
+Shipping Box Stands(2)|پایه کارتن بسته‌بندی|
+File Holders(3)|جاپوشه|ترکیبی
+Micrometer Heads(1)|هد میکرومتر|
+Surface Plate Stands(8)|پایه صفحه صافی (سطح صاف گرانیتی)|
+Toilet Supports(2)|پایه توالت|
+Trench Braces(4)|مهار ترانشه|
+Microphone Stands(2)|پایه میکروفون|
+Easels(4)|سه‌پایه تابلو (ایزل)|ترکیبی
+@14.0.19 Tie Downs
+Bungee Cord End Tabs(1)|سرطناب کشی|
+Bungee Cord Sleeves(2)|غلاف طناب کشی|
+Webbing Hooks(30)|قلاب تسمه|
+Tow Straps(43)|تسمه یدک‌کش (بکسل)|
+Rope Ratchets(2)|جغجغه طناب|
+Cargo Nets(5)|تور بار|
+Cargo Bars(10)|میله مهار بار|
+Webbing Slides(28)|سگک کشویی تسمه|
+Webbing Tips(4)|سرتسمه|
+@14.0.21 Dock Equipment
+Slide-Bolt Latches(120)|چفت کشویی (کلون)|
+Railcar Derailers(1)|ریل‌برگردان واگن (ایمنی)|
+Dock Plates(40)|ورق پل بارگیری (داک‌پلیت)|
+Railcar Stoppers(1)|استاپر واگن|
+Railway Track Aligners(1)|ترازکن خط آهن|
+Dock Levelers(5)|داک‌لولر (سکوی هم‌سطح‌کن)|
+Railcar Wheel Chocks(9)|زیرچرخی واگن|
+Railcar Movers(2)|جابه‌جاکن واگن|
+Railcar Wheel Stops(5)|توقف‌دهنده چرخ واگن|
+Railcar Rerailers(2)|ریل‌گذار مجدد واگن|
+Door-Track Guards(4)|حفاظ ریل درب|
+Roll-Up Doors(17)|کرکره (درب رول‌آپ)|
+Machine Guard Doors(2)|درب حفاظ ماشین|
+Wheel Chock Holders(3)|نگهدارنده زیرچرخی|
+@15.0.0 Strut Channel
+Low-Profile Strut Channel(20)|ناودانی یونیسترات کم‌ارتفاع|
+Strut Channel with Mounting Plate(11)|ناودانی یونیسترات با صفحه نصب|
+Flat Strut Channel for Food and Beverage(1)|ناودانی یونیسترات تخت صنایع غذایی|
+Extra-Low-Profile Strut Channel(4)|ناودانی یونیسترات خیلی کم‌ارتفاع|
+High-Profile Strut Channel(23)|ناودانی یونیسترات پرارتفاع|
+Half-Round Strut Channel for Food and Beverage(1)|ناودانی یونیسترات نیم‌گرد صنایع غذایی|
+Harsh-Environment Strut Channel(1)|ناودانی یونیسترات محیط خشن|
+Back-to-Back Stacked Strut Channel(9)|ناودانی یونیسترات دوبل پشت‌به‌پشت|
+Curved Strut Channel(4)|ناودانی یونیسترات قوس‌دار|
+Telescoping Strut Channel(7)|ناودانی یونیسترات تلسکوپی|
+Strut Channel with Wraparound Mounting Plate(2)|ناودانی یونیسترات با صفحه نصب دورگیر|
+Side-by-Side Stacked Strut Channel(4)|ناودانی یونیسترات دوبل کنار‌هم|
+Back-to-Back Stacked Strut Channel with Mounting Plate(16)|ناودانی یونیسترات دوبل پشت‌به‌پشت با صفحه نصب|
+Back-to-Back Stacked Low-Profile Strut Channel(8)|ناودانی یونیسترات کم‌ارتفاع دوبل پشت‌به‌پشت|
+Quick-Connect Low-Profile Strut Channel(17)|ناودانی یونیسترات کم‌ارتفاع اتصال سریع|
+Quick-Connect Strut Channel(17)|ناودانی یونیسترات اتصال سریع|
+Corner Strut Channel Brackets(114)|براکت گوشه یونیسترات|
+Surface Strut Channel Brackets(125)|براکت تخت (صفحه اتصال) یونیسترات|
+Offset Strut Channel Brackets(48)|براکت آفست یونیسترات|
+Wraparound Strut Channel Brackets(43)|براکت دورگیر یونیسترات|
+Clamping Strut Channel Brackets(1)|براکت گیره‌ای یونیسترات|
+Pivoting Strut Channel Brackets(7)|براکت لولایی یونیسترات|
+Quick-Install Corner Strut Channel Brackets(4)|براکت گوشه یونیسترات نصب سریع|
+Concealed Strut Channel Brackets(8)|براکت مخفی یونیسترات|
+Quick-Install Surface Strut Channel Brackets(5)|براکت تخت یونیسترات نصب سریع|
+Twist-Resistant Corner Strut Channel Brackets(5)|براکت گوشه یونیسترات ضدپیچش|
+Bolt-Down Strut Channel Feet(58)|پایه پیچی یونیسترات|
+Push-On Strut Channel Feet(1)|پایه جازدنی یونیسترات|
+Spring-Loaded Strut Channel Fasteners(86)|مهره فنری یونیسترات|
+Rectangular Strut Channel Fasteners(51)|مهره مستطیلی یونیسترات|
+Strut Channel Fasteners with Hollow Stud(1)|مهره یونیسترات با پیچ توخالی|
+Spring-Loaded Strut Channel Fasteners with Stud(30)|مهره فنری یونیسترات پیچ‌دار|
+Strut Channel Push Fasteners(1)|بست فشاری یونیسترات|
+Easy-Grip Strut Channel Fasteners with Handle(3)|مهره یونیسترات دسته‌دار|
+Strut Channel Insert Fasteners(5)|مهره جازدنی یونیسترات|
+Slot-Adapting Square Strut Channel Fasteners(12)|مهره مربعی یونیسترات تطبیق‌پذیر|
+Antislip Spring-Tab Strut Channel Fasteners(3)|مهره یونیسترات زبانه فنری ضدلغزش|
+Snap-On Strut Channel Fasteners(2)|بست کلیپسی یونیسترات|
+Twist-Close Strut Channel Fasteners(3)|مهره پیچشی یونیسترات|
+Vibration-Damping Strut Channel Routing Clamps(130)|بست لوله یونیسترات ضدلرزش|
+Block-Style Vibration-Damping Strut Channel Routing Clamps(58)|بست لوله بلوکی یونیسترات ضدلرزش|
+Strut Channel Routing Clamps for Insulated Pipe(69)|بست لوله عایق‌دار یونیسترات|
+Standoff Strut Channel Routing Clamps(16)|بست لوله فاصله‌دار یونیسترات|
+Adjustable Strut Channel Routing Clamps(6)|بست لوله قابل تنظیم یونیسترات|
+Low-Profile Strut Channel Routing Clamps(8)|بست لوله کم‌ارتفاع یونیسترات|
+Quick-Close Strut Channel Routing Clamps(6)|بست لوله سریع‌بند یونیسترات|
+Snap-in Vibration-Damping Strut Channel Routing Clamps(10)|بست لوله کلیپسی ضدلرزش یونیسترات|
+Strut Channel Trolleys(13)|ترولی یونیسترات|
+Strut Channel End Caps(50)|درپوش سر یونیسترات|
+Strut Channel Shelf Brackets(43)|براکت طبقه یونیسترات|
+Clamp-On Strut Channel Beam Mounts(11)|بست تیرآهن یونیسترات|
+Strut Channel Braces(41)|مهاربند یونیسترات|
+Strut Channel Stair Tread Mounts(1)|پایه کف‌پله یونیسترات|
+Strut Channel Handles(1)|دستگیره یونیسترات|
+Square Strut Channel Washers(64)|واشر مربعی یونیسترات|
+Wraparound Strut Channel Washers(36)|واشر دورگیر یونیسترات|
+Slot-Adapting Octagonal Strut Channel Washers(17)|واشر هشت‌ضلعی یونیسترات تطبیق‌پذیر|
+Tabbed Strut Channel Washers(22)|واشر زبانه‌دار یونیسترات|
+Snap-In Strut Channel Hangers(1)|آویز کلیپسی یونیسترات|
+Strut Channel Hangers(5)|آویز یونیسترات|
+Twist-Resistant Snap-In Strut Channel Hangers(2)|آویز کلیپسی یونیسترات ضدپیچش|
+Noise-Reducing Strut Channel Covers(1)|کاور کاهش صدا یونیسترات|
+Strut Channel Ceiling Mounts for Trolleys(2)|پایه سقفی یونیسترات ترولی|
+Strut Channel Rod Stabilizers(1)|مهار میله‌رزوه یونیسترات|
+Strut Channel Hinges(12)|لولا یونیسترات|
+Strut Channel Knockout Plates(1)|صفحه سوراخ‌دار (ناک‌اوت) یونیسترات|
+Strut Channel Plugs(28)|درپوش یونیسترات|
+Strut Channel Outlet Boxes(1)|قوطی برق یونیسترات|
+Strut Channel Wall Mounts(5)|پایه دیواری یونیسترات|
+Strut Channel Curtain Slides(2)|ریل پرده یونیسترات|
+Strut Channel Routing Saddles for Insulated Pipe(6)|زین لوله عایق‌دار یونیسترات|
+Quick-Connect Strut Channel Adapters(15)|آداپتور اتصال سریع یونیسترات|
+Strut Channel Threaded Rod Brackets(1)|براکت میله‌رزوه یونیسترات|

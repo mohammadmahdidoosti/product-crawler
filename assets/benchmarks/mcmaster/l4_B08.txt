@@ -1,0 +1,109 @@
+@9.0.13 Routers & Bits
+Trimming Router Bits(72)|تیغ اورفرز لبه‌زن (فلاش)|
+Corner-Rounding Router Bits(28)|تیغ اورفرز گردکن لبه|
+Router Bit Sets(11)|ست تیغ اورفرز|
+Router Bits for Wood Joining(17)|تیغ اورفرز اتصال چوب (فاق و زبانه)|
+Straight and Spiral Router Bits for Wood, Particle Board, and Plywood(75)|تیغ اورفرز صاف و مارپیچ چوب و نئوپان|
+Fast-Cut Router Bits(1)|تیغ اورفرز سریع‌بر|
+Straight and Spiral Router Bits for Plastic(71)|تیغ اورفرز صاف و مارپیچ پلاستیک|
+Chamfering Router Bits(6)|تیغ اورفرز پخ‌زن|
+Diamond-Coated Router Bits for Composites(86)|تیغ اورفرز الماسه کامپوزیت|
+Straight and Spiral Router Bits for Aluminum(32)|تیغ اورفرز صاف و مارپیچ آلومینیوم|
+Router Bits for Composites(51)|تیغ اورفرز کامپوزیت|
+Router Bits for Grooves(12)|تیغ اورفرز شیارزن|
+Ball-End Router Bits(5)|تیغ اورفرز سرگرد|
+Decorative Panel Router Bits(5)|تیغ اورفرز ابزار تزئینی درب|
+Drill/Mill Router Bits(4)|تیغ اورفرز مته‌ای|
+Spiral Router Bits for Steel and Stainless Steel(15)|تیغ اورفرز مارپیچ فولاد و استیل|
+Flush-Trimming and Chamfering Router Bits(3)|تیغ اورفرز لبه‌زن و پخ‌زن|
+Straight and Spiral Router Bits for Foam(16)|تیغ اورفرز فوم|
+Router Bits for Thin Materials(10)|تیغ اورفرز مواد نازک|
+Engraving Router Bits(4)|تیغ اورفرز حکاکی|
+Hinge and Lock Mortise Router Bits(6)|تیغ اورفرز جای لولا و قفل|
+Panel Pilot Router Bits(6)|تیغ اورفرز پنل‌بر راهنمادار|
+Straight Router Bits for Ceramics(5)|تیغ اورفرز صاف سرامیک|
+Router Bits for Making Corners in Honeycomb Panels(3)|تیغ اورفرز گوشه پنل لانه‌زنبوری|
+Rotary Tool Router Tables(1)|میز اورفرز مینی‌فرز|
+Routers(22)|اورفرز|
+Rotary Tool Routers(1)|اورفرز مینی‌فرز|
+Rotary Tool Circle Cutters(1)|دایره‌بر مینی‌فرز|
+Router Guides(2)|گونیا (راهنمای) اورفرز|
+Router Tables(3)|میز اورفرز|
+Rotary Tools(3)|مینی‌فرز (فرز مینیاتوری)|
+Saw Guides(5)|راهنمای اره|
+Push Sticks(2)|هل‌دهنده چوب (پوش‌استیک)|
+Router Guide Bushings(2)|بوش راهنمای اورفرز|
+Plotter Pen Router Bits(2)|تیغ اورفرز پلاتر|
+Featherboards(2)|شانه نگهدارنده (فدربرد)|
+@9.0.14 Taps
+Tap Sets(297)|ست قلاویز|
+Chip-Clearing Taps(418)|قلاویز ماشینی براده‌ریز (مارپیچ)|
+Chip-Clearing Taps for Steel and Stainless Steel(99)|قلاویز ماشینی مارپیچ فولاد و استیل|
+Chip-Free Taps(82)|قلاویز فرمینگ (بدون براده)|
+Long-Reach Taps(101)|قلاویز بلند|
+Chip-Clearing Taps for Aluminum, Brass, and Bronze(47)|قلاویز ماشینی مارپیچ آلومینیوم و برنج|
+Left-Hand Thread Taps(231)|قلاویز چپ‌گرد|
+Chip-Clearing Tap Sets(4)|ست قلاویز ماشینی مارپیچ|
+Miniature Taps(13)|قلاویز مینیاتوری|
+Long-Reach Chip-Clearing Taps(25)|قلاویز ماشینی مارپیچ بلند|
+Left-Hand Thread Tap Sets(57)|ست قلاویز چپ‌گرد|
+Hex-Bit Tap Sets(1)|ست قلاویز دنباله شش‌گوش|
+Chip-Clearing Taps for Nickel(81)|قلاویز ماشینی مارپیچ آلیاژ نیکل|
+Oversized Chip-Clearing Taps(23)|قلاویز ماشینی مارپیچ اورسایز|
+Hex-Bit Taps(14)|قلاویز دنباله شش‌گوش|
+Chip-Clearing Taps for Titanium(40)|قلاویز ماشینی مارپیچ تیتانیوم|
+Left-Hand Thread Chip-Clearing Taps(45)|قلاویز ماشینی مارپیچ چپ‌گرد|
+Oversized Taps(23)|قلاویز اورسایز|
+2-in-1 Taps(11)|قلاویز مته‌دار دوکاره|
+Impact Wrench Taps(35)|قلاویز ضربه‌ای|
+Impact Wrench Chip-Clearing Taps(18)|قلاویز مارپیچ ضربه‌ای|
+Impact Wrench Tap Sets(11)|ست قلاویز ضربه‌ای|
+Impact Wrench Chip-Clearing Tap Sets(10)|ست قلاویز مارپیچ ضربه‌ای|
+Pipe and Conduit Taps(154)|قلاویز لوله (گازی)|
+Chip-Clearing Pipe and Conduit Taps for Steel and Stainless Steel(24)|قلاویز لوله مارپیچ فولاد و استیل|
+Pipe and Conduit Tap Sets(5)|ست قلاویز لوله|
+Chip-Clearing Pipe and Conduit Taps(15)|قلاویز لوله مارپیچ|
+Chip-Clearing Pipe and Conduit Taps for Aluminum, Brass, and Bronze(9)|قلاویز لوله مارپیچ آلومینیوم و برنج|
+Long-Reach Pipe and Conduit Taps(10)|قلاویز لوله بلند|
+2-in-1 Pipe and Conduit Taps(5)|قلاویز لوله مته‌دار دوکاره|
+Left-Hand Pipe and Conduit Taps(8)|قلاویز لوله چپ‌گرد|
+Impact Wrench Pipe and Conduit Taps(13)|قلاویز لوله ضربه‌ای|
+Helical Insert Taps(153)|قلاویز هلی‌کویل (جای فنر رزوه)|
+Left-Hand Thread Helical Insert Taps(11)|قلاویز هلی‌کویل چپ‌گرد|
+Acme Thread Taps(23)|قلاویز ذوزنقه‌ای اکمی|
+Left-Hand Acme Thread Taps(23)|قلاویز ذوزنقه‌ای اکمی چپ‌گرد|
+Trapezoidal Thread Taps(9)|قلاویز ذوزنقه‌ای متریک (Tr)|
+Garden Hose Thread Taps(1)|قلاویز رزوه شیلنگ باغبانی|
+Coil Thread Taps(3)|قلاویز رزوه کویلی|
+Compressed Gas Connection Taps(2)|قلاویز اتصال کپسول گاز|
+Spark Plug Taps(3)|قلاویز جای شمع|
+Tap and Die Sets(15)|ست قلاویز و حدیده|
+Tap, Die, and Thread File Sets(1)|ست قلاویز، حدیده و سوهان رزوه|
+Tap Extractors(52)|قلاویزدرآر|
+Thread Repair Tools(25)|ابزار ترمیم رزوه|
+Tap Extensions(15)|رابط بلندکن قلاویز|
+Tap and Die Wrench Sets(4)|ست دسته قلاویز و حدیده|
+Tapped Hole Chip Retrievers(2)|براده‌کش سوراخ قلاویز|
+Thread-Repairing Files(17)|سوهان ترمیم رزوه|
+Pressurized Pipe Tapping Kits(6)|کیت انشعاب‌گیری لوله تحت فشار (هات‌تپ)|
+Lathe Tap Holders(8)|قلاویزگیر تراش|
+Tapping Arms(13)|بازوی قلاویززنی|
+@9.0.16 Dies
+Dies(778)|حدیده|
+Die Wrenches(12)|دسته حدیده|
+Pipe Threader Dies(75)|شانه حدیده لوله|
+Pipe Threader Die Head Wrenches(8)|آچار سر حدیده لوله|
+Die Adapters(5)|تبدیل حدیده|
+Presses/Punches/Shears(7)|پرس، پانچ و قیچی|
+Press Dies(16)|قالب پرس|
+Sheet Metal Corner Punches(2)|پانچ گوشه‌بر ورق|
+Paper Hole Punches(9)|پانچ کاغذ|ترکیبی
+Die Holders(3)|حدیده‌گیر|
+Lathe Die Holders(11)|حدیده‌گیر تراش|
+Nibblers(2)|ورق‌بر نیبلر|
+Hole Flaring Dies(2)|قالب لبه‌برگردان سوراخ|
+Blade Baffles(18)|بافل تیغه‌ای|
+Stamps(742)|سنبه حروف و اعداد (مهر فلزی)|
+Character Hole Punches(3)|پانچ حروف|
+Tamper-Evident Seal Presses(8)|انبر پلمپ|
+Fabric Fastener Installation Tools(34)|ابزار نصب دکمه و پرچ پارچه|

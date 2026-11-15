@@ -1,0 +1,317 @@
+@20.1.4 Racks
+Circuit Board Racks(1)|رک برد مدار چاپی|
+Carboy Stands(1)|پایه دبه آزمایشگاهی (کربوی)|
+Bicycle Racks(3)|پایه پارک دوچرخه|ترکیبی
+Bottle Carriers(16)|حمل‌کننده بطری|
+Pegboard Bottle Holders(2)|نگهدارنده بطری پگ‌بورد|
+Scoop Holders(2)|نگهدارنده پیمانه (اسکوپ)|
+Pipette Holders(3)|پایه پیپت|
+Cup Holders(1)|جالیوانی|ترکیبی
+Dishwasher Racks(3)|سبد ماشین ظرفشویی|ترکیبی
+@20.1.5 Pallets
+Wood Pallets(12)|پالت چوبی|
+Stackable Plastic Pallets(12)|پالت پلاستیکی روی‌هم‌چین|
+Steel Pallets(5)|پالت فلزی|
+Choose-a-Color Plastic Pallets(1)|پالت پلاستیکی رنگ انتخابی|
+Nestable Plastic Pallets(8)|پالت پلاستیکی تودرتو|
+Aluminum Pallets(4)|پالت آلومینیومی|
+Food and Beverage Plastic Pallets(3)|پالت پلاستیکی غذایی|
+Shock-Absorbing Wood Pallets(3)|پالت چوبی ضربه‌گیر|
+Spill-Control Pallets(53)|پالت کنترل نشت (اسپیل پالت)|
+Shipping Boxes(25)|جعبه حمل (کارتن بار)|
+Pallet Collars(2)|دیواره پالت (پالت کالر)|
+Tubs(5)|تشت بزرگ|
+Pallet Load Wrap(3)|پوشش بسته‌بندی بار پالت|
+Pallet Rack Basins(2)|تشتک رک پالتی|
+@20.1.6 Chests
+Tool Boxes(108)|جعبه ابزار|
+Freezers(4)|فریزر|ترکیبی
+Coolers(4)|یخدان (کلمن)|ترکیبی
+@20.1.8 Partitions
+Lactation Spaces(6)|اتاقک شیردهی|
+Fence Post Pullers(1)|ستون‌کش فنس|
+Fence Post Drivers(1)|ستون‌کوب فنس|
+Wall Panels(12)|پنل دیواری|
+Wall-Covering Panels(8)|پنل روکش دیوار|
+Wall Studs and Bases(2)|استاد و کف‌کش دیوار|
+Fence Posts(10)|ستون فنس|
+Roof Panels(18)|پنل سقف (ساندویچ‌پنل)|
+@20.1.9 Tool Holders
+Angle Grinder Holders(1)|نگهدارنده فرز سنگ|
+Pegboard Trays(3)|سینی پگ‌بورد|
+Pegboard Hook Retainers(1)|نگهدارنده قلاب پگ‌بورد|
+Pegboard Hooks(57)|قلاب پگ‌بورد|
+Slatwall Shelves(1)|طبقه اسلت‌وال|
+Pegboard Jars(1)|ظرف پگ‌بورد|
+Slatwalls(11)|اسلت‌وال (دیوار شیاردار)|
+Slatwall Hooks(12)|قلاب اسلت‌وال|
+Slatwall Bins(3)|جعبه اسلت‌وال|
+Stretch Wrap Holders(2)|دستگیره نایلون استرچ|
+Pegboard Shelf Brackets(11)|براکت طبقه پگ‌بورد|
+Pegboard Bin Hangers(2)|آویز جعبه پگ‌بورد|
+Pegboard Hook End Caps(2)|درپوش سر قلاب پگ‌بورد|
+Measuring Square Cases(1)|کیف گونیا|
+Tool Rolls(12)|کیف ابزار رولی|
+Fanny Packs(1)|کیف کمری|ترکیبی
+Pail Stabilizers(1)|پایه نگهدارنده سطل|
+Backpacks(3)|کوله‌پشتی ابزار|ترکیبی
+Dry Bags(6)|کیسه ضدآب (درای‌بگ)|ترکیبی
+Hot Stick Bags(8)|کیف هات‌استیک (پرچ برق)|
+Food Storage Containers(3)|ظرف نگهداری غذا|ترکیبی
+Laptop Bags(3)|کیف لپ‌تاپ|ترکیبی
+Grinding Cone Arbors(1)|شفت نگهدارنده سنگ مخروطی|
+Face Mill Arbors(5)|آربور کف‌تراش|
+Slitting Saw Arbors(17)|آربور اره فرز (تیغه‌فرز)|
+Phone Armbands(1)|بازوبند موبایل|مصرفی
+Clamp-On Framing Bin-Box Mounts(3)|پایه جعبه قطعات کلمپی|
+Wipe Dispensers(9)|جادستمالی (دیسپنسر دستمال)|
+Surface Plate Covers(1)|کاور صفحه صافی|
+Coordinate Measuring Machine Trays(4)|سینی CMM|
+Machine Guard Panels(2)|پنل حفاظ ماشین|
+@20.2.0 Jars, Bottles & Pitchers
+Bottles(309)|بطری|
+Beakers(110)|بشر|
+Carboys(49)|دبه آزمایشگاهی (کربوی)|
+Vials(57)|ویال|
+Shipping Jugs(21)|گالن حمل|
+Jugs(12)|گالن|
+Shipping Bottles(31)|بطری حمل|
+Water Backpacks(2)|کوله آب|ترکیبی
+Tins(18)|قوطی فلزی|
+Flasks(34)|فلاسک (ارلن و بالن)|
+Graduated Cylinders(68)|استوانه مدرج|
+Safety Cans(41)|گالن ایمنی سوخت|
+Beaker Lids(11)|درب بشر|
+Fuel Cans(8)|گالن سوخت (دبه بنزین)|
+Liquid Nitrogen Cans(4)|مخزن نیتروژن مایع|
+Reagent Reservoirs(7)|مخزن معرف|
+Petri Dish Liners(3)|آستر پتری‌دیش|
+Beaker Liners(3)|آستر بشر|
+Vial Caps(15)|درب ویال|
+Well Plates(14)|پلیت چندخانه (میکروپلیت)|
+Pipettes(54)|پیپت|
+Bulb Dispensers(4)|دیسپنسر پوآر|
+Bulb-Dropper Bottles(10)|بطری قطره‌چکان|
+Pipettors(68)|سمپلر (پیپتور)|
+Pour Spouts(3)|لوله ریزش|
+Burettes(12)|بورت|
+Liquid Samplers(42)|نمونه‌بردار مایع|
+Pipette Tips(60)|سرسمپلر|
+Dippers(37)|ملاقه نمونه‌برداری|
+Hazardous Material Shipping Kits(4)|کیت حمل مواد خطرناک|
+Cups(64)|لیوان|ترکیبی
+Beverage Dispensers(17)|دیسپنسر نوشیدنی (کلمن آب)|ترکیبی
+Water Bottles(3)|قمقمه آب|ترکیبی
+Condiment Bottles(4)|بطری سس|ترکیبی
+Paint Cans(22)|قوطی رنگ|
+Vacuum Degassing Chambers(38)|محفظه وکیوم گاززدایی|
+@20.2.1 Pails
+Drums(215)|بشکه|
+Pail Lids(4)|درب سطل|
+Pail Liners(13)|آستر سطل|
+Pail Lid Closers(2)|ابزار بستن درب سطل|
+Ashtrays(7)|زیرسیگاری|ترکیبی
+Swivel Seats for Pails(2)|نشیمن گردان سطل|
+Shipping Pails(32)|سطل حمل|
+@20.2.2 Tanks
+Shipping Tanks(6)|مخزن حمل|
+Propane Tanks(12)|کپسول پروپان|
+Gas Tanks(7)|مخزن سوخت|
+Tank Stands(14)|پایه مخزن|
+Pallets(48)|پالت|
+Gas Tank Safety Caps(1)|درپوش ایمنی کپسول گاز|
+Gas Tank Safety Collars(1)|طوقه ایمنی کپسول گاز|
+Expansion Tanks(16)|منبع انبساط|
+Boiler Tanks(4)|مخزن دیگ (بویلر)|
+Refrigerant Storage Cylinders(2)|کپسول گاز مبرد|
+Propane Tank Valves(9)|شیر کپسول پروپان|
+Boiler Cleaners/Conditioners(1)|رسوب‌زدا و تصفیه آب دیگ|
+@20.2.3 Drums
+Steel Drums(43)|بشکه فلزی|
+Plastic Drums(53)|بشکه پلاستیکی|
+Stainless Steel Drums(31)|بشکه استیل|
+Heavy Duty Plastic Drums(20)|بشکه پلاستیکی سنگین|
+Steel Drums with Drain(4)|بشکه فلزی شیردار|
+Corrosion-Resistant Steel Drums(27)|بشکه فلزی ضدخوردگی|
+Salvage/Overpack Drums(19)|بشکه نجات (اورپک)|
+Fiber Drums(15)|بشکه مقوایی (فیبری)|
+Collection Drums for Drum-Top Vacuums(3)|بشکه جمع‌آوری جاروبرقی سربشکه‌ای|
+Sanitary Stainless Steel Drums(9)|بشکه استیل بهداشتی|
+Food and Beverage Stainless Steel Drums(12)|بشکه استیل غذایی|
+Fiber Drums with Liner(2)|بشکه مقوایی آستردار|
+Closing Rings for Sanitary Stainless Steel Drums(2)|طوقه بست بشکه استیل بهداشتی|
+Lids for Sanitary Stainless Steel Drums(2)|درب بشکه استیل بهداشتی|
+Drum Plug Adapters(1)|تبدیل درپوش بشکه|
+Drum Liners(29)|آستر (کیسه) بشکه|
+Drum Covers(10)|کاور بشکه|
+Drum Vents(7)|هواکش بشکه|
+@20.2.5 Sprayers
+Aerosol Can Triggers(1)|ماشه قوطی اسپری|
+Paint Sprayers(43)|پیستوله رنگ|
+Paint Sprayer Pressure Tanks(14)|مخزن تحت فشار پیستوله (پاتیل رنگ)|
+Paint Sprayer Cups(9)|کاسه پیستوله رنگ|
+@20.2.6 Spill Control Containers
+Drain Pans(5)|تشتک تخلیه روغن|
+@20.2.7 Boxes
+Box Dividers(46)|جداکننده جعبه|
+File Boxes(6)|جعبه بایگانی|ترکیبی
+Document Boxes(3)|جعبه اسناد|ترکیبی
+Flatness Gauge Cases(1)|جعبه گیج تختی|
+Pipe Nipple Tote Trays(6)|سینی حمل مغزی لوله|
+Safes(7)|گاوصندوق|ترکیبی
+Lock Boxes(2)|صندوقچه قفل‌دار|ترکیبی
+Mailboxes(19)|صندوق پست|ترکیبی
+Mailbox Posts(10)|پایه صندوق پست|ترکیبی
+Mail Slots(8)|شکاف نامه درب|ترکیبی
+@20.2.8 Pans
+Food and Beverage Stainless Steel Pans(48)|سینی (تشتک) استیل غذایی|
+Metal Pans(17)|تشتک فلزی|
+Highly Corrosion-Resistant Stainless Steel Pans(11)|تشتک استیل فوق ضدخوردگی|
+Aluminum Foil Pans(6)|ظرف فویل آلومینیومی|ترکیبی
+Plastic Pans(29)|تشتک پلاستیکی|
+Stain-Resistant and Nonstick Plastic Pans(26)|تشتک پلاستیکی ضدلک و نچسب|
+Food and Beverage Plastic Pans(13)|تشتک پلاستیکی غذایی|
+Plastic Pans with Funnel(1)|تشتک پلاستیکی قیف‌دار|
+Plastic Pans with Faucet(4)|تشتک پلاستیکی شیردار|
+Stay-Cool Plastic Pans(8)|تشتک پلاستیکی خنک‌نگهدار|
+Spill-Control Pans(14)|تشتک کنترل نشت|
+Fiberglass Pans(14)|تشتک فایبرگلاس|
+Food and Beverage Fiberglass Pans(20)|تشتک فایبرگلاس غذایی|
+Static-Control Fiberglass Pans(9)|تشتک فایبرگلاس آنتی‌استاتیک|
+Antislip Food and Beverage Fiberglass Pans(4)|تشتک فایبرگلاس غذایی ضدلغزش|
+Vented Aluminum Pans(1)|تشتک آلومینیومی سوراخ‌دار|
+Vented Food and Beverage Stainless Steel Pans(7)|سینی استیل غذایی سوراخ‌دار|
+Vented Fiberglass Pans(2)|تشتک فایبرگلاس سوراخ‌دار|
+Stain-Resistant and Nonstick Vented Plastic Pans(3)|تشتک پلاستیکی ضدلک سوراخ‌دار|
+Vented Steel Pans(1)|تشتک فولادی سوراخ‌دار|
+Plastic Compartmented Pans(6)|تشتک پلاستیکی خانه‌دار|
+Steel Compartmented Pans(3)|تشتک فولادی خانه‌دار|
+Magnet-Mount Plastic Compartmented Pans(2)|تشتک خانه‌دار مغناطیسی|
+Conductive Plastic Compartmented Pans(2)|تشتک خانه‌دار پلاستیکی رسانا|
+Glass Pans(4)|ظرف شیشه‌ای|
+Spill-Control Pans for Safety Cabinets for Flammable Acids and Corrosives(3)|تشتک نشت کابینت ایمنی اسید و مواد خورنده|
+Fiberboard Pans(3)|تشتک فیبری|
+Spill-Control Trays(6)|سینی کنترل نشت|
+Weighing Dishes(73)|ظرف توزین|
+Drywall Compound Pans(1)|تشتک بتونه کناف|
+Scale Scoops(6)|کفه ترازو (اسکوپ)|
+Pan Lids(3)|درب سینی|
+Frying Pans(4)|ماهیتابه|ترکیبی
+Paint Trays(25)|سینی رنگ (غلتک)|ترکیبی
+Pan Liners(8)|آستر سینی|
+@20.2.10 Waste Containers
+Trash Bags(172)|کیسه زباله|ترکیبی
+Crusher/Compactors(1)|خردکن/پرس زباله|
+Trash Can Lids(7)|درب سطل زباله|
+Compactors(2)|پرس زباله|
+Dumpster Liners(4)|آستر مخزن زباله|
+Crushers(3)|خردکن (قوطی و بشکه)|
+Water-Soluble Bags(1)|کیسه محلول در آب|
+Tank Liners(15)|آستر مخزن|
+Forklift Trash Can Dumpers(1)|تخلیه‌کن سطل زباله لیفتراکی|
+Sand(1)|ماسه|
+Paper Towel Dispensers(6)|جادستمالی رول حوله کاغذی|
+Toilet Paper Dispensers(10)|جای دستمال توالت|
+@20.2.11 Garbage Bags
+Trash Bags with Twist Ties(89)|کیسه زباله با بند مفتولی|
+Extreme Duty Tear-Resistant Trash Bags(1)|کیسه زباله فوق‌سنگین ضدپارگی|
+Recycled Trash Bags(29)|کیسه زباله بازیافتی|
+Trash Bags with Drawstring(6)|کیسه زباله بنددار|ترکیبی
+Light Duty Trash Bags(15)|کیسه زباله سبک|ترکیبی
+Moisture Resistant Paper Trash Bags(1)|کیسه زباله کاغذی ضدرطوبت|
+Choose-a-Color Trash Bags(4)|کیسه زباله رنگ انتخابی|
+Infectious Waste Trash Bags(4)|کیسه زباله عفونی|
+Trash Bags with Tie Flaps(4)|کیسه زباله دسته‌دار|ترکیبی
+Sorbent Waste Trash Bags(3)|کیسه زباله جاذب‌های آلوده|
+Static Control Trash Bags(3)|کیسه زباله آنتی‌استاتیک|
+Rodent Repelling Trash Bags(3)|کیسه زباله دافع جونده|
+Asbestos Waste Trash Bags(2)|کیسه زباله آزبست|
+Compactor Trash Bags(4)|کیسه زباله پرس|
+Compostable Trash Bags(4)|کیسه زباله کمپوست‌شدنی|ترکیبی
+Trash Bag Dispensers(2)|دیسپنسر کیسه زباله|
+@20.2.12 Funnels & Scoops
+Measuring Spoons(12)|قاشق اندازه‌گیری|ترکیبی
+Ladles(27)|ملاقه|
+Measuring Cups(2)|پیمانه اندازه‌گیری|ترکیبی
+Powder Samplers(10)|نمونه‌بردار پودر|
+Sludge Samplers(7)|نمونه‌بردار لجن|
+Drum Cones(9)|قیف بشکه|
+Pitchforks(8)|چنگک (شن‌کش دوشاخ)|
+Rakes(2)|شن‌کش|ترکیبی
+Paint Pour Lids(1)|درب ریزش قوطی رنگ|
+Forklift Scoops(1)|اسکوپ لیفتراک (بیل بغل)|
+@21.0.0 Faucets & Showers
+Faucet Cartridges(71)|کارتریج شیر آب|ترکیبی
+Faucet Repair Parts(81)|لوازم تعمیر شیر آب|ترکیبی
+Showers(1)|دوش|ترکیبی
+Faucet Spouts(4)|علمک شیر|
+Washdown Sprayers(22)|تفنگ آب شست‌وشو (سینک‌شور)|
+Faucet Aerators(26)|سرشیر (پرلاتور)|ترکیبی
+Faucet Cartridge Pullers(1)|کارتریج‌کش شیر|
+Faucet Handle Pullers(1)|دسته‌کش شیر|
+Floor, Wall, and Ceiling Plates(46)|قاب (روزت) کف، دیوار و سقف|
+Faucet Pedals(15)|شیر پدالی|
+Shower Head Pipe(4)|لوله سردوش|
+Faucet Shut-Off Rods(2)|میله قطع‌کن شیر|
+@21.0.1 Sinks & Wash Fountains
+Wash Fountain Replacement Parts(91)|قطعات یدکی روشویی جمعی|
+Wash Fountains(10)|روشویی جمعی (دایره‌ای)|
+Floor Sink Liners(9)|آستر سینک کف|
+Grease Traps(4)|چربی‌گیر|
+Neutralization Tanks(4)|مخزن خنثی‌سازی (اسید)|
+Garbage Disposals(3)|زباله‌خردکن سینک|ترکیبی
+Drain Cleaners(7)|لوله‌بازکن|ترکیبی
+Hand Washing Stations(4)|ایستگاه شست‌وشوی دست|
+@21.0.2 Drinking Fountains
+Drinking Fountain Bottle Filler Converters(4)|تبدیل آبخوری به پرکن بطری|
+Cup Dispensers(3)|جالیوانی یک‌بارمصرف|
+@21.0.3 Toilets & Urinals
+Toilets(7)|توالت فرنگی|ترکیبی
+Toilet Flush Valves(18)|فلاش‌والو توالت|
+Toilet Seats(11)|نشیمن توالت فرنگی|ترکیبی
+Urinal Flush Valves(19)|فلاش‌والو یورینال|
+Pressurized-Tank Toilet Kits(12)|کیت فلاش‌تانک تحت فشار|
+Flush Valve Converters(21)|تبدیل فلاش‌والو|
+Plungers(15)|پمپ توالت (تلمبه)|ترکیبی
+Drain Snakes(34)|فنر لوله‌بازکن|
+Bathroom Floor Mats(2)|پادری حمام|ترکیبی
+Toilet Paper(4)|دستمال توالت|ترکیبی
+Toilet Seat Covers(2)|روکش یک‌بارمصرف توالت|
+Toilet Seat Cover Dispensers(4)|جای روکش توالت|
+Urinal Cartridges(2)|کارتریج یورینال بدون آب|
+Toilet Bowl Cleaners(16)|جرم‌گیر توالت|ترکیبی
+Urine Removers(2)|بوزدای ادرار|
+@21.0.4 Plungers & Drain Cleaners
+Water Jet Drain Cleaners(27)|لوله‌بازکن واترجت|
+Drain Snake Leaders(1)|سرفنر لوله‌بازکن (لیدر)|
+Drain Snake Heads(24)|سر فنر لوله‌بازکن|
+Drain Snake Cables(33)|فنر (کابل) لوله‌بازکن|
+Foam Drain Cleaners(4)|لوله‌بازکن فومی|ترکیبی
+@21.0.5 Test Pumps, Plugs & Fittings
+Corrosion-Inhibiting Rods and Pads(41)|میله و پد ضدخوردگی (آند فداشونده)|
+@21.0.6 Privacy Partitions
+Shower Stalls(2)|کابین دوش|ترکیبی
+Shower Curtains(11)|پرده حمام|ترکیبی
+Shower Curtain Rod Flanges(2)|فلنج میله پرده حمام|ترکیبی
+Shower Curtain Rods(10)|میله پرده حمام|ترکیبی
+@21.0.7 Lavatory Mirrors & Fixtures
+Menstrual Hygiene Product Dispensers(4)|دیسپنسر نوار بهداشتی|
+Mirrors(66)|آینه|ترکیبی
+Shower Stoppers(1)|درپوش کف‌شور حمام|ترکیبی
+Diaper-Changing Stations(2)|میز تعویض پوشک|
+Shower Drains(5)|کف‌شور حمام|
+Diaper-Changing-Station Liners(1)|روکش میز تعویض پوشک|
+Menstrual Hygiene Disposal Bag Dispensers(2)|دیسپنسر کیسه دفع نوار بهداشتی|
+Soap Dispensers(75)|جاصابونی مایع (دیسپنسر صابون)|ترکیبی
+Hand Soap(82)|صابون دست|ترکیبی
+Towel Bars(4)|حوله‌آویز|ترکیبی
+Hand Lotion Dispensers(3)|دیسپنسر لوسیون دست|
+Soap Dishes(2)|جاصابونی|ترکیبی
+Soap Dispenser Valves(3)|شیر دیسپنسر صابون|
+Hand Sanitizer Dispensers(21)|دیسپنسر ضدعفونی‌کننده دست|ترکیبی
+Menstrual Hygiene Disposal Bags(4)|کیسه دفع نوار بهداشتی|ترکیبی
+Bath Towels(3)|حوله حمام|ترکیبی
+Hand Lotion(9)|لوسیون دست|ترکیبی
+Paper Towels(18)|حوله کاغذی|ترکیبی
+Wipes(48)|دستمال مرطوب و تنظیف|ترکیبی
+Curtain Hooks(8)|قلاب پرده|ترکیبی
