@@ -1,0 +1,530 @@
+# Light Industry & Daily Use > Barware
+Bar Accessories|لوازم بار و کافه|
+Bar Set|ست بار|
+Bar Tool|ابزار باریستا و بار|ترکیبی
+Drinking Straw|نی نوشیدنی|ترکیبی
+Hip Flask|قمقمه جیبی|
+Ice Bucket|سطل یخ|
+Wine Cup|جام|
+# Light Industry & Daily Use > Cookware
+Cookware Parts|قطعات ظروف پخت (دسته، درب)|B2B
+Cookware Set|سرویس قابلمه|
+Dutch Ovens|قابلمه چدنی|
+Griddles|تابه گریل|
+Kettles|کتری|
+Pans|ماهیتابه|
+Pressure Cookers|زودپز|
+Saucepans|شیرجوش و قابلمه دسته‌دار|
+Steamers|بخارپز|
+Stock Pots|قابلمه بزرگ (دیگ)|
+Woks|ووک|
+Other Cookware|سایر ظروف پخت|
+# Light Industry & Daily Use > Cup & Mug
+Bamboo Fiber Cup|لیوان الیاف بامبو|
+Ceramic Cup & Mug|ماگ سرامیکی|
+Cup & Saucer Set|ست فنجان و نعلبکی|
+Disposable Cup & Mug|لیوان یکبار مصرف|B2B
+Glass Cup & Mug|لیوان شیشه‌ای|
+Plastic Cup & Mug|لیوان پلاستیکی|
+Porcelain Cup & Mug|فنجان چینی|
+Silicone Cup & Mug|لیوان سیلیکونی|
+Stainless Steel Cup & Mug|لیوان استیل|
+Travel Mug|ماگ سفری|
+Vacuum Thermo|ماگ دمای ثابت|
+Other Cups & Mugs|سایر لیوان‌ها|
+# Light Industry & Daily Use > Drinkware
+Coffee & Tea Set|سرویس چای و قهوه|
+Cup & Mug|لیوان و ماگ|
+Kettles|کتری|
+Vacuum Flask & Thermos|فلاسک|
+Water Bottle|بطری آب|
+Other Drinkware|سایر ظروف نوشیدنی|
+# Light Industry & Daily Use > Hair Tools & Accessories
+Cap Highlights|کلاه مش|B2B
+Hair Comb & Brush|شانه و برس|
+Hair Extension Tools|ابزار اکستنشن مو|B2B
+Hair Foil|فویل مش|B2B
+Hair Roller|بیگودی|
+Hair Scissors|قیچی آرایشگری|B2B
+Hairdressing Cape & Gown|پیش‌بند آرایشگاهی|B2B
+Salon Apron|پیش‌بند آرایشگر|B2B
+Other Hair Tools & Accessories|سایر لوازم مو|
+# Light Industry & Daily Use > Kitchen Implements
+Bakeware|ظروف فر و شیرینی‌پزی|
+Bottle Opener|دربازکن|
+Cheese Tools|ابزار پنیر|
+Chopping Board|تخته گوشت|
+Cocktail Shaker|شیکر|
+Cruet, Spice Jar & Bottle|جاادویه و نمکدان|
+Dish Drying Mat|پد آبچکان|
+Egg Whisk|همزن دستی|
+Grater|رنده|
+Ice Cube Tray|قالب یخ|
+Kitchen Knives|چاقوی آشپزخانه|
+Kitchen Mill|آسیاب دستی|
+Kitchen Racks|قفسه آشپزخانه|
+Kitchen Scale|ترازوی آشپزخانه|
+Kitchen Tongs|انبر آشپزخانه|
+Kitchenware Set|ست لوازم آشپزخانه|
+Knife Sharpener|چاقوتیزکن|
+Meat & Poultry Tools|ابزار گوشت و مرغ|
+Oil Bottle|روغن‌دان|
+Oil Spray Bottle|اسپری روغن|
+Olive Oil Bottle|بطری روغن زیتون|
+Pasta Tools|ابزار پاستا|
+Peeler|پوست‌کن|
+Salad Tools|ابزار سالاد|
+Scoop, Ladle|کفگیر و ملاقه|
+Strainer|آبکش و صافی|
+Sushi Tools|ابزار سوشی|
+Wine Decanter|دکانتر|
+Other Kitchen Implements|سایر لوازم آشپزخانه|
+# Light Industry & Daily Use > Labels
+Adhesive Label|برچسب چسبی|
+Garment Tag|برچسب آویز لباس|
+Packaging Labels|لیبل بسته‌بندی|
+Printed Labels|لیبل چاپی|
+RFID Tag|تگ RFID|
+Woven Label|لیبل بافته (اتیکت)|
+Other Label|سایر لیبل‌ها|
+# Light Industry & Daily Use > Restaurant Supplies
+Chafing Dish|سوفله‌خوری (بن‌ماری سلف)|
+Other Restaurant Supplies|سایر ملزومات رستوران|
+# Light Industry & Daily Use > Tableware
+Baking Tray& Bowl|سینی و کاسه فر|
+Bowls|کاسه|
+Chopsticks|چاپستیک|
+Coaster|زیرلیوانی|
+Cutlery Sets|سرویس قاشق و چنگال|
+Dinner Knife|کارد غذاخوری|
+Dinner Sets|سرویس غذاخوری|
+Divided Plate|بشقاب خانه‌دار|
+Fork|چنگال|
+Fruit Tray|میوه‌خوری|
+Ice Cream Bowl|بستنی‌خوری|
+Lunch Box|ظرف غذا|
+Mixing Bowl|کاسه همزن|
+Napkin Ring|حلقه دستمال سفره|
+Noodle Bowl|کاسه نودل|
+Plates|بشقاب|
+Salad Bowl|کاسه سالاد|
+Salad Plate|پیش‌دستی|
+Soup Bowl|کاسه سوپ|
+Spoon|قاشق|
+Tray|سینی|
+Tureen|سوپ‌خوری|
+Other Tablewares|سایر ظروف سرو|
+# Light Industry & Daily Use > Bath Supplies
+Bath Gloves|کیسه حمام|
+Bath Pillow|بالش وان|
+Bath Salt|نمک حمام|
+Bath Sponge, Brush & Scrubber|لیف و برس حمام|
+Sauna Bucket & Ladle|سطل و ملاقه سونا|
+Sauna Hat|کلاه سونا|
+Shower Cap|کلاه حمام|
+Shower Gel|شامپو بدن|
+Toilet Soap|صابون|
+Other Bath Supplies|سایر لوازم حمام|
+# Light Industry & Daily Use > Beauty & Personal Care Products
+Bathroom Sets|ست حمام|
+Beard Care|مراقبت ریش|
+Body Art Products|لوازم تتو|ترکیبی
+Breast Care|مراقبت سینه|
+Deodorant & Antiperspirant|دئودورانت|
+Essential Oil|روغن اسانس|
+Hair Products|محصولات مو|
+Hair Removal|موبر و اپیلاسیون|
+Hand Warmer|گرم‌کن دست|
+Hot & Cold Pack|کیسه گرم و سرد|
+Hot Water Bottle|کیسه آب‌گرم|
+Menstrual Cup|کاپ قاعدگی|
+Perfume|عطر|
+Personal Grooming|آراستگی شخصی|
+Skin Cleaning Tools|ابزار پاکسازی پوست|
+Sleep Mask|چشم‌بند خواب|
+Warm Patch|پچ گرمایی|
+Other Personal Care Appliances|سایر لوازم مراقبت شخصی|
+# Light Industry & Daily Use > Hair Care Products
+Hair Conditioner|نرم‌کننده مو|
+Hair Dye|رنگ مو|ترکیبی
+Hair Mask|ماسک مو|
+Hair Styling Products|محصولات حالت‌دهنده مو|
+Hair Treatment Products|محصولات ترمیم مو|
+Perm Solution|محلول فر|B2B
+Shampoo|شامپو|
+Other Hair Care Products|سایر محصولات مراقبت مو|
+# Light Industry & Daily Use > Makeup
+Blush|رژگونه|
+Body Glitter|اکلیل بدن|
+Concealer|کانسیلر|
+Eye Shadow|سایه چشم|
+Eyebrow Pencil|مداد ابرو|
+Eyeliner|خط چشم|
+Foundation|کرم پودر|
+Lip Balm|بالم لب|
+Lip Gloss|برق لب|
+Lip Liner|مداد لب|
+Lipstick|رژ لب|
+Makeup Base|پرایمر|
+Makeup Remover|پاک‌کننده آرایش|
+Makeup Set|ست آرایشی|
+Mascara|ریمل|
+Other Makeup Products|سایر لوازم آرایش|
+# Light Industry & Daily Use > Makeup Tools
+Cosmetic Bag|کیف آرایش|
+Cosmetic Case|کیف سخت آرایش|
+Cotton Buds|گوش‌پاک‌کن|
+Cotton Pads|پد آرایشی|
+Eyebrow Trimmer|اصلاح ابرو|
+Eyebrow Tweezers|موچین|
+Eyelash Curler|فرمژه|
+Eyelash Glue|چسب مژه|
+Eyeshadow Brush|براش سایه|
+False Eyelashes|مژه مصنوعی|ترکیبی
+Makeup Brushes|براش آرایشی|
+Makeup Mirror|آینه آرایش|
+Makeup Scissors|قیچی آرایشی|
+Makeup Tool Kits|ست ابزار آرایش|
+Nose Hair trimmer|موزن بینی|
+Powder Puff|پد پنکک|
+Other Makeup Tools|سایر ابزار آرایش|
+# Light Industry & Daily Use > Nail Beauty Products
+Gel Polish|لاک ژل|ترکیبی
+Manicure & Pedicure Set|ست مانیکور و پدیکور|
+Nail Acrylic Powder|پودر کاشت ناخن|B2B
+Nail Brush|قلم کاشت ناخن|ترکیبی
+Nail Clippers|ناخن‌گیر|
+Nail Decoration|تزئینات ناخن|ترکیبی
+Nail Drill|سوهان برقی ناخن|B2B
+Nail Dryer|خشک‌کن لاک|
+Nail File|سوهان ناخن|
+Nail Glue|چسب ناخن|
+Nail Lamp|لامپ UV ناخن|ترکیبی
+Nail Polish|لاک ناخن|
+Nail Polish Remover|لاک‌پاک‌کن|
+Nail Printer|پرینتر ناخن|B2B
+Other Nail Beauty Products|سایر محصولات ناخن|
+# Light Industry & Daily Use > Oral Care
+Dental Floss|نخ دندان|
+Electric Toothbrush|مسواک برقی|
+Mouth Wash|دهانشویه|
+Tooth Powder|پودر دندان|
+Toothbrush|مسواک|
+Toothpaste|خمیردندان|
+Toothpick|خلال دندان|
+Water Flosser|واترجت دندان|
+Other Oral Care|سایر بهداشت دهان|
+# Light Industry & Daily Use > Paper for Household & Sanitation
+Adult Diapers|پوشک بزرگسال|
+Adult Wipes|دستمال مرطوب بزرگسال|
+Baby Diapers|پوشک بچه|
+Baby Wipes|دستمال مرطوب کودک|
+Facial Tissue & Serviette|دستمال کاغذی و سفره|
+Paper Towel|حوله کاغذی|ترکیبی
+Sanitary Napkins|نوار بهداشتی|
+Tissue Box|جعبه دستمال کاغذی|
+Toilet Paper|دستمال توالت|ترکیبی
+Underpad|زیرانداز بهداشتی|
+Other Paper for Household & Sanitation|سایر محصولات کاغذی بهداشتی|
+# Light Industry & Daily Use > Skin Care
+Body Cream & Lotion|کرم و لوسیون بدن|
+Body Scrub|اسکراب بدن|
+Essential Oil|روغن اسانس|
+Eye Cream|کرم دور چشم|
+Eye Mask|ماسک چشم|
+Face Cream|کرم صورت|
+Face Lotion & Gel|لوسیون و ژل صورت|
+Facial Cleanser|پاک‌کننده صورت|
+Facial Mask|ماسک صورت|
+Hand Cream|کرم دست|
+Lip Mask|ماسک لب|
+Neck Mask|ماسک گردن|
+Skin Care Essence|سرم پوست|
+Skin Care Set|ست مراقبت پوست|
+Skin Toner|تونر|
+Sunscreen|ضدآفتاب|
+Tanning Lotion|لوسیون برنزه|
+Other Skin Care|سایر محصولات مراقبت پوست|
+# Light Industry & Daily Use > Bedding
+Backrest Pillow & Cushion|کوسن پشتی|
+Bed Pillow|بالش|
+Bed Sheets|ملحفه|
+Bedding Set|سرویس خواب|
+Bedspread|روتختی|
+Blanket|پتو|
+Cushion Cover|روکوسنی|
+Matting|حصیر تابستانی|
+Mattress|تشک|
+Mattress Cover|روتشکی|
+Mosquito Net|پشه‌بند|
+Pillow Case|روبالشی|
+Quilt|لحاف|
+Quilt Cover|روکش لحاف|
+Other Bedding Textile|سایر منسوجات خواب|
+# Light Industry & Daily Use > Kitchen & Table Textile
+Chair Cover|روکش صندلی|
+Cleaning Ball, Sponge & Cloth|اسکاج و دستمال|
+Cloth Napkins|دستمال سفره پارچه‌ای|
+Coaster|زیرلیوانی|
+Dish Towel|حوله ظرف|
+Kitchen Apron|پیش‌بند آشپزی|
+Kitchen Gloves|دستکش آشپزخانه|
+Kitchen Rugs|فرش آشپزخانه|
+Placemat|سوپلا|
+Table Cloth|رومیزی|
+Table Runner|رانر میز|
+Table Skirts|دامن میز (تشریفات)|B2B
+Tea Towel|حوله چای|
+Waiter Apron|پیش‌بند گارسون|B2B
+Other Kitchen & Table Textile|سایر منسوجات آشپزخانه|
+# Light Industry & Daily Use > Household Chemicals
+Air Freshener|خوشبوکننده هوا|
+Hand Washing Liquid|مایع دستشویی|
+Household Disinfectant|ضدعفونی‌کننده خانگی|
+Laundry Ball|توپ لباسشویی|
+Laundry Detergent|پودر و مایع لباسشویی|
+Laundry Soap|صابون رختشویی|
+Other Household Chemicals|سایر شوینده‌های خانگی|
+# Light Industry & Daily Use > Household Plastic Products
+Bag Clip|گیره کیسه|
+Household Plastic Containers|ظرف پلاستیکی خانگی|
+Plastic Fresh Bag|کیسه فریزر|
+Plastic Rope & Net|طناب و تور پلاستیکی|ترکیبی
+Plastic Tableware|ظروف پلاستیکی|
+Plastic Tube, Pipe & Hose|شلنگ پلاستیکی|ترکیبی
+Shrink Wrap|سلفون|ترکیبی
+Other Household Plastic Products|سایر پلاستیک خانگی|
+# Light Industry & Daily Use > Household Receptacle
+Bottle|بطری|
+Bucket|سطل|
+Pot & Kettle|قوری و کتری|
+Sprayer Bottle|بطری اسپری|ترکیبی
+Sprayer Head|سر اسپری|B2B
+Storage & Organization|نظم‌دهنده|
+Tissue Box|جعبه دستمال|
+Vacuum Flask & Thermos|فلاسک|
+Other Household Receptacle|سایر ظروف خانگی|
+# Light Industry & Daily Use > Kitchen & Bathroom Cleaning
+Coffee Machine Cleaning Tablet|قرص جرم‌گیر قهوه‌ساز|
+Dish Detergent|مایع ظرفشویی|
+Dishwasher Cleaner|قرص ماشین ظرفشویی|
+Drain Cleaner|لوله‌بازکن|
+Grease Cleaner|چربی‌زدا|
+Oil Stain Cleaner|لکه‌بر روغن|
+Toilet Cleaner|جرم‌گیر توالت|
+Other Kitchen & Bathroom Cleaning|سایر شوینده‌های آشپزخانه و حمام|
+# Light Industry & Daily Use > Sanitary Utensil
+Broom & Dustpan|جارو و خاک‌انداز|
+Bucket|سطل|
+Cleaning Brush|برس نظافت|
+Dustbin|سطل زباله|
+Duster|گردگیر|
+Garbage Bag|کیسه زباله|
+Lint Remover|پرزگیر|
+Mop|تی|
+Razor Scraper|تیغ شیشه‌پاک‌کن|
+Reusable Oversleeves|ساق‌دست|
+Shoe Covers & Shoe Covers Dispenser|کاور کفش و دستگاه کاور کفش|B2B
+Sickness Bag|کیسه استفراغ|B2B
+Squeegee|تی شیشه|
+Sticky Roller|پرزگیر غلتکی|
+Vacuum Cleaner|جاروبرقی|
+Other Sanitary Utensils|سایر لوازم نظافت|
+# Light Industry & Daily Use > Clock & Watch
+Alarm Clock|ساعت زنگ‌دار|
+Ceramic Watch|ساعت سرامیکی|
+Clock & Watch Accessories|لوازم ساعت (بند، باتری)|
+Desk & Table Clock|ساعت رومیزی|
+Fine Timepiece|ساعت لوکس|
+Grandfather Clock|ساعت ایستاده|
+LED Watch|ساعت LED|
+Leather Strap Watch|ساعت بند چرمی|
+Nurse Watch|ساعت پرستاری|
+Pocket Watch|ساعت جیبی|
+Silicone Watch|ساعت سیلیکونی|
+Sports Watch|ساعت ورزشی|
+Steel Watch|ساعت استیل|
+Wall Clock|ساعت دیواری|
+Watch Box|جعبه ساعت|
+Wooden Watch|ساعت چوبی|
+Other Clocks & Watches|سایر ساعت‌ها|
+# Light Industry & Daily Use > Eyewear
+3D Glasses|عینک سه‌بعدی|
+Contact Lens & Care Products|لنز طبی و محلول|
+Glasses|عینک|
+Glasses Case & Pouch|جاعینکی|
+Glasses Cloth|دستمال عینک|
+Glasses Frames|فریم عینک|ترکیبی
+Glasses Lens|عدسی عینک|B2B
+Glasses Parts|قطعات عینک|B2B
+Lens Cleaner|اسپری تمیزکننده عینک|
+Reading Glasses|عینک مطالعه|
+Safety Glasses|عینک ایمنی|B2B
+Sports Glasses|عینک ورزشی|
+Sunglasses|عینک آفتابی|
+Video Glasses|عینک ویدیویی|
+Other Eyewear|سایر عینک‌ها|
+# Light Industry & Daily Use > Garden Sprayer
+Backpack Sprayer|سمپاش پشتی|
+Cart Sprayer|سمپاش چرخ‌دار|
+Electric Sprayer|سمپاش شارژی|
+Hand Pump Sprayer|سمپاش دستی|
+Handheld Sprayer|افشانک دستی|مصرفی
+Portable Sprayer|سمپاش قابل‌حمل|
+Power Sprayer|سمپاش موتوری|B2B
+Pressure Sprayer|سمپاش فشاری|
+Other Garden Sprayers|سایر سمپاش‌ها|
+# Light Industry & Daily Use > Horticulture & Gardening Products
+Biological Pest Control|کنترل بیولوژیک آفات|
+Brush Cutter|علف‌زن (داس موتوری)|
+Chainsaw|اره زنجیری|B2B
+Chemical Pest Control|سم آفات|
+Earth Auger|چاله‌کن|B2B
+Electric Fence Energizer|برق‌دهنده فنس|B2B
+Flower Pot & Planter|گلدان|مصرفی
+Flower Stand|پایه گلدان|مصرفی
+Garden Blower & Vacuum|دمنده باغی|
+Garden Fencing|نرده باغ|
+Garden Hose|شلنگ باغبانی|
+Garden Hose Reel|قرقره شلنگ|
+Garden Ornaments|تزئینات باغ|مصرفی
+Garden Sprinkler|آبپاش چمن|
+Gardening Apron|پیش‌بند باغبانی|
+Gardening Tool Parts|قطعات ابزار باغبانی|
+Hedge Trimmer|شمشادزن|
+Hoe|کج‌بیل|
+Lawn Mower|چمن‌زن|
+Physical Pest Control|تله و توری آفات|
+Pickaxe|کلنگ|
+Rake|شن‌کش|
+Shears|قیچی باغبانی|
+Shovel, Spade|بیل|
+Watering Can|آبپاش دستی|مصرفی
+Weed Mat|مالچ ضدعلف|
+Other Horticulture & Gardening Products|سایر محصولات باغبانی|
+Other Pest Control|سایر کنترل آفات|
+# Light Industry & Daily Use > Baby Goods
+Baby Apparel|پوشاک نوزاد|
+Baby Bib|پیش‌بند نوزاد|
+Baby Car Seats|صندلی ماشین کودک|
+Baby Changing Station|میز تعویض پوشک|ترکیبی
+Baby Diapers|پوشک|
+Baby Safety Lock|قفل ایمنی کودک|
+Baby Shoes|کفش نوزاد|
+Baby Toys|اسباب‌بازی نوزاد|
+Baby Wipes|دستمال مرطوب|
+Bathing & Skin Care|حمام و مراقبت پوست نوزاد|
+Bunting Bag|کیسه خواب نوزاد|
+Children & Baby Furniture|مبلمان کودک|
+Feeding Supplies|لوازم تغذیه (شیشه شیر)|
+Nasal Aspirator|پوآر بینی|
+Potty|لگن کودک|
+Strollers, Walkers & Carriers|کالسکه، روروئک و آغوشی|
+Other Baby Products|سایر لوازم کودک|
+# Light Industry & Daily Use > Awning, Umbrella & Raincoat
+Awning|سایبان|ترکیبی
+Rainboots|چکمه بارانی|
+Raincoat|بارانی|
+Umbrella|چتر|
+Other Rain Gear|سایر لوازم بارانی|
+# Light Industry & Daily Use > Disposable Products
+Disposable Apron|پیش‌بند یکبار مصرف|
+Disposable Cap|کلاه یکبار مصرف|
+Disposable Gloves|دستکش یکبار مصرف|
+Disposable Oversleeves|ساق‌دست یکبار مصرف|
+Disposable Sanitary Products|محصولات بهداشتی یکبار مصرف|
+Disposable Shoe Covers|کاور کفش یکبار مصرف|
+Disposable Tableware|ظروف یکبار مصرف|
+Disposable Towel|حوله یکبار مصرف|
+Other Disposable Products|سایر محصولات یکبار مصرف|
+# Light Industry & Daily Use > Hotel Amenities
+Hotel Bath Products|لوازم حمام هتلی|
+Hotel Bedding|ملحفه هتلی|
+Hotel Catering Supplies|ملزومات پذیرایی هتل|
+Hotel Comb|شانه هتلی|
+Hotel Razor|تیغ هتلی|
+Hotel Sanitary Products|لوازم بهداشتی هتلی|
+Hotel Slipper|دمپایی هتلی|
+Hotel Soap|صابون هتلی|
+Hotel Toiletry Set|کیت بهداشتی هتلی|
+Hotel Toothbrush|مسواک هتلی|
+Hotel Towel|حوله هتلی|
+Other Hotel Amenities|سایر ملزومات هتلی|
+# Light Industry & Daily Use > Ladder
+Folding Ladder|نردبان تاشو|
+Step Ladder|نردبان دوطرفه|
+Step Stool|چهارپایه پله‌دار|
+Straight Ladder|نردبان یکطرفه|
+Telescoping Ladder|نردبان تلسکوپی|
+# Light Industry & Daily Use > Match, Lighter & Smoking Set
+Ashtray|زیرسیگاری|
+Cigar Humidor & Case|جعبه سیگار برگ|
+Cigarette Case & Box|جاسیگاری|
+Hookah|قلیان|
+Lighter|فندک|
+Match|کبریت|
+Smoking Accessories|لوازم دخانیات|
+Smoking Pipe|پیپ|
+Smoking Set|ست دخانیات|
+Other Smoking Sets|سایر لوازم دخانیات|
+# Light Industry & Daily Use > Rack, Shelf, Holder & Hanger
+Bathroom Rack|قفسه حمام|
+Bathtub Rack|سینی وان|
+CD Rack|قفسه CD|
+Drying Rack|بند رخت|
+Hanger|چوب‌لباسی|ترکیبی
+Ironing Board|میز اتو|
+Magazine & Newspaper Rack|جامجله‌ای|
+Shoe Hanger|آویز کفش|
+Toilet Brush Holder|جافرچه توالت|
+Toothbrush Holder|جامسواکی|
+Towel Bar|حوله‌آویز|
+Towel Ring|حلقه حوله|
+Wine Rack|جابطری|
+Other Racks & Shelf|سایر قفسه و آویزها|
+# Light Industry & Daily Use > Exhibition and Advertising Equipment
+AD Player|نمایشگر تبلیغاتی|
+Advertising Letter|حروف برجسته تبلیغاتی (چنلیوم)|
+Banner Stand|استند بنر|
+Billboard|بیلبورد|
+Display Stand|استند نمایشگاهی|
+Flag & Banner|پرچم و بنر|
+Flagpole|میله پرچم|
+Inflatable Advertising|بادکنک تبلیغاتی|
+Light Box|لایت‌باکس|
+Poster Material|متریال پوستر (فلکسی، بنر)|
+Roll up Display|رول‌آپ|
+Security Display Stand|استند نمایش ضدسرقت|
+Tent|چادر نمایشگاهی|
+Truss|تراس نمایشگاهی|
+Other Exhibition and Advertising Equipment|سایر تجهیزات نمایشگاهی و تبلیغاتی|
+# Light Industry & Daily Use > Inflatable Advertising
+Air Dancer|آدمک بادی رقصان|
+Inflatable Arch|طاق بادی|
+Inflatable Balloon|بالن بادی|
+Inflatable Cartoon Character|کاراکتر بادی|
+Inflatable Decoration|دکور بادی|
+Inflatable Devices & Accessories|لوازم بادی|
+Inflatable Model|ماکت بادی|
+Inflatable Screen|پرده بادی سینما|
+Inflatable Stick|چوب بادی تشویق|
+Inflatable Tent|چادر بادی|
+Other Inflatable Advertisings|سایر تبلیغات بادی|
+# Light Industry & Daily Use > Tape & Adhesive
+Adhesive Label|برچسب چسبی|
+Aluminum Foil Paper Self Adhesive Label|لیبل فویل آلومینیوم|
+Anti-counterfeiting Self Adhesive Label|لیبل ضدجعل|
+Art Paper Self Adhesive Label|لیبل کاغذ گلاسه|
+Coated Paper Self Adhesive Label|لیبل کاغذ روکش‌دار|
+Gold/Silver Self Adhesive Label|لیبل طلایی و نقره‌ای|
+Jumbo Self Adhesive Paper|رول جامبو کاغذ چسب‌دار|
+Kraft Paper Self Adhesive Label|لیبل کرافت|
+Masking Tape|چسب کاغذی|
+Office Adhesive Tape|چسب اداری|
+PE Self Adhesive Label|لیبل PE|
+PET Self Adhesive Label|لیبل PET|
+PVC Self Adhesive Label|لیبل PVC|
+Packing Tape|چسب پهن بسته‌بندی|
+Thermal Self Adhesive Label|لیبل حرارتی|
+Thermal Transfer Self Adhesive Label|لیبل حرارتی انتقالی|
+Other Tape & Adhesive|سایر چسب‌ها و لیبل‌ها|

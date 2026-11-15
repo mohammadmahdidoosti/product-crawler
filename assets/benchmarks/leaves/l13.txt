@@ -1,0 +1,149 @@
+# Instruments & Meters > Analysis Instrument
+Audio Analyzer|آنالایزر صدا|
+Chromatography, Spectroscopy Instrument|دستگاه کروماتوگرافی و طیف‌سنجی|
+Colorimeter|رنگ‌سنج|
+Concentration Meter|غلظت‌سنج|
+Element Analyzer|آنالایزر عنصری|
+Food Safety Tester|تستر ایمنی غذا|
+Gas Analyzer|آنالایزر گاز|
+Laser Particle Size Analyzer|دانه‌بندی لیزری|
+Light Meter|نورسنج (لوکس‌متر)|
+Liquid Analyzer|آنالایزر مایعات|
+Moisture Meter|رطوبت‌سنج|
+Sample Processor|آماده‌ساز نمونه|
+pH Meter|پی‌اچ‌متر|
+Other Analysis Instruments|سایر دستگاه‌های آنالیز|
+# Instruments & Meters > Detector
+Drug Detector|دستگاه تشخیص مواد مخدر|
+Explosive Detector|دستگاه تشخیص مواد منفجره|
+Fire Alarm & Smoke Detector|دتکتور دود و اعلام حریق|
+Groundwater Detector|آب‌یاب|
+Handheld Metal Detector|راکت فلزیاب|
+Life Detector|ردیاب حیات (امداد)|
+Metal Detector for Food|فلزیاب خط تولید غذا|
+Needle Detector|سوزن‌یاب نساجی|
+Spark Detector|جرقه‌یاب|
+Test Probe|پراب تست|
+Underground Metal Detector|فلزیاب زیرزمینی|مصرفی
+Walkthrough Metal Detector|گیت فلزیاب|
+X-Ray Detector|ایکس‌ری بازرسی|
+Other Detectors|سایر آشکارسازها|
+# Instruments & Meters > Electronic Instrument
+Calibrator|کالیبراتور|
+Clamp Meter|آمپرمتر کلمپی|
+Data Logger|دیتالاگر|
+Frequency Meter|فرکانس‌متر|
+Oscilloscope|اسیلوسکوپ|
+Pedometer|گام‌شمار|مصرفی
+Signal Generator|سیگنال ژنراتور|
+Other Electronic Instruments|سایر ابزار الکترونیکی|
+# Instruments & Meters > Test Instrument
+Battery Tester|تستر باتری|
+Cable Tester|تستر کابل|
+Component Tester|تستر قطعات|
+Environmental Test Chamber|اتاقک تست محیطی|
+Industrial Borescope|بروسکوپ صنعتی|
+Melting Point Apparatus|دستگاه نقطه ذوب|
+Sun Simulator|شبیه‌ساز خورشیدی|
+Test Machine|دستگاه تست (کشش، فشار)|
+Other Test Instrument|سایر ابزار تست|
+# Instruments & Meters > Geographic Surveying Instrument
+GNSS Receiver|گیرنده GNSS (GPS نقشه‌برداری)|
+Geophone|ژئوفون|
+Inclinometer|شیب‌سنج|
+Theodolite|تئودولیت|
+Total Station|توتال استیشن|
+Total Station Accessories|لوازم توتال استیشن|
+Total Station Battery|باتری توتال استیشن|
+Other Geographic Surveying Instruments|سایر تجهیزات نقشه‌برداری|
+# Instruments & Meters > Meter for Electricity
+Current Meter|آمپرمتر|
+Energy Meter & Power Meter|کنتور برق و پاورمتر|
+Multimeter|مولتی‌متر|
+Resistance Meter|اهم‌متر (میگر)|
+Voltage Meter|ولت‌متر|
+Other Meters for Electricity|سایر اندازه‌گیرهای برق|
+# Instruments & Meters > Meter for Liquid & Gas
+Flow Meter|فلومتر|
+Gas Meter|کنتور گاز|
+Liquid Level Meter|سطح‌سنج|
+Pressure Gauge|گیج فشار (مانومتر)|
+Water Meter|کنتور آب|
+Other Meters for Liquid & Gas|سایر اندازه‌گیرهای سیالات|
+# Instruments & Meters > Physical Measuring Meter
+BET Surface Area Analyzer|آنالایزر سطح ویژه BET|
+Density Meter|چگالی‌سنج|
+Dynamometer|نیروسنج (دینامومتر)|
+Gauge|گیج|
+Hardness Tester|سختی‌سنج|
+Measuring Device|ابزار اندازه‌گیری|
+Profilometer|پروفیلومتر|
+Speed Measuring Meter|سرعت‌سنج (تاکومتر)|
+Surface Roughness Tester|زبری‌سنج|
+Thermometer & Hygrometer|دماسنج و رطوبت‌سنج|
+Vibration Meter|ارتعاش‌سنج|
+Viscometer|ویسکومتر|
+Other Physical Measuring Meters|سایر اندازه‌گیرهای فیزیکی|
+# Instruments & Meters > Weighing & Measuring Apparatus
+Balance|ترازوی دقیق|
+Body Scale|ترازوی شخصی|مصرفی
+Check Weigher|چک‌ویگر خط تولید|
+Checking Fixture|فیکسچر کنترل|
+Crane Scale|باسکول آویز|
+Electronic Scale|ترازوی دیجیتال|
+Gauge|گیج|
+Kitchen Scale|ترازوی آشپزخانه|مصرفی
+Load Cell|لودسل|
+Measuring Device|ابزار اندازه‌گیری|
+Platform Scale|باسکول صفحه‌ای|
+Truck Scale|باسکول جاده‌ای|
+Weight Indicator|نمایشگر توزین|
+Weight Transmitter|ترانسمیتر وزن|
+Other Weighing & Measuring Apparatus|سایر ابزار توزین|
+# Instruments & Meters > Optical Lens & Instrument
+Diffractometer|پراش‌سنج|
+Laser Level|تراز لیزری|
+Magnifier|ذره‌بین|
+Microscope|میکروسکوپ|
+Night Vision|دید در شب|
+Optical Filter|فیلتر اپتیکی|
+Optical Lens|لنز اپتیکی|
+Optical Mirror|آینه اپتیکی|
+Prism|منشور|
+Rangefinder|فاصله‌یاب لیزری|
+Refractometer|رفرکتومتر|
+Spectrometer|اسپکترومتر|
+Telescope & Binoculars|تلسکوپ و دوربین دوچشمی|ترکیبی
+Theodolite|تئودولیت|
+Video Measuring System|سیستم اندازه‌گیری تصویری|
+Other Optical Lens & Instruments|سایر ابزار اپتیکی|
+# Instruments & Meters > Lab Utensil and Disposable
+Beaker|بشر|
+Buret|بورت|
+Centrifuge Tube|لوله سانتریفیوژ (فالکون)|
+Cover Glass|لامل|
+Deep Well Plate|پلیت چاهک‌دار|
+Filter Membrane|ممبران فیلتر|
+Flask|فلاسک (ارلن، بالن)|
+Funnel|قیف آزمایشگاهی|
+Lab Clamp|گیره آزمایشگاهی|
+Laboratory Cylinder|استوانه مدرج|
+Petri Dish|پتری‌دیش|
+Pipette|پیپت|
+Sample Container|ظرف نمونه|
+Slide Glass|لام|
+Syringe Filter|فیلتر سرسرنگی|
+Test Paper|کاغذ تست (pH)|
+Test Tube|لوله آزمایش|
+Test Tube Rack|جالوله‌ای|
+Other Lab Utensils and Disposables|سایر ظروف آزمایشگاهی|
+# Instruments & Meters > Laboratory Instruments
+Lab Balance|ترازوی آزمایشگاهی|
+Lab Drying Machine|آون آزمایشگاهی|
+Lab Facilities|تجهیزات زیرساخت آزمایشگاه|
+Laboratory Centrifuge|سانتریفیوژ آزمایشگاهی|
+Laboratory Filtration Equipment|فیلتراسیون آزمایشگاهی|
+Laboratory Heating Equipment|هیتر و همزن آزمایشگاهی|
+Laboratory Refrigeration Equipment|یخچال آزمایشگاهی|
+Laboratory Thermostat|بن‌ماری و انکوباتور|
+Other Lab Instruments|سایر تجهیزات آزمایشگاهی|

@@ -1,0 +1,602 @@
+# Manufacturing & Processing Machinery > Agricultural Machinery
+Agricultural Machinery Parts|قطعات ماشین‌آلات کشاورزی|
+Agricultural Mower|علف‌چین کشاورزی|
+Agricultural Sprayers|سمپاش کشاورزی|
+Baler|بیلر (بسته‌بند علوفه)|
+Biomass Briquette Machine|دستگاه بریکت زیست‌توده|
+Biomass Dryer|خشک‌کن زیست‌توده|
+Disinfection Machine for Livestock|دستگاه ضدعفونی دامداری|
+Drainage & Irrigation Machinery|ماشین‌آلات آبیاری و زهکشی|
+Drying Machine|خشک‌کن محصولات کشاورزی|
+Egg Incubator|دستگاه جوجه‌کشی|
+Feed Processing Machinery|ماشین‌آلات تولید خوراک دام|
+Feed Silo|سیلوی خوراک|
+Fertilizer Production Machinery|ماشین‌آلات تولید کود|
+Fishery Machinery|ماشین‌آلات شیلات|
+Forestry Machine|ماشین‌آلات جنگلداری|
+Garden Sprayer|سمپاش باغی|
+Grain Silo|سیلوی غلات|
+Harvesting Machine|کمباین و برداشت‌کننده|
+Hydroseeding Machine|دستگاه بذرپاش هیدرولیکی|
+Livestock Drinker|آبخوری دام|
+Livestock Feeder|دانخوری دام|
+Livestock Machinery|ماشین‌آلات دامپروری|
+Livestock Weight Scales|باسکول دام|
+Oil Presser|دستگاه روغن‌کشی|
+Planting & Fertilizing Machine|بذرکار و کودپاش|
+Seed Processing Machine|دستگاه فرآوری بذر|
+Sheller|پوست‌کن (شلتوک، بادام)|
+Slaughtering Equipment|تجهیزات کشتارگاه|
+Tiller|تیلر|
+Tractor & Parts|تراکتور و قطعات|
+Trencher|ترنچر (کانال‌کن)|
+Other Agricultural Machinery|سایر ماشین‌آلات کشاورزی|
+# Manufacturing & Processing Machinery > Commodity Making Machine
+Brush Making Machine|دستگاه تولید برس|
+Chopstick Making Machine|دستگاه تولید چاپستیک|
+Cotton Swab Machine|دستگاه تولید گوش‌پاک‌کن|
+Soap Making Machine|دستگاه تولید صابون|
+Straw Making Machine|دستگاه تولید نی|
+Toothpick Machine|دستگاه تولید خلال دندان|
+Wax & Candle Machine|دستگاه تولید شمع|
+Other Commodity Making Machines|سایر دستگاه‌های تولید کالای مصرفی|
+# Manufacturing & Processing Machinery > Hydraulic Press
+C Frame Hydraulic Press|پرس هیدرولیک C|
+Double Column Hydraulic Press|پرس هیدرولیک دوستونه|
+Four-column Hydraulic Press|پرس هیدرولیک چهارستونه|
+Gantry Hydraulic Press|پرس هیدرولیک دروازه‌ای|
+H Frame Hydraulic Press|پرس هیدرولیک H|
+Horizontal Hydraulic Press|پرس هیدرولیک افقی|
+Hot Forging Hydraulic Press|پرس فورج گرم|
+Other Hydraulic Press|سایر پرس‌های هیدرولیک|
+# Manufacturing & Processing Machinery > Industrial Robot
+Agricultural Robot|ربات کشاورزی|
+Collaborative Robot|ربات همکار (کوبات)|
+Inspection Robot|ربات بازرسی|
+Medical Robot|ربات پزشکی|
+Packaging Robot|ربات بسته‌بندی|
+Painting Robot|ربات رنگ‌زنی|
+Palletizing Robot|ربات پالت‌چین|
+Stamping Robot|ربات پرس‌کاری|
+Transport Robot|ربات حمل (AGV)|
+Underwater Robot|ربات زیرآبی|
+Welding Robot|ربات جوشکاری|
+Other Industrial Robot|سایر ربات‌های صنعتی|
+# Manufacturing & Processing Machinery > Machinery for Food, Beverage & Cereal
+Beverage Processing Machinery|ماشین‌آلات تولید نوشیدنی|
+Coffee Bean Roaster|دستگاه رست قهوه|
+Cooking & Baking Equipment|تجهیزات پخت و نانوایی صنعتی|
+Dairy Processing Machinery|ماشین‌آلات لبنیات|
+Food & Beverage Sterilizer|استریلایزر مواد غذایی|
+Food, Beverage & Cereal Production Line|خط تولید مواد غذایی|
+Fruit & Vegetable Processing Machinery|ماشین‌آلات فرآوری میوه و سبزی|
+Grain Processing Machinery|ماشین‌آلات فرآوری غلات|
+Grain Products Processing Machinery|ماشین‌آلات تولید محصولات غلات (ماکارونی)|
+Meat Processing Machinery|ماشین‌آلات فرآوری گوشت|
+Pet Food Processing Machinery|ماشین‌آلات غذای حیوانات|
+Seasoning Processing Machinery|ماشین‌آلات تولید چاشنی|
+Snack Machinery|ماشین‌آلات تولید اسنک|
+Other Machinery for Food, Beverage & Cereal|سایر ماشین‌آلات صنایع غذایی|
+# Manufacturing & Processing Machinery > Marking Machinery
+Laser Marking Machine|دستگاه حکاکی لیزری (مارکینگ)|
+Pneumatic Marking Machine|دستگاه حک بادی (سوزنی)|
+Other Marking Machinery|سایر دستگاه‌های مارکینگ|
+# Manufacturing & Processing Machinery > Machinery for Garment, Shoes & Accessories
+Button Making Machine|دستگاه تولید دکمه|
+Buttonhole Machine|چرخ مادگی‌زن|
+Cap Making Machine|دستگاه تولید کلاه|
+Darning & Sewing Utensil|لوازم دوخت و رفوگری|
+Down Filling Machine|دستگاه پرکن پر|
+Dry Washer|دستگاه خشکشویی|
+Embroidery Machine|دستگاه گلدوزی|
+Glove Making Machine|دستگاه تولید دستکش|
+Industrial Laundry Dryer|خشک‌کن صنعتی لباس|
+Industrial Spin Dryer|آبگیر صنعتی|
+Industrial Washer|لباسشویی صنعتی|
+Ironing Machine|اتو صنعتی (اتوپرس)|
+Lace Machine|دستگاه تولید تور|
+Laundry Folding Machine|دستگاه تاکن لباس|
+Overlock Machine|چرخ سردوز|
+Rhinestone Machine|دستگاه نگین‌کوب|
+Seam Sealing Machine|دستگاه درزگیر|
+Sewing Machine|چرخ خیاطی|
+Shoe Making Machine|ماشین‌آلات کفش‌سازی|
+Shoe Repairing Equipment|تجهیزات تعمیر کفش|
+Washing Auxiliary Equipment & Apparatus|تجهیزات جانبی رختشویخانه|
+Washing Equipment Parts|قطعات تجهیزات شستشو|
+Zipper Making Machine|دستگاه تولید زیپ|
+Other Machinery for Garment, Shoes & Accessories|سایر ماشین‌آلات پوشاک و کفش|
+# Manufacturing & Processing Machinery > Textile Machinery & Parts
+Chemical Fiber Machine|ماشین‌آلات الیاف مصنوعی|
+Fabric Cutting Machine|دستگاه برش پارچه|
+Knitting Machine|ماشین بافندگی حلقوی|
+Needle Detector|سوزن‌یاب|
+Net Machine|دستگاه تولید تور|
+Nonwoven Machine|ماشین‌آلات نبافته|
+Printing, Dyeing and Finishing Machinery|ماشین‌آلات چاپ، رنگرزی و تکمیل|
+Quilting Machine|دستگاه لحاف‌دوزی|
+Spinning Machine|ماشین ریسندگی|
+Textile Instrument|ابزار آزمون نساجی|
+Textile Machinery Parts & Accessories|قطعات ماشین‌آلات نساجی|
+Weaving Machine|ماشین بافندگی تاری-پودی|
+Winding Machine|دستگاه بوبین‌پیچ|
+Other Textile Machinery|سایر ماشین‌آلات نساجی|
+# Manufacturing & Processing Machinery > Chemical Equipment & Machinery
+Chemical Drying Equipment|خشک‌کن شیمیایی|
+Chemical Granulators|گرانولساز شیمیایی|
+Chemical Machine Parts|قطعات ماشین‌آلات شیمیایی|
+Chemical Reactor|راکتور شیمیایی|
+Chemical Storage & Transportation Equipment|مخازن ذخیره و حمل مواد شیمیایی|
+Cooling Tower|برج خنک‌کننده|
+Gas Generation Equipment & Parts|تجهیزات تولید گاز|
+Grinder|آسیاب صنعتی|
+Heater & Heat Exchanger|مبدل حرارتی|
+Mass Transfer Equipment|تجهیزات انتقال جرم|
+Pressure Vessel|مخزن تحت فشار|
+Separation Equipment|تجهیزات جداسازی|
+Other Chemical Equipment & Machinery|سایر تجهیزات شیمیایی|
+# Manufacturing & Processing Machinery > Pharmaceutical Equipment & Machinery
+Medicine Detecting Instrument|دستگاه کنترل کیفیت دارو|
+Pharmaceutical Crushing Machine|آسیاب دارویی|
+Pharmaceutical Drying Equipment|خشک‌کن دارویی|
+Pharmaceutical Extraction Machine|دستگاه عصاره‌گیری دارویی|
+Pharmaceutical Filling Equipment|دستگاه پرکن دارویی|
+Pharmaceutical Filtering Equipment|فیلتراسیون دارویی|
+Pharmaceutical Granule Equipment|گرانولاتور دارویی|
+Pharmaceutical Injection Equipment|تجهیزات تولید داروی تزریقی|
+Pharmaceutical Mixer|میکسر دارویی|
+Pharmaceutical Packaging Equipment|بسته‌بندی دارویی (بلیستر)|
+Pharmaceutical Pill Equipment|دستگاه تولید قرص و کپسول|
+Pharmaceutical Reactor|راکتور دارویی|
+Pharmaceutical Tablet Equipment|دستگاه پرس قرص|
+Pharmaceutical Water Treatment Equipment|تصفیه آب دارویی|
+Other Pharmaceutical Equipments & Machinery|سایر ماشین‌آلات دارویی|
+# Manufacturing & Processing Machinery > Building Material Making Machinery
+Board Making Machine|دستگاه تولید ورق و برد|
+Brick Making Machine|دستگاه تولید بلوک و آجر|
+Building Material Making Machinery Parts|قطعات ماشین‌آلات مصالح|
+Cement Making Machine|ماشین‌آلات سیمان|
+Dry Mortar Machine|دستگاه تولید ملات خشک|
+Duct Making Machine|دستگاه تولید کانال هوا|
+Floorboard Making Machinery|ماشین‌آلات تولید کفپوش|
+Glass Machine|ماشین‌آلات شیشه|
+Gypsum Powder Machine|ماشین‌آلات تولید گچ|
+Pipe Making Machine|دستگاه تولید لوله|
+Purlin Machine|دستگاه رول‌فرمینگ پرلین|
+Sand Making Machine|دستگاه ماسه‌ساز|
+Steel Frame Machine|دستگاه تولید سازه LSF|
+Stone Processing Machinery|ماشین‌آلات سنگبری|
+Tile Making Machine|دستگاه تولید کاشی و سفال|
+Window & Door Making Machine|ماشین‌آلات تولید درب و پنجره|
+Other Building Material Making Machinery|سایر ماشین‌آلات تولید مصالح|
+# Manufacturing & Processing Machinery > Crane
+Crawler Crane|جرثقیل شنی‌دار|
+Flip Crane|جرثقیل تاشو|
+Floating Crane|جرثقیل شناور|
+Gantry Crane|جرثقیل دروازه‌ای|
+Jib Crane|جرثقیل بازویی|
+Marine Crane|جرثقیل دریایی|
+Overhead Crane|جرثقیل سقفی|
+Portal Crane|جرثقیل پرتال|
+Tower Crane|تاورکرین|
+Truck Crane|جرثقیل کامیونی|
+Other Cranes|سایر جرثقیل‌ها|
+# Manufacturing & Processing Machinery > Engineering & Construction Machinery
+Bulk Machine|ماشین‌آلات فله|
+Bulldozer|بولدوزر|
+Compactor|غلتک و کمپکتور|
+Concrete Machinery|ماشین‌آلات بتن|
+Construction Elevator|بالابر کارگاهی|
+Engineering & Construction Machinery Parts|قطعات ماشین‌آلات راهسازی|
+Engineering Drilling Rig|دستگاه حفاری عمرانی|
+Excavator|بیل مکانیکی|
+Grader|گریدر|
+Loader|لودر|
+Mortar Spray Machine|دستگاه پاشش ملات|
+OTR Tire|لاستیک راهسازی|
+Paving Machinery|فینیشر و ماشین‌آلات آسفالت|
+Pile Driver|شمع‌کوب|
+Rendering Machine|دستگاه گچ‌پاش|
+Tunnel Boring Machine|دستگاه حفر تونل (TBM)|
+Other Engineering & Construction Machinery|سایر ماشین‌آلات عمرانی|
+# Manufacturing & Processing Machinery > Lifting Equipment
+Drum Lifter|بالابر بشکه|
+Forklift|لیفتراک|
+Guide Rail|ریل راهنما|
+Hoist|بالابر (وینچ برقی، جرثقیل زنجیری)|
+Lifting Jack|جک بالابر|
+Lifting Magnet|آهنربای بالابر|
+Lifting Sling|تسمه و اسلینگ بالابر|
+Lifting Table|میز بالابر|
+Lifting Tackle|قرقره و تجهیزات بالابری|
+Stacker & Reclaimer|استاکر و ریکلایمر|
+Vacuum Lifter|بالابر وکیومی|
+Winch|وینچ|
+Other Lifting Equipment|سایر تجهیزات بالابر|
+# Manufacturing & Processing Machinery > Mixing Equipment
+Chemical Reactor|راکتور|
+Circular Mixer|میکسر دایره‌ای|
+Concrete Mixer|بتونیر|
+Dispersion Mixer|میکسر دیسپرس|
+Double Cone Mixer|میکسر دومخروطی|
+Double Shaft Mixer|میکسر دوشفت|
+Drum Mixer|میکسر درامی|
+Emulsifier|امولسیفایر|
+Homogenizer|هموژنایزر|
+Horizontal Mixer|میکسر افقی|
+Kneader|خمیرگیر صنعتی (نیدر)|
+Laboratory Mixing Equipment|همزن آزمایشگاهی|
+Mixing Equipment Components|قطعات میکسر|
+Mixing Tank|مخزن همزن‌دار|
+Mortar Mixer|میکسر ملات|
+PVC Mixer|میکسر PVC|
+Paddle Mixer|میکسر پارویی|
+Planetary Mixer|میکسر سیاره‌ای|
+Roller Mixer|میکسر غلتکی|
+Spiral Mixer|خمیرگیر مارپیچی|
+Square Mixer|میکسر مکعبی|
+V-Type Mixer|میکسر V|
+Vertical Mixer|میکسر عمودی|
+Other Mixing Equipment|سایر میکسرها|
+# Manufacturing & Processing Machinery > Pipe Machine
+Pipe Cutting Machine|دستگاه برش لوله|
+Pipe and Tube Bending Machine|دستگاه خم لوله|
+Tube End Forming Machine|دستگاه فرم سر لوله|
+# Manufacturing & Processing Machinery > Metallic Processing Machinery
+Beveling Machine|دستگاه پخ‌زن|
+Chamfering Machine|دستگاه پلیسه‌گیر|
+Cut to Length Line|خط برش طولی ورق|
+Die Casting Machine|دستگاه دایکست|
+English Wheel|دستگاه انگلیش ویل|
+Flame Cutting Machine|دستگاه برش هوابرش|
+Laser Cutting Machine|دستگاه برش لیزر|
+Metal Casting Machinery|ماشین‌آلات ریخته‌گری|
+Metal Coating Machinery|ماشین‌آلات پوشش فلز|
+Metal Drawing Machinery|دستگاه کشش فلز|
+Metal Electroplating Machine|دستگاه آبکاری|
+Metal Engraving Machinery|دستگاه حکاکی فلز|
+Metal Forging Machinery|ماشین‌آلات آهنگری (فورج)|
+Metal Polishing Machine|دستگاه پولیش فلز|
+Metal Processing Machinery Parts|قطعات ماشین‌آلات فلزکاری|
+Metal Recycling Machine|دستگاه بازیافت فلز|
+Metal Spinning Machinery|دستگاه فلزتابی|
+Metal Straightening Machinery|دستگاه صاف‌کن|
+Metal Wire Forming Machine|دستگاه فرم مفتول|
+Nail Making Machine|دستگاه میخ‌سازی|
+Plasma Cutting Machine|دستگاه برش پلاسما|
+Riveting Machine|دستگاه پرچ|
+Rolling Mill|نورد|
+Slitting Machine|خط اسلیتر|
+Spring Coiling Machine|دستگاه فنرپیچ|
+Waterjet Cutting Machine|واترجت برش|
+Wire Mesh Machine|دستگاه توری‌بافی|
+Other Metal Processing Machinery|سایر ماشین‌آلات فلزکاری|
+# Manufacturing & Processing Machinery > Stone Processing Machinery
+Artificial Stone Machinery|ماشین‌آلات سنگ مصنوعی|
+Stone Carving Machine|دستگاه حکاکی سنگ|
+Stone Crusher|سنگ‌شکن|
+Stone Cutting Machine|دستگاه سنگبری|
+Stone Drilling Machine|دستگاه سوراخکاری سنگ|
+Stone Polishing & Grinding Machine|دستگاه ساب و پولیش سنگ|
+Other Stone Processing Machinery|سایر ماشین‌آلات سنگ|
+# Manufacturing & Processing Machinery > Woodworking Machinery
+Carbonization Furnace|کوره زغال‌سازی|
+Finger Jointer|دستگاه فینگرجوینت|
+Laminating Machine|دستگاه لمینت|
+Mortising Machine|دستگاه فارسی‌بُر (مورتایز)|
+Wood Based Panel Machine|ماشین‌آلات تولید صفحات چوبی|
+Wood Boring Machine|دستگاه سوراخکاری چوب|
+Wood Chip Machine|دستگاه چیپس‌ساز چوب|
+Wood Crusher|خردکن چوب|
+Wood Debarker|پوست‌کن تنه درخت|
+Wood Drilling Machine|دریل چوب|
+Wood Edge Banding Machine|دستگاه لبه‌چسبان|
+Wood Embossing Machine|دستگاه منبت‌کاری|
+Wood Lathe|خراطی|
+Wood Pallet Machine|دستگاه تولید پالت چوبی|
+Wood Pellet Mill|دستگاه پلت چوب|
+Wood Planer|رنده برقی (کف‌رند)|
+Wood Press|پرس چوب|
+Wood Router|فرز CNC چوب (روتر)|
+Wood Sander|سنباده چوب|
+Wood Saw Machine|اره چوب (دورکن، پانل‌بر)|
+Wood Shaving Machine|دستگاه پوشال‌ساز|
+Woodworking Composer|دستگاه دوراهه چوب|
+Woodworking Engraving Machine|دستگاه حکاکی چوب|
+Woodworking Machinery Parts|قطعات ماشین‌آلات نجاری|
+Other Woodworking Machinery|سایر ماشین‌آلات نجاری|
+# Manufacturing & Processing Machinery > Assembly Line & Production Line
+Aluminum Foil Container Production Line|خط تولید ظروف آلومینیومی|
+Assembly Line|خط مونتاژ|
+Auto and Motorcycle Production Line|خط تولید خودرو و موتورسیکلت|
+Building Materials Production Line|خط تولید مصالح ساختمانی|
+Chemical Production Line|خط تولید شیمیایی|
+Electrical Appliance Production Line|خط تولید لوازم برقی|
+Electronic Production Line|خط تولید الکترونیک|
+Food, Beverage & Cereal Production Line|خط تولید مواد غذایی|
+Furniture Production Line|خط تولید مبلمان|
+Gypsum Powder Machine|خط تولید پودر گچ|
+Metal Production Line|خط تولید فلزی|
+Paper Production Line|خط تولید کاغذ|
+Pharmaceutical Production Line|خط تولید دارو|
+Pipe Production Line|خط تولید لوله|
+Plastic Production Line|خط تولید پلاستیک|
+Solar Panel Production Line|خط تولید پنل خورشیدی|
+Stone Production Line|خط تولید سنگ|
+Textile Production Line|خط تولید نساجی|
+Other Assembly Line & Production Line|سایر خطوط تولید|
+# Manufacturing & Processing Machinery > Drilling Rig
+Drilling Jumbo|جامبو حفاری|
+Engineering Drilling Rig|دستگاه حفاری عمرانی|
+Geological Drilling Rig|دستگاه حفاری اکتشافی|
+Mine Drilling Rig|دستگاه حفاری معدن|
+Oilfield Drilling Rig|دکل حفاری نفت|
+Water Well Drilling Rig|دستگاه حفاری چاه آب|
+Other Drilling Rigs|سایر دستگاه‌های حفاری|
+# Manufacturing & Processing Machinery > Mining Machinery
+Briquette Machines|دستگاه بریکت‌سازی|
+Dredger|لایروب|
+Leaching Tank|تانک لیچینگ|
+Mine Drilling Rig|دستگاه حفاری معدن|
+Mineral Separator|جداکننده مواد معدنی|
+Mining Conveyor|نوار نقاله معدن|
+Mining Crusher|سنگ‌شکن معدن|
+Mining Dryer|خشک‌کن معدنی|
+Mining Machinery Parts|قطعات ماشین‌آلات معدن|
+Mining Mill|آسیاب معدنی (بال‌میل)|
+Mining Thickener|تیکنر|
+Monorail Crane|جرثقیل مونوریل|
+Rock Splitter|سنگ‌شکاف|
+Sand Washer|ماسه‌شوی|
+Vibrating Screen|سرند لرزان|
+Other Mining Machinery|سایر ماشین‌آلات معدن|
+# Manufacturing & Processing Machinery > Petroleum Equipment & Machinery
+Cementing Tool|ابزار سیمان‌کاری چاه|
+Drilling Tools|ابزار حفاری (مته، لوله)|
+Mud Circulating System|سیستم گردش گل|
+Oilfield Drilling Rig|دکل حفاری نفت|
+Oilfield Shale Shaker|شیل‌شیکر|
+Petroleum Machinery Parts|قطعات ماشین‌آلات نفتی|
+Pumping Unit|پمپ میله‌ای (یونیت پمپاژ)|
+Wellhead Tree|تجهیزات سرچاهی|
+Other Petroleum Equipments & Machinery|سایر تجهیزات نفتی|
+# Manufacturing & Processing Machinery > Manipulator
+Electric Manipulator|بازوی مکانیکی برقی|
+Hydraulic Manipulator|بازوی مکانیکی هیدرولیک|
+Pneumatic Manipulator|بازوی مکانیکی پنوماتیک|
+# Manufacturing & Processing Machinery > Plastic Machinery
+Blister Machine|دستگاه بلیستر|
+Blow Molding Machine|دستگاه بادی|
+Bottle Blowing Machine|دستگاه بادکن بطری PET|
+Film Blowing Machine|دستگاه فیلم دمشی|
+Injection Molding Machine|دستگاه تزریق پلاستیک|
+Plastic Crusher|آسیاب پلاستیک|
+Plastic Drawing Machine|دستگاه کشش پلاستیک|
+Plastic Drying Machine|خشک‌کن مواد پلاستیک|
+Plastic Extruder|اکسترودر|
+Plastic Granulator|گرانولساز|
+Plastic Haul-Off Machine|کشنده اکستروژن|
+Plastic Laminating Machine|دستگاه لمینت پلاستیک|
+Plastic Loader|مکنده مواد|
+Plastic Machinery Parts|قطعات ماشین‌آلات پلاستیک|
+Plastic Mixer|میکسر پلاستیک|
+Plastic Pipe Machinery|خط تولید لوله پلاستیکی|
+Plastic Plate Machinery|خط تولید ورق پلاستیک|
+Plastic Production Line|خط تولید پلاستیک|
+Plastic Recycling Machine|دستگاه بازیافت پلاستیک|
+Plastic Rolling Machinery|کلندر پلاستیک|
+Rotational Molding Machine|دستگاه روتومولدینگ|
+Thermoforming Machine|دستگاه وکیوم‌فرمینگ|
+Other Plastic Machinery|سایر ماشین‌آلات پلاستیک|
+# Manufacturing & Processing Machinery > Rubber Machinery
+Rubber Machine Parts|قطعات ماشین‌آلات لاستیک|
+Rubber Product Making Machinery|ماشین‌آلات تولید قطعات لاستیکی|
+Rubber Raw Material Machinery|ماشین‌آلات آماده‌سازی آمیزه|
+Rubber Recycling Machinery|دستگاه بازیافت لاستیک|
+Other Rubber Machinery|سایر ماشین‌آلات لاستیک|
+# Manufacturing & Processing Machinery > Glass Machine
+Glass Bending Machine|دستگاه خم شیشه|
+Glass Beveling Machine|دستگاه فارسی‌بر شیشه|
+Glass Cleaning Equipment|شستشوی شیشه|
+Glass Cutting Machine|دستگاه برش شیشه|
+Glass Drilling Machine|دستگاه سوراخ شیشه|
+Glass Edging Machine|دستگاه ابزار شیشه (لبه‌ساب)|
+Glass Engraving Equipment|حکاکی شیشه|
+Glass Laminating Machine|دستگاه لمینت شیشه|
+Glass Loading Machine|بارگیر شیشه|
+Glass Processing Center|مرکز فرآوری شیشه CNC|
+Glass Production Line|خط تولید شیشه|
+Glass Sandblasting Machine|سندبلاست شیشه|
+Glass Tempering Furnace|کوره سکوریت|
+Other Glass Machine|سایر ماشین‌آلات شیشه|
+# Manufacturing & Processing Machinery > Paper Machinery
+Carton Machine & Box Making Machine|ماشین‌آلات کارتن‌سازی|
+Corrugated Paper Making Machine|خط تولید ورق کارتن|
+Diaper Machine|دستگاه تولید پوشک|
+Drying Machine|خشک‌کن کاغذ|
+Egg Tray Machine|دستگاه شانه تخم‌مرغ|
+Embossing Machine|دستگاه برجسته‌کاری|
+Folding Machine|دستگاه تاکن|
+Hole Puncher|دستگاه پانچ|
+Paper Bag Machine|دستگاه تولید پاکت کاغذی|
+Paper Bowl Machine|دستگاه کاسه کاغذی|
+Paper Core & Tube Machine|دستگاه لوله مقوایی (کر)|
+Paper Cup Machine|دستگاه لیوان کاغذی|
+Paper Cutter|دستگاه برش کاغذ (گیوتین)|
+Paper Honeycomb Core Machine|دستگاه لانه‌زنبوری کاغذی|
+Paper Lunch Box Machine|دستگاه ظرف غذای کاغذی|
+Paper Machinery Parts|قطعات ماشین‌آلات کاغذ|
+Paper Making Machine|ماشین کاغذسازی|
+Paper Plate Machine|دستگاه بشقاب کاغذی|
+Paper Pleating Machine|دستگاه پلیسه کاغذ|
+Pulping Machine|دستگاه خمیرسازی|
+Sanitary Napkin Machine|دستگاه نوار بهداشتی|
+Slitting Machine|دستگاه برش رول (اسلیتر)|
+Tissue Machine|دستگاه دستمال کاغذی|
+Toilet Paper Machine|دستگاه دستمال توالت|
+Other Paper Machinery|سایر ماشین‌آلات کاغذ|
+# Manufacturing & Processing Machinery > Casting & Forging
+Cold Forging|فورج سرد|
+Die Casting|دایکست|
+Gravity Casting|ریخته‌گری ثقلی|
+Hot Forging|فورج گرم|
+Lost Wax Casting|ریخته‌گری دقیق (موم‌ریزی)|
+Metal Casting|ریخته‌گری فلز|
+Mineral Casting|ریخته‌گری معدنی|
+Sand Casting|ریخته‌گری ماسه‌ای|
+Vacuum Casting|ریخته‌گری وکیوم|
+Other Casting & Forging|سایر ریخته‌گری و فورج|
+# Manufacturing & Processing Machinery > Mould
+Blowing Mould|قالب بادی|
+Compression Mould|قالب فشاری|
+Die-Casting Mould|قالب دایکست|
+Drawing Die|قالب کشش|
+Economic Mould|قالب اقتصادی|
+Extrusion Die|قالب اکستروژن|
+Forging Mould|قالب فورج|
+Metal Casting Mould|قالب ریخته‌گری|
+Mould Parts|قطعات قالب|
+Plastic Mould|قالب تزریق پلاستیک|
+Preform Mould|قالب پریفرم|
+Rubber Mould|قالب لاستیک|
+Stamping Die|قالب پرس (سنبه و ماتریس)|
+Other Moulds|سایر قالب‌ها|
+# Manufacturing & Processing Machinery > Crushing & Culling Machine
+Blade Crusher|خردکن تیغه‌ای|
+Cone Crusher|سنگ‌شکن مخروطی|
+Hammer Crusher|سنگ‌شکن چکشی|
+Impact Crusher|سنگ‌شکن ضربه‌ای|
+Jaw Crusher|سنگ‌شکن فکی|
+Roller Crusher|سنگ‌شکن غلتکی|
+Other Crushing & Culling Machinery|سایر خردکن‌ها|
+# Manufacturing & Processing Machinery > Cutting & Fold-bend Machine
+Bending Machine|دستگاه خم (پرس‌برک)|
+Edge Trimming Machine|دستگاه لبه‌بر|
+Flame Cutting Machine|هوابرش CNC|
+Knife Cutting Machine|دستگاه برش تیغه‌ای|
+Laser Cutting Machine|برش لیزر|
+Plasma Cutting Machine|برش پلاسما|
+Plate Shear|گیوتین ورق|
+Stone Cutting Machine|سنگبری|
+Waterjet Cutting Machine|واترجت|
+Other Cutting Machines|سایر دستگاه‌های برش|
+# Manufacturing & Processing Machinery > Engraving Machine
+Laser Engraving Machine|حکاکی لیزر|
+Mechanical Engraving Machine|حکاکی مکانیکی (CNC)|
+Metal Engraving Machinery|حکاکی فلز|
+Stone Carving Machine|حکاکی سنگ|
+# Manufacturing & Processing Machinery > Feeder
+Belt Feeder|فیدر تسمه‌ای|
+Disk Feeder|فیدر دیسکی|
+Electromagnetic Feeder|فیدر الکترومغناطیسی|
+Pneumatic Feeder|فیدر بادی|
+Reciprocating Feeder|فیدر رفت‌وبرگشتی|
+Screw Feeder|فیدر مارپیچی|
+Vacuum Feeder|فیدر وکیومی|
+Vibrating Feeder|فیدر لرزان|
+Volumetric Feeder|فیدر حجمی|
+Weigh Feeder|فیدر وزنی|
+Other Feeder|سایر فیدرها|
+# Manufacturing & Processing Machinery > Laser Equipment
+Laser Cleaning Machine|دستگاه زنگ‌زدای لیزری|
+Laser Cutting Machine|برش لیزر|
+Laser Engraving Machine|حکاکی لیزر|
+Laser Equipment Parts|قطعات لیزر (هد، منبع)|
+Laser Heat Treatment Machine|عملیات حرارتی لیزری|
+Laser Marking Machine|مارکینگ لیزری|
+Laser Plotter|پلاتر لیزری|
+Laser Scribing Machine|خط‌زن لیزری|
+Laser Welding Machine|جوش لیزر|
+Other Laser Equipments|سایر تجهیزات لیزر|
+# Manufacturing & Processing Machinery > Machine Tools
+Boring Machine|دستگاه بورینگ|
+CNC Machine Tools|ماشین‌آلات CNC|
+Drilling Machine|دریل ستونی|
+Gear Cutting Machine|دستگاه چرخ‌دنده‌تراش|
+Grinding Machine|دستگاه سنگ‌زنی|
+Honing Machine|دستگاه هونینگ|
+Hydraulic Ironworker|دستگاه آیرون‌ورکر|
+Lathe|دستگاه تراش|
+Machine Tools Accessories|متعلقات ماشین‌ابزار|
+Milling Machine|دستگاه فرز|
+Planer|دستگاه صفحه‌تراش|
+Punching Machine|پرس ضربه‌ای (پانچ)|
+Saw Bench|اره نواری و لنگ|
+Special Machine Tools|ماشین‌ابزار ویژه|
+Other Machine Tools|سایر ماشین‌ابزارها|
+# Manufacturing & Processing Machinery > Recycling Machine
+Electronic Recycling Machine|بازیافت الکترونیک|
+Metal Recycling Machine|بازیافت فلز|
+Plastic Recycling Machine|بازیافت پلاستیک|
+Rubber Recycling Machinery|بازیافت لاستیک|
+Other Recycling Machines|سایر دستگاه‌های بازیافت|
+# Manufacturing & Processing Machinery > Sorting Machine
+Color Sorter|سورتر رنگی|
+Drum Sieve|سرند دوار|
+Grading Machine|دستگاه درجه‌بندی|
+Mineral Separator|جداکننده معدنی|
+Optical Sorting Machine|سورتر اپتیکی|
+Vibrating Screen|سرند لرزان|
+Other Sorting Machines|سایر دستگاه‌های سورتینگ|
+# Manufacturing & Processing Machinery > Spraying Machinery & Spreading Equipment
+Coating Line|خط رنگ|
+Coating Machinery|ماشین‌آلات پوشش‌دهی|
+Coating Oven|کوره پخت رنگ|
+Glue Spraying Machine|دستگاه چسب‌پاش|
+Line Marking Machine|دستگاه خط‌کشی|
+Metal Coating Machinery|پوشش‌دهی فلز|
+Mortar Spray Machine|دستگاه پاشش ملات|
+Paint Booth|کابین رنگ|
+Powder Coating Booth|کابین رنگ پودری|
+Powder Coating Machine|دستگاه رنگ پودری|
+Roller Coating Equipment|پوشش‌دهی غلتکی|
+Sandblaster|سندبلاست|
+Spray Foam Machine|دستگاه پاشش فوم|
+Spray Gun|پیستوله|
+Spray Nozzle|نازل اسپری|
+Spraying Machine|دستگاه ایرلس|
+Thermal Spray Equipment|پاشش حرارتی|
+Other Spraying Machinery & Spreading Equipment|سایر تجهیزات پاشش|
+# Manufacturing & Processing Machinery > Manufacturing Equipment for Electrical & Electronic Product
+Automatic Insertion Machine|دستگاه اینسرت قطعات|
+Busbar Machine|دستگاه شینه‌کاری|
+Cable Extrusion Machine|اکسترودر کابل|
+Cable Wrapping Machine|دستگاه نوارپیچ کابل|
+Chip Mounter|دستگاه پیک‌اندپلیس|
+Coil Forming Machine|دستگاه فرم سیم‌پیچ|
+Coil Lacing Machine|دستگاه بستن سیم‌پیچ|
+Coil Winding Machine|دستگاه سیم‌پیچی|
+Enameling Machine|دستگاه لاک‌زنی سیم|
+Glue Dispensing System|دیسپنسر چسب|
+Insulation Paper Insertion Machine|دستگاه کاغذگذار الکتروموتور|
+Passive Component Machine|ماشین‌آلات قطعات پسیو|
+Reflow Oven|کوره ریفلو|
+SMT Feeder|فیدر SMT|
+SMT Inspection Equipment|بازرسی SMT (AOI)|
+SMT Nozzle|نازل SMT|
+SMT Solder Paste Printer|پرینتر خمیر قلع|
+Stranding Machine|دستگاه استرندینگ|
+Stripping Machine|سیم‌لخت‌کن|
+Terminal Crimping Machine|دستگاه پرس سرسیم|
+Wire Pay Off Machine|دستگاه بازکن سیم|
+Other Manufacturing Equipments for Electrical & Electronic Product|سایر تجهیزات تولید برق و الکترونیک|
+# Manufacturing & Processing Machinery > Mattress Machine
+Mattress Packing Machine|دستگاه بسته‌بندی تشک|
+Mattress Sewing Machine|چرخ دوخت تشک|
+Mattress Spring Machine|دستگاه فنر تشک|
+Tape Edge Machine|دستگاه نواردوز لبه تشک|
+Other Mattress Machinery|سایر ماشین‌آلات تشک|
+# Manufacturing & Processing Machinery > Secondhand Machinery
+Used Bulldozer|بولدوزر کارکرده|
+Used CNC Machine|CNC کارکرده|
+Used Crane|جرثقیل کارکرده|
+Used Drilling Rig|دستگاه حفاری کارکرده|
+Used Excavator|بیل مکانیکی کارکرده|
+Used Farm Machine|ماشین کشاورزی کارکرده|
+Used Forklift|لیفتراک کارکرده|
+Used Grader|گریدر کارکرده|
+Used Knitting Machine|ماشین بافندگی کارکرده|
+Used Loader|لودر کارکرده|
+Used Molding Machine|دستگاه تزریق کارکرده|
+Used Road Roller|غلتک کارکرده|
+Other Secondhand Machinery|سایر ماشین‌آلات کارکرده|

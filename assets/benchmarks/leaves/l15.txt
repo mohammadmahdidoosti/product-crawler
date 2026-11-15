@@ -1,0 +1,178 @@
+# Lights & Lighting > LED Encapsulation Series
+COB LED|چیپ LED COB|
+Flip Chip LED|LED فلیپ‌چیپ|
+High Power LED|LED پرقدرت|
+LED Dot Matrix|ماتریس نقطه‌ای LED|
+LED Module|ماژول LED|
+Lamp LED|LED لامپی (DIP)|
+SMD LED|LED SMD|
+Super Flux LED|LED سوپرفلاکس|
+Other LED Encapsulation Series|سایر چیپ‌های LED|
+# Lights & Lighting > LED Interior Lighting
+Candle Light|لامپ شمعی|
+Dimmable Bulb|لامپ دیمردار|
+LED Bulb Light|لامپ حبابی LED|
+LED Ceiling Fan|پنکه سقفی چراغ‌دار|مصرفی
+LED Ceiling Light|چراغ سقفی LED|
+LED Cup|لامپ هالوژنی LED|
+LED Down Light|چراغ توکار LED|
+LED Grille Light|چراغ گریلی LED|B2B
+LED High Bay Light|چراغ سوله LED|B2B
+LED Linear Light|چراغ خطی LED|
+LED Panel Light|پنل LED|
+LED Pendant Light|چراغ آویز LED|
+LED Spotlight|اسپات LED|
+LED Table Lamp & Book Light|چراغ مطالعه LED|مصرفی
+LED Track Light|چراغ ریلی LED|
+LED Tube|لامپ مهتابی LED|
+LED Wall Light|چراغ دیواری LED|
+Other LED Interior Lighting|سایر روشنایی داخلی LED|
+# Lights & Lighting > LED Lighting Decoration
+LED Light Bar|لایت‌بار LED|
+LED String Light|ریسه LED|
+LED Strip Light|نوار LED|
+Motif Light|نورپردازی تزئینی (موتیف)|
+Rope Light|شلنگ نوری|
+Other LED Lighting Decoration|سایر نورپردازی تزئینی LED|
+# Lights & Lighting > LED Outdoor Lighting
+LED Floodlight|پروژکتور LED|
+LED Garden Light|چراغ باغی LED|
+LED High Mast Light|چراغ دکل بلند LED|
+LED Lawn Light|چراغ چمنی LED|
+LED Outdoor Wall Light|چراغ دیواری بیرونی LED|
+LED Point Light|نقطه نور LED نما|
+LED Street Light|چراغ خیابانی LED|
+LED Tunnel Light|چراغ تونل LED|
+LED Underground Light|چراغ دفنی LED|
+LED Wall Washer|وال‌واشر LED|
+Other LED Outdoor Lighting|سایر روشنایی بیرونی LED|
+# Lights & Lighting > LED Professional Lighting
+LED Aquarium Light|چراغ آکواریوم LED|مصرفی
+LED Cabinet Light|چراغ زیرکابینتی LED|
+LED Conversion Kit|کیت تبدیل LED|
+LED Emergency Light|چراغ اضطراری LED|
+LED Explosion-proof Light|چراغ ضدانفجار LED|
+LED Fishing Light|چراغ صید LED|
+LED Flashlight|چراغ‌قوه LED|ترکیبی
+LED Fresh Light|چراغ ویترین مواد غذایی|
+LED Grow Light|چراغ رشد گیاه LED|
+LED Headlamp|چراغ پیشانی LED|ترکیبی
+LED Light Box|لایت‌باکس LED|
+LED Light for Animal Husbandry|چراغ مرغداری LED|
+LED Mirror Lamp|چراغ آینه LED|ترکیبی
+LED PAR Light|چراغ PAR LED|
+LED Traffic Light|چراغ راهنمایی LED|
+LED Tri-proof Light|چراغ ضدآب صنعتی (تری‌پروف)|
+LED Underwater Light|چراغ استخری LED|
+LED Work Light|چراغ کار LED|
+Other LED Professional Lighting|سایر روشنایی تخصصی LED|
+# Lights & Lighting > Interior Lighting
+Ceiling Light|چراغ سقفی|
+Down Light|چراغ توکار|
+Floor Lamp|آباژور ایستاده|مصرفی
+Pendant Light|چراغ آویز|
+Table Lamp & Reading Light|آباژور و چراغ مطالعه|مصرفی
+Wall Light|چراغ دیواری|
+Other Indoor Lighting|سایر روشنایی داخلی|
+# Lights & Lighting > Outdoor Lighting
+Floodlight|پروژکتور|
+Garden Light|چراغ باغی|
+Lawn Light|چراغ چمنی|
+Solar Light|چراغ خورشیدی|
+Spotlight|اسپات|
+Street Light|چراغ خیابانی|
+Underwater Light|چراغ زیرآبی|
+Other Outdoor Lighting|سایر روشنایی بیرونی|
+# Lights & Lighting > Stage Equipment
+Bubble Machine|دستگاه حباب‌ساز|
+Professional Audio|سیستم صوتی حرفه‌ای|
+Smoke Machine|دستگاه مه‌ساز|
+Snow Machine|دستگاه برف‌ساز|
+Stage Curtain|پرده سن|
+Other Stage Equipment|سایر تجهیزات سن|
+# Lights & Lighting > Stage Lighting
+Effect Light|نور افکت|
+LED Floor|کف نوری LED|
+Laser Light|لیزر نمایشی|
+Moving Head Light|مووینگ‌هد|
+Wall Washer Light|وال‌واشر|
+Other Stage Lights|سایر نورهای سن|
+# Lights & Lighting > Lighting Decoration
+Chandelier|لوستر|
+Fiber Optic Light|نور فیبر نوری|
+Lantern|فانوس|
+Metal Light|چراغ فلزی تزئینی|
+Motif Light|نورپردازی موتیف|
+Neon Light|نئون|
+Rope Light|شلنگ نوری|
+Tiffany Lamp|چراغ تیفانی|
+Other Decorative Lights|سایر چراغ‌های تزئینی|
+# Lights & Lighting > Camping Light
+Battery Camping Light|چراغ کمپینگ باتری‌خور|
+Hiking Light|چراغ کوهنوردی|
+Kerosene Lamp|چراغ نفتی|
+Rechargeable Camping Light|چراغ کمپینگ شارژی|
+Solar Camping Light|چراغ کمپینگ خورشیدی|
+Other Camping Light|سایر چراغ‌های کمپینگ|
+# Lights & Lighting > Emergency Light & Indicator Light
+Aviation Obstruction Light|چراغ دکل (هوانوردی)|
+Emergency Light|چراغ اضطراری|
+Indicator Light|چراغ سیگنال تابلو|
+LED Emergency Light|چراغ اضطراری LED|
+Warning Light|چراغ هشدار (گردان)|
+Other Emergency & Indicator Lights|سایر چراغ‌های اضطراری|
+# Lights & Lighting > Light Box
+Acrylic Light Box|لایت‌باکس پلکسی|
+Glass Light Box|لایت‌باکس شیشه‌ای|
+Metal Light Box|لایت‌باکس فلزی|
+Plastic Light Box|لایت‌باکس پلاستیکی|
+Other Light Boxes|سایر لایت‌باکس‌ها|
+# Lights & Lighting > Professional Lighting
+Boat Spotlight|نورافکن قایق|
+Cleanroom Light|چراغ اتاق تمیز|
+Light Tower|دکل روشنایی سیار|
+Projector Light|چراغ پروژکتوری (گوبو)|
+Selfie Light|رینگ‌لایت|مصرفی
+Other Professional Lighting|سایر روشنایی تخصصی|
+# Lights & Lighting > Torch & Flashlight
+Camping Flashlight|چراغ‌قوه کمپینگ|مصرفی
+Handheld Flashlight|چراغ‌قوه دستی|
+Mini Flashlight|چراغ‌قوه کوچک|مصرفی
+Tactical Flashlight|چراغ‌قوه تاکتیکی|
+Work Flashlight|چراغ‌قوه کار|B2B
+Other Torches & Flashlights|سایر چراغ‌قوه‌ها|
+# Lights & Lighting > Bulb & Lamp
+Fluorescent Light|لامپ فلورسنت|
+Halogen Light|لامپ هالوژن|
+Incandescent Light|لامپ رشته‌ای|
+Infrared Lamp|لامپ مادون قرمز|
+Mercury Light|لامپ جیوه‌ای|
+Metal Halide Lamp|لامپ متال‌هالید|
+Neon Bulb & Tube|لامپ نئون|
+Sodium Lamp|لامپ سدیمی|
+Ultraviolet Lamp|لامپ UV|
+Xenon Light|لامپ زنون|
+Other Light Bulb & Tube|سایر لامپ‌ها|
+# Lights & Lighting > Compact Bulb & Lamp
+Special Tube Compact Bulb & Lamp|لامپ کم‌مصرف ویژه|
+Spiral Compact Bulb & Lamp|لامپ کم‌مصرف پیچی|
+Straight Tube Compact Bulb & Lamp|لامپ کم‌مصرف مستقیم|
+U-Tube Compact Bulb & Lamp|لامپ کم‌مصرف U|
+# Lights & Lighting > Lighting Fixtures
+Ballast|بالاست|
+Dimmer|دیمر|
+Extension Socket|چندراهی|
+Face Plate|قاب کلید|
+Floor Socket & Table Socket|پریز کف و رومیزی|
+LED Aluminum Profile|پروفیل آلومینیوم LED|
+LED Heatsink|هیت‌سینک LED|
+LED Power Supply|درایور LED|
+LED Retrofit Kit|کیت جایگزینی LED|
+Lamp Base & Light Socket|سرپیچ|
+Lamp Shade|کلاهک چراغ|
+Light Bracket|براکت چراغ|
+Light Emitting Diode|دیود LED|
+Light Pole|پایه چراغ (تیر روشنایی)|
+Plug|دوشاخه|
+Wall Socket|پریز|
+Other Lighting Fixtures|سایر متعلقات روشنایی|

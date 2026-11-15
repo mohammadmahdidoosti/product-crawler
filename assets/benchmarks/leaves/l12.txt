@@ -1,0 +1,444 @@
+# Industrial Equipment & Components > Air Clean Equipment
+Air Clean Equipment Parts|قطعات تجهیزات هوای پاک|
+Air Filter|فیلتر هوا|
+Air Purifier|تصفیه هوای صنعتی|
+Air Shower|ایرشاور|
+Pass Box|پاس‌باکس|
+Other Air Clean Equipments|سایر تجهیزات هوای پاک|
+# Industrial Equipment & Components > Cleaning Machine
+Abrator|دستگاه شات‌بلاست|
+Cleaning Machine Parts|قطعات دستگاه نظافت|
+Corner Cleaning Machine|دستگاه گوشه‌تمیزکن (UPVC)|
+Floor Polisher|دستگاه پولیش کف|
+Floor Scrubber|اسکرابر (کف‌شوی صنعتی)|
+Floor Sweeper|سوییپر (جاروی صنعتی)|
+Garden Blower & Vacuum|دمنده و مکنده برگ|ترکیبی
+High Pressure Car Washer|کارواش فشار قوی|
+High Pressure Cleaner|واترجت|
+Industrial Ultrasonic Cleaner|شستشوی اولتراسونیک صنعتی|
+Industrial Vacuum Cleaner|جاروبرقی صنعتی|
+Sandblaster|سندبلاست|
+Snow Blower|برف‌روب|ترکیبی
+Solar Panel Cleaning Equipment|تجهیزات شستشوی پنل خورشیدی|
+Other Cleaning Machines|سایر دستگاه‌های نظافت|
+# Industrial Equipment & Components > Environment Protection Device
+Air Purifier|تصفیه هوا|
+Electronic Recycling Machine|دستگاه بازیافت الکترونیک|
+Metal Recycling Machine|دستگاه بازیافت فلز|
+Noise Reduction Device|تجهیزات کاهش صدا|
+Oil Boom & Oil Absorbent|جاذب و بوم نفتی|
+Oxygen Generator|اکسیژن‌ساز صنعتی|
+Ozone Generator|ازن‌ساز|
+Plastic Recycling Machine|دستگاه بازیافت پلاستیک|
+Rubber Recycling Machinery|دستگاه بازیافت لاستیک|
+Sewage Treatment Equipment|تجهیزات تصفیه فاضلاب|
+Waste Treatment Equipment|تجهیزات پسماند|
+Water Disinfection System|سیستم ضدعفونی آب (UV، کلرزن)|
+Water Purifier|تصفیه آب|
+Water Tank|مخزن آب|
+Water Treatment Chemical|مواد شیمیایی تصفیه آب|
+Other Environment Protection Device|سایر تجهیزات زیست‌محیطی|
+# Industrial Equipment & Components > Filtration Equipment & Parts
+Air Filter|فیلتر هوا|
+Chemical Liquid Filter|فیلتر مایعات شیمیایی|
+Dust Collector|غبارگیر|
+Filter Bag & Cartridge|کیسه و کارتریج فیلتر|
+Filter Cloth|پارچه فیلتر|
+Filter Element|المنت فیلتر|
+Filter Membrane|ممبران فیلتر|
+Filter Mesh|توری فیلتر|
+Filter Paper|کاغذ فیلتر|
+Filter Plate|صفحه فیلترپرس|
+Filter Press|فیلترپرس|
+Foam Filter|فیلتر فومی|
+Industrial Water Filter|فیلتر آب صنعتی|
+Machine Oil Purifier|تصفیه روغن|
+Oil Filter|فیلتر روغن|
+Reverse Osmosis System|سیستم اسمز معکوس (RO)|
+Other Filtration Equipment & Parts|سایر تجهیزات فیلتراسیون|
+# Industrial Equipment & Components > Guide Rail
+Alloy Guide Rail|ریل راهنمای آلیاژی|
+Cast Iron Guide Rail|ریل راهنمای چدنی|
+Plastic Guide Rail|ریل راهنمای پلاستیکی|
+Stainless Steel Guide Rail|ریل راهنمای استیل|
+Steel Guide Rail|ریل راهنمای فولادی|
+Other Guide Rail|سایر ریل‌های راهنما|
+# Industrial Equipment & Components > Hole Machining Tools
+Boring Tool|ابزار بورینگ|
+Broach|خان‌کش|
+Hole Saw|گردبر|
+Reamer|برقو|
+Other Hole Machining Tools|سایر ابزار سوراخکاری|
+# Industrial Equipment & Components > Industrial Ceramic Products
+Ceramic Ball|ساچمه سرامیکی|
+Ceramic Blade & Cutter|تیغه سرامیکی|
+Ceramic Capacitor|خازن سرامیکی|
+Ceramic Crucible|بوته سرامیکی|
+Ceramic Fastener|اتصالات سرامیکی|
+Ceramic Grinding|سنگ سرامیکی|
+Ceramic Insulator|مقره سرامیکی|
+Ceramic Liner|آستر سرامیکی|
+Ceramic Plate|صفحه سرامیکی|
+Ceramic Resistor|مقاومت سرامیکی|
+Ceramic Ring|رینگ سرامیکی|
+Ceramic Roller|غلتک سرامیکی|
+Ceramic Seal|آب‌بند سرامیکی|
+Ceramic Structural Component|قطعه سازه‌ای سرامیکی|
+Ceramic Substrate|زیرلایه سرامیکی|
+Ceramic Tube & Rod|لوله و میله سرامیکی|
+Honeycomb Ceramic|سرامیک لانه‌زنبوری|
+Other Industrial Ceramic Product|سایر سرامیک‌های صنعتی|
+# Industrial Equipment & Components > Industrial Saw Blade
+Bi-metal Band Saw Blade|تیغ اره نواری بای‌متال|
+Carbon Steel Band Saw Blade|تیغ اره نواری فولادی|
+Diamond Band Saw Blade|تیغ اره نواری الماسه|
+Diamond Circular Saw Blade|تیغ اره گرد الماسه|
+HSS Band Saw Blade|تیغ اره نواری HSS|
+HSS Circular Saw Blade|تیغ اره گرد HSS|
+TCT Band Saw Blade|تیغ اره نواری الماسه‌کاربایدی|
+TCT Circular Saw Blade|تیغ اره گرد الماسه (TCT)|
+Tungsten Carbide Coated Circular Saw Blade|تیغ اره گرد روکش کاربید|
+Other Industrial Saw Blades|سایر تیغ‌اره‌های صنعتی|
+# Industrial Equipment & Components > Mass Transfer and Separation Equipment
+Mass Transfer Equipment|تجهیزات انتقال جرم (برج)|
+Mass Transfer Equipment Parts|قطعات تجهیزات انتقال جرم|
+Separation Equipment|تجهیزات جداسازی|
+Separation Equipment Parts|قطعات تجهیزات جداسازی|
+# Industrial Equipment & Components > Milling Cutter
+Angle Milling Cutter|فرز زاویه‌ای|
+Cylindrical Milling Cutter|فرز غلتکی|
+End Mill|فرز انگشتی|
+Face Mill|فرز پیشانی (کف‌تراش)|
+Hob Cutter|هاب (فرز چرخ‌دنده)|
+Side and Face Milling Cutter|فرز دیسکی|
+Slitting Saw|اره فرز|
+T-Slot Cutter|فرز T|
+Other Milling Cutters|سایر فرزها|
+# Industrial Equipment & Components > Pneumatic Component
+Cylinder|جک پنوماتیک|
+Pneumatic Actuator|اکچویتور پنوماتیک|
+Pneumatic Filter|فیلتر هوای فشرده|
+Pneumatic Fittings|اتصالات پنوماتیک|
+Pneumatic Pipe|شیلنگ پنوماتیک|
+Pneumatic Seal|آب‌بند پنوماتیک|
+Pneumatic Valve|شیر برقی پنوماتیک|
+Source Treatment Unit|واحد مراقبت (FRL)|
+Other Pneumatic Components|سایر قطعات پنوماتیک|
+# Industrial Equipment & Components > Thread Machining Tools
+Form Tap|قلاویز فرمینگ|
+Machine Tap|قلاویز ماشینی|
+Machine Threading Die|حدیده ماشینی|
+Other Thread Machining Tools|سایر ابزار رزوه‌زنی|
+# Industrial Equipment & Components > Ball Screw
+Ball Head Screw|پیچ سرگوی|
+CNC Ball Screw|بال‌اسکرو CNC|
+Lead Ball Screw|لید اسکرو|
+Linear Ball Screw|بال‌اسکرو خطی|
+Miniature Ball Screw|بال‌اسکرو مینیاتوری|
+Precision Ball Screw|بال‌اسکرو دقیق|
+Set Screw|پیچ آلن بی‌سر|
+Stainless Steel Ball Screw|بال‌اسکرو استیل|
+Thread Ball Screw|بال‌اسکرو رزوه‌ای|
+Other Ball Screw|سایر بال‌اسکروها|
+# Industrial Equipment & Components > Bearing
+Angular Contact Ball Bearing|بلبرینگ تماس زاویه‌ای|
+Auto Bearing|بلبرینگ خودرو|
+Bearing Accessories|متعلقات بلبرینگ|
+Bearing Block|یاتاقان|
+Cylindrical Roller Bearing|رولبرینگ استوانه‌ای|
+Deep Groove Ball Bearing|بلبرینگ شیار عمیق|
+Four Point Contact Ball Bearing|بلبرینگ تماس چهارنقطه‌ای|
+Linear Bearing|بلبرینگ خطی|
+Needle Bearing|رولبرینگ سوزنی|
+Pillow Block Bearing|یاتاقان پایه‌دار (UCP)|
+Plain Bearing|بوش (یاتاقان لغزشی)|
+Self-Aligning Ball Bearing|بلبرینگ خودتنظیم|
+Slewing Bearing|بلبرینگ گردان (اسلوئینگ)|
+Special Bearing|بلبرینگ ویژه|
+Spherical Plain Bearing|بلبرینگ کروی لغزشی (سیبک)|
+Spherical Roller Bearing|رولبرینگ کروی|
+Taper Roller Bearing|رولبرینگ مخروطی|
+Thrust Ball Bearing|بلبرینگ کف‌گرد|
+Thrust Needle Roller Bearing|رولبرینگ سوزنی کف‌گرد|
+Thrust Self-aligning Roller Bearing|رولبرینگ کف‌گرد خودتنظیم|
+Thrust Taper Roller Bearing|رولبرینگ مخروطی کف‌گرد|
+Other Bearing|سایر بلبرینگ‌ها|
+# Industrial Equipment & Components > Fastener & Fitting
+Bolts|پیچ (بولت)|
+Circlip|خار|
+Combination & Joint Fittings|اتصالات ترکیبی|
+Flange|فلنج|
+Gasket & Washer|واشر|
+Nut|مهره|
+Pin|پین|
+Rivet|پرچ|
+Screw|پیچ|
+Self-tapping Screws|پیچ خودکار|
+Staples|منگنه|
+Stud|پیچ دوسر|
+Wire Thread Insert|هلی‌کویل|
+Wood Screws|پیچ چوب|
+Other Fastener & Fitting|سایر اتصالات|
+# Industrial Equipment & Components > Fixture & Clamping Device
+Chuck|سه‌نظام|
+Dividing Head|دستگاه تقسیم|
+Rotary Table|میز دوار|
+Saw Blade|تیغ اره|
+Vise|گیره|
+Other Cutters & Tongs|سایر فیکسچرها|
+# Industrial Equipment & Components > Industrial Adhesive Products
+Industrial Glue|چسب صنعتی|
+Industrial Tape|نوار چسب صنعتی|
+Other Industrial Adhesive Products|سایر چسب‌های صنعتی|
+# Industrial Equipment & Components > Industrial Pipeline Pipes
+Carbon Steel Pipe|لوله فولاد کربنی|
+Cast Iron Pipe|لوله چدنی|
+Composite Pipe|لوله کامپوزیت|
+Copper Tube|لوله مسی|
+Fiberglass Tube|لوله فایبرگلاس|
+High Pressure Seamless Steel Pipe|لوله مانیسمان فشار قوی|
+Low Alloy Seamless Steel Pipe|لوله مانیسمان آلیاژی|
+Low Temperature Steel Pipe|لوله فولادی دمای پایین|
+Metal Hose|شیلنگ فلزی (فلکسیبل)|
+Plastic Pipe|لوله پلاستیکی|
+Rubber Tube|شیلنگ لاستیکی|
+Stainless Steel Pipe|لوله استیل|
+Welded Steel Pipe|لوله درزدار|
+Other Industrial Pipeline Pipes|سایر لوله‌های صنعتی|
+# Industrial Equipment & Components > Sealing & Gaskets
+Lead Seal|پلمب سربی|
+Mechanical Seal|مکانیکال سیل|
+Oil Seal|کاسه‌نمد|
+Seal Packing|پکینگ آب‌بندی|
+Seal Ring|اورینگ|
+Sealing Strip|نوار آب‌بندی|
+Other Seals|سایر آب‌بندها|
+# Industrial Equipment & Components > Shaft
+Aluminum Shaft|شفت آلومینیومی|
+Brass Shaft|شفت برنجی|
+Carbon Steel Shaft|شفت فولادی کربنی|
+Chrome Shaft|شفت کروم|
+Eccentric Shaft|شفت خارج از مرکز|
+Flexible Shaft|شفت انعطاف‌پذیر|
+Metal Shaft|شفت فلزی|
+Spline Shaft|شفت هزارخار|
+Stainless Steel Shaft|شفت استیل|
+Steel Shaft|شفت فولادی|
+Worm Shaft|شفت حلزونی|
+Other Shaft|سایر شفت‌ها|
+# Industrial Equipment & Components > Compressor
+Auto Compressor|کمپرسور خودرو|
+Centrifugal Compressor|کمپرسور گریز از مرکز|
+Compressor Parts|قطعات کمپرسور|
+Compressor Unit|یونیت کمپرسور|
+Diaphragm Compressor|کمپرسور دیافراگمی|
+Reciprocating Compressor|کمپرسور پیستونی|
+Rotary Compressor|کمپرسور روتاری|
+Screw Compressor|کمپرسور اسکرو|
+Scroll Compressor|کمپرسور اسکرال|
+Other Compressors|سایر کمپرسورها|
+# Industrial Equipment & Components > Gas Generation Equipment & Parts
+Adsorption Tower|برج جذب|
+Electrolytic Component|قطعه الکترولیز|
+Gas Cylinder|کپسول گاز|
+Gas Generation Filter|فیلتر مولد گاز|
+Gas Purification Generator|دستگاه خالص‌سازی گاز|
+Gas Recovery|بازیافت گاز|
+Gas Separation Unit|واحد جداسازی گاز|
+Gas Tank|مخزن گاز|
+Hydrogen Generator|هیدروژن‌ساز|
+Nitrogen Generator|نیتروژن‌ساز|
+Ozone Generator|ازن‌ساز|
+Other Gas Generation Equipments & Parts|سایر تجهیزات تولید گاز|
+# Industrial Equipment & Components > Pump & Vacuum Equipment
+Centrifugal Pump|پمپ گریز از مرکز (سانتریفیوژ)|
+Diaphragm Pump|پمپ دیافراگمی|
+Gasoline & Gas Pump|پمپ سوخت|
+Gear Pump|پمپ دنده‌ای|
+Hydraulic Pump|پمپ هیدرولیک|
+Jet Pump|پمپ جتی|
+Peristaltic Pump|پمپ پریستالتیک|
+Piston Pump|پمپ پیستونی|
+Plunger Pump|پمپ پلانجر|
+Pressure Pump|پمپ آب خانگی (افزایش فشار)|ترکیبی
+Pump Parts|قطعات پمپ|
+Rotary Lobe Pump|پمپ لوب|
+Screw Pump|پمپ مارپیچی|
+Self-Priming Pump|پمپ خودمکش|
+Vacuum Pump|پمپ وکیوم|
+Vane Pump|پمپ پره‌ای|
+Water Pump|پمپ آب|
+Other Pump & Vacuum Equipment|سایر پمپ‌ها|
+# Industrial Equipment & Components > Valve
+Angle Seat Valve|شیر زاویه‌ای پنوماتیک|
+Angle Valve|شیر زاویه‌ای|
+Ball Valve|شیر توپی|
+Blind Valve|شیر کور|
+Butterfly Valve|شیر پروانه‌ای|
+Check Valve|شیر یکطرفه|
+Control Valve|شیر کنترلی|
+Diaphragm Valve|شیر دیافراگمی|
+Exhaust Valve|شیر تخلیه هوا|
+Gate Valve|شیر کشویی|
+Globe Valve|شیر سوزنی کف‌فلکه (گلوب)|
+Inlet Valve|شیر ورودی|
+Mini Pressure Valve|شیر حداقل فشار|
+Needle Valve|شیر سوزنی|
+Plug Valve|شیر سماوری|
+Plunger Valve|شیر پلانجر|
+Pressure Reducing Valve|شیر فشارشکن|
+Safety Valve|شیر اطمینان|
+Sampling Valve|شیر نمونه‌گیری|
+Solenoid Valve|شیر برقی|
+Steam Trap|تله بخار|
+Tank Bottom Valve|شیر کف مخزن|
+Other Valves & Parts|سایر شیرآلات صنعتی|
+# Industrial Equipment & Components > Valve Parts
+Sight Glass|سایت‌گلس|
+Valve Actuator|عملگر شیر|
+Valve Ball|توپی شیر|
+Valve Body|بدنه شیر|
+Valve Cap|درپوش شیر|
+Valve Needle|سوزن شیر|
+Valve Seat|نشیمنگاه شیر|
+Valve Stem|میله شیر|
+Valve Strainer|صافی (استرینر)|
+# Industrial Equipment & Components > Conveyor & Parts
+Conveyor|نوار نقاله|
+Conveyor Belt|تسمه نقاله|
+Conveyor Chain|زنجیر نقاله|
+Conveyor Frame|شاسی نقاله|
+Conveyor Idler|غلتک هرزگرد نقاله|
+Conveyor Pulleys|پولی نقاله|
+Conveyor Roller|رولیک نقاله|
+Hopper|قیف (هاپر)|
+Other Conveyors & Parts|سایر نقاله‌ها|
+# Industrial Equipment & Components > Engine & Part
+Engine|موتور|
+Engine Parts|قطعات موتور|
+# Industrial Equipment & Components > Linear Actuator
+Electric Linear Actuator|جک برقی|
+Hydraulic Linear Actuator|جک هیدرولیک|
+Pneumatic Linear Actuator|جک پنوماتیک|
+# Industrial Equipment & Components > Power & Generating Sets
+Biomass Generator|ژنراتور زیست‌توده|
+Diesel Generator|دیزل ژنراتور|
+Gas Generator|ژنراتور گازسوز|
+Gasoline Generator|موتور برق بنزینی|ترکیبی
+Generator Parts & Accessories|قطعات ژنراتور|
+Hydro Generator|ژنراتور آبی|
+Solar Generator|ژنراتور خورشیدی|ترکیبی
+Steam Turbine Generator|توربین بخار|
+Wind Generator|توربین بادی|
+Other Generators|سایر ژنراتورها|
+# Industrial Equipment & Components > Power Transmission Parts
+Clutch|کلاچ صنعتی|
+Gear|چرخ‌دنده|
+Gearbox|گیربکس صنعتی|
+Shaft|شفت|
+Shaft Coupling|کوپلینگ|
+Slewing Drive|درایو گردان|
+Speed Reducer|گیربکس کاهنده|
+Sprocket|چرخ‌زنجیر (اسپراکت)|
+Transmission Belt|تسمه انتقال قدرت|
+Transmission Chain|زنجیر انتقال قدرت|
+Transmission Pulley|پولی|
+Worm|حلزون|
+Other Power Transmission Parts|سایر قطعات انتقال قدرت|
+# Industrial Equipment & Components > Boiler & Furnace
+Boiler|دیگ بخار و آبگرم|
+Boiler Parts|قطعات دیگ|
+Furnace|کوره|
+Furnace Parts|قطعات کوره|
+# Industrial Equipment & Components > Drying Machine
+Belt Drying Machine|خشک‌کن تسمه‌ای|
+Chemical Drying Equipment|خشک‌کن شیمیایی|
+Compressed Air Dryer|درایر هوای فشرده|
+Drum Drying Machine|خشک‌کن درامی|
+Dry Cabinet|کابینت خشک (رطوبت‌گیر)|
+Drying Oven|آون خشک‌کن|
+Flash Drying Machine|خشک‌کن فلش|
+Fluid Bed Drying Machine|خشک‌کن بستر سیال|
+Lab Drying Machine|خشک‌کن آزمایشگاهی|
+Rotary Drying Machine|خشک‌کن دوار|
+Spray Drying Machine|خشک‌کن پاششی (اسپری درایر)|
+Vacuum Drying Machine|خشک‌کن وکیوم|
+Other Drying Machines|سایر خشک‌کن‌ها|
+# Industrial Equipment & Components > Heater & Heat Exchanger
+Heat Exchanger|مبدل حرارتی|
+Heat Exchanger Plate|صفحه مبدل حرارتی|
+Heat Pump|پمپ حرارتی|
+Heating Element|المنت|
+Heating Equipment|تجهیزات گرمایشی صنعتی|
+Liquid Cold Plate|کلدپلیت مایع|
+Thermal Module|ماژول حرارتی|
+Vapor Chamber|ویپرچمبر|
+Other Heaters & Heat Exchangers|سایر مبدل‌ها و گرمکن‌ها|
+# Industrial Equipment & Components > Industrial Humidifier & Dehumidifier & Parts
+Industrial Dehumidifier|رطوبت‌گیر صنعتی|
+Industrial Dehumidifier Parts|قطعات رطوبت‌گیر صنعتی|
+Industrial Humidifier|رطوبت‌ساز صنعتی|
+# Industrial Equipment & Components > Refrigeration Equipment
+Cold Room|سردخانه|
+Commercial Refrigerator & Freezer|یخچال و فریزر تجاری|
+Condenser|کندانسور|
+Cooling Tower|برج خنک‌کننده|
+Evaporative Cooling Pad|پد سلولزی|
+Ice Machine|یخ‌ساز صنعتی|
+Ice Maker & Ice Crusher|یخ‌ساز و یخ‌خردکن|
+Industrial Air Conditioner|تهویه مطبوع صنعتی|
+Industrial Chiller|چیلر صنعتی|
+Industrial Cooling System|سیستم خنک‌کاری صنعتی|
+Quick Freezer|تونل انجماد|
+Refrigeration Machinery|ماشین‌آلات تبرید|
+Other Refrigeration Equipment & Parts|سایر تجهیزات تبرید|
+# Industrial Equipment & Components > Ventilation Equipment
+Air Vent|دریچه هوا|
+Blowers|بلوئر|
+Filter Bag & Cartridge|کیسه فیلتر|
+Filter Cloth|پارچه فیلتر|
+Filter Mesh|توری فیلتر|
+Filter Paper|کاغذ فیلتر|
+Ventilation Duct|کانال هوا|
+Ventilation Fan|فن تهویه صنعتی|
+Other Ventilation Equipment & Parts|سایر تجهیزات تهویه|
+# Industrial Equipment & Components > Welding & Soldering Supplies
+Electrode Holder|انبر جوشکاری|
+Welding Flux|پودر جوش (فلاکس)|
+Welding Helmet|ماسک جوشکاری|
+Welding Rod|الکترود|
+Welding Torch|تورچ جوشکاری|
+Welding Wire|سیم جوش|
+Other Welding & Soldering Supplies|سایر ملزومات جوشکاری|
+# Industrial Equipment & Components > Welding Equipment
+Arc Welder|دستگاه جوش قوس الکتریکی|
+Brazing Machine|دستگاه لحیم سخت (براز)|
+Butt Welder|جوش لب‌به‌لب|
+Electric Soldering Iron|هویه|
+Friction Welder|جوش اصطکاکی|
+Laser Welding Machine|جوش لیزر|
+MIG Welder|جوش CO2 (میگ)|
+Plasma Welder|جوش پلاسما|
+Plastic Welder|جوش پلاستیک|
+Press Welder|جوش پرسی|
+Resistance Welder|جوش مقاومتی|
+Seam Welder|جوش درز|
+Soldering Iron Tip|نوک هویه|
+Soldering Machine|دستگاه لحیم‌کاری|
+Spot Welder|جوش نقطه‌ای|
+Tube Welder|جوش لوله|
+Welding Auxiliary Equipment & Apparatus|تجهیزات جانبی جوشکاری|
+Welding Tips|نازل جوشکاری|
+Other Welding Equipments|سایر دستگاه‌های جوش|
+# Industrial Equipment & Components > Industrial Customized Service
+3D Printing Service|خدمات پرینت سه‌بعدی|
+Casting & Forging|ریخته‌گری و آهنگری|
+Coating Service|خدمات پوشش‌دهی|
+Heat Treatment|عملیات حرارتی|
+Machining Service|خدمات ماشین‌کاری|
+Plastic Molding|قالب‌گیری پلاستیک|
+Powder Injection Molding|تزریق پودر|
+Powder Metallurgy|متالورژی پودر|
+Sheet Metal Fabrication|ورق‌کاری|
+Welding Service|خدمات جوشکاری|
+Other Custom Fabrication Service|سایر خدمات ساخت سفارشی|
