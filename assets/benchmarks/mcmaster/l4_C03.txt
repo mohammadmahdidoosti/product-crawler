@@ -143,7 +143,7 @@ Hard Hat Bags(1)|کیف کلاه ایمنی|
 Bump Cap Inserts(4)|لایی کلاه نقاب‌دار ضدضربه|
 Hard Hat Cooling Pads(5)|پد خنک‌کننده کلاه ایمنی|
 Hard Hat Racks(6)|رک کلاه ایمنی|
-Hard Hat Windsocks(5)|کلاه زیر کلاه ایمنی (گرم‌کن)|
+Hard Hat Windsocks(5)|نقاب بادگیر زیر کلاه ایمنی|
 Hard Hat Shrouds(2)|نقاب پارچه‌ای کلاه ایمنی|
 @12.0.4 Harnesses & Lanyards
 Fall-Rescue Ladders(1)|نردبان نجات سقوط|

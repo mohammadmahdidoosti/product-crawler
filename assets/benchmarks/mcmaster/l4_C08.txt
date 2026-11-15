@@ -12,7 +12,7 @@ Wheel Weights(3)|وزنه بالانس چرخ|
 Conveyor Stands(32)|پایه نوار نقاله|
 Wheel Chocks(45)|زیرچرخی (لاستیک‌گیر)|
 Wheel Risers(6)|بالابر چرخ (رمپ چرخ)|
-Carriages(110)|کالسکه (واگن ریلی)|
+Carriages(110)|ترولی ریلی (کالسکه)|
 Rotary Tool Arbors(2)|شفت فرز مینیاتوری|
 Cup Brushes(144)|برس کاسه‌ای|
 Hand Knurling Tools(7)|ابزار آج‌زنی دستی (رنگلت)|
