@@ -1,0 +1,151 @@
+@2.3.0 Compressors
+Electric Air Compressors(22)|کمپرسور باد برقی|
+Portable Oil-Free Electric Air Compressors(1)|کمپرسور باد پرتابل بدون روغن|
+Portable Low-Noise Oil-Free Electric Air Compressors(5)|کمپرسور سایلنت پرتابل بدون روغن|
+Light Duty Electric Air Compressors(11)|کمپرسور باد برقی سبک|
+Portable Electric Air Compressors(15)|کمپرسور باد برقی پرتابل|
+Low-Noise Electric Air Compressors(6)|کمپرسور باد سایلنت|
+Portable Gasoline-Powered Air Compressors(11)|کمپرسور باد بنزینی پرتابل|
+Portable Battery-Powered Air Compressors(8)|کمپرسور باد شارژی|
+Electric Air Compressors with Aftercooler(6)|کمپرسور باد با افترکولر|
+Gasoline-Powered Air Compressors(3)|کمپرسور باد بنزینی|
+DC Electric Air Compressors(4)|کمپرسور باد DC|
+Fire Sprinkler Electric Air Compressors(9)|کمپرسور سیستم اسپرینکلر|
+Economy Electric Air Compressors(3)|کمپرسور باد اقتصادی|
+Blowers(56)|دمنده (بلوئر)|
+Air Compressor/Vacuum Pumps(6)|کمپرسور/پمپ وکیوم|
+Air Pumps(22)|پمپ باد|
+Compressed Air Aftercoolers(7)|افترکولر هوای فشرده|
+@2.3.3 Filter / Regulator / Lubricators (FRLs)
+Compressed Air Filter/Regulator/Lubricators(460)|واحد مراقبت سه‌تکه (FRL)|
+Compressed Air Filter/Regulators(613)|فیلتر رگولاتور باد|
+Compressed Air Regulators(663)|رگولاتور باد|
+Compressed Air Filters(699)|فیلتر هوای فشرده|
+Compressed Air Filter/Regulator/Lubricator Joiner Clamps(50)|بست اتصال واحد مراقبت|
+Compressed Air Filter Bowls(110)|کاسه فیلتر باد|
+Compressed Air Filter Elements(135)|المنت فیلتر باد|
+Compressed Air Filter/Regulator/Lubricator End Block Sets(71)|ست بلوک انتهایی واحد مراقبت|
+Compressed Air Lubricators(221)|روغن‌زن باد (لوبریکاتور)|
+Compressed Air Dryers(128)|درایر هوای فشرده|
+Compressed Air Filter/Lubricators(27)|فیلتر روغن‌زن باد|
+Compressed Air Lubricator Bowls(49)|کاسه روغن‌زن باد|
+Compressed Air Filter Seals(23)|آب‌بند فیلتر باد|
+Compressed Air Lubricator Sight Domes(15)|گنبد نمایشگر روغن‌زن|
+Compressed Air Regulator Locks(6)|قفل رگولاتور باد|
+Safety Lockout Valves(92)|شیر قفل ایمنی (لاک‌اوت)|
+Air-Exhaust Valves(52)|شیر تخلیه باد|
+Pressure Switches(8)|پرشر سوئیچ|
+@2.3.4 Dryers
+Compressed Air Separators(53)|جداکننده هوای فشرده (آبگیر)|
+Compressed Air Condensate Separators(7)|جداکننده آب و روغن کندانس|
+Compressed Air Flow Boosters(14)|بوستر جریان باد|
+Compressed Air Storage Tanks(2)|مخزن ذخیره هوای فشرده|
+Air Knives(121)|ایرنایف (تیغه هوا)|
+Heating Elements(13)|المنت حرارتی|
+Blowguns(192)|بادپاش (گان باد)|
+Parts Cleaning Vacuum/Blower Filters(2)|فیلتر مکنده/دمنده تمیزکاری|
+Parts Cleaning Vacuum/Blowers(10)|مکنده/دمنده تمیزکاری قطعات|
+Hot Air Blowers(34)|دمنده هوای گرم|
+Floor Dryers(21)|خشک‌کن کف (بلوئر فرش)|
+Dehumidifiers(8)|رطوبت‌گیر|ترکیبی
+Hand Dryers(6)|دست‌خشک‌کن|
+Hair Dryers(2)|سشوار|ترکیبی
+@2.3.5 Moisture Separators & Drain Valves
+Compressed Air Condensate Separator Service Kits(2)|کیت سرویس جداکننده کندانس|
+Liquid Separators(27)|جداکننده مایع|
+Humidity Controllers(2)|کنترلر رطوبت|
+Humidistats(6)|رطوبت‌سنج کنترلی (هیومیدستات)|
+Desiccants(90)|رطوبت‌گیر (سیلیکاژل)|
+Desiccators(9)|دسیکاتور|
+@2.3.7 Quick-Disconnect Hose Couplings
+Hydraulic Jack Hose Straights(1)|اتصال مستقیم شیلنگ جک هیدرولیک|
+@2.3.8 Valves
+Air Flow Control Valves(293)|شیر کنترل جریان باد (فلوکنترل)|
+Air Flow On/Off Valves(61)|شیر قطع‌ووصل باد|
+Pilot Valves(7)|شیر پایلوت|
+Air Pulse Valves(9)|شیر پالس|
+Air Drain Valves(50)|شیر تخلیه باد (درین)|
+Air Cylinders(27)|جک پنوماتیک|
+Valve Bodies(11)|بدنه شیر|
+Valve Repair Kits(160)|کیت تعمیر شیر|
+Solenoid Coils(45)|بوبین شیر برقی|
+@2.3.9 Mufflers
+Compact High-Flow Mufflers(28)|صداخفه‌کن کوچک دبی بالا|
+High-Noise-Reducing Mufflers(17)|صداخفه‌کن کاهش صدای بالا|
+High-Flow Mufflers(32)|صداخفه‌کن دبی بالا|
+Corrosion-Resistant Mufflers(17)|صداخفه‌کن ضدخوردگی|
+Flow-Control Mufflers(24)|صداخفه‌کن تنظیمی|
+Clog-Resistant Mufflers(18)|صداخفه‌کن ضدگرفتگی|
+Easy-Clean Mufflers(25)|صداخفه‌کن تمیزشونده آسان|
+Flame-Resistant High-Noise-Reducing Mufflers(3)|صداخفه‌کن ضدشعله کاهش صدای بالا|
+Inline Mufflers(25)|صداخفه‌کن خطی|
+Oil-Mist-Eliminating Mufflers(14)|صداخفه‌کن روغن‌گیر|
+Inline High-Noise-Reducing Mufflers(9)|صداخفه‌کن خطی کاهش صدای بالا|
+End-Exhaust Mufflers(6)|صداخفه‌کن خروجی انتهایی|
+Clog-Indicating High-Noise-Reducing Mufflers(4)|صداخفه‌کن با نشانگر گرفتگی|
+Oil-Mist-Recycling Mufflers(13)|صداخفه‌کن بازیافت روغن|
+Air Intake Filters(76)|فیلتر هوای ورودی|
+Exhaust Filter/Mufflers(9)|فیلتر صداخفه‌کن خروجی|
+Abrasive Blasting Nozzles(7)|نازل سندبلاست|
+@2.3.10 Pressure Gauges
+Vibration-Resistant Pressure Gauges(30)|گیج فشار روغنی (ضدلرزش)|
+Vibration- and Corrosion-Resistant Pressure Gauges(13)|گیج فشار روغنی استیل (ضدلرزش و ضدخوردگی)|
+High-Accuracy Low-Pressure Gauges(17)|گیج فشار پایین دقیق|
+Digital-Display High-Accuracy Pressure Gauges(10)|گیج فشار دیجیتال دقیق|
+Steam Pressure Gauges(5)|گیج فشار بخار|
+High-Accuracy Corrosion-Resistant Pressure Gauges(9)|گیج فشار دقیق ضدخوردگی|
+High-Accuracy Vibration- and Corrosion-Resistant Pressure Gauges(9)|گیج فشار دقیق روغنی ضدخوردگی|
+Corrosion-Resistant Pressure Gauges(9)|گیج فشار ضدخوردگی|
+Gas Pressure Gauges(6)|گیج فشار گاز|
+Miniature Pressure Gauges(3)|گیج فشار مینیاتوری|
+High-Clarity Vibration-Resistant Pressure Gauges(21)|گیج فشار روغنی خوانایی بالا|
+Drinking Water Pressure Gauges(6)|گیج فشار آب شرب|
+Vibration-Resistant Pressure Gauges for Chemicals(4)|گیج فشار روغنی مواد شیمیایی|
+Extreme-Temperature Pressure Gauges(6)|گیج فشار دمای بسیار بالا/پایین|
+High-Clarity Vibration- and Corrosion-Resistant Pressure Gauges(6)|گیج روغنی ضدخوردگی خوانایی بالا|
+Vibration-Resistant Drinking Water Pressure Gauges(2)|گیج فشار روغنی آب شرب|
+Square Panel-Mount Pressure Gauges(1)|گیج فشار تابلویی مربعی|
+Large-Dial High-Accuracy Pressure Gauges(2)|گیج فشار دقیق صفحه بزرگ|
+Food and Beverage Pressure Gauges(4)|گیج فشار صنایع غذایی|
+Low-Pressure Gauges for Chemicals(9)|گیج فشار پایین مواد شیمیایی|
+Maximum-Indicating Vibration-Resistant Pressure Gauges(6)|گیج فشار روغنی با عقربه حداکثر|
+Vibration-Resistant Food and Beverage Pressure Gauges(4)|گیج فشار روغنی صنایع غذایی|
+Pressure Gauges for Hydraulic Jacks(2)|گیج فشار جک هیدرولیک|
+Extreme-Vibration-Resistant Pressure Gauges(2)|گیج فشار ضدلرزش شدید|
+High-Accuracy Pressure Gauges for Pumps(3)|گیج فشار دقیق پمپ|
+High-Pressure Gauges for Chemicals(4)|گیج فشار بالا مواد شیمیایی|
+Fire-Sprinkler Pressure Gauges(2)|گیج فشار اسپرینکلر آتش‌نشانی|
+Colored-Case High-Accuracy Pressure Gauges(4)|گیج فشار دقیق بدنه رنگی|
+Pressure Test Gauges(611)|گیج تست فشار (گیج مرجع)|
+Pressure and Vacuum Gauges(242)|گیج فشار و وکیوم (مانووکیوم)|
+Vacuum Gauges(121)|گیج وکیوم|
+Pressure Transmitters(365)|ترانسمیتر فشار|
+Differential Pressure Gauges(124)|گیج اختلاف فشار|
+Gauge Guards(15)|محافظ گیج|
+Differential Pressure and Vacuum Gauges(20)|گیج اختلاف فشار و وکیوم|
+Tire Gauges(51)|گیج باد لاستیک|
+Vacuum Pumps(1)|پمپ وکیوم|
+Tire Pressure Test Gauges(1)|گیج تست باد لاستیک|
+Pressure Gauge Snubbers(15)|اسنابر گیج فشار (ضربه‌گیر)|
+Pressure and Vacuum Transmitters(97)|ترانسمیتر فشار و وکیوم|
+Differential Pressure Transmitters(70)|ترانسمیتر اختلاف فشار|
+Wristwatches(2)|ساعت مچی|ترکیبی
+Pressure Test Fittings(31)|اتصال تست فشار (مینی‌مس)|
+Fuel Injection Pressure Testers(1)|تستر فشار انژکتور|
+Pressure Indicators(3)|نشانگر فشار|
+Blood Pressure Monitors(2)|فشارسنج خون|ترکیبی
+Pressure Transmitter Displays(2)|نمایشگر ترانسمیتر فشار|
+Vacuum Transmitters(17)|ترانسمیتر وکیوم|
+Barometers(8)|فشارسنج هوا (بارومتر)|
+Paper Pressure Analyzers(1)|آنالایزر فشار کاغذی|
+Vacuum Test Gauges(8)|گیج تست وکیوم|
+Flow Transmitters(2)|ترانسمیتر جریان|
+Weather Stations(9)|ایستگاه هواشناسی|ترکیبی
+Load Cells(284)|لودسل|
+Compression Testers(9)|تستر کمپرس موتور|
+Differential Pressure Sensors(5)|سنسور اختلاف فشار|
+Gauge Liquids(5)|مایع گیج (گلیسیرین)|
+Pressure Film(45)|فیلم فشارسنج|
+Force Gauge Grips(10)|گیره نیروسنج|
+Pitot Tubes(4)|لوله پیتوت|
+Load Cell Junction Boxes(2)|جعبه تقسیم لودسل|

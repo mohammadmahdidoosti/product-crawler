@@ -1,0 +1,58 @@
+@25.2.4 Hand Stamps
+Steel Stamp Sets(27)|ست سنبه حروف و اعداد فولادی|
+Steel Stamps(9)|سنبه نشانه‌زنی فولادی|
+Steel Stamp Sets for Hard Materials(28)|ست سنبه حروف برای مواد سخت|
+Build-Your-Own Steel Message Stamps(30)|سنبه متن فولادی قابل مونتاژ|
+Steel Stamps for Hard Materials(6)|سنبه نشانه‌زنی برای مواد سخت|
+Self-Advancing Self-Inking Rotating Steel Stamps(2)|سنبه فولادی چرخشی جوهرخور شماره‌زن خودکار|
+Thick-Shank Steel Stamps(13)|سنبه نشانه‌زنی ساق ضخیم|
+Rotating Steel Stamps(6)|سنبه فولادی چرخشی (شماره‌زن)|
+Inspection Steel Stamps(350)|سنبه بازرسی (QC) فولادی|
+Steel Stamps with Made-to-Order Message(48)|سنبه فولادی با متن سفارشی|
+Build-Your-Own Pocket-Size Steel Message Stamps(17)|سنبه متن فولادی جیبی قابل مونتاژ|
+Steel Message Stamps(22)|سنبه متن فولادی|
+Gentle-Mark Steel Stamps(7)|سنبه نشانه‌زنی کم‌تنش|
+Thick-Shank Steel Stamp Sets(39)|ست سنبه حروف ساق ضخیم|
+Raised-Character Steel Stamp Sets(24)|ست سنبه حروف برجسته‌زن|
+High-Visibility Steel Stamps(2)|سنبه نشانه‌زنی خوانایی بالا|
+Raised-Character Steel Stamps(8)|سنبه برجسته‌زن|
+Extra-Gentle-Mark Steel Stamp Sets for Hard Materials(9)|ست سنبه حروف فوق‌کم‌تنش برای مواد سخت|
+Extra-Gentle-Mark Steel Stamps(2)|سنبه نشانه‌زنی فوق‌کم‌تنش|
+Gentle-Mark Steel Stamp Sets(19)|ست سنبه حروف کم‌تنش|
+Corrosion-Resistant Stainless Steel Stamps(3)|سنبه نشانه‌زنی استیل ضدزنگ|
+Extra-Gentle-Mark Steel Stamps for Hard Materials(3)|سنبه فوق‌کم‌تنش برای مواد سخت|
+High-Visibility Steel Stamp Sets(44)|ست سنبه حروف خوانایی بالا|
+Key-Marking Steel Stamps(3)|سنبه حک کلید|
+Extra-Gentle-Mark Steel Stamp Sets(5)|ست سنبه حروف فوق‌کم‌تنش|
+Corrosion-Resistant Stainless Steel Stamp Sets(6)|ست سنبه حروف استیل ضدزنگ|
+Rubber Stamps with Made-to-Order Design(1)|مهر لاستیکی طرح سفارشی|
+Rubber Stamps with Changeable Press-Fit Message(1)|مهر لاستیکی متن تعویضی فشاری|
+Rubber Stamps with Message(21)|مهر لاستیکی متن‌دار|
+Rotating Rubber Stamps(65)|مهر لاستیکی چرخشی (تاریخ‌زن و شماره‌زن)|
+Rubber Stamps with Changeable Snap-Together Message(123)|مهر لاستیکی متن تعویضی کلیپسی|
+Self-Inking Rubber Stamps with Changeable Press-Fit Message(17)|مهر ژلاتینی (اتوماتیک) متن تعویضی|
+Self-Inking Rubber Stamps with Date and Message(2)|مهر اتوماتیک تاریخ‌زن متن‌دار|
+Made-to-Order Inspection Rubber Stamps(2)|مهر بازرسی لاستیکی سفارشی|
+Inspection Rubber Stamps(70)|مهر بازرسی لاستیکی (QC)|
+Rubber Stamps with Made-to-Order Message(2)|مهر لاستیکی متن سفارشی|
+Self-Inking Rubber Stamps with Date(4)|مهر اتوماتیک تاریخ‌زن|
+Self-Inking Rotating Rubber Stamps(13)|مهر اتوماتیک چرخشی|
+Stamping Presses(10)|پرس سنبه‌زنی (حک)|
+Roll-On Rubber Stamps(10)|مهر غلتکی|
+Conveyor-Mount Rubber Stamps(10)|مهر غلتکی نصب روی نوار نقاله|
+Time and Date Stamps(2)|دستگاه مهر ساعت و تاریخ|
+@25.2.5 Engraving Plates & Tags
+Metal Engraving and Stamping Message Plates(95)|پلاک فلزی حکاکی و سنبه‌زنی|
+Choose-a-Color Metal Engraving and Stamping Message Plates(15)|پلاک فلزی حکاکی رنگ انتخابی|
+Plastic Engraving Message Plates(38)|پلاک پلاستیکی حکاکی (لمینت دولایه)|
+Color-Contrasting Metal Engraving Message Plates(21)|پلاک فلزی حکاکی رنگ متضاد|
+Embossing Message Plates(5)|پلاک برجسته‌زنی|
+Made-to-Order Embossed Message Plates(9)|پلاک برجسته متن سفارشی|
+Made-to-Order Identically Numbered and Lettered Message Plates(20)|پلاک سفارشی شماره و حروف یکسان|
+Made-to-Order Sequentially Numbered Message Plates(20)|پلاک متن‌دار شماره سریالی سفارشی|
+Made-to-Order Sequentially Numbered Plates(20)|پلاک شماره سریالی سفارشی|
+Made-to-Order Embossed Sequentially Numbered Message Plates(9)|پلاک برجسته متن‌دار شماره سریالی سفارشی|
+Made-to-Order Embossed Sequentially Numbered Plates(9)|پلاک برجسته شماره سریالی سفارشی|
+@25.2.6 Engravers
+Etching Stencils(10)|شابلون اچ|
+Branding Irons(23)|مهر داغ (داغ‌زن)|

@@ -1,0 +1,395 @@
+@23.0.1 Weather Instruments
+Rain Gauges(1)|باران‌سنج|ترکیبی
+Windsocks(41)|بادنما (ویندساک)|
+Humidity-Indicating Cards(9)|کارت نشانگر رطوبت|
+Humidity-Indicating Plugs(6)|درپوش نشانگر رطوبت|
+Umbrellas(9)|چتر|ترکیبی
+Forklift Cab Covers(4)|کاور کابین لیفتراک|
+Windshield Wipers(5)|برف‌پاک‌کن|
+Radios(3)|رادیو|ترکیبی
+Umbrella Bags(2)|کاور چتر|ترکیبی
+@23.0.3 Landscaping Equipment
+Weed Trimmers(3)|علف‌زن (شمشادزن)|ترکیبی
+Digging Bars(1)|دیلم|
+Metal Detectors(5)|فلزیاب|
+Forklift Plows(1)|تیغه برف‌روب لیفتراک|
+Broadcast Spreaders(12)|کودپاش و بذرپاش|ترکیبی
+Lawn Sprinkler Heads(7)|سر آبپاش چمن|ترکیبی
+Shovel Handles(5)|دسته بیل|ترکیبی
+Lawn Sprinklers(3)|آبپاش چمن|ترکیبی
+Vegetation Killers(2)|علف‌کش|ترکیبی
+Landscaping Fabric(5)|پارچه ضدعلف (ژئوتکستایل)|ترکیبی
+Soil Probes(2)|نمونه‌گیر خاک|
+Post Hole Diggers(4)|چاله‌کن تیر|
+Weed Trimmer Line(3)|نخ علف‌زن|ترکیبی
+Lawn Sprinkler Timers(2)|تایمر آبیاری|ترکیبی
+Tampers(2)|کوبنده دستی خاک|
+Marking Stakes(11)|میخ نشانه‌گذاری|
+@23.0.5 Concrete, Asphalt & Roof Repair
+Concrete Edgers(1)|ماله لبه بتن|
+Brick Jointers(1)|ابزار بندکشی آجر|
+Concrete Rakes(1)|شن‌کش بتن|
+Concrete Groovers(1)|ماله شیارزن بتن|
+Drywall Compound Mashers(1)|همزن بتونه کناف|
+Circle Cutters(1)|دایره‌بر|
+Asphalt Rakes(2)|شن‌کش آسفالت|
+Drywall Compound Hawks(1)|کفگیر بتونه (هاوک)|
+@23.0.6 Matting
+Antifatigue Floor Mats(152)|کفپوش ضدخستگی|
+Traction Floor Mats(98)|کفپوش ضدلغزش|
+Scraping and Drying Floor Mats(28)|پادری گل‌گیر و خشک‌کن|
+Extra-Soft Wear-Resistant Antifatigue Floor Mats(57)|کفپوش ضدخستگی فوق‌نرم ضدسایش|
+Grease-Resistant Drainage Floor Mats(28)|کفپوش زهکش مقاوم چربی|
+Wear-Resistant Antifatigue Floor Mats(58)|کفپوش ضدخستگی ضدسایش|
+Interlocking Drainage Floor Mats(3)|کفپوش زهکش پازلی|
+Static-Control Floor Mats(45)|کفپوش آنتی‌استاتیک|
+Electric Shock Protection Floor Mats(9)|کفپوش عایق برق (ضدشوک)|
+Protective Floor Mats for Hard Floors(1)|کفپوش محافظ کف سخت|
+Disposable Sticky-Surface Floor Mats(33)|پادری چسبی یکبارمصرف|
+Extra-Soft Greaseproof Antifatigue Floor Mats(12)|کفپوش ضدخستگی فوق‌نرم ضدچربی|
+Shock-Absorbing Floor Mats(5)|کفپوش ضربه‌گیر|
+Chair Floor Mats for Hard Floors(9)|زیرصندلی کف سخت|ترکیبی
+High-Traction Drainage Floor Mats(18)|کفپوش زهکش ضدلغزش بالا|
+Greaseproof Interlocking Drainage Floor Mats(1)|کفپوش زهکش پازلی ضدچربی|
+Rigid Interlocking Drainage Floor Mats(9)|کفپوش زهکش پازلی سخت|
+Grease-Resistant Interlocking Drainage Floor Mats(1)|کفپوش زهکش پازلی مقاوم چربی|
+Static-Control Chair Floor Mats(1)|زیرصندلی آنتی‌استاتیک|
+Grease-Resistant Interlocking Antifatigue Floor Mats(1)|کفپوش ضدخستگی پازلی مقاوم چربی|
+Heavy Duty Drainage Floor Mats(5)|کفپوش زهکش سنگین|
+Extra-Soft Antifatigue Floor Mats(22)|کفپوش ضدخستگی فوق‌نرم|
+Drainage Floor Mats(19)|کفپوش زهکش|
+Food and Beverage Drainage Floor Mats(12)|کفپوش زهکش صنایع غذایی|
+Greaseproof Drainage Floor Mats(4)|کفپوش زهکش ضدچربی|
+Greaseproof Antifatigue Floor Mats(4)|کفپوش ضدخستگی ضدچربی|
+Interlocking Antifatigue Floor Mats(11)|کفپوش ضدخستگی پازلی|
+Drying Floor Mats(13)|پادری جاذب (خشک‌کن)|
+Chair Floor Mats for Carpeted Floors(10)|زیرصندلی کف موکت|ترکیبی
+Welding-Safe Antifatigue Floor Mats(3)|کفپوش ضدخستگی مقاوم جوشکاری|
+Easy-Clean Scraping Floor Mats(7)|پادری گل‌گیر آسان‌شوی|
+Scraping Floor Mats(16)|پادری گل‌گیر|
+Foot-Warming Floor Mats(3)|کفپوش گرمایشی|
+Long-Life Antifatigue Floor Mats(2)|کفپوش ضدخستگی بادوام|
+Antifatigue Drainage Floor Mats(3)|کفپوش زهکش ضدخستگی|
+Steel Scraping Floor Mats(10)|پادری گل‌گیر فلزی|
+Clean Room Antifatigue Floor Mats(6)|کفپوش ضدخستگی اتاق تمیز|
+Sanitizing Floor Mats(5)|پادری ضدعفونی (حوضچه ضدعفونی)|
+Extreme-Traction Floor Mats(3)|کفپوش ضدلغزش فوق‌العاده|
+Clean Room Static-Control Floor Mats(6)|کفپوش آنتی‌استاتیک اتاق تمیز|
+Sanitary Antifatigue Floor Mats(3)|کفپوش ضدخستگی بهداشتی|
+Greaseproof Interlocking Antifatigue Floor Mats(4)|کفپوش ضدخستگی پازلی ضدچربی|
+High-Traction Interlocking Drainage Floor Mats(6)|کفپوش زهکش پازلی ضدلغزش بالا|
+Reusable Sticky-Surface Floor Mats(3)|پادری چسبی قابل شست‌وشو|
+Interlocking Static-Control Floor Mats(2)|کفپوش آنتی‌استاتیک پازلی|
+Three-in-One Entrance Floor Mats(2)|پادری ورودی سه‌کاره|
+@23.0.7 Tarps
+Waterproof Tarps(40)|چادر برزنتی ضدآب|
+Heavy Duty Tarps(32)|چادر برزنتی سنگین|
+Reflective Waterproof Tarps(35)|چادر ضدآب بازتابنده|
+Breathable Tarps(128)|چادر برزنتی تنفس‌پذیر|
+Flame-Resistant Tarps(85)|چادر برزنتی ضدآتش|
+Heavy Duty Tarps with D-Rings(17)|چادر برزنتی سنگین حلقه‌دار|
+Reflective Waterproof Box-Shaped Tarps(27)|کاور جعبه‌ای ضدآب بازتابنده|
+Heavy Duty Waterproof Box-Shaped Tarps(19)|کاور جعبه‌ای ضدآب سنگین|
+Mesh Tarps(26)|چادر توری|
+Breathable Waterproof Tarps(13)|چادر ضدآب تنفس‌پذیر|
+Insulated Waterproof Tarps(7)|چادر ضدآب عایق‌دار|
+Metal-Detectable Box Truck Tarps(1)|چادر کامیون قابل‌تشخیص با فلزیاب|
+Chemical-Resistant Tarps(11)|چادر مقاوم شیمیایی|
+Tarps with Magnets(4)|چادر برزنتی آهنربادار|
+Corrosion-Inhibiting Tarps(7)|چادر ضدخوردگی (VCI)|
+Ultra Heat- and Flame-Resistant Tarps(5)|چادر نسوز و ضدآتش فوق‌مقاوم|
+Debris Collection Tarps(4)|چادر جمع‌آوری نخاله|
+High-Visibility Tarps(8)|چادر شبرنگ (دید بالا)|
+Corrosion-Inhibiting Box-Shaped Tarps(7)|کاور جعبه‌ای ضدخوردگی|
+Tarp Corner Guards(1)|محافظ گوشه چادر|
+Tarp Vents(1)|دریچه تهویه چادر|
+Zippers(4)|زیپ|
+Shelving Covers(7)|کاور قفسه|
+@23.0.8 Window Screening & Shades
+Window Blinds(155)|پرده کرکره‌ای|ترکیبی
+Window Shades(60)|پرده سایه‌بان (رول)|ترکیبی
+@23.0.9 Paint & Coatings
+Markers(45)|ماژیک|ترکیبی
+Crayons(23)|مداد شمعی صنعتی|
+Painting Supports(1)|پایه رنگ‌کاری|
+Paint Hardeners(1)|سخت‌کننده رنگ|
+Paint Can Openers(1)|درب‌بازکن قوطی رنگ|
+Paint Sprayer Replacement Parts(6)|قطعات یدکی پیستوله|
+Floor Coating Additives(3)|افزودنی پوشش کف|
+Paint Can Lid Clips(4)|گیره درب قوطی رنگ|
+Paint Can Lid Rings(4)|حلقه درب قوطی رنگ|
+Paint Additives(4)|افزودنی رنگ|
+Spray Booth Paper(3)|کاغذ کابین رنگ|
+Spray Booths(5)|کابین رنگ|
+Surface-Protection Compounds(3)|ترکیب محافظ سطح|
+Tamper-Evident Paint(12)|رنگ ضددستکاری (لاک مهر)|
+Grind Gauges(5)|گیج نرمی (گرایندومتر)|
+@23.0.11 Grating & Stair Treads
+Bar Grating(360)|گریتینگ|
+Stair Tread Covers(9)|روکش کف پله|
+Stair Nosing(6)|دماغه پله|
+@23.0.16 Pest Control
+Animal Traps(13)|تله حیوانات|ترکیبی
+Fly Swatters(1)|مگس‌کش|ترکیبی
+Rodent Poison(2)|سم موش|ترکیبی
+@24.0.0 Bags & Envelopes
+Resealable Bags(313)|کیسه زیپ‌دار|ترکیبی
+Bulk Bags(13)|جامبوبگ|
+Vacuum Sealers(6)|دستگاه وکیوم بسته‌بندی|
+Corrosion-Inhibiting Packets(1)|بسته ضدخوردگی (VCI)|
+Pallet Bags(65)|کاور پالت|
+Shipping Air Bags(9)|کیسه هوای بار (ایربگ پرکننده)|
+@24.0.1 Tubes
+Square Adjustable-Length Shipping Tubes(89)|لوله بسته‌بندی چهارگوش طول متغیر|
+Round Shipping Tubes with Press-On End Caps(28)|لوله بسته‌بندی گرد با درپوش فشاری|
+Round Adjustable-Length Shipping Tubes(83)|لوله بسته‌بندی گرد طول متغیر|
+Round Cut-to-Length Shipping Tubes(71)|لوله بسته‌بندی گرد برش به طول|
+Square Shipping Tubes(15)|لوله بسته‌بندی چهارگوش|
+Sealed-End Round Cut-to-Length Shipping Tubes(16)|لوله بسته‌بندی گرد ته‌بسته برش به طول|
+Recycled Plastic Square Adjustable-Length Shipping Tubes(31)|لوله بسته‌بندی چهارگوش پلاستیک بازیافتی طول متغیر|
+Recycled Plastic Round Adjustable-Length Shipping Tubes(25)|لوله بسته‌بندی گرد پلاستیک بازیافتی طول متغیر|
+Square Cut-to-Length Shipping Tubes(15)|لوله بسته‌بندی چهارگوش برش به طول|
+Square Shipping Tubes with Internal Holder(33)|لوله بسته‌بندی چهارگوش با نگهدارنده داخلی|
+Rectangular Adjustable-Length Shipping Tubes(8)|لوله بسته‌بندی مستطیلی طول متغیر|
+Round Shipping Tubes with Slip-On End Caps(3)|لوله بسته‌بندی گرد با درپوش کشویی|
+Triangular Shipping Tubes(7)|لوله بسته‌بندی مثلثی|
+@24.0.2 Boxes
+Standard Cardboard Shipping Boxes(110)|کارتن بسته‌بندی استاندارد|
+Heavy Duty Cardboard Shipping Boxes(29)|کارتن بسته‌بندی سنگین|
+UN-Compliant Cardboard Shipping Boxes(28)|کارتن حمل کالای خطرناک (UN)|
+Wood Shipping Boxes(17)|جعبه چوبی حمل|
+Static-Control Cardboard Shipping Boxes(12)|کارتن آنتی‌استاتیک|
+UN-Compliant Wood Shipping Boxes(6)|جعبه چوبی حمل کالای خطرناک (UN)|
+Double-Wall Heavy Duty Cardboard Shipping Boxes(6)|کارتن پنج‌لایه سنگین|
+Large-Capacity Cardboard Shipping Boxes(4)|کارتن بسته‌بندی حجیم|
+Adjustable-Height Cardboard Shipping Boxes(7)|کارتن ارتفاع متغیر|
+Lightweight Cardboard Folding Shipping Boxes(2)|کارتن تاشو سبک|
+Adjustable-Height Large-Capacity Cardboard Shipping Boxes(2)|کارتن حجیم ارتفاع متغیر|
+Plastic Shipping Boxes(3)|جعبه پلاستیکی حمل|
+Insulated Cardboard Shipping Boxes(4)|کارتن عایق‌دار|
+EMI/RFI-Shielding Cardboard Shipping Boxes(3)|کارتن شیلددار EMI/RFI|
+Pop-Up Cardboard Shipping Boxes(4)|کارتن بازشوی سریع|
+Box Reducers(2)|کاهنده ارتفاع کارتن|
+@24.0.4 Packing Material
+Packing Paper(101)|کاغذ بسته‌بندی|
+Stretch Wrap(101)|سلفون کشی (استرچ)|
+Corrugated Sheets(20)|ورق کارتن (مقوای کنگره‌ای)|
+Shipping Blankets(29)|پتوی باربری|
+Stretch Wrap Dispensers(19)|دستگاه دستی سلفون کشی|
+Strapping Seals(28)|قفل تسمه بسته‌بندی|
+Strapping Tensioners(28)|تسمه‌کش|
+Corrosion-Inhibiting Wraps(29)|کاغذ و فیلم ضدخوردگی (VCI)|
+Strapping Sealers(23)|پرس قفل تسمه|
+Oxygen Absorbers(4)|جاذب اکسیژن|
+Pallet Load Covers(3)|کاور بار پالت|
+Label Dispensers(7)|دیسپنسر برچسب|
+@24.0.5 Stretch & Shrink Wrap
+Stretch Wrap With Handle(24)|سلفون کشی دسته‌دار|
+UV-Resistant Stretch Wrap(1)|سلفون کشی ضدUV|
+Strong-Hold Stretch Wrap(2)|سلفون کشی پرقدرت|
+Corrosion-Inhibiting Stretch Wrap(3)|سلفون کشی ضدخوردگی|
+Antistatic Stretch Wrap(4)|سلفون کشی آنتی‌استاتیک|
+Stretch Wrap with Shipping Message(4)|سلفون کشی چاپ‌دار|
+@24.0.7 Tape
+Heavy Duty Packaging Tape(19)|چسب پهن سنگین|
+Reinforced Strapping Packaging Tape(4)|چسب نواری تقویت‌شده (رشته‌ای)|
+Chemical-Resistant Packaging Tape(1)|چسب بسته‌بندی مقاوم شیمیایی|
+Message Packaging Tape(6)|چسب پهن چاپ‌دار|
+Tamper-Evident Water Activated Packaging Tape(1)|چسب کاغذی آب‌فعال ضددستکاری|
+Bag Sealing Packaging Tape(1)|چسب درب کیسه|
+Clean Room Packaging Tape(7)|چسب بسته‌بندی اتاق تمیز|
+Tamper-Evident Packaging Tape(4)|چسب پهن ضددستکاری (امنیتی)|
+Easy-Tear Packaging Tape(6)|چسب پهن دست‌پاره|
+Reinforced Water-Activated Packaging Tape(4)|چسب کاغذی آب‌فعال تقویت‌شده|
+Light Duty Packaging Tape(8)|چسب پهن سبک|ترکیبی
+Heavy Duty Reinforced Strapping Packaging Tape(6)|چسب نواری تقویت‌شده سنگین|
+Water-Activated Packaging Tape(4)|چسب کاغذی آب‌فعال|
+Heavy Duty Strapping Packaging Tape(3)|چسب نواری سنگین|
+Light Duty Reinforced Strapping Packaging Tape(10)|چسب نواری تقویت‌شده سبک|
+Clean-Release Strapping Packaging Tape(2)|چسب نواری بدون رد|
+Packaging Tape for Rough Surfaces(5)|چسب پهن سطوح زبر|
+Double-Reinforced Strapping Packaging Tape(3)|چسب نواری دوبل تقویت‌شده|
+Packaging Tape for Recycled Cardboard(2)|چسب پهن کارتن بازیافتی|
+Packaging Tape for Low-Temperature Environments(2)|چسب پهن دمای پایین (سردخانه)|
+@24.0.11 Security Seals
+Pull-Tight Loop Tamper-Evident Seals(6)|پلمپ کشویی حلقه‌ای|
+Bolt-Style Tamper-Evident Seals(1)|پلمپ پیچی (بولت‌سیل)|
+Pull-Tight Wire Rope Tamper-Evident Seals(3)|پلمپ کشویی سیم بکسلی|
+Wire Rope Tamper-Evident Seals(1)|پلمپ سیم بکسلی|
+Tamper-Evident Seal Labels(2)|برچسب پلمپ امنیتی (VOID)|
+Wire Tamper-Evident Seals(42)|پلمپ مفتولی|
+Made-to-Order Wire Rope Tamper-Evident Seals(1)|پلمپ سیم بکسلی سفارشی|
+Loop Tamper-Evident Seals(5)|پلمپ حلقه‌ای|
+Made-to-Order Padlock-Style Tamper-Evident Seals(2)|پلمپ قفلی سفارشی|
+Made-to-Order Pull-Tight Wire Rope Tamper-Evident Seals(2)|پلمپ کشویی سیم بکسلی سفارشی|
+Made-to-Order Loop Tamper-Evident Seals(5)|پلمپ حلقه‌ای سفارشی|
+Padlock-Style Tamper-Evident Seals(2)|پلمپ قفلی|
+Made-to-Order Pull-Tight Loop Tamper-Evident Seals(2)|پلمپ کشویی حلقه‌ای سفارشی|
+Build-Your-Own Wire Tamper-Evident Seals(21)|پلمپ مفتولی قابل مونتاژ|
+Tamper-Evident Bags(14)|کیسه امنیتی (پلمپ‌دار)|
+Made-to-Order Wire Tamper-Evident Seals(3)|پلمپ مفتولی سفارشی|
+Metal- and X-Ray-Detectable Pull-Tight Loop Tamper-Evident Seals(2)|پلمپ کشویی حلقه‌ای قابل‌تشخیص فلزیاب و ایکس‌ری|
+Tamper-Evident Tapered Plugs(2)|درپوش مخروطی پلمپ‌دار|
+@25.0.0 Markers, Pens & Pencils
+Pens(28)|خودکار|ترکیبی
+Etching Pens(1)|قلم حکاکی|
+Pencil Lead(8)|نوک مداد (مغز اتود)|ترکیبی
+White Out(1)|لاک غلط‌گیر|ترکیبی
+Highlighters(4)|ماژیک هایلایت|ترکیبی
+Stylus Pens(2)|قلم لمسی|ترکیبی
+Chalk(20)|گچ|ترکیبی
+Etchers(5)|دستگاه حکاکی (اچ)|
+Chalk Holders(3)|گچ‌گیر|
+Etching Solution(8)|محلول اچ|
+Etching Pads(3)|پد اچ|
+Paper Pads(30)|دفترچه یادداشت|ترکیبی
+Sticky Notes(20)|کاغذ یادداشت چسب‌دار (استیکی نوت)|ترکیبی
+Ink Pads(1)|استامپ|ترکیبی
+Temperature Crayons(75)|مداد نشانگر دما (ترمواستیک)|
+Chalk Line Reels(6)|ریسمان رنگی (شاقول‌کش)|
+@25.0.1 Clipboards & Binders
+Clipboards(48)|تخته شاسی|ترکیبی
+Document Protectors(9)|کاور اسناد (کاور پلاستیکی)|ترکیبی
+Document Stands(2)|پایه نگهدارنده سند|ترکیبی
+File Folders(11)|پوشه|ترکیبی
+Document Binder Dividers(1)|جداکننده کلاسور|ترکیبی
+File Tabs(1)|زبانه پوشه|ترکیبی
+@25.0.2 Folders & Paper
+Desk Pads(2)|زیردستی میز|ترکیبی
+Printer Paper(27)|کاغذ پرینتر (A4)|ترکیبی
+Drop Box Suggestion Forms(1)|فرم صندوق پیشنهادات|
+Drafting Paper(8)|کاغذ نقشه‌کشی|
+Index Cards(3)|کارت یادداشت (ایندکس)|ترکیبی
+Paperboard(3)|مقوا|ترکیبی
+Transparencies(1)|طلق شفاف (ترانسپرنت)|ترکیبی
+Index Card Tabs(1)|زبانه کارت ایندکس|ترکیبی
+Time Cards(11)|کارت ساعت‌زنی|
+Visitor Log Books(1)|دفتر ثبت مراجعین|
+Shredders(5)|کاغذخردکن|ترکیبی
+@25.0.3 Organizers & Document Holders
+Paper Clip Holders(1)|جای گیره کاغذ|ترکیبی
+Card Organizers(14)|نظم‌دهنده کارت|ترکیبی
+Bookends(2)|نگهدارنده کتاب|ترکیبی
+Label Holders(144)|جای برچسب (لیبل‌هولدر)|
+Time Card and Badge Holders(2)|جای کارت ساعت‌زنی و کارت شناسایی|
+@25.0.4 Telephones
+Text-to-Phone Adapters(1)|مبدل متن به تلفن|
+Phone Handset Holders(2)|نگهدارنده گوشی تلفن|ترکیبی
+Intercoms(3)|آیفون (اینترکام)|ترکیبی
+Phone Transmitters(3)|فرستنده تلفن|
+Wireless Charging Pads(3)|شارژر بی‌سیم|ترکیبی
+@25.0.5 Intercoms & Radios
+Headphones(1)|هدفون|ترکیبی
+Public Address Systems(1)|سیستم پیجینگ (صوت اعلام)|
+Signal Boosters(5)|تقویت‌کننده آنتن (سیگنال)|
+Antennas(1)|آنتن|
+Speaker/Microphones(2)|بلندگو/میکروفون بی‌سیم|
+Microphones(2)|میکروفون|ترکیبی
+Computer Monitors(9)|مانیتور|ترکیبی
+Development Boards(28)|برد توسعه (آردوینو)|
+Megaphones(3)|بلندگوی دستی (مگافون)|
+Single-Board Computers(16)|کامپیوتر تک‌برد (رزبری‌پای)|
+@25.0.8 Computer Accessories
+Mice(10)|ماوس|ترکیبی
+Keyboards(29)|کیبورد|ترکیبی
+Wrist Rests(1)|پد مچ‌دست|ترکیبی
+Memory Card Readers(5)|رم‌ریدر|ترکیبی
+DVDs(1)|دی‌وی‌دی خام|ترکیبی
+CDs(1)|سی‌دی خام|ترکیبی
+Mouse Pads(3)|ماوس‌پد|ترکیبی
+Computer Holders(1)|نگهدارنده کیس|ترکیبی
+Screen Privacy Filters(7)|محافظ حریم خصوصی مانیتور|ترکیبی
+Monitor Covers(5)|کاور مانیتور|
+Printer Covers(3)|کاور پرینتر|
+Keyboard Covers(2)|کاور کیبورد|
+Computer Covers(2)|کاور کامپیوتر|
+Phone Cases(18)|قاب گوشی|ترکیبی
+Flash Drives(17)|فلش مموری|ترکیبی
+Memory Cards(8)|کارت حافظه|ترکیبی
+External Hard Drives(3)|هارد اکسترنال|ترکیبی
+Barcode Scanners(30)|بارکدخوان|
+Keyboard Trays(4)|کشوی کیبورد|ترکیبی
+Laptop Stands(2)|پایه لپ‌تاپ|ترکیبی
+@25.0.10 Drafting Equipment
+Drafting Curves(5)|پیستوله نقشه‌کشی (منحنی)|
+Eraser Shields(1)|شابلون پاک‌کن|
+Pencil Sharpeners(6)|تراش|ترکیبی
+Drafting Boards(2)|میز نقشه‌کشی|
+Drafting Board Covers(4)|روکش میز نقشه‌کشی|
+@25.0.11 Clocks & Timers
+Clocks(18)|ساعت دیواری|ترکیبی
+Auto-Adjust Digital Clocks(6)|ساعت دیجیتال خودتنظیم|ترکیبی
+Digital Clocks(8)|ساعت دیجیتال|ترکیبی
+Hazardous Location Clocks(1)|ساعت ضدانفجار|
+Auto-Adjust Clocks(11)|ساعت دیواری خودتنظیم|ترکیبی
+Safety-Message Clocks(6)|ساعت با پیام ایمنی|
+Side-Mount Clocks(1)|ساعت نصب جانبی (دوطرفه)|
+Silent Clocks(2)|ساعت بی‌صدا|ترکیبی
+Time Clocks(22)|دستگاه حضور و غیاب (ساعت‌زنی)|
+Clock Guards(3)|محافظ ساعت|
+@25.0.13 Food Service Equipment
+Freeze Pops(1)|یخمک|ترکیبی
+Snacks(9)|تنقلات|ترکیبی
+Slow Cookers(1)|آرام‌پز|ترکیبی
+Sports Drinks(5)|نوشیدنی ورزشی|ترکیبی
+Coffee Makers(4)|قهوه‌ساز|ترکیبی
+Pizza Cutters(1)|پیتزابر|ترکیبی
+Kettles(1)|کتری برقی|ترکیبی
+Toothpicks(1)|خلال دندان|ترکیبی
+Condiments(11)|چاشنی (سس و ادویه)|ترکیبی
+Microwaves(3)|مایکروویو|ترکیبی
+Coffee(6)|قهوه|ترکیبی
+Toasters(2)|توستر|ترکیبی
+Tea(3)|چای|ترکیبی
+Ice Cube Trays(1)|قالب یخ|ترکیبی
+Tablecloths(1)|رومیزی|ترکیبی
+Bowls(14)|کاسه|ترکیبی
+Coffee Decanters(2)|پارچ قهوه‌ساز|ترکیبی
+Hot Chocolate(3)|هات چاکلت|ترکیبی
+Can Openers(5)|درب‌بازکن کنسرو|ترکیبی
+Condiment Containers(9)|ظرف سس و چاشنی|ترکیبی
+Flatware Containers(2)|جاقاشقی|ترکیبی
+Food Service Plates(7)|بشقاب|ترکیبی
+Coffee Filters(2)|فیلتر قهوه|ترکیبی
+Aluminum Foil(6)|فویل آلومینیوم|ترکیبی
+Napkin Dispensers(3)|جادستمالی|ترکیبی
+Napkins(13)|دستمال سفره|ترکیبی
+Straws(2)|نی نوشیدنی|ترکیبی
+Plastic Wrap(5)|سلفون غذا|ترکیبی
+Cutting Boards(10)|تخته گوشت (تخته برش)|ترکیبی
+Straw Dispensers(2)|جای نی|ترکیبی
+Ice Packs(2)|یخ مصنوعی (آیس‌پک)|ترکیبی
+Cup Sleeves(2)|روکش لیوان|ترکیبی
+Steam Traps(4)|تله بخار|
+Transfer Needles(1)|سوزن انتقال|
+@25.1.1 Sign Holders
+Sign Holders with Mounting Holes(3)|تابلونگهدار سوراخ‌دار|
+Sign Holders with Adhesive-Back Bracket(1)|تابلونگهدار با براکت چسب‌دار|
+Flexible Sign Holders(13)|تابلونگهدار انعطاف‌پذیر|
+Color-Coded Hanging Flexible Sign Holders(15)|تابلونگهدار آویز انعطاف‌پذیر رنگی|
+Pedestal Sign Holders(9)|تابلونگهدار پایه‌دار (ایستاده)|
+Slanted Table-Top Sign Holders(3)|استند رومیزی شیب‌دار|
+Sign Holders for Freestanding Retractable Belt Barriers(1)|تابلونگهدار راهبند تسمه‌ای|
+Safety Frame Sign Holders(2)|قاب تابلوی ایمنی|
+Straight Table-Top Sign Holders(3)|استند رومیزی صاف|
+Sign Holders with Mounting Hooks(5)|تابلونگهدار قلاب‌دار|
+Slide-In Framed Sign Holders(4)|قاب تابلو کشویی|
+Snap-Close Framed Sign Holders(6)|قاب تابلو کلیک (اسنپ)|
+D.O.T. Vehicle Sign Holders(1)|تابلونگهدار خودرو D.O.T.|
+A-Frame Sign Holders(3)|استند تابلو A شکل|
+Grip-Style Flange-Mount Sign Holders(3)|تابلونگهدار فلنجی گیره‌ای|
+Sleeve-Style Flange-Mount Sign Holders(4)|تابلونگهدار فلنجی غلافی|
+Hanging Flexible Sign Holders(15)|تابلونگهدار آویز انعطاف‌پذیر|
+Sign Holders for Chain Barriers(2)|تابلونگهدار راهبند زنجیری|
+Wraparound Flexible Sign Holders(5)|تابلونگهدار انعطاف‌پذیر دورپیچ|
+Sign Holders with Suction Cups(2)|تابلونگهدار بادکشی|
+Evacuation Map Holders(2)|قاب نقشه تخلیه اضطراری|
+Locking Framed Sign Holders(3)|قاب تابلو قفل‌دار|
+@25.1.5 Message & Bulletin Boards
+T-Cards(1)|کارت T (برنامه‌ریزی)|
+T-Card Racks(3)|تابلو کارت T|
+@25.2.3 Stencils & Characters
+Stencil Cutters(9)|دستگاه برش شابلون|
+Stencil Rollers(14)|غلتک شابلون|
+Stencil Boards(23)|ورق شابلون|
+Etching Stencil Developing Stations(7)|ایستگاه ظهور شابلون اچ|

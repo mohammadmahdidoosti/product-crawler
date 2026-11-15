@@ -1,0 +1,323 @@
+@10.0.2 Files
+Rectangular Files(87)|سوهان تخت|
+File Sets(20)|ست سوهان|
+Half-Round Files(25)|سوهان نیم‌گرد|
+Precision Rectangular Files(28)|سوهان تخت دقیق|
+Integrated-Handle Rectangular Files(22)|سوهان تخت دسته‌سرخود|
+Round Files(23)|سوهان گرد (دم‌موشی)|
+Precision File Sets(6)|ست سوهان دقیق|
+Triangular Files(23)|سوهان سه‌گوش|
+Square Files(16)|سوهان چهارگوش|
+Nonsparking Rectangular Files(1)|سوهان تخت ضدجرقه|
+Knife Files(15)|سوهان چاقویی|
+Electrical Insulating Rectangular Files(1)|سوهان تخت عایق برق|
+Scratch-Free Rectangular Files(7)|سوهان تخت بی‌خش|
+Integrated-Handle Half-Round Files(7)|سوهان نیم‌گرد دسته‌سرخود|
+Precision Triangular Files(11)|سوهان سه‌گوش دقیق|
+Precision Round Files(9)|سوهان گرد دقیق|
+Precision Half-Round Files(12)|سوهان نیم‌گرد دقیق|
+Integrated-Handle Round Files(6)|سوهان گرد دسته‌سرخود|
+Needle Files(32)|سوهان سوزنی (ساعتی)|
+Needle File Sets(16)|ست سوهان سوزنی|
+Economy Needle File Sets(12)|ست سوهان سوزنی اقتصادی|
+Detail Files(24)|سوهان ظریف‌کاری|
+Bend-and-Stay Needle File Sets(1)|ست سوهان سوزنی خم‌شو|
+Bend-and-Stay Needle Files(6)|سوهان سوزنی خم‌شو|
+Detail File Sets(2)|ست سوهان ظریف‌کاری|
+Integrated-Handle Rectangular Diamond Files(1)|سوهان الماسه تخت دسته‌سرخود|
+Thin-Face Diamond File Sets(1)|ست سوهان الماسه نازک|
+Diamond File Sets(6)|ست سوهان الماسه|
+Diamond File Sets for Ultrasonic Polishers(2)|ست سوهان الماسه پولیش التراسونیک|
+Rectangular Diamond Files(15)|سوهان الماسه تخت|
+Round Diamond Files(9)|سوهان الماسه گرد|
+Half-Round Diamond Files(7)|سوهان الماسه نیم‌گرد|
+Triangular Diamond Files(6)|سوهان الماسه سه‌گوش|
+Diamond Files for Ultrasonic Polishers(13)|سوهان الماسه پولیش التراسونیک|
+Point Diamond Files(6)|سوهان الماسه نوک‌تیز|
+Square Diamond Files(6)|سوهان الماسه چهارگوش|
+Flexible Rectangular Diamond Files(3)|سوهان الماسه تخت انعطاف‌پذیر|
+Thin-Face Rectangular Diamond Files(5)|سوهان الماسه تخت نازک|
+Files for Painted Surfaces(1)|سوهان سطوح رنگ‌شده|
+Rectangular Files for Aluminum and Soft Metal(3)|سوهان تخت آلومینیوم و فلز نرم|
+Half-Round Files for Aluminum and Soft Metal(3)|سوهان نیم‌گرد آلومینیوم و فلز نرم|
+Rectangular Files for Stainless Steel(5)|سوهان تخت استیل|
+Precision Rectangular Files for Stainless Steel(5)|سوهان تخت دقیق استیل|
+Half-Round Files for Stainless Steel(2)|سوهان نیم‌گرد استیل|
+Triangular Files for Stainless Steel(2)|سوهان سه‌گوش استیل|
+Round Files for Stainless Steel(2)|سوهان گرد استیل|
+Square Files for Stainless Steel(2)|سوهان چهارگوش استیل|
+Precision Half-Round Files for Stainless Steel(2)|سوهان نیم‌گرد دقیق استیل|
+Precision Triangular Files for Stainless Steel(2)|سوهان سه‌گوش دقیق استیل|
+Precision Round Files for Stainless Steel(2)|سوهان گرد دقیق استیل|
+Flexible Diamond Needle Files(8)|سوهان سوزنی الماسه انعطاف‌پذیر|
+Diamond Needle Files(42)|سوهان سوزنی الماسه|
+Carbide Needle Files(10)|سوهان سوزنی کاربایدی|
+Diamond Needle File Sets(4)|ست سوهان سوزنی الماسه|
+Carbide Needle File Sets(2)|ست سوهان سوزنی کاربایدی|
+Chain Saw Files(11)|سوهان اره زنجیری|
+Chain Saw File Sets(3)|ست سوهان اره زنجیری|
+Rectangular Carbide Files(10)|سوهان کاربایدی تخت|
+Integrated-Handle Rectangular Carbide Files(2)|سوهان کاربایدی تخت دسته‌سرخود|
+Round Carbide Files(2)|سوهان کاربایدی گرد|
+Half-Round Carbide Files(2)|سوهان کاربایدی نیم‌گرد|
+Round Rasps(1)|سوهان چوب گرد (رنده‌سوهان)|
+Half-Round Rasps(7)|سوهان چوب نیم‌گرد|
+Rectangular Rasps(3)|سوهان چوب تخت|
+Files for Plastic, Laminate, and Fiberglass(7)|سوهان پلاستیک، لمینت و فایبرگلاس|
+Needle Files for Stainless Steel(8)|سوهان سوزنی استیل|
+Needle File Sets for Stainless Steel(2)|ست سوهان سوزنی استیل|
+Files for Air-Powered Filers(16)|سوهان دستگاه سوهان بادی|
+Polishing Stones(737)|سنگ پولیش (سنگ قالب‌سازی)|
+Filers(20)|دستگاه سوهان (بادی/برقی)|
+@10.0.3 Grinding Wheels
+Cutoff Wheels(324)|صفحه برش|
+Grinding Wheel Dressers(104)|الماس سنگ‌تیزکن (درسر)|
+Grinding Cones(42)|سنگ مخروطی|
+Grinding Wheel Truing Tools(8)|ابزار بالانس و صاف‌کن سنگ|
+Grinding Wheel Adapters(8)|آداپتور سنگ سنباده|
+Wheel Brushes(171)|برس سیمی گرد (فرچه دیسکی)|
+Spiral Saw Cutoff Wheels(3)|صفحه برش اره اسپیرال|
+Rotary Tool Cutoff Wheels(34)|صفحه برش فرز مینیاتوری|
+Rotary Tool Grinding Bits(9)|سنگ انگشتی فرز مینیاتوری|
+Rotary Tool Grinding Wheels(2)|سنگ فرز مینیاتوری|
+Motor Shaft Arbors(8)|شفت رابط موتور|
+Wire Bristle Blaster Belts(4)|تسمه برس بلستر|
+Wire Bristle Blasters(19)|برس بلستر (زنگ‌زدای موئی)|
+Bur Organizers(6)|جای فرز انگشتی (بور)|
+@10.0.4 Grinders
+Bench and Pedestal Grinders(53)|سنگ رومیزی و پایه‌دار (سنگ سنباده)|
+Surface Grinders(1)|سنگ تخت|
+Rotary Tool Shafts(1)|شفت انعطاف‌پذیر فرز مینیاتوری|
+Bench and Pedestal Grinder Tool Rests(15)|تکیه‌گاه ابزار سنگ رومیزی|
+Rotary Tool Right-Angle Attachments(1)|سرزاویه‌ای فرز مینیاتوری|
+Bench and Pedestal Grinder Stands(9)|پایه سنگ رومیزی|
+Rotary Tool Grips(1)|دسته فرز مینیاتوری|
+Rotary Tool Guides(1)|راهنمای فرز مینیاتوری|
+Rotary Tool Dust Fans(1)|فن گردگیر فرز مینیاتوری|
+Rotary Tool Router Bits(1)|تیغ اورفرز فرز مینیاتوری|
+Rotary Tool Hangers(1)|آویز فرز مینیاتوری|
+Rotary Tool Tile Cutters(2)|کاشی‌بر فرز مینیاتوری|
+Rotary Tool Cutting Bits(3)|سر برش فرز مینیاتوری|
+Rotary Tool Safety Guards(2)|حفاظ ایمنی فرز مینیاتوری|
+Polisher Arbor Extensions(1)|رابط شفت دستگاه پولیش|
+Buffers and Polishers(57)|دستگاه پولیش|
+Polishing Bobs(233)|پولیش نمدی انگشتی|
+Cutoff Saws(4)|اره پروفیل‌بر (صفحه‌ای)|
+OSHA/ANSI Safety Gauges(1)|گیج ایمنی OSHA/ANSI|
+@10.0.5 Grinding Bits
+Grinding Bit Arbors(3)|شفت سنگ انگشتی|
+@10.0.6 Burs
+Deburring Blades(112)|تیغ پلیسه‌گیر|
+Rotary Tool Buffing and Polishing Kits(1)|کیت پولیش فرز مینیاتوری|
+Buffing Kits(1)|کیت پولیش|
+Rotary Tool Drill Press Attachments(1)|پایه دریل ستونی فرز مینیاتوری|
+@10.0.7 Deburring Tools
+Deburring Bits(7)|سر پلیسه‌گیر|
+@10.0.8 Brushes
+Conveyor Brushes(212)|برس نوار نقاله|
+Cup and End Brushes(355)|برس کاسه‌ای و انگشتی|
+Rotary Tool Wheel Brushes(1)|برس گرد فرز مینیاتوری|
+Conveyor Brush Holders(60)|نگهدارنده برس نوار نقاله|
+Reciprocating Saw Brushes(2)|برس اره افقی‌بر|
+Rotary Tool Motor Brushes(1)|ذغال موتور فرز مینیاتوری|
+Dusters(2)|گردگیر|ترکیبی
+Tube Brush Extension Rods(18)|میله رابط برس لوله‌شور|
+Brush Combs(1)|شانه تمیزکن برس|
+Masonry Brushes(1)|برس بنایی|
+Tabletop Brushes(12)|برس رومیزی|ترکیبی
+Tube Brush Handles(8)|دسته برس لوله‌شور|
+Tube Brush Handle and Extension Kits(2)|کیت دسته و رابط برس لوله‌شور|
+Circular Saw Brushes(5)|برس اره گرد|
+Wheel Brush Arbors(6)|شفت برس گرد|
+Squeegees(3)|تی (اسکوئیجی)|ترکیبی
+Toilet Brushes(3)|فرچه توالت|ترکیبی
+Pole Handles(12)|دسته بلند (چوب جارو)|ترکیبی
+Boot Brushes(3)|برس تمیزکن چکمه|
+Brooms(107)|جارو|ترکیبی
+Floor Machines(13)|دستگاه کف‌شوی|
+Push Broom Handle Braces(2)|بست دسته جارو هلی|
+Water Brooms(1)|جارو آبی|
+Paint Brush and Roller Cleaners(1)|تمیزکن قلم‌مو و غلتک|
+Paint Mitts(1)|دستکش رنگ‌آمیزی|ترکیبی
+Paint Roller Containers(1)|ظرف غلتک رنگ|ترکیبی
+Foam Brushes(5)|قلم‌موی اسفنجی|ترکیبی
+Wallpaper Brushes(2)|برس کاغذدیواری|ترکیبی
+Paint Edgers(6)|لبه‌زن رنگ|ترکیبی
+Air Brushes(30)|ایربراش|
+Paint Brush Containers(2)|ظرف قلم‌مو|
+Pastry Brushes(5)|برس شیرینی‌پزی|ترکیبی
+Ice Scrapers(2)|یخ‌تراش شیشه|ترکیبی
+Oil Brushes(30)|برس روغن‌کاری|
+Antiseize Lubricant Dispensers(1)|دیسپنسر گریس ضدگیرپاژ|
+Brush-Top Cans(42)|قوطی درب‌برس‌دار|
+Jars(3)|شیشه درب‌دار|
+Stencil Brushes(5)|قلم‌موی شابلون|
+@10.0.9 Abrasive Blasters
+Abrasive Blasting Cabinets(111)|کابین سندبلاست|
+Abrasive Blasters(55)|دستگاه سندبلاست|
+Abrasive Blasting Guns(34)|تفنگ سندبلاست|
+Abrasive Blasting Cabinet Window Film(11)|فیلم محافظ شیشه کابین سندبلاست|
+Abrasive Blasting Gun Mounts(1)|پایه تفنگ سندبلاست|
+Abrasive Blasting Cabinet Tumblers(3)|بشکه گردان کابین سندبلاست|
+Abrasive Blasting Cabinet Work Surfaces(18)|صفحه کار کابین سندبلاست|
+Abrasive Blasting Cabinet Feed Conversion Kits(1)|کیت تبدیل تغذیه کابین سندبلاست|
+Dry Ice Blasters(5)|دستگاه یخ‌پاش (درای‌آیس بلاست)|
+@10.0.11 Sharpeners
+Sharpening Stones(203)|سنگ چاقوتیزکن (سنگ رومیزی)|
+Blade Sharpeners(62)|تیزکن تیغه|ترکیبی
+Knife Steels(4)|مسن چاقو|ترکیبی
+Sharpening Guides(4)|راهنمای تیزکاری|
+Sharpening Stone Mats(2)|زیرانداز سنگ تیزکن|
+Sharpening Compounds(5)|خمیر تیزکاری|
+Chain Saw Sharpener Wheels(3)|سنگ تیزکن اره زنجیری|
+Chain Saw Sharpeners(14)|تیزکن اره زنجیری|
+Rotary Tool Sharpeners(1)|تیزکن فرز مینیاتوری|
+Grinding Wheel Dressing Sticks(3)|سنگ درسر چوبی (رگلاژ سنگ)|
+@10.1.1 Buffing Wheels
+Buffing and Polishing Wheels(163)|چرخ پولیش (نمدی/کتانی)|
+Buffing and Polishing Wheel Flanges(4)|فلنج چرخ پولیش|
+Buffing and Polishing Wheel Spindles(12)|شفت چرخ پولیش|
+Buffing and Polishing Applicator Bonnets(1)|کلاهک اعمال پولیش|
+Cleaners for Buffing and Polishing Bonnets and Pads(2)|تمیزکن کلاهک و پد پولیش|
+Buffing and Polishing Wheel Cleaning Rakes(2)|شانه تمیزکن چرخ پولیش|
+Polishing Bonnets(7)|کلاهک پولیش|
+Wheel Arbors(31)|شفت چرخ (آربر)|
+@10.1.2 Polishers
+Microfiber Cloths(1)|دستمال میکروفایبر|ترکیبی
+Surface Cleaner Clay(1)|خمیر تمیزکن سطح (کلی‌بار)|
+Polishing Stone Holders(19)|نگهدارنده سنگ پولیش|
+Buffing and Polishing Compounds(48)|خمیر پولیش|
+Bench Grinders(45)|سنگ رومیزی|
+Lapping Compounds(235)|خمیر لپینگ (خمیر سوپاپ)|
+Lapping Grains(64)|پودر لپینگ|
+Chamois(2)|جیر (چرم شستشو)|ترکیبی
+Floor Machine Pads(22)|پد دستگاه کف‌شوی|
+Floor Machine Pad Holders(9)|نگهدارنده پد کف‌شوی|
+Lapping Compound Lubricants(9)|روان‌کننده خمیر لپینگ|
+@10.1.3 Lapping & Polishing Compounds
+Lapping Plates(8)|صفحه لپینگ|
+Laps(114)|لپ (ابزار لپینگ)|
+Lapping Sticks(12)|سنگ لپینگ میله‌ای|
+3D-Printed-Part Solvents(1)|حلال قطعات پرینت سه‌بعدی|
+Metal Brighteners(1)|براق‌کننده فلز|
+Aluminum Cleaners(1)|تمیزکن آلومینیوم|
+Stainless Steel Surface Restorers(3)|احیاکننده سطح استیل|
+Passivating Cleaners(6)|محلول پسیواسیون|
+Plastic Cleaners(2)|تمیزکن پلاستیک|
+Nitric Acid(10)|اسید نیتریک|
+@10.1.5 Finishing Media
+Tumbling Media for Steel, Stainless Steel, and Hard Metals(147)|سنگ ویبره فولاد، استیل و فلزات سخت|
+Tumbling Media for Aluminum, Brass, and Soft Metals(23)|سنگ ویبره آلومینیوم، برنج و فلزات نرم|
+Long-Life Tumbling Media for Steel, Stainless Steel, and Hard Metals(2)|سنگ ویبره عمر بالا فولاد و فلزات سخت|
+Tumbling Media for Magnetic Tumblers(3)|سوزن پولیش ویبره مغناطیسی|
+Cleaners for Tumbling(9)|محلول شستشوی ویبره|
+@11.0.0 Reciprocating Saw Blades
+Fast-Cut Reciprocating Saw Blades for Straight Cuts in Metal(35)|تیغ اره افقی‌بر سریع‌بر برش مستقیم فلز|
+Heavy Duty Reciprocating Saw Blades for Straight Cuts in Metal(37)|تیغ اره افقی‌بر سنگین برش مستقیم فلز|
+Extra-Long-Life Reciprocating Saw Blades for Straight Cuts(16)|تیغ اره افقی‌بر عمر خیلی بالا برش مستقیم|
+Heavy Duty Extra-Long-Life Reciprocating Saw Blades for Straight Cuts in Metal(9)|تیغ اره افقی‌بر سنگین عمر خیلی بالا برش مستقیم فلز|
+Reciprocating Saw Blade Assortments(5)|ست تیغ اره افقی‌بر|
+Reciprocating Saw Blades for Straight Cuts in Metal(18)|تیغ اره افقی‌بر برش مستقیم فلز|
+Reciprocating Saw Blades for Straight Cuts in Wood(1)|تیغ اره افقی‌بر برش مستقیم چوب|
+Reciprocating Saw Blades for Plunge Cuts in Metal(1)|تیغ اره افقی‌بر برش فرورونده فلز|
+Heavy Duty Extra-Long-Life Reciprocating Saw Blades for Plunge Cuts(9)|تیغ اره افقی‌بر سنگین عمر خیلی بالا برش فرورونده|
+Precise-Cut Reciprocating Saw Blades for Straight Cuts in Wood(1)|تیغ اره افقی‌بر برش دقیق مستقیم چوب|
+Vibration-Resistant Reciprocating Saw Blades for Straight Cuts(7)|تیغ اره افقی‌بر ضدلرزش برش مستقیم|
+Heavy Duty Reciprocating Saw Blades for Plunge Cuts in Wood(3)|تیغ اره افقی‌بر سنگین برش فرورونده چوب|
+Reciprocating Saw Blades for Curved Cuts(1)|تیغ اره افقی‌بر برش منحنی|
+Fast-Cut Reciprocating Saw Blades for Plunge Cuts in Wood(1)|تیغ اره افقی‌بر سریع‌بر برش فرورونده چوب|
+Heavy Duty Vibration-Resistant Reciprocating Saw Blades for Plunge Cuts(7)|تیغ اره افقی‌بر سنگین ضدلرزش برش فرورونده|
+Vibration-Resistant Reciprocating Saw Blades for Plunge Cuts in Wood(1)|تیغ اره افقی‌بر ضدلرزش برش فرورونده چوب|
+Multidirectional Cutting Reciprocating Saw Blades for Drywall(1)|تیغ اره افقی‌بر چندجهته کناف|
+Reciprocating Saw Blades for Plunge Cuts in Wood(8)|تیغ اره افقی‌بر برش فرورونده چوب|
+Reciprocating Saw Blades for Straight Cuts(5)|تیغ اره افقی‌بر برش مستقیم|
+Heavy Duty Reciprocating Saw Blades for Straight Cuts(4)|تیغ اره افقی‌بر سنگین برش مستقیم|
+Heavy Duty Extra-Long-Life Reciprocating Saw Blades for Plunge Cuts in Wood(3)|تیغ اره افقی‌بر سنگین عمر خیلی بالا برش فرورونده چوب|
+Long-Life Reciprocating Saw Blades for Ceramics and Masonry(2)|تیغ اره افقی‌بر عمر بالا سرامیک و مصالح بنایی|
+Reciprocating Saw Blades for Curved Cuts in Metal(2)|تیغ اره افقی‌بر برش منحنی فلز|
+Reciprocating Saw Blades for Plunge Cuts(3)|تیغ اره افقی‌بر برش فرورونده|
+Fast-Cut Reciprocating Saw Blades for Drywall(2)|تیغ اره افقی‌بر سریع‌بر کناف|
+Vibration-Resistant Reciprocating Saw Blades for Plunge Cuts(2)|تیغ اره افقی‌بر ضدلرزش برش فرورونده|
+Reciprocating Saw Blades for Ceramics and Masonry(2)|تیغ اره افقی‌بر سرامیک و مصالح بنایی|
+Reciprocating Saw Blades for Grout(2)|تیغ اره افقی‌بر بندکشی (دوغاب)|
+Reciprocating Saw Scraper Blades(7)|تیغ کاردکی اره افقی‌بر|
+@11.0.2 Handsaw Blades
+Hacksaw Blades(51)|تیغ اره آهن‌بر|
+Coping Saws(2)|اره مویی (فارسی‌بر دستی)|
+Fret Saws(2)|اره منبت‌کاری|
+Hacksaws(25)|کمان اره آهن‌بر|
+Scroll Saw Blades(6)|تیغ اره فارسی‌بر|
+Handsaws(21)|اره دستی|
+Bow Saws(5)|اره کمانی|
+Miter Saws(1)|اره فارسی‌بر دستی (زاویه‌بر)|
+@11.0.3 Band Saw Blades
+Vibration-Damping Long-Life Band Saw Blades(914)|تیغ اره نواری ضدلرزش عمر بالا|
+Band Saw Blades for Straight Cuts(182)|تیغ اره نواری برش مستقیم|
+Long-Life Band Saw Blades(62)|تیغ اره نواری عمر بالا|
+Vibration-Damping Portable Band Saw Blades(12)|تیغ اره نواری دستی ضدلرزش|
+Portable Band Saw Blades(7)|تیغ اره نواری دستی|
+Long-Life Band Saw Blades for Thick Materials(18)|تیغ اره نواری عمر بالا مواد ضخیم|
+Portable Band Saw Blades for Thin Metal(9)|تیغ اره نواری دستی فلز نازک|
+Long-Life Band Saw Blades for Thin Metal(45)|تیغ اره نواری عمر بالا فلز نازک|
+Band Saw Blades for Stainless Steel, Nickel, and Titanium(27)|تیغ اره نواری استیل، نیکل و تیتانیوم|
+Band Saw Blades for Curved Cuts(62)|تیغ اره نواری برش منحنی|
+Vibration-Damping Long-Life Band Saw Blades for Thin Metal(22)|تیغ اره نواری ضدلرزش عمر بالا فلز نازک|
+Long-Life Band Saw Blades for Structural Shapes and Bundles(19)|تیغ اره نواری عمر بالا پروفیل و بسته‌ای|
+Band Saw Blades for Soft Materials(61)|تیغ اره نواری مواد نرم|
+Vibration-Damping Portable Band Saw Blades for Thin Metal(5)|تیغ اره نواری دستی ضدلرزش فلز نازک|
+Band Saw Blades for Ceramic and Masonry(8)|تیغ اره نواری سرامیک و مصالح بنایی|
+Band Saw Blades for Fiberglass, Plastic, and Composite(18)|تیغ اره نواری فایبرگلاس، پلاستیک و کامپوزیت|
+Band Saw Blades for Hardened Steel, Super Alloys, and Graphite(32)|تیغ اره نواری فولاد سخت‌کاری‌شده، سوپرآلیاژ و گرافیت|
+Band Saw Blades for Straight Cuts in Thin Metal(16)|تیغ اره نواری برش مستقیم فلز نازک|
+Long-Life Band Saw Blades for Stainless Steel, Nickel, and Titanium(15)|تیغ اره نواری عمر بالا استیل، نیکل و تیتانیوم|
+Vibration-Damping Long-Life Band Saw Blades for Stainless Steel, Nickel, and Titanium(20)|تیغ اره نواری ضدلرزش عمر بالا استیل، نیکل و تیتانیوم|
+Band Saw Blades for Straight Cuts in Hardwood(20)|تیغ اره نواری برش مستقیم چوب سخت|
+Band Saw Blades for Case-Hardened Metal(8)|تیغ اره نواری فلز سطح‌سخت‌شده|
+Band Saw Blades for Curved Cuts in Hardwood(14)|تیغ اره نواری برش منحنی چوب سخت|
+Fast-Cut Band Saw Blades for Soft Materials(10)|تیغ اره نواری سریع‌بر مواد نرم|
+Friction-Cutting Band Saw Blades for Thin Metal and Rubber(10)|تیغ اره نواری برش اصطکاکی فلز نازک و لاستیک|
+Band Saw Blades for Curved Cuts in Softwood(7)|تیغ اره نواری برش منحنی چوب نرم|
+Band Saw Blades for Straight Cuts in Softwood(4)|تیغ اره نواری برش مستقیم چوب نرم|
+Band Saw Blades for Curved Cuts in Thin Metal(4)|تیغ اره نواری برش منحنی فلز نازک|
+Band Saws(39)|اره نواری|
+Band Saw Blade Coil Stock(70)|تیغ اره نواری رول (کلاف)|
+Band Saw Replacement Parts(30)|قطعات یدکی اره نواری|
+Band Saw Blade Guides(21)|راهنمای تیغ اره نواری|
+Band Saw Wheel Tires(20)|لاستیک فلکه اره نواری|
+@11.0.4 Circular Saw Blades
+Circular Saw Blades(136)|تیغ اره گرد (اره دیسکی)|
+Miter, Chop, and Table Saw Blades(110)|تیغ اره فارسی‌بر، پروفیل‌بر و میزی|
+Circular Saw Blade Stiffeners(1)|صفحه تقویت تیغ اره گرد|
+Cold Saw Blades(39)|تیغ اره سردبر|
+Track Saw Blades(3)|تیغ اره ریلی|
+Walk-Behind Saw Blades(18)|تیغ کف‌بر (آسفالت‌بر)|
+Rotary Tool Blades(33)|تیغ فرز مینیاتوری|
+Saw Blade Cases(5)|کیف تیغ اره|
+@11.0.6 Saws
+Chop Saws(21)|اره پروفیل‌بر|
+Circular Saws(26)|اره گرد دستی (اره دیسکی)|
+Reciprocating Saws(34)|اره افقی‌بر|
+Band Saw Blades(1631)|تیغ اره نواری|
+Reciprocating Saw Blades(188)|تیغ اره افقی‌بر|
+Jigsaws(12)|اره عمودبر|
+Table Saws(18)|اره میزی|
+Band Saw Fences(1)|گونیا راهنمای اره نواری|
+Jigsaw Blades(81)|تیغ اره عمودبر|
+Miter Saw Stands(1)|پایه اره فارسی‌بر|
+Track Saws(14)|اره ریلی|
+Wet Saws(4)|اره آب‌خور (کاشی‌بر)|
+Cold Saws(9)|اره سردبر|
+Chain Saws(11)|اره زنجیری|
+Hole Saw Debris Collectors(1)|جمع‌کن براده گردبر|
+Scroll Saws(2)|اره فارسی‌بر (مویی رومیزی)|
+Cable Saws(3)|اره سیمی|
+Chain Saw Chains(17)|زنجیر اره زنجیری|
+Panel Saws(9)|اره پانل‌بر (دورکن)|
+Chain Saw Bar and Chain Kits(11)|کیت تیغه و زنجیر اره زنجیری|
+Circular Saw Switches(3)|کلید اره گرد|
+Spiral Saw Bits(6)|تیغ اره اسپیرال|
+Rotary Tool Drywall Cutters(1)|کناف‌بر فرز مینیاتوری|
+Metal Strip Cutters(2)|تسمه‌بر فلزی|
+Strut Channel Cutters(4)|ناودانی‌بر یونیسترات|
+Tree Trimmers(1)|شاخه‌زن|
+Measuring Wheels(3)|متر چرخ‌دار|

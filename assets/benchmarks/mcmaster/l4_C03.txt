@@ -1,0 +1,390 @@
+@11.0.7 Hole Saws
+Long-Life Hole Saws(87)|گردبر عمر بالا|
+Hole Saws for Hard Metal(48)|گردبر فلزات سخت|
+Fast-Cut Hole Saws(58)|گردبر سریع‌بر|
+Hole Saws for Sheet Metal(72)|گردبر ورق فلزی|
+Heavy Duty Hole Saws for Stainless Steel Sheets(30)|گردبر سنگین ورق استیل|
+Hole Saws with Built-In Arbor(45)|گردبر شفت‌سرخود|
+Long-Life Hole Saws for Ceramic and Masonry(45)|گردبر عمر بالا سرامیک و مصالح بنایی|
+Large Diameter Hole Saws(22)|گردبر قطر بزرگ|
+Hole Saw Kits(13)|ست گردبر|
+Long-Life Hole Saw Kits(4)|ست گردبر عمر بالا|
+Long-Life Fast-Cut Hole Saws for Wood and Plastic(49)|گردبر سریع‌بر عمر بالا چوب و پلاستیک|
+Heavy Duty Hole Saws for Sheet Metal and Plastic Sheets(19)|گردبر سنگین ورق فلزی و پلاستیکی|
+Hole Saw Kits for Sheet Metal(5)|ست گردبر ورق فلزی|
+Hole Saws for Ceramic and Masonry(28)|گردبر سرامیک و مصالح بنایی|
+Long-Life Large Diameter Hole Saws(35)|گردبر قطر بزرگ عمر بالا|
+Impact-Driver Hole Saws for Sheet Metal(7)|گردبر ورق فلزی پیچ‌گوشتی ضربه‌ای|
+Hole Saws for Fiberglass and Plastic Sheets(16)|گردبر ورق فایبرگلاس و پلاستیک|
+Hole Saw Kits for Ceramic and Masonry(1)|ست گردبر سرامیک و مصالح بنایی|
+Adjustable-Diameter Hole Saws for Sheet Metal(1)|گردبر قطر متغیر ورق فلزی|
+Fast-Cut Hole Saw Kits(3)|ست گردبر سریع‌بر|
+Adjustable Large-Diameter Hole Saws for Sheet Metal(3)|گردبر قطر بزرگ متغیر ورق فلزی|
+Adjustable-Diameter Hole Saws with Debris Guard(4)|گردبر قطر متغیر با محافظ براده|
+Hole Saws for Spot Welds(2)|گردبر نقطه‌جوش (اسپات‌کاتر)|
+@11.1.0 Knives
+Utility Knife Blades(80)|تیغ کاتر|
+Precision Knife Blades(94)|تیغ کاتر دقیق (اسکالپلی)|
+Insulation Knives(5)|چاقو برش عایق|
+Duct Hose Cutters(1)|برش‌دهنده شیلنگ کانال|
+Foam Cutting Kits(3)|کیت برش فوم|
+Knife Blocks(1)|جاچاقویی|ترکیبی
+Paper Cutters(57)|کاغذبر|ترکیبی
+Ring Knives(20)|چاقو انگشتری|
+Flooring Knives(8)|کاتر کفپوش|
+Rope Cutters(6)|طناب‌بر|
+Hot Wire Bow Cutters(3)|کمان برش سیم داغ (فوم‌بر)|
+Chisels(98)|قلم (مغار)|
+Draw Knives(2)|رنده دودسته (درا‌نایف)|
+3D-Printed-Part Scrapers(3)|کاردک قطعات پرینت سه‌بعدی|
+Flatware(5)|قاشق و چنگال|ترکیبی
+Knife Sheaths(10)|غلاف چاقو|
+Sampling Knives(4)|چاقو نمونه‌برداری|
+Sharps Disposal Containers(19)|سیفتی باکس (ظرف دفع اجسام تیز)|
+@11.1.2 Scissors
+Sheet Metal-Cutting Snips(55)|قیچی ورق‌بر دستی|
+Sheet Metal-Cutting Shears(53)|قیچی ورق‌بر برقی|
+Plastic Cutters(21)|پلاستیک‌بر|
+Angle-Iron Cutters(3)|نبشی‌بر|
+Strapping Cutters(9)|تسمه‌بر (قیچی تسمه بسته‌بندی)|
+Sheet Metal Notchers(1)|گوشه‌بر ورق|
+DIN Rail Cutters(3)|ریل‌بر DIN|
+Rubber Cutters(3)|لاستیک‌بر|
+Fabric Cutters(6)|پارچه‌بر|
+Wire Rope Cutters(43)|سیم بکسل‌بر|
+Rebar Bender/Cutters(1)|میلگردبر و خم‌کن|
+Pruning Shears(1)|قیچی باغبانی|ترکیبی
+Loppers(1)|قیچی شاخه‌زن دودسته|ترکیبی
+Hedge Trimmers(2)|شمشادزن|ترکیبی
+First-Aid Scissors(4)|قیچی کمک‌های اولیه|
+Strapping Breakers(2)|تسمه‌شکن|
+@11.1.3 Snips
+Screw-Extracting Pliers(3)|انبر پیچ‌درآر|
+Parallel-Jaw Pliers(13)|انبر فک موازی|
+Gas Fitting Pliers(4)|انبر اتصالات گاز|
+Fabric-Stretching Pliers(9)|انبر کشش پارچه|
+Brake Spring Pliers(1)|انبر فنر ترمز|
+Fingernail Clippers(1)|ناخن‌گیر|مصرفی
+@11.1.6 Scrapers
+Smoothing Tools(1)|ابزار صاف‌کن|
+Air Hammers(42)|چکش بادی|
+Planes(21)|رنده دستی|
+Jointers(4)|رنده گندگی (کف‌رند)|
+Filing Planes(5)|رنده سوهانی|
+Tube Cleaner Scrapers(2)|تراشنده لوله‌شوی|
+Hoes(6)|کج‌بیل|ترکیبی
+Conveyor Belt Scrapers(4)|اسکریپر نوار نقاله|
+@11.1.10 Gasket Cutters
+Laser Cutters(5)|دستگاه برش لیزر|
+@11.1.12 Paper Cutters
+Enclosed-Blade Paper Cutters(8)|کاغذبر تیغه محافظ‌دار|ترکیبی
+Precision Paper Cutters(6)|کاغذبر دقیق|ترکیبی
+Handheld Paper Cutters(15)|کاغذبر دستی|ترکیبی
+High-Capacity Paper Cutters(2)|کاغذبر پرظرفیت|ترکیبی
+Freestanding-Base Paper Cutters(3)|کاغذبر پایه‌دار|
+Paper Roll Dispensers(24)|دیسپنسر رول کاغذ|
+@12.0.0 Safety Glasses & Face Shields
+Wraparound Safety Glasses(16)|عینک ایمنی دورپیچ|
+Aviator Safety Glasses(1)|عینک ایمنی خلبانی|
+Lighted Wraparound Safety Glasses(3)|عینک ایمنی دورپیچ چراغ‌دار|
+Eyeglass-Style Safety Glasses(3)|عینک ایمنی طرح طبی|
+Frameless Safety Glasses(1)|عینک ایمنی بدون فریم|
+Wraparound Safety Glasses with Metal Frame(1)|عینک ایمنی دورپیچ فریم فلزی|
+Dust-Tight Wraparound Safety Glasses(4)|عینک ایمنی دورپیچ ضدگرد|
+Eyeglass-Fit Panoramic Safety Glasses(8)|عینک ایمنی پانوراما روی عینک طبی|
+Nonconductive Wraparound Safety Glasses(7)|عینک ایمنی دورپیچ نارسانا|
+Panoramic Safety Glasses(5)|عینک ایمنی پانوراما|
+Eyeglass-Fit Visitors' Safety Glasses(4)|عینک ایمنی بازدیدکننده روی عینک طبی|
+Wraparound Safety Glasses with Earplugs(3)|عینک ایمنی دورپیچ با گوشی|
+Wraparound Safety Sunglasses(14)|عینک ایمنی آفتابی دورپیچ|
+Frameless Safety Sunglasses(10)|عینک ایمنی آفتابی بدون فریم|
+Dust-Tight Wraparound Safety Sunglasses(1)|عینک ایمنی آفتابی دورپیچ ضدگرد|
+Panoramic Safety Sunglasses(1)|عینک ایمنی آفتابی پانوراما|
+Eyeglass-Fit Panoramic Safety Sunglasses(2)|عینک ایمنی آفتابی پانوراما روی عینک طبی|
+Nonconductive Wraparound Safety Sunglasses(2)|عینک ایمنی آفتابی دورپیچ نارسانا|
+Wraparound Safety Sunglasses with Earplugs(2)|عینک ایمنی آفتابی دورپیچ با گوشی|
+Safety Glasses with Magnifiers(24)|عینک ایمنی ذره‌بینی|
+Safety Sunglasses with Magnifiers(5)|عینک ایمنی آفتابی ذره‌بینی|
+Eye-Strain-Relief Glasses(15)|عینک ضدخستگی چشم (بلوکات)|
+Wraparound Welding Safety Glasses(10)|عینک جوشکاری دورپیچ|
+Panoramic Welding Safety Glasses(2)|عینک جوشکاری پانوراما|
+Eyeglass-Fit Panoramic Welding Safety Glasses(2)|عینک جوشکاری پانوراما روی عینک طبی|
+Laser Welding Safety Glasses(2)|عینک جوش لیزر|
+Flip-Up Welding Safety Glasses(2)|عینک جوشکاری تاشو بالازن|
+Laser Safety Glasses(4)|عینک ایمنی لیزر|
+Eyeglass-Fit Laser Safety Glasses(2)|عینک ایمنی لیزر روی عینک طبی|
+Eyeglass Side Shields(5)|محافظ کناری عینک|
+Safety Glasses Dispensers(1)|دیسپنسر عینک ایمنی|
+Eyewear Trays(1)|سینی عینک|
+Hard Hat Liners(1)|آستر کلاه ایمنی|
+Eyeglass Repair Kits(1)|کیت تعمیر عینک|ترکیبی
+Hard Hats(20)|کلاه ایمنی|
+Eyewear Organizers(6)|جاعینکی|
+Hard Hat Sun Shields(2)|آفتاب‌گیر کلاه ایمنی|
+Eyewear Cases(3)|قاب عینک|ترکیبی
+@12.0.2 Hard Hats
+Lightweight Carbon Fiber Hard Hats(7)|کلاه ایمنی فیبر کربن سبک|
+Hard Hats for Top and Side Impacts(10)|کلاه ایمنی ضربه بالا و کنار|
+Western-Style Hard Hats(2)|کلاه ایمنی طرح کابویی|
+Climbing-Style Hard Hats(13)|کلاه ایمنی کوهنوردی (کار در ارتفاع)|
+Hard Hats with Face Shield and Earmuffs(14)|کلاه ایمنی با شیلد و گوشی|
+Cooling Hard Hats(3)|کلاه ایمنی خنک‌کننده|
+Sustainable Hard Hats(3)|کلاه ایمنی بازیافتی|
+Hard Hats with Retractable Visor(6)|کلاه ایمنی با عینک جمع‌شو|
+Glow-in-the-Dark Hard Hats(4)|کلاه ایمنی شب‌تاب|
+Heat-Resistant Hard Hats(7)|کلاه ایمنی نسوز|
+Hard Hats with UV Indicator(5)|کلاه ایمنی با نشانگر UV|
+Hard Hats with Clear Brim(5)|کلاه ایمنی لبه شفاف|
+Earmuffs(10)|گوشی ایمنی روگوشی (ایرماف)|
+Bicycle Helmets(1)|کلاه دوچرخه‌سواری|ترکیبی
+Hard Hat Chin Straps(4)|بند چانه کلاه ایمنی|
+Earmuff Clips(1)|گیره گوشی روگوشی|
+Hard Hat Bags(1)|کیف کلاه ایمنی|
+Bump Cap Inserts(4)|لایی کلاه نقاب‌دار ضدضربه|
+Hard Hat Cooling Pads(5)|پد خنک‌کننده کلاه ایمنی|
+Hard Hat Racks(6)|رک کلاه ایمنی|
+Hard Hat Windsocks(5)|کلاه زیر کلاه ایمنی (گرم‌کن)|
+Hard Hat Shrouds(2)|نقاب پارچه‌ای کلاه ایمنی|
+@12.0.4 Harnesses & Lanyards
+Fall-Rescue Ladders(1)|نردبان نجات سقوط|
+Fall-Arrest Harness Label Protectors(1)|محافظ برچسب هارنس|
+Suspension Seats(5)|صندلی کار در ارتفاع (بوسان‌چیر)|
+Fall-Arrest Harness Lanyard Holders(2)|نگهدارنده لنیارد هارنس|
+Shorts(1)|شلوارک|
+@12.0.5 Clothing
+Shirts(22)|پیراهن کار|
+Hair Ties(1)|کش مو|مصرفی
+Footwear(21)|کفش کار|
+Rain Suits(10)|لباس ضدآب (بارانی)|
+Ear Warmers(1)|گوش‌گرم‌کن|
+Face Mask Strap Extenders(1)|رابط بند ماسک|
+Headbands(1)|هدبند|
+Neck Gaiters(6)|دستمال گردن (اسکارف حلقه‌ای)|
+Waders(7)|چکمه شلواری (ویدر)|
+Shoe and Boot Covers(101)|کاور کفش و چکمه|
+Back-Support Belts(4)|کمربند طبی کار|
+Suspenders(2)|بند شلوار|
+Shoe Laces(14)|بند کفش|
+Palm Protectors(5)|محافظ کف دست|
+Ice Cleats(20)|زنجیر کفش یخ‌شکن|
+Finger Tape(6)|چسب انگشت|مصرفی
+Toe and Foot Guards(27)|محافظ پنجه و پا|
+Glove Liners(4)|آستر دستکش|
+Spiked Shoe Covers(2)|کاور کفش میخ‌دار|
+Knee Pads(23)|زانوبند کار|
+Glove Storage Bags(14)|کیسه نگهداری دستکش|
+Clothing Dispensers(8)|دیسپنسر لباس یکبارمصرف|
+Earmuff and Headset Covers(2)|کاور گوشی و هدست|
+Personal Protection Packs(1)|بسته حفاظت فردی|
+Cooling Towels(3)|حوله خنک‌کننده|
+Reflective Blankets(1)|پتوی بازتابنده (حرارتی)|
+Glove Boxes and Bags(16)|جعبه و کیسه دستکش|
+Electrical Protection Blankets(6)|پتوی عایق برق|
+Tool Belts(15)|کمربند ابزار|
+Headsets(7)|هدست ارتباطی|
+Shampoo Caps(2)|کلاه شامپو (بدون آب)|
+Laundry Detergents(9)|مایع/پودر لباسشویی|ترکیبی
+Laundry Stain Removers(3)|لکه‌بر لباس|ترکیبی
+@12.0.6 Respirators
+Respirator Filter Connectors(2)|اتصال فیلتر ماسک|
+Respirator Pumps(3)|پمپ ماسک تنفسی|
+Respirator Filter Retainers(3)|نگهدارنده فیلتر ماسک|
+Respirator Fit Testers(1)|تستر نشت ماسک (فیت‌تست)|
+Face Mask Dispensers(2)|دیسپنسر ماسک|
+Emergency Oxygen Kits(4)|کیت اکسیژن اضطراری|
+Respirator Cleaners(1)|تمیزکن ماسک تنفسی|
+Respirator Cleaning Kits(3)|کیت تمیزکاری ماسک|
+Personal Protection Sanitizing Stations(10)|ایستگاه ضدعفونی تجهیزات حفاظت فردی|
+Respirator Bags(3)|کیف ماسک تنفسی|
+@12.1.0 First-Aid Supplies
+First-Aid Kits(25)|جعبه کمک‌های اولیه|ترکیبی
+Bandages(45)|باند و چسب زخم|ترکیبی
+Medications(17)|دارو (مسکن و عمومی)|ترکیبی
+Cots(2)|تخت سفری|
+Splinter Removers(1)|خارکش|
+Wheelchairs(1)|ویلچر|
+Alcohol and Drug Tests(4)|تست الکل و مواد|
+Antiseptics(14)|ضدعفونی‌کننده زخم|ترکیبی
+First-Aid Tweezers(1)|پنس کمک‌های اولیه|
+Insect Bite Creams(1)|کرم نیش حشرات|مصرفی
+Antibiotic Ointments(3)|پماد آنتی‌بیوتیک|ترکیبی
+First-Aid Gauze(8)|گاز استریل|ترکیبی
+Cold Sprays(1)|اسپری سرد (یخ)|
+Outdoor Skin Cleansers(1)|پاک‌کننده پوست فضای باز|
+Burn Relief Dressings(3)|پانسمان سوختگی|
+First-Aid Cases(3)|کیف کمک‌های اولیه|
+Cotton Balls(1)|پنبه|ترکیبی
+Blood-Clotting Treatments(2)|بندآورنده خون|
+Hot and Cold Packs(3)|کیسه گرم و سرد|ترکیبی
+Sunscreen(2)|کرم ضدآفتاب|مصرفی
+Stretchers(4)|برانکارد|
+CPR Mouth Shields(2)|ماسک تنفس مصنوعی CPR|
+Insect Repellents(2)|دافع حشرات|ترکیبی
+Skin-Protection Lotions(2)|لوسیون محافظ پوست|
+Tongue Depressors(3)|آبسلانگ|
+Eye Drops(1)|قطره چشم|ترکیبی
+Crutches(4)|عصای زیربغل|
+Canes(3)|عصا|
+AED Cabinets(1)|کابینت دستگاه شوک (AED)|
+Tourniquets(2)|تورنیکه|
+Elbow Pads(1)|آرنج‌بند محافظ|
+Elbow Supports(1)|آرنج‌بند طبی|
+Electrical Insulating Rescue Hooks(3)|قلاب نجات عایق برق|
+Eye Wash Cups(1)|لیوان چشم‌شوی|
+Spill-Control Kits(2)|کیت کنترل نشت|
+Fire Blankets(5)|پتوی آتش‌نشانی|
+Tents(26)|چادر|
+Tissues(1)|دستمال کاغذی|ترکیبی
+Tissue Dispensers(2)|جادستمالی|ترکیبی
+@12.1.1 Wash Stations
+Shower Stations(24)|دوش اضطراری|
+Shower Station Test Kits(1)|کیت تست دوش اضطراری|
+Eye Wash Solutions(6)|محلول چشم‌شوی|
+Shower Station Valves(3)|شیر دوش اضطراری|
+Decontaminating Kits(2)|کیت رفع آلودگی|
+Shower Heads(6)|سردوش|
+Eye Wash Waste Containers(1)|ظرف پساب چشم‌شوی|
+@12.1.2 Fire Extinguishers & Sprinklers
+Fire Extinguishers(102)|کپسول آتش‌نشانی|
+Fire Extinguisher Brackets(41)|براکت کپسول آتش‌نشانی|
+Fire Extinguisher Alarms(1)|آلارم کپسول آتش‌نشانی|
+Fire Extinguisher Stands(5)|پایه کپسول آتش‌نشانی|
+Fire Extinguisher Cabinets(20)|جعبه کپسول آتش‌نشانی|
+Fire Extinguisher Covers(2)|کاور کپسول آتش‌نشانی|
+Fire Sprinkler Head Boxes(4)|جعبه یدکی اسپرینکلر|
+Fire Sprinkler Head Installation Tools(6)|آچار نصب اسپرینکلر|
+Fire Sprinkler Head Guards(8)|حفاظ اسپرینکلر|
+Fire Sprinkler Head Cover Plates(27)|درپوش (روزت) اسپرینکلر|
+Fire Post Indicators(2)|شیر نشانگر ایستاده (PIV)|
+Fire Sprinkler Heads(49)|اسپرینکلر آتش‌نشانی|
+Fire Sprinkler Head Stoppers(2)|درپوش موقت اسپرینکلر|
+Air Compressors(9)|کمپرسور باد|
+@12.1.4 Lockouts
+Lockout Hasps(11)|قفل گروهی (هاسپ لاک‌اوت)|
+Clamp-On Circuit Breaker Lockouts(18)|قفل کلید مینیاتوری گیره‌ای|
+Electrical Plug Lockouts(7)|قفل دوشاخه برق|
+Valve Handle Lockouts(28)|قفل دسته شیر|
+Choose-a-Color Lockout Hasps with Label(1)|هاسپ لاک‌اوت رنگی برچسب‌دار|
+Circuit Breaker Lockouts(3)|قفل کلید مینیاتوری|
+Portable Group Lockout Boxes(8)|جعبه لاک‌اوت گروهی قابل حمل|
+Electrical Socket Lockouts(1)|قفل پریز برق|
+Circuit Breaker Lockout Bars(5)|شینه لاک‌اوت کلید مینیاتوری|
+Hinged Lockouts for Valve Hand Wheels(15)|قفل لولایی فلکه شیر|
+Wraparound Valve Handle Lockouts(1)|قفل دورپیچ دسته شیر|
+Air Hose Lockouts(5)|قفل شیلنگ باد|
+Pry-Resistant Interlocking-Hasp Valve Lockout with Chain(1)|قفل شیر هاسپ‌دار ضداهرم با زنجیر|
+Clamp-On Lockout Cables(1)|کابل لاک‌اوت گیره‌ای|
+Pin-In DIN-Rail Mount Circuit Breaker Lockouts(1)|قفل کلید ریلی پین‌داخل|
+Pull-Tight Lockout Cables(9)|کابل لاک‌اوت کششی|
+Low-Profile Lockout Hasps with Label(1)|هاسپ لاک‌اوت کم‌ارتفاع برچسب‌دار|
+Tie-Bar DIN-Rail Mount Circuit Breaker Lockouts(1)|قفل کلید ریلی چندپل (تای‌بار)|
+Two-Piece Lockouts for Valve Hand Wheels(1)|قفل دوتکه فلکه شیر|
+Nonconductive Lockout Hasps(6)|هاسپ لاک‌اوت نارسانا|
+Nonconductive Lockout Hasps with Tag Holder(2)|هاسپ لاک‌اوت نارسانا با جای برچسب|
+Push-Button Safety Covers(10)|کاور ایمنی شستی|
+Pendant Switch Lockouts(1)|قفل کلید آویز (پندانت)|
+Portable/Wall-Mount Group Lockout Boxes(9)|جعبه لاک‌اوت گروهی دیواری/قابل حمل|
+Trailer Brake Lockouts(1)|قفل ترمز تریلر|
+Plug-In Electrical Plug Lockouts(2)|قفل دوشاخه نوع پلاگی|
+Lockout Bags(4)|کیف لاک‌اوت|
+Electrical Panel Lockouts(5)|قفل تابلو برق|
+Wall Switch Lockouts(2)|قفل کلید دیواری|
+Wall-Mount Group Lockout Boxes(2)|جعبه لاک‌اوت گروهی دیواری|
+Pry-Resistant Lockout Hasps with Padlock Slot(6)|هاسپ لاک‌اوت ضداهرم با جای قفل|
+Pinch-Point Lockout Cables(8)|کابل لاک‌اوت گیره‌دار|
+Tie-Bar Circuit Breaker Lockouts(2)|قفل کلید مینیاتوری چندپل|
+Nestable Lockouts for Valve Hand Wheels(5)|قفل فلکه شیر تودرتو|
+Battery Cable Connector Lockouts(3)|قفل کانکتور کابل باتری|
+Fuse Block Lockouts(3)|قفل جافیوزی|
+Pry-Resistant Lockout Hasps(3)|هاسپ لاک‌اوت ضداهرم|
+Pry-Resistant Interlocking-Hasp Lockouts(4)|قفل هاسپ درهم‌قفل ضداهرم|
+Valve Stem Lockouts(5)|قفل میل شیر|
+Low-Profile Lockout Hasps(2)|هاسپ لاک‌اوت کم‌ارتفاع|
+Universal Valve Lockouts(6)|قفل شیر یونیورسال|
+Lockout Hasps with Chain(2)|هاسپ لاک‌اوت زنجیردار|
+Gas Cylinder Lockouts(6)|قفل کپسول گاز|
+Clamp-On DIN-Rail Mount Circuit Breaker Lockouts(2)|قفل کلید ریلی گیره‌ای|
+Pin-Out DIN-Rail Mount Circuit Breaker Lockouts(2)|قفل کلید ریلی پین‌بیرون|
+Circuit Breaker Group Lockouts(6)|قفل گروهی کلید مینیاتوری|
+Dual-Jaw Lockout Hasps(2)|هاسپ لاک‌اوت دوفک|
+Pry-Resistant Interlocking-Hasp Lockouts with Chain(2)|قفل هاسپ درهم‌قفل ضداهرم زنجیردار|
+Lockout Hasps with Label(2)|هاسپ لاک‌اوت برچسب‌دار|
+Self-Retracting Lockout Cables(2)|کابل لاک‌اوت جمع‌شو|
+Pipe Flange Lockouts(3)|قفل فلنج لوله|
+Battery Disconnect Switch Lockouts(2)|قفل کلید قطع باتری|
+Electrical, Valve, and Air Hose Lockout Sets with Padlocks(1)|ست لاک‌اوت برق، شیر و شیلنگ باد با قفل|
+Wall-Mount Lockout Sets with Padlocks(6)|ست لاک‌اوت دیواری با قفل|
+Valve Lockout Sets with Padlocks(1)|ست لاک‌اوت شیر با قفل|
+Nestable Lockout Sets for Valve Hand Wheels(1)|ست قفل فلکه شیر تودرتو|
+Electrical Lockout Sets with Padlocks(3)|ست لاک‌اوت برق با قفل|
+Forklift Lockout Sets with Padlock(1)|ست لاک‌اوت لیفتراک با قفل|
+Lockout Chain Sets with Padlocks(1)|ست زنجیر لاک‌اوت با قفل|
+Wall-Mount Electrical and Valve Lockout Sets with Padlocks(2)|ست لاک‌اوت دیواری برق و شیر با قفل|
+Electrical and Valve Lockout Sets with Padlocks(4)|ست لاک‌اوت برق و شیر با قفل|
+Lockout Steering Wheel Covers(4)|کاور لاک‌اوت فرمان|
+Ladder Lockout Signs(2)|تابلو لاک‌اوت نردبان|
+Padlocks(382)|قفل آویز|
+Lockout Organizing Stations(16)|ایستگاه لاک‌اوت|
+Keys(36)|کلید قفل|
+Lockout Procedure Stations(4)|ایستگاه دستورالعمل لاک‌اوت|
+Tag Organizing Stations(3)|ایستگاه نگهداری برچسب هشدار|
+Reference Media(3)|راهنمای مرجع|
+@12.1.5 Machine Guards
+Wire Partitions(78)|پارتیشن توری فلزی|
+Drill Press Guards(1)|حفاظ دریل ستونی|
+Safety Rails(96)|گاردریل ایمنی|
+Barricades(22)|راهبند (بریکید)|
+Bearing Guards(20)|حفاظ بلبرینگ|
+Chain Link Fencing(55)|فنس توری|
+Retractable Gates(20)|درب جمع‌شو (آکاردئونی)|
+Bollard Covers(18)|کاور بولارد|
+Puller Protection Blankets(3)|پتوی محافظ پولی‌کش|
+Flood Gates(7)|درب ضدسیل|
+Push-to-Close Latches(9)|چفت فشاری|
+Conveyor Covers(17)|کاور نوار نقاله|
+Safety Light Curtain Mirrors(10)|آینه پرده نوری ایمنی|
+@12.1.6 Traffic Cones & Signs
+Traffic Cones(43)|مخروط ترافیکی|
+Mezzanine Gates(1)|درب ایمنی نیم‌طبقه (میزانین)|
+Marking Cones(16)|مخروط علامت‌گذاری|
+Chain Barrier Magnet Mounts(1)|پایه مغناطیسی زنجیر راهبند|
+Tool Caddies(1)|جاابزاری دستی|
+Fold-Up Railings(1)|نرده تاشو|
+Line-Marking Chalk(5)|گچ خط‌کشی|
+Chain Barriers(26)|زنجیر راهبند|
+Speed Bumps(8)|سرعت‌گیر|
+Parking Curbs(6)|استاپر پارکینگ|
+Pavement-Marking Tape(2)|نوار خط‌کشی آسفالت|
+Barrier Tape(83)|نوار خطر (هشدار)|
+Retractable Belt Barriers(106)|استند صف تسمه‌ای|
+Pennants(5)|پرچم هشدار ریسه‌ای|
+Retractable Belt Ends(4)|سرتسمه استند صف|
+Retractable Belt Receptacles(14)|گیرنده تسمه استند صف|
+Bollard Gates(8)|درب بولاردی|
+Clearance Bars(18)|میله ارتفاع مجاز|
+Chain Barrier Hooks(6)|قلاب زنجیر راهبند|
+Safety Gates(53)|درب ایمنی|
+Barrier Tape Dispensers(3)|دیسپنسر نوار خطر|
+Chain Barrier Links(6)|حلقه زنجیر راهبند|
+Parking Gate Arms(3)|بازوی راهبند پارکینگ|
+Chain Barrier Connectors(2)|اتصال زنجیر راهبند|
+Roadside Emergency Kits(2)|کیت اضطراری جاده‌ای|ترکیبی
+Sign Holders(3)|نگهدارنده تابلو|
+Warning Triangles(2)|مثلث خطر|ترکیبی
+Vehicle Markers(3)|نشانگر خودرو|
+Fire Hydrant Markers(2)|نشانگر شیر آتش‌نشانی|
+Utility Markers(8)|نشانگر تأسیسات زیرزمینی|
+Traffic Cone Holders(1)|نگهدارنده مخروط ترافیکی|
+Paint Line-Marking Machines(8)|دستگاه خط‌کشی رنگ|
+Webbing(2)|تسمه بافته (وبینگ)|
+@12.1.7 Belt, Chain & Rope Barriers
+Security Gates(78)|درب امنیتی|
+@12.1.8 Safety Railings
+Safety Railing Connectors(10)|اتصال نرده ایمنی|
+Handrails(13)|دست‌انداز (هندریل)|
+Roof Hatch Railings(1)|نرده دریچه پشت‌بام|
+Scissor Lifts(1)|بالابر قیچی|
+Scaffolds(95)|داربست|
+Scaffold Guardrails(3)|نرده داربست|
+Work Platforms(3)|سکوی کار|
+Grab Bars(36)|دستگیره ایمنی دیواری|ترکیبی

@@ -1,0 +1,269 @@
+@18.1.9 Test Weights
+Test Weights with Calibration Certificate(11)|وزنه کالیبراسیون با گواهی|
+Legal-for-Trade Grip-Handle Test Weights with Calibration Certificate(9)|وزنه دسته‌دار تجاری (تأییدشده) با گواهی کالیبراسیون|
+Legal-for-Trade Test Weights with Calibration Certificate(24)|وزنه تجاری (تأییدشده) با گواهی کالیبراسیون|
+Test Weights(11)|وزنه کالیبراسیون|
+Precision Test Weights with Calibration Certificate(26)|وزنه دقیق با گواهی کالیبراسیون|
+Test Weight Sets with Calibration Certificate(3)|ست وزنه با گواهی کالیبراسیون|
+Legal-for-Trade Grip-Handle Test Weights(8)|وزنه دسته‌دار تجاری (تأییدشده)|
+Interlocking Test Weights(16)|وزنه کالیبراسیون روی‌هم‌چین|
+Interlocking Test Weights with Calibration Certificate(16)|وزنه روی‌هم‌چین با گواهی کالیبراسیون|
+Legal-for-Trade Test Weights(24)|وزنه تجاری (تأییدشده)|
+Hanging Test Weights(12)|وزنه آویز کالیبراسیون|
+Hanging Test Weights with Calibration Certificate(12)|وزنه آویز با گواهی کالیبراسیون|
+Grip-Handle Test Weights(2)|وزنه دسته‌دار|
+Precision Test Weight Sets with Calibration Certificate(6)|ست وزنه دقیق با گواهی کالیبراسیون|
+Precision Test Weights(12)|وزنه دقیق|
+Grip-Handle Test Weights with Calibration Certificate(2)|وزنه دسته‌دار با گواهی کالیبراسیون|
+Test Weight Sets(3)|ست وزنه کالیبراسیون|
+Legal-for-Trade Test Weight Sets with Calibration Certificate(4)|ست وزنه تجاری با گواهی کالیبراسیون|
+Legal-for-Trade Hanging Test Weights with Calibration Certificate(4)|وزنه آویز تجاری با گواهی کالیبراسیون|
+Legal-for-Trade Hanging Test Weights(4)|وزنه آویز تجاری|
+Precision Test Weight Sets(3)|ست وزنه دقیق|
+Legal-for-Trade Test Weight Sets(3)|ست وزنه تجاری|
+Weight Bags(19)|کیسه وزنه|
+Counterbalance Weights(7)|وزنه تعادل|
+Canopy Weights(6)|وزنه پایه سایبان|ترکیبی
+Shot Bags(5)|کیسه ساچمه‌ای (وزنه)|
+@18.2.1 Magnifiers
+Illuminated Magnifying Glasses(9)|ذره‌بین چراغ‌دار|
+Sharp-View Illuminated Magnifying Glasses(1)|ذره‌بین چراغ‌دار وضوح بالا|
+Wide-Angle Illuminated Magnifying Glasses(1)|ذره‌بین چراغ‌دار زاویه باز|
+Illuminated Magnifying Glasses with Measuring Scale(6)|ذره‌بین چراغ‌دار مدرج|
+Illuminated Stand-Mount Magnifiers(1)|ذره‌بین پایه‌دار چراغ‌دار|
+UV and White Light Magnifying Glasses(1)|ذره‌بین نور UV و سفید|
+Distortion-Free Illuminated Magnifying Glasses(7)|ذره‌بین چراغ‌دار بدون اعوجاج|
+Illuminated Eyeglass-Mount Frame Loupe Magnifiers(1)|لوپ عینکی چراغ‌دار|
+Adjustable-Focus Eyeglass-Mount Magnifiers(1)|ذره‌بین عینکی فوکوس متغیر|
+One-Eye Clip-On Eyeglass-Mount Magnifiers(5)|ذره‌بین گیره‌ای عینک تک‌چشمی|
+Clip-On Eyeglass-Mount Magnifiers(6)|ذره‌بین گیره‌ای عینک|
+Eyeglass-Mount Frame Magnifiers(4)|ذره‌بین عینکی (فریم)|
+Headband-Mount Flip-Up Magnifiers(21)|ذره‌بین هدبندی (پیشانی‌بند) تاشو|
+Illuminated Headband-Mount Flip-Up Magnifiers(5)|ذره‌بین هدبندی تاشو چراغ‌دار|
+Magnifying Glasses(9)|ذره‌بین دستی|
+Magnifying Glass Sets(1)|ست ذره‌بین|
+Distortion-Free Magnifying Glasses(5)|ذره‌بین بدون اعوجاج|
+Distortion-Free Stand-Mount Magnifiers(2)|ذره‌بین پایه‌دار بدون اعوجاج|
+Illuminated Bench-Mount Workstation Magnifiers(1)|ذره‌بین رومیزی چراغ‌دار|
+Weighted-Base Gooseneck-Arm Workstation Magnifiers(1)|ذره‌بین رومیزی پایه سنگین بازو گردنه‌غازی|
+Bench-Mount Workstation Magnifiers with Measuring Scale(6)|ذره‌بین رومیزی مدرج|
+Weighted-Base Gooseneck-Arm Workstation Magnifiers with Lamp(1)|ذره‌بین رومیزی گردنه‌غازی با لامپ|
+Illuminated Weighted-Base Workstation Magnifiers(9)|ذره‌بین رومیزی پایه سنگین چراغ‌دار|
+Magnetic-Base Bench-Mount Workstation Magnifiers(3)|ذره‌بین رومیزی پایه مغناطیسی|
+Sharp-View Illuminated Weighted-Base Workstation Magnifiers(2)|ذره‌بین رومیزی چراغ‌دار وضوح بالا|
+Illuminated Clamp-On Workstation Magnifiers(22)|ذره‌بین لامپ‌دار گیره‌ای (چراغ ذره‌بین)|
+Gooseneck-Arm Illuminated Clamp-On Workstation Magnifiers(1)|ذره‌بین لامپ‌دار گیره‌ای گردنه‌غازی|
+UV and White Light Clamp-On Workstation Magnifiers(3)|ذره‌بین گیره‌ای نور UV و سفید|
+Vibration-Resistant Illuminated Clamp-On Workstation Magnifiers(5)|ذره‌بین لامپ‌دار گیره‌ای ضدلرزش|
+Illuminated Clamp-On Workstation Magnifiers with Built-In Camera(2)|ذره‌بین لامپ‌دار گیره‌ای با دوربین|
+Sharp-View Illuminated Clamp-On Workstation Magnifiers(2)|ذره‌بین لامپ‌دار گیره‌ای وضوح بالا|
+Loupes(5)|لوپ|
+Illuminated Loupes(2)|لوپ چراغ‌دار|
+Clear-Body Loupes(3)|لوپ بدنه شفاف|
+Distortion-Free Loupes(1)|لوپ بدون اعوجاج|
+Loupes with Measuring Scale(3)|لوپ مدرج|
+Slide-Open Magnifying Glasses(6)|ذره‌بین کشویی جیبی|
+Distortion-Free Illuminated Slide-Open Magnifying Glasses(1)|ذره‌بین کشویی چراغ‌دار بدون اعوجاج|
+Compact Slide-Open Magnifying Glasses(1)|ذره‌بین کشویی کوچک|
+Distortion-Free Slide-Open Magnifying Glasses(1)|ذره‌بین کشویی بدون اعوجاج|
+Digital Magnifiers(1)|ذره‌بین دیجیتال|
+Bar Magnifiers(1)|ذره‌بین خطی (میله‌ای)|
+Portable Darkfield Magnifiers(1)|ذره‌بین میدان تاریک قابل‌حمل|
+Page Magnifiers(3)|ذره‌بین صفحه‌ای|ترکیبی
+Suction Cup-Mount Magnifiers(1)|ذره‌بین بادکشی|
+Magnifying Glasses with Extra-Long Telescoping Handle(1)|ذره‌بین دسته تلسکوپی بلند|
+Magnifying Glasses with Extra-Long Flex-Shaft Handle(1)|ذره‌بین دسته فنری بلند|
+Microscopes(41)|میکروسکوپ|
+Binoculars(1)|دوربین دوچشمی|ترکیبی
+Microscope Eyepiece Cameras(1)|دوربین چشمی میکروسکوپ|
+Hardness Testers(1)|سختی‌سنج|
+Monoculars(2)|دوربین تک‌چشمی|
+Optical Comparators(12)|پروفایل پروژکتور (مقایسه‌گر اپتیکی)|
+Microscope Cover Glasses(2)|لامل میکروسکوپ|
+@18.2.4 Light Meters
+Light Meters for UV Light(5)|نورسنج UV|
+Light Monitors(1)|مانیتور نور|
+Light Spectrum Meters(1)|طیف‌سنج نور|
+Meters for Solar Power Systems(3)|تستر سیستم خورشیدی (تابش‌سنج)|
+Color Calibrators(1)|کالیبراتور رنگ|
+Color Meters(2)|رنگ‌سنج|
+@18.2.6 Scales
+Precision Digital-Display Bench-Top Scales(14)|ترازو رومیزی دیجیتال دقیق|
+Digital-Display Bench-Top Postal Scales(1)|ترازو پستی دیجیتال|
+Digital-Display Bench-Top Scales with Remote Display(7)|ترازو رومیزی دیجیتال با نمایشگر جدا|
+Digital-Display Bench-Top Scales(8)|ترازو رومیزی دیجیتال|
+Compact Digital-Display Bench-Top Scales with Flip Cover(1)|ترازو رومیزی کوچک درب‌دار|
+Corrosion-Resistant Easy-Carry Bench-Top Scales(1)|ترازو رومیزی ضدخوردگی قابل‌حمل|
+Washdown Go/No-Go Bench-Top Scales(3)|ترازو رومیزی کنترل وزن ضدآب (شست‌وشوپذیر)|
+Go/No-Go Digital-Display Bench-Top Scales(3)|ترازو رومیزی کنترل وزن (چک‌ویگر)|
+Compact Digital-Display Bench-Top Scales(3)|ترازو رومیزی دیجیتال کوچک|
+Hazardous Location Digital-Display Bench-Top Scales(12)|ترازو رومیزی ضدانفجار|
+Dial-Display Bench-Top Scales(5)|ترازو رومیزی عقربه‌ای|
+Compact Dial-Display Bench-Top Scales(4)|ترازو رومیزی عقربه‌ای کوچک|
+Beam-Balance Bench-Top Scales(3)|ترازو شاهینی (قپان رومیزی)|
+Corrosion-Resistant Dial-Display Bench-Top Scales(2)|ترازو عقربه‌ای ضدخوردگی|
+Counting Scales(17)|ترازو شمارشگر|
+Hanging Scales(15)|ترازو آویز (قپانی)|
+Digital-Display Hanging Scales(7)|ترازو آویز دیجیتال|
+Handheld Digital-Display Hanging Scales(3)|ترازو آویز دیجیتال دستی|
+Legal-for-Trade Digital-Display Hanging Scales(5)|ترازو آویز دیجیتال تجاری (تأییدشده)|
+Corrosion-Resistant Digital-Display Hanging Scales(2)|ترازو آویز دیجیتال ضدخوردگی|
+Washdown Legal-for-Trade Digital-Display Hanging Scales(5)|ترازو آویز تجاری شست‌وشوپذیر|
+Legal-for-Trade Floor Scales with Remote Display(9)|باسکول صفحه‌ای تجاری با نمایشگر جدا|
+Personnel Floor Scales(3)|ترازو وزن افراد|
+Mobile Legal-for-Trade Floor Scales(2)|باسکول صفحه‌ای سیار تجاری|
+Mobile Floor Scales(1)|باسکول صفحه‌ای سیار|
+Legal-for-Trade Counting Floor Scales(2)|باسکول شمارشگر تجاری|
+Weighing and Counting Drum Dolly Scales(1)|ترازو دالی بشکه با شمارشگر|
+Washdown Legal-For-Trade Floor Scales with Remote Display(4)|باسکول صفحه‌ای تجاری شست‌وشوپذیر با نمایشگر جدا|
+Floor Scales with Remote Display(3)|باسکول صفحه‌ای با نمایشگر جدا|
+Trailer Loading Floor Scales(3)|باسکول بارگیری تریلر|
+Pallet Beam Floor Scales(3)|باسکول تیری پالت|
+Digital-Display Spoon Scales(1)|قاشق ترازو دیجیتال|
+Legal-for-Trade Counting Scales(8)|ترازو شمارشگر تجاری|
+Legal-for-Trade Bench-Top Scales with Remote Display(5)|ترازو رومیزی تجاری با نمایشگر جدا|
+Legal-for-Trade Bench-Top Scales(4)|ترازو رومیزی تجاری (تأییدشده)|
+Washdown Legal-for-Trade Bench-Top Scales(10)|ترازو رومیزی تجاری شست‌وشوپذیر|
+Precision Legal-for-Trade Bench-Top Scales(6)|ترازو رومیزی تجاری دقیق|
+Weighing and Counting Pallet Truck Scales(4)|جک پالت ترازودار|
+Weighing and Counting Foot-Adjust Mobile Lift Table Scales(2)|میز بالابر پدالی ترازودار|
+Legal-for-Trade Dimensional Scales(1)|ترازو ابعادسنج تجاری|
+Legal-for-Trade Inline Conveyor Scales(11)|ترازو نوار نقاله تجاری|
+Forklift Forks with Embedded Scale(2)|شاخک لیفتراک ترازودار|
+Forklift Forks with Legal-for-Trade Embedded Scale(2)|شاخک لیفتراک ترازودار تجاری|
+Bench-Top Moisture Scales(4)|رطوبت‌سنج ترازویی رومیزی|
+Refrigerant Cylinder Scales(5)|ترازو شارژ گاز مبرد|
+@18.2.7 Counters
+Counters(103)|شمارنده (کانتر)|
+Calculators(25)|ماشین‌حساب|ترکیبی
+Hour Meters(51)|ساعت‌شمار کارکرد|
+Position Indicators(71)|نشانگر موقعیت (کانتر محور)|
+GPS Navigators(1)|مسیریاب GPS|ترکیبی
+Air Particle Counters(1)|شمارنده ذرات هوا|
+Chemistry Meters(42)|سنجشگر شیمیایی (pH و EC)|
+Pedometers(2)|گام‌شمار|مصرفی
+DIN Panel Adapters(2)|تبدیل نصب تابلویی DIN|
+@18.2.8 Force Gauges
+Tension and Compression Force Gauges(21)|نیروسنج کششی و فشاری|
+Tension and Compression Digital Force Gauges(9)|نیروسنج دیجیتال کششی و فشاری|
+High-Accuracy Tension and Compression Digital Force Gauges(8)|نیروسنج دیجیتال دقیق کششی و فشاری|
+Compression Force Gauges(5)|نیروسنج فشاری|
+Compact Tension and Compression Force Gauges(8)|نیروسنج کششی و فشاری کوچک|
+Economy Tension and Compression Force Gauges for Tight Spaces(4)|نیروسنج اقتصادی فضای تنگ|
+Puncture Testers(1)|تستر سوراخ‌شدگی|
+Adhesion Testers(4)|تستر چسبندگی (پول‌آف)|
+Go/No-Go Tension and Compression Force Gauges(11)|نیروسنج برو-نرو کششی و فشاری|
+Spring Testers(11)|تستر فنر|
+Tension and Compression Force Gauges for Tight Spaces(6)|نیروسنج کششی و فشاری فضای تنگ|
+Ergonomics Testers(3)|تستر ارگونومی|
+Compact Tension and Compression Force Gauges with Certificate of Calibration(8)|نیروسنج کوچک با گواهی کالیبراسیون|
+Tension Force Gauges with Scale(5)|نیروسنج کششی مدرج (فنری)|
+Large-Capacity Digital Tension Force Gauges with Scale(3)|نیروسنج کششی دیجیتال ظرفیت بالا|
+Remote-Reading Tension Force Gauges(5)|نیروسنج کششی قرائت از راه دور|
+Economy Tension Force Gauges for Wire(3)|نیروسنج کشش سیم اقتصادی|
+Compact Tension Force Gauges(4)|نیروسنج کششی کوچک|
+Concrete Strength Testers(3)|تستر مقاومت بتن (چکش اشمیت)|
+Band Saw Blade Tension Gauges(1)|کشش‌سنج تیغ اره نواری|
+Peel Testers(2)|تستر پوسته‌شدن (پیل)|
+Large Dial Tension Force Gauges with Scale(5)|نیروسنج کششی عقربه‌ای بزرگ|
+Tension Force Gauges for Wire and Filament(3)|نیروسنج کشش سیم و نخ|
+Wire Crimp Pull Testers(3)|تستر کشش کابلشو پرسی|
+Friction Testers(2)|تستر اصطکاک|
+Belt Tension Gauges(16)|تسمه‌سنج (کشش‌سنج تسمه)|
+Band Saw Blade Alignment Gauges(1)|گیج هم‌راستایی تیغ اره نواری|
+Torque Sensors(22)|سنسور گشتاور|
+Torque Gauge Connectors(3)|رابط گشتاورسنج|
+@18.2.10 Cameras
+Cameras(1)|دوربین|
+Machine Vision Cameras(26)|دوربین بینایی ماشین|
+Equipment Monitoring Cameras(2)|دوربین پایش تجهیزات|
+Borescopes(14)|بوروسکوپ (آندوسکوپ صنعتی)|
+Inspection Cameras(3)|دوربین بازرسی|
+Surveillance Cameras(3)|دوربین مداربسته|
+Dummy Surveillance Cameras(1)|دوربین مداربسته نمایشی (فیک)|ترکیبی
+Web Cameras(1)|وب‌کم|ترکیبی
+T-Slotted Framing Machine Vision Camera Mounts(1)|پایه دوربین بینایی ماشین پروفیل شیاردار|
+@18.3.1 Encoders & Transducers
+Rotary Encoder Kits(2)|کیت انکودر چرخشی|
+Compact Rotary Encoders(18)|انکودر چرخشی کوچک|
+Programmable Rotary Encoders(5)|انکودر چرخشی برنامه‌پذیر|
+Sanitary Rotary Encoders(3)|انکودر چرخشی بهداشتی|
+@19.0.0 Knobs
+Threaded-Stud Knobs(411)|دستگیره پیچی (پیچ‌دار)|
+Threaded-Hole Knobs(265)|دستگیره مهره‌ای (سوراخ رزوه)|
+Threaded Through-Hole Knobs(139)|دستگیره سوراخ‌سرتاسری رزوه‌دار|
+Choose-a-Color Threaded-Stud Knobs(18)|دستگیره پیچی رنگ انتخابی|
+Unthreaded-Hole Knobs(82)|دستگیره سوراخ ساده|
+Choose-a-Color Threaded-Hole Knobs(14)|دستگیره مهره‌ای رنگ انتخابی|
+Comfort-Grip Threaded-Stud Knobs(72)|دستگیره پیچی ارگونومیک|
+Screw-Head Mount Knobs(34)|کلاهک دستگیره روی سر پیچ|
+Choose-a-Color Threaded Through-Hole Knobs(4)|دستگیره سوراخ‌سرتاسری رنگ انتخابی|
+Comfort-Grip Threaded Through-Hole Knobs(3)|دستگیره سوراخ‌سرتاسری ارگونومیک|
+Comfort-Grip Threaded-Hole Knobs(56)|دستگیره مهره‌ای ارگونومیک|
+Machinable-Hub Knobs(52)|دستگیره توپی قابل‌ماشین‌کاری|
+Unthreaded Through-Hole Knobs(45)|دستگیره سوراخ‌سرتاسری ساده|
+Vibration-Resistant Threaded Through-Hole Knobs(12)|دستگیره سوراخ‌سرتاسری ضدلرزش|
+Vibration-Resistant Threaded-Stud Knobs(12)|دستگیره پیچی ضدلرزش|
+Screw-Head Mount Knob Assortments(2)|ست کلاهک دستگیره سر پیچ|
+Easy-Clean Threaded-Stud Knobs(4)|دستگیره پیچی تمیزشونده آسان|
+Palm-Grip Threaded-Hole Knobs(10)|دستگیره قارچی مهره‌ای|
+Palm-Grip Threaded-Stud Knobs(12)|دستگیره قارچی پیچی|
+Tethered Threaded-Stud Knobs(3)|دستگیره پیچی بنددار|
+Quick-Lock Threaded Through-Hole Knobs(9)|دستگیره قفل سریع|
+Sanitary Threaded-Hole Knobs(10)|دستگیره مهره‌ای بهداشتی|
+Unthreaded-Hole Knobs with Handle(4)|دستگیره سوراخ ساده با دسته|
+Palm-Grip Machinable-Hub Knobs(3)|دستگیره قارچی توپی قابل‌ماشین‌کاری|
+Tethered Threaded-Hole Knobs(2)|دستگیره مهره‌ای بنددار|
+Machinable-Hub Knobs with Handle(4)|دستگیره توپی قابل‌ماشین‌کاری با دسته|
+Torque-Limiting Knobs(4)|دستگیره محدودکننده گشتاور|
+Threaded Through-Hole Bar Knobs(6)|دستگیره میله‌ای سوراخ‌سرتاسری|
+Metal-Detectable Threaded-Stud Knobs(4)|دستگیره پیچی قابل‌تشخیص با فلزیاب|
+Oversized-Grip Screw-Head Mount Knobs(12)|کلاهک دستگیره سر پیچ بزرگ|
+Metal-Detectable Threaded-Hole Knobs(4)|دستگیره مهره‌ای قابل‌تشخیص با فلزیاب|
+Left-Hand Threaded-Stud Knobs(14)|دستگیره پیچی چپ‌گرد|
+Screw-Head Mount Knobs with Messages(16)|کلاهک دستگیره سر پیچ نوشته‌دار|
+Machinable-Hub Bar Knobs(2)|دستگیره میله‌ای توپی قابل‌ماشین‌کاری|
+Lever Handles(105)|دسته اهرمی (L)|
+Pull Handles and Knobs(792)|دستگیره کشویی و قارچی|
+Valve Handles and Knobs(41)|دسته و فلکه شیر|
+Door Handles and Knobs(222)|دستگیره درب|
+Crank Handles(102)|دسته هندل (میل‌لنگی)|
+Ball-Lever Shafts(56)|دسته اهرمی سرگرد (گوی‌دار)|
+Door Knob Converters(1)|تبدیل دستگیره درب|
+Faucet Handles(6)|دسته شیر آب|
+Damper Control Arms(3)|اهرم کنترل دمپر|
+Door Handle and Knob Guards(5)|محافظ دستگیره درب|
+Door Push and Pull Plates(12)|پلاک هل/بکش درب|
+Door Installation Kits(12)|کیت نصب درب|
+@19.0.1 Hand Wheels
+Unthreaded Through-Hole Spoked Hand Wheels(177)|فلکه پره‌دار سوراخ ساده|
+Machinable-Hub Spoked Hand Wheels(34)|فلکه پره‌دار توپی قابل‌ماشین‌کاری|
+Unthreaded Through-Hole Solid Hand Wheels(66)|فلکه توپر سوراخ ساده|
+Unthreaded-Hole Spoked Hand Wheels(28)|فلکه پره‌دار سوراخ کور|
+Machinable-Hub Solid Hand Wheels(18)|فلکه توپر توپی قابل‌ماشین‌کاری|
+Safety Clutch Hand Wheels(6)|فلکه کلاچ‌دار ایمنی|
+Dial-Indicating Hand Wheels(7)|فلکه مدرج (ورنیه‌دار)|
+@19.0.2 Handles
+Pull Handles(760)|دستگیره کشویی (دسته U)|
+@19.0.3 Grips
+Round Hand Grips(30)|دسته گرد|
+Finger-Groove Round Hand Grips(10)|دسته گرد جای انگشت|
+Cushioned Round Hand Grips(44)|دسته گرد نرم (فومی)|
+Contoured Round Hand Grips(8)|دسته گرد ارگونومیک|
+Conformable Round Hand Grips(1)|دسته گرد شکل‌پذیر|
+Mold-Your-Own Hand Grips(1)|دسته قالب‌پذیر دستی|
+Finger-Groove Rectangular Hand Grips(6)|دسته چهارگوش جای انگشت|
+Snap-On Hand Grips(1)|دسته کلیپسی|
+High-Temperature Finger-Groove Round Hand Grips(3)|دسته گرد جای انگشت نسوز|
+Cut-to-Length Hand Grips(40)|دسته برش‌پذیر (متری)|
+Heat-Shrink Hand Grips(3)|دسته حرارتی (شرینک)|
+Rectangular Hand Grips(4)|دسته چهارگوش|
+Wraparound Hand Grips(1)|نوار دسته پیچشی|
+Cushioned Rectangular Hand Grips(4)|دسته چهارگوش نرم|
+High-Temperature Round Hand Grips(2)|دسته گرد نسوز|
+Finger Guard Rectangular Hand Grips(2)|دسته چهارگوش با محافظ انگشت|
+Split Hand Grips(6)|دسته دوتکه (شکاف‌دار)|
+Cushioned Hanging Round Hand Grips(5)|دسته آویز گرد نرم|
+Finger-Groove Hanging Round Hand Grips(5)|دسته آویز گرد جای انگشت|
+Cushioned Wraparound Hand Grips(3)|نوار دسته پیچشی نرم|
+Adhesive-Back Cushioned Wraparound Hand Grips(3)|نوار دسته پیچشی نرم چسب‌دار|

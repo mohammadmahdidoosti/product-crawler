@@ -1,0 +1,337 @@
+@21.0.11 Hand Cleaners
+Heavy Duty Hand Soap(3)|صابون دست صنعتی (سنگین)|
+SC Johnson Heavy Duty Hand Soap Cartridges(1)|کارتریج صابون دست صنعتی SC Johnson|
+SC Johnson Extra Heavy Duty Cherry Hand Soap Cartridges(1)|کارتریج صابون دست فوق‌سنگین گیلاسی SC Johnson|
+Gojo Extra Heavy Duty Hand Soap Cartridges(4)|کارتریج صابون دست فوق‌سنگین Gojo|
+Dreumex Waterless Hand Soap(3)|پاک‌کننده دست بدون آب Dreumex|
+SC Johnson Hand Soap Cartridges(1)|کارتریج صابون دست SC Johnson|
+Gojo Heavy Duty Hand Soap Cartridges(4)|کارتریج صابون دست صنعتی Gojo|
+Gojo Orange Citrus Hand Soap Cartridges(4)|کارتریج صابون دست پرتقالی Gojo|
+Powdered Hand Soap(2)|پودر دست‌شوی صنعتی|
+Gojo Cherry Hand Soap Cartridges(4)|کارتریج صابون دست گیلاسی Gojo|
+Gojo Antibacterial Hand Soap Cartridges(10)|کارتریج صابون دست آنتی‌باکتریال Gojo|
+Antibacterial Foam Hand Soap(1)|فوم دست‌شوی آنتی‌باکتریال|ترکیبی
+Antibacterial Lotion Hand Soap with Degreaser(1)|صابون مایع آنتی‌باکتریال چربی‌زدا|
+Paint- and Resin-Removing Hand Soap(2)|پاک‌کننده دست رنگ و رزین|
+Bar Hand Soap(3)|صابون قالبی|ترکیبی
+Rubbermaid Antibacterial Soap Cartridges for Touch-Free Hand Soap Dispensers(1)|کارتریج صابون آنتی‌باکتریال جاصابونی اتوماتیک Rubbermaid|
+Gojo Hand Soap Cartridges(6)|کارتریج صابون دست Gojo|
+Heavy-Metal-Removing Hand Soap(3)|پاک‌کننده دست فلزات سنگین|
+Gojo Shower Soap Cartridges(2)|کارتریج شامپو بدن Gojo|
+Rubbermaid Soap Cartridges for Touch-Free Hand Soap Dispensers(2)|کارتریج صابون جاصابونی اتوماتیک Rubbermaid|
+Gojo Food and Beverage Sanitizing Hand Soap Cartridges(2)|کارتریج صابون ضدعفونی صنایع غذایی Gojo|
+Kimberly-Clark Hand Soap Cartridges(2)|کارتریج صابون دست Kimberly-Clark|
+Hand Sanitizers(19)|ژل ضدعفونی دست|ترکیبی
+@21.0.12 Cleaners & Deodorizers
+Multipurpose Cleaners(51)|پاک‌کننده همه‌کاره|ترکیبی
+Computer Screen Cleaners(1)|تمیزکننده صفحه نمایش|ترکیبی
+Scale Removers(6)|رسوب‌زدا|
+Disinfectants(91)|ضدعفونی‌کننده|ترکیبی
+Mold and Mildew Cleaners(1)|پاک‌کننده کپک|ترکیبی
+Carburetor Cleaners(1)|اسپری انژکتورشوی (کاربراتورشوی)|
+Oven Cleaners(1)|پاک‌کننده فر|ترکیبی
+Brake Cleaners(5)|اسپری ترمزشوی|
+Glass Cleaners(15)|شیشه‌پاک‌کن|ترکیبی
+Coffee Maker Cleaners(1)|رسوب‌زدای قهوه‌ساز|ترکیبی
+Silicone Removers(1)|سیلیکون‌زدا|
+Optical Equipment Cleaning Kits(1)|کیت تمیزکاری تجهیزات اپتیکی|
+Oil Spill Cleaners(1)|پاک‌کننده نشت روغن|
+Antistatic Sprays(7)|اسپری آنتی‌استاتیک|
+Calcium, Lime, and Rust Removers(3)|جرم‌گیر و زنگ‌زدا (کلسیم و آهک)|
+Ice Maker Cleaners(1)|پاک‌کننده یخ‌ساز|
+Credit Card Reader Cleaners(1)|کارت تمیزکننده کارتخوان|
+Floor Cleaners(11)|کف‌شوی|ترکیبی
+Whiteboard Cleaners(2)|پاک‌کننده وایت‌برد|ترکیبی
+Whiteboard Conditioners(1)|احیاکننده وایت‌برد|ترکیبی
+pH Neutralizers(1)|خنثی‌کننده pH|
+Rust Removers(13)|زنگ‌زدا|
+Carpet and Upholstery Cleaners(2)|فرش‌شوی و مبل‌شوی|ترکیبی
+Lens Cleaners(9)|تمیزکننده لنز و عینک|ترکیبی
+Air Conditioner Coil Cleaners(3)|کویل‌شوی کولر|
+Bleach(4)|سفیدکننده (وایتکس)|ترکیبی
+Surface Plate Cleaners(3)|پاک‌کننده صفحه صافی (سنگ گرانیت)|
+Ink Removers(2)|جوهرزدا|
+Dishwashing Detergents(16)|مایع ظرفشویی|ترکیبی
+Graffiti Removers(4)|پاک‌کننده گرافیتی (رنگ دیوار)|
+Acid Neutralizers(6)|خنثی‌کننده اسید|
+Molding Machine Cleaners(3)|پاک‌کننده دستگاه تزریق|
+Paint and Coating Removers(12)|رنگ‌بر و پوشش‌زدا|
+Chlorine(5)|کلر|
+Floor Strippers(2)|واکس‌زدای کف|
+Cable Gel Removers(4)|ژل‌زدای کابل|
+Microbial Grease and Oil Digesters(3)|تجزیه‌کننده میکروبی روغن و چربی|
+Base Neutralizers(5)|خنثی‌کننده باز (قلیا)|
+Windshield Washer Fluid(4)|مایع شیشه‌شوی خودرو|ترکیبی
+White Vinegar(2)|سرکه سفید|ترکیبی
+Air Conditioner Pan Cleaners(3)|قرص تشتک کولر|
+Clarifying Agents(4)|شفاف‌کننده آب|
+Conformal Coating Removers(3)|پوشش‌زدای برد (کانفورمال)|
+Galvanization Buildup Removers(2)|پاک‌کننده رسوب گالوانیزه|
+Tile Grout Cleaners(1)|پاک‌کننده بندکشی کاشی|ترکیبی
+Lime Stain Removers(3)|لکه‌بر آهک|ترکیبی
+Cleaning Rods(8)|میله تمیزکاری|
+Clean Room Wipes(31)|دستمال اتاق تمیز (کلین‌روم)|
+Spray Dusters(13)|اسپری هوای فشرده (گردگیر)|
+Window Washers(4)|شیشه‌شوی دسته‌دار|ترکیبی
+Window Washer Pads(4)|پد شیشه‌شوی|ترکیبی
+Dust Cloths(2)|دستمال گردگیری|ترکیبی
+Pole Handle Adapters(2)|تبدیل دسته عصایی|
+Dust Rollers(12)|غلتک پرزگیر|ترکیبی
+Dust Mitts(3)|دستکش گردگیری|ترکیبی
+Vacuum Cleaner Belts(6)|تسمه جاروبرقی|
+Mop Heads(88)|سرطی|ترکیبی
+Floor Sweeping Compounds(7)|پودر جاروکشی کف|
+Mops(110)|طی|ترکیبی
+Floor Wax(2)|واکس کف|ترکیبی
+Dust Mop Treatments(4)|اسپری طی گردگیر|
+Mop Frames(14)|فریم طی|
+Clothes Washers(1)|ماشین لباسشویی|ترکیبی
+Clothes Dryers(1)|خشک‌کن لباس|ترکیبی
+Pressure Washer Extension Wands(1)|لانس رابط کارواش|
+Pressure Washers(58)|کارواش صنعتی (واترجت)|
+Paint Sprayer Cleaning Kits(1)|کیت تمیزکاری پیستوله|
+Paint Thinners(7)|تینر|
+Paint Can Grids(3)|توری قوطی رنگ|
+Defoamers(2)|ضدکف|
+Insecticides(13)|حشره‌کش|ترکیبی
+Thread Cleaners(2)|پاک‌کننده رزوه|
+Toluene(1)|تولوئن|
+Hexane(1)|هگزان|
+Sodium Chloride(1)|کلرید سدیم (نمک)|
+Ethyl Acetate(1)|اتیل استات|
+Triethanolamine(1)|تری‌اتانول‌آمین|
+Heptane(1)|هپتان|
+Isopropyl Alcohol(5)|ایزوپروپیل الکل|
+Mineral Spirits(3)|حلال نفتی (وایت‌اسپیریت)|
+Xylene(3)|زایلن|
+Naphtha(2)|نفتا|
+Denatured Ethyl Alcohol(3)|الکل صنعتی (اتانول دناتوره)|
+Distilled Water(2)|آب مقطر|
+Sodium Bicarbonate(4)|جوش شیرین (بی‌کربنات سدیم)|
+Methanol(3)|متانول|
+Deionized Water(3)|آب دیونیزه|
+Pumice(2)|پودر پوکه (پامیس)|
+Sodium Carbonate(3)|کربنات سدیم|
+Citric Acid(2)|اسید سیتریک|
+Propylene Glycol(2)|پروپیلن گلیکول|
+Ethylene Glycol(3)|اتیلن گلیکول|
+Glycerin(3)|گلیسیرین|
+Air Conditioner Fin Combs(9)|شانه پره کندانسور|
+Erasers(7)|پاک‌کن|ترکیبی
+Etching Solution Neutralizers(1)|خنثی‌کننده محلول اچ|
+Electrical Insulating Varnish(6)|لاک عایق الکتریکی|
+@21.0.13 Tissues, Towels & Wipes
+Cloth Rags(41)|کهنه پارچه‌ای (لته)|
+Duster Sleeves(1)|روکش گردگیر|
+Tack Cloths(2)|پارچه گردگیر چسبناک (تک‌کلات)|
+@21.0.16 Brooms, Mops & Squeegees
+Paint Rollers(59)|غلتک رنگ|ترکیبی
+@21.0.17 Vacuums
+Vacuum Chambers(3)|محفظه خلأ|
+Leaf Blowers(3)|برگ‌روب (دمنده برگ)|ترکیبی
+@21.0.20 Wash Guns & Spray Nozzles
+Flat Spray Nozzles(65)|نازل اسپری تخت|
+Full-Cone Spray Nozzles(171)|نازل اسپری مخروط پر|
+High-Volume Clog-Resistant Full-Cone Spray Nozzles(152)|نازل مخروط پر پردبی ضدگرفتگی|
+Extra-Wide Deflected Flat Spray Nozzles(51)|نازل تخت انحرافی فوق‌عریض|
+High-Impact Deflected Flat Spray Nozzles(29)|نازل تخت انحرافی پرضربه|
+Solid-Stream Spray Nozzles(69)|نازل جت مستقیم|
+High-Volume Clog-Resistant Hollow-Cone Spray Nozzles(55)|نازل مخروط توخالی پردبی ضدگرفتگی|
+Square-Pattern Spray Nozzles(27)|نازل اسپری الگوی مربعی|
+Spray Nozzles with Quick-Change Tip(25)|نازل اسپری سرتعویض سریع|
+No-Drip Flat Spray Nozzles(8)|نازل تخت ضدچکه|
+Clamp-On Flat Spray Nozzles(16)|نازل تخت کلمپی|
+Right-Angle Full-Cone Spray Nozzles(8)|نازل مخروط پر زاویه‌دار ۹۰ درجه|
+Right-Angle Hollow-Cone Spray Nozzles(13)|نازل مخروط توخالی زاویه‌دار ۹۰ درجه|
+Clamp-On Flat Spray Nozzles with Quick-Change Tip(22)|نازل تخت کلمپی سرتعویض سریع|
+Quick-Disconnect Flat Spray Nozzles(3)|نازل تخت اتصال سریع|
+Clamp-On Full-Cone Spray Nozzles(17)|نازل مخروط پر کلمپی|
+Rotating Tank-Washing Spray Nozzles(40)|نازل مخزن‌شوی چرخشی|
+Tank-Washing Spray Nozzles(23)|نازل مخزن‌شوی|
+Clog-Resistant Tank-Washing Spray Nozzles(16)|نازل مخزن‌شوی ضدگرفتگی|
+Sanitary Tank-Washing Spray Nozzles(3)|نازل مخزن‌شوی بهداشتی|
+High-Impact Rotating Tank-Washing Spray Nozzles(3)|نازل مخزن‌شوی چرخشی پرضربه|
+Foam-Spray Rotating Tank-Washing Spray Nozzles(2)|نازل مخزن‌شوی چرخشی فوم‌پاش|
+Full-Cone Misting Spray Nozzles(14)|نازل مه‌پاش مخروط پر|
+Fogging Spray Nozzles(40)|نازل مه‌ساز (فاگر)|
+Hollow-Cone Misting Spray Nozzles(7)|نازل مه‌پاش مخروط توخالی|
+Full-Cone No-Drip Misting Spray Nozzles(7)|نازل مه‌پاش مخروط پر ضدچکه|
+Hollow-Cone No-Drip Misting Spray Nozzles(3)|نازل مه‌پاش مخروط توخالی ضدچکه|
+Full-Cone Ultra-Fine Air-Powered Misting and Fogging Spray Nozzles(4)|نازل مه‌پاش بادی فوق‌ریز مخروط پر|
+High-Volume Clog-Resistant Misting Spray Nozzles(16)|نازل مه‌پاش پردبی ضدگرفتگی|
+Hollow-Cone Ultra-Fine Air-Powered Misting and Fogging Spray Nozzles(2)|نازل مه‌پاش بادی فوق‌ریز مخروط توخالی|
+High-Pressure Flat Spray Nozzles(24)|نازل تخت فشار بالا|
+High-Pressure Solid-Stream Spray Nozzles(26)|نازل جت مستقیم فشار بالا|
+Quick-Disconnect Adjustable Spray-Angle High-Pressure Spray Nozzles(3)|نازل فشار بالا زاویه متغیر اتصال سریع|
+Adjustable Spray-Angle High-Pressure Spray Nozzles(16)|نازل فشار بالا زاویه متغیر|
+Quick-Disconnect Rotating High-Pressure Spray Nozzles(3)|نازل چرخشی فشار بالا اتصال سریع (توربو)|
+Quick-Disconnect High-Pressure Flat Spray Nozzles(10)|نازل تخت فشار بالا اتصال سریع|
+Quick-Disconnect Adjustable-Flow/Adjustable Spray-Angle High-Pressure Spray Nozzles(3)|نازل فشار بالا دبی و زاویه متغیر اتصال سریع|
+Rotating High-Pressure Spray Nozzles(3)|نازل چرخشی فشار بالا (توربو)|
+Quick-Disconnect High-Pressure Solid-Stream Spray Nozzles(10)|نازل جت مستقیم فشار بالا اتصال سریع|
+Adjustable-Flow/Adjustable Spray-Angle High-Pressure Spray Nozzles(4)|نازل فشار بالا دبی و زاویه متغیر|
+Steam Spray Nozzles(7)|نازل بخار|
+Fire Protection Spray Nozzles(8)|نازل اطفای حریق (اسپرینکلر)|
+Spray Nozzle Fittings(18)|اتصالات نازل اسپری|
+Heat Gun Nozzle Shields(1)|محافظ نازل سشوار صنعتی|
+@21.0.21 Sorbents
+Sand Bags(11)|گونی شن|
+Diatomaceous Earth(1)|خاک دیاتومه|
+Bentonite(2)|بنتونیت|
+Activated Carbon(3)|کربن فعال|
+Calcium Chloride(2)|کلرید کلسیم|
+@22.0.0 Heaters
+Portable Small-Space Electric Heaters(3)|بخاری برقی پرتابل فضای کوچک|ترکیبی
+Ceiling- and Wall-Mount Large-Space Electric Heaters(35)|هیتر برقی سقفی و دیواری فضای بزرگ|
+Mobile Large-Space Kerosene and Diesel Heaters(4)|جت‌هیتر نفتی و گازوئیلی چرخ‌دار|
+Mobile Large-Space Electric Heaters(9)|هیتر برقی چرخ‌دار فضای بزرگ|
+Portable Large-Space Gas Heaters(7)|جت‌هیتر گازی پرتابل|
+Wall-Mount Small-Space Electric Heaters(7)|بخاری برقی دیواری فضای کوچک|ترکیبی
+Ceiling-Mount Large-Space Gas Heaters(15)|هیتر گازی سقفی (یونیت‌هیتر)|
+Horizontal-Flow Large-Space Steam and Water Heaters(10)|یونیت‌هیتر بخار و آب گرم جریان افقی|
+Hazardous Location Wall-Mount Small-Space Electric Heaters(9)|بخاری برقی دیواری ضدانفجار فضای کوچک|
+Hazardous Location Wall-Mount Large-Space Electric Heaters(3)|هیتر برقی دیواری ضدانفجار فضای بزرگ|
+Washdown Ceiling- and Wall-Mount Large-Space Electric Heaters(6)|هیتر برقی سقفی و دیواری شست‌وشوپذیر|
+Bulb Socket Electric Space Heaters(5)|هیتر برقی سرپیچی|
+Vertical-Flow Large-Space Steam and Water Heaters(9)|یونیت‌هیتر بخار و آب گرم جریان عمودی|
+Horizontal-Flow Hazardous Location Large-Space Steam and Water Heaters(9)|یونیت‌هیتر بخار و آب گرم ضدانفجار جریان افقی|
+Portable Large-Space Kerosene and Diesel Heaters(2)|جت‌هیتر نفتی و گازوئیلی پرتابل|
+Horizontal-Flow Large-Space Steam Heaters(6)|یونیت‌هیتر بخار جریان افقی|
+Vertical-Flow Hazardous Location Large-Space Steam and Water Heaters(6)|یونیت‌هیتر بخار و آب گرم ضدانفجار جریان عمودی|
+Horizontal-Flow Hazardous Location Large-Space Steam Heaters(4)|یونیت‌هیتر بخار ضدانفجار جریان افقی|
+@22.0.1 Blowers
+Flue-Gas Exhausters(8)|اگزاست دودکش|
+@22.0.6 Equipment Cooling Fans
+DC Equipment-Cooling Fans(121)|فن خنک‌کننده DC|
+Equipment-Cooling Fan Kits(47)|کیت فن خنک‌کننده|
+High-Output Equipment-Cooling Fans(22)|فن خنک‌کننده پرقدرت|
+Equipment-Cooling Fan Kits with Thermostat(12)|کیت فن خنک‌کننده ترموستات‌دار|
+Wet-Location Enclosure-Cooling Fans(35)|فن تابلو محیط مرطوب|
+Wet-Location Equipment-Cooling Fans(28)|فن خنک‌کننده محیط مرطوب|
+High-Temperature Equipment-Cooling Fans(14)|فن خنک‌کننده دمای بالا|
+Wet-Location Equipment-Cooling Fan Kits(7)|کیت فن خنک‌کننده محیط مرطوب|
+Hazardous Location Equipment-Cooling Fan Kits(1)|کیت فن خنک‌کننده ضدانفجار|
+High-Pressure Washdown DC Equipment-Cooling Fans(27)|فن DC شست‌وشوپذیر فشار بالا|
+Hazardous Location Equipment-Cooling Fans(7)|فن خنک‌کننده ضدانفجار|
+DC Enclosure-Cooling Fans(4)|فن تابلو DC|
+DC Wet-Location Equipment-Cooling Fans(4)|فن DC محیط مرطوب|
+Submersible DC Equipment-Cooling Fans(11)|فن DC ضدآب (غوطه‌وری)|
+Enclosure-Cooling Fans(4)|فن تابلو برق|
+Submersible Equipment-Cooling Fans(16)|فن خنک‌کننده ضدآب (غوطه‌وری)|
+High-Pressure Washdown Equipment-Cooling Fans(14)|فن خنک‌کننده شست‌وشوپذیر فشار بالا|
+Machine-Cooling Fans(3)|فن خنک‌کننده ماشین‌آلات|
+@22.0.7 Louvers
+Adjustable-Blade Wall Louvers(34)|دریچه کرکره‌ای دیواری پره متحرک|
+Enclosure Louvers(62)|دریچه تهویه تابلو|
+Fixed-Blade Wall Louvers(14)|دریچه کرکره‌ای دیواری پره ثابت|
+Door Louvers(58)|دریچه تهویه درب|
+Adjustable-Width Fixed-Blade Wall Louvers(5)|دریچه دیواری پره ثابت عرض قابل تنظیم|
+Heavy Duty Fixed-Blade Wall Louvers(19)|دریچه دیواری پره ثابت سنگین|
+Combination Fixed- and Adjustable-Blade Wall Louvers(5)|دریچه دیواری ترکیبی پره ثابت و متحرک|
+Weather-Resistant Fixed-Blade Wall Louvers(20)|دریچه دیواری پره ثابت ضدباران|
+Weather-Resistant Enclosure Louvers(21)|دریچه تهویه تابلو ضدباران|
+Heavy Duty Adjustable-Blade Wall Louvers(4)|دریچه دیواری پره متحرک سنگین|
+Fixed-Blade Louvers for Block and Brick Walls(3)|دریچه پره ثابت دیوار آجری|
+Fixed-Blade Wall Louvers with Adjustable Register and Filter(4)|دریچه دیواری پره ثابت با رجیستر و فیلتر|
+Roof Louvers(22)|دریچه تهویه سقفی (هواکش بام)|
+Registers(39)|دریچه رجیستر (دمپردار)|
+Return Grilles(35)|دریچه برگشت هوا|
+@22.0.8 Air Conditioners
+Refrigerant Recovery Pumps(1)|دستگاه ریکاوری گاز مبرد|
+Air Conditioner Service Valves(18)|شیر سرویس کولر|
+Air Conditioner Filter Dryers(3)|فیلتر درایر کولر|
+@22.0.9 Humidifiers & Dehumidifiers
+Humidifiers(16)|دستگاه رطوبت‌ساز|ترکیبی
+Moisture Meters(2)|رطوبت‌سنج|
+@22.0.10 Desiccants
+Absorption-Indicating Desiccants(15)|رطوبت‌گیر نشانگردار (سیلیکاژل رنگی)|
+Desiccants for Compressed Air Dryers(2)|جاذب رطوبت درایر هوای فشرده|
+Low-Humidity Desiccants(10)|رطوبت‌گیر رطوبت پایین|
+High-Humidity Desiccants(5)|رطوبت‌گیر رطوبت بالا|
+Desiccants for Food and Beverage(3)|رطوبت‌گیر مواد غذایی|
+Fumed Silica(1)|سیلیس فیومد (آئروسیل)|
+Aluminum Oxide(1)|اکسید آلومینیوم|
+@22.0.11 Duct & Fittings
+Standard Duct and Fittings(501)|کانال و اتصالات استاندارد|
+Quick-Disconnect Duct and Fittings(563)|کانال و اتصالات اتصال سریع|
+Spiral Duct and Fittings(357)|کانال اسپیرال و اتصالات|
+Duct Flanges(169)|فلنج کانال|
+Rectangular Duct and Fittings(49)|کانال چهارگوش و اتصالات|
+Tight-Seal Spiral Duct and Fittings(70)|کانال اسپیرال آب‌بندی‌شده و اتصالات|
+Chemical-Resistant Duct and Fittings(80)|کانال مقاوم شیمیایی و اتصالات|
+Oval Duct and Fittings(11)|کانال بیضی و اتصالات|
+Vibration-Damping Duct Connectors(6)|برزنت لرزه‌گیر کانال|
+Fabric Duct and Fittings(12)|کانال پارچه‌ای و اتصالات|
+Duct Blast Gates(150)|دریچه کشویی کانال (بلست‌گیت)|
+Duct Airflow Dampers(99)|دمپر کانال|
+Duct Damper Handles(1)|دسته دمپر|
+Duct Downdraft Diverters(8)|کلاهک ضدبرگشت دود|
+Duct Spark Traps(36)|جرقه‌گیر کانال|
+Duct Turning Vanes(4)|پره هادی کانال|
+Duct Fire Dampers(13)|دمپر آتش|
+Diffuser Dampers(10)|دمپر دیفیوزر|
+Barometric Draft Dampers(6)|دمپر بارومتریک دودکش|
+Duct Floor Sweeps(3)|دریچه مکش کف|
+Smoke Candles(4)|شمع دود (تست نشتی)|
+Smoke Pens(2)|قلم دود|
+Fog Machines(2)|دستگاه مه‌ساز|
+Smoke Pellets(4)|قرص دود|
+Duct Carriers(2)|حمل‌کننده کانال|
+Smoke Powder(3)|پودر دود|
+@22.0.12 Duct Tape
+Duct Tape(23)|چسب برزنتی (داکت‌تیپ)|ترکیبی
+Nuclear-Grade Duct Tape(1)|چسب برزنتی گرید هسته‌ای|
+High-Tack Duct Tape(6)|چسب برزنتی چسبندگی بالا|
+Gaffer's Tape(10)|چسب گافر|
+Metalized Duct Tape(1)|چسب برزنتی متالایز|
+Easy-Tear Duct Tape(3)|چسب برزنتی دست‌پاره|
+Aluminum Foil Tape(3)|چسب فویل آلومینیوم|
+Self-Fusing Rubber Sealing Tape(1)|نوار لاستیکی خودجوش (آب‌بندی)|
+UV-Resistant Clean-Release Duct Tape(8)|چسب برزنتی ضدUV بدون رد|
+Compact Duct Tape(1)|چسب برزنتی کوچک|
+Flame-Retardant Duct Tape(1)|چسب برزنتی کندسوز|
+Clean Room Repair Tape(4)|چسب تعمیر اتاق تمیز|
+Abrasion-Resistant Sealing Tape(3)|نوار آب‌بندی ضدسایش|
+Optically Clear Repair Tape(2)|چسب تعمیر شفاف|
+@22.0.13 Air Filters
+Pleated Panel Air Filters(296)|فیلتر هوا پنلی پلیسه‌ای|
+Long-Life Reusable Mesh Panel Air Filters(88)|فیلتر هوا توری پنلی قابل شست‌وشو بادوام|
+Panel Air Filters(83)|فیلتر هوا پنلی|
+High-Efficiency Pleated Panel Air Filters(92)|فیلتر پنلی پلیسه‌ای راندمان بالا|
+Reusable Mesh Panel Air Filters(38)|فیلتر توری پنلی قابل شست‌وشو|
+Ultra-Efficiency Pleated Panel Air Filters(92)|فیلتر پنلی پلیسه‌ای راندمان فوق‌بالا|
+HEPA Box Air Filters(33)|فیلتر هپا (HEPA) جعبه‌ای|
+Electrostatic Reusable Panel Air Filters(18)|فیلتر پنلی الکترواستاتیک قابل شست‌وشو|
+Mildew-Resistant Snug-Fit Panel Air Filters(14)|فیلتر پنلی جاافتاده ضدکپک|
+Odor-Removing Pleated Panel Air Filters(29)|فیلتر پنلی پلیسه‌ای بوگیر (کربنی)|
+Made-to-Order Long-Life Reusable Mesh Panel Air Filters(10)|فیلتر توری قابل شست‌وشو بادوام سفارشی|
+Ultra-Efficiency Pocket Air Filters(22)|فیلتر کیسه‌ای راندمان فوق‌بالا|
+High-Efficiency Pocket Air Filters(29)|فیلتر کیسه‌ای راندمان بالا|
+High-Efficiency Box Air Filters(6)|فیلتر جعبه‌ای راندمان بالا|
+Made-to-Order Pleated Panel Air Filters(16)|فیلتر پنلی پلیسه‌ای سفارشی|
+Easy-Install Electrostatic Reusable Panel Air Filters(13)|فیلتر الکترواستاتیک قابل شست‌وشو نصب آسان|
+Long-Life Ultra-Efficiency Box Air Filters(7)|فیلتر جعبه‌ای راندمان فوق‌بالا بادوام|
+High-Temperature Reusable Mesh Panel Air Filters(19)|فیلتر توری قابل شست‌وشو دمای بالا|
+ULPA Box Air Filters(5)|فیلتر اولپا (ULPA) جعبه‌ای|
+Snug-Fit Panel Air Filters(12)|فیلتر پنلی جاافتاده|
+Long-Life High-Efficiency Pleated Panel Air Filters(15)|فیلتر پنلی پلیسه‌ای راندمان بالا بادوام|
+Ultra-Efficiency Odor-Removing Box Air Filters(2)|فیلتر جعبه‌ای بوگیر راندمان فوق‌بالا|
+Grease Filters(21)|فیلتر چربی‌گیر هود|
+Long-Life HEPA Box Air Filters(4)|فیلتر هپا جعبه‌ای بادوام|
+Smart High-Efficiency Pleated Panel Air Filters(2)|فیلتر پنلی پلیسه‌ای هوشمند راندمان بالا|
+Made-to-Order Panel Air Filters(16)|فیلتر پنلی سفارشی|
+Ultra-Efficiency Odor-Removing Pleated Panel Air Filters(5)|فیلتر پنلی پلیسه‌ای بوگیر راندمان فوق‌بالا|
+Ultra-Efficiency Box Air Filters(6)|فیلتر جعبه‌ای راندمان فوق‌بالا|
+Mildew-Resistant Pleated Panel Air Filters(48)|فیلتر پنلی پلیسه‌ای ضدکپک|
+Cube Air Filters(14)|فیلتر مکعبی|
+High-Temperature Ultra-Efficiency Box Air Filters(2)|فیلتر جعبه‌ای راندمان فوق‌بالا دمای بالا|
+High-Temperature High-Efficiency Box Air Filters(2)|فیلتر جعبه‌ای راندمان بالا دمای بالا|
+Odor-Removing Box Air Filters(2)|فیلتر جعبه‌ای بوگیر|
+@23.0.0 Flags
+Nation and State Flags(225)|پرچم کشورها و ایالت‌ها|ترکیبی
+Armed Forces Flags(8)|پرچم نیروهای مسلح|
+Flagpoles(9)|میله پرچم|
+Certification Flags(9)|پرچم گواهینامه|
+Safety Flags(18)|پرچم ایمنی|
+Sticky Flags(2)|کاغذ یادداشت نشانگر (فلگ)|ترکیبی
+Mailbox Flags(2)|پرچم صندوق نامه|ترکیبی

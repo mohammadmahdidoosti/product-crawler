@@ -1,0 +1,202 @@
+@12.1.10 Mirrors
+Shatter-Resistant Convex Safety Mirrors(45)|آینه محدب ایمنی ضدشکست|
+Shatter-Resistant Full-Dome Safety Mirrors(20)|آینه ایمنی گنبدی کامل ضدشکست|
+Shatter-Resistant Half-Dome Safety Mirrors(15)|آینه ایمنی نیم‌گنبدی ضدشکست|
+Convex Safety Mirrors with Tilting Arm(1)|آینه محدب ایمنی بازو کج‌شو|
+Corrosion- and Shatter-Resistant Convex Safety Mirrors(10)|آینه محدب ایمنی ضدخوردگی و ضدشکست|
+Unbreakable Convex Safety Mirrors with Fixed Arm(1)|آینه محدب ایمنی نشکن بازو ثابت|
+Bracket-Mount Convex Safety Mirrors(22)|آینه محدب ایمنی براکت‌دار|
+Shatter-Resistant Convex Safety Mirrors with Telescoping Arm(1)|آینه محدب ایمنی ضدشکست بازو تلسکوپی|
+Unbreakable Half-Dome Safety Mirrors(6)|آینه ایمنی نیم‌گنبدی نشکن|
+Safety Mirrors(14)|آینه ایمنی|
+Clamp-On Shatter-Resistant Convex Safety Mirrors with Bend-and-Stay Arm(1)|آینه محدب ضدشکست گیره‌ای بازو خم‌شو|
+Unbreakable Safety Mirrors(10)|آینه ایمنی نشکن|
+Adhesive-Mount Convex Safety Mirrors(1)|آینه محدب ایمنی چسبی|
+Shatter-Resistant Half-Dome Safety Mirrors for Drop Ceilings(5)|آینه نیم‌گنبدی ضدشکست سقف کاذب|
+Unbreakable Convex Safety Mirrors with Tilting Arm(2)|آینه محدب ایمنی نشکن بازو کج‌شو|
+Shatter-Resistant Safety Mirrors(15)|آینه ایمنی ضدشکست|
+Corrosion-Resistant Unbreakable Convex Safety Mirrors(7)|آینه محدب ایمنی نشکن ضدخوردگی|
+Magnetic Shatter-Resistant Convex Safety Mirrors with Bend-and-Stay Arm(3)|آینه محدب ضدشکست مغناطیسی بازو خم‌شو|
+Shatter-Resistant Quarter-Dome Safety Mirrors(5)|آینه ایمنی ربع‌گنبدی ضدشکست|
+Unbreakable Convex Safety Mirrors(7)|آینه محدب ایمنی نشکن|
+Shatter-Resistant Full-Dome Safety Mirrors for Drop Ceilings(2)|آینه گنبدی کامل ضدشکست سقف کاذب|
+Unbreakable Full-Dome Safety Mirrors(2)|آینه ایمنی گنبدی کامل نشکن|
+Shatter-Resistant Quarter-Dome Safety Mirrors for Drop Ceilings(5)|آینه ربع‌گنبدی ضدشکست سقف کاذب|
+Magnetic-Mount Convex Safety Mirrors with Fixed Arm(3)|آینه محدب ایمنی مغناطیسی بازو ثابت|
+Freestanding Shatter-Resistant Convex Safety Mirrors with Telescoping Arm(2)|آینه محدب ضدشکست پایه‌دار بازو تلسکوپی|
+Shatter-Resistant Convex Safety Mirrors with Fixed Arm(2)|آینه محدب ایمنی ضدشکست بازو ثابت|
+Safety Mirrors with Telescoping Arms(2)|آینه ایمنی بازو تلسکوپی|
+@12.1.12 Horns, Bells & Alarms
+Audible Alarm Guards(1)|حفاظ آژیر|
+Carbon Dioxide Meters(1)|سنجنده دی‌اکسید کربن (CO2)|
+Faucet Timers(1)|تایمر شیر آب|
+Vibration Meters(1)|ویبره‌سنج (لرزش‌سنج)|
+Static Charge Meters(2)|سنجنده الکتریسیته ساکن|
+Scheduling Timers(4)|تایمر برنامه‌پذیر|
+Smoke Detector Guards(1)|حفاظ دتکتور دود|
+Heat Detectors(5)|دتکتور حرارتی|
+Smoke Detector Testers(4)|تستر دتکتور دود|
+Fire Alarm Station Covers(4)|کاور شستی اعلام حریق|
+Methane Detectors(1)|دتکتور متان|
+Propane Detectors(1)|دتکتور پروپان|
+Carbon Monoxide Detectors(8)|دتکتور مونوکسید کربن|ترکیبی
+Multi-Gas Detectors(8)|گازسنج چندگازه|
+Oxygen Detectors(3)|دتکتور اکسیژن|
+Radiation Dose Meters(3)|دزیمتر تشعشع|
+Hydrogen Detectors(4)|دتکتور هیدروژن|
+Sound Level Monitors(5)|مانیتور تراز صدا|
+Hydrogen Sulfide Detectors(6)|دتکتور سولفید هیدروژن (H2S)|
+Timers(27)|تایمر|
+Stopwatches(8)|کرنومتر|
+Gas Leak Detectors(14)|نشت‌یاب گاز|
+Radiation Detectors(6)|دتکتور تشعشع|
+Leak-Detecting Pipe Flange Covers(33)|کاور فلنج نشت‌یاب|
+Sound Level Meters(9)|صداسنج (دسیبل‌متر)|
+Thickness Gauges(6)|ضخامت‌سنج|
+Vibration Switches(10)|سوئیچ لرزش|
+Air Horn Cabinets(3)|کابینت بوق بادی|
+Push Bars(8)|دستگیره اضطراری (پوش‌بار)|
+@12.1.13 Status-Indicating Lights
+Surface-Mount Stack Indicator Lights(15)|برج سیگنال روکار|
+Push-Button Stack Indicator Lights with Two-Blade Plug(1)|برج سیگنال شستی‌دار با دوشاخه|
+Build-Your-Own Stack Indicator Lights for Universal Robots(3)|برج سیگنال ماژولار ربات یونیورسال|
+Pipe/Surface-Mount Stack Indicator Lights(11)|برج سیگنال پایه لوله‌ای/روکار|
+Build-Your-Own Stack Indicator Lights(14)|برج سیگنال ماژولار|
+Quick-Connect Stack Indicator Lights(9)|برج سیگنال اتصال سریع|
+3-in-1 Compact Stack Indicator Lights(5)|برج سیگنال کامپکت سه‌کاره|
+Compact Stack Indicator Lights(7)|برج سیگنال کامپکت|
+3-in-1 Compact Quick-Connect Stack Indicator Lights(5)|برج سیگنال کامپکت سه‌کاره اتصال سریع|
+Continuous/Flashing Indicator Lights(1)|چراغ سیگنال ثابت/چشمک‌زن|
+Watertight Panel Indicator Lights with Screw Terminals(1)|چراغ سیگنال تابلویی ضدآب ترمینال پیچی|
+Panel Indicator Lights with Quick-Disconnect Terminals(10)|چراغ سیگنال تابلویی ترمینال فیش|
+Sunlight-Visible Watertight Panel Indicator Lights(38)|چراغ سیگنال تابلویی ضدآب پرنور (دید در آفتاب)|
+Flat Oil-Resistant Panel Indicator Lights with Screw Terminals(15)|چراغ سیگنال تابلویی تخت ضدروغن ترمینال پیچی|
+Conical Oil-Resistant Panel Indicator Lights with Screw Terminals(13)|چراغ سیگنال تابلویی مخروطی ضدروغن ترمینال پیچی|
+Domed Panel Indicator Lights with Wire Leads(3)|چراغ سیگنال تابلویی گنبدی سیم‌دار|
+Flat Panel Indicator Lights with Wire Leads(2)|چراغ سیگنال تابلویی تخت سیم‌دار|
+Build-Your-Own Oil-Resistant Panel Indicator Lights with Screw Terminals(41)|چراغ سیگنال تابلویی ماژولار ضدروغن ترمینال پیچی|
+High-Pressure Washdown Panel Indicator Lights with Screw Terminals(3)|چراغ سیگنال تابلویی شست‌وشوی پرفشار ترمینال پیچی|
+Square Oil-Resistant Panel Indicator Lights with Quick-Disconnect Terminals(3)|چراغ سیگنال تابلویی مربعی ضدروغن ترمینال فیش|
+Domed Oil-Resistant Panel Indicator Lights with Screw Terminals(4)|چراغ سیگنال تابلویی گنبدی ضدروغن ترمینال پیچی|
+Watertight Panel Indicator Lights with Lug Terminals(2)|چراغ سیگنال تابلویی ضدآب ترمینال لحیمی|
+Cylindrical Oil-Resistant Panel Indicator Lights with Screw Terminals(13)|چراغ سیگنال تابلویی استوانه‌ای ضدروغن ترمینال پیچی|
+Panel Indicator Lights with Lug Terminals(6)|چراغ سیگنال تابلویی ترمینال لحیمی|
+Cylindrical Oil-Resistant Panel Indicator Lights with Quick-Disconnect Terminals(2)|چراغ سیگنال تابلویی استوانه‌ای ضدروغن ترمینال فیش|
+Rectangular Oil-Resistant Panel Indicator Lights with Quick-Disconnect Terminals(2)|چراغ سیگنال تابلویی مستطیلی ضدروغن ترمینال فیش|
+Conical Panel Indicator Lights with Wire Leads(2)|چراغ سیگنال تابلویی مخروطی سیم‌دار|
+Surface-Mount Rectangular Strobe Indicator Lights(5)|چراغ چشمک‌زن (استروب) مستطیلی روکار|
+@12.1.15 Gloves
+Oil-Resistant Nitrile Disposable Gloves(32)|دستکش یکبارمصرف نیتریل ضدروغن|
+Form-Fitting Latex Disposable Gloves(8)|دستکش یکبارمصرف لاتکس جذب|
+Clean Room Disposable Gloves(18)|دستکش یکبارمصرف اتاق تمیز|
+Heavy Duty Rubber Blend Disposable Gloves(1)|دستکش یکبارمصرف لاستیکی ضخیم|
+Durable Neoprene Disposable Gloves(2)|دستکش یکبارمصرف نئوپرن مقاوم|
+Static-Control Disposable Gloves(6)|دستکش یکبارمصرف آنتی‌استاتیک|
+Loose-Fitting Polyethylene Disposable Gloves(4)|دستکش یکبارمصرف نایلونی (پلی‌اتیلن) گشاد|ترکیبی
+Economy Vinyl Disposable Gloves(4)|دستکش یکبارمصرف وینیل اقتصادی|ترکیبی
+Radiation-Protection Disposable Gloves(1)|دستکش یکبارمصرف ضدتشعشع|
+Metal-Detectable Disposable Gloves(2)|دستکش یکبارمصرف قابل ردیابی فلزیاب|
+Sterile Disposable Gloves(3)|دستکش یکبارمصرف استریل|
+Coated Work Gloves(19)|دستکش کار روکش‌دار (کف‌مواد)|
+High-Dexterity Work Gloves(16)|دستکش کار ظریف (حساس)|
+Leather Work Gloves(8)|دستکش کار چرمی|
+Light Duty Work Gloves(18)|دستکش کار سبک|
+Impact-Resistant Work Gloves(10)|دستکش کار ضدضربه|
+Heavy Duty Work Gloves(8)|دستکش کار سنگین|
+Inspection Gloves(6)|دستکش بازرسی (نخی)|
+Leather-Palm Work Gloves(7)|دستکش کار کف‌چرم|
+Water-Resistant Work Gloves(11)|دستکش کار ضدآب|
+Sticky Grip Work Gloves(1)|دستکش کار چسبنده|
+Insulated Work Gloves(4)|دستکش کار عایق (گرم)|
+Flame-Resistant Work Gloves(1)|دستکش کار ضدشعله|
+Vibration-Protection Work Gloves(4)|دستکش کار ضدلرزش|
+Work Gloves for Chainsaws(1)|دستکش کار اره زنجیری|
+Tearaway Work Gloves(3)|دستکش کار پاره‌شو ایمنی|
+Work Gloves for Hammers(1)|دستکش کار چکش‌کاری|
+Coated Work Gloves with Magnet(1)|دستکش کار روکش‌دار آهنربادار|
+Metal-Detectable Coated Work Gloves(3)|دستکش کار روکش‌دار قابل ردیابی فلزیاب|
+Drain-Cleaning Gloves(3)|دستکش لوله‌بازکنی|
+Cross-Contamination Prevention Gloves(5)|دستکش ضدآلودگی متقاطع|
+Work Gloves for Nailers(1)|دستکش کار میخکوب|
+Neoprene Chemical-Resistant Gloves(27)|دستکش ضدشیمیایی نئوپرن|
+Nitrile Chemical-Resistant Gloves(24)|دستکش ضدشیمیایی نیتریل|
+Butyl Chemical-Resistant Gloves(8)|دستکش ضدشیمیایی بوتیل|
+Viton® Fluoroelastomer Chemical-Resistant Gloves(3)|دستکش ضدشیمیایی وایتون|
+Latex Chemical-Resistant Gloves(13)|دستکش ضدشیمیایی لاتکس|
+PVC Chemical-Resistant Gloves(14)|دستکش ضدشیمیایی PVC|
+PVA Chemical-Resistant Gloves(1)|دستکش ضدشیمیایی PVA|
+Ultra-Thin EVOH Chemical-Resistant Gloves(2)|دستکش ضدشیمیایی EVOH فوق‌نازک|
+Ultra-Thin Polyethylene Chemical-Resistant Gloves(1)|دستکش ضدشیمیایی پلی‌اتیلن فوق‌نازک|
+Electrical-Protection Gloves(36)|دستکش عایق برق|
+Electrical-Protection Glove Kits(6)|کیت دستکش عایق برق|
+Extreme Heat-Protection Gloves(20)|دستکش نسوز دمای خیلی بالا|
+Heat-Protection Gloves(14)|دستکش نسوز (ضدحرارت)|
+Cut- and Heat-Protection Gloves(12)|دستکش ضدبرش و نسوز|
+Flame- and Heat-Protection Gloves(4)|دستکش ضدشعله و نسوز|
+Heat-Reflective Aluminized Gloves(6)|دستکش نسوز آلومینیومی (بازتابنده)|
+Hot Mill Gloves(3)|دستکش نسوز نخی (هات‌میل)|
+Heat-Protection Mitts(1)|دستکش نسوز یک‌انگشتی|
+Leather Heat-Protection Gloves(2)|دستکش نسوز چرمی|
+Extreme Heat-Protection Mitts(12)|دستکش یک‌انگشتی نسوز دمای خیلی بالا|
+Firefighter-Style Leather Heat-Protection Gloves(2)|دستکش نسوز چرمی آتش‌نشانی|
+High-Dexterity Cut-Protection Gloves(9)|دستکش ضدبرش ظریف|
+Coated Cut-Protection Gloves(20)|دستکش ضدبرش روکش‌دار|
+Impact- and Cut-Protection Gloves(12)|دستکش ضدضربه و ضدبرش|
+Leather Cut-Protection Gloves(9)|دستکش ضدبرش چرمی|
+Insulated Cut-Protection Gloves(7)|دستکش ضدبرش عایق (گرم)|
+Cut-Protection Gloves(11)|دستکش ضدبرش|
+High-Dexterity Cold- and Cut-Protection Gloves(1)|دستکش ضدسرما و ضدبرش ظریف|
+Needlestick- and Cut-Protection Gloves(5)|دستکش ضدسوزن و ضدبرش|
+Touch-Screen Cut-Protection Gloves(1)|دستکش ضدبرش لمسی|
+Water-Resistant Cut-Protection Gloves(6)|دستکش ضدبرش ضدآب|
+Food and Beverage Cut-Protection Gloves(6)|دستکش ضدبرش صنایع غذایی|
+Tearaway Cut-Protection Gloves(1)|دستکش ضدبرش پاره‌شو ایمنی|
+Low-Linting Cut-Protection Gloves(1)|دستکش ضدبرش بدون پرز|
+Open-Finger Cut-Protection Gloves(1)|دستکش ضدبرش انگشت‌باز|
+Chainmail Cut-Protection Gloves(5)|دستکش ضدبرش حلقه‌فلزی (زرهی)|
+Cold- and Cut-Protection Gloves(1)|دستکش ضدسرما و ضدبرش|
+Cold-Protection Gloves(10)|دستکش ضدسرما|
+Water-Resistant Cold-Protection Gloves(7)|دستکش ضدسرما ضدآب|
+Leather Cold-Protection Gloves(3)|دستکش ضدسرما چرمی|
+Extreme Cold-Protection Gloves(4)|دستکش ضدسرمای شدید|
+Leather-Palm Cold-Protection Gloves(7)|دستکش ضدسرما کف‌چرم|
+Heavy Duty Cold-Protection Gloves(6)|دستکش ضدسرما سنگین|
+Cut- and Cold-Protection Gloves(6)|دستکش ضدبرش و ضدسرما|
+Cold-Protection Mitts(1)|دستکش یک‌انگشتی ضدسرما|
+Convertible Cold-Protection Mitts(1)|دستکش یک‌انگشتی ضدسرما تبدیل‌شو|
+Water-Resistant Extreme Cold-Protection Gloves(4)|دستکش ضدسرمای شدید ضدآب|
+Heavy Duty Cold-Protection Mitts(1)|دستکش یک‌انگشتی ضدسرما سنگین|
+Propane Tank Gloves(2)|دستکش کپسول پروپان|
+Cut- and Cold-Protection Mitts(2)|دستکش یک‌انگشتی ضدبرش و ضدسرما|
+Cut- and Arc-Flash-Protection Gloves(5)|دستکش ضدبرش و ضدقوس الکتریکی|
+Heat-, Cut-, and Arc-Flash-Protection Gloves(5)|دستکش نسوز، ضدبرش و ضدقوس الکتریکی|
+Heavy Duty Arc-Flash-Protection Gloves(4)|دستکش ضدقوس الکتریکی سنگین|
+Waterproof Arc-Flash-Protection Gloves(1)|دستکش ضدقوس الکتریکی ضدآب|
+Arc-Flash-Protection Gloves(2)|دستکش ضدقوس الکتریکی (آرک‌فلش)|
+Cold- and Arc-Flash-Protection Gloves(2)|دستکش ضدسرما و ضدقوس الکتریکی|
+Cold- and Arc-Flash-Protection Mitts(1)|دستکش یک‌انگشتی ضدسرما و ضدقوس|
+One-Piece Glove Box Gloves(12)|دستکش گلاوباکس یک‌تکه|
+Two-Piece Glove Box Gloves(7)|دستکش گلاوباکس دوتکه|
+Accordion Two-Piece Glove Box Gloves(7)|دستکش گلاوباکس دوتکه آکاردئونی|
+Chemical-Resistant Clean Room Gloves(2)|دستکش اتاق تمیز ضدشیمیایی|
+Clean Room Gloves(4)|دستکش اتاق تمیز|
+Extreme-Temperature Clean Room Gloves(3)|دستکش اتاق تمیز دمای بحرانی|
+Cut-Protection Clean Room Gloves(2)|دستکش اتاق تمیز ضدبرش|
+Extreme-Temperature Clean Room Mitts(1)|دستکش یک‌انگشتی اتاق تمیز دمای بحرانی|
+Abrasive Blasting Cabinet Gloves(13)|دستکش کابین سندبلاست|
+Static-Dissipative Gloves(5)|دستکش آنتی‌استاتیک|
+Static-Dissipative Inspection Gloves(3)|دستکش بازرسی آنتی‌استاتیک|
+Cut-Protection Static-Dissipative Gloves(3)|دستکش آنتی‌استاتیک ضدبرش|
+Extreme-Temperature Static-Dissipative Gloves(2)|دستکش آنتی‌استاتیک دمای بحرانی|
+High-Dexterity Open-Finger Work Gloves(2)|دستکش کار انگشت‌باز ظریف|
+Open-Finger Work Gloves(8)|دستکش کار انگشت‌باز|
+Repetitive-Motion Open-Finger Work Gloves(1)|دستکش کار انگشت‌باز حرکات تکراری|
+Vibration-Protection Open-Finger Work Gloves(3)|دستکش کار انگشت‌باز ضدلرزش|
+Glove Dispensers(25)|دیسپنسر دستکش|
+Finger Cot Dispensers(1)|دیسپنسر انگشتانه|
+Rubber Fingertips(3)|انگشتانه لاستیکی (اسکناس‌شمار)|ترکیبی
+@12.1.16 Footwear
+Shoe Cover Removers(1)|درآورنده کاور کفش|
+Shoe Cover Dispensers(5)|دستگاه کاور کفش|
+Insoles(12)|کفی کفش|ترکیبی
+Stilts(7)|پاچوبه (استیلت) گچ‌کاری|

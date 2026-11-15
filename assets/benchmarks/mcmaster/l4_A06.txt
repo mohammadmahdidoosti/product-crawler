@@ -1,0 +1,231 @@
+@4.0.4 Flowmeters
+Panel-Mount Flowmeters(151)|روتامتر تابلویی|
+Easy Read Flowmeters(50)|فلومتر خوانایی بالا|
+Any-Orientation Flowmeters(50)|فلومتر نصب در هر جهت|
+High-Temperature and Pressure Flowmeters(19)|فلومتر دما و فشار بالا|
+Insertion Flowmeters(6)|فلومتر الحاقی (اینسرشن)|
+High-Temperature Flowmeters(21)|فلومتر دمای بالا|
+Portable Noncontact Flowmeters(4)|فلومتر التراسونیک پرتابل (کلمپی)|
+High-Temperature Flowmeters with Digital Display(10)|فلومتر دمای بالا دیجیتال|
+Impact-Resistant Panel-Mount Flowmeters(14)|روتامتر تابلویی ضدضربه|
+Clog-Resistant Flowmeters(7)|فلومتر ضدگرفتگی|
+Flowmeters for High-Purity Liquids(8)|فلومتر مایعات خلوص بالا|
+Impact-Resistant Flowmeters(9)|فلومتر ضدضربه|
+Flowmeters with Flow Switch(12)|فلومتر با فلوسوئیچ|
+Socket-Connect Flowmeters(4)|فلومتر اتصال سوکتی|
+High-Temperature Panel-Mount Flowmeters(18)|روتامتر تابلویی دمای بالا|
+Flanged Flowmeters(8)|فلومتر فلنجی|
+Panel-Mount Flowmeters for Gases(136)|روتامتر تابلویی گاز|
+Flowmeters for Gases(47)|فلومتر گاز|
+Easy-Read Flowmeters for Gases(20)|فلومتر گاز خوانایی بالا|
+Impact-Resistant Panel-Mount Flowmeters for Gases(19)|روتامتر تابلویی گاز ضدضربه|
+Panel-Mount Flowmeters for Gases with Conversion Chart(36)|روتامتر تابلویی گاز با جدول تبدیل|
+Variable-Pressure Flowmeters for Gases(30)|فلومتر گاز فشار متغیر|
+Flowmeters for Oxygen(9)|فلومتر اکسیژن|
+Flowmeter/Totalizers(40)|فلومتر کنتوری (توتالایزر)|
+Flowmeter/Totalizers for Oil and Fuel(23)|فلومتر کنتوری روغن و سوخت|
+Flowmeter/Totalizers with Sanitary Quick-Clamp Fittings(17)|فلومتر کنتوری اتصال تری‌کلمپ|
+Socket-Connect Flowmeter/Totalizers with Remote Display(11)|فلومتر کنتوری سوکتی با نمایشگر جدا|
+Flanged Flowmeter/Totalizers(4)|فلومتر کنتوری فلنجی|
+Socket-Connect Flowmeter/Totalizers(18)|فلومتر کنتوری سوکتی|
+High-Temperature Flowmeter/Totalizers(8)|فلومتر کنتوری دمای بالا|
+High-Temperature and Pressure Flowmeters for Oil(53)|فلومتر روغن دما و فشار بالا|
+Any-Orientation Flowmeters for Oil(12)|فلومتر روغن نصب در هر جهت|
+Flow- and Pressure-Testing Flowmeters for Oil(4)|فلومتر تست جریان و فشار هیدرولیک|
+Flanged Totalizers for Drinking Water(5)|کنتور آب فلنجی|
+Totalizers(12)|کنتور (توتالایزر)|
+Totalizers for Drinking Water(7)|کنتور آب شرب|
+High-Temperature Totalizers(5)|کنتور دمای بالا (آب گرم)|
+Totalizers with Digital Display(3)|کنتور دیجیتال|
+Totalizers for Grease(1)|کنتور گریس|
+Totalizers for Fuel(2)|کنتور سوخت|
+Totalizers for Natural, Propane, and Butane Gas(2)|کنتور گاز|
+Totalizers with Digital Display for Fuel(2)|کنتور سوخت دیجیتال|
+Totalizers for Oil(2)|کنتور روغن|
+High-Temperature Totalizers with Digital Display(8)|کنتور دیجیتال دمای بالا|
+Remote-Reading Totalizers for Drinking Water(10)|کنتور آب شرب قرائت از راه دور|
+TIG Torch Gas Flowmeters(1)|فلومتر گاز تورچ تیگ|
+Calibration Columns(14)|ستون کالیبراسیون|
+Airflow Meters(25)|بادسنج (آنمومتر)|
+Hose Coupling Plugs(3)|نری کوپلینگ شیلنگ|
+Development Board Sensor Modules(1)|ماژول سنسور برد توسعه (آردوینو)|
+@4.0.5 Sights
+Flow Sights with Indicator for Water and Oil(45)|سایت‌گلاس جریان با نشانگر آب و روغن|
+Compact Flow Sights for Water and Oil(16)|سایت‌گلاس جریان کوچک آب و روغن|
+High-Temperature Flow Sights for Water and Oil(7)|سایت‌گلاس جریان دمای بالا|
+Flow Sights for Water and Oil(13)|سایت‌گلاس جریان آب و روغن|
+Food and Beverage Flow Sights(5)|سایت‌گلاس جریان صنایع غذایی|
+Panel-Mount Flow Sights for Water, Oil, and Inert Gas(7)|سایت‌گلاس تابلویی آب، روغن و گاز|
+Compact Flow Sights with Indicator for Water and Oil(16)|سایت‌گلاس کوچک با نشانگر|
+High-Pressure Flow Sights for Water and Oil(12)|سایت‌گلاس جریان فشار بالا|
+Full-View Flow Sights for Water and Oil(7)|سایت‌گلاس تمام‌دید آب و روغن|
+Flow Sights with Barbed Fittings for Water, Oil, Air, and Inert Gas(3)|سایت‌گلاس سرشیلنگی|
+Compact Flow Sights for Chemicals(8)|سایت‌گلاس کوچک مواد شیمیایی|
+Flow Sights for Chemicals(5)|سایت‌گلاس مواد شیمیایی|
+Full-View Flow Sights with Indicator for Water and Oil(6)|سایت‌گلاس تمام‌دید با نشانگر|
+Quick-Clean Flow Sights for Water(4)|سایت‌گلاس آب تمیزشونده سریع|
+Machine Lights(1)|چراغ ماشین‌آلات|
+Liquid-Level Gauges(385)|گیج سطح مایع (لول‌گیج)|
+Duct Flow Sights(24)|دریچه بازدید کانال|
+@4.0.6 Mixers
+Mixers(169)|همزن صنعتی|
+Mixer Attachments(22)|متعلقات همزن|
+Stand Mixers(1)|همزن پایه‌دار (میکسر)|ترکیبی
+Mixer Propellers(172)|پروانه همزن|
+Static Mixers(45)|میکسر استاتیک|
+Vibrators(150)|ویبراتور|
+Mixer Clamps(9)|بست همزن|
+Mixer Blades(15)|تیغه همزن|
+Rotating-Drum Mixers(3)|میکسر استوانه‌ای دوار|
+Spatulas(77)|کاردک (اسپاتول)|
+Concrete Curing Vibrators(1)|ویبراتور بتن|
+Mixing Paddles(18)|همزن دریلی (پارو)|
+Tabletop Blenders(5)|مخلوط‌کن رومیزی|ترکیبی
+Aerators(4)|هواده|
+Tumblers(26)|دستگاه تامبلر (پولیش ویبره)|
+Drum Mixers(4)|همزن بشکه|
+Mixer Chucks(5)|سه‌نظام همزن|
+Paint Shakers(25)|شیکر رنگ|
+Aerating Vibrators(3)|ویبراتور هوادهی|
+Vibrating Tables(4)|میز ویبره|
+Mixer Stands(3)|پایه همزن|
+Injection Valves(7)|شیر تزریق|
+Mortars(5)|هاون|
+Pestles(2)|دسته هاون|
+Immersion Blenders(1)|گوشت‌کوب برقی|ترکیبی
+Stirring Rods(5)|میله همزن|
+Sieve Shakers(3)|شیکر الک|
+Concrete Mixing Boxes(2)|تغار بتن|
+Concrete Mixing Hoes(3)|کج‌بیل اختلاط بتن|
+Stir Sticks(2)|همزن چوبی|
+Whisks(2)|همزن دستی (ویسک)|ترکیبی
+Stir Stick Dispensers(2)|دیسپنسر همزن|
+Concrete Removers(1)|بتن‌پاک‌کن|
+Drywall Knives(1)|کاردک کناف|
+Putty Knives(239)|کاردک بتونه|
+Hot Plates(69)|اجاق برقی آزمایشگاهی (هیتر صفحه‌ای)|
+Spoons(45)|قاشق|ترکیبی
+Vibrating Feeders(9)|فیدر ویبره|
+@4.0.7 Vibrators
+Air-Powered Vibrators for Dry Materials(29)|ویبراتور بادی مواد خشک|
+Energy-Saving Air-Powered Vibrators for Dry Materials(32)|ویبراتور بادی کم‌مصرف مواد خشک|
+Adjustable-Force Electric Vibrators for Dry Materials(8)|ویبراتور برقی نیروی متغیر مواد خشک|
+Ultra-Quiet Electric Vibrators for Dry Materials(9)|ویبراتور برقی فوق‌کم‌صدا|
+Air-Powered Vibrators for Wet Materials(23)|ویبراتور بادی مواد مرطوب|
+Portable Magnetic-Mount Air-Powered Vibrators for Dry Materials(2)|ویبراتور بادی پرتابل مگنتی|
+Adjustable-Speed Electric Vibrators for Dry Materials(4)|ویبراتور برقی دور متغیر|
+Electric Vibrators for Wet Materials(12)|ویبراتور برقی مواد مرطوب|
+Heavy Duty Air-Powered Vibrators for Wet Materials(10)|ویبراتور بادی سنگین مواد مرطوب|
+Battery-Operated Vibrators for Dry Materials(3)|ویبراتور شارژی مواد خشک|
+Vacuum-Mount Air-Powered Vibrators for Wet Materials(2)|ویبراتور بادی نصب وکیومی|
+Bracket-Mount Air-Powered Vibrators for Wet Materials(7)|ویبراتور بادی براکت‌دار|
+Heavy Duty Air-Powered Vibrators for Wet Materials with Setup Kit(9)|ویبراتور بادی سنگین با کیت نصب|
+Duct Hose(8)|شیلنگ داکت|
+Polishers(3)|دستگاه پولیش|
+@4.1.0 Switches
+Dual-Level Vertical-Mount Float Switches for Water(1)|فلوتر سوئیچ عمودی دوسطحی آب|
+Horizontal-Mount Float Switches for Water(6)|فلوتر سوئیچ افقی آب|
+Through-Wall Vertical-Mount Float Switches for Water(1)|فلوتر سوئیچ عمودی دیواره‌ای آب|
+Vertical-Mount Float Switches for Water(6)|فلوتر سوئیچ عمودی آب|
+Through-Wall Horizontal-Mount Float Switches for Fuels and Oils(1)|فلوتر سوئیچ افقی دیواره‌ای سوخت و روغن|
+Vertical-Mount Hazardous Location Float Switches for Fuels and Oils(1)|فلوتر سوئیچ عمودی ضدانفجار سوخت|
+Vertical-Mount Compressed-Air Float Switches for Fuels and Oils(1)|فلوتر سوئیچ عمودی پنوماتیکی سوخت|
+Drop-In Float Switches for Water(18)|فلوتر سوئیچ آویز (کابلی) آب|
+Vertical-Mount Float Switches for Fuels and Oils(6)|فلوتر سوئیچ عمودی سوخت و روغن|
+Through-Wall Horizontal-Mount Float Switches for Water(3)|فلوتر سوئیچ افقی دیواره‌ای آب|
+Horizontal-Mount Float Switches for Fuels and Oils(11)|فلوتر سوئیچ افقی سوخت و روغن|
+Hazardous Location Float Switches for Chemicals(5)|فلوتر سوئیچ ضدانفجار مواد شیمیایی|
+Dual-Level Vertical-Mount Float Switches for Fuels and Oils(2)|فلوتر سوئیچ عمودی دوسطحی سوخت|
+Vertical-Mount Float Switches for Food and Beverage(18)|فلوتر سوئیچ عمودی صنایع غذایی|
+Through-Wall Horizontal-Mount Float Switches for Chemicals(3)|فلوتر سوئیچ افقی دیواره‌ای شیمیایی|
+Through-Wall Horizontal-Mount Float Switches for Food and Beverage(3)|فلوتر سوئیچ افقی دیواره‌ای غذایی|
+Vertical-Mount Float Switches for Chemicals(6)|فلوتر سوئیچ عمودی مواد شیمیایی|
+Horizontal-Mount Hazardous Location Float Switches for Fuels and Oils(7)|فلوتر سوئیچ افقی ضدانفجار سوخت|
+Horizontal-Mount Float Switches for Food and Beverage(2)|فلوتر سوئیچ افقی صنایع غذایی|
+Hazardous Location Float Switches for Water(4)|فلوتر سوئیچ ضدانفجار آب|
+Horizontal-Mount Float Switches for Chemicals(5)|فلوتر سوئیچ افقی مواد شیمیایی|
+Vertical-Mount Float Switches with Brackets for Chemicals(2)|فلوتر سوئیچ عمودی براکت‌دار شیمیایی|
+External-Mount Float Switches for Oils(2)|فلوتر سوئیچ نصب خارجی روغن|
+Float Switches for Slurries and Thick Liquids(8)|فلوتر سوئیچ دوغاب و مایعات غلیظ|
+Vertical-Mount Float Switches with Bracket for Fuels and Oils(4)|فلوتر سوئیچ عمودی براکت‌دار سوخت|
+Through-Wall Vertical-Mount Float Switches for Chemicals(2)|فلوتر سوئیچ عمودی دیواره‌ای شیمیایی|
+Horizontal-Mount Compressed-Air Float Switches for Fuels and Oils(2)|فلوتر سوئیچ افقی پنوماتیکی سوخت|
+Heavy Duty Sewage Water Float Switches for Sump Pumps(1)|فلوتر سوئیچ فاضلاب سنگین پمپ کف‌کش|
+Dual Float Switches for Sump Pumps(1)|فلوتر سوئیچ دوبل پمپ کف‌کش|
+Float Switches for Sump Pumps(2)|فلوتر سوئیچ پمپ کف‌کش|
+Level Sensor Switches(29)|لول‌سوئیچ (سنسور سطح)|
+Liquid-Level Transmitters(29)|ترانسمیتر سطح مایع|
+Float Switch Relays(2)|رله کنترل سطح (رله فلوتر)|
+Ultrasonic Sensors(21)|سنسور التراسونیک|
+Paddle Level Switches(6)|لول‌سوئیچ پروانه‌ای (روتاری)|
+@4.1.1 Indicators
+Sights(241)|شیشه آب‌نما|
+Staff Gauges(31)|خط‌کش سطح آب|
+Liquid-Level Tape Measures(62)|متر سطح‌سنج مخزن|
+Gauging Pastes(2)|خمیر آب‌یاب/سوخت‌یاب|
+@4.1.3 Sights
+Shatter-Resistant Sights(17)|شیشه آب‌نما نشکن|
+High-Visibility Sights(25)|شیشه آب‌نما دید بالا|
+High-Pressure Sights(21)|شیشه آب‌نما فشار بالا|
+Easy-View Flanged Sights(1)|شیشه آب‌نما فلنجی دید آسان|
+Weld-On Sights(6)|شیشه آب‌نما جوشی|
+High-Temperature Sights(6)|شیشه آب‌نما دمای بالا|
+Through-Wall Sights(24)|شیشه آب‌نما دیواره‌ای|
+Easy-View All-Plastic Sights(6)|شیشه آب‌نما تمام‌پلاستیکی|
+Press-Fit Through-Wall Sights(3)|شیشه آب‌نما پرسی دیواره‌ای|
+Easy-View Sights(6)|شیشه آب‌نما دید آسان|
+Sights for Quick-Clamp Sanitary Tube Fittings(10)|سایت‌گلاس تری‌کلمپ بهداشتی|
+Flanged Sights(5)|شیشه آب‌نما فلنجی|
+Ultra-High-Vacuum Flanged Sights(8)|دریچه دید فلنجی خلأ فوق‌بالا|
+Sights for Oil Inspection(6)|شیشه روغن‌نما|
+High-Vacuum Sights for Quick-Clamp Fittings(12)|دریچه دید خلأ بالا تری‌کلمپ|
+@4.1.4 Floats
+Floats(149)|گوی فلوتر|
+Life Preservers(19)|حلقه نجات|
+Grout Floats(1)|ماله دوغاب|
+Concrete Floats(4)|ماله بتن|
+@5.0.2 Switches
+Dual-Setpoint Electronic Pressure Switches with Digital Display(8)|پرشر سوئیچ دیجیتال دو نقطه تنظیم|
+Electronic Pressure Switches(14)|پرشر سوئیچ الکترونیکی|
+Adjustable-Reset Pressure Switches with Digital Display(5)|پرشر سوئیچ دیجیتال دیفرانسیل متغیر|
+Dual-Setpoint Electronic Pressure Switches(5)|پرشر سوئیچ الکترونیکی دو نقطه تنظیم|
+Compact Pressure Switches(55)|پرشر سوئیچ کوچک|
+Dual-Setpoint Electronic Pressure Switches for Compressed Air(4)|پرشر سوئیچ الکترونیکی دونقطه باد|
+Electronic Pressure Switches for Compressed Air(8)|پرشر سوئیچ الکترونیکی باد|
+Fixed Setpoint Pressure Switches(60)|پرشر سوئیچ نقطه تنظیم ثابت|
+Pressure Switches for Air Compressors(18)|کلید اتومات کمپرسور (پرشر سوئیچ)|
+Pressure Switches for Water Pumps(8)|کلید اتومات پمپ آب|
+Economy Pressure Switches(8)|پرشر سوئیچ اقتصادی|
+Hazardous Location Pressure Switches(11)|پرشر سوئیچ ضدانفجار|
+Adjustable-Reset Pressure Switches(13)|پرشر سوئیچ دیفرانسیل متغیر|
+Dual-Setpoint Pressure Switches(8)|پرشر سوئیچ دو نقطه تنظیم|
+Multiport Pressure Switches for Air Compressors(5)|کلید اتومات کمپرسور چندخروجی|
+Manual-Reset Pressure Switches(9)|پرشر سوئیچ ریست دستی|
+Pressure Switches for Oxygen(7)|پرشر سوئیچ اکسیژن|
+Pressure Switches for SMC Modular Filter/Regulator/Lubricators (FRLs)(8)|پرشر سوئیچ واحد مراقبت SMC|
+Sanitary Pressure Switches(8)|پرشر سوئیچ بهداشتی|
+Pressure Switches for Sump Pumps(2)|پرشر سوئیچ پمپ کف‌کش|
+Sanitary Pressure and Vacuum Switches(2)|پرشر و وکیوم سوئیچ بهداشتی|
+Vacuum Switches(26)|وکیوم سوئیچ|
+Pressure and Vacuum Switches(7)|پرشر و وکیوم سوئیچ|
+Differential Pressure Switches(53)|پرشر سوئیچ اختلاف فشار|
+Air-Actuated Relays(1)|رله پنوماتیکی|
+Air-Actuated Switches(13)|سوئیچ پنوماتیکی|
+Switch Padding(4)|لایه بالشتکی سوئیچ|
+@5.0.3 Transducers
+High-Accuracy Pressure Transmitters(10)|ترانسمیتر فشار دقیق|
+Economy Pressure Transmitters(12)|ترانسمیتر فشار اقتصادی|
+Pressure Transmitters with Digital Display(9)|ترانسمیتر فشار نمایشگردار|
+Absolute Pressure Transmitters(13)|ترانسمیتر فشار مطلق|
+Absolute Pressure Transmitters for Development Boards(1)|ترانسمیتر فشار مطلق برد توسعه|
+Easy-Setup Pressure Transmitters(8)|ترانسمیتر فشار راه‌اندازی آسان|
+Hazardous-Location Pressure Transmitters(8)|ترانسمیتر فشار ضدانفجار|
+Flush-Mount Pressure Transmitters(5)|ترانسمیتر فشار دیافراگم فلاش|
+Adjustable-Range Pressure Transmitters(40)|ترانسمیتر فشار رنج قابل تنظیم|
+Pressure Transmitters for Compressed Air(5)|ترانسمیتر فشار باد|
+Hazardous-Location Easy-Setup Pressure Transmitters(8)|ترانسمیتر فشار ضدانفجار راه‌اندازی آسان|
+Pressure Transmitters for Oxygen(7)|ترانسمیتر فشار اکسیژن|
+Sanitary Pressure Transmitters(10)|ترانسمیتر فشار بهداشتی|
+@5.0.4 Regulators
+Vacuum-Regulating Valves(14)|رگولاتور وکیوم|
+Respirator Filter Monitors(6)|نمایشگر فیلتر ماسک تنفسی|

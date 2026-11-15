@@ -1,0 +1,290 @@
+@8.0.5 Plastics
+Ultra-Low-Friction UHMW Polyethylene Bars(345)|تسمه پلی‌اتیلن UHMW|
+Wear-Resistant Delrin® Acetal Bars(251)|تسمه دلرین (پلی‌استال)|
+Wear-Resistant Nylon Bars(181)|تسمه نایلون (پلی‌آمید)|
+Chemical-Resistant Ultra-Low-Friction Bars Made from Teflon® PTFE(93)|تسمه تفلون اصل (Teflon®)|
+Wear-Resistant Acetal Bars(42)|تسمه پلی‌استال (POM)|
+Ultra-Impact-Resistant ABS Bars(45)|تسمه ABS ضدضربه|
+Moisture-Resistant HDPE Bars(73)|تسمه پلی‌اتیلن HDPE|
+Machinable Cast Nylon Bars(70)|تسمه نایلون کست (ریخته‌گری)|
+Recycled UHMW Polyethylene Bars(20)|تسمه UHMW بازیافتی|
+Antistatic UHMW Polyethylene Bars(81)|تسمه UHMW آنتی‌استاتیک|
+Clear Machinable Cast Acrylic Bars(48)|تسمه پلکسی‌گلاس ریخته‌گری شفاف|
+Multipurpose Polypropylene Bars(57)|تسمه پلی‌پروپیلن|
+Extra-Low-Friction MDS-Filled Cast Nylon Bars(34)|تسمه نایلون کست مولیبدن‌دار (MDS)|
+Clear Ultra-Impact-Resistant Polycarbonate Bars(48)|تسمه پلی‌کربنات شفاف ضدضربه|
+Wear‑Resistant High‑Temperature PEEK Bars(47)|تسمه پیک (PEEK)|
+Chemical-Resistant PVC Bars(54)|تسمه PVC|
+Extreme-Strength Glass-Filled Torlon 5030 PAI Bars(1)|تسمه تورلون ۵۰۳۰ شیشه‌دار|
+Clear Scratch- and UV-Resistant Acrylic Bars(14)|تسمه پلکسی‌گلاس شفاف ضدخش و UV|
+Marine-Grade HDPE Bars(40)|تسمه HDPE دریایی|
+Extra-High-Strength UHMW Polyethylene Bars(25)|تسمه UHMW استحکام بالا|
+High-Temperature UHMW Polyethylene Bars(32)|تسمه UHMW دمای بالا|
+Flexible LDPE Bars(51)|تسمه پلی‌اتیلن LDPE نرم|
+Chemical-Resistant CPVC Bars(51)|تسمه CPVC|
+Glass-Filled UHMW Polyethylene Bars(26)|تسمه UHMW شیشه‌دار|
+High-Temperature Wear-Resistant Cast Nylon Bars(10)|تسمه نایلون کست دمای بالا|
+Ultra-Electrical-Insulating Ultem PEI Bars(50)|تسمه اولتم (PEI)|
+Oil-Filled Cast Nylon Bars(12)|تسمه نایلون کست روغنی|
+Metal- and X-Ray Detectable PEEK Bars(3)|تسمه پیک قابل ردیابی فلزیاب و ایکس‌ری|
+Clear Impact-Resistant Polycarbonate Bars(5)|تسمه پلی‌کربنات شفاف|
+Ultra-Chemical-Resistant Low-Friction PTFE Bars(28)|تسمه PTFE (تفلون)|
+Ultra-Impact- and Moisture-Resistant HDPE Bars(28)|تسمه HDPE ضدضربه|
+Ultra-Low-Friction UHMW Polyethylene Sheets(335)|ورق پلی‌اتیلن UHMW|
+Clear Machinable Cast Acrylic Sheets(200)|ورق پلکسی‌گلاس ریخته‌گری شفاف|
+Clear Ultra-Impact-Resistant Polycarbonate Sheets(133)|ورق پلی‌کربنات شفاف ضدضربه|
+Wear-Resistant Delrin® Acetal Sheets(356)|ورق دلرین (پلی‌استال)|
+Moisture-Resistant HDPE Sheets(173)|ورق پلی‌اتیلن HDPE|
+Marine-Grade HDPE Sheets(101)|ورق HDPE دریایی|
+Ultra-Impact-Resistant ABS Sheets(46)|ورق ABS ضدضربه|
+Multipurpose Polypropylene Sheets(111)|ورق پلی‌پروپیلن|
+Wear-Resistant Acetal Sheets(254)|ورق پلی‌استال (POM)|
+Chemical-Resistant PVC Sheets(91)|ورق PVC|
+Recycled UHMW Polyethylene Sheets(35)|ورق UHMW بازیافتی|
+Choose-a-Color Cast Acrylic Sheets(18)|ورق پلکسی‌گلاس رنگی|
+Clear Scratch- and UV-Resistant Polycarbonate Sheets(125)|ورق پلی‌کربنات شفاف ضدخش و UV|
+Chemical-Resistant Ultra-Low-Friction Sheets Made from Teflon® PTFE(352)|ورق تفلون اصل (Teflon®)|
+Ultra-Impact- and Moisture-Resistant HDPE Sheets(73)|ورق HDPE ضدضربه|
+Recycled Moisture-Resistant HDPE Sheets(39)|ورق HDPE بازیافتی|
+Antistatic UHMW Polyethylene Sheets(65)|ورق UHMW آنتی‌استاتیک|
+Clear Easy-Thermoform PETG Sheets(93)|ورق PETG شفاف وکیوم‌فرمینگ|
+Clear Impact-Resistant Acrylic Sheets(88)|ورق پلکسی‌گلاس شفاف ضدضربه|
+Wear-Resistant Nylon Sheets(204)|ورق نایلون (پلی‌آمید)|
+Highly Impact-Resistant Polycarbonate Sheets(46)|ورق پلی‌کربنات مقاوم ضربه|
+Weather-Resistant VHMW Polyethylene Sheets(57)|ورق پلی‌اتیلن VHMW مقاوم هوازدگی|
+Clear Scratch- and UV-Resistant Acrylic Sheets(50)|ورق پلکسی‌گلاس شفاف ضدخش و UV|
+Clear UV-Resistant Polycarbonate Sheets(60)|ورق پلی‌کربنات شفاف مقاوم UV|
+Ultra-Chemical-Resistant Low-Friction PTFE Sheets(149)|ورق PTFE (تفلون)|
+Flexible LDPE Sheets(110)|ورق پلی‌اتیلن LDPE نرم|
+Machinable Cast Nylon Sheets(54)|ورق نایلون کست (ریخته‌گری)|
+Plastic Selector Packs(4)|ست نمونه پلاستیک‌های مهندسی|
+Easy-Thermoform Ultra-Impact-Resistant Acrylic/PVC Sheets(15)|ورق اکریلیک/PVC ضدضربه فرم‌پذیر|
+Wear‑Resistant High‑Temperature PEEK Sheets(58)|ورق پیک (PEEK)|
+High-Temperature UHMW Polyethylene Sheets(28)|ورق UHMW دمای بالا|
+Easy-Thermoform Polystyrene Sheets(21)|ورق پلی‌استایرن فرم‌پذیر|
+Extra-High-Strength UHMW Polyethylene Sheets(28)|ورق UHMW استحکام بالا|
+High-Temperature Wear-Resistant Cast Nylon Sheets(34)|ورق نایلون کست دمای بالا|
+Recycled Antistatic UHMW Polyethylene Sheets(23)|ورق UHMW آنتی‌استاتیک بازیافتی|
+Extra-Low-Friction MDS-Filled Cast Nylon Sheets(38)|ورق نایلون کست مولیبدن‌دار (MDS)|
+Extra-Low-Friction Delrin® Acetal Sheets(35)|ورق دلرین کم‌اصطکاک|
+Rigid Aluminum-Covered LDPE Sheets(4)|ورق LDPE روکش آلومینیوم|
+Ultra-Electrical-Insulating Ultem PEI Sheets(37)|ورق اولتم (PEI)|
+Glass-Filled UHMW Polyethylene Sheets(55)|ورق UHMW شیشه‌دار|
+Clear Chemical-Resistant PVC Sheets(35)|ورق PVC شفاف|
+Rigid PVC Foam Cores(15)|هسته فوم PVC سخت|
+Ultra-Impact-Resistant PVC Sheets(30)|ورق PVC ضدضربه|
+Recycled Composite Sheets(3)|ورق کامپوزیت بازیافتی|
+Made-to-Order Polycarbonate Sheets(4)|ورق پلی‌کربنات سفارشی|
+Conductive UHMW Polyethylene Sheets(20)|ورق UHMW رسانا|
+Clear Static-Dissipative Cast Acrylic Sheets(35)|ورق پلکسی‌گلاس شفاف ESD|
+Ultra-Low-Friction Oil-Filled Cast Nylon Sheets(29)|ورق نایلون کست روغنی|
+Extra-Low-Friction MDS-Filled Nylon Sheets(51)|ورق نایلون مولیبدن‌دار (MDS)|
+Lightweight PVC Foam Sheets(18)|ورق فوم PVC (فورکس)|
+Clear Static-Dissipative Polycarbonate Sheets(30)|ورق پلی‌کربنات شفاف ESD|
+Steel-Backed PTFE Sheets(2)|ورق PTFE پشت‌فولادی|
+Clear Ultra-Scratch-Resistant Cast Acrylic Sheets(18)|ورق پلکسی‌گلاس شفاف فوق‌ضدخش|
+Oil-Filled UHMW Polyethylene Sheets(35)|ورق UHMW روغنی|
+Chemical-Resistant CPVC Sheets(34)|ورق CPVC|
+Moisture-Resistant Polyester Sheets(33)|ورق پلی‌استر (PET)|
+Scratch-Resistant PETG Sheets(21)|ورق PETG ضدخش|
+Ultra-Electrical-Insulating Noryl PPO Sheets(33)|ورق نوریل (PPO)|
+Glass-Filled Polycarbonate Sheets(14)|ورق پلی‌کربنات شیشه‌دار|
+Antistatic Acetal Sheets(11)|ورق پلی‌استال آنتی‌استاتیک|
+Made-to-Order HDPE Sheets(6)|ورق HDPE سفارشی|
+Static-Dissipative PTFE Sheets(14)|ورق PTFE ESD|
+Extreme-Strength Glass-Filled Nylon Sheets(16)|ورق نایلون شیشه‌دار|
+Clear Multilayer Polycarbonate Sheets(12)|ورق پلی‌کربنات چندلایه شفاف|
+Glass-Filled PTFE Sheets(24)|ورق PTFE شیشه‌دار|
+Metal-Detectable UHMW Polyethylene Sheets(14)|ورق UHMW قابل ردیابی فلزیاب|
+Glass-Filled Delrin® Acetal Sheets(20)|ورق دلرین شیشه‌دار|
+Extra-High-Strength PVDF Sheets(12)|ورق PVDF|
+Wear-Resistant Kevlar-Filled Nylon Sheets(19)|ورق نایلون کولار‌دار|
+Machinable Chemical-Resistant PPS Sheets(4)|ورق PPS|
+Ultra-Impact-Resistant FEP Sheets(5)|ورق FEP|
+Mirrored Acrylic Sheets(24)|ورق پلکسی‌گلاس آینه‌ای|
+Wear-Resistant Extra-Low-Friction Torlon 4301 PAI Sheets(10)|ورق تورلون ۴۳۰۱|
+Ceramic-Filled PEEK Sheets(3)|ورق پیک سرامیک‌دار|
+Flame-Retardant Polypropylene Sheets(11)|ورق پلی‌پروپیلن نسوز|
+Semi-Rigid Polysulfone Sheets(20)|ورق پلی‌سولفون|
+Made-to-Order UHMW Polyethylene Sheets(4)|ورق UHMW سفارشی|
+Lightweight PET Foam Cores(6)|هسته فوم PET سبک|
+Impact- and Wear-Resistant Rulon LR PTFE Sheets(7)|ورق رولون LR|
+Highly Wear-Resistant PTFE Sheets(7)|ورق PTFE ضدسایش|
+Impact- and Wear-Resistant Rulon 142 PTFE Sheets(3)|ورق رولون ۱۴۲|
+Wear-Resistant Ultra-Electrical-Insulating Torlon 4203 PAI Sheets(12)|ورق تورلون ۴۲۰۳|
+Mirrored Polycarbonate Sheets(6)|ورق پلی‌کربنات آینه‌ای|
+Moisture-Resistant Nylon Sheets(12)|ورق نایلون ضدرطوبت|
+Impact- and Wear-Resistant Rulon J PTFE Sheets(5)|ورق رولون J|
+Color-Contrasting Engravable HDPE Sheets(10)|ورق HDPE دورنگ حکاکی|
+Ultra-Electrical-Insulating Rexolite Polystyrene Sheets(9)|ورق رکسولیت|
+Ultra-Machinable Delrin® Acetal Rods(146)|میله دلرین (پلی‌استال)|
+Ultra-Low-Friction UHMW Polyethylene Rods(48)|میله پلی‌اتیلن UHMW|
+Ultra-Chemical-Resistant Low-Friction PTFE Rods(79)|میله PTFE (تفلون)|
+Extra-Low-Friction MDS-Filled Cast Nylon Rods(47)|میله نایلون کست مولیبدن‌دار (MDS)|
+Wear-Resistant Nylon Rods(95)|میله نایلون (پلی‌آمید)|
+Wear-Resistant Acetal Rods(127)|میله پلی‌استال (POM)|
+Clear Machinable Cast Acrylic Rods(59)|میله پلکسی‌گلاس ریخته‌گری شفاف|
+Ultra-Impact-Resistant ABS Rods(18)|میله ABS ضدضربه|
+Wear‑Resistant High‑Temperature PEEK Rods(61)|میله پیک (PEEK)|
+Antistatic UHMW Polyethylene Rods(19)|میله UHMW آنتی‌استاتیک|
+Extreme-Strength Vespel® Polyimide Rods(9)|میله وسپل (پلی‌ایمید)|
+Ultra-Low-Friction Delrin® Acetal Rods(31)|میله دلرین کم‌اصطکاک|
+Chemical-Resistant PVC Rods(41)|میله PVC|
+Multipurpose Polypropylene Rods(18)|میله پلی‌پروپیلن|
+Machinable Cast Nylon Rods(32)|میله نایلون کست (ریخته‌گری)|
+Moisture-Resistant HDPE Rods(29)|میله پلی‌اتیلن HDPE|
+Extra-High-Strength UHMW Polyethylene Rods(6)|میله UHMW استحکام بالا|
+Clear Scratch- and UV-Resistant Acrylic Rods(22)|میله پلکسی‌گلاس شفاف ضدخش و UV|
+Extra-Low-Friction Acetal Rods(26)|میله پلی‌استال کم‌اصطکاک|
+Extra-Low-Friction PEEK Rods(10)|میله پیک کم‌اصطکاک|
+Clear Highly Impact-Resistant Polycarbonate Rods(35)|میله پلی‌کربنات شفاف|
+Recycled PTFE Rods(20)|میله PTFE بازیافتی|
+Ultra-Electrical-Insulating Ultem PEI Rods(18)|میله اولتم (PEI)|
+Highly Impact-Resistant Polycarbonate Rods(7)|میله پلی‌کربنات|
+High-Temperature Wear-Resistant Cast Nylon Rods(8)|میله نایلون کست دمای بالا|
+Ultra-Impact-Resistant PVC Rods(26)|میله PVC ضدضربه|
+Wear-Resistant Kevlar-Filled Nylon Rods(13)|میله نایلون کولار‌دار|
+Wear-Resistant Extra-Low-Friction Torlon 4301 PAI Rods(8)|میله تورلون ۴۳۰۱|
+Chemical-Resistant CPVC Rods(27)|میله CPVC|
+Highly Moisture-Resistant Nylon Rods(13)|میله نایلون ضدرطوبت|
+Glass-Filled Delrin® Acetal Rods(13)|میله دلرین شیشه‌دار|
+Glass-Filled PTFE Rods(17)|میله PTFE شیشه‌دار|
+Extra-Low-Friction MDS-Filled Nylon Rods(18)|میله نایلون مولیبدن‌دار (MDS)|
+Oil-Filled UHMW Polyethylene Rods(16)|میله UHMW روغنی|
+Moisture-Resistant Polyester Rods(24)|میله پلی‌استر (PET)|
+Clear Ultra-Impact-Resistant Polycarbonate Discs(12)|دیسک پلی‌کربنات شفاف|
+Ultra-Low-Friction Oil-Filled Cast Nylon Rods(33)|میله نایلون کست روغنی|
+Metal-Detectable UHMW Polyethylene Rods(3)|میله UHMW قابل ردیابی فلزیاب|
+Highly Wear-Resistant Glass-Filled PEEK Rods(7)|میله پیک شیشه‌دار|
+Flexible LDPE Rods(16)|میله LDPE نرم|
+Highly Impact-Resistant PPSU Rods(8)|میله PPSU|
+Ultra-Chemical-Resistant Low-Friction PTFE Cords(32)|مفتول (طناب) PTFE|
+Ultra-Impact-Resistant FEP Rods(8)|میله FEP|
+Glass-Filled Nylon Rods(4)|میله نایلون شیشه‌دار|
+Machinable Chemical-Resistant PPS Rods(8)|میله PPS|
+Wear-Resistant Ultra-Electrical-Insulating Torlon 4203 PAI Rods(7)|میله تورلون ۴۲۰۳|
+Ultra-Low-Friction Polyester Rods(13)|میله پلی‌استر کم‌اصطکاک|
+Extra-High-Strength PVDF Rods(7)|میله PVDF|
+Glass-Filled Polycarbonate Rods(6)|میله پلی‌کربنات شیشه‌دار|
+Ultra-Electrical-Insulating Noryl PPO Rods(10)|میله نوریل (PPO)|
+Antistatic Acetal Rods(11)|میله پلی‌استال آنتی‌استاتیک|
+Semi-Rigid Polysulfone Rods(7)|میله پلی‌سولفون|
+Metal- and X-Ray Detectable PEEK Rods(3)|میله پیک قابل ردیابی فلزیاب و ایکس‌ری|
+Mirrored Acrylic Discs(16)|دیسک پلکسی‌گلاس آینه‌ای|
+Ultra-High-Temperature PFA Rods(6)|میله PFA|
+Impact- and Wear-Resistant Rulon 641 PTFE Rods(8)|میله رولون ۶۴۱|
+Ultra-Moisture-Resistant Highly Impact-Resistant PCTFE Rods(7)|میله PCTFE|
+Ultra-Electrical-Insulating Rexolite Polystyrene Rods(6)|میله رکسولیت|
+Impact- and Wear-Resistant Rulon LR PTFE Rods(8)|میله رولون LR|
+Clear Chemical-Resistant PVC Rods(5)|میله PVC شفاف|
+Extreme-Strength Glass-Filled Torlon 5030 PAI Rods(2)|میله تورلون ۵۰۳۰ شیشه‌دار|
+Impact- and Wear-Resistant Rulon J PTFE Rods(8)|میله رولون J|
+Easy-Thermoform Polystyrene Rods(8)|میله پلی‌استایرن|
+Clear Easy-Thermoform PETG Rods(4)|میله PETG شفاف|
+Marine-Grade HDPE Rods(5)|میله HDPE دریایی|
+Static-Dissipative PEEK Rods(3)|میله پیک ESD|
+Ultra-Electrical-Insulating Glass-Filled Ultem PEI Rods(3)|میله اولتم شیشه‌دار|
+Ultra-Low-Friction UHMW Polyethylene Strips(95)|نوار پلی‌اتیلن UHMW|
+Wear-Resistant Delrin® Acetal Strips(118)|نوار دلرین (پلی‌استال)|
+Wear-Resistant Nylon Strips(53)|نوار نایلون (پلی‌آمید)|
+Ultra-Impact-Resistant ABS Strips(30)|نوار ABS ضدضربه|
+Moisture-Resistant HDPE Strips(30)|نوار پلی‌اتیلن HDPE|
+Extra-Low-Friction MDS-Filled Nylon Strips(45)|نوار نایلون مولیبدن‌دار (MDS)|
+Easy-Thermoform Polystyrene Strips(24)|نوار پلی‌استایرن|
+Extra-Low-Friction Delrin® Acetal Strips(20)|نوار دلرین کم‌اصطکاک|
+Ultra-Low-Friction UHMW Polyethylene Round Tubes(30)|لوله پلی‌اتیلن UHMW|
+Clear Machinable Cast Acrylic Round Tubes(78)|لوله پلکسی‌گلاس ریخته‌گری شفاف|
+Clear Ultra-Impact-Resistant Polycarbonate Round Tubes(54)|لوله پلی‌کربنات شفاف ضدضربه|
+Wear-Resistant Delrin® Acetal Round Tubes(173)|لوله (بوش) دلرین|
+Chemical-Resistant Ultra-Low-Friction PTFE Round Tubes(78)|لوله (بوش) PTFE تفلون|
+Wear-Resistant Nylon Round Tubes(49)|لوله (بوش) نایلون|
+Chemical-Resistant PVC Round Tubes(33)|لوله PVC|
+Clear Scratch- and UV-Resistant Acrylic Round Tubes(31)|لوله پلکسی‌گلاس شفاف ضدخش و UV|
+Wear-Resistant Cast Nylon Round Tubes(41)|لوله (بوش) نایلون کست|
+Extra-Low-Friction MDS-Filled Cast Nylon Round Tubes(68)|لوله نایلون کست مولیبدن‌دار (MDS)|
+Ultra-Impact-Resistant ABS Round Tubes(10)|لوله ABS ضدضربه|
+Multipurpose Polypropylene Round Tubes(7)|لوله پلی‌پروپیلن|
+Wear-Resistant Acetal Round Tubes(29)|لوله پلی‌استال (POM)|
+Extra-Low-Friction Delrin® Acetal Round Tubes(22)|لوله دلرین کم‌اصطکاک|
+Wear-Resistant High-Temperature PEEK Round Tubes(6)|لوله پیک (PEEK)|
+Clear Easy-Thermoform PETG Round Tubes(24)|لوله PETG شفاف|
+Ultra-Low-Friction Oil-Filled Cast Nylon Round Tubes(31)|لوله نایلون کست روغنی|
+Telescoping Delrin® Acetal Round Tubes(9)|لوله تلسکوپی دلرین|
+Telescoping UHMW Polyethylene Round Tubes(7)|لوله تلسکوپی UHMW|
+Glass-Filled PTFE Round Tubes(12)|لوله PTFE شیشه‌دار|
+High-Temperature Wear-Resistant Cast Nylon Round Tubes(48)|لوله نایلون کست دمای بالا|
+Clear Cellulose Round Tubes(12)|لوله سلولزی شفاف|
+Chemical-Resistant CPVC Round Tubes(9)|لوله CPVC|
+Moisture-Resistant HDPE Round Tubes(27)|لوله پلی‌اتیلن HDPE|
+Ultra-Low-Friction UHMW Polyethylene U-Channels(8)|ناودانی UHMW|
+Chemical-Resistant PVC U-Channels(6)|ناودانی PVC|
+Ultra-Chemical-Resistant Low-Friction PTFE U-Channels(3)|ناودانی PTFE|
+Multipurpose Polypropylene U-Channels(2)|ناودانی پلی‌پروپیلن|
+Clear Highly Impact-Resistant Polycarbonate U-Channels(9)|ناودانی پلی‌کربنات شفاف|
+Ultra-Low-Friction UHMW Polyethylene 90° Angles(8)|نبشی UHMW|
+Ultra-Impact-Resistant PVC 90° Angles(16)|نبشی PVC ضدضربه|
+Chemical-Resistant PVC 90° Angles(18)|نبشی PVC|
+Clear Highly Impact-Resistant Polycarbonate 90° Angles(17)|نبشی پلی‌کربنات شفاف|
+Ultra-Chemical-Resistant Low-Friction PTFE 90° Angles(7)|نبشی PTFE|
+Multipurpose Polypropylene 90° Angles(2)|نبشی پلی‌پروپیلن|
+Clear Chemical-Resistant PVC 90° Angles(10)|نبشی PVC شفاف|
+Clear Chemical-Resistant PVC Film(16)|فیلم PVC شفاف|
+Ultra-Low-Friction UHMW Polyethylene Film(22)|فیلم UHMW|
+Chemical-Resistant Ultra-Low-Friction Film Made from Teflon® PTFE(73)|فیلم تفلون اصل (Teflon®)|
+Chemical-Resistant Ultra-Low-Friction PTFE Film(25)|فیلم PTFE (تفلون)|
+Clear Ultra-Impact-Resistant Polycarbonate Film(26)|فیلم پلی‌کربنات شفاف|
+Clear Ultra-Impact-Resistant FEP Film(4)|فیلم FEP شفاف|
+Flexible LDPE Film(78)|فیلم پلی‌اتیلن LDPE|
+Clear Moisture-Resistant Polyester Film(22)|فیلم پلی‌استر شفاف (PET)|
+Static-Dissipative PVC Film(1)|فیلم PVC ESD|
+Conductive UHMW Polyethylene Film(4)|فیلم UHMW رسانا|
+Wear- and Chemical-Resistant PEEK Film(26)|فیلم پیک (PEEK)|
+Conductive Kapton® Polyimide Film(1)|فیلم کاپتون رسانا|
+Electrical-Grade Kapton® Polyimide Film(28)|فیلم کاپتون عایق برق|
+Ultra-Moisture-Resistant HDPE Film(4)|فیلم HDPE فوق‌ضدرطوبت|
+Flame-Retardant Polypropylene Film(6)|فیلم پلی‌پروپیلن نسوز|
+Multipurpose Polypropylene Film(4)|فیلم پلی‌پروپیلن|
+Clear Scratch- and UV-Resistant Acrylic Film(4)|فیلم اکریلیک شفاف ضدخش و UV|
+Highly Moisture-Resistant HDPE Film(22)|فیلم HDPE ضدرطوبت|
+Ultra-Electrical-Insulating Ultem PEI Film(25)|فیلم اولتم (PEI)|
+Clean-Release Polypropylene Film(4)|فیلم پلی‌پروپیلن جداشونده (ریلیز)|
+Ultra-Machinable Acetal Film(12)|فیلم پلی‌استال|
+Ultra-Impact-Resistant ABS Film(4)|فیلم ABS|
+Clear Extra-High-Strength Extra-High-Temperature ETFE Film(8)|فیلم ETFE شفاف|
+Clear Static-Dissipative Polyester Film(3)|فیلم پلی‌استر شفاف ESD|
+Reinforced Flexible LDPE Film(12)|فیلم LDPE مسلح|
+Wear-Resistant Nylon Film(10)|فیلم نایلون|
+High-Temperature Polyester Film(5)|فیلم پلی‌استر دمای بالا|
+Chemical-Resistant PVC Film(2)|فیلم PVC|
+Extra-High-Strength PVDF Film(5)|فیلم PVDF|
+Clear Ultra-High-Temperature PFA Film(3)|فیلم PFA شفاف|
+Thermally Conductive Kapton® Polyimide Film(10)|فیلم کاپتون رسانای حرارت|
+Clear Cellulose Film(7)|فیلم سلولزی شفاف (سلفون)|
+Ultra-Electrical-Insulating Polyester Film(2)|فیلم پلی‌استر عایق برق|
+Clear Static-Cling PVC Film(2)|فیلم PVC شفاف الکترواستاتیک (بدون چسب)|
+Clear Machinable Cast Acrylic Cubes(6)|مکعب پلکسی‌گلاس شفاف|
+Ultra-Chemical-Resistant Low-Friction PTFE Cubes(4)|مکعب PTFE|
+Wear-Resistant Acetal Cubes(4)|مکعب پلی‌استال|
+Plastic Balls(115)|ساچمه پلاستیکی|
+Hollow Plastic Balls(7)|توپ پلاستیکی توخالی|
+Chemical-Resistant PVC Rectangular Tubes(11)|قوطی PVC|
+Clear Scratch- and UV-Resistant Acrylic Rectangular Tubes(6)|قوطی پلکسی‌گلاس شفاف|
+Clear Ultra-Impact-Resistant Polycarbonate Rectangular Tubes(4)|قوطی پلی‌کربنات شفاف|
+Chemical-Resistant Ultra-Low-Friction PTFE Powder(1)|پودر تفلون (PTFE)|
+Plastic Pellets(14)|گرانول پلاستیک|
+Clear Scratch- and UV-Resistant Acrylic Half Rounds(4)|نیم‌گرد پلکسی‌گلاس شفاف|
+Wear-Resistant Nylon Hex Bars(9)|میله شش‌گوش نایلون|
+Ultra-Chemical-Resistant Low-Friction PTFE Hex Bars(3)|میله شش‌گوش PTFE|
+Clear Scratch- and UV-Resistant Acrylic Hex Bars(1)|میله شش‌گوش پلکسی‌گلاس|
+Wear-Resistant Acetal Triangles(12)|پروفیل مثلثی پلی‌استال|
+Thermal Interface Pads(32)|پد حرارتی (ترمال پد)|
+Aramid(10)|آرامید|
+Colorants(11)|رنگدانه (مستربچ)|
+Metal Detector Calibration Kits(1)|کیت کالیبراسیون فلزیاب|
+Kevlar(6)|کولار|
+Wood(15)|چوب|
+3D Printer Build Surfaces(30)|صفحه چاپ پرینتر سه‌بعدی|
+Filter Paper(22)|کاغذ صافی|
+3D Printer Resins(44)|رزین پرینتر سه‌بعدی|
+Mold Foaming Agents(4)|عامل فوم‌زا قالب|
+Additives(2)|افزودنی|

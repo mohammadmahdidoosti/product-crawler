@@ -1,0 +1,354 @@
+@7.0.14 Enclosures
+Watertight Enclosures(855)|تابلو و جعبه برق ضدآب|
+Indoor-Only Enclosures(121)|تابلو برق داخلی|
+Controlled-Access Watertight Enclosures(160)|تابلو برق ضدآب قفل‌دار|
+Clear-View Watertight Enclosures(331)|جعبه برق ضدآب درب شفاف|
+Dust-Tight Enclosures(103)|تابلو برق ضدگردوغبار|
+Versa-Panel Watertight Enclosures(120)|جعبه برق ضدآب پنل‌دار|
+Weather-Resistant Enclosures(95)|تابلو برق فضای باز|
+Clear-View Versa-Panel Watertight Enclosures(117)|جعبه برق ضدآب پنل‌دار درب شفاف|
+Watertight Push-Button Enclosures(191)|جعبه شستی ضدآب|
+Safety-Lock Enclosures(58)|تابلو برق با قفل ایمنی|
+Dust-Tight Push-Button Enclosures(48)|جعبه شستی ضدگردوغبار|
+Dust-Tight Sloped Enclosures(9)|تابلو برق شیب‌دار ضدگردوغبار|
+Electronics Enclosures(24)|جعبه الکترونیکی (باکس)|
+Sanitary Enclosures(20)|تابلو برق بهداشتی|
+Clear-View Controlled-Access Watertight Enclosures(12)|جعبه برق ضدآب قفل‌دار درب شفاف|
+Dust-Tight Sloped Push-Button Enclosures(22)|جعبه شستی شیب‌دار ضدگردوغبار|
+EMI/RFI-Shielding Enclosures(35)|جعبه شیلددار EMI/RFI|
+Watertight Enclosures with Floor Stand(9)|تابلو برق ضدآب ایستاده|
+Dual-Compartment Dust-Tight Enclosures(8)|تابلو برق دوقسمتی ضدگردوغبار|
+Handheld Watertight Push-Button Enclosures(16)|جعبه شستی دستی ضدآب|
+Controlled-Access Dust-Tight Enclosures with Floor Stand(4)|تابلو برق ایستاده قفل‌دار ضدگردوغبار|
+Handheld Dust-Tight Electronics Enclosures(6)|جعبه الکترونیکی دستی ضدگردوغبار|
+Hazardous Location Push-Button Enclosures(7)|جعبه شستی ضدانفجار|
+Hazardous Location Enclosures(9)|تابلو برق ضدانفجار|
+Sanitary Push-Button Enclosures(9)|جعبه شستی بهداشتی|
+Clear-View Electronics Enclosures(7)|جعبه الکترونیکی شفاف|
+Temperature-Control Weather-Resistant Enclosures(14)|تابلو برق فضای باز با کنترل دما|
+Watertight Enclosures for Positioning Arms(18)|جعبه کنترل ضدآب بازوی متحرک|
+Vented Enclosures(4)|تابلو برق تهویه‌دار|
+Round Watertight Enclosures(4)|جعبه برق گرد ضدآب|
+Electrical Enclosure Panels(150)|صفحه نصب تابلو برق|
+HMI Covers(117)|کاور HMI|
+Raceway(54)|داکت|
+Circuit Board Enclosures(82)|جعبه برد مدار|
+Circuit Breaker Boxes(49)|جعبه فیوز (تابلو کلید مینیاتوری)|
+Console Enclosures(9)|جعبه کنسولی (پیشخوانی)|
+Electrical Enclosure Pedestals(6)|پایه تابلو برق|
+Single-Board Computer Enclosures(9)|کیس کامپیوتر تک‌برد|
+Potting Boxes(16)|جعبه رزین‌ریزی (پاتینگ)|
+Electrical Enclosure Inspection Windows(35)|پنجره بازدید تابلو برق|
+Electronics Cabinets(15)|کابینت الکترونیکی|
+Electrical Enclosure Covers(98)|درب تابلو برق|
+Electrical Enclosure Panel Mounts(2)|نگهدارنده صفحه تابلو|
+Monitor Enclosures(18)|محفظه مانیتور|
+Electrical Enclosure Positioning Arms(24)|بازوی نگهدارنده جعبه کنترل|
+Electronics Racks(9)|رک الکترونیکی|
+Circuit Boards(2)|برد مدار|
+Enclosure Hoods(5)|سایبان تابلو برق|
+Battery Boxes(8)|جعبه باتری|
+Underground Enclosures(9)|جعبه زیرزمینی (منهول برق)|
+Tablet Enclosures(5)|محفظه تبلت|
+Electrical Enclosure Floor Stands(8)|پایه ایستاده تابلو برق|
+Light Switch Sensor Guards(5)|محافظ سنسور کلید روشنایی|
+Phones(4)|تلفن|ترکیبی
+Phone Enclosures(3)|محفظه تلفن|
+Louvers(21)|دریچه تهویه (لوور)|
+Circuit Breaker Box Filler Plates(2)|درپوش جای خالی تابلو|
+Electrical Enclosure Mounting Channels(9)|ریل نصب تابلو برق|
+Caliper Battery Covers(8)|درب باتری کولیس|
+Shelves(8)|قفسه|
+Electronics Rack Equipment Installation Supports(4)|نگهدارنده نصب تجهیزات رک|
+Safety Cabinets(3)|کابینت ایمنی|
+@7.0.15 Outlet Boxes
+Outlet Box Covers(85)|درپوش قوطی کلید و پریز|
+Outlet Box Extenders(50)|رابط عمق قوطی کلید|
+Wall Plates(114)|قاب کلید و پریز|
+Emergency Stop Switches(1)|شستی قارچی اضطراری|
+Push-Button Switches(10)|شستی (پوش‌باتن)|
+Key Switches(5)|کلید سوئیچی|
+Temporary Power Distribution Boxes(4)|جعبه تقسیم برق موقت (کارگاهی)|
+@7.0.16 Wire Strippers & Crimpers
+Wire and Cable Strippers(141)|سیم‌لخت‌کن|
+Wire and Cable Crimpers(179)|پرس کابلشو|
+Wire Cutters(160)|سیم‌چین|
+Wire Stripper/Crimpers(13)|سیم‌لخت‌کن و پرس کابلشو|
+Conduit Locknut and Reaming Pliers(1)|انبر مهره و برقوی لوله برق|
+Tool Sets(4)|ست ابزار|
+Long-Nose Pliers(46)|دم‌باریک|
+Electrical Disconnect Pliers(1)|انبر جداکن کانکتور|
+Wire Splice Pliers(1)|انبر اتصال سیم|
+Spark Plug Pliers(1)|انبر وایر شمع|
+Cable Cutters(29)|کابل‌بر|
+Wire-Gripping Pliers(31)|انبر سیم‌گیر|
+Relay Pliers(1)|انبر رله|
+Electrical Contact Removal Tools(4)|ابزار خارج‌کن پین کانکتور|
+Wire and Cable Crimper Dies(63)|فک پرس کابلشو|
+Fiber-Optic Connector Pliers(1)|انبر کانکتور فیبر نوری|
+Electrical Contact Installation Tools(4)|ابزار جازن پین کانکتور|
+Wire Splice Bits(2)|سری اتصال سیم|
+Wire Splice Screwdrivers(2)|پیچ‌گوشتی اتصال سیم|
+Wire Wrapping Tools(3)|ابزار وایررپ|
+Bolt Cutters(49)|قیچی مفتول‌بر|
+End Cutters(22)|انبر سرزن (گازانبر)|
+Pliers Sets(4)|ست انبردست|
+Adjustable Pliers(9)|انبر قابل تنظیم|
+Locking Pliers(50)|انبر قفلی|
+Wire-Forming Pliers(17)|انبر فرم‌دهی سیم|
+Jaw Covers for Pliers(2)|روکش فک انبر|
+Slip-Joint Pliers(4)|انبر دوحالته|
+Feeler Gauges(2)|فیلر|
+Wire Marker Installation Tools(1)|ابزار نصب شماره سیم|
+@7.0.17 Cord Reels
+Automatic-Wind Extension Cord Reels(7)|قرقره سیم سیار جمع‌شونده|
+Impact-Resistant Automatic-Wind Extension Cord Reels(7)|قرقره سیم سیار جمع‌شونده ضدضربه|
+Hardwire Washdown Automatic-Wind Extension Cord Reels(34)|قرقره کابل جمع‌شونده ثابت شست‌وشوپذیر|
+Controlled-Automatic-Wind Extension Cord Reels(6)|قرقره سیم سیار جمع‌شونده کنترل‌شده|
+Harsh Environment Automatic-Wind Extension Cord Reels(28)|قرقره سیم سیار جمع‌شونده محیط سخت|
+Sure-Grip Automatic-Wind Extension Cord Reels(1)|قرقره سیم سیار جمع‌شونده گیره‌دار|
+Light Duty Manual-Wind Extension Cord Reels(1)|قرقره سیم سیار دستی سبک|
+Water-Resistant Manual-Wind Extension Cord Reels(1)|قرقره سیم سیار دستی ضدآب|
+Impact-Resistant Extension Cord Storage Reels(1)|قرقره نگهداری سیم سیار ضدضربه|
+Manual-Wind Extension Cord Reels(2)|قرقره سیم سیار دستی|
+Hardwire Extension Cord Reels with Outlets(1)|قرقره کابل ثابت پریزدار|
+Extension Cord Reels with Outlets(2)|قرقره سیم سیار پریزدار|ترکیبی
+Extension Cord Storage Reels(2)|قرقره نگهداری سیم سیار|
+Water-Resistant Automatic-Wind Extension Cord Reels(2)|قرقره سیم سیار جمع‌شونده ضدآب|
+Extension Cord Reel Bases(1)|پایه قرقره سیم سیار|
+Cord Stops(2)|استاپر کابل|
+Plumb Bobs(1)|شاقول|
+Spools(212)|قرقره خالی|
+Wire, Rope, and Cord Length Measurers(21)|متراژشمار سیم و طناب|
+Spooler/Coilers(1)|دستگاه قرقره‌پیچ|
+Tool Support Arms(5)|بازوی نگهدارنده ابزار|
+Test Leads(2)|سیم تست|
+Plumb Bob Reels(3)|قرقره شاقول|
+Wire Roll Dispensers(1)|نگهدارنده رول سیم|
+@7.0.18 Data & Voice Equipment
+Patch Panels(1)|پچ پنل|
+Ethernet Switches(68)|سوئیچ شبکه|
+RJ45 Connector Repair Clips(1)|گیره تعمیر سوکت RJ45|
+Data Connection Hubs(28)|هاب اتصال داده|
+Data Cable Identifiers(1)|شناساگر کابل شبکه|
+Robot Controller Mounts(1)|پایه کنترلر ربات|
+Data Cable Testers(3)|تستر کابل شبکه|
+Starrett Cords(3)|کابل ابزار دقیق استارت|
+RJ45 Connector Security Clips(3)|قفل ایمنی سوکت RJ45|
+Phone Wiring Blocks(1)|ترمینال سیم‌کشی تلفن|
+Data Port Plugs(3)|درپوش پورت داده|
+Data Port Locks(7)|قفل پورت داده|
+Punch-Down Tools(5)|ابزار پانچ شبکه|
+Power Over Ethernet Injectors(5)|انژکتور PoE|
+Data Cable Testing Adapters(1)|آداپتور تست کابل شبکه|
+Line Tester Adapters(1)|آداپتور تستر خط|
+Line Testers(5)|تستر خط تلفن|
+Line Testing Amplifiers(3)|آمپلی‌فایر تست خط|
+Phone Connectors(12)|سوکت تلفن|
+Phone Cords(9)|سیم تلفن|ترکیبی
+Phone Splitters(4)|اسپلیتر تلفن|
+@7.1.0 Switches & Relays
+Toggle Switches(126)|کلید اهرمی (تاگل)|
+Rocker Switches(120)|کلید راکر|
+Lever Switches(156)|کلید اهرمی دسته‌دار|
+Relays(414)|رله|
+Snap-Acting Switches(209)|میکروسوئیچ|
+Disconnect Switches(260)|کلید قطع‌کن (سکسیونر)|
+Switch Contact Blocks(40)|کنتاکت بلاک کلید|
+Limit Switches(153)|لیمیت سوئیچ|
+Light Switches(65)|کلید روشنایی|
+Proximity Sensors(428)|سنسور مجاورتی (پراکسیمیتی)|
+Relay Sockets(35)|سوکت رله|
+Foot Switches(89)|پدال پایی (فوت‌سوئیچ)|
+Potentiometers(26)|پتانسیومتر|
+Interface Relays(79)|رله واسط|
+Timer Relays(199)|رله تایمر|
+Slide Switches(1)|کلید کشویی|
+Battery Switches(1)|کلید قطع باتری|
+Joystick Switches(15)|کلید جوی‌استیک|
+Pull-Chain Switches(1)|کلید زنجیری|
+Photoelectric Sensors(341)|سنسور نوری (فتوالکتریک)|
+Timer Switches(107)|کلید تایمردار|
+Switch Guards(2)|محافظ کلید|
+Rotary Switches(13)|کلید چرخشی (سلکتور)|
+Pendant Switches(107)|کلید آویز (پندنت)|
+Finger-Touch Switches(36)|کلید لمسی|
+Doorbell Switches(22)|شستی زنگ|
+Switch Mats(45)|پد کلید ایمنی (کف‌پوش حساس)|
+Fingerprint Scanners(3)|اسکنر اثر انگشت|
+Pull Switches(4)|کلید کششی|
+Enclosure Door Switches(2)|کلید درب تابلو|
+Switch Mounts(5)|پایه کلید|
+Enabling Switches(18)|کلید فعال‌ساز (اینیبل)|
+Tilt Switches(8)|کلید شیب (تیلت)|
+DIP Switches(7)|دیپ سوئیچ|
+Photoelectric Sensor Reflectors(38)|رفلکتور سنسور نوری|
+Touch-Pad Switches(4)|کلید صفحه لمسی|
+Bumper Switches(31)|کلید ضربه‌گیر (بامپر)|
+Automatic Door Switches(18)|کلید درب اتوماتیک|
+Safety Light Curtains(64)|پرده نوری ایمنی|
+RFID Readers(10)|کارت‌خوان RFID|
+Proximity Sensor Safety Barriers(2)|بریر ایمنی سنسور مجاورتی|
+Current Transducers(22)|ترانسدیوسر جریان|
+RFID Reader/Writers(10)|کارت‌خوان و نویسنده RFID|
+Linear Position Sensors(87)|سنسور موقعیت خطی|
+Ribbon Switches(15)|کلید نواری|
+Vehicle Relays(47)|رله خودرو|
+Safety Relays(64)|رله ایمنی|
+Latching Relays(29)|رله ماندگار (لچینگ)|
+Infrequent-Cycle Relays(147)|رله کم‌کار|
+Monitoring Relays(31)|رله کنترل (مانیتورینگ)|
+Proportional-Control Relays(12)|رله کنترل تناسبی|
+Lighting Relays(13)|رله روشنایی|
+Alternating Relays(2)|رله تناوبی (آلترنیت)|
+IO-Link Programmers(1)|پروگرامر IO-Link|
+Control Panels(1)|پنل کنترل|
+HMIs(32)|HMI (صفحه لمسی اپراتوری)|
+Potentiometer Panel Seals(4)|آب‌بند پنلی پتانسیومتر|
+Conductivity Controllers(3)|کنترلر هدایت الکتریکی|
+Signal Amplifiers(2)|تقویت‌کننده سیگنال|
+Diodes(93)|دیود|
+Varistors(20)|وریستور|
+Transistors(20)|ترانزیستور|
+USB Receptacles(1)|سوکت USB پنلی|
+Power Receptacles(741)|پریز برق|
+Mil. Spec. Receptacles(67)|سوکت نظامی (MIL)|
+Mini Receptacles(55)|سوکت مینی|
+Rectifiers(30)|یکسوکننده|
+Current Transformers(11)|ترانس جریان (CT)|
+Circuit Breakers(439)|کلید مینیاتوری و اتوماتیک|
+Light Dimmers(18)|دیمر|
+Light Switch Sensors(81)|کلید سنسوردار روشنایی|
+Light Socket Pull Cords(1)|بند کششی سرپیچ|
+Light Sockets(45)|سرپیچ لامپ|
+LED Drivers(45)|درایور LED|
+Light Retrofit Kits(11)|کیت تبدیل روشنایی|
+T-Slotted Framing Switches(10)|کلید پروفیل شیاردار|
+Garage Door Openers(4)|درب‌بازکن پارکینگ|ترکیبی
+Door Openers(2)|درب‌بازکن|
+Signal Output Testers(1)|تستر خروجی سیگنال|
+Smoke Detector Test Stations(1)|ایستگاه تست دتکتور دود|
+Fire Alarm Pull Stations(5)|شستی اعلام حریق|
+Smoke Detectors(21)|دتکتور دود|ترکیبی
+Hot Stick Hand Guards(1)|محافظ دست هات‌استیک|
+Hot Sticks(33)|هات‌استیک (چوب عایق فشار قوی)|
+Hot Stick Heads(10)|سر هات‌استیک|
+Speaker Volume Controls(4)|ولوم بلندگو|
+Tablet Holders(1)|نگهدارنده تبلت|
+Audible Alarms(8)|آژیر|
+Abrasive Blaster Safety Switches(11)|کلید ایمنی سندبلاست|
+@7.1.1 Transformers
+Logic Level Converters(1)|مبدل سطح منطقی|
+Power Converters(50)|مبدل برق|
+Power Adapters(3)|آداپتور برق|
+@7.1.2 Circuit Breakers
+DIN-Rail Mount Equipment Circuit Breakers(113)|کلید محافظ تجهیزات ریلی|
+DIN-Rail Mount Branch Circuit Breakers(109)|کلید مینیاتوری ریلی|
+Square D Load-Center Circuit Breakers(48)|کلید مینیاتوری تابلو Square D|
+High-Power Circuit Breakers(16)|کلید اتوماتیک قدرت|
+Siemens Load-Center Circuit Breakers(10)|کلید مینیاتوری تابلو زیمنس|
+Harsh-Environment Circuit Breakers(31)|کلید اتوماتیک محیط سخت|
+Panel-Mount Equipment Circuit Breakers(34)|کلید محافظ تجهیزات پنلی|
+Blade-Style Circuit Breakers(37)|کلید اتوماتیک تیغه‌ای|
+Cutler-Hammer Load-Center Circuit Breakers(10)|کلید مینیاتوری تابلو Cutler-Hammer|
+High-Temperature Panel-Mount Circuit Breakers(11)|کلید محافظ پنلی دمای بالا|
+DIN-Rail Mount Electronic Circuit Breakers(11)|کلید محافظ الکترونیکی ریلی|
+Space-Saving Panel-Mount Branch Circuit Breakers(2)|کلید مینیاتوری پنلی کم‌جا|
+DIN-Rail Mount Ground Fault Circuit Protectors(6)|کلید محافظ جان ریلی|
+Plug-Base Circuit Breakers(3)|کلید اتوماتیک پیچی (فیوز مینیاتوری)|
+Circuit Interrupters(1)|محافظ جان (GFCI)|
+@7.1.3 Fuses
+Fast-Acting Glass-Tube Fuses(84)|فیوز شیشه‌ای سریع|
+UL Class RK5 Fuses(131)|فیوز UL کلاس RK5|
+UL Class CC Time-Delay Midget Fuses for Motors(37)|فیوز کلاس CC تأخیری موتور|
+Time-Delay Glass-Tube Fuses(55)|فیوز شیشه‌ای تأخیری|
+UL Class CC Time-Delay Midget Fuses for Transformers(44)|فیوز کلاس CC تأخیری ترانس|
+UL Class J Time-Delay Fuses for Tight Spaces(54)|فیوز کلاس J تأخیری کم‌جا|
+Automotive Fuses(45)|فیوز خودرو|
+Time-Delay Ceramic-Tube Fuses(43)|فیوز سرامیکی تأخیری|
+Time-Delay Midget Fuses(47)|فیوز استوانه‌ای کوچک تأخیری|
+Fast-Acting Ceramic-Tube Fuses(53)|فیوز سرامیکی سریع|
+UL Class CC Fast-Acting Midget Fuses(27)|فیوز کلاس CC سریع|
+Fast-Acting Midget Fuses(53)|فیوز استوانه‌ای کوچک سریع|
+UL Class T Fuses for Extra-Tight Spaces(33)|فیوز کلاس T فوق‌کم‌جا|
+UL Class K5 Fuses(38)|فیوز UL کلاس K5|
+UL Class RK1 Time-Delay Fuses(39)|فیوز کلاس RK1 تأخیری|
+Fuses for Sensitive Electronics(42)|فیوز الکترونیک حساس|
+UL Class J Fast-Acting Fuses for Tight Spaces(21)|فیوز کلاس J سریع کم‌جا|
+UL Class G Time-Delay Midget Fuses(10)|فیوز کلاس G تأخیری|
+European Fuses(11)|فیوز اروپایی|
+Automotive and Glass-Tube Fuse Assortments(1)|ست فیوز خودرو و شیشه‌ای|
+High-Current Automotive Fuses(12)|فیوز خودرو جریان بالا|
+Automotive Fuse Assortments(1)|ست فیوز خودرو|
+UL Class RK1 Fast-Acting Fuses(19)|فیوز کلاس RK1 سریع|
+Fuses for Multimeters(3)|فیوز مولتی‌متر|
+Fast-Acting Lift Truck Fuses(23)|فیوز لیفتراک سریع|
+UL Class L High-Current Fuses(4)|فیوز کلاس L جریان بالا|
+Thermal Fuses(18)|فیوز حرارتی|
+Glass-Tube and Ceramic-Tube Fuse Assortments(2)|ست فیوز شیشه‌ای و سرامیکی|
+UL Class H Replaceable-Element Fuses(36)|فیوز کلاس H المنت تعویضی|
+Touch-Safe Fuses(21)|فیوز ایمن لمسی|
+Time-Delay Lift Truck Fuses(6)|فیوز لیفتراک تأخیری|
+UL Class G Fast-Acting Midget Fuses(5)|فیوز کلاس G سریع|
+1,000V DC Fuses(8)|فیوز DC هزار ولت|
+European Milk Bottle Fuses(20)|فیوز فشنگی اروپایی|
+Fast-Acting Inline Fuses(9)|فیوز سرراهی سریع|
+Time-Delay Plug Base Fuses(6)|فیوز پیچی تأخیری|
+Time-Delay Inline Fuses(7)|فیوز سرراهی تأخیری|
+Long-Time-Delay Plug Base Fuses(3)|فیوز پیچی تأخیر بلند|
+Fuse Holders(41)|فیوزگیر|
+Fuse Blocks(142)|پایه فیوز|
+Fuse Block Reducers(8)|تبدیل پایه فیوز|
+Fuse Elements(18)|المنت فیوز|
+Fuse Pullers(4)|فیوزکش|
+Lockouts(72)|قفل ایمنی (لاک‌اوت)|
+Fuse Clamps(7)|گیره فیوز|
+Fuse Block Safety Covers(4)|درپوش ایمنی پایه فیوز|
+@7.1.5 Surge Suppressors
+Backup Power Supplies(17)|یو‌پی‌اس (برق اضطراری)|
+Battery Surge Protectors/Charge Monitors(1)|محافظ نوسان و نمایشگر شارژ باتری|
+Power Conditioners(7)|تثبیت‌کننده برق|
+Surge Protective Devices(3)|محافظ ولتاژ (سرج‌ارستر)|
+@7.2.1 Motor Controllers
+Rotary Encoders(34)|انکودر چرخشی|
+Speed Reducers(50)|گیربکس کاهنده دور|
+@7.2.2 Motor Capacitors & Contactors
+Motor Starter Switches(13)|کلید راه‌انداز موتور|
+Motor Starter Thermal Overload Elements(28)|المنت بی‌متال راه‌انداز موتور|
+Commutator Resurfacers(20)|سنگ کلکتور|
+Electrical Contact Files(36)|سوهان پلاتین|
+@7.2.3 Multimeters & Electrical Testers
+Oscilloscopes(1)|اسیلوسکوپ|
+Test Lead Tips(1)|سر سیم تست|
+Voltage Detectors(13)|فازمتر (ولتاژیاب)|
+Multimeter Hangers(1)|آویز مولتی‌متر|
+Multimeter Line Splitters(1)|اسپلیتر خط مولتی‌متر|
+Motor Phase Sequence Testers(1)|تستر توالی فاز|
+Current Detectors(1)|آشکارساز جریان|
+Current Meters(3)|آمپرمتر|
+Insulation Testers(9)|میگر (تستر عایق)|
+Test Lead Adapters(6)|تبدیل سیم تست|
+Test Lead Clips(77)|گیره سوسماری سیم تست|
+Meter Computer Connectors(1)|رابط کامپیوتر مولتی‌متر|
+Electrical Monitor Calibrators(1)|کالیبراتور برق|
+Electrical Panel Meters(80)|نمایشگر تابلویی|
+Electrical Outlet Testers(2)|تستر پریز|
+Line Break Detectors(7)|ردیاب قطعی سیم|
+Patch Cords(12)|سیم رابط تست|
+Circuit Breaker Identifiers(4)|ردیاب فیوز تابلو|
+Voltage Meters(7)|ولت‌متر|
+Battery Testers(6)|تستر باتری|
+Current Indicating Rings(5)|حلقه نشانگر جریان|
+Circuit Tracers(2)|ردیاب مسیر سیم|
+Shunts(5)|شنت|
+BNC Adapters(5)|تبدیل BNC|
+Power Consumption Data Loggers(4)|دیتالاگر مصرف برق|
+BNC Test Cords(4)|سیم تست BNC|
+Probe Styli(110)|سوزن پراب (استایلوس)|
+Probe Stylus Accessories(17)|متعلقات سوزن پراب|
+Coordinate Measurement Machine Probes(50)|پراب دستگاه CMM|
+Probe Break Stems(6)|ساقه ایمنی پراب|
+Probe Stylus Installation Tools(2)|ابزار نصب سوزن پراب|
+Calibration Spheres(7)|گوی کالیبراسیون|
+Multimeter Cases(9)|کیف مولتی‌متر|
+Test Lead Holders(3)|نگهدارنده سیم تست|

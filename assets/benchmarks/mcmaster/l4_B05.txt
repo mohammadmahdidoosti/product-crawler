@@ -1,0 +1,260 @@
+@8.0.6 Ceramics
+Resin Fillers(1)|پرکننده رزین|
+Mugs(1)|ماگ|ترکیبی
+Firebricks(23)|آجر نسوز|
+Sandpaper(619)|سنباده ورقی|
+Additives and Fillers(5)|افزودنی و پرکننده|
+Scrapers(1)|کاردک|
+Sanding Belts(1687)|سنباده نواری|
+Sanding Discs(1684)|سنباده دیسکی (صفحه‌ای)|
+Tumbling Media(147)|سنگ ویبره (مدیای پرداخت)|
+Deflashing Tools(23)|ابزار پلیسه‌گیر|
+Abrasive Blasting Media(53)|ساینده سندبلاست|
+Kitchen Knives(3)|چاقوی آشپزخانه|ترکیبی
+Urinals(7)|توالت ایستاده (یورینال)|
+Sinks(4)|سینک|ترکیبی
+Circuit Board Capacitors(27)|خازن برد مدار|
+Wrist Supports(1)|مچ‌بند حمایتی|
+Reflectors(2)|بازتابنده|
+@8.0.7 Graphite
+Conductive Graphite Rods(34)|میله گرافیت رسانا|
+Conductive Graphite Sheets and Bars(27)|ورق و تسمه گرافیت رسانا|
+Ultra-Fine-Grain Conductive Graphite Sheets(4)|ورق گرافیت دانه‌ریز|
+Compressible Graphite Sheets(6)|ورق گرافیت فشرده‌شو (واشربری)|
+Reinforced Compressible Graphite Sheets(9)|ورق گرافیت فشرده‌شو مسلح|
+Powder and Flake Lubricants(11)|روان‌کننده پودری و پولکی|
+Dry-Film Lubricants(20)|روان‌کننده خشک|
+Machining and Fabricating Lubricants(1)|روان‌کننده ماشینکاری|
+Penetrating Lubricants(3)|روان‌کننده نفوذی|
+Assembly Lubricants(4)|روان‌کننده مونتاژ|
+@8.0.8 Carbon Fiber
+High-Strength Lightweight Carbon Fiber Sheets and Bars(106)|ورق و تسمه فیبر کربن|
+High-Strength Lightweight Carbon Fiber Round Tubes(87)|لوله فیبر کربن|
+High-Strength Lightweight Carbon Fiber Sheets with Foam Core(1)|ورق فیبر کربن هسته فوم|
+Carbon Fiber Sheets(6)|ورق فیبر کربن|
+Rigid High-Strength Lightweight Carbon Fiber Round Tubes(14)|لوله فیبر کربن صلب|
+High-Strength Lightweight Carbon Fiber Rods(29)|میله فیبر کربن|
+High-Strength Lightweight Carbon Fiber Square Tubes(6)|قوطی فیبر کربن|
+Easy-Thermoform High-Strength Chemical-Resistant PAEK and Carbon Fiber Sheets(6)|ورق کامپوزیت PAEK و فیبر کربن فرم‌پذیر|
+High-Strength Lightweight Carbon Fiber 90° Angles(10)|نبشی فیبر کربن|
+Warp-Resistant High-Strength Lightweight Carbon Fiber Sheets(6)|ورق فیبر کربن ضدتاب|
+Telescoping High-Strength Lightweight Carbon Fiber Hex Tubes(12)|لوله شش‌گوش تلسکوپی فیبر کربن|
+Impact-Resistant High-Strength Carbon Fiber Sheets with Kevlar Core(6)|ورق فیبر کربن هسته کولار|
+Rigid High-Strength Lightweight Carbon Fiber Sheets(4)|ورق فیبر کربن صلب|
+High-Strength Lightweight Carbon Fiber U-Channels(14)|ناودانی فیبر کربن|
+Carbon Fiber Repair Tape(2)|نوار تعمیر فیبر کربن|
+High-Strength Lightweight Carbon Fiber Half Rounds(4)|نیم‌گرد فیبر کربن|
+Thread(1)|نخ|
+@8.0.9 Casting Compounds
+Clay(4)|خاک رس (گل مدل‌سازی)|
+Hand Grips(1)|تقویت‌کننده مچ (هندگریپ)|مصرفی
+@8.0.10 Rubber
+Pipe Caps(17)|درپوش لوله|
+Rubber Banding(21)|کش لاستیکی|
+Workbench Mats(16)|کفپوش میز کار|
+Kneeling Pads(11)|زیرزانویی|ترکیبی
+Prototyping Foam(27)|فوم نمونه‌سازی|
+Floor Drain Trap Seals(4)|آب‌بند سیفون کف|
+Floor Drain Covers(4)|درپوش کفشور|
+Sink Drain Stoppers(4)|درپوش سینک|ترکیبی
+Hot Pads(2)|دستگیره فر (زیرقابلمه‌ای)|ترکیبی
+Spill-Control Dikes(3)|مانع نشت مایعات|
+Floor Drain Plugs(3)|درپوش کفشور (پلاگ)|
+ADA Warning Plates(4)|کفپوش هشدار نابینایان|
+Bore Sealing Plugs(95)|درپوش آب‌بند سوراخ|
+@8.0.11 Foam
+Cushioning Polyurethane Foam Sheets(58)|ورق فوم پلی‌اورتان (اسفنج) ضربه‌گیر|
+Resilient Polyurethane Foam Sheets(72)|ورق فوم پلی‌اورتان ارتجاعی|
+Multipurpose Neoprene Foam Sheets(119)|ورق فوم نئوپرن|
+Multipurpose Blended EPDM Foam Sheets(33)|ورق فوم EPDM ترکیبی|
+Chemical-Resistant Cushioning Polyethylene Foam Sheets(16)|ورق فوم پلی‌اتیلن ضربه‌گیر|
+Shock-Absorbing EVA Foam Sheets(40)|ورق فوم EVA ضربه‌گیر|
+Multilayer Cushioning Polyethylene/Polyurethane Foam Sheets(20)|ورق فوم چندلایه پلی‌اتیلن/پلی‌اورتان|
+Weather-Resistant EPDM Foam Sheets(98)|ورق فوم EPDM مقاوم هوازدگی|
+Foam Selector Packs(3)|ست نمونه فوم|
+Oil- and Weather-Resistant Blended Neoprene Foam Sheets(40)|ورق فوم نئوپرن ترکیبی ضدروغن|
+Tear-Resistant Polyethylene Foam Sheets(23)|ورق فوم پلی‌اتیلن ضدپارگی|
+Ultra-Conformable Polyurethane Foam Sheets(25)|ورق فوم پلی‌اورتان فوق‌نرم (مموری)|
+Cushioning Polyurethane Foam Egg-Crate Sheets(8)|ورق فوم پلی‌اورتان شانه‌تخم‌مرغی|
+Flame-Retardant Polyurethane Foam Sheets(36)|ورق فوم پلی‌اورتان نسوز|
+Chemical-Resistant Nylon Foam Sheets(20)|ورق فوم نایلونی|
+Flame-Retardant Silicone Foam Sheets(54)|ورق فوم سیلیکون نسوز|
+Resilient Silicone Foam Sheets(36)|ورق فوم سیلیکون ارتجاعی|
+Flame-Retardant Resilient Silicone Foam Sheets(42)|ورق فوم سیلیکون ارتجاعی نسوز|
+Shock-Absorbing Resilient Polyurethane Foam Sheets(18)|ورق فوم پلی‌اورتان ارتجاعی ضربه‌گیر|
+Flame-Retardant Blended Buna-N Foam Sheets(21)|ورق فوم نیتریل (NBR) نسوز|
+Impact- and Weather- Resistant Ionomer Foam Sheets(7)|ورق فوم آیونومر|
+Abrasion-Resistant Natural Rubber Foam Sheets(7)|ورق فوم لاستیک طبیعی|
+Antistatic Polyethylene Foam Sheets(14)|ورق فوم پلی‌اتیلن آنتی‌استاتیک|
+Conductive Polyethylene Foam Sheets(16)|ورق فوم پلی‌اتیلن رسانا|
+Cushioning Polyurethane Foam Cubed Sheets(4)|ورق فوم پلی‌اورتان مکعبی (برش‌خورده)|
+Water-Resistant Resilient Polyurethane Foam Sheets(24)|ورق فوم پلی‌اورتان ارتجاعی ضدآب|
+Extreme-Temperature Polyimide Foam Sheets(9)|ورق فوم پلی‌ایمید دمای فوق‌بالا|
+Antistatic Polyurethane Foam Sheets(21)|ورق فوم پلی‌اورتان آنتی‌استاتیک|
+Chemical-Resistant Viton® Fluoroelastomer Foam Sheets(18)|ورق فوم وایتون|
+Impression Foam(2)|فوم قالب‌گیری (ایمپرشن)|
+Extreme-Temperature Silicone Foam Sheets(162)|ورق فوم سیلیکون دمای فوق‌بالا|
+Antislip Natural Rubber Foam Sheets(1)|ورق فوم لاستیک طبیعی ضدلغزش|
+Ultra-Absorbent Polyurethane Foam Sheets(15)|ورق فوم پلی‌اورتان جاذب|
+Food Industry Silicone Foam Sheets(36)|ورق فوم سیلیکون صنایع غذایی|
+Conductive Polyurethane Foam Sheets(13)|ورق فوم پلی‌اورتان رسانا|
+Antistatic Polyurethane Foam Egg-Crate Sheets(7)|ورق فوم شانه‌تخم‌مرغی آنتی‌استاتیک|
+Food Industry Polyethylene Foam Sheets(152)|ورق فوم پلی‌اتیلن صنایع غذایی|
+Conformable Vinyl Foam Sheets(8)|ورق فوم وینیل نرم|
+Oil-Resistant Epichlorohydrin Foam Sheets(8)|ورق فوم اپی‌کلروهیدرین ضدروغن|
+Thermally Conductive Silicone Foam Sheets(6)|ورق فوم سیلیکون رسانای حرارت|
+Cushioning Foam Mesh Sheets(4)|ورق توری فومی ضربه‌گیر|
+Fabric-Reinforced Neoprene Foam Sheets(6)|ورق فوم نئوپرن پارچه‌دار|
+Heat-Reflecting Flame-Retardant Silicone Foam Sheets(7)|ورق فوم سیلیکون نسوز بازتابنده حرارت|
+Multipurpose Neoprene Foam Strips(168)|نوار فوم نئوپرن|
+Multipurpose Blended EPDM Foam Strips(145)|نوار فوم EPDM ترکیبی|
+Weather-Resistant EPDM Foam Strips(151)|نوار فوم EPDM مقاوم هوازدگی|
+Resilient Polyurethane Foam Strips(66)|نوار فوم پلی‌اورتان ارتجاعی|
+Chemical-Resistant Cushioning Polyethylene Foam Strips(69)|نوار فوم پلی‌اتیلن ضربه‌گیر|
+Extreme-Temperature Silicone Foam Strips(96)|نوار فوم سیلیکون دمای فوق‌بالا|
+Oil-Resistant Blended Buna-N Foam Strips(96)|نوار فوم نیتریل (NBR) ضدروغن|
+Multilayer Cushioning Polyethylene/Polyurethane Foam Strips(12)|نوار فوم چندلایه پلی‌اتیلن/پلی‌اورتان|
+Oil- and Weather-Resistant Blended Neoprene Foam Strips(27)|نوار فوم نئوپرن ترکیبی ضدروغن|
+Flame-Retardant Polyurethane Foam Strips(24)|نوار فوم پلی‌اورتان نسوز|
+Weather-Resistant Silicone Foam Strips(61)|نوار فوم سیلیکون مقاوم هوازدگی|
+Resilient Silicone Foam Strips(48)|نوار فوم سیلیکون ارتجاعی|
+Flame-Retardant Silicone Foam Strips(48)|نوار فوم سیلیکون نسوز|
+Ultra-Conformable Vinyl Foam Strips(67)|نوار فوم وینیل فوق‌نرم|
+Cushioning Polyurethane Foam Strips(31)|نوار فوم پلی‌اورتان ضربه‌گیر|
+Food Industry Silicone Foam Strips(27)|نوار فوم سیلیکون صنایع غذایی|
+Abrasion-Resistant Natural Rubber Foam Strips(127)|نوار فوم لاستیک طبیعی|
+Tear-Resistant Polyethylene Foam Strips(22)|نوار فوم پلی‌اتیلن ضدپارگی|
+Shock-Absorbing Resilient Polyurethane Foam Strips(24)|نوار فوم پلی‌اورتان ارتجاعی ضربه‌گیر|
+Water-Resistant Resilient Polyurethane Foam Strips(24)|نوار فوم پلی‌اورتان ارتجاعی ضدآب|
+Flame-Retardant Blended Buna-N Foam Strips(15)|نوار فوم نیتریل (NBR) نسوز|
+Chemical-Resistant Viton® Fluoroelastomer Foam Strips(14)|نوار فوم وایتون|
+Ultra-Conformable Polyurethane Foam Strips(4)|نوار فوم پلی‌اورتان فوق‌نرم|
+Ultra-Absorbent Polyurethane Foam Strips(8)|نوار فوم پلی‌اورتان جاذب|
+Flame-Retardant Resilient Silicone Foam Strips(16)|نوار فوم سیلیکون ارتجاعی نسوز|
+Fabric-Reinforced Silicone Foam Strips(20)|نوار فوم سیلیکون پارچه‌دار|
+Cushioning Polyurethane Foam Cubes(6)|مکعب فوم پلی‌اورتان|
+Cushioning Polyurethane Foam Rods(26)|میله فوم پلی‌اورتان|
+Multipurpose Neoprene Foam Rods(9)|میله فوم نئوپرن|
+Weather-Resistant EPDM Foam Rods(19)|میله فوم EPDM|
+Weather-Resistant Resilient Santoprene Foam Rods(4)|میله فوم سانتوپرن|
+Food Industry Silicone Foam Rods(9)|میله فوم سیلیکون صنایع غذایی|
+Extreme-Temperature Silicone Foam Rods(16)|میله فوم سیلیکون دمای فوق‌بالا|
+Thermally Insulating Blended Neoprene Foam Round Tubes(14)|لوله فوم نئوپرن عایق حرارتی|
+Weather-Resistant EPDM Foam Round Tubes(8)|لوله فوم EPDM|
+Extreme-Temperature Silicone Foam Round Tubes(24)|لوله فوم سیلیکون دمای فوق‌بالا|
+Cushioning Polyurethane Foam Bars(2)|تسمه فوم پلی‌اورتان|
+Chemical-Resistant Cushioning Polyethylene Foam U-Channels(3)|ناودانی فوم پلی‌اتیلن|
+Extreme-Temperature Silicone Foam Rings(21)|حلقه فوم سیلیکون|
+Chemical-Resistant Cushioning Polyethylene Foam Half Rounds(3)|نیم‌گرد فوم پلی‌اتیلن|
+Foam Wrap(15)|رول فوم بسته‌بندی|
+Earplugs(72)|گوش‌گیر (ایرپلاگ)|
+Expanding Foam(7)|فوم پلی‌اورتان اسپری (فوم درزگیر)|
+Sponges(20)|اسفنج|ترکیبی
+Screwdriver Organizers(2)|نظم‌دهنده پیچ‌گوشتی|
+Packing Peanut Dispensers(1)|دیسپنسر فوم بسته‌بندی|
+Packing Peanuts(2)|فوم پرکن بسته‌بندی (پینات)|
+Protective Shipping Box Inserts(3)|فوم داخل کارتن|
+Sanding Blocks(2)|بلوک سنباده|
+Open-Top Bags(8)|کیسه درباز|
+Sanding Disc Cushioning Pads(4)|پد زیر سنباده دیسکی|
+@8.0.12 Insulation
+Insulation Fill(1)|پرکننده عایق|
+Bubble Wrap(1)|نایلون حباب‌دار|ترکیبی
+Shipping Box Liners(13)|آستر عایق کارتن|
+Envelopes(2)|پاکت|ترکیبی
+@8.0.13 Glass
+Borosilicate Glass Sheets(40)|ورق شیشه بوروسیلیکات (پیرکس)|
+Borosilicate Glass Rods and Discs(44)|میله و دیسک شیشه بوروسیلیکات|
+Ultra-High-Temperature Quartz Glass Rods and Discs(82)|میله و دیسک شیشه کوارتز|
+Wire-Reinforced Glass(22)|شیشه مسلح سیمی|
+Ultra-High-Temperature Quartz Glass Sheets(39)|ورق شیشه کوارتز|
+Pressure-Rated Borosilicate Glass Discs(16)|دیسک شیشه بوروسیلیکات فشارقوی (سایت‌گلاس)|
+Super-Flexible Corning® Willow® Glass(20)|شیشه فوق‌انعطاف کورنینگ ویلو|
+Pressure-Rated Borosilicate Glass Tubes(11)|لوله شیشه بوروسیلیکات فشارقوی|
+Impact- and Scratch-Resistant Corning® Gorilla® Glass(8)|شیشه گوریلا کورنینگ|
+Ultra-High-Temperature Quartz Glass Tubes(30)|لوله شیشه کوارتز|
+Borosilicate Glass Tubes(17)|لوله شیشه بوروسیلیکات|
+Borosilicate Glass Balls(5)|گوی شیشه بوروسیلیکات|
+Antimicrobial and Scratch-Resistant Corning® Gorilla® Glass(3)|شیشه گوریلا ضدمیکروب|
+Microscope Slides(1)|لام میکروسکوپ|
+Petri Dishes(3)|پتری‌دیش|
+Abrasive Blasting Cabinet Windows(9)|شیشه کابین سندبلاست|
+Density Meter Jars(6)|استوانه غلظت‌سنج|
+@8.0.14 Wood
+Wood Boards(3)|تخته چوب|
+Plywood Sheets(54)|تخته چندلایه (پلای‌وود)|
+Balsa Wood Strips(25)|نوار چوب بالسا|
+Medium Density Fiberboard Sheets(40)|ورق ام‌دی‌اف (MDF)|
+Synthetic Wood(15)|چوب مصنوعی|
+Balsa Wood Cores(12)|هسته چوب بالسا|
+Oak Rods(26)|میله چوب بلوط|
+Basswood Strips(4)|نوار چوب نمدار|
+Wood Balls(12)|گوی چوبی|
+Maple Rods(22)|میله چوب افرا|
+Birch Rods(32)|میله چوب توس|
+@8.0.15 Fabrics
+Cut-Resistant Kevlar Fabric Sheets(1)|پارچه کولار ضدبرش|
+PTFE-Coated Fiberglass Mesh Fabric Sheets(1)|توری فایبرگلاس روکش تفلون|
+PTFE-Coated Fiberglass Fabric Sheets(9)|پارچه فایبرگلاس روکش تفلون|
+Flame-Retardant Carbon Fiber Sheets(1)|پارچه فیبر کربن نسوز|
+Static-Control PTFE-Coated Fiberglass Fabric Sheets(1)|پارچه فایبرگلاس تفلونی آنتی‌استاتیک|
+Silica Fabric Sheets(1)|پارچه سیلیکا|
+Flexible Silica Fabric Sheets and Strips(13)|پارچه و نوار سیلیکا انعطاف‌پذیر|
+Fiberglass Fabric Sheets and Strips(40)|پارچه و نوار فایبرگلاس (نسوز)|
+Tear-Resistant PTFE-Coated Fiberglass Fabric Sheets(4)|پارچه فایبرگلاس تفلونی ضدپارگی|
+Oil- and Heat-Resistant Silicone-Coated Fiberglass Fabric(3)|پارچه فایبرگلاس روکش سیلیکون|
+Wet-and-Stick Fiberglass Fabric Sheets(1)|پارچه فایبرگلاس خیس‌چسب|
+Extra High-Temperature Vermiculite-Coated Fiberglass Fabric(14)|پارچه فایبرگلاس روکش ورمیکولیت|
+Abrasion- and Heat-Resistant Acrylic-Coated Fiberglass Fabric(2)|پارچه فایبرگلاس روکش اکریلیک|
+Porous PTFE-Coated Fiberglass Fabric Sheets(3)|پارچه فایبرگلاس تفلونی متخلخل|
+Aramid/Fiberglass Fabric(9)|پارچه آرامید/فایبرگلاس|
+Nomex Fabric Sheets(2)|پارچه نومکس|
+Heat-Reflecting Foil-Backed Fiberglass Fabric(2)|پارچه فایبرگلاس فویل‌دار|
+Carbon Fiber Fabric Strips(8)|نوار پارچه فیبر کربن|
+Polyester Fabric(7)|پارچه پلی‌استر|
+Ultra-Weather-Resistant Nylon Fabric Sheets(2)|پارچه نایلون مقاوم هوازدگی|
+Polyethylene/Tyvek Fabric(3)|پارچه پلی‌اتیلن (تایوک)|
+Nylon Fabric Strips(14)|نوار پارچه نایلون|
+HDPE Mesh Fabric(2)|توری پارچه‌ای HDPE|
+Water-Repellent Cotton Fabric Sheets(1)|پارچه نخی ضدآب|
+Velvet(2)|مخمل|
+Cotton Fabric Sheets and Strips(22)|پارچه و نوار نخی|
+Burlap(5)|گونی (کنفی)|
+Flame-Resistant Cotton Fabric Sheets(3)|پارچه نخی نسوز|
+Elastic Latex Fabric(18)|پارچه لاتکس کشی|
+Muslin Cheesecloth Fabric(2)|پارچهململ|
+Cheesecloth(8)|پارچه تنظیف|
+Sewing Awls(5)|درفش دوخت|
+Sewing Needles(15)|سوزن خیاطی|ترکیبی
+Sewing Awl Needles(2)|سوزن درفش|
+@8.0.16 Felt
+Medium Felt Sheets and Strips(591)|ورق و نوار نمد متوسط|
+Soft Felt Sheets and Strips(206)|ورق و نوار نمد نرم|
+Synthetic Felt(24)|نمد مصنوعی|
+Soft Felt Lining Sheets(5)|ورق نمد آستری نرم|
+Felt Selector Packs(1)|ست نمونه نمد|
+High-Temperature Felt(20)|نمد نسوز|
+Medium Felt Cords(10)|طناب نمدی|
+Hard Felt(24)|نمد سخت|
+Medium Felt Discs(23)|دیسک نمدی|
+@8.0.17 3D Printer Filaments
+Easy-Print PLA 3D Printer Filaments(52)|فیلامنت PLA|ترکیبی
+Structural Support 3D Printer Filaments(9)|فیلامنت ساپورت|
+Impact-Resistant ABS 3D Printer Filaments(10)|فیلامنت ABS|ترکیبی
+3D Printer Filaments for Casting(1)|فیلامنت ریخته‌گری|
+Steam-Resistant High-Temperature Polysulfone 3D Printer Filaments(1)|فیلامنت پلی‌سولفون|
+UV-Indicating Easy-Print PLA 3D Printer Filaments(1)|فیلامنت PLA حساس به UV|
+Wear-Resistant Nylon 3D Printer Filaments(3)|فیلامنت نایلون|
+Chemical-Resistant PPSU 3D Printer Filaments(1)|فیلامنت PPSU|
+UV- and Impact-Resistant ASA 3D Printer Filaments(2)|فیلامنت ASA|
+Flexible TPU 3D Printer Filaments(6)|فیلامنت TPU انعطاف‌پذیر|
+Dremel 3D Printer Filaments(5)|فیلامنت درمل|
+Moisture-Resistant Polyester 3D Printer Filaments(6)|فیلامنت PETG (پلی‌استر)|
+High-Strength Impact-Resistant Polycarbonate 3D Printer Filaments(4)|فیلامنت پلی‌کربنات|
+Slippery Wear-Resistant 3D Printer Filaments(4)|فیلامنت کم‌اصطکاک|
+Ultra-Strength High-Temperature PAEK 3D Printer Filaments(2)|فیلامنت PAEK|
+High-Temperature PEI 3D Printer Filaments(2)|فیلامنت PEI (اولتم)|
+Foam-Forming Flexible 3D Printer Filaments(2)|فیلامنت فوم‌شونده انعطاف‌پذیر|
+Foam-Forming 3D Printer Filaments(2)|فیلامنت فوم‌شونده|
+MakerBot 3D Printer Filaments(4)|فیلامنت میکربات|
+3D Printer Cleaning Filaments(2)|فیلامنت تمیزکننده نازل|

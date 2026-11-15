@@ -1,0 +1,335 @@
+@2.0.19 Chain Tensioners
+Floating Roller Chain Tensioners(21)|زنجیرسفت‌کن شناور|
+Spring-Loaded Adjustable-Arm Roller Chain and Belt Tensioners(9)|سفت‌کن فنری بازویی زنجیر و تسمه|
+Channel-Guided Roller Chain Tensioners(16)|زنجیرسفت‌کن ریلی|
+Heavy Duty Spring-Loaded Roller Chain and Belt Tensioners(3)|سفت‌کن فنری سنگین زنجیر و تسمه|
+Adjustable-Screw Roller Chain and Belt Tensioners(7)|سفت‌کن پیچی زنجیر و تسمه|
+Roller Chain Tensioning Rings(13)|حلقه سفت‌کن زنجیر|
+Adjustable-Arm Roller Chain and Belt Tensioners(9)|سفت‌کن بازویی زنجیر و تسمه|
+Ultra-Low-Profile Channel-Guided Roller Chain Tensioners(2)|زنجیرسفت‌کن ریلی فوق‌کم‌ارتفاع|
+Low-Profile Channel-Guided Roller Chain Tensioners(8)|زنجیرسفت‌کن ریلی کم‌ارتفاع|
+Heavy Duty Spring-Loaded Adjustable-Arm Roller Chain and Belt Tensioners(5)|سفت‌کن فنری بازویی سنگین|
+Load Binders(29)|جغجغه مهار بار (لودبایندر)|
+@2.0.20 Sprockets
+Sprockets(2839)|چرخ‌زنجیر (اسپراکت)|
+Flat Sprockets(121)|چرخ‌زنجیر تخت (بدون توپی)|
+Taper-Lock Bushing-Bore Sprockets(279)|چرخ‌زنجیر بوش تیپرلاک|
+Quick-Disconnect (QD) Bushing-Bore Sprockets(216)|چرخ‌زنجیر بوش QD|
+Sprockets for Two Single-Strand Roller Chains(18)|چرخ‌زنجیر دوبل (دو ردیف)|
+Plastic Sprockets(74)|چرخ‌زنجیر پلاستیکی|
+Sprockets for Clog-Resistant Flat-Edge Roller Chain(11)|چرخ‌زنجیر زنجیر ضدگرفتگی|
+High-Torque Split-Tapered Bushing-Bore Sprockets(84)|چرخ‌زنجیر بوش مخروطی دوتکه گشتاور بالا|
+Sprockets for Inverted-Tooth Chain(18)|چرخ‌زنجیر زنجیر دندانه‌ای|
+One-Way-Locking Sprockets(11)|چرخ‌زنجیر یک‌طرفه (هرزگرد)|
+Conveyor Rollers(56)|غلتک نوار نقاله|
+Alignment Lasers(12)|لیزر هم‌راستاکن پولی|
+Conveyor Wear Strips(2)|نوار سایشی نقاله|
+@2.0.21 Drive Rollers
+Tight-Tolerance Drive Rollers(33)|غلتک محرک تلرانس دقیق|
+Abrasion-Resistant Keyed Drive Rollers(27)|غلتک محرک جاخاردار ضدسایش|
+Drive Rollers(60)|غلتک محرک|
+Abrasion-Resistant Rollers(14)|غلتک ضدسایش|
+Abrasion-Resistant Drive Rollers(16)|غلتک محرک ضدسایش|
+Keyed Drive Rollers(13)|غلتک محرک جاخاردار|
+Abrasion-Resistant Flex-Grip Drive Rollers(31)|غلتک محرک گیرش انعطافی ضدسایش|
+Self-Cleaning Drive Rollers(1)|غلتک محرک خودتمیزشونده|
+Abrasion-Resistant Self-Cleaning Drive Rollers(1)|غلتک خودتمیزشونده ضدسایش|
+Press-Fit Low-Profile Drive Rollers(21)|غلتک محرک پرسی کم‌ارتفاع|
+Abrasion-Resistant Low-Profile Drive Rollers(19)|غلتک محرک کم‌ارتفاع ضدسایش|
+Rollers(7)|غلتک|
+Slim-Tread Drive Rollers(8)|غلتک محرک باریک|
+Abrasion-Resistant Flex-Grip Press-Fit Drive Rollers(12)|غلتک پرسی گیرش انعطافی ضدسایش|
+Flex-Grip Drive Rollers(8)|غلتک محرک گیرش انعطافی|
+Oil-Resistant Flex-Grip Drive Rollers(8)|غلتک گیرش انعطافی ضدروغن|
+Wheels(12)|چرخ|
+Idler Rollers(2)|غلتک هرزگرد|
+@2.0.22 Track Rollers
+Track Rollers(697)|غلتک ریلی (کم‌فالوور)|
+Door Tracks and Fittings(367)|ریل درب و اتصالات|
+Flow Rails(87)|ریل غلتکی قفسه (فلوریل)|
+Skate Wheels(65)|چرخ اسکیتی نقاله|
+Conveyors(1005)|نوار نقاله (کانوایر)|
+Carriages and Guide Rails(798)|ریل و واگن خطی (لینیر گاید)|
+Ball Transfers(200)|ساچمه انتقال (بال ترنسفر)|
+Conveyor Chain Trolleys(1)|ترولی زنجیر نقاله|
+Lift Tables(1)|میز بالابر|
+Idler/Drive Rollers(6)|غلتک هرزگرد/محرک|
+Conveyor Trolleys(6)|ترولی نقاله|
+Conveyor Tracks(4)|ریل نقاله|
+Ball Transfer Plates(25)|صفحه ساچمه‌ای انتقال|
+Conveyor Stops(8)|استاپر نقاله|
+I-Beam Tracks(2)|ریل تیرآهن|
+Conveyor Trolley Hooks(1)|قلاب ترولی نقاله|
+Conveyor Belt Spool Connectors(1)|اتصال قرقره نقاله|
+Conveyor Belt Spools(8)|قرقره نقاله|
+Conveyor Roller Gap Covers(2)|پوشش فاصله غلتک نقاله|
+Conveyor Belt Spool Clips(1)|کلیپس قرقره نقاله|
+Conveyor Trolley Hangers(1)|آویز ترولی نقاله|
+Conveyor Trolley Chains(2)|زنجیر ترولی نقاله|
+Conveyor Roller Covers(51)|روکش غلتک نقاله|
+Conveyor Track Brackets(2)|براکت ریل نقاله|
+Casters(53)|چرخ (چرخ‌گردان)|
+Trolleys(5)|ترولی (واگنک ریلی)|
+Door Guides(11)|راهنمای درب|
+Overhead Door Rollers(10)|غلتک درب کرکره‌ای/سکشنال|
+Drawer Rollers(4)|غلتک کشو|
+Drawer Slides(352)|ریل کشو|
+Oil Dispensers(6)|روغن‌دان|
+Speed-Monitoring Switches(3)|سوئیچ کنترل سرعت|
+Scales(11)|ترازو|
+@2.0.23 Turntables
+Round Turntables(18)|صفحه گردان گرد|
+Positioning Turntables(16)|صفحه گردان پوزیشنر|
+Maintenance-Free Square Turntables(6)|صفحه گردان مربعی بدون نگهداری|
+Square Turntables(14)|صفحه گردان مربعی|
+Solid-Surface Square Turntables(11)|صفحه گردان مربعی رویه یکپارچه|
+Lockable Turntables(5)|صفحه گردان قفل‌شو|
+Electric Positioning Turntables(4)|صفحه گردان برقی|
+Easy-Position Turntables(6)|صفحه گردان تنظیم آسان|
+Raised Positioning Turntables(3)|صفحه گردان پوزیشنر پایه‌دار|
+Maintenance-Free Lockable Turntables(4)|صفحه گردان قفل‌شو بدون نگهداری|
+Extreme-Capacity Square Turntables(2)|صفحه گردان مربعی ظرفیت فوق‌بالا|
+Adjustable-Height Positioning Turntables(2)|صفحه گردان ارتفاع متغیر|
+One-Stop Turntables(2)|صفحه گردان تک‌توقف|
+Turntable Bearings(53)|بلبرینگ صفحه گردان (اسلوینگ)|
+Rotary Tables(16)|میز دوار (دیوایدر)|
+Pallet Stands(2)|پایه گردان پالت|
+Cutting Mats(3)|صفحه برش (کاتینگ مت)|
+Rotary Angle Indexers(2)|ایندکسر زاویه‌ای|
+Rotary Table Chuck Mounting Kits(10)|کیت نصب سه‌نظام روی میز دوار|
+Tailstocks(4)|مرغک|
+@2.1.0 Actuators
+Impact-Resistant Compact Tie Rod Air Cylinders(114)|جک پنوماتیک تایرادی کامپکت ضدضربه|
+Tie Rod Air Cylinders(750)|جک پنوماتیک تایرادی (چهارمیل)|
+Enclosed-Body Load Responsive Cushion Air Cylinders(47)|جک پنوماتیک بدنه بسته با ضربه‌گیر خودکار|
+NFPA Tie Rod Air Cylinders(435)|جک پنوماتیک تایرادی NFPA|
+Nonrotating NFPA Tie Rod Air Cylinders(71)|جک تایرادی NFPA ضدچرخش|
+Compact Tie Rod Air Cylinders(267)|جک پنوماتیک تایرادی کامپکت|
+Nonrotating Compact Tie Rod Air Cylinders(93)|جک تایرادی کامپکت ضدچرخش|
+Enclosed-Body ISO Air Cylinders(49)|جک پنوماتیک ISO بدنه بسته (پروفیلی)|
+Corrosion-Resistant ISO Tie Rod Air Cylinders(50)|جک تایرادی ISO ضدخوردگی|
+Washdown NFPA Tie Rod Air Cylinders(74)|جک تایرادی NFPA شستشوپذیر|
+Enclosed-Body NFPA Air Cylinders(63)|جک پنوماتیک NFPA بدنه بسته|
+Thin-Profile Flexible-Mount Nonrotating Air Cylinders(114)|جک پنوماتیک باریک ضدچرخش|
+Clean Room Flexible-Mount Air Cylinders(28)|جک پنوماتیک اتاق تمیز|
+Flexible-Mount Air Cylinders(128)|جک پنوماتیک کامپکت چندنصبه|
+Vacuum Lifting Air Cylinders(12)|جک پنوماتیک بالابر وکیوم|
+Easy-Install Flexible-Mount Air Cylinders(27)|جک پنوماتیک نصب آسان|
+Flexible-Mount ISO Air Cylinders(44)|جک پنوماتیک ISO کامپکت|
+Double-Acting Round Body Air Cylinders(762)|جک پنوماتیک قلمی دوطرفه|
+Single-Acting Round Body Air Cylinders(282)|جک پنوماتیک قلمی یک‌طرفه|
+Clean Room Round Body Air Cylinders(39)|جک قلمی اتاق تمیز|
+Dust-Resistant Round Body Air Cylinders(39)|جک قلمی ضدگردوغبار|
+Round Body Air Cylinders for Narrow Spaces(103)|جک قلمی فضای تنگ|
+Short-Stroke Clamping Air Cylinders(6)|جک کورس کوتاه کلمپ|
+Miniature Threaded-Body Air Cylinders(23)|جک مینیاتوری بدنه رزوه‌ای|
+Washdown Round Body Air Cylinders(92)|جک قلمی شستشوپذیر|
+Subminiature Round Body Air Cylinders(2)|جک قلمی فوق‌مینیاتوری|
+Impact-Resistant Round Body Air Cylinders(231)|جک قلمی ضدضربه|
+Nonrotating Round Body Air Cylinders(56)|جک قلمی ضدچرخش|
+Double-Ended Round Body Air Cylinders(52)|جک قلمی دوسر شفت|
+Multiple-Stroke Round Body Air Cylinders(45)|جک قلمی چندکورسه|
+Through-Hole Double-Ended Round Body Air Cylinders(27)|جک قلمی دوسر شفت توخالی|
+Solenoids(65)|سلونوئید (بوبین کششی)|
+Air Slides(286)|اسلاید پنوماتیک|
+Parts Metering Cylinders(12)|جک تغذیه قطعه|
+Stopper Cylinders(13)|جک استاپر|
+Air Actuators(76)|عملگر پنوماتیک|
+Vacuum Cups(588)|بادکش وکیوم (ساکشن کاپ)|
+Valve Actuators(50)|عملگر شیر (اکچویتور)|
+Jack Rams(32)|جک روغنی (رم)|
+Cylinder Rod Locks(6)|قفل شفت جک|
+Jack Pumps(16)|پمپ جک دستی|
+Vacuum Lifters(91)|بالابر وکیومی|
+Pressure Gauges(2)|گیج فشار|
+Vacuum Cup Levelers(17)|تراز کن بادکش وکیوم|
+Jack Mounts(2)|پایه جک|
+Vacuum Cup and Lifter Mounts(2)|پایه بادکش و بالابر وکیوم|
+Vacuum Fittings(14)|اتصالات وکیوم|
+Vacuum Cup Swivels(2)|گردان بادکش وکیوم|
+Vacuum Pads(36)|پد وکیوم|
+Vacuum Lifter Dampers(2)|دمپر بالابر وکیوم|
+@2.1.1 Bearings
+Linear Bearing Brakes(10)|ترمز بلبرینگ خطی|
+Telescoping Rails(40)|ریل تلسکوپی|
+Positioning Slides(80)|اسلاید تنظیم موقعیت (میز XY)|
+Carriage Guide Rail Mounts(7)|پایه ریل خطی|
+@2.1.2 Shafts
+Linear Shaft Supports(164)|پایه شفت خطی (شفت‌گیر)|
+@2.1.5 Shock Absorbers
+Shock Absorbers(72)|ضربه‌گیر (شاک ابزوربر)|
+Compression Springs(83)|فنر فشاری|
+Shock Absorber Mounts(46)|پایه ضربه‌گیر|
+Air Springs(25)|فنر بادی (بالشتک هوا)|
+Edge Trim(425)|نوار لبه (پروفیل لبه)|
+Die Springs(21)|فنر قالب|
+T-Slotted Framing Conveyor End Stops(1)|استاپر انتهایی نقاله پروفیلی|
+Lockset Bumpers(4)|ضربه‌گیر قفل درب|
+Corner Guards(165)|محافظ گوشه (نبشی محافظ)|
+Panel Connecting Trim(33)|نوار اتصال پنل|
+Wall Bases(12)|قرنیز دیوار|
+Wear Plates(19)|صفحه سایشی|
+Tubing Guards(30)|محافظ لوله|
+Door Kick Plates(50)|ورق محافظ پایین درب|
+Door Edge Plates(18)|محافظ لبه درب|
+Column Guards(56)|محافظ ستون|
+Rack Guards(55)|محافظ پایه قفسه|
+Light Pole Guards(6)|محافظ تیر چراغ|
+Vibration-Damping Pads(149)|پد ضدلرزش|
+Strut Channel End Stops(1)|درپوش انتهایی ناودانی|
+Cam Locks and Latches(118)|قفل بادامکی و چفت|
+Multipoint Latches(16)|قفل چندنقطه‌ای|
+Door Bumpers(4)|ضربه‌گیر درب|
+Vibration-Damping Hangers(8)|آویز ضدلرزش|
+Felt(904)|نمد|
+Guardrails(92)|گاردریل|
+Bollards(26)|بولارد (ستون محافظ)|
+Traffic Posts(9)|استوانه ترافیکی|
+Fall-Arrest Anchor Spans(3)|خط مهار افقی ضدسقوط|
+Tube Straights(1)|تیوب مستقیم|
+Water Hammer Arresters(22)|ضربه‌گیر قوچ (واتر همر)|
+Landscape Lights(4)|چراغ محوطه|
+Graduated Cylinder Bumpers(9)|ضربه‌گیر استوانه مدرج|
+Tool-Organizing Foam(45)|فوم چیدمان ابزار|
+@2.1.6 Rod Ends
+Ball Joint Rod Ends(41)|سیبک (رادند)|
+Internally Threaded Ball Joint Rod Ends(28)|سیبک رزوه داخلی|
+Internally Threaded Lubrication-Free Ball Joint Rod Ends(24)|سیبک رزوه داخلی بدون روغن‌کاری|
+High-Load Ball Joint Rod Ends(35)|سیبک بار بالا|
+Lubrication-Free Ball Joint Rod Ends(26)|سیبک بدون روغن‌کاری|
+Internally Threaded Corrosion-Resistant Ball Joint Rod Ends(18)|سیبک رزوه داخلی ضدخوردگی|
+Corrosion-Resistant Ball Joint Rod Ends(23)|سیبک ضدخوردگی|
+Super-Swivel Ball Joint Rod Ends(7)|سیبک زاویه چرخش زیاد|
+Ball Joint Rod Ends with Nut(8)|سیبک با مهره|
+Internally Threaded Ball Joint Rod Ends with Grease Fitting(14)|سیبک رزوه داخلی گریس‌خور|
+Ball Joint Rod Ends with Grease Fitting(15)|سیبک گریس‌خور|
+Internally Threaded High-Load Ball Joint Rod Ends(27)|سیبک رزوه داخلی بار بالا|
+Internally Threaded Thrust-Load-Rated Ball Joint Rod Ends(10)|سیبک رزوه داخلی بار محوری|
+Mil. Spec. Ball Joint Rod Ends(10)|سیبک استاندارد نظامی|
+Internally Threaded Chemical-Resistant Ball Joint Rod Ends(18)|سیبک رزوه داخلی مقاوم شیمیایی|
+Long-Life Ball Joint Rod Ends(18)|سیبک عمر بالا|
+Lightweight Corrosion-Resistant Ball Joint Rod Ends(8)|سیبک سبک ضدخوردگی|
+Internally Threaded High-Speed Ball Bearing Rod Ends(8)|سیبک بلبرینگی دور بالا رزوه داخلی|
+Internally Threaded Oil-Embedded Ball Joint Rod Ends(8)|سیبک خودروغن‌کار رزوه داخلی|
+Internally Threaded Lightweight Corrosion-Resistant Ball Joint Rod Ends(8)|سیبک سبک ضدخوردگی رزوه داخلی|
+High-Speed Ball Bearing Rod Ends(9)|سیبک بلبرینگی دور بالا|
+Thrust-Load-Rated Ball Joint Rod Ends(10)|سیبک بار محوری|
+Oil-Embedded Ball Joint Rod Ends(8)|سیبک خودروغن‌کار|
+Internally Threaded Mil. Spec. Ball Joint Rod Ends(7)|سیبک استاندارد نظامی رزوه داخلی|
+Internally Threaded Ultra-Precision Ball Joint Rod Ends(6)|سیبک فوق‌دقیق رزوه داخلی|
+Internally Threaded Super-Swivel Ball Joint Rod Ends(6)|سیبک زاویه زیاد رزوه داخلی|
+Oil-Embedded Ball Joint Rod Ends with Grease Fitting(3)|سیبک خودروغن‌کار گریس‌خور|
+Ultra-Precision Ball Joint Rod Ends(6)|سیبک فوق‌دقیق|
+Internally Threaded Oil-Embedded Ball Joint Rod Ends with Grease Fitting(3)|سیبک خودروغن‌کار گریس‌خور رزوه داخلی|
+Chemical-Resistant Ball Joint Rod Ends(11)|سیبک مقاوم شیمیایی|
+Corrosion-Resistant Fully Threaded Rod End Bolts(233)|پیچ سیبک تمام‌رزوه ضدخوردگی|
+Fully Threaded Rod End Bolts(63)|پیچ سیبک تمام‌رزوه|
+High-Strength Rod End Bolts(71)|پیچ سیبک پرمقاومت|
+Partially Threaded Rod End Bolts(163)|پیچ سیبک نیم‌رزوه|
+Corrosion-Resistant Partially Threaded Rod End Bolts(129)|پیچ سیبک نیم‌رزوه ضدخوردگی|
+Vibration-Damping Rod End Bolts(1)|پیچ سیبک ضدلرزش|
+Corrosion-Resistant Flat-Shoulder Rod End Bolts(24)|پیچ سیبک شانه تخت ضدخوردگی|
+Flat-Shoulder Rod End Bolts(30)|پیچ سیبک شانه تخت|
+Internally Threaded Rod End Bolts with Partial Threads(8)|پیچ سیبک رزوه داخلی نیم‌رزوه|
+Rod End Bolt Blanks(31)|پیچ سیبک خام (بدون رزوه)|
+High-Strength Rod End Bolt Blanks(14)|پیچ سیبک خام پرمقاومت|
+Corrosion-Resistant Rod End Bolt Blanks(9)|پیچ سیبک خام ضدخوردگی|
+Internally Threaded Vibration-Damping Rod End Bolts(4)|پیچ سیبک ضدلرزش رزوه داخلی|
+Clevis Rod Ends(22)|دوشاخه سر جک (کلویس)|
+Corrosion-Resistant Clevis Rod Ends(38)|دوشاخه کلویس ضدخوردگی|
+Easy-Adjust Clevis Rod Ends(38)|دوشاخه کلویس تنظیم آسان|
+Externally Threaded Clevis Rod Ends(11)|دوشاخه کلویس رزوه بیرونی|
+Chemical-Resistant Clevis Rod Ends(13)|دوشاخه کلویس مقاوم شیمیایی|
+Clevis Rod End Blanks(11)|دوشاخه کلویس خام|
+Internally Threaded Ball Joint Linkages(63)|سیبک گازی (بال جوینت) رزوه داخلی|
+Internally Threaded Inline Ball Joint Linkages(17)|سیبک گازی هم‌راستا رزوه داخلی|
+Ball Joint Linkages(32)|سیبک گازی (بال جوینت)|
+Corrosion-Resistant Ball Joint Linkages(11)|سیبک گازی ضدخوردگی|
+Inline Ball Joint Linkages(6)|سیبک گازی هم‌راستا|
+Quick-Install Ball Joint Linkages(16)|سیبک گازی نصب سریع|
+Corrosion-Resistant Quick-Install Ball Joint Linkages(7)|سیبک گازی نصب سریع ضدخوردگی|
+Internally Threaded Lubrication-Free Ball Joint Linkages(18)|سیبک گازی بدون روغن‌کاری رزوه داخلی|
+Lubrication-Free Ball Joint Linkages(22)|سیبک گازی بدون روغن‌کاری|
+Internally Threaded Oil-Embedded Ball Joint Linkages(23)|سیبک گازی خودروغن‌کار رزوه داخلی|
+Internally Threaded Ball Joint Linkages with Grease Fitting(15)|سیبک گازی گریس‌خور رزوه داخلی|
+Bent-Swivel Ball Joint Linkages(2)|سیبک گازی خم|
+Oil-Embedded Ball Joint Linkages(19)|سیبک گازی خودروغن‌کار|
+Ball Joint Linkages with Grease Fitting(14)|سیبک گازی گریس‌خور|
+Swivel-Shaft Rod Ends(8)|سیبک شفت گردان|
+Ball Joint Rod End Reducers(6)|تبدیل سیبک|
+@2.1.7 Springs
+Extension Springs(4660)|فنر کششی|
+Torsion Springs(558)|فنر پیچشی|
+Strip Springs(77)|فنر تخت (تسمه‌ای)|
+Linear Wave Springs(22)|فنر موجی خطی|
+Rotor Springs(10)|فنر روتور|
+Spring Winders(1)|دستگاه فنرپیچ|
+Gas Springs(822)|جک گازی|
+Garter Springs(72)|فنر حلقوی (کاسه‌نمد)|
+Die Spring Cages(10)|قفسه فنر قالب|
+Constant-Force Retractors(23)|جمع‌کن فنری نیروی ثابت|
+Spring Assortments(7)|ست فنر|
+Spring Installation and Removal Tools(1)|ابزار نصب و باز کردن فنر|
+Die Spring Screw Caps(10)|کلاهک پیچ فنر قالب|
+Gas Spring Safety Clips(3)|کلیپس ایمنی جک گازی|
+Pipe Wrench Springs(13)|فنر آچار لوله‌گیر|
+Lathe Tool Insert Holder Springs(1)|فنر نگهدارنده الماس تراش|
+Air Hammer Retainers(5)|نگهدارنده قلم چکش بادی|
+Door Springs(18)|فنر درب|
+Door Chains(7)|زنجیر درب|
+Door Closer Mounts(1)|پایه آرام‌بند درب|
+Lid Supports(3)|نگهدارنده درب (جک درب کابینت)|
+Door Closer Arms(6)|بازوی آرام‌بند درب|
+Spring Handles(21)|دستگیره فنری|
+Overhead Door Spring Winding Rods(3)|میله کوک فنر درب سکشنال|
+Battery Springs(8)|فنر باتری|
+Force Gauges(11)|نیروسنج|
+@2.2.0 Pumps
+Gear Pumps(31)|پمپ دنده‌ای|
+Rotary Vane Pumps(2)|پمپ پره‌ای (وین)|
+Test Pumps(21)|پمپ تست فشار|
+Drum Pumps(147)|پمپ بشکه|
+Air Evacuators(1)|تخلیه‌کن هوا|
+Hydraulic Power Units(10)|یونیت هیدرولیک (پاوریونیت)|
+Pump-to-Motor Mount Adapters(21)|بل‌هوزینگ (رابط پمپ به موتور)|
+Air to Hydraulic Power Units(8)|یونیت هیدروپنوماتیک|
+@2.2.1 Valves
+Hydraulic Directional Control Valves(46)|شیر کنترل جهت هیدرولیک|
+Hydraulic On/Off Valves(48)|شیر قطع‌ووصل هیدرولیک|
+Hydraulic Pressure-Relief Valves(28)|شیر اطمینان هیدرولیک (رلیف)|
+Hydraulic Pressure-Regulating Valves(3)|شیر تنظیم فشار هیدرولیک|
+Air Valves(2)|شیر پنوماتیک|
+Valve Seats(40)|سیت شیر|
+@2.2.2 Hose
+Hydraulic Hose with Threaded Fittings(54)|شیلنگ هیدرولیک پرس‌شده با اتصال دنده‌ای|
+Hydraulic Hose(38)|شیلنگ هیدرولیک|
+Heavy Duty Hydraulic Hose with Threaded Fittings(8)|شیلنگ هیدرولیک سنگین پرس‌شده|
+Hydraulic Hose with Quick-Disconnect Fittings(39)|شیلنگ هیدرولیک با کوپلینگ سریع|
+Push-On Hydraulic Hose(6)|شیلنگ هیدرولیک فشاری|
+Heavy Duty Hydraulic Hose(5)|شیلنگ هیدرولیک سنگین|
+Vehicle Air Hose(4)|شیلنگ باد خودرو|
+Nonconductive Hydraulic Hose(7)|شیلنگ هیدرولیک نارسانا|
+@2.2.4 Filters
+Inline Filters(91)|فیلتر خطی|
+Filter Cartridges(156)|کارتریج فیلتر|
+Inline Filter Elements(2)|المنت فیلتر خطی|
+Hydraulic Fluid Filters(18)|فیلتر روغن هیدرولیک|
+@2.2.5 Oil
+Hydraulic Oil(30)|روغن هیدرولیک|
+Food and Beverage Hydraulic Oil(27)|روغن هیدرولیک فودگرید|
+Hydraulic Jack Oil(6)|روغن جک|
+Outdoor Hydraulic Oil(9)|روغن هیدرولیک فضای باز|
+Food and Beverage Oil(12)|روغن فودگرید|
+Hydraulic and Way Oil(2)|روغن هیدرولیک و ریل (اسلاید)|
+Zinc-Free Hydraulic Oil(8)|روغن هیدرولیک بدون روی|
+Biodegradable Hydraulic Oil(2)|روغن هیدرولیک زیست‌تخریب‌پذیر|
+Lubricant Analysis Kits(2)|کیت آنالیز روغن|
+Oil Additives(7)|مکمل روغن|
+Leak-Detecting Dyes(9)|رنگ نشت‌یاب|
+@2.2.6 Reservoirs
+Oil Reservoirs(55)|مخزن روغن|
+Grease Dispensers(121)|گریس‌پمپ|
+Grease-Dispensing Pumps(5)|پمپ گریس|
+Hydraulic Tanks(33)|مخزن هیدرولیک|
+Hydraulic Accumulators(25)|آکومولاتور هیدرولیک|
+Hydraulic Accumulator Bladders(5)|بادکنک آکومولاتور|

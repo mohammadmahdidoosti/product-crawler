@@ -1,0 +1,239 @@
+@7.3.0 Batteries
+Disposable Batteries(62)|باتری یکبارمصرف|ترکیبی
+Button/Coin Cell Batteries(61)|باتری سکه‌ای|ترکیبی
+Rechargeable Batteries(17)|باتری قابل شارژ|ترکیبی
+Long-Life Lantern Batteries(3)|باتری فانوسی عمر بالا|
+Lantern Batteries(2)|باتری فانوسی|
+Long-Shelf-Life Rechargeable Batteries(3)|باتری قابل شارژ ماندگاری بالا|ترکیبی
+PLC Battery Packs(31)|پک باتری PLC|
+Emergency Light Battery Packs(77)|پک باتری چراغ اضطراری|
+Battery Packs(23)|پک باتری|
+Two-Way Radio Battery Packs(4)|پک باتری بی‌سیم|
+Cordless Phone Battery Packs(1)|پک باتری تلفن بی‌سیم|ترکیبی
+Sealed Large-Cell Batteries for Continuous Use(42)|باتری سیلد اسیدی کار مداوم (یو‌پی‌اس)|
+Sealed Large-Cell Batteries for Starting and Continuous Use(11)|باتری سیلد استارتی و کار مداوم|
+Long-Life Sealed Large-Cell Batteries for Continuous Use(9)|باتری سیلد کار مداوم عمر بالا|
+Fast-Charging Large-Cell Batteries(6)|باتری بزرگ شارژ سریع|
+Large-Cell Batteries for Starting(7)|باتری استارتی|
+Sealed Large-Cell Batteries for Starting(1)|باتری سیلد استارتی|
+Large-Cell Batteries for Continuous Use(2)|باتری کار مداوم (دیپ‌سایکل)|
+Large-Cell Batteries for Starting and Continuous Use(2)|باتری استارتی و کار مداوم|
+Milwaukee Cordless Tool Batteries(13)|باتری ابزار شارژی میلواکی|
+DeWalt Cordless Tool Batteries(13)|باتری ابزار شارژی دیوالت|
+Makita Cordless Tool Batteries(10)|باتری ابزار شارژی ماکیتا|
+Bosch Cordless Tool Batteries(6)|باتری ابزار شارژی بوش|
+Chapin Cordless Tool Batteries and Chargers(1)|باتری و شارژر ابزار شارژی چاپین|
+Evolution Cordless Tool Batteries(1)|باتری ابزار شارژی اوولوشن|
+Black & Decker Cordless Tool Batteries(2)|باتری ابزار شارژی بلک‌اند‌دکر|
+Skil Cordless Tool Batteries(4)|باتری ابزار شارژی اسکیل|
+Battery Adapters(1)|تبدیل باتری|
+Battery Jump Starters(5)|بوستر استارت باتری (جامپ استارتر)|
+Battery Trays(2)|سینی باتری|
+Density Meters(10)|غلظت‌سنج (هیدرومتر)|
+Battery Charger/Starters(4)|شارژر و استارتر باتری|
+Battery Terminal Reamers(1)|برقو سرباتری|
+Solar Panels(4)|پنل خورشیدی|
+Battery Terminal Cleaners(1)|تمیزکننده سرباتری|
+Battery Discharge Indicators(3)|نمایشگر دشارژ باتری|
+Recycling Containers(2)|مخزن بازیافت باتری|
+Battery Retaining Clips(7)|گیره نگهدارنده باتری|
+Battery Fillers(9)|آب‌ریز باتری|
+Battery Terminal Coatings(2)|اسپری محافظ سرباتری|
+Battery Terminal Crimpers(4)|پرس سرباتری|
+Battery Terminal Brushes(7)|برس سرباتری|
+Battery Carriers(3)|حمل‌کننده باتری|
+Concentration Meters(2)|غلظت‌سنج (رفرکتومتر)|
+@7.3.1 Battery Testers, Chargers & Accessories
+Battery Filler Nozzles(1)|نازل آب‌ریز باتری|
+Battery Vent Caps(1)|درپوش تنفسی باتری|
+Battery Filler Gun Couplers(1)|کوپلر تفنگی آب‌ریز باتری|
+Battery Filler Cart Replacement Parts(4)|قطعات یدکی ترولی آب‌ریز باتری|
+Battery Filler Guns(2)|تفنگی آب‌ریز باتری|
+@7.4.0 Light Bulbs
+Bayonet-Base Miniature Light Bulbs(200)|لامپ مینیاتوری سرپیچ خورشیدی (بیونت)|
+Screw-In-Base Miniature Light Bulbs(68)|لامپ مینیاتوری سرپیچی|
+Wire-Terminal-Base Miniature Light Bulbs(20)|لامپ مینیاتوری سیم‌دار|
+Slide-Base Miniature Light Bulbs(16)|لامپ مینیاتوری کشویی|
+Bi-Pin-Base Miniature Light Bulbs(49)|لامپ مینیاتوری دوپین|
+Wedge-Base Miniature Light Bulbs(95)|لامپ آریایی (وج)|
+Top-Flanged-Base Miniature Light Bulbs(25)|لامپ مینیاتوری فلنج بالا|
+Index-Base Miniature Light Bulbs(13)|لامپ مینیاتوری پایه ایندکس|
+Festoon-Base Miniature Light Bulbs(13)|لامپ فشنگی (فستون)|
+Bottom-Flanged-Base Miniature Light Bulbs(17)|لامپ مینیاتوری فلنج پایین|
+Dual-Filament Wedge-Base Miniature Light Bulbs(15)|لامپ آریایی دو کنتاکت|
+Prefocus-Base Miniature Light Bulbs(6)|لامپ مینیاتوری پری‌فوکوس|
+Grooved-Base Miniature Light Bulbs(10)|لامپ مینیاتوری پایه شیاردار|
+Dual-Filament Bayonet-Base Miniature Light Bulbs(3)|لامپ خورشیدی دو کنتاکت|
+Printed-Circuit-Base Miniature Light Bulbs(6)|لامپ مینیاتوری پایه مدار چاپی|
+Circuit Board LED Light Bulbs(7)|لامپ LED برد مدار|
+Double-End-Cap-Base Miniature Light Bulbs(2)|لامپ مینیاتوری دوسر کلاهکی|
+Rigid-Loop-Base Miniature Light Bulbs(2)|لامپ مینیاتوری پایه حلقه‌ای|
+Screw-In-Base Light Bulbs(369)|لامپ سرپیچی (E27)|ترکیبی
+Bi-Pin-Base Floodlight and Spotlight Bulbs(53)|لامپ هالوژن دوپین (پروژکتوری و هالوژنی)|
+Bayonet-Base Light Bulbs(14)|لامپ سرپیچ خورشیدی|
+High-Temperature Screw-In-Base Light Bulbs(10)|لامپ سرپیچی دمای بالا|
+Screw-In-Base Floodlight and Spotlight Bulbs(228)|لامپ پروژکتوری و هالوژنی سرپیچی|
+Twist-and-Lock-Base Floodlight Bulbs(15)|لامپ پروژکتوری پایه چرخشی|
+Ultra-Bright Screw-In-Base Panel Light Bulbs(5)|لامپ پنلی سرپیچی پرنور|
+Prefocus-Base Light Bulbs(3)|لامپ پری‌فوکوس|
+Bayonet-Base Floodlight Bulbs(2)|لامپ پروژکتوری خورشیدی|
+Dusk-to-Dawn Screw-In-Base Light Bulbs(6)|لامپ سرپیچی فتوسل‌دار|ترکیبی
+Motion-Sensor Screw-In-Base Light Bulbs(6)|لامپ سرپیچی سنسوردار|ترکیبی
+Twist-and-Lock-Base Light Bulbs(10)|لامپ پایه چرخشی قفل‌شو|
+Contact-Lug-Base Floodlight and Spotlight Bulbs(4)|لامپ پروژکتوری پایه کنتاکتی|
+Bi-Pin-Base Tubular Light Bulbs(192)|لامپ مهتابی دوپین (لوله‌ای)|
+Recessed-Single-Contact-Base Tubular Light Bulbs(10)|لامپ خطی تک‌کنتاکت|
+Single-Pin-Base Tubular Light Bulbs(16)|لامپ مهتابی تک‌پین|
+U-Shaped Tubular Light Bulbs(7)|لامپ مهتابی U شکل|
+Recessed-Double-Contact-Base Tubular Light Bulbs(15)|لامپ خطی دوکنتاکت (هالوژن قلمی)|
+O-Shaped Tubular Light Bulbs(16)|لامپ مهتابی حلقوی|
+Contact-Lug-Base Vehicle Headlamp Light Bulbs(23)|لامپ چراغ جلو خودرو پایه کنتاکتی|
+Terminal-Base Sealed-Beam Vehicle Headlamp Light Bulbs(23)|لامپ چراغ جلو سیلد بیم ترمینالی|
+Socket-Base Vehicle Headlamp Light Bulbs(25)|لامپ چراغ جلو خودرو سوکتی (H4/H7)|
+Contact-Lug-Base Sealed-Beam Vehicle Headlamp Light Bulbs(6)|لامپ چراغ جلو سیلد بیم کنتاکتی|
+Metal Halide Light Bulbs(44)|لامپ متال‌هالید|
+LED Light Bulbs for High-Intensity Discharge (HID) Lights(87)|لامپ LED جایگزین HID (سوله‌ای)|
+High-Pressure Sodium Light Bulbs(23)|لامپ سدیم فشار قوی|
+LED Light Bulbs for Hazardous Location High-Intensity Discharge (HID) Lights(5)|لامپ LED جایگزین HID ضدانفجار|
+Four-Pin-Base Plug-In Compact Light Bulbs(23)|لامپ کم‌مصرف پینی چهارپین|
+Two-Pin Wedge-Base Plug-In Compact Light Bulbs(25)|لامپ کم‌مصرف پینی دوپین|
+Four-Pin Wedge-Base Plug-In Compact Light Bulbs(39)|لامپ کم‌مصرف پینی چهارپین گوه‌ای|
+Bayonet-Base Status-Indicating Light Bulbs(3)|لامپ سیگنال خورشیدی|
+Bayonet-Base Exit Sign Light Bulbs(1)|لامپ تابلو خروج خورشیدی|
+Screw-In-Base Exit Sign Light Bulbs(3)|لامپ تابلو خروج سرپیچی|
+Disinfecting Light Bulbs(9)|لامپ UV ضدعفونی|
+Ultraviolet Inspection Light Bulbs(10)|لامپ UV بازرسی|
+Light Lenses(32)|لنز چراغ|
+Light Guards(20)|محافظ چراغ|
+Light Bulb Changers(7)|ابزار تعویض لامپ (لامپ‌عوض‌کن)|
+Light Bulb Holders(1)|نگهدارنده لامپ|
+Heat Lamp Bulbs(18)|لامپ حرارتی (مادون قرمز)|
+Grow Light Bulbs(5)|لامپ رشد گیاه|ترکیبی
+@7.4.1 Lights
+Ceiling and Wall Lights(447)|چراغ سقفی و دیواری|
+Indicator Lights(348)|چراغ سیگنال|
+Workstation Lights(139)|چراغ میز کار|
+Light Bulbs(1865)|لامپ|
+Vehicle Lights(18)|چراغ خودرو|
+Floodlights(56)|پروژکتور|
+T-Slotted Framing Lights(36)|چراغ پروفیل شیاردار|
+Tape Lights(71)|ریسه LED (نواری)|
+Audible Alarms/Indicator Lights(91)|چراغ و آژیر هشدار (فلاشر)|
+Enclosure Lights(36)|چراغ داخل تابلو|
+Machine Vision Lights(49)|نور ماشین بینایی|
+Magnifiers(80)|ذره‌بین|
+Security Lights(13)|چراغ امنیتی|
+Lanterns(5)|فانوس|ترکیبی
+Photography Lights(1)|نور عکاسی|
+Emergency Backup Lights(43)|چراغ اضطراری|
+Dock Lights(22)|چراغ رمپ بارگیری|
+Light Hangers(6)|آویز چراغ|
+Flashlight Mounts(12)|پایه چراغ‌قوه|
+Emergency Backup Light Heads(13)|سر چراغ اضطراری|
+Light Ballasts(40)|بالاست|
+Web Conferencing Lights(2)|نور ویدئوکنفرانس|ترکیبی
+Light Poles(16)|تیر چراغ|
+Step Lights(6)|چراغ پله|
+Flashlight Converters(2)|تبدیل چراغ‌قوه|
+Ceiling Light Housings(2)|بدنه چراغ سقفی|
+Flashlight Magnifiers(4)|ذره‌بین چراغ‌دار|
+Light Socket Adapters(5)|تبدیل سرپیچ|
+Lamp Pipe Fasteners(2)|اتصال لوله چراغ|
+Light Starters(7)|استارتر مهتابی|
+Emergency-Light Conversion Kits(4)|کیت تبدیل چراغ اضطراری|
+Light Bulb Handles(1)|دسته لامپ|
+Light Panels(1)|پنل نوری|
+Grow Lights(3)|چراغ رشد گیاه|ترکیبی
+Bug Zappers(21)|حشره‌کش برقی|ترکیبی
+Bug Traps(3)|تله حشره|ترکیبی
+Disinfecting Lights(9)|چراغ UV ضدعفونی|
+Traffic Lights(13)|چراغ راهنمایی|
+Aircraft Signal Lights(2)|چراغ هشدار هوایی|
+Barricade Lights(3)|چراغ چشمک‌زن مانع|
+Safety Flares(4)|شعله هشدار جاده‌ای|
+Pointers(6)|لیزر پوینتر|
+Light Boxes(12)|لایت‌باکس|
+Microscope Illuminators(5)|نور میکروسکوپ|
+Tachometers(4)|دورسنج (تاکومتر)|
+Gloss Meters(2)|براقیت‌سنج|
+Stroboscopes(24)|استروبوسکوپ|
+Positioning Arms(76)|بازوی نگهدارنده متحرک|
+Tweezers(1)|پنس|
+Ultraviolet Curing Lamps(14)|لامپ UV پخت|
+Ultraviolet Curing Chambers(4)|محفظه پخت UV|
+Bump Caps(1)|کلاه ضدضربه سبک|
+Fire Alarms(25)|اعلام حریق|
+Flashlight Holders(13)|جاچراغ‌قوه|
+@7.4.2 Flashlights
+Rechargeable Flashlights(13)|چراغ‌قوه شارژی|ترکیبی
+Penlights(11)|چراغ‌قوه قلمی|ترکیبی
+Rechargeable Waterproof Flashlights(13)|چراغ‌قوه شارژی ضدآب|ترکیبی
+Ultra-Bright Flashlights(3)|چراغ‌قوه پرنور|ترکیبی
+Hazardous Location Flashlights(12)|چراغ‌قوه ضدانفجار|
+Waterproof Flashlights(8)|چراغ‌قوه ضدآب|ترکیبی
+Long-Distance Flashlights(3)|چراغ‌قوه دوربرد|ترکیبی
+Waterproof Penlights(2)|چراغ‌قوه قلمی ضدآب|ترکیبی
+Clip-On Miniature Flashlights(5)|چراغ‌قوه کوچک گیره‌دار|ترکیبی
+Hazardous Location Flexible Flashlights(1)|چراغ‌قوه انعطاف‌پذیر ضدانفجار|
+Flexible Flashlights(3)|چراغ‌قوه انعطاف‌پذیر (گردنی)|
+Electrical-Insulating Flashlights(1)|چراغ‌قوه عایق برق|
+Keychain Flashlights(4)|چراغ‌قوه جاکلیدی|ترکیبی
+Hazardous Location Pivoting-Head Flashlights(6)|چراغ‌قوه سرچرخان ضدانفجار|
+Pivoting-Head Plug-In Emergency Flashlights(1)|چراغ‌قوه اضطراری پریزی سرچرخان|ترکیبی
+Hazardous Location Penlights(2)|چراغ‌قوه قلمی ضدانفجار|
+Plug-In Emergency Flashlights(1)|چراغ‌قوه اضطراری پریزی|ترکیبی
+Glow-in-the-Dark Flashlights(5)|چراغ‌قوه شب‌رنگ|ترکیبی
+Floating Flashlights(2)|چراغ‌قوه شناور|
+Tripod Flashlights(2)|چراغ‌قوه سه‌پایه‌دار|
+Pivoting-Head Flashlights(4)|چراغ‌قوه سرچرخان|
+Hazardous Location Clip-On Miniature Flashlights(2)|چراغ‌قوه کوچک گیره‌دار ضدانفجار|
+MIG Torch Lights(1)|چراغ تورچ میگ|
+@7.4.4 Ballasts
+Electronic Light Ballasts for Tubular Fluorescent Light Bulbs(16)|بالاست الکترونیکی مهتابی|
+Electronic Light Ballasts for Plug-In Compact Fluorescent Light Bulbs(9)|بالاست الکترونیکی لامپ کم‌مصرف پینی|
+Light Ballasts for Metal Halide Light Bulbs(7)|بالاست متال‌هالید|
+Magnetic Light Ballasts for Tubular Fluorescent Light Bulbs(2)|چوک (بالاست مغناطیسی) مهتابی|
+Light Ballasts for High-Pressure Sodium Light Bulbs(6)|بالاست سدیم فشار قوی|
+@8.0.0 Metals
+Gallium(2)|گالیوم|
+Tantalum(23)|تانتالیوم|
+Fillers(10)|پرکننده فلزی|
+T-Slotted Framing Rails(287)|پروفیل آلومینیوم شیاردار|
+Press-Fit Framing Rails(43)|پروفیل قاب پرسی|
+Clamp-On Framing Rails(25)|پروفیل قاب کلمپی|
+Dovetail Blanks(5)|بلنک دم‌چلچله‌ای|
+3D Printer Powders(2)|پودر پرینتر سه‌بعدی|
+Welding Coupons(12)|کوپن (نمونه) تست جوش|
+Steel Hat Channel(2)|پروفیل امگا فولادی|
+Rebar(9)|میلگرد|
+Rebar Caps(4)|درپوش میلگرد|
+Box Edge Protectors(2)|محافظ لبه کارتن (نبشی کارتن)|
+@8.0.1 Shim Stock
+Shim Stock Assortments(35)|ست ورق شیم|
+Adhesive-Back Shim Stock(60)|ورق شیم چسب‌دار|
+Tape-Style Shim Stock(9)|نوار شیم|
+Peel-Away Multilayer Shim Stock(110)|ورق شیم چندلایه لایه‌بردار|
+@8.0.2 Wire
+Wire Rope(382)|سیم بکسل|
+Molex Plug and Socket Sets(73)|ست کانکتور نر و ماده مولکس|
+DMX Plugs(1)|کانکتور DMX|
+AMP Plug and Socket Sets(34)|ست کانکتور نر و ماده AMP|
+Micro 360 Plugs(14)|کانکتور Micro 360|
+Mini Adapters(8)|تبدیل مینی|
+Development Board Cords(7)|کابل برد توسعه|
+Rope(322)|طناب|
+Compression Tools(55)|ابزار پرس|
+Roller Swage Presses(23)|پرس غلتکی سرسیم بکسل|
+Slings(556)|اسلینگ (تسمه و سیم بکسل بالابر)|
+Box Stitching Wire(2)|مفتول منگنه کارتن|
+3D Printer Filaments(117)|فیلامنت پرینتر سه‌بعدی|ترکیبی
+Electrical Discharge Machining Wire(5)|سیم وایرکات|
+Wire Benders(1)|دستگاه خم سیم|
+Wire Straighteners(2)|صاف‌کن سیم|
+SPC Receivers(6)|گیرنده داده SPC|
+SPC Transmitters(8)|فرستنده داده SPC|
+Label Printers(36)|لیبل پرینتر|ترکیبی
+Microphone Cords(4)|کابل میکروفون|
+Microphone Connectors(5)|کانکتور میکروفون|
+Phone Cord Swivels(6)|ضدپیچ سیم تلفن|ترکیبی
+Barbed Wire(2)|سیم خاردار|

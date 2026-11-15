@@ -1,0 +1,341 @@
+@17.0.14 Tweezers
+High-Precision Tweezers(109)|پنس دقیق|
+Replaceable-Tip Tweezers(60)|پنس سر تعویضی|
+Tweezers Sets(4)|ست پنس|
+Long-Reach Tweezers(14)|پنس بلند|
+Plastic Tweezers(16)|پنس پلاستیکی|
+Squeeze-to-Open Tweezers(7)|پنس معکوس (فشار برای باز شدن)|
+Color-Coded Tweezers Sets(2)|ست پنس رنگی|
+Replaceable-Tip Tweezers Sets(5)|ست پنس سر تعویضی|
+Color-Coded Tweezers(9)|پنس رنگی|
+Plastic Tweezers Sets(2)|ست پنس پلاستیکی|
+Illuminated Tweezers(1)|پنس چراغ‌دار|
+Squeeze-to-Open Tweezers Sets(1)|ست پنس معکوس|
+Locking Tweezers(5)|پنس قفل‌شو|
+Static-Control Tweezers(13)|پنس آنتی‌استاتیک|
+High-Precision Squeeze-to-Open Tweezers(6)|پنس معکوس دقیق|
+High-Precision Tweezers Sets(4)|ست پنس دقیق|
+Electronic Component Tweezers(4)|پنس قطعات الکترونیکی|
+Electronic Component Tweezers Sets(1)|ست پنس قطعات الکترونیکی|
+Static-Control High-Precision Tweezers(14)|پنس دقیق آنتی‌استاتیک|
+Ceramic High-Precision Tweezers(4)|پنس دقیق سرامیکی|
+Electrical Insulating Tweezers(4)|پنس عایق برق|
+Tweezer Tip Caps(1)|درپوش نوک پنس|
+Tweezer Cases(3)|کیف پنس|
+Electronic-Component Testers(3)|تستر قطعات الکترونیکی (پنس SMD)|
+Soldering and Desoldering Tweezers(7)|پنس هویه و قلع‌کش|
+@17.0.15 Screw Extractors
+Extractors(15)|پیچ‌درآر|
+Extractor and Drill Bit Sets(3)|ست پیچ‌درآر و مته|
+Extractor Sets(6)|ست پیچ‌درآر|
+Extractor and Drill Bit Sets for Soft Materials and Thin-Walled Parts(1)|ست پیچ‌درآر و مته مواد نرم و جدار نازک|
+Combination Extractor/Drill Bit Sets(2)|ست پیچ‌درآر-مته ترکیبی|
+Tight-Clearance Extractors(13)|پیچ‌درآر فضای تنگ|
+External-Grip Extractors for Power Tools(1)|پیچ‌درآر گیره بیرونی ابزار برقی|
+Tight-Clearance Extractor Sets(2)|ست پیچ‌درآر فضای تنگ|
+Internal Knurled-Grip Extractor Sets(1)|ست پیچ‌درآر آج‌دار داخلی|
+Socket Head Cap Screw Extractor Sets(7)|ست پیچ‌درآر پیچ آلن|
+External-Grip Extractor Sets(1)|ست پیچ‌درآر گیره بیرونی|
+Knurled-Grip Extractors(1)|پیچ‌درآر آج‌دار|
+Combination Extractor/Drill Bits(8)|پیچ‌درآر-مته ترکیبی|
+Socket Head Cap Screw Extractors(24)|پیچ‌درآر پیچ آلن|
+Miniature Screw Extractors(4)|پیچ‌درآر مینیاتوری|
+Extractor Sets for Soft Materials and Thin-Walled Parts(2)|ست پیچ‌درآر مواد نرم و جدار نازک|
+Strong Grip Extractors(20)|پیچ‌درآر گیرش قوی|
+Straight-Flute Extractor, Drill Bit, and Drill Bushing Sets(2)|ست پیچ‌درآر شیار صاف با مته و بوش راهنما|
+External-Grip Extractor Socket Sets(7)|ست بکس پیچ‌درآر گیره بیرونی|
+Extractors for Soft Materials and Thin-Walled Parts(7)|پیچ‌درآر مواد نرم و جدار نازک|
+Socket Set Screw Extractors(16)|پیچ‌درآر پیچ مغزی آلن|
+Extractor Kits(5)|کیت پیچ‌درآر|
+Socket Set Screw Extractor Sets(5)|ست پیچ‌درآر پیچ مغزی آلن|
+Straight-Flute Extractor Sets(3)|ست پیچ‌درآر شیار صاف|
+Strong Grip Extractor Sets(4)|ست پیچ‌درآر گیرش قوی|
+Flat-Head Socket Cap Screw Extractors(16)|پیچ‌درآر پیچ آلن خزینه‌ای|
+Button-Head Socket Cap Screw Extractor Sets(4)|ست پیچ‌درآر پیچ آلن سرگرد|
+Button-Head Socket Cap Screw Extractors(13)|پیچ‌درآر پیچ آلن سرگرد|
+Flat-Head Socket Cap Screw Extractor Sets(5)|ست پیچ‌درآر پیچ آلن خزینه‌ای|
+Straight-Flute Extractors(9)|پیچ‌درآر شیار صاف|
+External-Grip Extractors(7)|پیچ‌درآر گیره بیرونی|
+External-Grip Extractor Sockets(27)|بکس پیچ‌درآر گیره بیرونی|
+Nonmarring Plastic Pipe Extractors(7)|لوله‌درآر پلاستیکی بدون خط‌اندازی|
+Impact Wrench Extractors(16)|پیچ‌درآر بکس ضربه‌ای|
+Impact Wrench Extractor and Drill Bit Sets(9)|ست پیچ‌درآر و مته بکس ضربه‌ای|
+Screw, Pipe, and Stud Extractor Cases(1)|کیف پیچ‌درآر و لوله‌درآر|
+@17.0.17 Nonsparking Tools
+Files(1)|سوهان ضدجرقه|
+Mop Handles(1)|دسته طی ضدجرقه|
+Dust Pans(2)|خاک‌انداز ضدجرقه|
+Landscaping Picks(3)|کلنگ ضدجرقه|
+Scoops(3)|پیمانه (اسکوپ) ضدجرقه|
+@17.0.18 Tape Rules
+Tape Measures for Low Light(1)|متر شب‌نما|
+3-in-1 Tape Measures(1)|متر سه‌کاره|
+Pocket Tape Measures(9)|متر جیبی|
+Long Tape Measures(19)|متر بلند (متر نواری قرقره‌ای)|
+Flexible Tape Measures(3)|متر خیاطی (انعطاف‌پذیر)|
+Pipe Size Tape Measures(1)|متر سایز لوله|
+Diameter-Measuring Tape Measures(50)|متر قطرسنج (پی‌تیپ)|
+Easy-Carry Long Tape Measures(12)|متر بلند حمل آسان|
+Pocket Diameter-Measuring Tape Measures(4)|متر قطرسنج جیبی|
+Digital Tape Measures(7)|متر دیجیتال|
+Vertical Tape Measures(4)|متر عمودی|
+Center-Finding Tape Measures(2)|متر مرکزیاب|
+Long Tape Measures with Automatic Blade Return(4)|متر بلند جمع‌شونده خودکار|
+Fast-Winding Long Tape Measures(2)|متر بلند جمع‌شونده سریع|
+Rulers(239)|خط‌کش|
+Laser Measurers(11)|متر لیزری|
+Tape Measure Holders(2)|جای متر|
+@17.0.19 Retrievers & Picks
+Puller Hooks(11)|قلاب کشنده (اورینگ‌کش)|
+@17.0.21 Tool Sets
+Bearing Ring and Seal Drivers(2)|ست سنبه جازن بلبرینگ و کاسه‌نمد|
+@18.0.0 Rulers
+High-Accuracy Rulers(118)|خط‌کش دقیق|
+Adhesive-Back Rulers(174)|خط‌کش چسب‌دار|
+Pocket Rulers(8)|خط‌کش جیبی|
+Easy-Read Rulers(45)|خط‌کش خوانا|
+Magnetic Ruler Sets(1)|ست خط‌کش مغناطیسی|
+Center-Finding Rulers(8)|خط‌کش مرکزیاب|
+Yardsticks(1)|خط‌کش یاردی|
+See-Through Rulers(6)|خط‌کش شفاف|
+Folding Rulers(8)|متر تاشو|
+Magnetic Rulers(3)|خط‌کش مغناطیسی|
+Rulers for Cutting(7)|خط‌کش برش|
+Pocket Center-Finding Rulers(2)|خط‌کش مرکزیاب جیبی|
+Tape Rulers(2)|خط‌کش نواری|
+Magnetic High-Accuracy Rulers(7)|خط‌کش دقیق مغناطیسی|
+Circumference-Measuring Rulers(2)|خط‌کش محیط‌سنج|
+Adhesive-Back Vertical Rulers(64)|خط‌کش عمودی چسب‌دار|
+Vertical Rulers(12)|خط‌کش عمودی|
+Rulers for Floors(9)|خط‌کش کف|
+Pica Rulers(4)|خط‌کش پیکا (چاپ)|
+Drafting Rulers(5)|خط‌کش نقشه‌کشی|
+Half-Measure Adhesive-Back Rulers(14)|خط‌کش چسب‌دار نیم‌اندازه|
+Pocket Drafting Rulers(3)|خط‌کش نقشه‌کشی جیبی|
+Half-Measure Adhesive-Back Vertical Rulers(4)|خط‌کش عمودی چسب‌دار نیم‌اندازه|
+Tap and Drill Chart/Rulers(1)|خط‌کش جدول قلاویز و مته|
+Diameter Identifiers(1)|شابلون قطرسنج|
+Parallel Rules(1)|خط‌کش موازی|
+Levels(4)|تراز|
+@18.0.2 Micrometers
+Outside Micrometers(66)|میکرومتر خارج‌سنج|
+Digital Outside Micrometers(16)|میکرومتر خارج‌سنج دیجیتال|
+High-Precision Digital Outside Micrometers(7)|میکرومتر دیجیتال فوق‌دقیق|
+Coolant-Resistant Digital Outside Micrometers(48)|میکرومتر دیجیتال ضدآب (IP65)|
+Digital Outside Micrometers for Small Holes, Grooves, and Keyways(12)|میکرومتر دیجیتال فک باریک (شیار و جای خار)|
+Outside Micrometer Sets(15)|ست میکرومتر خارج‌سنج|
+Laser Outside Micrometers(3)|میکرومتر لیزری|
+Outside Micrometers for Thin Materials(1)|میکرومتر ورق نازک|
+Digital Outside Micrometers for End Mills, Taps, and Reamers(7)|میکرومتر دیجیتال فرز، قلاویز و برقو|
+Digital Outside Micrometers for Pipe and Tubing(12)|میکرومتر دیجیتال لوله (ضخامت دیواره)|
+Coolant-Resistant Digital Outside Micrometer Sets(10)|ست میکرومتر دیجیتال ضدآب|
+Wide-Range Outside Micrometers(7)|میکرومتر خارج‌سنج رنج وسیع|
+Digital Outside Micrometers for Wire Crimps(7)|میکرومتر دیجیتال کابلشو پرسی|
+4-Way-Reading Digital Outside Micrometers(2)|میکرومتر دیجیتال چهارطرفه خوانا|
+Digital Outside Micrometers for Curved and Flat Surfaces(8)|میکرومتر دیجیتال سطوح منحنی و تخت|
+Outside Micrometers for Pipe and Tubing(5)|میکرومتر لوله|
+Coolant-Resistant Wide-Range Digital Outside Micrometers(10)|میکرومتر دیجیتال ضدآب رنج وسیع|
+Outside Micrometers for Small Holes, Grooves, and Keyways(6)|میکرومتر فک باریک (شیار و جای خار)|
+Long-Reach Outside Micrometers(2)|میکرومتر کمان عمیق|
+Wide-Range Digital Outside Micrometers(8)|میکرومتر دیجیتال رنج وسیع|
+Outside Micrometers for Curved and Flat Surfaces(2)|میکرومتر سطوح منحنی و تخت|
+Digital Outside Micrometers for Gears(8)|میکرومتر دیجیتال دنده (بشقابی)|
+Outside Micrometers for Tolerance Checking(4)|میکرومتر کنترل تلرانس|
+Outside Micrometers for Gears(2)|میکرومتر دنده (بشقابی)|
+Outside Micrometers for Can Seams(3)|میکرومتر درز قوطی|
+Outside Micrometers for Screw Threads(3)|میکرومتر رزوه|
+Digital Outside Micrometers for Soft Materials(8)|میکرومتر دیجیتال مواد نرم|
+Coolant-Resistant Long-Reach Digital Outside Micrometers(8)|میکرومتر دیجیتال کمان عمیق ضدآب|
+Long-Reach Digital Outside Micrometers(8)|میکرومتر دیجیتال کمان عمیق|
+Inside Hole Micrometers(29)|میکرومتر داخل‌سنج (سه‌فک)|
+Bore Gauges(117)|بورگیج|
+Micrometer Cases(7)|جعبه میکرومتر|
+Depth Micrometers(46)|میکرومتر عمق‌سنج|
+Outside Micrometer Stands(3)|پایه میکرومتر|
+Precision Measuring Tool Sets(18)|ست ابزار اندازه‌گیری دقیق|
+Inside Hole Calipers(12)|پرگار داخل‌سنج|
+Outside Micrometer Tips(9)|سر فک میکرومتر|
+Micrometer Holsters(1)|غلاف میکرومتر|
+Precision Measuring Tool Set Cases(1)|جعبه ست ابزار دقیق|
+Micrometer Check Gauges(7)|میله تنظیم میکرومتر|
+Bore Gauge Heads(19)|سر بورگیج|
+Calibration Rods(31)|میله کالیبراسیون|
+Micrometer Speeder Knobs(4)|پیچ سریع‌گردان میکرومتر|
+Inside Hole Micrometer Handles(1)|دسته میکرومتر داخل‌سنج|
+Inside Hole Micrometer Spacing Collars(1)|حلقه فاصله میکرومتر داخل‌سنج|
+Measuring Tool Data Processors(3)|پردازشگر داده ابزار اندازه‌گیری|
+Step Gauges(5)|گیج پله‌ای|
+Inside/Outside Diameter Gauges(2)|گیج قطر داخل/خارج|
+Squareness Gauges(3)|گیج گونیایی|
+Depth Gauge Cases(3)|جعبه عمق‌سنج|
+@18.0.3 Calipers
+Digital Calipers(71)|کولیس دیجیتال|
+Digital Calipers with Fractional Display(7)|کولیس دیجیتال نمایش کسری اینچ|
+Coolant-Resistant Digital Calipers(56)|کولیس دیجیتال ضدآب (IP67)|
+Calipers for Soft Materials(8)|کولیس مواد نرم|
+Calipers for Measuring Center-to-Center(9)|کولیس فاصله مرکز تا مرکز|
+Precision-Adjust Digital Calipers(9)|کولیس دیجیتال تنظیم ظریف|
+Calipers for Pipe and Tubing(9)|کولیس لوله|
+Calipers for Gear Teeth(2)|کولیس دنده|
+Calipers for Offset Surfaces(10)|کولیس سطوح پله‌دار|
+Left-Handed Digital Calipers(4)|کولیس دیجیتال چپ‌دست|
+Calipers for Small Holes and Grooves(11)|کولیس سوراخ و شیار ریز|
+Calipers for Tolerance Checking(10)|کولیس کنترل تلرانس|
+Calipers for Brakes(8)|کولیس ترمز (دیسک و کاسه)|
+Calipers for Scribing(6)|کولیس خط‌کش (خط‌انداز)|
+Dial Calipers(45)|کولیس ساعتی|
+Dial Calipers with Fractional Display(2)|کولیس ساعتی کسری اینچ|
+Static-Control Dial Calipers(1)|کولیس ساعتی آنتی‌استاتیک|
+Large-Job Slide Ruler Calipers(5)|کولیس کشویی بزرگ|
+Pocket Slide Ruler Calipers(4)|کولیس کشویی جیبی|
+Vernier Calipers(6)|کولیس ورنیه|
+Precision-Adjust Vernier Calipers(6)|کولیس ورنیه تنظیم ظریف|
+Self-Locking Vernier Calipers(3)|کولیس ورنیه خودقفل|
+Caliper Cases(8)|جعبه کولیس|
+Caliper Depth Base Attachments(5)|پایه عمق‌سنج کولیس|
+Layout Calipers(22)|پرگار خط‌کشی|
+Caliper Tips(4)|سر فک کولیس|
+Caliper Pouches(1)|کیف کولیس|
+Gauge Blocks(738)|بلوک سنجه|
+Caliper Depth Rods(1)|میله عمق کولیس|
+Caliper Display Freeze Adapters(1)|رابط ثابت‌کن نمایشگر کولیس|
+Caliper Range Extenders(7)|افزایش‌دهنده رنج کولیس|
+Caliper Calibration Checkers(2)|چک‌کن کالیبراسیون کولیس|
+Measuring Tool Data Processor Paper Rolls(1)|رول کاغذ پردازشگر داده|
+Go/No-Go Outside Diameter Gauges(20)|گیج قطر خارجی برو-نرو|
+@18.0.4 Feeler Gauges
+Feeler Gauge Sets(22)|ست فیلر|
+Ready-to-Use Feeler Gauges(128)|فیلر تکی آماده|
+Wire, Width, and Thickness Feeler Gauge Sets(2)|ست فیلر سیمی، عرض و ضخامت|
+Starrett Feeler Gauge Sets(13)|ست فیلر استارت (Starrett)|
+Starrett Tapered-Thickness Feeler Gauges(1)|فیلر ضخامت متغیر استارت|
+Feeler Gauge Rolls(121)|فیلر رولی (نوار شیم)|
+Feeler Gauge Assortments(7)|مجموعه فیلر|
+Color-Coded Feeler Gauges(16)|فیلر رنگی|
+Color-Coded Feeler Gauge Sets(12)|ست فیلر رنگی|
+Starrett Tapered-Thickness Feeler Gauges with Calibration Certificate(1)|فیلر ضخامت متغیر استارت با گواهی کالیبراسیون|
+Starrett Feeler Gauge Sets with Calibration Certificate(13)|ست فیلر استارت با گواهی کالیبراسیون|
+Starrett Feeler Gauge Sets for Tight Spaces(7)|ست فیلر استارت فضای تنگ|
+Tapered-Width Feeler Gauges(6)|فیلر عرض متغیر|
+Plastic Clearance Feeler Gauges(12)|فیلر پلاستیکی لقی|
+Feeler Gauge Sets for Tight Spaces(2)|ست فیلر فضای تنگ|
+Tapered-Width Feeler Gauge Sets(4)|ست فیلر عرض متغیر|
+Spark Plug Feeler Gauges(3)|فیلر شمع|
+Starrett Feeler Gauge Sets for Tight Spaces with Calibration Certificate(7)|ست فیلر استارت فضای تنگ با گواهی کالیبراسیون|
+Tapered-Thickness Feeler Gauges(4)|فیلر ضخامت متغیر|
+Feeler Gauge Holders(2)|نگهدارنده فیلر|
+@18.0.5 Height Gauges
+Mitutoyo Electronic Height Gauges(19)|ارتفاع‌سنج دیجیتال میتوتویو|
+Mitutoyo Electronic Height Gauges with Calibration Certificate(14)|ارتفاع‌سنج دیجیتال میتوتویو با گواهی کالیبراسیون|
+Mitutoyo Linear Height Gauges(1)|ارتفاع‌سنج خطی میتوتویو|
+Electronic Height Gauges(6)|ارتفاع‌سنج دیجیتال|
+Dial Height Gauges(3)|ارتفاع‌سنج ساعتی|
+Starrett Height Transfer Gauges(1)|ارتفاع‌سنج انتقالی استارت|
+Mitutoyo Vernier Height Gauges(1)|ارتفاع‌سنج ورنیه میتوتویو|
+Starrett Vernier Height Gauges(3)|ارتفاع‌سنج ورنیه استارت|
+Mitutoyo Dial Height Gauges(6)|ارتفاع‌سنج ساعتی میتوتویو|
+Starrett Electronic Height Gauges with Calibration Certificate(3)|ارتفاع‌سنج دیجیتال استارت با گواهی کالیبراسیون|
+Starrett Electronic Height Gauges(3)|ارتفاع‌سنج دیجیتال استارت|
+Leveling Rods(5)|شاخص نقشه‌برداری (میر)|
+@18.0.6 Depth Gauges
+Depth Gauge Base Extensions(2)|رابط افزایش پایه عمق‌سنج|
+@18.0.7 Bore Gauges
+Radius Gauges(12)|شابلون شعاع (فیلر شعاع)|
+Countersink Gauges(18)|گیج خزینه|
+Bore Gauge Calibrators(1)|کالیبراتور بورگیج|
+Chamfer Gauges(20)|گیج پخ|
+@18.0.9 Variance Indicators
+Variance Indicator Contact Points(112)|ساچمه (سوزن) ساعت اندیکاتور|
+Variance Indicator Hole Attachments(1)|رابط سوراخ ساعت اندیکاتور|
+Variance Indicator Calibration Testers(1)|تستر کالیبراسیون ساعت اندیکاتور|
+Variance Indicator Lifting Cords(1)|بند بالابر ساعت اندیکاتور|
+Variance Indicator Extension Rods(19)|میله رابط ساعت اندیکاتور|
+Variance Indicator Backs(17)|درب پشت ساعت اندیکاتور|
+Machine Tool Indicators(6)|اندیکاتور ماشین‌ابزار|
+Variance Indicator Caps(1)|درپوش ساعت اندیکاتور|
+Variance Indicator Lifting Levers(4)|اهرم بالابر ساعت اندیکاتور|
+Variance Indicator Contact Point Adapters(3)|تبدیل ساچمه ساعت اندیکاتور|
+Machine Tool Indicator Contact Points(2)|ساچمه اندیکاتور ماشین‌ابزار|
+Flatness Gauges(7)|گیج تختی|
+Tolerance Stickers(1)|برچسب تلرانس|
+Variance Indicator Cases(6)|جعبه ساعت اندیکاتور|
+@18.0.10 Layout Tools
+Combination Square Center Heads(15)|سر مرکزیاب گونیا ترکیبی|
+Center Punch/Angle Indicators(5)|سنبه نشان/زاویه‌یاب|
+Level Mounts(2)|پایه تراز|
+@18.0.11 Squares & Protractors
+Protractors(36)|نقاله|
+Angle Indicators(24)|زاویه‌سنج|
+Angle Identifiers(2)|شابلون زاویه|
+Drill Point Angle Gauges(1)|گیج زاویه نوک مته|
+Calibration Squares(2)|گونیا کالیبراسیون|
+Angle Transfers(2)|زاویه‌گیر (سوفار)|
+Straightedges(5)|خط‌کش صافی|
+Straightedge/Protractors(2)|خط‌کش صافی/نقاله|
+Inspection Setup Blocks(2)|بلوک تنظیم بازرسی|
+Sine Bars(2)|سینوس‌بار|
+@18.0.12 Levels
+Levels for Tight Spaces(9)|تراز فضای تنگ|
+Surface-Mount Levels(20)|تراز نصبی سطحی|
+Heavy Duty Levels(21)|تراز سنگین‌کار|
+Digital Levels(9)|تراز دیجیتال|
+Circular Surface-Mount Levels(31)|تراز حبابی گرد (چشمی) نصبی|
+Two-Axis Precision Levels(37)|تراز دقیق دومحوره|
+Pocket Levels(5)|تراز جیبی|
+Nonstick Levels(1)|تراز ضدچسبندگی|
+Low-Light Pocket Levels(1)|تراز جیبی شب‌نما|
+Precision Levels(3)|تراز دقیق (ترازو نیوو)|
+Multi-Axis Levels(1)|تراز چندمحوره|
+Two-Axis Surface-Mount Levels(4)|تراز نصبی دومحوره|
+Digital Two-Axis Precision Levels(4)|تراز دقیق دیجیتال دومحوره|
+Low-Light Levels for Tight Spaces(2)|تراز فضای تنگ شب‌نما|
+Two-Axis Surface-Mount Precision Levels(1)|تراز دقیق نصبی دومحوره|
+Two-Axis Levels(2)|تراز دومحوره|
+Surface-Mount Precision Levels(4)|تراز دقیق نصبی|
+Pipe and Conduit Bending Levels(3)|تراز خم لوله و کاندوئیت|
+Circular Recessed-Mount Levels(2)|تراز حبابی گرد توکار|
+Digital Precision Levels(2)|تراز دقیق دیجیتال|
+Post Installation Levels(2)|تراز نصب ستون|
+Heavy Duty Low-Light Levels(4)|تراز سنگین‌کار شب‌نما|
+Extendable Long-Distance Levels(2)|تراز بلند کشویی|
+Long-Distance Line Levels(2)|تراز ریسمانی|
+Long-Distance Levels(2)|تراز بلند|
+Level Vials(16)|حباب تراز|
+Laser Levels(21)|تراز لیزری|
+Forklift Fork Level Indicators(1)|نشانگر تراز شاخک لیفتراک|
+T-Slotted Framing Levels(1)|تراز پروفیل شیاردار|
+Sight Levels(6)|تراز چشمی (دوربین)|
+3D Printer Probes(1)|پراب تراز پرینتر سه‌بعدی|
+Laser Targets(2)|تارگت لیزر|
+Tool Bags(3)|کیف ابزار|
+Laser Directing Components(12)|قطعات هدایت لیزر|
+@18.1.0 Gauge Blocks
+Mitutoyo Gauge Block Sets with Calibration Certificate(30)|ست بلوک سنجه میتوتویو با گواهی کالیبراسیون|
+Mitutoyo Gauge Block Sets(57)|ست بلوک سنجه میتوتویو|
+Starrett Gauge Block Sets with Calibration Certificate(19)|ست بلوک سنجه استارت با گواهی کالیبراسیون|
+Angle Gauge Block Sets(1)|ست بلوک سنجه زاویه|
+Gauge Block Sets(8)|ست بلوک سنجه|
+Setup Blocks(31)|بلوک تنظیم (۱-۲-۳)|
+@18.1.1 Plug Gauges
+Class Z Plug Gauges(62)|گیج میله‌ای کلاس Z|
+Class X Plug Gauges(70)|گیج میله‌ای کلاس X|
+Go/No-Go Threaded Plug Gauges with Handle(234)|گیج رزوه برو-نرو دسته‌دار (توپی)|
+Plug Gauges with Handle(35)|گیج میله‌ای دسته‌دار|
+Wear-Indicating Plug Gauges(8)|گیج میله‌ای نشانگر سایش|
+Plug Gauge Sets(200)|ست گیج میله‌ای (پین‌گیج)|
+Threaded Plug Gauges with Handle for Pipe Threads(65)|گیج رزوه لوله دسته‌دار|
+Threaded Plug Gauges(140)|گیج رزوه توپی|
+Go/No-Go Hex Plug Gauges with Handle(37)|گیج شش‌گوش برو-نرو دسته‌دار|
+Target-Size Plug Gauge Sets(65)|ست گیج میله‌ای سایز هدف|
+Go/No-Go Left-Hand Threaded Plug Gauges with Handle(58)|گیج رزوه چپ‌گرد برو-نرو دسته‌دار|
+Go/No-Go Helical Insert Threaded Plug Gauges with Handle(32)|گیج رزوه هلی‌کویل برو-نرو دسته‌دار|
+Ball-End Plug Gauges with Handle(56)|گیج میله‌ای سرگرد دسته‌دار|
+Acme Threaded Plug Gauges with Handle(20)|گیج رزوه ذوزنقه‌ای (آکمه) دسته‌دار|
+Long-Reach Plug Gauges(34)|گیج میله‌ای بلند|
+@18.1.2 Thread Gauges
+Ring Gauge Holders(17)|نگهدارنده رینگ‌گیج|
+@18.1.3 Parallels
+Sets of Parallels(16)|ست پارالل|
+Adjustable Parallels(6)|پارالل قابل‌تنظیم|
+Sets of Adjustable Parallels(3)|ست پارالل قابل‌تنظیم|
+Parallels for Magnetic Workholding(4)|پارالل گیره مغناطیسی|

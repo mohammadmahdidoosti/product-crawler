@@ -1,0 +1,303 @@
+@19.0.4 Machinery Mounts
+Swivel Leveling Mounts with Threaded Stud(381)|پایه تنظیمی گردان پیچی|
+Vibration-Damping Swivel Leveling Mounts with Threaded Stud(78)|پایه تنظیمی گردان پیچی لرزه‌گیر|
+Stay-Put Swivel Leveling Mounts with Threaded Stud(278)|پایه تنظیمی گردان پیچی ضدلغزش|
+Rigid Leveling Mounts with Threaded Stud(143)|پایه تنظیمی ثابت پیچی|
+Vibration-Damping Rigid Leveling Mounts with Threaded Stud(26)|پایه تنظیمی ثابت پیچی لرزه‌گیر|
+Stay-Put Swivel Leveling Mounts with Threaded Stud and Offset Hole(62)|پایه تنظیمی گردان پیچی ضدلغزش با سوراخ مهار|
+Easy-Adjust Rigid Leveling Mounts with Threaded Stud(12)|پایه تنظیمی ثابت پیچی تنظیم آسان|
+Easy-Install Vibration-Damping Rigid Leveling Mounts with Threaded Stud(9)|پایه تنظیمی ثابت لرزه‌گیر نصب آسان|
+Shock-Absorbing Swivel Leveling Mounts with Threaded Stud(24)|پایه تنظیمی گردان پیچی ضربه‌گیر|
+Self-Adjusting Rigid Leveling Mounts with Threaded Stud(2)|پایه تنظیمی ثابت خودتنظیم|
+Easy-Slide Rigid Leveling Mounts with Threaded Stud(10)|پایه تنظیمی ثابت پیچی لغزنده|
+High-Capacity Swivel Leveling Mounts with Threaded Stud(35)|پایه تنظیمی گردان پیچی سنگین (ظرفیت بالا)|
+Food and Beverage Rigid Leveling Mounts with Threaded Stud(5)|پایه تنظیمی ثابت پیچی غذایی|
+Sanitary Swivel Leveling Mounts with Threaded Stud(14)|پایه تنظیمی گردان پیچی بهداشتی|
+Seismic Stay-Put Swivel Leveling Mounts with Threaded Stud(4)|پایه تنظیمی گردان ضدلغزش لرزه‌ای (سایزمیک)|
+Stay-Put Sanitary Swivel Leveling Mounts with Threaded Stud and Offset Hole(10)|پایه تنظیمی گردان بهداشتی ضدلغزش با سوراخ مهار|
+Stay-Put Sanitary Swivel Leveling Mounts with Threaded Stud(8)|پایه تنظیمی گردان بهداشتی ضدلغزش|
+Easy-Install Vibration-Damping Swivel Leveling Mounts with Threaded Stud(7)|پایه تنظیمی گردان لرزه‌گیر نصب آسان|
+Static-Control Swivel Leveling Mounts with Threaded Stud(10)|پایه تنظیمی گردان پیچی آنتی‌استاتیک|
+Swivel Leveling Mounts with Threaded Hole(188)|پایه تنظیمی گردان مهره‌ای|
+Vibration-Damping Rigid Leveling Mounts with Threaded Hole(20)|پایه تنظیمی ثابت مهره‌ای لرزه‌گیر|
+Stay-Put Swivel Leveling Mounts with Threaded Hole(32)|پایه تنظیمی گردان مهره‌ای ضدلغزش|
+Vibration-Damping Swivel Leveling Mounts with Threaded Hole(15)|پایه تنظیمی گردان مهره‌ای لرزه‌گیر|
+Shock-Absorbing Swivel Leveling Mounts with Threaded Hole(6)|پایه تنظیمی گردان مهره‌ای ضربه‌گیر|
+Shock-Absorbing Rigid Leveling Mounts with Threaded Hole(4)|پایه تنظیمی ثابت مهره‌ای ضربه‌گیر|
+Easy-Slide Vibration-Damping Rigid Leveling Mounts with Threaded Hole(7)|پایه تنظیمی ثابت مهره‌ای لرزه‌گیر لغزنده|
+Rigid Leveling Mounts with Bracket(4)|پایه تنظیمی ثابت براکت‌دار|
+Swivel Leveling Mounts with Bracket(19)|پایه تنظیمی گردان براکت‌دار|
+Food and Beverage Rigid Leveling Mounts with Bracket(3)|پایه تنظیمی ثابت براکت‌دار غذایی|
+Heavy Duty Rigid Leveling Mounts(7)|پایه تنظیمی ثابت سنگین‌کار|
+Vibration-Damping Heavy Duty Rigid Leveling Mounts(5)|پایه تنظیمی ثابت سنگین‌کار لرزه‌گیر|
+Precision-Adjust Rigid Leveling Mounts(31)|پایه تنظیمی ثابت تنظیم دقیق (گوه‌ای)|
+Press-Fit Rigid Leveling Mounts(10)|پایه تنظیمی ثابت پرسی|
+Sanitary Weld-On Swivel Leveling Mounts(2)|پایه تنظیمی گردان جوشی بهداشتی|
+DIN Rail Mounting Brackets(12)|براکت نصب ریل DIN|
+Locking-Slotted Framing Brackets(6)|براکت قاب شیاردار قفلی|
+DIN Rail Mounting Adapters(15)|رابط نصب ریل DIN|
+@19.0.5 Glides
+Temporary Floor Protectors(13)|محافظ موقت کف|
+Floor Plates(38)|صفحه کف (پوشش کف)|
+Floor Finishes(5)|پوشش نهایی کف (واکس و لاک)|
+Leak Drainage Tarps(31)|برزنت جمع‌آوری نشتی سقف|
+Drop Cloths(19)|پارچه محافظ رنگ‌آمیزی|ترکیبی
+@19.0.6 Edge Trim
+Rubber Edge Trim(83)|نوار لبه لاستیکی (زه)|
+Reinforced Rubber Edge Trim(6)|نوار لبه لاستیکی مسلح|
+Flame-Retardant Reinforced Rubber Edge Trim(8)|نوار لبه لاستیکی مسلح ضدشعله|
+Rubber Edge Trim for Food and Beverage(7)|نوار لبه لاستیکی غذایی|
+Rubber Edge Trim Selector Packs(2)|ست نمونه نوار لبه لاستیکی|
+Reinforced Plastic Edge Trim(42)|نوار لبه پلاستیکی مسلح|
+Plastic Edge Trim(73)|نوار لبه پلاستیکی|
+Plastic Edge Trim for Food and Beverage(38)|نوار لبه پلاستیکی غذایی|
+Extra-Flexible Plastic Edge Trim(11)|نوار لبه پلاستیکی فوق‌انعطاف|
+Reinforced Plastic Edge Trim Selector Packs(1)|ست نمونه نوار لبه پلاستیکی مسلح|
+Conductive Plastic Edge Trim(4)|نوار لبه پلاستیکی رسانا|
+Foam Edge Trim(10)|نوار لبه فومی|
+High-Visibility Foam Edge Trim(4)|نوار لبه فومی رنگ روشن|
+Glow-in-the-Dark Foam Edge Trim(2)|نوار لبه فومی شب‌تاب|
+Aluminum Edge Trim(94)|نوار لبه آلومینیومی (پروفیل لبه)|
+Stainless Steel Edge Trim(8)|نوار لبه استیل|
+Flexible Stainless Steel Edge Trim with Cushion(24)|نوار لبه استیل انعطاف‌پذیر با ضربه‌گیر|
+Flexible Stainless Steel Edge Trim(9)|نوار لبه استیل انعطاف‌پذیر|
+Landscaping Edging(1)|نوار حاشیه باغچه|ترکیبی
+Floor Mat Edging(2)|نوار لبه کفپوش|
+@19.0.7 Bumpers
+Reinforced Unthreaded-Hole Bumpers(212)|ضربه‌گیر لاستیکی مسلح سوراخ‌دار|
+Unthreaded-Hole Bumpers(166)|ضربه‌گیر لاستیکی سوراخ‌دار|
+Load-Rated Reinforced Threaded-Stud Bumpers(276)|ضربه‌گیر لاستیکی پیچ‌دار مسلح بارمشخص|
+Threaded-Stud Bumpers(90)|ضربه‌گیر لاستیکی پیچ‌دار|
+Reinforced Threaded-Hole Bumpers(194)|ضربه‌گیر لاستیکی مهره‌دار مسلح|
+Adhesive-Back Bumpers(104)|ضربه‌گیر چسبی (پد لاستیکی)|
+Push-and-Stay Bumpers(112)|ضربه‌گیر فشاری جاخور|
+Reinforced Threaded-Stud Bumpers with Steel Core(127)|ضربه‌گیر پیچ‌دار مسلح با هسته فولادی|
+Load-Rated Reinforced Threaded-Hole Bumpers(217)|ضربه‌گیر مهره‌دار مسلح بارمشخص|
+Hollow Push-In Bumpers(52)|ضربه‌گیر فشاری توخالی|
+Push-In Bumpers(90)|ضربه‌گیر فشاری (درپوشی)|
+Bumper Assortments(2)|ست ضربه‌گیر|
+Load-Rated Unthreaded-Hole Bumpers(3)|ضربه‌گیر سوراخ‌دار بارمشخص|
+Load-Rated Adhesive-Back Bumpers(30)|ضربه‌گیر چسبی بارمشخص|
+Wraparound Bumpers(14)|ضربه‌گیر دورپیچ|
+Bend-and-Stay Antislip Bumpers(43)|ضربه‌گیر ضدلغزش خم‌شو|
+Magnetic-Back Bumpers(5)|ضربه‌گیر مغناطیسی|
+Cut-to-Size Adhesive-Back Bumpers(9)|ضربه‌گیر چسبی برش‌پذیر|
+Tack Bumpers(10)|ضربه‌گیر میخی|
+FDA-Compliant Load-Rated Reinforced Threaded-Hole Bumpers(7)|ضربه‌گیر مهره‌دار مسلح FDA|
+FDA-Compliant Load-Rated Reinforced Threaded-Stud Bumpers(7)|ضربه‌گیر پیچ‌دار مسلح FDA|
+Static-Control Unthreaded-Hole Bumpers(7)|ضربه‌گیر سوراخ‌دار آنتی‌استاتیک|
+Static-Cling Bumpers(4)|ضربه‌گیر چسبندگی الکترواستاتیک|
+@19.0.8 Bellows
+Light Duty Round Bellows with Cuff Ends(17)|گردگیر آکاردئونی گرد سبک سرکاف|
+Flat Bellows(30)|گردگیر آکاردئونی تخت|
+Round Bellows with Cuff Ends(26)|گردگیر آکاردئونی گرد سرکاف|
+Round Bellows with Cuff End and Flange End(6)|گردگیر آکاردئونی گرد کاف و فلنج|
+Three-Sided Flat Bellows(12)|گردگیر آکاردئونی تخت سه‌طرفه|
+Rectangular Bellows(60)|گردگیر آکاردئونی چهارگوش|
+Bridgeport Machine Bellows(1)|گردگیر آکاردئونی فرز بریجپورت|
+Roll-Up Bellows(1)|گردگیر رولی|
+Tapered Round Bellows with Cuff End and Flange End(6)|گردگیر آکاردئونی مخروطی کاف و فلنج|
+Guide Rail Bellows(96)|گردگیر آکاردئونی ریل راهنما|
+Tapered Rectangular Bellows with Cuff End and Flange End(1)|گردگیر آکاردئونی چهارگوش مخروطی|
+Food and Beverage Round Bellows with Cuff Ends(20)|گردگیر آکاردئونی گرد غذایی|
+Breathable Round Bellows with Flange Ends(105)|گردگیر آکاردئونی گرد تنفسی فلنج‌دار|
+Breathable Wraparound Round Bellows with Flange Ends(73)|گردگیر آکاردئونی گرد تنفسی بازشو (زیپی)|
+Metal Telescoping Bellows(8)|گردگیر تلسکوپی فلزی|
+Tapered Round Bellows with Cuff Ends(2)|گردگیر آکاردئونی مخروطی سرکاف|
+Breathable Round Bellows with Cuff Ends(36)|گردگیر آکاردئونی گرد تنفسی سرکاف|
+Create-Your-Own Round Bellows with Flange Ends(32)|گردگیر آکاردئونی گرد سفارشی فلنج‌دار|
+Highly Compressible Round Bellows with Cuff Ends(18)|گردگیر آکاردئونی گرد فشردگی بالا|
+Create-Your-Own Round Bellows with Cuff Ends(22)|گردگیر آکاردئونی گرد سفارشی سرکاف|
+Lift Table Bellows(7)|گردگیر آکاردئونی میز بالابر|
+High-Temperature Flat Bellows(2)|گردگیر آکاردئونی تخت نسوز|
+High-Temperature Breathable Round Bellows with Flange Ends(35)|گردگیر آکاردئونی گرد تنفسی نسوز|
+Wear-Resistant Breathable Round Bellows with Flange Ends(20)|گردگیر آکاردئونی گرد تنفسی ضدسایش|
+Die Set Bellows(6)|گردگیر قالب پرس (دای‌ست)|
+Hydraulic Cylinder Bellows(8)|گردگیر جک هیدرولیک|
+Seal Bellows(7)|گردگیر آب‌بندی (بلوز)|
+Gas Spring Bellows(4)|گردگیر جک گازی|
+Gas Spring Seal Bellows(2)|گردگیر آب‌بند جک گازی|
+Duct Straights(6)|کانال صاف|
+@19.0.9 Caps & Plugs
+Pipe Vent Caps(5)|کلاهک هواکش لوله|
+Heat Exchanger Plugs(17)|درپوش لوله مبدل حرارتی|
+Breakaway Plugs(1)|درپوش شکستنی|
+RJ45 Plugs(25)|سوکت شبکه RJ45|
+Audio Plugs(6)|فیش صوتی|
+USB Plugs(4)|کانکتور USB|
+Coaxial Plugs(28)|فیش کواکسیال|
+DIN Rail Caps(2)|درپوش ریل DIN|
+Capacitor Boots(3)|کلاهک عایق خازن|
+Faucet Hole Covers(2)|درپوش سوراخ شیر سینک|ترکیبی
+Drum Plugs(27)|درپوش بشکه|
+Drum Plug Caps(4)|کلاهک درپوش بشکه|
+Dust Covers(16)|کاور گردگیر|
+Drum Locks(2)|قفل بشکه|
+Spill-Control Drain Covers(6)|درپوش کف‌شور (کنترل نشت)|
+Duct Vent Caps(36)|کلاهک دریچه کانال|
+Chimney Vent Caps(12)|کلاهک دودکش|
+Air Conditioner Service Valve Caps(2)|درپوش شیر سرویس کولر گازی|
+Fixture Plate Plugs(8)|درپوش صفحه فیکسچر|
+Tooling Ball Covers(3)|درپوش توپ مرجع (تولینگ بال)|
+@19.0.11 Grommets
+Cut-to-Size Grommets(116)|گرومت برش‌پذیر (نوار لبه سوراخ)|
+Locking Grommets(60)|گرومت قفلی|
+Wet-Environment Sealing Grommets(63)|گرومت آب‌بند محیط مرطوب|
+Flex-Grip Locking Grommets(29)|گرومت قفلی انعطاف‌پذیر|
+Grommet Assortments(9)|ست گرومت|
+Split Locking Grommets(22)|گرومت قفلی دوتکه|
+Sealing Grommets(17)|گرومت آب‌بند|
+Flex-Grip Furniture Grommets(3)|درپوش عبور کابل میز انعطاف‌پذیر|
+Furniture Grommets(19)|درپوش عبور کابل میز|
+Split Sealing Grommets(11)|گرومت آب‌بند دوتکه|
+Strain-Relief Grommets(27)|گرومت ضدکشش (کابل)|
+Cut-to-Size Sealing Grommets(9)|گرومت آب‌بند برش‌پذیر|
+Flex-Grip Grommets(12)|گرومت انعطاف‌پذیر|
+Cut-to-Size Split Sealing Grommets(4)|گرومت آب‌بند دوتکه برش‌پذیر|
+Watertight Sealing Grommets(17)|گرومت آب‌بند کامل|
+Sanitary Sealing Grommets(19)|گرومت آب‌بند بهداشتی|
+Brush-Seal Furniture Grommets(8)|درپوش عبور کابل میز برسی|
+Continuous-Flex Strain-Relief Grommets(9)|گرومت ضدکشش خمش مداوم|
+Sanitary Split Sealing Grommets(6)|گرومت آب‌بند دوتکه بهداشتی|
+Squeeze-to-Open Furniture Grommets(1)|درپوش عبور کابل میز فشاری|
+FDA-Compliant Metal-Detectable Grommets(12)|گرومت FDA قابل‌تشخیص با فلزیاب|
+Static-Control Grommets(12)|گرومت آنتی‌استاتیک|
+Flex-Grip Split Locking Grommets(11)|گرومت قفلی دوتکه انعطاف‌پذیر|
+Brush-Seal Raised Floor Grommets(4)|گرومت برسی کف کاذب|
+Adjustable Furniture Grommets(1)|درپوش عبور کابل میز قابل‌تنظیم|
+Cut-to-Size Furniture Grommets(1)|درپوش عبور کابل میز برش‌پذیر|
+Flexible Pipe and Tubing Grommets(28)|گرومت لوله انعطاف‌پذیر|
+Pipe and Tubing Grommets(27)|گرومت لوله|
+Fabric Grommets(65)|پرچ چشمی برزنت|
+Reinforcing Fabric Grommets(67)|پرچ چشمی برزنت تقویتی (دولا)|
+Fabric Grommet Kits(21)|کیت پرچ چشمی برزنت|
+Self-Piercing Fabric Grommets(26)|پرچ چشمی برزنت خودسوراخ‌کن|
+Snap-In Fabric Grommets(3)|پرچ چشمی برزنت کلیپسی|
+Shaft Grommets(24)|گرومت شفت|
+Countertop Trash Chutes(8)|دریچه زباله کانتر|ترکیبی
+Tarp Fasteners(3)|بست برزنت|
+@19.1.0 Hinges
+Surface-Mount Hinges with Holes(33)|لولا روکار سوراخ‌دار|
+Surface-Mount Hinges without Holes(172)|لولا روکار بدون سوراخ (جوشی)|
+Entry Door Template Hinges(32)|لولا درب ورودی استاندارد|
+Mortise-Mount Hinges with Holes(24)|لولا توکار (فاق‌دار) سوراخ‌دار|
+Entry Door Template Hinges with Bearings(70)|لولا درب ورودی بلبرینگی|
+Entry Door Nonstandard Hole Pattern Hinges(20)|لولا درب ورودی سوراخ غیراستاندارد|
+Heavy Duty Half-Surface Hinges without Holes(1)|لولا نیمه‌روکار سنگین بدون سوراخ|
+Metal-Detectable Hinges with Holes(2)|لولا قابل‌تشخیص با فلزیاب|
+Adjustable Hinges with Holes(3)|لولا قابل‌تنظیم سوراخ‌دار|
+Plastic Hinges with Holes(27)|لولا پلاستیکی سوراخ‌دار|
+Heavy Duty Hinges with Holes(8)|لولا سنگین سوراخ‌دار|
+Maintenance-Free Entry Door Template Hinges with Bearings(28)|لولا درب ورودی بلبرینگی بدون نیاز به روغن‌کاری|
+Heavy Duty Hinges without Holes(10)|لولا سنگین بدون سوراخ|
+Miniature Hinges(2)|لولا مینیاتوری|
+Two-Way Swinging Door Hinges(13)|لولا درب دوطرفه بازشو (رستورانی)|
+Adjustable Heavy Duty Hinges with Holes(12)|لولا سنگین قابل‌تنظیم سوراخ‌دار|
+Adjustable Heavy Duty Hinges without Holes(6)|لولا سنگین قابل‌تنظیم بدون سوراخ|
+Tamper-Resistant Entry Door Template Hinges with Bearings(5)|لولا درب ورودی بلبرینگی ضدسرقت|
+Swing-Clear Entry Door Nonstandard Hole Pattern Hinges(2)|لولا درب ورودی بازشو کامل سوراخ غیراستاندارد|
+Plastic Clean Room Hinges with Holes(1)|لولا پلاستیکی اتاق تمیز|
+Plastic Hinges without Holes(12)|لولا پلاستیکی بدون سوراخ|
+Half-Surface Entry Door Template Hinges(4)|لولا نیمه‌روکار درب ورودی|
+Half-Surface Entry Door Template Hinges with Bearings(4)|لولا نیمه‌روکار درب ورودی بلبرینگی|
+Clean Room Hinges with Holes(2)|لولا اتاق تمیز|
+Toilet Partition Hinges(18)|لولا پارتیشن سرویس بهداشتی|
+Piano Hinges with Holes(128)|لولا پیانویی (سرتاسری) سوراخ‌دار|
+Piano Hinges without Holes(190)|لولا پیانویی بدون سوراخ|
+Edge-Mount Full-Length Entry Door Hinges(1)|لولا سرتاسری لبه‌ای درب ورودی|
+Tight-Clearance Piano Hinges without Holes(25)|لولا پیانویی کم‌لقی بدون سوراخ|
+Extra-Clearance Piano Hinges without Holes(22)|لولا پیانویی لقی زیاد بدون سوراخ|
+Piano Hinges with Slots(12)|لولا پیانویی شیاردار|
+Full-Length Entry Door Hinges(2)|لولا سرتاسری درب ورودی|
+Geared Full-Length Entry Door Hinges(2)|لولا سرتاسری دنده‌ای درب ورودی|
+Mil. Spec. Piano Hinges without Holes(10)|لولا پیانویی استاندارد نظامی|
+Plastic Piano Hinges without Holes(21)|لولا پیانویی پلاستیکی|
+Slip-On Plastic Piano Hinges(14)|لولا پیانویی پلاستیکی کشویی|
+Carbon Fiber Piano Hinges without Holes(5)|لولا پیانویی فیبر کربن|
+Concealed Cabinet Hinges(18)|لولا گازر (کابینت مخفی)|
+Hidden Hinges(36)|لولا مخفی|
+Semi-Concealed Cabinet Hinges(9)|لولا نیمه‌مخفی کابینت|
+Surface-Mount Concealed Hinges(2)|لولا مخفی روکار|
+Barrel-Shaped Hidden Hinges(4)|لولا مخفی استوانه‌ای|
+Adjustable Hidden Hinges(3)|لولا مخفی قابل‌تنظیم|
+Strap Hinges(61)|لولا تسمه‌ای (بلند)|
+Trailer Door Hinges(1)|لولا درب تریلر|
+Lift-Off Freezer Door Strap Hinges(1)|لولا تسمه‌ای جداشو درب سردخانه|
+Freezer Door Hinges(4)|لولا درب سردخانه|
+Heavy Duty Strap Hinges(4)|لولا تسمه‌ای سنگین|
+Freezer Doors Hinges with Bearings(1)|لولا درب سردخانه بلبرینگی|
+Self-Closing Strap Hinges(1)|لولا تسمه‌ای خودبسته‌شو|
+Sectional Door Hinges(9)|لولا درب سکشنال|
+Plastic Strap Hinges(5)|لولا تسمه‌ای پلاستیکی|
+Surface-Mount Lift-Off Hinges(86)|لولا جداشو روکار|
+Lift-Off Block Hinges(9)|لولا جداشو بلوکی|
+Mortise-Mount Lift-Off Hinges(4)|لولا جداشو توکار|
+Plastic Lift-Off Block Hinges(6)|لولا جداشو بلوکی پلاستیکی|
+Lift-Off Entry Door Template Hinges(11)|لولا جداشو درب ورودی|
+Plastic Surface-Mount Lift-Off Hinges(2)|لولا جداشو روکار پلاستیکی|
+Clean Room Lift-Off Hinges(2)|لولا جداشو اتاق تمیز|
+Bullet Hinges(56)|لولا موشکی (جوشی)|
+Easy-Lube Bullet Hinges(20)|لولا موشکی گریس‌خوردار|
+Spring Hinges(65)|لولا فنری|
+Entry Door Template Spring Hinges(53)|لولا فنری درب ورودی|
+Light Duty Spring Hinges(19)|لولا فنری سبک|
+Entry Door Nonstandard Hole Pattern Spring Hinges(24)|لولا فنری درب ورودی سوراخ غیراستاندارد|
+Plastic Spring Hinges(3)|لولا فنری پلاستیکی|
+Cabinet Pivot Hinges(1)|لولا محوری کابینت|
+Glass Cabinet Pivot Hinges(5)|لولا محوری کابینت شیشه‌ای|
+Reinforcing Surface Mount Metal Pivot Hinges For Entry Doors(2)|لولا محوری فلزی تقویتی درب ورودی|
+Toilet Partition Pivot Hinges(3)|لولا محوری پارتیشن سرویس بهداشتی|
+Precision-Control Friction Hinges(5)|لولا اصطکاکی کنترل دقیق|
+Friction Hinges(15)|لولا اصطکاکی (ترک‌دار)|
+Plastic Friction Hinges(27)|لولا اصطکاکی پلاستیکی|
+360° Rotation Hinges(10)|لولا چرخش ۳۶۰ درجه|
+Soft-Close Friction Hinges(6)|لولا اصطکاکی آرام‌بند|
+Multi-Axis Friction Hinges(2)|لولا اصطکاکی چندمحوره|
+Pull-Release Quick-Disconnect Latch Hinges(22)|لولا جداشو سریع ضامن کششی|
+Swing-Clear Ring-Release Latch Hinges(3)|لولا ضامن‌دار حلقه‌ای بازشو کامل|
+Squeeze-Release Quick-Disconnect Latch Hinges(6)|لولا جداشو سریع ضامن فشاری|
+Swing-Stop Indexing Hinges(14)|لولا زاویه‌دار (ایندکس) با توقف|
+Lever-Locking Indexing Hinges(14)|لولا ایندکس قفل اهرمی|
+Push-Button Indexing Hinges(2)|لولا ایندکس دکمه‌ای|
+Hinge Adjusters(1)|ابزار تنظیم لولا|
+Prop Rods(1)|میله نگهدارنده درب (جک درب)|
+Press-Fit Framing Hinges(3)|لولا پرسی پروفیل|
+@19.1.1 Door Closers
+High-Traffic Door Closers(52)|آرام‌بند درب پرتردد|
+Universal-Mount Door Closers(1)|آرام‌بند درب نصب یونیورسال|
+Hinge-Mount Door Closers(1)|آرام‌بند لولایی|
+Side-Frame-Mount Door Closers(1)|آرام‌بند نصب روی چارچوب کناری|
+High-Traffic Door Closers with Built-In Stop(12)|آرام‌بند پرتردد با استاپ داخلی|
+Hydraulic Storm Door Closers(1)|آرام‌بند هیدرولیک درب توری|
+High-Traffic Door Closers with Shock-Absorbing Stop(12)|آرام‌بند پرتردد با استاپ ضربه‌گیر|
+Door- and Top-Frame-Mount Closers for Freezers(1)|آرام‌بند درب سردخانه|
+Hydraulic Door Closers for Gates(2)|آرام‌بند هیدرولیک درب حیاط|
+Gas Spring Storm Door Closers(3)|آرام‌بند جک گازی درب توری|
+Tight-Clearance Gas Spring Storm Door Closers(2)|آرام‌بند جک گازی درب توری کم‌جا|
+Fire Alarm-Activated Door Closers(4)|آرام‌بند درب متصل به اعلام حریق|
+Garage Door Opener Receivers(1)|گیرنده ریموت درب پارکینگ|
+Pass-Through Windows(1)|پنجره تحویل (باجه)|
+Garage Door Opener Internet Gateways(1)|درگاه اینترنتی درب بازکن پارکینگ|ترکیبی
+Window Openers(3)|پنجره‌بازکن|
+Garage Door Opener Transmitters(8)|ریموت درب پارکینگ|ترکیبی
+T-Slotted Framing Hinges(2)|لولا پروفیل شیاردار|
+Door Wedges(9)|گوه نگهدارنده درب|ترکیبی
+Fusible Links(31)|فیوز حرارتی (لینک ذوب‌شونده)|
+Door Closer Covers(2)|کاور آرام‌بند|
+Door Barricades(2)|قفل سدکننده درب|
+Window Opener Handles(2)|دسته پنجره‌بازکن|
+@19.1.3 Door Holders & Stops
+T-Slotted Framing Bumpers(2)|ضربه‌گیر پروفیل شیاردار|
+Door Track End Stops(9)|استاپ انتهای ریل درب|
+@19.1.4 Hasps
+Padlockable Hasps(55)|قفل‌بند (کلون) قفل‌آویزی|
+Rotating-Eye Padlockable Hasps(17)|قفل‌بند چشمی گردان|
+Keyed Hasps(3)|قفل‌بند کلیدی|
+Long-Reach Padlockable Corner Hasps(7)|قفل‌بند گوشه بلند|
+Padlockable Hasps for Cam Lock Latches(1)|قفل‌بند قفل‌آویزی قفل بادامکی|
+Pry-Resistant Long-Reach Padlockable Corner Hasps(2)|قفل‌بند گوشه بلند ضداهرم|
+Push-to-Close Hasps(3)|قفل‌بند فشاری|
+Padlockable Corner Hasps(4)|قفل‌بند گوشه|
+Pry-Resistant Padlockable Hasps(2)|قفل‌بند ضداهرم|
+Hasp Strike Plates(13)|زبانه‌گیر قفل‌بند|
+Cam Lock and Latch Padlock Brackets(2)|براکت قفل‌آویز قفل بادامکی|
