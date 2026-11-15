@@ -1,0 +1,291 @@
+2545|1|Furnishings, Hospitality & Building Materials|مبلمان، تجهیزات هتلداری و مصالح ساختمانی|
+2546|2|Furniture|مبلمان|ترکیبی
+2547|3|Office, Task & Drafting Chairs & Accessories|صندلی اداری، کارمندی و نقشه‌کشی و لوازم جانبی|
+2548|4|Sonography Chairs|صندلی سونوگرافی|
+2549|4|Office, Task & Executive Chairs|صندلی اداری، کارمندی و مدیریتی|
+2550|4|Drafting Chairs|صندلی نقشه‌کشی (پایه‌بلند)|
+2551|4|24-Hour Intensive Use Chairs|صندلی کار ۲۴ ساعته (کاربری سنگین)|
+2552|4|Kneeling & Active Chairs|صندلی زانویی و ارگونومیک فعال|
+2553|4|Chair Mats|زیرصندلی (کفپوش صندلی)|
+2554|4|Art Benches|نیمکت طراحی و نقاشی|
+2555|4|Chair Parts & Accessories|قطعات و لوازم جانبی صندلی|
+2556|3|Folding Chairs|صندلی تاشو|
+2557|3|Stackable Chairs|صندلی روی‌هم‌چین (استکبل)|
+2558|3|Conference Tables|میز کنفرانس|
+2559|3|Seminar & Training Tables|میز سمینار و آموزشی|
+2560|3|Folding Tables|میز تاشو|
+2561|3|Folding Table & Chair Sets|ست میز و صندلی تاشو|
+2562|3|Filing & Storage Furniture|مبلمان بایگانی و نگهداری|
+2563|4|File Cabinets|فایل اداری (کمد بایگانی)|
+2564|4|Bookcases|کتابخانه (قفسه کتاب)|
+2565|4|Storage Cabinets, Wardrobes & Stands|کمد نگهداری، کمد لباس و استند|
+2566|4|Open File Shelving Systems|قفسه بایگانی باز|
+2567|4|Vertical Filing Systems|سیستم بایگانی عمودی|
+2568|4|Roll File Storage|جای نقشه لوله‌ای (رول)|
+2569|4|Dry Erase & Bulletin Board Cabinets|کابینت وایت‌برد و تابلو اعلانات|
+2570|3|Office Furniture Collections|ست مبلمان اداری|
+2571|3|Office Desks & Workstations|میز اداری و ایستگاه کاری|
+2572|4|Combination Exercise Bike Desks|میز کار با دوچرخه ثابت|
+2573|4|Fixed-Height Office Desks & Components|میز اداری ارتفاع ثابت و اجزا|
+2574|4|Adjustable-Height Desks|میز ارتفاع قابل تنظیم|
+2575|4|Standing Desk Converters|مبدل میز ایستاده|
+2576|4|Cubicle Workstations & Privacy Panels|ورک‌استیشن پارتیشنی و پنل جداکننده|
+2577|4|Wall-Mounted Desks|میز دیواری|
+2578|4|Laptop Carts & Mobile Computer Workstations|ترولی لپ‌تاپ و میز کامپیوتر سیار|
+2579|4|Open-Frame Computer Workstations|میز کامپیوتر فریم باز|
+2580|4|Desk Hardware & Accessories|یراق‌آلات و لوازم جانبی میز|
+2581|3|Office Pods|کابین کار اداری (پاد)|
+2582|3|Reception & Lounge Furniture|مبلمان پذیرش و انتظار|
+2583|4|Modular Furniture|مبلمان ماژولار|
+2584|5|Modular Multifunctional Furniture|مبلمان ماژولار چندکاره|
+2585|5|Modular Multifunctional Furniture Cushions|کوسن مبلمان ماژولار|
+2586|4|Reception Desks|کانتر پذیرش|
+2587|4|Sofas & Loveseats|مبل و کاناپه دونفره|
+2588|4|Guest, Accent & Waiting Room Chairs|صندلی مهمان و انتظار|
+2589|4|Coffee & End Tables|میز جلومبلی و عسلی|
+2590|4|Benches & Ottomans|نیمکت و پاف|
+2591|4|Artificial Plants|گیاه مصنوعی|
+2592|3|Display Cases|ویترین|
+2593|3|Utility Tables|میز چندکاره|
+2594|3|Drafting & Art Tables|میز نقشه‌کشی و طراحی|
+2595|3|Cafeteria, Dining & Breakroom Furniture|مبلمان سلف، غذاخوری و پاویون|
+2596|4|Cafeteria Tables|میز سلف سرویس|
+2597|4|Convertible Bench Tables|میز نیمکت‌دار تبدیل‌شو|
+2598|4|Cafeteria & Breakroom Furniture|مبلمان سلف و پاویون|
+2599|3|Classroom Furniture|مبلمان کلاس درس|
+2600|4|Classroom Desks|میز تحریر کلاس|
+2601|4|Classroom & Lab Tables|میز کلاس و آزمایشگاه|
+2602|4|Book Trucks|ترولی کتاب|
+2603|3|Room Dividers|پارتیشن (جداکننده اتاق)|
+2604|3|Media Furniture|مبلمان تجهیزات صوتی‌تصویری|
+2605|4|Charging Carts & Stations|ترولی و ایستگاه شارژ|
+2606|4|Media Carts|ترولی تجهیزات صوتی‌تصویری|
+2607|4|Monitor, Laptop & Phone Risers|پایه مانیتور، لپ‌تاپ و گوشی|
+2608|3|Lecterns|تریبون|
+2609|3|Stages|سن (استیج)|
+2610|4|Portable Stages|سن قابل حمل|
+2611|4|Stage Components & Accessories|اجزا و لوازم جانبی سن|
+2612|3|Mail & Literature Organizers, Sorting Tables & Risers|قفسه نامه و بروشور، میز تفکیک و پایه|
+2613|3|Literature Displays|استند بروشور|
+2614|3|Mattresses, Bed Frames & Bases|تشک، تخت و باکس تخت|
+2615|4|Mattresses, Mattress Toppers & Box Springs|تشک، روتشکی و باکس فنری|
+2616|4|Bed Frames, Rails & Accessories|فریم تخت، ریل و لوازم جانبی|
+2617|4|Cribs & Crib Mattresses|تخت و تشک نوزاد|
+2618|3|Institutional Furniture|مبلمان سازمانی (خوابگاهی و انتظامی)|
+2619|4|Institutional Beds & Mattresses|تخت و تشک سازمانی|
+2620|4|Institutional Seating|صندلی سازمانی|
+2621|4|Institutional Shelving Units & Lockers|قفسه و کمد سازمانی|
+2622|4|Institutional Desks|میز تحریر سازمانی|
+2623|4|Institutional Tables|میز سازمانی|
+2624|4|Institutional Furniture Bolt-Down Kits|کیت پیچ‌کردن مبلمان سازمانی به کف|
+2625|3|Furniture Glides, Tips & Repair Kits|پایه‌لغزان، سرپایه و کیت تعمیر مبلمان|
+2626|3|Breakroom Counters & Cabinets|کانتر و کابینت آبدارخانه|
+2627|2|Outdoor Furniture|مبلمان فضای باز|ترکیبی
+2628|3|Picnic Tables|میز پیک‌نیک|
+2629|3|Outdoor Benches|نیمکت پارکی|
+2630|3|Bike Racks|پارکینگ دوچرخه|
+2631|3|Bleachers & Stadium Chairs|سکوی تماشاگر و صندلی ورزشگاهی|
+2632|3|Patio Umbrellas & Bases|چتر باغی و پایه|
+2633|3|Exterior Sun Shades|سایبان خارجی|
+2634|3|Patio Furniture|مبلمان باغی|
+2635|4|Patio Furniture Sets|ست مبلمان باغی|
+2636|4|Patio Tables|میز باغی|
+2637|4|Patio Chairs|صندلی باغی|
+2638|4|Lounge Chairs|صندلی لم‌دادنی (شزلون)|
+2639|4|Patio Fencing & Screens|نرده و پاراوان حیاط|
+2640|3|Planters|گلدان|
+2641|3|Awnings|سایبان (تنت)|
+2642|3|Outdoor Dry-Erase Boards|وایت‌برد فضای باز|
+2643|2|Hospitality Supplies|لوازم هتلداری|
+2644|3|Housekeeping Supplies|لوازم خانه‌داری هتل|
+2645|4|Housekeeping Carts & Caddies|ترولی و سبد خانه‌داری|
+2646|4|Linens & Bedding|ملحفه و روتختی|ترکیبی
+2647|5|Sheets & Pillowcases|ملحفه و روبالشی|
+2648|5|Pillows|بالش|
+2649|5|Blankets|پتو|
+2650|5|Mattress & Pillow Pads & Encasements|محافظ تشک و بالش|
+2651|5|Duvet Covers & Inserts|روکش و لایی لحاف|
+2652|5|Bedspreads, Bedskirts & Wraps|روتختی و دامن تخت|
+2653|5|Towels|حوله|
+2654|5|Bathroom Rugs|پادری حمام|
+2655|5|Bedding & Bath Linen Sets|ست ملحفه و حوله|
+2656|5|Bed Wedges|بالش گُوه‌ای|
+2657|5|Bath Robes & Slippers|حوله تن‌پوش و دمپایی|
+2658|5|Linen Storage Bags & Boxes|کیسه و جعبه نگهداری ملحفه|
+2659|4|Towel Stations & Linen Carts|استند حوله و ترولی ملحفه|
+2660|4|Laundry Supplies|لوازم لباسشویی|
+2661|5|Washing Machines & Dryers|ماشین لباسشویی و خشک‌کن|ترکیبی
+2662|6|Washing Machines|ماشین لباسشویی|
+2663|6|Dryers|خشک‌کن لباس|
+2664|6|Combination Washing Machine & Dryers|لباسشویی و خشک‌کن ترکیبی|
+2665|6|Replacement Parts for Washing Machines & Dryers|قطعات یدکی لباسشویی و خشک‌کن|
+2666|5|Laundry Carts, Hampers & Basket Trucks|ترولی رختشویخانه و سبد رخت|
+2667|5|Laundry Bags & Baskets|کیسه و سبد رخت|ترکیبی
+2668|5|Irons & Ironing Boards|اتو و میز اتو|ترکیبی
+2669|5|Garment Steamers|اتو بخارگر ایستاده|ترکیبی
+2670|5|Vacuum Pressing Tables|میز اتو وکیوم‌دار (پرس)|
+2671|5|Lint Rollers & Brushes|پرزگیر و برس لباس|ترکیبی
+2672|5|Drying Racks & Clotheslines|بند رخت و رخت‌آویز|ترکیبی
+2673|5|Sewing Machines & Supplies|چرخ خیاطی و لوازم خیاطی|ترکیبی
+2674|4|Hotel Room Amenities|ملزومات اتاق هتل (آمنیتی)|
+2675|5|Single-Use Toiletries|لوازم بهداشتی یکبارمصرف هتلی|
+2676|5|Bulk Toiletry Dispenser Systems|دیسپنسر شامپو و مایع حمام|
+2677|5|Hair Dryers|سشوار|ترکیبی
+2678|5|Clothes Hangers|چوب لباسی (رخت‌آویز)|ترکیبی
+2679|5|Luggage Racks|پایه چمدان|
+2680|5|Hotel Room Organization & Storage|لوازم نظم‌دهی و نگهداری اتاق هتل|
+2681|5|Shower Mats|کفپوش دوش (ضدلغزش)|ترکیبی
+2682|3|Hospitality Uniforms|لباس فرم هتلداری|
+2683|4|Hospitality Shirts|پیراهن فرم هتلداری|
+2684|4|Hospitality Pants & Shorts|شلوار و شلوارک فرم هتلداری|
+2685|3|Bellman Carts|ترولی چمدان هتل|
+2686|3|Garment Racks, Coat Racks & Hooks|رگال لباس، جالباسی و آویز|ترکیبی
+2687|3|Shoe Racks|جاکفشی|ترکیبی
+2688|3|Umbrella Stands & Bags|جاچتری و کاور چتر|
+2689|2|Fitness, Sports & Recreation|تجهیزات ورزشی و تفریحی|ترکیبی
+2690|3|Exercise Equipment|تجهیزات بدنسازی|
+2691|4|Cardio Equipment|دستگاه هوازی (کاردیو)|
+2692|5|Treadmills|تردمیل|
+2693|5|Elliptical & Stepmill Machines|الپتیکال و پله‌نورد|
+2694|5|Exercise Bikes|دوچرخه ثابت|
+2695|5|Plyo Training Boxes & Training Hurdles|باکس پلایومتریک و مانع تمرینی|
+2696|4|Strength Training Equipment|تجهیزات تمرین قدرتی|
+2697|5|Free Weights & Storage Racks|وزنه آزاد و رک وزنه|
+2698|5|Squat Racks & Weight Benches|رک اسکات و نیمکت پرس|
+2699|5|Pull Up Bars & Dip Stations|میله بارفیکس و پارالل|
+2700|5|Strength-Training Machines|دستگاه بدنسازی|
+2701|4|Outdoor Fitness Stations|دستگاه ورزشی پارکی|
+2702|4|Exercise Balls|توپ پیلاتس|
+2703|4|Exercise Mats & Wall Padding|مت ورزشی و پد دیواری|
+2704|4|Resistance Bands, Resistance Tubing & Training Ropes|کش مقاومتی، تیوب مقاومتی و طناب بتل|
+2705|4|Bounce Back Nets|تور برگشت توپ (ریباند)|
+2706|3|Pool & Spa Equipment|تجهیزات استخر و جکوزی|
+2707|4|Saunas|سونا|
+2708|4|ADA Pool Lifts|بالابر استخر معلولین|
+2709|4|Pool Alarms, Sensors & Thermometers|آلارم، سنسور و دماسنج استخر|
+2710|4|Pool Chemical Dispensers|دوزینگ مواد شیمیایی استخر (کلرزن)|
+2711|4|Pool & Spa Pumps & Strainers|پمپ و صافی استخر و جکوزی|
+2712|5|Pool & Spa Pumps|پمپ استخر و جکوزی|
+2713|5|Strainers for Pool & Spa Pumps|صافی (پیش‌فیلتر) پمپ استخر|
+2714|5|Replacement Parts for Pool & Spa Pumps|قطعات یدکی پمپ استخر|
+2715|4|Pool & Spa Lights & Filters|چراغ و فیلتر استخر و جکوزی|
+2716|5|Pool Lights|چراغ استخر|
+2717|5|Filters for Pools & Spas|فیلتر استخر و جکوزی|
+2718|4|Skimmers, Brushes & Rakes for Pools & Spas|اسکیمر، برس و تور جمع‌آوری استخر|
+2719|4|Pool & Spa Vacuums & Components|جاروی استخر و اجزا|
+2720|4|Lifeguard Chairs & Equipment|صندلی و تجهیزات نجات غریق|
+2721|4|Pool Starting Blocks|سکوی استارت شنا|
+2722|4|Pool Reels, Ropes & Floats|قرقره، طناب و شناور خط استخر|
+2723|4|Solar Pool Blankets|پوشش خورشیدی استخر|
+2724|4|Pool Reel Winder Storage Systems|قرقره جمع‌کن پوشش استخر|
+2725|4|Pool Grab Bars & Stair Rails|دستگیره و نرده پله استخر|
+2726|4|Pool Ladders & Steps|نردبان و پله استخر|
+2727|3|Recreational Games|بازی‌های تفریحی|
+2728|4|Game Tables|میز بازی|
+2729|5|Poker Tables & Chairs|میز و صندلی پوکر|
+2730|5|Pool Tables & Billiards Equipment|میز بیلیارد و لوازم|
+2731|5|Table Tennis & Equipment|میز پینگ‌پنگ و لوازم|
+2732|5|Air Hockey Tables|میز ایرهاکی|
+2733|5|Foosball Tables|فوتبال دستی|
+2734|5|Shuffleboard Tables|میز شافل‌بورد|
+2735|4|Lawn Games|بازی‌های چمنی|
+2736|5|Badminton Sets & Equipment|ست و لوازم بدمینتون|
+2737|5|Croquet Sets|ست کروکت|
+2738|5|Bocce Ball Sets|ست بوچی (بولینگ چمنی)|
+2739|5|Bean Bag Toss Sets|ست بازی پرتاب کیسه (کورن‌هول)|
+2740|5|Horseshoe Sets|ست بازی پرتاب نعل|
+2741|4|Dartboards & Dartboard Cabinets|صفحه دارت و کابینت دارت|
+2742|4|Parlor & Board Games|بازی‌های فکری و رومیزی|
+2743|4|Arcade & Bowling Games|بازی آرکید و بولینگ|
+2744|3|Team Sports & Physical Education Equipment|تجهیزات ورزش‌های گروهی و تربیت بدنی|
+2745|4|Basketball Equipment|تجهیزات بسکتبال|
+2746|4|Baseball, Softball & T-Ball Equipment|تجهیزات بیسبال و سافتبال|
+2747|4|Football Equipment|تجهیزات فوتبال آمریکایی|
+2748|4|Lacrosse, Field Hockey & Floor Hockey Equipment|تجهیزات لاکراس و هاکی|
+2749|4|Soccer Equipment|تجهیزات فوتبال|
+2750|4|Tennis & Pickleball Equipment|تجهیزات تنیس و پیکل‌بال|
+2751|4|Volleyball Equipment|تجهیزات والیبال|
+2752|4|Climbing Ropes & Tug of War Ropes|طناب صعود و طناب‌کشی|
+2753|4|Parachutes, Beach Balls & Bean Bags|چتر بازی، توپ ساحلی و کیسه لوبیا|
+2754|4|Playground Balls, Tetherballs & Dodgeball Sets|توپ بازی، توپ تیرک‌دار و ست وسطی|
+2755|4|Scooter Boards & Racks|اسکوتر برد (تخته چرخدار) و رک|
+2756|4|Coaching, Scoring & Maintenance Equipment|تجهیزات مربیگری، امتیازدهی و نگهداری زمین|
+2757|5|Equipment Racks & Bags|رک و ساک تجهیزات|
+2758|5|Scoreboards & Scorer Tables|تابلو امتیاز و میز داوری|
+2759|5|Field Line Markers & Flags|خط‌کش زمین و پرچم|
+2760|5|Air Pumps & Ball Inflating Needles|تلمبه و سوزن باد توپ|
+2761|5|Scrimmage Vests|کاور تمرینی (جلیقه تیمی)|
+2762|3|Playground Structures|وسایل بازی پارک (زمین بازی کودک)|
+2763|3|Dog Park Equipment|تجهیزات پارک سگ|
+2764|2|Furnishings & Building Supplies|ملزومات و مصالح ساختمانی|
+2765|3|Ceiling Tiles & Hanging Hardware|تایل سقف کاذب و یراق آویز|
+2766|4|Ceiling Tiles|تایل سقف کاذب|
+2767|4|Hanging Hardware for Ceiling Tiles|سازه و آویز سقف کاذب|
+2768|4|Construction & Maintenance Particle Containment Units|کابین ایزوله گردوغبار ساخت‌وساز و تعمیرات|
+2769|3|Window Treatments|پرده و پوشش پنجره|ترکیبی
+2770|4|Blinds|پرده کرکره‌ای|
+2771|4|Window Shades|پرده شید (رولر)|
+2772|3|Flooring Tiles & Wall Bases|کاشی کف و قرنیز|
+2773|4|Ceramic Wall Tile|کاشی سرامیکی دیوار|
+2774|4|Porcelain Floor Tile|سرامیک پرسلان کف|
+2775|4|Engineered Floor Tile|کفپوش مهندسی|
+2776|4|Carpet Tile|موکت تایلی|
+2777|4|Wall Bases|قرنیز|
+2778|4|Interlocking & Vinyl Floor Tile|کفپوش اینترلاک و وینیل|
+2779|3|Doors|درب|
+2780|4|Strip Doors & Replacement Strips|پرده نواری (پی‌وی‌سی) و نوار یدکی|
+2781|4|Swinging Doors|درب رفت‌وبرگشتی (پاندولی)|
+2782|3|Noise Control Products|محصولات کنترل صدا|
+2783|4|Acoustic Wall Blankets, Screens & Curtains|پتو، پاراوان و پرده آکوستیک|
+2784|4|Acoustic Wall Panels|پنل آکوستیک دیواری|
+2785|4|Sound-Absorbing Duct Liners|عایق صوتی داخل کانال|
+2786|4|Mounting Accessories for Noise Control Products|لوازم نصب محصولات آکوستیک|
+2787|4|White Noise Machines|دستگاه نویز سفید|
+2788|2|Mobility Products|محصولات توان‌یابی و تحرک|
+2789|3|Wheelchair Ramps|رمپ ویلچر|
+2790|3|Mobility Scooters|اسکوتر برقی معلولین|
+2791|1|HVAC and Refrigeration|تهویه مطبوع و تبرید|
+2792|2|Air Filters|فیلتر هوا|
+2793|3|Panel and Pleated Air Filters|فیلتر هوای پنلی و پلیسه‌ای|
+2794|4|Pleated Air Filters|فیلتر هوای پلیسه‌ای|
+2795|4|Non-Pleated Panel Air Filters|فیلتر پنلی ساده (بدون پلیسه)|
+2796|4|Odor Removal Panel Air Filters|فیلتر پنلی کربن (بوگیر)|
+2797|4|Ring Panel and Link Air Filters|فیلتر حلقه‌ای و زنجیره‌ای|
+2798|4|Washable Metal Air Filters|فیلتر فلزی قابل شستشو|
+2799|4|Washable Electrostatic Air Filters|فیلتر الکترواستاتیک قابل شستشو|
+2800|3|Box Air Filters|فیلتر هوای جعبه‌ای|
+2801|4|V-Bank Air Filters|فیلتر V-Bank|
+2802|4|Minipleat Air Filters|فیلتر مینی‌پلیت|
+2803|4|Rigid Cell Air Filters|فیلتر کیسه‌ای صلب (ریجید سل)|
+2804|4|Cartridge Air Filters|فیلتر کارتریجی هوا|
+2805|4|HEPA Air Filters|فیلتر هپا (HEPA)|
+2806|4|Odor Removal Box Air Filters|فیلتر جعبه‌ای کربن (بوگیر)|
+2807|3|Bag Air Filters|فیلتر کیسه‌ای|
+2808|4|Pocket Air Filters|فیلتر جیبی (پاکتی)|
+2809|4|Cube Air Filters|فیلتر مکعبی|
+2810|3|Air Filters Pads and Rolls|پد و رول فیلتر هوا|
+2811|4|Air Filter Pads|پد فیلتر هوا|
+2812|4|Air Filter Rolls|رول فیلتر هوا (الیاف)|
+2813|4|Odor Removal Air Filter Pads & Rolls|پد و رول فیلتر کربن (بوگیر)|
+2814|4|Air Filter Pad Holding Frames|قاب نگهدارنده پد فیلتر|
+2815|3|Fan Shroud Air Filters|فیلتر روی فن (شراود)|
+2816|3|Air Filter Gasketing, Holding Clips & Pullers|واشر، گیره نگهدارنده و کشنده فیلتر هوا|
+2817|4|Air Filter Holding Clips|گیره نگهدارنده فیلتر|
+2818|4|Air Filter Pullers|ابزار بیرون‌کش فیلتر|
+2819|4|Air Filter Box Grabber|گیره برداشت فیلتر جعبه‌ای|
+2820|4|Air Filter Gasketing|نوار واشر فیلتر هوا|
+2821|4|Air Filter Tackifier Spray|اسپری چسبناک‌کننده فیلتر|
+2822|4|Washable Air Filter Cleaner|شوینده فیلتر قابل شستشو|
+2823|2|Air Treatment|تصفیه هوا|
+2824|3|Air Purifiers & Cleaners|دستگاه تصفیه هوا|ترکیبی
+2825|4|Portable Air Purifiers & Cleaners|تصفیه هوای پرتابل|
+2826|4|Wall-Mount & Ceiling-Mount Air Purifiers & Cleaners|تصفیه هوای دیواری و سقفی|
+2827|4|In-Duct Air Purifiers & Cleaners|تصفیه هوای داخل کانالی|
+2828|4|Air Purifiers & Cleaners for Ductless Systems|تصفیه هوا برای سیستم‌های بدون کانال (اسپلیت)|
+2829|4|Filters & UVC Bulbs for Air Purifiers & Cleaners|فیلتر و لامپ UVC تصفیه هوا|
+2830|4|Accessories for Air Purifiers & Cleaners|لوازم جانبی تصفیه هوا|
+2831|3|Air Scrubbers & Negative Air Machines|اسکرابر هوا و دستگاه فشار منفی|
+2832|4|Industrial-Grade Air Scrubbers & Negative Air Machines|اسکرابر هوا و دستگاه فشار منفی صنعتی|
+2833|4|Medical-Grade Air Scrubbers & Negative Air Machines|اسکرابر هوا و دستگاه فشار منفی پزشکی|
+2834|4|Filters & UVC Bulbs for Air Scrubbers & Negative Air Machines|فیلتر و لامپ UVC اسکرابر هوا|
+2835|4|Accessories & Parts for Air Scrubbers & Negative Air Machines|لوازم جانبی و قطعات اسکرابر هوا|

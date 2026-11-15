@@ -1,0 +1,221 @@
+11197|4|Accessories for Power Meters & Power Analyzers|لوازم جانبی پاورمتر و پاورآنالایزر|
+11198|3|Voltage Detectors, Voltage Testers & Continuity Testers|فازمتر، ولتاژسنج و تستر اتصال|
+11199|4|Non-Contact Voltage Detectors|فازمتر القایی (بدون تماس)|
+11200|4|Voltage & Continuity Testers|تستر ولتاژ و اتصال (بیزر)|
+11201|4|Absence of Voltage Testers|تستر عدم وجود ولتاژ (AVT)|
+11202|4|Accessories for Voltage Testers & Absence of Voltage Testers|لوازم جانبی تستر ولتاژ|
+11203|3|Circuit Tracers & Breakers|ردیاب مدار و فیوزیاب|
+11204|4|Circuit Tracers|ردیاب سیم و مدار|
+11205|4|Circuit Tracer Kits|کیت ردیاب مدار|
+11206|4|Circuit Breaker Finders|فیوزیاب (ردیاب کلید مینیاتوری)|
+11207|4|Accessories for Circuit Tracers & Circuit Breaker Finders|لوازم جانبی ردیاب مدار و فیوزیاب|
+11208|3|Utility & Ground Fault Locators|ردیاب تأسیسات زیرزمینی و خطای زمین|
+11209|4|Underground Utility Locators|ردیاب کابل و لوله زیرزمینی|
+11210|4|Ground Fault Locators|ردیاب خطای زمین (ارت فالت)|
+11211|4|Accessories for Underground Utility Locators|لوازم جانبی ردیاب زیرزمینی|
+11212|3|Appliance & Medical Testers|تستر ایمنی لوازم برقی و تجهیزات پزشکی|
+11213|4|Appliance & Medical Testers|تستر ایمنی لوازم برقی و پزشکی (PAT)|
+11214|4|Accessories for Appliance & Medical Testers|لوازم جانبی تستر لوازم برقی و پزشکی|
+11215|3|Receptacle & GFCI Testers & Analyzers|تستر پریز و محافظ جان (GFCI)|
+11216|4|Receptacle & GFCI Testers & Analyzers|تستر و آنالایزر پریز و محافظ جان|
+11217|4|Receptacle Tension Testers|تستر کشش کنتاکت پریز|
+11218|4|Accessories for Receptacle & GFCI Testers|لوازم جانبی تستر پریز|
+11219|3|High-Voltage Testers|تستر فشار قوی|
+11220|4|High-Voltage Detectors|فازمتر فشار قوی|
+11221|4|High-Voltage Hot Sticks|اهرم عایق فشار قوی (هات‌استیک)|
+11222|4|High-Voltage Ammeters & Voltmeters|آمپرمتر و ولت‌متر فشار قوی|
+11223|4|High-Voltage Proof Testers|تستر ولتاژ فشار قوی|
+11224|4|High-Voltage Transformer & Capacitor Testers|تستر ترانسفورماتور و خازن فشار قوی|
+11225|4|High-Voltage Detection Networks|شبکه آشکارساز فشار قوی|
+11226|4|High-Voltage Insulator Testers|تستر مقره فشار قوی|
+11227|4|High-Voltage Cable Identifiers|شناساگر کابل فشار قوی|
+11228|4|High-Voltage Phase Rotation Meters|توالی‌سنج فاز فشار قوی|
+11229|3|Phasing & Motor Rotation Meters|توالی‌سنج فاز و جهت‌سنج موتور|
+11230|3|Cable Height Meters|ارتفاع‌سنج کابل|
+11231|3|Capacitor Testers|خازن‌سنج|
+11232|3|Installation Testers|تستر تأسیسات برقی (مولتی‌فانکشن)|
+11233|3|Test Instrument Carrying Cases|کیف حمل ابزار تست|
+11234|3|AC Current Line Splitters|جداکننده خط جریان AC (لاین اسپلیتر)|
+11235|3|Portable Oscilloscopes & Accessories|اسیلوسکوپ پرتابل و لوازم|
+11236|4|Portable Digital Oscilloscopes & Motor Drive Analyzers|اسیلوسکوپ دیجیتال دستی و آنالایزر درایو موتور|
+11237|4|Oscilloscope Probes & Probe Kits|پراب اسیلوسکوپ و کیت پراب|
+11238|4|Oscilloscope Probe Accessories|لوازم جانبی پراب اسیلوسکوپ|
+11239|4|Oscilloscope Accessories|لوازم جانبی اسیلوسکوپ|
+11240|3|Energy Management Supplies|ملزومات مدیریت انرژی|
+11241|3|Static Monitoring Systems|سیستم پایش الکتریسیته ساکن|
+11242|3|USB Testers|تستر USB|
+11243|2|Pressure & Vacuum Measurement|اندازه‌گیری فشار و خلأ|
+11244|3|Pressure & Vacuum Gauges|گیج فشار و خلأ (مانومتر و وکیوم‌متر)|
+11245|4|Industrial & Process Pressure Gauges|گیج فشار صنعتی و فرآیندی|
+11246|5|Dial Industrial Pressure Gauges|گیج فشار عقربه‌ای صنعتی|
+11247|5|Dial High-Accuracy Process Pressure Gauges|گیج فشار عقربه‌ای دقیق فرآیندی|
+11248|5|Dial Industrial & Process Panel-Mount Pressure Gauges|گیج فشار عقربه‌ای تابلویی|
+11249|5|Digital Industrial & Process Pressure Gauges|گیج فشار دیجیتال صنعتی|
+11250|5|Digital Pressure Gauges with Transmitters|گیج فشار دیجیتال با ترانسمیتر|
+11251|4|Dial Pressure Gauges with Color-Coded Case|گیج فشار با بدنه رنگی کددار|
+11252|4|Sanitary Pressure Gauges|گیج فشار بهداشتی (سنیتری)|
+11253|4|Pressure Gauges with Siphon for High-Temperature Medias|گیج فشار با سیفون برای سیال داغ|
+11254|4|Dial Receiver Gauges|گیج گیرنده عقربه‌ای (پنوماتیک)|
+11255|4|Pressure Gauges with Diaphragm Seal for Challenging Medias|گیج فشار دیافراگمی (سیل دیافراگم)|
+11256|4|Lead-Free Pressure Gauges for Drinking Water|گیج فشار بدون سرب آب شرب|
+11257|4|Fire Sprinkler System Pressure Gauges|گیج فشار سیستم اسپرینکلر آتش‌نشانی|
+11258|4|HVAC & Boiler Gauges|گیج تأسیسات و دیگ بخار|
+11259|4|Low Pressure Gauges|گیج فشار پایین (کپسولی)|
+11260|4|Test Pressure Gauges|گیج فشار تست (مرجع)|
+11261|4|Gas & Water Line Pressure Test Gauges & Kits|گیج و کیت تست فشار لوله گاز و آب|
+11262|4|Compressed Gas Pressure Gauges|گیج فشار گاز فشرده|
+11263|5|Pressure Gauges Cleaned for Oxygen Service|گیج فشار مخصوص اکسیژن|
+11264|5|Compressed Gas & Air Pressure Gauges|گیج فشار گاز و هوای فشرده|
+11265|5|Welding Regulator Pressure Gauges|گیج رگولاتور جوشکاری|
+11266|4|Hydraulic Press & Cylinder Pressure Gauges|گیج فشار پرس و جک هیدرولیک|
+11267|4|Liquid-Level Altitude Pressure Gauges|گیج ارتفاع‌سنج سطح مایع|
+11268|4|Ammonia Refrigerant Compound Gauges|گیج کامپاند مبرد آمونیاک|
+11269|4|Agricultural Ammonia Pressure Gauges|گیج فشار آمونیاک کشاورزی|
+11270|4|Fire Apparatus & SCBA Pressure Gauges|گیج فشار تجهیزات آتش‌نشانی و دستگاه تنفسی (SCBA)|
+11271|4|OEM Replacement Pressure Gauges|گیج فشار جایگزین اورجینال|
+11272|4|Acid Leak Detection Gauges|گیج تشخیص نشت اسید|
+11273|4|Intrinsically Safe Pressure Gauges|گیج فشار ضدانفجار (ذاتاً ایمن)|
+11274|3|Differential Pressure Gauges, Indicators & Transducers|گیج، نشانگر و ترانسدیوسر اختلاف فشار|
+11275|4|Dial Differential Pressure Gauges|گیج اختلاف فشار عقربه‌ای|
+11276|4|Tricolor Differential Pressure Indicators|نشانگر اختلاف فشار سه‌رنگ|
+11277|4|Digital Differential Pressure Gauges|گیج اختلاف فشار دیجیتال|
+11278|4|Digital Differential Static Pressure Transducers|ترانسدیوسر دیجیتال اختلاف فشار استاتیک|
+11279|4|Intrinsically Safe Dial Differential Pressure Gauges|گیج اختلاف فشار عقربه‌ای ضدانفجار|
+11280|3|Pressure & Vacuum Transmitters|ترانسمیتر فشار و خلأ|
+11281|4|General Purpose Pressure Transmitters|ترانسمیتر فشار عمومی|
+11282|4|Digital General Purpose Pressure Transmitters|ترانسمیتر فشار دیجیتال عمومی|
+11283|4|Hazardous Location Pressure Transmitters|ترانسمیتر فشار ضدانفجار|
+11284|4|Absolute Pressure Transmitters|ترانسمیتر فشار مطلق|
+11285|4|Sanitary Pressure Transmitters & Accessories|ترانسمیتر فشار بهداشتی و لوازم|
+11286|3|Differential Pressure Transmitters|ترانسمیتر اختلاف فشار|
+11287|4|General Purpose Differential Pressure Transmitters|ترانسمیتر اختلاف فشار عمومی|
+11288|4|General Purpose Differential Pressure Transmitters with Display|ترانسمیتر اختلاف فشار نمایشگردار|
+11289|4|Liquid Media Differential Pressure Transmitters|ترانسمیتر اختلاف فشار مایعات|
+11290|4|Hazardous Location Differential Pressure Transmitters|ترانسمیتر اختلاف فشار ضدانفجار|
+11291|4|Room Pressure & Condition Monitors|مانیتور فشار و شرایط اتاق|
+11292|3|Manometers & Pressure Meters|مانومتر و فشارسنج|
+11293|4|Digital Manometers|مانومتر دیجیتال|
+11294|4|Digital Manometers for Hazardous Locations|مانومتر دیجیتال ضدانفجار|
+11295|4|Analog Manometers, Kits, & Accessories|مانومتر آنالوگ (U شکل)، کیت و لوازم|
+11296|3|Submersible Level Transmitters|ترانسمیتر سطح مستغرق|
+11297|3|Pressure Gauge & Transmitter Accessories|لوازم جانبی گیج و ترانسمیتر فشار|
+11298|4|Snubbers for Pressure Gauges|دمپر (اسنابر) گیج فشار|
+11299|4|Siphons for Pressure Gauges|سیفون گیج فشار (لوله کویلی)|
+11300|4|Mounting Hardware & Kits for Pressure Gauges & Transmitters|براکت و کیت نصب گیج و ترانسمیتر|
+11301|4|Repair Tools for Pressure Gauges|ابزار تعمیر گیج فشار|
+11302|4|Guards for Pressure Gauges|محافظ گیج فشار|
+11303|4|Pressure & Temperature Test Plugs|تست‌پلاگ فشار و دما (پیت پلاگ)|
+11304|4|Protective Boots & Cases for Pressure Gauges|روکش و کیف محافظ گیج فشار|
+11305|4|Threaded Adapters for Pressure Sensors|تبدیل رزوه‌ای سنسور فشار|
+11306|4|Cables & Connectors for Pressure Gauges & Transducers|کابل و کانکتور گیج و ترانسدیوسر فشار|
+11307|3|Airflow & Static Pressure Accessories|لوازم جریان هوا و فشار استاتیک|
+11308|4|Pitot Tubes & Airflow Sensors|لوله پیتوت و سنسور جریان هوا|
+11309|4|Static Pressure Tips, Pickups, & Mounting Hardware|سر پراب فشار استاتیک و لوازم نصب|
+11310|4|Air System Monitoring Kits|کیت پایش سیستم هوا|
+11311|2|Temperature and Environmental Measurement|اندازه‌گیری دما و شرایط محیطی|
+11312|3|Infrared Temperature Measurement|اندازه‌گیری دمای مادون قرمز|
+11313|4|Infrared Thermometers & Accessories|ترمومتر لیزری (تفنگی) و لوازم|
+11314|5|Infrared Thermometers|ترمومتر لیزری (دماسنج تفنگی)|
+11315|5|Infrared Thermometer Calibrators|کالیبراتور ترمومتر لیزری|
+11316|5|Infrared Thermometer Accessories|لوازم جانبی ترمومتر لیزری|
+11317|4|Infrared Cameras & Accessories|دوربین حرارتی و لوازم|
+11318|5|Handheld Infrared Cameras|دوربین حرارتی دستی|
+11319|5|Fixed Location Infrared Cameras|دوربین حرارتی ثابت|
+11320|5|Infrared Cameras for Smart Phones|دوربین حرارتی موبایل|
+11321|5|Infrared Windows|پنجره بازدید مادون قرمز|
+11322|5|Infrared Camera Accessories|لوازم جانبی دوربین حرارتی|
+11323|4|Infrared Temperature Sensors & Accessories|سنسور دمای مادون قرمز (پیرومتر) و لوازم|
+11324|5|Infrared Temperature Sensors|سنسور دمای مادون قرمز (پیرومتر)|
+11325|5|Infrared Temperature Sensor Accessories|لوازم جانبی پیرومتر|
+11326|3|Environmental Measurement|اندازه‌گیری شرایط محیطی|
+11327|4|Desk & Wall Mount Thermometers & Hygrometers|دماسنج و رطوبت‌سنج رومیزی و دیواری|ترکیبی
+11328|5|Desk & Wall Mount Digital Thermometers & Hygrometers|دماسنج و رطوبت‌سنج دیجیتال رومیزی و دیواری|
+11329|5|Wall Mount Analog Thermometers & Hygrometers|دماسنج و رطوبت‌سنج عقربه‌ای دیواری|
+11330|5|Commercial & Residential Temperature Alarms|هشدار دمای تجاری و خانگی|
+11331|5|Fixed-Position Digital Thermometers for Commercial & Retail Refrigeration|دماسنج دیجیتال ثابت یخچال‌های تجاری|
+11332|5|Remote-Transmitting Temperature & Humidity Sensors|سنسور بی‌سیم دما و رطوبت|
+11333|4|Windsocks|بادنما (کیسه بادنما)|
+11334|4|Digital Temperature & Humidity Meters|دما و رطوبت‌سنج دیجیتال دستی|
+11335|4|Moisture Meters & Accessories|رطوبت‌سنج مواد و لوازم|
+11336|5|Moisture Meters|رطوبت‌سنج مواد (چوب و مصالح)|
+11337|5|Moisture Meter Accessories|لوازم جانبی رطوبت‌سنج|
+11338|4|Heat Stress Monitors|سنجشگر استرس حرارتی (WBGT)|
+11339|4|Multifunction Environmental Meters|سنجشگر محیطی چندکاره|
+11340|4|Weather Stations|ایستگاه هواشناسی|ترکیبی
+11341|4|Barometers|فشارسنج هوا (بارومتر)|ترکیبی
+11342|4|Rain Gauges|باران‌سنج|ترکیبی
+11343|4|Sling Psychrometers|رطوبت‌سنج فلاخنی (سایکرومتر)|
+11344|4|Environmental Meter & Humidity Meter Accessories|لوازم جانبی سنجشگر محیطی و رطوبت‌سنج|
+11345|3|Temperature Probes & Components|پراب دما و قطعات|
+11346|4|Standard Thermocouple Probes|پراب ترموکوپل استاندارد|
+11347|5|Bayonet Connection Thermocouple Probes|پراب ترموکوپل سرنیزه‌ای (بایونت)|
+11348|5|Compression Fitting Thermocouple Probes|پراب ترموکوپل با اتصال فشاری|
+11349|5|Direct Connect Thermocouple Probes|پراب ترموکوپل اتصال مستقیم|
+11350|5|Flex-Wire Thermocouple Probes|پراب ترموکوپل سیمی انعطاف‌پذیر|
+11351|5|Handheld Thermocouple Probes|پراب ترموکوپل دستی|
+11352|5|Threaded Thermocouple Probes|پراب ترموکوپل رزوه‌ای|
+11353|4|Temperature Probe Components, Wires & Accessories|قطعات، سیم و لوازم پراب دما|
+11354|5|Temperature Probe Connectors & Adapters|کانکتور و تبدیل پراب دما|
+11355|5|Temperature Probe Extension Leads|سیم رابط پراب دما|
+11356|5|Thermocouple Wire for Temperature Probes|سیم ترموکوپل (جبرانی)|
+11357|5|Temperature Probe Replacement Parts|قطعات یدکی پراب دما|
+11358|4|Long-Life & High-Accuracy RTD Probes|پراب RTD (PT100) دقیق|
+11359|5|Direct Connect RTD Probes|پراب RTD اتصال مستقیم|
+11360|5|Flange-Mount Duct RTD Probes|پراب RTD کانالی فلنجی|
+11361|5|Flex-Wire RTD Probes|پراب RTD سیمی|
+11362|5|RTD Probes with Handles|پراب RTD دسته‌دار|
+11363|5|Threaded RTD Probes|پراب RTD رزوه‌ای|
+11364|5|Strap-Mounted Pipe RTD Probes|پراب RTD بستی روی لوله|
+11365|5|Sanitary Tri-Clamp Connection RTD Probes|پراب RTD بهداشتی تری‌کلمپ|
+11366|4|High-Accuracy Thermistor Probes|پراب ترمیستور دقیق|
+11367|5|Flange-Mount Duct Thermistor Probes|پراب ترمیستور کانالی فلنجی|
+11368|5|Flex-Wire Thermistor Probes|پراب ترمیستور سیمی|
+11369|5|Handheld Thermistor Probes|پراب ترمیستور دستی|
+11370|5|Threaded Thermistor Probes|پراب ترمیستور رزوه‌ای|
+11371|5|Strap-Mounted Pipe Thermistors|ترمیستور بستی روی لوله|
+11372|4|Thermocouple Welders & Accessories|دستگاه جوش ترموکوپل و لوازم|
+11373|5|Thermocouple Probe Welders|دستگاه جوش سر ترموکوپل|
+11374|5|Thermocouple Welder Accessories|لوازم جانبی جوش ترموکوپل|
+11375|3|Handheld & Benchtop Temperature Meters|دماسنج دستی و رومیزی|
+11376|4|Standard Thermocouple Handheld Meters|دماسنج دستی ترموکوپلی|
+11377|4|Thermistor Handheld Temperature Meters|دماسنج دستی ترمیستوری|
+11378|4|Multi-Channel Handheld Temperature Meters|دماسنج دستی چندکاناله|
+11379|4|RTD Handheld Temperature Meters|دماسنج دستی RTD|
+11380|4|Benchtop Temperature Meters|دماسنج رومیزی|
+11381|4|Temperature Meter Accessories|لوازم جانبی دماسنج|
+11382|3|Fixed-Location Thermometers & Thermowells|دماسنج ثابت و غلاف دماسنج (ترموول)|
+11383|4|Remote Reading Panel Mount Dial Thermometers|دماسنج عقربه‌ای تابلویی کاپیلاری|
+11384|4|Thread-Mount Thermometers|دماسنج رزوه‌ای|
+11385|5|General Purpose Thread-Mount Dial Thermometers|دماسنج عقربه‌ای رزوه‌ای عمومی (بی‌متال)|
+11386|5|Thread-Mount Dial Thermometer Assemblies|مجموعه دماسنج عقربه‌ای رزوه‌ای|
+11387|5|Thread-Mount Glass Thermometers|دماسنج شیشه‌ای رزوه‌ای (صنعتی)|
+11388|5|Thread-Mount Digital Thermometers|دماسنج دیجیتال رزوه‌ای|
+11389|5|Long-Reach Thread-Mount Dial Thermometers|دماسنج عقربه‌ای ساقه بلند|
+11390|5|Glow-in-the-Dark Thread-Mount Dial Thermometers|دماسنج عقربه‌ای شبرنگ|
+11391|5|Min/Max-Reading Thread-Mount Dial Thermometers|دماسنج عقربه‌ای ماکزیمم/مینیمم|
+11392|5|Thread-Mount Dial Thermometers with Transmitter Output|دماسنج عقربه‌ای با خروجی ترانسمیتر|
+11393|4|Thermowells|غلاف دماسنج (ترموول)|
+11394|4|Remote Reading Panel Mount Digital Thermometers|دماسنج دیجیتال تابلویی با سنسور جدا|
+11395|4|Magnetic-Back Surface Temperature Thermometers|دماسنج سطحی آهنربایی|
+11396|4|Pipe-Mount Surface Temperature Thermometers|دماسنج سطحی روی لوله|
+11397|4|Sanitary Clamp Dial Thermometers|دماسنج عقربه‌ای بهداشتی کلمپی|
+11398|4|Sanitary Clamp Digital Thermometers|دماسنج دیجیتال بهداشتی کلمپی|
+11399|3|Temperature Calibrators|کالیبراتور دما|
+11400|4|Compact Field Drywell Calibrators|کالیبراتور درای‌ول کامپکت|
+11401|4|Handheld Temperature Probe Calibrators|کالیبراتور دستی پراب دما|
+11402|4|Portable Field Metrology Drywell Calibrators|کالیبراتور درای‌ول پرتابل مترولوژی|
+11403|4|Portable Calibration Baths|حمام کالیبراسیون پرتابل|
+11404|4|Temperature Calibrator Accessories|لوازم جانبی کالیبراتور دما|
+11405|4|Intrinsically Safe Compact Reference Temperature Calibrators|کالیبراتور دمای مرجع ضدانفجار|
+11406|4|High-Temperature Thermocouple Calibrator Furnaces|کوره کالیبراسیون ترموکوپل دمابالا|
+11407|3|Clip-On & Pocket Thermometers|دماسنج جیبی و گیره‌ای|
+11408|4|Digital Pocket Thermometers|دماسنج جیبی دیجیتال (سیخی)|
+11409|4|Soil & Compost Thermometers & Monitoring Systems|دماسنج خاک و کمپوست|ترکیبی
+11410|4|Dial Pocket Thermometers|دماسنج جیبی عقربه‌ای|
+11411|4|Vat & Pan Clip-On Dial Thermometers|دماسنج عقربه‌ای گیره‌ای مخزن و تابه|
+11412|3|Controlled Critical Environment Thermometers & Monitoring|دماسنج و پایش محیط‌های حساس (زنجیره سرد)|
+11413|4|Critical Temperature Digital Thermometers|دماسنج دیجیتال دمای حساس (واکسن)|
+11414|4|Critical Temperature Analog Bottle Thermometers|دماسنج آنالوگ بطری‌دار (گلیکولی)|
+11415|4|Wireless Critical Environment Monitoring Systems|سیستم پایش بی‌سیم محیط حساس|
+11416|4|Critical Environment Temperature Alarms|هشدار دمای محیط حساس|
+11417|4|Accessories for Critical Temperature Digital Thermometers|لوازم جانبی دماسنج دمای حساس|

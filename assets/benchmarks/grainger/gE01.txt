@@ -1,0 +1,232 @@
+9338|1|Safety|ایمنی و حفاظت فردی|
+9339|2|Hand & Arm Protection|حفاظت دست و بازو|
+9340|3|Safety Gloves|دستکش ایمنی|
+9341|4|Antistatic Gloves|دستکش آنتی‌استاتیک|
+9342|4|Antivibration Gloves|دستکش ضدلرزش|
+9343|4|Arc Flash & Flame-Resistant Gloves|دستکش ضدشعله و آرک فلش|
+9344|5|Knit Arc Flash & Flame-Resistant Gloves|دستکش بافتنی ضدشعله و آرک فلش|
+9345|5|Mechanics-Style Arc Flash & Flame-Resistant Gloves|دستکش مکانیکی ضدشعله و آرک فلش|
+9346|5|Leather Arc Flash & Flame-Resistant Gloves|دستکش چرمی ضدشعله و آرک فلش|
+9347|4|Cold-Condition Insulated Gloves|دستکش عایق سرما|
+9348|5|Knit Cold-Condition Insulated Gloves & Mitts|دستکش و دستپوش بافتنی عایق سرما|
+9349|5|Mechanics- & Riggers-Style Cold-Condition Insulated Gloves & Mitts|دستکش مکانیکی و ریگری عایق سرما|
+9350|5|Leather Cold-Condition Insulated Gloves & Mitts|دستکش و دستپوش چرمی عایق سرما|
+9351|5|Rubber Cold-Condition Insulated Gloves|دستکش لاستیکی عایق سرما|
+9352|4|Chemical-Resistant Gloves|دستکش ضدمواد شیمیایی|
+9353|5|General Purpose Chemical-Resistant Gloves|دستکش ضدشیمیایی عمومی|
+9354|5|Cut- & Chemical-Resistant Gloves|دستکش ضدبرش و ضدشیمیایی|
+9355|5|Heat- & Chemical-Resistant Gloves|دستکش نسوز و ضدشیمیایی|
+9356|5|Cold-Condition Chemical-Resistant Gloves|دستکش ضدشیمیایی عایق سرما|
+9357|5|Anti-Static Chemical-Resistant Gloves|دستکش ضدشیمیایی آنتی‌استاتیک|
+9358|4|Cut-Resistant Gloves|دستکش ضدبرش|
+9359|5|Knit Cut-Resistant Gloves|دستکش بافتنی ضدبرش|
+9360|5|Mechanics- & Riggers-Style Cut-Resistant Gloves|دستکش مکانیکی و ریگری ضدبرش|
+9361|5|Leather Cut-Resistant Gloves|دستکش چرمی ضدبرش|
+9362|5|Chainmail Cut-Resistant Gloves|دستکش زرهی (حلقه‌ای فلزی) ضدبرش|
+9363|4|Cryogenic Gloves|دستکش کرایوژنیک (ازت مایع)|
+9364|4|Disposable Gloves|دستکش یکبار مصرف|
+9365|5|General Purpose Disposable Gloves|دستکش یکبار مصرف عمومی|
+9366|5|Food-Grade Disposable Gloves|دستکش یکبار مصرف مواد غذایی|
+9367|5|Medical-Grade Disposable Gloves|دستکش یکبار مصرف پزشکی|
+9368|5|Chemical-Resistant Disposable Gloves|دستکش یکبار مصرف ضدشیمیایی|
+9369|5|Cleanroom Disposable Gloves|دستکش یکبار مصرف کلین‌روم|
+9370|4|General Purpose Gloves|دستکش کار عمومی|
+9371|5|Knit General Purpose Gloves|دستکش بافتنی کار|
+9372|5|Mechanics- & Riggers-Style General Purpose Gloves|دستکش مکانیکی و ریگری|
+9373|5|Leather General Purpose Gloves & Mitts|دستکش و دستپوش چرمی کار|
+9374|5|Rubber General Purpose Gloves|دستکش لاستیکی کار|
+9375|4|Heat-Resistant Gloves|دستکش نسوز (مقاوم حرارت)|
+9376|5|Aluminized Heat-Resistant Gloves|دستکش نسوز آلومینیومی|
+9377|5|Knit & Woven Heat-Resistant Gloves & Mitts|دستکش و دستپوش نسوز بافتنی|
+9378|5|Mechanics-Style Heat-Resistant Gloves|دستکش مکانیکی نسوز|
+9379|5|Leather Heat-Resistant Gloves|دستکش چرمی نسوز|
+9380|4|Electrical-Insulating Gloves & Protectors|دستکش عایق برق و روکش|
+9381|5|Electrical Glove Kits|کیت دستکش عایق برق|
+9382|5|Electrical Gloves|دستکش عایق برق|
+9383|5|Leather Protectors for Electrical Gloves|روکش چرمی دستکش عایق برق|
+9384|5|Electrical Glove Accessories|لوازم جانبی دستکش عایق برق|
+9385|4|Inspection Gloves|دستکش بازرسی (نخی)|
+9386|4|Needlestick-Resistant Gloves|دستکش ضدسوزن|
+9387|5|Knit Needlestick-Resistant Gloves|دستکش بافتنی ضدسوزن|
+9388|5|Mechanics-Style Needlestick-Resistant Gloves|دستکش مکانیکی ضدسوزن|
+9389|5|Leather Needlestick-Resistant Gloves|دستکش چرمی ضدسوزن|
+9390|4|Controlled Environment Glove-Box Gloves|دستکش گلاوباکس|
+9391|4|Welding Gloves|دستکش جوشکاری|
+9392|3|Protective Sleeves|ساق‌دست ایمنی|
+9393|4|General Purpose Sleeves|ساق‌دست عمومی|
+9394|4|Cut-Resistant Sleeves|ساق‌دست ضدبرش|
+9395|4|Puncture- & Needlestick-Resistant Sleeves|ساق‌دست ضدسوراخ و ضدسوزن|
+9396|4|Liquid & Particulate Protective Sleeves|ساق‌دست محافظ مایعات و ذرات|
+9397|4|Hazardous Chemical Protective Sleeves|ساق‌دست ضدمواد شیمیایی خطرناک|
+9398|4|Cleanroom Sleeves|ساق‌دست کلین‌روم|
+9399|4|Heat-Resistant Sleeves|ساق‌دست نسوز|
+9400|4|Electrical-Insulating Rubber Sleeves & Accessories|ساق‌دست لاستیکی عایق برق و لوازم جانبی|
+9401|5|Electrical-Insulating Rubber Sleeves|ساق‌دست لاستیکی عایق برق|
+9402|5|Accessories for Electrical-Insulating Sleeves|لوازم جانبی ساق‌دست عایق|
+9403|4|Welding Sleeves|ساق‌دست جوشکاری|
+9404|3|Finger Protection|محافظ انگشت|
+9405|4|Finger Cots|انگشتانه لاستیکی|
+9406|4|Finger Guards|محافظ انگشت|
+9407|4|Finger Tape|چسب انگشت|
+9408|4|Ring Protectors|محافظ انگشتر|
+9409|3|Glove Dispensers & Accessories|دیسپنسر دستکش و لوازم جانبی|
+9410|4|Glove Dispensers|دیسپنسر (جادستکشی) دستکش|
+9411|4|Chemical-Resistant Glove Connectors|اتصال دستکش ضدشیمیایی|
+9412|4|Glove Drying Racks|رک خشک‌کن دستکش|
+9413|4|Glove Holder Clips|گیره نگهدارنده دستکش|
+9414|4|Glove Liners|آستر دستکش|
+9415|2|Footwear & Footwear Accessories|کفش ایمنی و لوازم جانبی|
+9416|3|Safety-Toe Work Boots & Shoes|کفش و پوتین ایمنی سرپنجه‌دار|
+9417|3|Plain-Toe Work Boots & Shoes|کفش و پوتین کار بدون سرپنجه|
+9418|3|Rubber Boots & Waders|چکمه لاستیکی و شلوار چکمه‌دار|
+9419|4|General Purpose Rubber Boots|چکمه لاستیکی عمومی|
+9420|4|Food-Processing Rubber Boots|چکمه لاستیکی صنایع غذایی|
+9421|4|Oil, Gas & Mining Rubber Boots|چکمه لاستیکی نفت، گاز و معدن|
+9422|4|Agriculture & Fishery Rubber Boots|چکمه لاستیکی کشاورزی و شیلات|
+9423|4|Hazardous Materials Boots|چکمه مواد خطرناک (هزمت)|
+9424|4|Waders|شلوار چکمه‌دار (ویدر)|
+9425|3|Overboots & Overshoes|روکفشی و روچکمه‌ای|
+9426|4|General Purpose Overboots & Overshoes|روکفشی عمومی|
+9427|4|Safety-Toe Overshoes, Toe Caps, & Metatarsal Guards|روکفشی سرپنجه‌دار، سرپنجه و محافظ روپا|
+9428|4|Hazardous Materials Overboots & Overshoes|روکفشی مواد خطرناک|
+9429|4|Insulated Cold-Weather Overboots|روچکمه‌ای عایق سرما|
+9430|4|Dielectric Overboots & Overshoes|روکفشی عایق برق (دی‌الکتریک)|
+9431|4|Floor Stripping & Coating Overshoes|روکفشی کفسابی و پوشش کف|
+9432|4|Anti-Fatigue Overshoes|روکفشی ضدخستگی|
+9433|3|Traction Devices|یخ‌شکن کفش (ضدلغزش)|
+9434|3|Insoles|کفی کفش|
+9435|3|Work Socks & Boot Liners|جوراب کار و آستر پوتین|
+9436|3|Footwear Cleaning, Care & Accessories|نظافت، نگهداری و لوازم جانبی کفش|
+9437|4|Shoe & Boot Brushes, Scrubbers & Sanitizers|برس، شوینده و ضدعفونی‌کننده کفش|
+9438|4|Shoe & Boot Racks|جاکفشی و رک چکمه|
+9439|4|Footwear Maintenance & Protection|نگهداری و محافظت کفش|
+9440|4|Footwear Donning & Removal|پاشنه‌کش و چکمه‌درآر|
+9441|2|Eye & Face Protection|حفاظت چشم و صورت|
+9442|3|Safety Glasses & Accessories|عینک ایمنی و لوازم جانبی|
+9443|4|General Purpose Safety Glasses|عینک ایمنی عمومی|
+9444|5|Standard Safety Glasses|عینک ایمنی استاندارد|
+9445|5|Gasketed Safety Glasses|عینک ایمنی واشردار|
+9446|5|Over-the-Glasses (OTG) Safety Glasses|عینک ایمنی روی عینک طبی (OTG)|
+9447|4|Reader & Magnifying Safety Glasses|عینک ایمنی مطالعه و ذره‌بینی|
+9448|4|Welding Safety Glasses|عینک ایمنی جوشکاری|
+9449|4|Prescription Safety Glasses|عینک ایمنی طبی|
+9450|4|Accessories & Parts for Safety Glasses|لوازم جانبی و قطعات عینک ایمنی|
+9451|5|Lenses for Safety Glasses|لنز عینک ایمنی|
+9452|5|Gaskets for Safety Glasses|واشر عینک ایمنی|
+9453|5|Prescription Inserts for Safety Glasses|قاب طبی داخل عینک ایمنی|
+9454|5|Lanyards for Safety Glasses|بند عینک ایمنی|
+9455|5|Side Shields for Safety Glasses|محافظ کناری عینک ایمنی|
+9456|5|Bags, Cases & Mounting Clips for Safety Glasses|کیف، جلد و گیره عینک ایمنی|
+9457|3|Safety Goggles & Accessories|عینک گاگل ایمنی و لوازم جانبی|
+9458|4|General Purpose Safety Goggles|عینک گاگل عمومی|
+9459|5|Standard Safety Goggles|عینک گاگل استاندارد|
+9460|5|Over-the-Glasses (OTG) Safety Goggles|عینک گاگل روی عینک طبی (OTG)|
+9461|5|Face-Mask Safety Goggles|عینک گاگل ماسک‌دار|
+9462|4|Reader & Magnifying Safety Goggles|عینک گاگل مطالعه و ذره‌بینی|
+9463|4|Welding Safety Goggles|عینک گاگل جوشکاری|
+9464|4|Accessories & Parts for Safety Goggles|لوازم جانبی و قطعات عینک گاگل|
+9465|5|Prescription Inserts for Safety Goggles|قاب طبی داخل گاگل|
+9466|5|Face Shields for Safety Goggles|شیلد صورت گاگل|
+9467|5|Bags & Cases for Safety Goggles|کیف و جلد گاگل|
+9468|5|Protective Lens Covers for Safety Goggles|کاور محافظ لنز گاگل|
+9469|5|Lenses for Safety Goggles|لنز گاگل|
+9470|5|Straps for Safety Goggles|بند گاگل|
+9471|3|Face Shields & Accessories|شیلد صورت و لوازم جانبی|
+9472|4|Standalone Face Shields|شیلد صورت مستقل (تلقی)|
+9473|5|Standalone Face Shield Assemblies|شیلد صورت کامل با هدگیر|
+9474|5|Disposable Standalone Face Shields|شیلد صورت یکبار مصرف|
+9475|4|Face Shields for Hard Hats & Helmets|شیلد صورت کلاه ایمنی|
+9476|5|Full-Face Shield Assemblies for Hard Hats & Helmets|شیلد تمام‌صورت کلاه ایمنی|
+9477|5|Eye Shield Assemblies for Hard Hats & Helmets|شیلد چشم کلاه ایمنی|
+9478|5|Accessories for Hard Hat & Helmet Face Shields|لوازم جانبی شیلد کلاه ایمنی|
+9479|4|Face Shield Components|قطعات شیلد صورت|
+9480|5|Crowns for Stand-Alone Face Shields|هدگیر شیلد صورت|
+9481|5|Frames & Adapters for Hard Hat & Helmet Face Shields|قاب و آداپتور شیلد کلاه ایمنی|
+9482|5|Chin Guards for Face Shields|محافظ چانه شیلد|
+9483|5|Replacement Visors for Face Shields|طلق یدکی شیلد صورت|
+9484|4|Storage Bags for Face Shields|کیف نگهداری شیلد صورت|
+9485|3|Cleaners & Dispensers for Eye & Face Protection|تمیزکننده و دیسپنسر عینک و شیلد|
+9486|4|Lens & Face Shield Cleaners & Coatings|تمیزکننده و پوشش ضدبخار لنز و شیلد|
+9487|4|Dispensers for Safety Glasses & Goggles|دیسپنسر عینک ایمنی و گاگل|
+9488|4|UV Sanitizing Cabinets for Glasses, Goggles & Face Shields|کابینت ضدعفونی UV عینک و شیلد|
+9489|2|Hearing Protection|حفاظت شنوایی|
+9490|3|Earplugs|گوشی ایمنی (ایرپلاگ)|
+9491|3|Earplug Dispensers & Refills|دیسپنسر و شارژ گوشی ایمنی|
+9492|3|Earmuffs|گوشی ایمنی روگوشی (ایرماف)|
+9493|3|Noise-Reducing Communication Headsets & Earplugs|هدست و گوشی ارتباطی کاهش صدا|
+9494|3|Hearing Conservation & Testing Systems|سیستم حفاظت و تست شنوایی|
+9495|2|Head Protection|حفاظت سر|
+9496|3|Hard Hats & Safety Helmets|کلاه ایمنی|
+9497|4|ANSI Type 1 Vertical Impact Hard Hats & Safety Helmets|کلاه ایمنی ANSI تیپ ۱ (ضربه عمودی)|
+9498|4|ANSI Type 2 360-Degree Impact Hard Hats & Safety Helmets|کلاه ایمنی ANSI تیپ ۲ (ضربه ۳۶۰ درجه)|
+9499|4|Hard Hat & Safety Helmet Combination Kits|کیت ترکیبی کلاه ایمنی|
+9500|4|Suspensions for Hard Hats & Helmets|کلاهک داخلی (هدبند) کلاه ایمنی|
+9501|4|Chin Straps for Hard Hats & Helmets|بند چانه کلاه ایمنی|
+9502|4|Sweat Bands & Pads for Hard Hats & Helmets|عرق‌گیر و پد کلاه ایمنی|
+9503|4|Covers & Brim Attachments for Hard Hats & Helmets|کاور و لبه الحاقی کلاه ایمنی|
+9504|4|Mounting Hardware & Adapters for Hard Hats & Helmets|اتصالات و آداپتور نصب کلاه ایمنی|
+9505|4|Heat & Cold Stress Protection for Hard Hats & Helmets|محافظ گرما و سرمای کلاه ایمنی|
+9506|5|Insulating Liners for Hard Hats & Helmets|آستر عایق کلاه ایمنی|
+9507|5|Sun Shades, Visors & Fans for Hard Hats & Helmets|آفتاب‌گیر، نقاب و فن کلاه ایمنی|
+9508|4|Eye & Face Protection for Hard Hats & Helmets|محافظ چشم و صورت کلاه ایمنی|
+9509|5|Full-Face Shield Assemblies for Hard Hats & Helmets|شیلد تمام‌صورت کلاه ایمنی|
+9510|5|Eye Shield Assemblies for Hard Hats & Helmets|شیلد چشم کلاه ایمنی|
+9511|5|Frames & Adapters for Hard Hat & Helmet Face Shields|قاب و آداپتور شیلد کلاه ایمنی|
+9512|4|Hearing Protection for Hard Hats & Helmets|محافظ شنوایی کلاه ایمنی|
+9513|5|Hard Hat & Helmet-Mounted Earmuffs|ایرماف نصب روی کلاه ایمنی|
+9514|5|Hard Hat & Helmet-Mounted Communication Headsets|هدست ارتباطی نصب روی کلاه ایمنی|
+9515|4|Lighting for Hard Hats & Helmets|چراغ کلاه ایمنی|
+9516|3|Bump Caps|کلاه ضدضربه سبک (بامپ کپ)|
+9517|4|Bump Caps & Inserts|بامپ کپ و لایه داخلی|
+9518|4|Replacement Parts & Accessories for Bump Caps|قطعات یدکی و لوازم جانبی بامپ کپ|
+9519|3|Head Protection Tethers|بند نگهدارنده کلاه ایمنی (ضدسقوط)|
+9520|3|Head Protection Storage|نگهدارنده و جای کلاه ایمنی|
+9521|3|Head Protection Labels|برچسب کلاه ایمنی|
+9522|4|Reflective Hard Hat Labels|برچسب شبرنگ کلاه ایمنی|
+9523|4|Safety Message, Training & Certification Hard Hat Labels|برچسب پیام ایمنی، آموزش و گواهینامه کلاه|
+9524|4|Decorative Head Protection Labels|برچسب تزئینی کلاه ایمنی|
+9525|2|Protective Clothing|لباس ایمنی و حفاظتی|
+9526|3|Aluminized Heat-Resistant Clothing|لباس نسوز آلومینیومی|
+9527|4|Aluminized Heat-Resistant Hoods|کلاه‌کاپشن نسوز آلومینیومی|
+9528|4|Aluminized Heat-Resistant Jackets & Coats|کت و کاپشن نسوز آلومینیومی|
+9529|4|Aluminized Heat-Resistant Chaps & Pants|شلوار و ساق‌پوش نسوز آلومینیومی|
+9530|4|Aluminized Heat-Resistant Leggings & Spats|گتر و ساق‌بند نسوز آلومینیومی|
+9531|4|Aluminized Heat-Resistant Aprons|پیش‌بند نسوز آلومینیومی|
+9532|4|Aluminized Heat-Reflective Pads|پد بازتابنده حرارت آلومینیومی|
+9533|4|Aluminized Heat-Resistant Sleeves|ساق‌دست نسوز آلومینیومی|
+9534|3|Arc Flash & Flame-Resistant Protective Clothing|لباس ضدشعله و آرک فلش|
+9535|4|Arc Flash & Flame-Resistant Clothing Kits|کیت لباس ضدشعله و آرک فلش|
+9536|4|Arc Flash & Flame-Resistant Balaclavas, Hats, Hard Hat Liners & Neck Gaiters|کلاه بالاکلاوا، آستر کلاه ایمنی و گردن‌بند ضدشعله|
+9537|4|Arc Flash & Flame-Resistant Face Shields & Hoods|شیلد و کلاه‌کاپشن آرک فلش|
+9538|4|Arc Flash & Flame-Resistant Coveralls|لباس کار یکسره ضدشعله|
+9539|4|Arc Flash & Flame-Resistant Shirts|پیراهن ضدشعله|
+9540|4|Arc Flash & Flame-Resistant Sweatshirts & Hoodies|سویشرت و هودی ضدشعله|
+9541|4|Arc Flash & Flame-Resistant Jackets & Coats|کاپشن و کت ضدشعله|
+9542|4|Arc Flash & Flame-Resistant Lab Coats|روپوش آزمایشگاهی ضدشعله|
+9543|4|Arc Flash & Flame-Resistant Overalls|لباس کار پیشبندی ضدشعله|
+9544|4|Arc Flash & Flame-Resistant Pants|شلوار ضدشعله|
+9545|4|Arc Flash & Flame-Resistant Vests|جلیقه ضدشعله|
+9546|3|Chemical, Liquid & Particulate Protective Clothing|لباس محافظ مواد شیمیایی، مایعات و ذرات|
+9547|4|Coveralls for Chemical, Liquid & Particulate Protection|لباس یکسره ضدشیمیایی (تایوک)|
+9548|4|Hoods for Chemical, Liquid & Particulate Protection|کلاه‌کاپشن ضدشیمیایی|
+9549|4|Lab Coats, Frocks, & Jackets for Chemical, Liquid & Particulate Protection|روپوش و کاپشن ضدشیمیایی|
+9550|4|Shirts for Chemical, Liquid & Particulate Protection|پیراهن ضدشیمیایی|
+9551|4|Aprons & Smocks for Chemical, Liquid & Particulate Protection|پیش‌بند و روپوش ضدشیمیایی|
+9552|4|Overalls & Pants for Chemical, Liquid & Particulate Protection|شلوار و لباس پیشبندی ضدشیمیایی|
+9553|4|Boot & Shoe Covers for Chemical, Liquid & Particulate Protection|کاور کفش و چکمه ضدشیمیایی|
+9554|4|Encapsulated Suits & Accessories for Chemical Protection|لباس کپسولی تمام‌پوش ضدشیمیایی و لوازم جانبی|
+9555|4|Seam Tape for Protective Clothing|نوار درز لباس حفاظتی|
+9556|3|Cleanroom Protective Clothing|لباس کلین‌روم|
+9557|4|Coveralls for Cleanrooms|لباس یکسره کلین‌روم|
+9558|4|Hoods for Cleanrooms|کلاه‌کاپشن کلین‌روم|
+9559|4|Lab Coats, Frocks & Aprons for Cleanrooms|روپوش و پیش‌بند کلین‌روم|
+9560|4|Boot & Shoe Covers for Cleanrooms|کاور کفش و چکمه کلین‌روم|
+9561|4|Bouffants & Veils for Cleanrooms|کلاه پرستاری (بوفان) و نقاب کلین‌روم|
+9562|3|Cryogenic Protective Clothing|لباس حفاظتی کرایوژنیک|
+9563|3|Cut-Resistant Protective Clothing|لباس ضدبرش|
+9564|3|Hairnets, Bouffants & Beard Nets|توری مو، کلاه بوفان و ریش‌بند|
+9565|3|High-Visibility Protective Clothing|لباس شبرنگ (هایویز)|
+9566|4|High-Visibility Vests|جلیقه شبرنگ|
+9567|4|High-Visibility Coveralls & Suits|لباس یکسره و ست شبرنگ|
+9568|4|High-Visibility Jackets & Coats|کاپشن و کت شبرنگ|
+9569|4|High-Visibility Hoodies & Sweatshirts|هودی و سویشرت شبرنگ|

@@ -1,0 +1,253 @@
+12196|6|Annular Cutters|مته گردبر (اَنولار کاتر)|
+12197|5|Dado Sets|ست تیغ شیارزن (دادو)|
+12198|5|Concrete Chain Saw Chains & Bars|زنجیر و تیغه اره زنجیری بتن‌بر|
+12199|5|Circular Saw Blades|تیغ اره گرد (دیسکی)|
+12200|5|Cold Saw Blades|تیغ اره سرد‌بر (کلدسا)|
+12201|5|Diamond Saw Blades|صفحه الماسه|
+12202|5|Jigsaw Blades & Sets|تیغ اره عمودبر و ست|
+12203|6|Jigsaw Blades|تیغ اره عمودبر|
+12204|6|Jigsaw Blade Sets|ست تیغ اره عمودبر|
+12205|5|Power Hacksaw Blades|تیغ اره لنگ|
+12206|5|Scroll Saw Blades|تیغ اره مویی (فارسی‌بر)|
+12207|4|Band Saws|اره نواری|
+12208|5|Portable Band Saws|اره نواری دستی|
+12209|6|Cordless Portable Band Saws|اره نواری دستی شارژی|
+12210|6|Corded Portable Band Saws|اره نواری دستی برقی|
+12211|5|Stationary Band Saws|اره نواری ثابت|
+12212|6|Combination Metal- & Wood-Cutting Band Saws|اره نواری فلز و چوب|
+12213|6|Metal-Cutting Band Saws|اره نواری فلزبر|
+12214|7|Automatic Horizontal Metal-Cutting Band Saws|اره نواری افقی اتوماتیک|
+12215|7|Combination Vertical/Horizontal Metal-Cutting Band Saws|اره نواری عمودی/افقی|
+12216|7|Manual Horizontal Metal-Cutting Band Saws|اره نواری افقی دستی|
+12217|7|Semi-Automatic Horizontal Metal-Cutting Band Saws|اره نواری افقی نیمه‌اتوماتیک|
+12218|7|Vertical Metal-Cutting Band Saws|اره نواری عمودی فلزبر|
+12219|6|Wood-Cutting Band Saws|اره نواری چوب‌بر|
+12220|5|Band Saw Accessories|لوازم جانبی اره نواری|
+12221|5|Replacement Parts for Band Saws|قطعات یدکی اره نواری|
+12222|4|Chop Saws, Cut-Off Machines & Cold Saws|پروفیل‌بر، دستگاه برش و اره سردبر|
+12223|5|Chop Saws|پروفیل‌بر (اره سنگی)|
+12224|5|Cold Saws|اره سردبر (کلدسا)|
+12225|5|Corded Cut-Off Machines|دستگاه برش برقی|
+12226|5|Cordless Cut-Off Machines|دستگاه برش شارژی|
+12227|5|Hose Chop Saws|دستگاه برش شیلنگ|
+12228|5|Replacement Parts for Chop Saws, Cut-Off Machines & Cold Saws|قطعات یدکی پروفیل‌بر و دستگاه برش|
+12229|5|Chop Saw Accessories|لوازم جانبی پروفیل‌بر|
+12230|4|Circular Saws|اره دیسکی (گردبر)|ترکیبی
+12231|5|Cordless Circular Saws|اره دیسکی شارژی|
+12232|5|Corded Circular Saws|اره دیسکی برقی|
+12233|5|Cutting Guides for Circular Saws|ریل راهنمای اره دیسکی|
+12234|5|Circular Saw Accessories|لوازم جانبی اره دیسکی|
+12235|5|Replacement Parts for Circular Saws|قطعات یدکی اره دیسکی|
+12236|4|Jamb Saws|اره زیر چارچوب (جمب‌سا)|
+12237|4|Jigsaws|اره عمودبر|ترکیبی
+12238|5|Cordless Jigsaws|اره عمودبر شارژی|
+12239|5|Corded Jigsaws|اره عمودبر برقی|
+12240|5|Jigsaw Accessories|لوازم جانبی اره عمودبر|
+12241|5|Replacement Parts for Jigsaws|قطعات یدکی اره عمودبر|
+12242|4|Masonry Saws, Tile Saws & Concrete Saws|اره سنگ‌بر، کاشی‌بر و بتن‌بر|
+12243|5|Gas-Powered Concrete Chain Saws|اره زنجیری بتن‌بر بنزینی|
+12244|5|Handheld Concrete Saws|اره بتن‌بر دستی|
+12245|6|Cordless Handheld Concrete Saws|اره بتن‌بر دستی شارژی|
+12246|6|Gas-Powered Handheld Concrete Saws|اره بتن‌بر دستی بنزینی|
+12247|6|Corded Handheld Concrete Saws|اره بتن‌بر دستی برقی|
+12248|6|Handheld Concrete Saw Accessories|لوازم جانبی اره بتن‌بر دستی|
+12249|5|Masonry Saws|دستگاه سنگ‌بر|
+12250|5|Tile Saws|کاشی‌بر|
+12251|6|Powered Tile Saws|کاشی‌بر برقی|
+12252|6|Tile Saw Accessories|لوازم جانبی کاشی‌بر|
+12253|5|Walk-Behind Concrete Saws|کف‌بر بتن (آسفالت‌بر هلدادنی)|
+12254|6|Corded Walk-Behind Concrete Saws|کف‌بر بتن برقی|
+12255|6|Cordless Walk-Behind Concrete Saws|کف‌بر بتن شارژی|
+12256|6|Gas-Powered Walk-Behind Concrete Saws|کف‌بر بتن بنزینی|
+12257|6|Early Entry Concrete Saws|اره بتن تازه (ارلی انتری)|
+12258|5|Replacement Parts for Masonry, Tile & Concrete Saws|قطعات یدکی اره سنگ‌بر، کاشی‌بر و بتن‌بر|
+12259|4|Miter Saws|اره فارسی‌بر|
+12260|5|Cordless Miter Saws|فارسی‌بر شارژی|
+12261|5|Corded Miter Saws|فارسی‌بر برقی|
+12262|5|Miter Saw Stands|پایه فارسی‌بر|
+12263|5|Miter Saw Measuring Tools|ابزار اندازه‌گیری فارسی‌بر|
+12264|5|Miter Saw Accessories|لوازم جانبی فارسی‌بر|
+12265|5|Replacement Parts for Miter Saws|قطعات یدکی فارسی‌بر|
+12266|4|Panel Saws|دستگاه دورکن (اره پانل‌بر)|
+12267|5|Corded Panel Saws|اره پانل‌بر برقی|
+12268|5|Panel Saw Accessories|لوازم جانبی پانل‌بر|
+12269|5|Replacement Parts for Panel Saws|قطعات یدکی پانل‌بر|
+12270|4|Power Hacksaws|اره لنگ برقی|
+12271|5|Large Pipe Clamp|گیره لوله بزرگ|
+12272|4|Reciprocating Saws|اره افقی‌بر|
+12273|5|Cordless Reciprocating Saws|اره افقی‌بر شارژی|
+12274|5|Corded Reciprocating Saws|اره افقی‌بر برقی|
+12275|5|Reciprocating Saw Accessories|لوازم جانبی اره افقی‌بر|
+12276|5|Replacement Parts for Reciprocating Saws|قطعات یدکی اره افقی‌بر|
+12277|4|Radial Arm Saws|اره بازویی (رادیال)|
+12278|4|Scroll Saws|اره مویی رومیزی|
+12279|5|Corded Scroll Saws|اره مویی برقی|
+12280|5|Scroll Saw Accessories|لوازم جانبی اره مویی|
+12281|4|Table Saws|اره میزی|
+12282|5|Cabinet Table Saws|اره میزی کابینتی|
+12283|5|Cordless Portable Table Saws|اره میزی پرتابل شارژی|
+12284|5|Corded Portable Table Saws|اره میزی پرتابل برقی|
+12285|5|Table Saw Blade Retraction & Accessories|سیستم توقف تیغه و لوازم اره میزی|
+12286|5|Replacement Parts for Table Saws|قطعات یدکی اره میزی|
+12287|5|Push Blocks, Push Sticks & Featherboards|هل‌دهنده چوب و شانه نگهدارنده|
+12288|4|Track Saws|اره ریلی (غوطه‌ور)|
+12289|5|Cordless Track Saws|اره ریلی شارژی|
+12290|5|Corded Track Saws|اره ریلی برقی|
+12291|5|Track Saw Tracks & Accessories|ریل و لوازم اره ریلی|
+12292|3|Power Shears & Nibblers|قیچی برقی و نیبلر|
+12293|4|Power Shears for Sheet Metal|قیچی برقی ورق|
+12294|5|Cordless Shears|قیچی ورق شارژی|
+12295|5|Corded Shears|قیچی ورق برقی|
+12296|5|Power Shear Blades, Cutting Heads & Parts|تیغه، سر برش و قطعات قیچی برقی|
+12297|4|Power Nibblers for Sheet Metal|نیبلر برقی ورق|
+12298|5|Cordless Nibblers|نیبلر شارژی|
+12299|5|Corded Nibblers|نیبلر برقی|
+12300|5|Power Nibbler Punch & Die Replacements|سنبه و ماتریس یدکی نیبلر|
+12301|4|Power Shears for Carpet & Leather|قیچی برقی موکت و چرم|
+12302|4|Cement Board Shears|قیچی برقی فایبر سمنت|
+12303|5|Corded Cement Board Shears|قیچی فایبر سمنت برقی|
+12304|5|Cordless Cement Board Shears|قیچی فایبر سمنت شارژی|
+12305|4|Replacement Parts for Power Shears & Nibblers|قطعات یدکی قیچی برقی و نیبلر|
+12306|4|Power Hydraulic Chain Cutters|زنجیربر هیدرولیک برقی|
+12307|4|Power Hydraulic Cutter/Spreader Combination Tools|قیچی و بازکن هیدرولیک امداد (جاوز)|
+12308|3|Nail Guns, Staple Guns & Rivet Tools|میخکوب، منگنه‌کوب و پرچ برقی|
+12309|4|Nail Guns|میخکوب|
+12310|5|Cordless Nail Guns|میخکوب شارژی|
+12311|5|Nail Gun Accessories & Replacement Parts|لوازم و قطعات یدکی میخکوب|
+12312|4|Cordless Riveting Tools|پرچ‌کن شارژی|
+12313|4|Power Staple Guns|منگنه‌کوب برقی|
+12314|5|Cordless Staple Guns|منگنه‌کوب شارژی|
+12315|5|Corded Staple Guns|منگنه‌کوب برقی سیمی|
+12316|4|Powder-Actuated Tools|میخکوب چاشنی‌دار (تفنگ میخکوب)|
+12317|5|Fasteners for Powder-Actuated Tools|میخ تفنگ میخکوب|
+12318|5|Powder-Actuated Guns|تفنگ میخکوب چاشنی‌دار|
+12319|5|Powder Loads for Powder-Actuated Guns|چاشنی (فشنگ) میخکوب|
+12320|3|Rebar Tying Tools, Cutters & Benders|میلگردبند، میلگردبر و خم‌کن|
+12321|4|Cordless Rebar Cutters & Benders|میلگردبر و خم‌کن شارژی|
+12322|4|Corded Rebar Cutters & Benders|میلگردبر و خم‌کن برقی|
+12323|4|Cordless Rebar Tying Tools|دستگاه آرماتوربند شارژی|
+12324|4|Rebar Tie Wire & Caps|سیم آرماتوربندی و کلاهک میلگرد|
+12325|4|Rebar Cutting Blades|تیغه میلگردبر|
+12326|3|Rotary Hammers, Demolition Hammers & Breaker Hammers|دریل بتن‌کن، چکش تخریب و بتن‌شکن|
+12327|4|Cordless Hammer Chisels|چکش قلم‌دار شارژی|
+12328|4|Rotary Hammers|دریل بتن‌کن (روتاری همر)|
+12329|5|Corded Rotary Hammers|دریل بتن‌کن برقی|
+12330|5|Cordless Rotary Hammers|دریل بتن‌کن شارژی|
+12331|4|Demolition Hammers & Breaker Hammers|چکش تخریب و بتن‌شکن|
+12332|5|Cordless Demolition Hammers & Breaker Hammers|چکش تخریب شارژی|
+12333|5|Corded Demolition Hammers & Breaker Hammers|چکش تخریب برقی|
+12334|4|Rotary Hammer & Demolition Tool Accessories|لوازم جانبی بتن‌کن و چکش تخریب|
+12335|4|Replacement Parts for Rotary Hammers & Demolition Tools|قطعات یدکی بتن‌کن و چکش تخریب|
+12336|3|Routers, Bits & Wood Shapers|اور فرز، تیغ و دستگاه فرز چوب|
+12337|4|Corded Routers & Laminate Trimmers|اور فرز و لبه‌تراش برقی|
+12338|4|Cordless Routers|اور فرز شارژی|
+12339|4|Router Bases, Tables, Guides & Dust Collection Accessories|پایه، میز، راهنما و مکنده اور فرز|
+12340|4|Router Bits|تیغ اور فرز|
+12341|5|Profile Router Bits|تیغ اور فرز ابزارزنی (پروفیل)|
+12342|5|Router Bit Sets|ست تیغ اور فرز|
+12343|4|CNC Router Tables|دستگاه CNC روتر|
+12344|4|Wood Shapers|دستگاه فرز میزی چوب (اشپیندل)|
+12345|4|Mortising Machines|دستگاه کم‌زن (فاق‌زن)|
+12346|3|Dust Collectors & Extractors|غبارگیر و مکنده گردوغبار|
+12347|4|Silica Dust Extractor Attachments|متعلقات مکش گرد سیلیس|
+12348|4|Cordless Universal Silica Dust Extractors|مکنده گرد سیلیس شارژی|
+12349|4|Corded Universal Silica Dust Extractors|مکنده گرد سیلیس برقی|
+12350|4|Industrial Silica Dust Collectors & Pre-Separators|غبارگیر صنعتی سیلیس و پیش‌جداکننده|
+12351|4|Silica Dust Abatement Sprayers|اسپری‌کننده مهار گرد سیلیس|
+12352|4|Corded & Cordless Wood Dust Extractors|مکنده خاک‌اره برقی و شارژی|
+12353|4|Industrial Wood Dust Collection & Air Filtration|غبارگیر صنعتی چوب و تصفیه هوا|
+12354|5|Wood Dust Collectors|مکنده خاک‌اره (سیکلون)|
+12355|5|Filters & Collector Bags for Wood Dust Collectors|فیلتر و کیسه مکنده خاک‌اره|
+12356|5|Hoses & Hose Fittings for Wood Dust Collectors|شیلنگ و اتصالات مکنده خاک‌اره|
+12357|5|Replacement Parts for Wood Dust Collectors|قطعات یدکی مکنده خاک‌اره|
+12358|5|Woodworking Air Filtration Systems|سیستم تصفیه هوای کارگاه نجاری|
+12359|5|Filters for Woodworking Air Filtration Systems|فیلتر تصفیه هوای کارگاه نجاری|
+12360|5|Woodworking Downdraft Tables|میز مکنده نجاری (داون‌درفت)|
+12361|5|Filters for Woodworking Downdraft Tables|فیلتر میز مکنده|
+12362|3|Power Tool Replacement Parts|قطعات یدکی ابزار برقی|
+12363|4|Assorted Brands Power Tool Parts|قطعات ابزار برقی برندهای مختلف|
+12364|4|Black & Decker Power Tool Parts|قطعات ابزار برقی Black & Decker|
+12365|4|Dayton Power Tool Parts|قطعات ابزار برقی Dayton|
+12366|4|Makita Power Tool Parts|قطعات ابزار برقی Makita|
+12367|4|Master Appliance Power Tool Parts|قطعات ابزار برقی Master Appliance|
+12368|4|Metabo Power Tool Parts|قطعات ابزار برقی Metabo|
+12369|4|Milwaukee Power Tool Parts|قطعات ابزار برقی Milwaukee|
+12370|4|Westward Power Tool Parts|قطعات ابزار برقی Westward|
+12371|3|Rotary Tools, Oscillating Tools & Cut-Out Tools|فرز مینیاتوری، همه‌کاره نوسانی و کاتر برقی|
+12372|4|Cut-Out Tools|کاتر برقی (فرز برش کناف)|
+12373|5|Cordless Cut-Out Tools|کاتر برقی شارژی|
+12374|5|Corded Cut-Out Tools|کاتر برقی سیمی|
+12375|5|Cut-Out Tool Router Bits & Accessories|تیغ و لوازم کاتر برقی|
+12376|4|Oscillating Tools|ابزار همه‌کاره نوسانی (مولتی‌تول برقی)|
+12377|5|Cordless Oscillating Tools|مولتی‌تول نوسانی شارژی|
+12378|5|Corded Oscillating Tools|مولتی‌تول نوسانی برقی|
+12379|5|Oscillating Tool Blade & Attachment Sets|ست تیغ و متعلقات مولتی‌تول|
+12380|5|Straight Cutting Blades for Oscillating Tools|تیغ برش مستقیم مولتی‌تول|
+12381|5|Round Cutting Blades for Oscillating Tools|تیغ گرد مولتی‌تول|
+12382|5|Hooked Cutting Blades for Oscillating Tools|تیغ قلابی مولتی‌تول|
+12383|5|Scraping Blades for Oscillating Tools|تیغ کاردکی مولتی‌تول|
+12384|5|Grout Removal Blades for Oscillating Tools|تیغ بندکشی (دوغاب‌بر) مولتی‌تول|
+12385|5|Sealant Removal Hooks for Oscillating Tools|قلاب درزگیرکن مولتی‌تول|
+12386|5|Sanding & Polishing Pads & Sheets for Oscillating Tools|پد و سنباده مولتی‌تول|
+12387|5|Electrical Box Cut-Out Blades for Oscillating Tools|تیغ برش قوطی برق مولتی‌تول|
+12388|5|Oscillating Tool Adapters & Accessories|تبدیل و لوازم مولتی‌تول|
+12389|4|Rotary Tools|فرز مینیاتوری (روتاری)|ترکیبی
+12390|5|Cordless Rotary Tools|فرز مینیاتوری شارژی|
+12391|5|Corded Rotary Tools|فرز مینیاتوری برقی|
+12392|5|Rotary Tool Bits & Attachments|سری و متعلقات فرز مینیاتوری|
+12393|6|Rotary Tool Bit & Attachment Sets|ست سری فرز مینیاتوری|
+12394|6|Cutting Wheels for Rotary Tools|صفحه برش فرز مینیاتوری|
+12395|6|Wire Brushes for Rotary Tools|برس سیمی فرز مینیاتوری|
+12396|6|Carving & Engraving Bits for Rotary Tools|سری حکاکی فرز مینیاتوری|
+12397|6|Abrasive Points for Rotary Tools|سنگ انگشتی فرز مینیاتوری|
+12398|6|Sanding Discs & Drums for Rotary Tools|سنباده دیسکی و استوانه‌ای فرز مینیاتوری|
+12399|6|Polishing Points & Pads for Rotary Tools|سری و پد پولیش فرز مینیاتوری|
+12400|6|Drill Bits for Rotary Tools|مته فرز مینیاتوری|
+12401|6|Routing Bits for Rotary Tools|تیغ فرز فرز مینیاتوری|
+12402|6|Mandrels, Collets & Chucks for Rotary Tools|شفت، کولت و سه‌نظام فرز مینیاتوری|
+12403|6|Rotary Tool Accessories|لوازم جانبی فرز مینیاتوری|
+12404|5|Replacement Parts for Rotary Tools|قطعات یدکی فرز مینیاتوری|
+12405|3|Woodturning Lathes|دستگاه خراطی چوب|
+12406|3|Railroad Power Tools|ابزار برقی ریلی (راه‌آهن)|
+12407|2|Measuring & Layout Tools|ابزار اندازه‌گیری و خط‌کشی|
+12408|3|Rail Track Gauges|گیج ریل (عرض‌سنج خط آهن)|
+12409|3|Tape Measures|متر|ترکیبی
+12410|3|Long & Reeled Measuring Tapes|متر نواری بلند (قرقره‌ای)|
+12411|3|Adhesive Tape Measures|متر چسبی|
+12412|3|Digital Tape Measures & Accessories|متر دیجیتال و لوازم|
+12413|3|Oil Gauging Tapes|متر مخزن نفت (عمق‌سنج)|
+12414|3|Measuring Wheels & Accessories|متر چرخ‌دار و لوازم|
+12415|3|Distance Meters & Accessories|متر لیزری و لوازم|ترکیبی
+12416|3|Rulers|خط‌کش|
+12417|3|Levels & Plumb Bobs|تراز و شاقول|
+12418|4|Box, I-Beam & Torpedo Levels|تراز بنایی، تراز I شکل و تراز کوتاه|ترکیبی
+12419|4|Digital Levels|تراز دیجیتال|
+12420|4|Optical Levels, Transit Levels & Theodolites|ترازیاب (نیوو)، ترانزیت و تئودولیت|
+12421|4|Bullseye, Pocket, Line & Fence Post Levels|تراز دایره‌ای، جیبی، ریسمانی و تیرک|
+12422|4|Plumb Bobs|شاقول|
+12423|4|Level Accessories & Carrying Cases|لوازم و کیف تراز|
+12424|3|Laser Levels|تراز لیزری|
+12425|4|Rotary Laser Levels|تراز لیزری دوار (روتاری)|
+12426|4|Dot, Cross-Line & Plane Laser Levels|تراز لیزری نقطه‌ای، خطی و صفحه‌ای|
+12427|4|Pipe, Flooring & Industrial Laser Levels|تراز لیزری لوله، کف و صنعتی|
+12428|4|Laser Level Receivers & Accessories|گیرنده و لوازم تراز لیزری|
+12429|4|Laser Level Tripods & Rods|سه‌پایه و شاخص تراز لیزری|
+12430|3|Squares & Angle Finders|گونیا و زاویه‌سنج|
+12431|4|Layout Squares & T-Squares|گونیا و خط‌کش T|
+12432|4|Combination & Double Squares|گونیا ترکیبی و دوطرفه|
+12433|4|Angle Finders & Protractors|زاویه‌سنج و نقاله|
+12434|4|Contour Gauges|شابلون فرم (پروفیل‌گیر)|
+12435|3|Wall Scanners|اسکنر دیوار|
+12436|3|Length Measuring Machines|دستگاه طول‌سنج|
+12437|3|Stud Finders|ردیاب دیوار (استادفایندر)|ترکیبی
+12438|3|Marking Tools|ابزار علامت‌گذاری|
+12439|4|Industrial Paint Markers & Crayons|ماژیک رنگی و گچ صنعتی|
+12440|5|Permanent Industrial Paint Markers|ماژیک رنگی صنعتی ثابت (مارکر رنگ)|
+12441|5|Removable Industrial Paint Markers|ماژیک رنگی صنعتی پاک‌شدنی|
+12442|5|Permanent Industrial Paint Crayons|گچ رنگی صنعتی ثابت|
+12443|5|Removable Industrial Paint Crayons|گچ رنگی صنعتی پاک‌شدنی|
+12444|4|Industrial Ink Markers|ماژیک صنعتی جوهری|
+12445|5|Permanent Industrial Ink Markers|ماژیک صنعتی ثابت (پرمننت)|
+12446|5|Removable Industrial Ink Markers|ماژیک صنعتی پاک‌شدنی|
+12447|4|Lumber Crayons|گچ چوب (نجاری)|
+12448|4|Industrial Mechanical Pencils|مداد نوکی صنعتی|

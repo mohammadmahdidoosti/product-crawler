@@ -1,0 +1,253 @@
+10054|6|Evacuation Route Signs|تابلو مسیر تخلیه اضطراری|
+10055|5|Fire & Emergency Equipment Signs & Labels|تابلو و برچسب تجهیزات آتش‌نشانی و اضطراری|
+10056|6|Emergency Shut-Off Signs|تابلو قطع اضطراری|
+10057|6|Fire & Emergency Equipment Signs|تابلو تجهیزات آتش‌نشانی و اضطراری|
+10058|7|Fire Alarm Signs|تابلو اعلام حریق|
+10059|7|Fire Department Connection (FDC) Signs|تابلو اتصال آتش‌نشانی (FDC)|
+10060|7|Fire Extinguisher Signs|تابلو کپسول آتش‌نشانی|
+10061|7|Fire Hose Signs|تابلو شیلنگ آتش‌نشانی|
+10062|7|Fire Sprinkler Signs|تابلو اسپرینکلر|
+10063|6|Medical Emergency Equipment Signs|تابلو تجهیزات پزشکی اضطراری|
+10064|7|Automated External Defibrillator (AED) Signs|تابلو دستگاه شوک (AED)|
+10065|7|Emergency Eyewash Signs|تابلو چشم‌شوی اضطراری|
+10066|7|Emergency Shower Signs|تابلو دوش اضطراری|
+10067|7|First Aid Signs|تابلو کمک‌های اولیه|
+10068|6|Spill Emergency Equipment Signs|تابلو تجهیزات اضطراری نشتی|
+10069|5|Fire & Emergency Exit Signs & Labels|تابلو و برچسب خروج اضطراری|
+10070|6|Elevator & Stairway Fire Signs|تابلو آتش‌سوزی آسانسور و راه‌پله|
+10071|6|Emergency Door Signs|تابلو درب اضطراری|
+10072|6|Emergency Exit Signs|تابلو خروج اضطراری|
+10073|6|Fire Door Signs|تابلو درب ضدحریق|
+10074|6|Fire Exit Signs|تابلو خروجی حریق|
+10075|4|Security & Grounds Signs & Labels|تابلو و برچسب امنیتی و محوطه|ترکیبی
+10076|5|Property Restriction & Control Signs & Labels|تابلو و برچسب محدودیت و کنترل ملک|
+10077|6|Clothing Restrictions Signs|تابلو محدودیت پوشش|
+10078|6|Electronics Restrictions Signs|تابلو ممنوعیت وسایل الکترونیکی|
+10079|6|No Hunting Signs|تابلو شکار ممنوع|
+10080|6|No Loitering Signs|تابلو توقف و پرسه‌زنی ممنوع|
+10081|6|No Pets Signs|تابلو ورود حیوانات خانگی ممنوع|
+10082|6|No Playing Or Skateboarding Signs|تابلو بازی و اسکیت‌بورد ممنوع|
+10083|6|No Soliciting Signs|تابلو ورود فروشنده دوره‌گرد ممنوع|
+10084|6|No Stealing & Vandalizing Signs|تابلو سرقت و تخریب ممنوع|
+10085|6|Not Responsible Signs|تابلو سلب مسئولیت|
+10086|6|Weapon & Intoxicating Or Illegal Substance Restrictions Signs|تابلو ممنوعیت سلاح و مواد مخدر|
+10087|5|Security Signs & Labels|تابلو و برچسب امنیتی|
+10088|6|Alarm Signs|تابلو دزدگیر|
+10089|6|Beware Of Dog Signs|تابلو مراقب سگ باشید|
+10090|6|Neighborhood Watch Signs|تابلو دیده‌بانی محله|
+10091|6|Search & Inspection Signs|تابلو بازرسی و تفتیش|
+10092|6|Security Camera Signs|تابلو دوربین مداربسته|
+10093|6|Security Patrol Signs|تابلو گشت حراست|
+10094|6|Visitor Information Signs|تابلو اطلاعات مراجعین|
+10095|5|Waste Control Signs & Labels|تابلو و برچسب پسماند|
+10096|6|Dumpster Signs|تابلو مخزن زباله|
+10097|6|Pet Waste Clean-Up Signs|تابلو جمع‌آوری فضولات حیوانات|
+10098|4|Facility Signs & Labels|تابلو و برچسب ساختمان و تأسیسات|
+10099|5|Conservation Signs & Labels|تابلو و برچسب صرفه‌جویی و محیط زیست|
+10100|6|Go Green Signs|تابلو محیط زیست (سبز)|
+10101|6|Recycle Signs|تابلو بازیافت|
+10102|6|Trash Signs|تابلو زباله|
+10103|5|Perimeter Safety Signs & Labels|تابلو و برچسب ایمنی محدوده|
+10104|6|Perimeter Safety Signs For Aisles & Passageways|تابلو ایمنی راهرو و معابر|
+10105|6|Perimeter Safety Signs For Doors|تابلو ایمنی درب|
+10106|6|Perimeter Safety Signs For Fire Lanes & Equipment|تابلو ایمنی مسیر و تجهیزات آتش‌نشانی|
+10107|6|Perimeter Safety Signs For Gates|تابلو ایمنی دروازه|
+10108|6|Perimeter Safety Signs For General Areas & Spaces|تابلو ایمنی محوطه‌های عمومی|
+10109|5|Wayfinding & Directional Signs & Labels|تابلو راهنما و جهت‌نما|
+10110|6|Aisle Signs|تابلو راهرو (قفسه)|
+10111|6|Floor Of Building Signs|تابلو شماره طبقه|
+10112|6|Wayfinding Signs For General Buildings & Offices|تابلو راهنمای ساختمان و دفاتر|
+10113|6|Wayfinding Signs For Medical Facilities|تابلو راهنمای مراکز درمانی|
+10114|5|Workplace Signs & Labels|تابلو و برچسب محیط کار|
+10115|6|Accessibility & Occupancy Signs|تابلو دسترسی معلولین و ظرفیت|
+10116|6|Business Hours & Open & Closed Signs|تابلو ساعات کاری و باز/بسته|ترکیبی
+10117|6|Cellphone Restriction Signs|تابلو ممنوعیت تلفن همراه|
+10118|6|Food & Drink Restriction Signs|تابلو ممنوعیت خوردن و آشامیدن|
+10119|6|Food Preparation Safety Signs|تابلو ایمنی آماده‌سازی غذا|
+10120|6|General Etiquette & Workplace Signs|تابلو آداب و مقررات محیط کار|
+10121|6|Housekeeping Signs|تابلو نظافت و نظم|
+10122|6|Humor Signs|تابلو طنز|
+10123|6|Restroom & Restroom Etiquette Signs|تابلو سرویس بهداشتی|
+10124|4|Pipe & Valve Labeling & Marking|برچسب و علامت‌گذاری لوله و شیر|
+10125|5|Pipe Markers & Labels|برچسب و نشانگر لوله|
+10126|6|Ammonia Refrigeration Pipe & Component Markers|نشانگر لوله و تجهیزات تبرید آمونیاکی|
+10127|6|Blank Pipe Markers|نشانگر لوله خام|
+10128|6|Pipe Marker Fasteners|بست نشانگر لوله|
+10129|6|Pipe Markers|نشانگر لوله (پایپ مارکر)|
+10130|6|Pipe Marking Arrows & Banding Tape|فلش جهت جریان و نوار لوله|
+10131|5|Valve Tags|پلاک شیر (ولو تگ)|
+10132|6|Blank Valve Tags|پلاک شیر خام|
+10133|6|Numbered Valve Tags|پلاک شیر شماره‌دار|
+10134|4|Wire and Conduit Identification|شناسایی سیم و لوله برق|
+10135|5|Conduit and Voltage Markers|نشانگر لوله برق و ولتاژ|
+10136|5|Wire Marking Labels|برچسب شماره سیم|
+10137|4|Unlighted Exit Signs|تابلو خروج غیرنورانی|
+10138|5|Exit & Entry Signs|تابلو ورود و خروج|
+10139|5|No Exit & No Entry Signs|تابلو خروج ممنوع و ورود ممنوع|
+10140|4|Traffic & Parking Control Signs|تابلو راهنمایی و رانندگی و پارکینگ|
+10141|5|Traffic Control Signs|تابلو راهنمایی و رانندگی|
+10142|6|Driver Safety Reminder Signs|تابلو یادآوری ایمنی رانندگان|
+10143|7|Buckle Up Signs|تابلو کمربند ایمنی را ببندید|
+10144|7|No Cell Phones Signs|تابلو استفاده از تلفن همراه ممنوع|
+10145|6|Motorist Services & Recreation Signs|تابلو خدمات و تفریحی جاده‌ای|
+10146|7|Bicycle Trail Signs|تابلو مسیر دوچرخه|
+10147|7|Church Signs|تابلو کلیسا|
+10148|7|Emergency Room Signs|تابلو اورژانس|
+10149|7|Hospital Signs|تابلو بیمارستان|
+10150|7|Firehouse Signs|تابلو ایستگاه آتش‌نشانی|
+10151|7|Parking Location Signs|تابلو محل پارکینگ|
+10152|6|Object Markers|تابلو نشانگر مانع|
+10153|7|Type 1 Object Markers|نشانگر مانع تیپ ۱|
+10154|7|Type 3 Object Markers|نشانگر مانع تیپ ۳|
+10155|6|Pedestrian & Bicycle Signs|تابلو عابر پیاده و دوچرخه|
+10156|7|Active Driveway Signs|تابلو ورودی فعال خودرو|
+10157|7|Cross Only At Cross Walk Signs|تابلو فقط از خط عابر عبور کنید|
+10158|7|No Bicycles Signs|تابلو عبور دوچرخه ممنوع|
+10159|7|No Pedestrians Signs|تابلو عبور عابر پیاده ممنوع|
+10160|7|Pedestrians & Bicycles Prohibited Signs|تابلو عبور عابر و دوچرخه ممنوع|
+10161|7|Stop For Pedestrians In Crosswalk Signs|تابلو توقف برای عابر در خط عابر|
+10162|7|Yield To Pedestrians In Crosswalk|تابلو حق تقدم با عابر پیاده|
+10163|6|Regulatory Traffic Control Signs|تابلو انتظامی راهنمایی و رانندگی|
+10164|7|2-Way Signs|تابلو دوطرفه|
+10165|7|4-Way Signs|تابلو چهارطرفه|
+10166|7|All Way Signs|تابلو همه‌طرفه|
+10167|7|Do Not Enter & Wrong Way Signs|تابلو ورود ممنوع و مسیر اشتباه|
+10168|7|Keep Left & Keep Right Signs|تابلو از چپ/راست حرکت کنید|
+10169|7|Noise Prohibition Signs|تابلو بوق زدن ممنوع|
+10170|7|No Passing Signs|تابلو سبقت ممنوع|
+10171|7|No Thru Traffic Signs|تابلو عبور ممنوع|
+10172|7|No Trucks Signs|تابلو عبور کامیون ممنوع|
+10173|7|No Turn Signs|تابلو گردش ممنوع|
+10174|7|No U-Turn Signs|تابلو دور زدن ممنوع|
+10175|7|No Vehicles Beyond This Point Signs|تابلو عبور وسیله نقلیه از این نقطه ممنوع|
+10176|7|One-Direction Large Arrow Signs|تابلو فلش بزرگ یک‌طرفه|
+10177|7|One-Way Signs|تابلو یک‌طرفه|
+10178|7|Private Drive & Road Signs|تابلو جاده خصوصی|
+10179|7|Radar Speed Signs|تابلو نمایشگر سرعت (رادار)|
+10180|7|Speed Limit Signs|تابلو محدودیت سرعت|
+10181|7|Stop Emergency Vehicles Only Signs|تابلو ایست ویژه خودروهای امدادی|
+10182|7|Stop Signs|تابلو ایست|
+10183|7|Truck Route Signs|تابلو مسیر کامیون|
+10184|7|Two-Direction Large Arrow Signs|تابلو فلش بزرگ دوطرفه|
+10185|7|Yield Signs|تابلو رعایت حق تقدم|
+10186|6|School Traffic Control Signs|تابلو ترافیکی مدرسه|
+10187|7|Children at Play Signs|تابلو احتیاط کودکان در حال بازی|
+10188|7|School Bus Stop Signs|تابلو ایستگاه سرویس مدرسه|
+10189|7|School Crossing Signs|تابلو گذرگاه دانش‌آموز|
+10190|7|School Zone Signs|تابلو محدوده مدرسه|
+10191|6|Temporary Traffic Control Signs|تابلو ترافیکی موقت (کارگاهی)|
+10192|7|Accident Ahead Signs|تابلو تصادف در پیش|
+10193|7|Be Prepared To Stop Signs|تابلو آماده توقف باشید|
+10194|7|Caution Smoke Ahead Signs|تابلو احتیاط دود در پیش|
+10195|7|Construction Work Ahead Signs|تابلو عملیات ساختمانی در پیش|
+10196|7|Detour Signs|تابلو مسیر انحرافی|
+10197|7|Emergency Scene Ahead Signs|تابلو صحنه امداد در پیش|
+10198|7|End Construction Signs|تابلو پایان عملیات ساختمانی|
+10199|7|End Detour Signs|تابلو پایان مسیر انحرافی|
+10200|7|End Road Work Signs|تابلو پایان عملیات راهسازی|
+10201|7|Flagger Ahead Signs|تابلو پرچم‌دار در پیش|
+10202|7|Give em a Brake Slow Down Signs|تابلو آهسته برانید (کارگران)|
+10203|7|Lane Closed Signs|تابلو خط بسته است|
+10204|7|Lane Ends Signs|تابلو پایان خط عبور|
+10205|7|Loose Gravel Signs|تابلو شن ریزی|
+10206|7|Men Working Signs|تابلو کارگران مشغول کارند|
+10207|7|Mowing Ahead Signs|تابلو چمن‌زنی در پیش|
+10208|7|One-Direction Large Arrow Signs|تابلو فلش بزرگ یک‌طرفه|
+10209|7|One Lane Road Signs|تابلو جاده یک‌خطه|
+10210|7|Prescribed Burn Signs|تابلو سوزاندن کنترل‌شده|
+10211|7|Road Closed Ahead Signs|تابلو جاده بسته است|
+10212|7|Road Construction Ahead Signs|تابلو راهسازی در پیش|
+10213|7|Road Work Ahead Signs|تابلو تعمیرات جاده در پیش|
+10214|7|Rough Road Signs|تابلو جاده ناهموار|
+10215|7|Shoulder Work Signs|تابلو عملیات در شانه راه|
+10216|7|Sobriety Checkpoint Signs|تابلو ایست بازرسی|
+10217|7|Street Work Ahead Signs|تابلو عملیات خیابان در پیش|
+10218|7|Supplemental Temporary Traffic Control Signs|تابلو تکمیلی ترافیکی موقت|
+10219|7|Survey Crew Signs|تابلو گروه نقشه‌برداری|
+10220|7|Tree Work Ahead Signs|تابلو هرس درختان در پیش|
+10221|7|Two-Direction Large Arrow Signs|تابلو فلش بزرگ دوطرفه|
+10222|7|Utility Work Ahead Signs|تابلو عملیات تأسیسات در پیش|
+10223|7|Work Area Ahead Signs|تابلو محدوده کار در پیش|
+10224|7|Workers Ahead Signs|تابلو کارگران در پیش|
+10225|6|Warning Traffic Control Signs|تابلو هشداردهنده راهنمایی و رانندگی|
+10226|7|Airport Entrance Signs|تابلو ورودی فرودگاه|
+10227|7|ATV & Snowmobile Crossing Signs|تابلو گذرگاه موتور چهارچرخ و برف‌رو|
+10228|7|Bicycle Crossing Signs|تابلو گذرگاه دوچرخه|
+10229|7|Blind Corner Signs|تابلو پیچ بدون دید|
+10230|7|Blind Person Crossing Signs|تابلو گذرگاه نابینایان|
+10231|7|Bump Signs|تابلو دست‌انداز|
+10232|7|Cattle Crossing Signs|تابلو عبور احشام|
+10233|7|Caution Children Signs|تابلو احتیاط کودکان|
+10234|7|Caution Signs|تابلو احتیاط|
+10235|7|Cemetery Entrance Signs|تابلو ورودی آرامستان|
+10236|7|Chevron Alignment Signs|تابلو شورون (جهت پیچ)|
+10237|7|Church Entrance Signs|تابلو ورودی کلیسا|
+10238|7|Cross Road Intersection Signs|تابلو تقاطع چهارراه|
+10239|7|Curve Ahead Signs|تابلو پیچ در پیش|
+10240|7|Dangerous Intersection Signs|تابلو تقاطع خطرناک|
+10241|7|Dead End Signs|تابلو بن‌بست|
+10242|7|Deer Crossing Signs|تابلو عبور حیوانات وحشی (گوزن)|
+10243|7|Dip Signs|تابلو گودی جاده|
+10244|7|Double Turn Signs|تابلو پیچ دوطرفه|
+10245|7|Downward Diagonal Arrow Signs|تابلو فلش مورب رو به پایین|
+10246|7|Emergency Entrance Signs|تابلو ورودی اورژانس|
+10247|7|Emergency Vehicle Crossing Signs|تابلو گذرگاه خودروهای امدادی|
+10248|7|Equipment Crossing Signs|تابلو گذرگاه ماشین‌آلات|
+10249|7|Farm Vehicle Crossing Signs|تابلو گذرگاه ماشین‌آلات کشاورزی|
+10250|7|Fire Station Signs|تابلو ایستگاه آتش‌نشانی|
+10251|7|Fire Trucks Entering Signs|تابلو ورود خودروهای آتش‌نشانی|
+10252|7|Forklift Crossing Signs|تابلو گذرگاه لیفتراک|
+10253|7|Hairpin Curve Ahead Signs|تابلو پیچ تند در پیش|
+10254|7|Hidden Drive Signs|تابلو ورودی پنهان|
+10255|7|Hidden Entrance Signs|تابلو ورودی پنهان|
+10256|7|High Water Signs|تابلو آبگرفتگی|
+10257|7|Hill Signs|تابلو سربالایی و سرازیری|
+10258|7|Horse Crossing Signs|تابلو عبور اسب|
+10259|7|Icy Conditions Signs|تابلو جاده یخ‌زده|
+10260|7|Lane Ends Signs|تابلو پایان خط عبور|
+10261|7|Loose Gravel Signs|تابلو شن ریزی|
+10262|7|Low Clearance Signs|تابلو محدودیت ارتفاع|
+10263|7|Machinery Crossing Signs|تابلو گذرگاه ماشین‌آلات|
+10264|7|Merge Signs|تابلو ادغام مسیر|
+10265|7|Narrow Bridge Signs|تابلو پل باریک|
+10266|7|No Passing Zone Signs|تابلو منطقه سبقت ممنوع|
+10267|7|Not a Through Street Signs|تابلو خیابان بن‌بست|
+10268|7|One-Direction Large Arrow Warning Signs|تابلو هشدار فلش بزرگ یک‌طرفه|
+10269|7|Pavement Ends Signs|تابلو پایان آسفالت|
+10270|7|Pedestrian Crossing Signs|تابلو گذرگاه عابر پیاده|
+10271|7|Plant Entrance Signs|تابلو ورودی کارخانه|
+10272|7|Railroad Crossing Ahead Signs|تابلو تقاطع راه‌آهن در پیش|
+10273|7|Reverse Curve Ahead Signs|تابلو پیچ‌های معکوس در پیش|
+10274|7|Road Narrows Signs|تابلو باریک‌شدن جاده|
+10275|7|Rough Road Signs|تابلو جاده ناهموار|
+10276|7|Sasquatch Crossing Signs|تابلو طنز عبور ساسکوچ|
+10277|7|Share The Road Signs|تابلو جاده مشترک|
+10278|7|Side Road Intersection Signs|تابلو تقاطع فرعی|
+10279|7|Signal Ahead Signs|تابلو چراغ راهنمایی در پیش|
+10280|7|Slippery When Wet Signs|تابلو جاده لغزنده|
+10281|7|Slow Signs|تابلو آهسته|
+10282|7|Speed Bump Signs|تابلو سرعت‌گیر|
+10283|7|Speed Hump Signs|تابلو سرعت‌گیر پهن|
+10284|7|Speed Limit Warning Signs|تابلو هشدار محدودیت سرعت|
+10285|7|Stop Ahead Signs|تابلو ایست در پیش|
+10286|7|Theater Entrance Signs|تابلو ورودی سالن نمایش|
+10287|7|T-Intersection Signs|تابلو سه‌راهی|
+10288|7|Trail Crossing Signs|تابلو گذرگاه مسیر پیاده‌روی|
+10289|7|Truck Crossing Signs|تابلو گذرگاه کامیون|
+10290|7|Truck Entrance Signs|تابلو ورودی کامیون|
+10291|7|Trucks Entering Highway Signs|تابلو ورود کامیون به بزرگراه|
+10292|7|Trucks Use Lower Gear Signs|تابلو کامیون‌ها با دنده سنگین|
+10293|7|Turn Ahead Signs|تابلو پیچ در پیش|
+10294|7|Two-Direction Large Arrow Signs|تابلو فلش بزرگ دوطرفه|
+10295|7|Two-Way Traffic Signs|تابلو ترافیک دوطرفه|
+10296|7|Watch For Cross Traffic Signs|تابلو مراقب ترافیک عرضی باشید|
+10297|7|Watch for Emergency Vehicles Signs|تابلو مراقب خودروهای امدادی باشید|
+10298|7|Yield Ahead Signs|تابلو حق تقدم در پیش|
+10299|6|Flashing Sign Beacons|چراغ چشمک‌زن تابلو|
+10300|5|Parking Signs|تابلو پارکینگ|
+10301|6|Designated Parking Signs|تابلو پارکینگ اختصاصی|
+10302|7|ADA Handicapped Parking Signs|تابلو پارکینگ معلولین|
+10303|7|Ambulance Parking Signs|تابلو پارکینگ آمبولانس|
+10304|7|Authorized & Assigned Parking Signs|تابلو پارکینگ مجاز و اختصاصی|
+10305|7|Bicycle Parking Signs|تابلو پارکینگ دوچرخه|
+10306|7|Bus Staging Area Signs|تابلو محل توقف اتوبوس|

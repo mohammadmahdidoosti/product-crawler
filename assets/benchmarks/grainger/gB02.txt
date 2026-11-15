@@ -1,0 +1,258 @@
+2836|4|Air Treatment Systems|سیستم تصفیه هوا|
+2837|3|Dehumidifiers|رطوبت‌گیر|
+2838|4|Portable Dehumidifiers|رطوبت‌گیر پرتابل|ترکیبی
+2839|4|Wall-Mount Dehumidifiers|رطوبت‌گیر دیواری|
+2840|4|In-Duct Dehumidifiers|رطوبت‌گیر کانالی|
+2841|4|Accessories & Parts for Dehumidifiers|لوازم جانبی و قطعات رطوبت‌گیر|
+2842|3|Humidifiers|دستگاه بخور و رطوبت‌ساز|
+2843|4|Portable Humidifiers|رطوبت‌ساز پرتابل|ترکیبی
+2844|4|In-Duct Humidifiers|رطوبت‌ساز کانالی|
+2845|4|Humidifier Pads|پد رطوبت‌ساز|
+2846|4|Accessories & Parts for Humidifiers|لوازم جانبی و قطعات رطوبت‌ساز|
+2847|2|Cooling Fans|پنکه و فن خنک‌کننده|
+2848|3|Industrial Cooling Fans|پنکه صنعتی|
+2849|4|Industrial Floor Fans|پنکه زمینی صنعتی|
+2850|4|Industrial Ceiling & HVLS Fans|پنکه سقفی صنعتی و HVLS|
+2851|4|Industrial Wall-Mount Fans|پنکه دیواری صنعتی|
+2852|4|Industrial Pedestal Fans|پنکه پایه‌دار صنعتی|
+2853|4|Warehouse Dock Fans|پنکه سکوی بارگیری انبار|
+2854|4|Misting Coolers|مه‌پاش خنک‌کننده (فن مه‌پاش)|
+2855|5|Portable Misting Coolers|فن مه‌پاش پرتابل|
+2856|5|Mounted Misting Coolers|فن مه‌پاش نصبی|
+2857|5|Accessories for Misting Coolers|لوازم جانبی فن مه‌پاش|
+2858|4|Industrial Fan Heads|سر پنکه صنعتی|
+2859|4|Industrial Fan Accessories|لوازم جانبی پنکه صنعتی|
+2860|3|Office & Desk Fans|پنکه اداری و رومیزی|ترکیبی
+2861|4|Personal & Desk Fans|پنکه رومیزی و شخصی|
+2862|4|Office Ceiling Fans|پنکه سقفی|
+2863|4|Office Floor & Box Fans|پنکه زمینی و جعبه‌ای|
+2864|4|Office Pedestal Fans|پنکه پایه‌دار|
+2865|4|Office Wall-Mount Fans|پنکه دیواری|
+2866|4|Office Window Fans|پنکه پنجره‌ای|
+2867|3|Equipment-Cooling & Axial Fans|فن خنک‌کننده تجهیزات و فن آکسیال|
+2868|4|Compact Axial Fans|فن آکسیال کوچک (فن تابلویی)|
+2869|5|Square Compact Axial Fans|فن آکسیال مربعی|
+2870|5|Round Compact Axial Fans|فن آکسیال گرد|
+2871|5|Oblong Compact Axial Fans|فن آکسیال بیضی|
+2872|5|Skeleton Compact Axial Fans|فن آکسیال بدون قاب (اسکلتی)|
+2873|5|Compact Axial Fan Guards & Filters|توری و فیلتر فن آکسیال|
+2874|5|Compact Axial Fan Accessories|لوازم جانبی فن آکسیال|
+2875|4|Compact Blowers|بلوور کوچک|
+2876|4|Equipment Rack Air-Distribution Fans|فن توزیع هوای رک تجهیزات|
+2877|4|Motorized Impellers|پروانه موتوردار (ایمپلر)|
+2878|4|Transformer Cooling Fans|فن خنک‌کننده ترانسفورماتور|
+2879|3|Portable Air Movers|فن جابجایی هوای پرتابل (ایرموور)|
+2880|4|Fixed Frame|فریم ثابت|
+2881|2|Ventilation Equipment|تجهیزات تهویه|
+2882|3|Ventilation Fans|هواکش|
+2883|4|Wall-Mount Ventilation Fans|هواکش دیواری|
+2884|5|Panel Exhaust & Supply Fans|هواکش و دمنده پنلی|
+2885|6|Panel Exhaust Fans|هواکش پنلی (مکنده)|
+2886|6|Panel Supply Fans|دمنده پنلی|
+2887|6|Reversible Panel Exhaust & Supply Fans|هواکش پنلی دوطرفه|
+2888|5|Shutter-Mount Exhaust Fans|هواکش دریچه‌دار (کرکره‌ای)|
+2889|5|Cabinet & Box Exhaust & Supply Fans|هواکش و دمنده جعبه‌ای (باکسی)|
+2890|5|Slant-Wall, Cone & Cylinder Exhaust Fans|هواکش مخروطی، استوانه‌ای و دیوار شیب‌دار|
+2891|5|Guard-Mount Exhaust Fans|هواکش توری‌دار|
+2892|5|Ring Exhaust Fans|هواکش حلقه‌ای|
+2893|5|Through-the-Wall Fans|هواکش داخل دیواری|
+2894|5|Wall-Mount Ventilation Fan Accessories|لوازم جانبی هواکش دیواری|
+2895|4|Ceiling-Mount Ventilation Fans|هواکش سقفی|
+2896|4|Roof & Attic Ventilation Fans|هواکش پشت‌بامی و زیرشیروانی|
+2897|5|Upblast Exhaust Fans|هواکش سقفی رو به بالا (آپ‌بلاست)|
+2898|6|Centrifugal Upblast Exhaust Fans|هواکش سانتریفیوژ آپ‌بلاست|
+2899|6|Axial Upblast Exhaust Fans|هواکش آکسیال آپ‌بلاست|
+2900|5|Downblast Exhaust & Supply Fans|هواکش و دمنده سقفی رو به پایین (داون‌بلاست)|
+2901|6|Centrifugal Downblast Exhaust Fans|هواکش سانتریفیوژ داون‌بلاست|
+2902|6|Axial Downblast Exhaust Fans|هواکش آکسیال داون‌بلاست|
+2903|6|Axial Downblast Supply Fans|دمنده آکسیال داون‌بلاست|
+2904|6|Axial Downblast Reversible Exhaust & Supply Fans|هواکش آکسیال داون‌بلاست دوطرفه|
+2905|5|Filtered Supply Fans|دمنده فیلتردار|
+2906|5|Wind-Driven Turbine Exhaust Fans|هواکش بادی (توربینی)|
+2907|5|Attic Exhaust Fans|هواکش زیرشیروانی|
+2908|5|Whole House Fans|هواکش کل ساختمان|
+2909|5|Roof & Attic Ventilation Fan Accessories & Parts|لوازم جانبی و قطعات هواکش پشت‌بامی|
+2910|4|Inline Fans|فن کانالی (این‌لاین)|
+2911|5|Tubeaxial Fans|فن آکسیال لوله‌ای|
+2912|5|Inline Duct Fans|فن کانالی گرد|
+2913|5|Inline Cabinet Fans|فن کانالی باکسی|
+2914|5|Inline Fan Accessories & Parts|لوازم جانبی و قطعات فن کانالی|
+2915|4|Crawlspace Ventilation Fans|هواکش زیرزمین (کرال‌اسپیس)|
+2916|4|Bathroom Ventilation Fans|هواکش حمام و سرویس|ترکیبی
+2917|5|Ceiling- & Wall-Mount Bathroom Ventilation Fans|هواکش سقفی و دیواری حمام|
+2918|5|Bathroom Exhaust Fan Accessories & Parts|لوازم جانبی و قطعات هواکش حمام|
+2919|4|Kitchen Exhaust Hoods|هود آشپزخانه|
+2920|5|Commercial Kitchen Hoods|هود آشپزخانه صنعتی|
+2921|5|Residential Range Hoods|هود خانگی|ترکیبی
+2922|4|Fan Speed Controls & Switches|دیمر و کلید کنترل دور فن|
+2923|3|Blowers & Air Movers|بلوور و دمنده هوا|
+2924|4|Blowers|بلوور (فن سانتریفیوژ)|
+2925|5|Standard Forward-Curved Blowers|بلوور پره جلوخم استاندارد|
+2926|5|High-Efficiency Backward-Inclined Blowers|بلوور پره عقب‌گرد پربازده|
+2927|5|Heavy-Duty Radial Blade Blowers|بلوور پره شعاعی سنگین|
+2928|4|Inline Blowers|بلوور کانالی|
+2929|5|Standard Forward-Curved Inline Blowers|بلوور کانالی پره جلوخم|
+2930|5|High-Efficiency Backward-Inclined Inline Blowers|بلوور کانالی پره عقب‌گرد پربازده|
+2931|4|Plenum Fans|فن پلنوم|
+2932|4|Wheels, Parts & Accessories for Blowers|پروانه، قطعات و لوازم جانبی بلوور|
+2933|5|Blower Wheels|پروانه بلوور (حلزونی)|
+2934|5|Tools, Replacement Parts & Accessories for Blowers|ابزار، قطعات یدکی و لوازم جانبی بلوور|
+2935|3|Draft Inducers & Combustion Air Systems|مکنده دودکش و سیستم هوای احتراق|
+2936|4|Draft Inducers|مکنده دودکش (درفت اینداسر)|
+2937|5|Exhaust Draft Inducers|مکنده دود خروجی|
+2938|5|Replacement Furnace & Boiler Draft Inducers|مکنده یدکی کوره و دیگ|
+2939|4|Combustion Air Systems|سیستم تأمین هوای احتراق|
+2940|3|Energy- & Heat-Recovery Ventilators|هواساز بازیافت انرژی و حرارت (ERV/HRV)|
+2941|3|Air Curtains|پرده هوا|
+2942|4|Standard Air Curtains|پرده هوای استاندارد|
+2943|4|Recess-Mounted Air Curtains|پرده هوای توکار|
+2944|4|Sanitation-Certified Air Curtains|پرده هوای بهداشتی|
+2945|4|Drive-Thru Window Air Curtains|پرده هوای پنجره سرویس (درایو-ترو)|
+2946|4|Wet Location Air Curtains|پرده هوای محیط مرطوب|
+2947|4|Hazardous Location Air Curtains|پرده هوای ضدانفجار|
+2948|4|Tamper Resistant Air Curtains|پرده هوای ضددستکاری|
+2949|4|Modular Air Curtain Cabinets & Blowers|کابینت و بلوور پرده هوای ماژولار|
+2950|4|Air Curtain Parts & Accessories|قطعات و لوازم جانبی پرده هوا|
+2951|3|Duct & Venting|کانال و دودکش|
+2952|4|Duct & Fittings|کانال و اتصالات|
+2953|5|Rigid Duct & Fittings|کانال صلب و اتصالات|
+2954|6|Clamp-Together Industrial Duct & Fittings|کانال صنعتی بستی و اتصالات|
+2955|6|Self-Sealing Duct & Fittings|کانال خودآب‌بند و اتصالات|
+2956|6|Corrosion-Resistant PVC Duct & Fittings|کانال پی‌وی‌سی ضدخوردگی و اتصالات|
+2957|6|Rigid Duct Accessories|لوازم جانبی کانال صلب|
+2958|7|Duct Access Doors|دریچه بازدید کانال|
+2959|7|Blast Gates|دمپر کشویی (بلاست گیت)|
+2960|7|Vent Boot Hangers & Duct Transitions|آویز دریچه و تبدیل کانال|
+2961|7|Duct Insulation Pads & Rolls|پد و رول عایق کانال|
+2962|7|Duct Installation Accessories|لوازم نصب کانال|
+2963|5|Flexible Duct|کانال فلکسی (خرطومی)|
+2964|5|Fabric Duct & Fittings|کانال پارچه‌ای و اتصالات|
+2965|4|Gas & Chimney Venting|دودکش گاز و شومینه|
+2966|5|Gas Vent Pipe & Fittings|لوله دودکش گاز و اتصالات|
+2967|5|Chimney Liners, Kits & Fittings|لاینر دودکش، کیت و اتصالات|
+2968|5|Penetrations & Supports for Gas Venting|عبور سقفی و نگهدارنده دودکش|
+2969|4|Grilles, Registers & Diffusers|دریچه، رجیستر و دیفیوزر|
+2970|5|Grilles|دریچه هوا (گریل)|
+2971|5|Registers|دریچه تنظیم‌دار (رجیستر)|
+2972|5|Diffusers|دیفیوزر سقفی|
+2973|5|Grilles, Registers & Diffuser Accessories|لوازم جانبی دریچه و دیفیوزر|
+2974|4|Vent Caps & Hoods|کلاهک دودکش و هواکش|
+2975|4|Roof Vent Pipe Boots|فلاشینگ لوله پشت‌بام|
+2976|4|Roof Repair Tapes, Tools & Supplies|نوار، ابزار و لوازم تعمیر بام|
+2977|3|Dampers & Louvers|دمپر و لوور|
+2978|4|Dampers|دمپر|
+2979|5|Control Dampers|دمپر کنترلی (موتوری)|
+2980|5|Balancing Dampers|دمپر بالانس|
+2981|5|Backdraft Dampers|دمپر یک‌طرفه (ضدبرگشت)|
+2982|5|Bypass Dampers|دمپر بای‌پس|
+2983|5|Barometric Dampers|دمپر بارومتریک|
+2984|5|Fire & Smoke Dampers|دمپر آتش و دود|
+2985|4|Louvers|لوور (دریچه کرکره‌ای)|
+2986|5|Wall Louvers|لوور دیواری|
+2987|5|Door Louvers|دریچه کرکره‌ای درب|
+2988|3|Plenum & Plenum Components|پلنوم و اجزای آن|
+2989|2|Air Conditioners & Evaporative Coolers|کولر گازی و کولر آبی|
+2990|3|Air Conditioners|کولر گازی|
+2991|4|Window Air Conditioners|کولر پنجره‌ای|ترکیبی
+2992|5|Residential-Grade Window Air Conditioners|کولر پنجره‌ای خانگی|
+2993|5|Commercial-Grade Window Air Conditioners|کولر پنجره‌ای تجاری|
+2994|5|Accessories for Window Air Conditioners|لوازم جانبی کولر پنجره‌ای|
+2995|4|Wall Air Conditioners|کولر دیواری|
+2996|5|Through-the-Wall Air Conditioners & Accessories|کولر داخل دیواری و لوازم جانبی|
+2997|6|Residential-Grade Through-the-Wall Air Conditioners|کولر داخل دیواری خانگی|
+2998|6|Commercial-Grade Through-the-Wall Air Conditioners|کولر داخل دیواری تجاری|
+2999|5|Packaged Terminal Air Conditioners (PTACs)|کولر پکیج ترمینال (PTAC)|
+3000|5|Vertical Packaged Air Conditioners (VPACs)|کولر پکیج عمودی (VPAC)|
+3001|5|Accessories for Wall Air Conditioners|لوازم جانبی کولر دیواری|
+3002|4|Portable Air Conditioners|کولر گازی پرتابل|ترکیبی
+3003|5|Light-Duty Portable Air Conditioners|کولر پرتابل سبک|
+3004|5|Heavy-Duty Portable Air Conditioners|کولر پرتابل سنگین|
+3005|5|Accessories for Portable Air Conditioners|لوازم جانبی کولر پرتابل|
+3006|4|Ductless Mini-Split Air Conditioners|کولر اسپلیت (مینی اسپلیت)|ترکیبی
+3007|5|Single-Zone Ductless Mini-Split Air Conditioner Systems|اسپلیت تک‌زون|
+3008|5|Ductless Mini-Split Air Conditioner System Components|اجزای سیستم اسپلیت|
+3009|5|Accessories for Ductless Mini-Split Air Conditioners|لوازم جانبی اسپلیت|
+3010|4|Central Air Conditioner Condensers|کندانسور کولر مرکزی|
+3011|4|Equipment Rack Air Conditioners|کولر رک تجهیزات (تابلویی)|
+3012|3|Evaporative Coolers|کولر آبی|
+3013|4|Central Ducted Evaporative Coolers|کولر آبی کانالی|
+3014|5|Residential Central Ducted Evaporative Coolers|کولر آبی کانالی خانگی|ترکیبی
+3015|5|Commercial Central Ducted Evaporative Coolers|کولر آبی کانالی صنعتی|
+3016|4|Window Evaporative Coolers|کولر آبی پنجره‌ای|ترکیبی
+3017|4|Portable Evaporative Coolers|کولر آبی پرتابل (سیار)|ترکیبی
+3018|4|Evaporative Cooling Media|پوشال و سلولز کولر آبی (مدیا)|
+3019|4|Accessories for Evaporative Coolers|لوازم جانبی کولر آبی|
+3020|2|Central Equipment|تجهیزات مرکزی تهویه|
+3021|3|Whole-House Gas Furnaces|کوره گازی هوای گرم (فرنس)|
+3022|3|Air Handlers|هواساز (هندلر)|
+3023|3|Evaporator Coils for Air Conditioners|کویل اواپراتور کولر|
+3024|3|Replacement Compressors & Condensing Units|کمپرسور یدکی و کندانسینگ یونیت|
+3025|4|Replacement Refrigeration Compressors|کمپرسور یخچالی یدکی|
+3026|4|Refrigeration Condensing Units|کندانسینگ یونیت تبرید|
+3027|4|Compressor Installation Products|لوازم نصب کمپرسور|
+3028|2|Heaters|بخاری و هیتر|
+3029|3|Electric Heaters|بخاری برقی|
+3030|4|Electric Wall & Ceiling Heaters|بخاری برقی دیواری و سقفی|
+3031|5|Suspended Electric Wall & Ceiling Unit Heaters|یونیت هیتر برقی آویز|
+3032|5|Suspended Infrared Radiant Electric Wall & Ceiling Heaters|هیتر تابشی مادون قرمز برقی آویز|
+3033|5|Surface-Mount Electric Wall & Ceiling Heaters|بخاری برقی روکار دیواری و سقفی|
+3034|5|Recessed Electric Wall Heaters|بخاری برقی توکار دیواری|
+3035|5|Recessed & Drop-Ceiling Electric Panel Heaters|پنل گرمایشی برقی توکار و سقف کاذب|
+3036|5|Electric Wall & Ceiling Heater Thermostats & Accessories|ترموستات و لوازم جانبی بخاری برقی|
+3037|4|Portable Electric Heaters|بخاری برقی پرتابل|
+3038|5|Portable Electric Jobsite Heaters|هیتر برقی کارگاهی|
+3039|5|Portable Electric Office Heaters|بخاری برقی اداری|ترکیبی
+3040|4|Electric Floor Heaters|هیتر برقی زمینی|
+3041|4|Electric Baseboard Heaters|بخاری برقی قرنیزی|
+3042|4|Electric Plenum Heaters|هیتر برقی کانالی (پلنوم)|
+3043|4|Electric Heating Cables|کابل گرمایشی (هیت‌تریس)|
+3044|3|Spa & Hot Tub Heaters|هیتر جکوزی|
+3045|3|Electric Process Heaters|المنت و هیتر صنعتی (فرایندی)|
+3046|4|Rigid Strip Heaters|هیتر تسمه‌ای صلب|
+3047|4|Flexible Strip Heaters|هیتر تسمه‌ای انعطاف‌پذیر (سیلیکونی)|
+3048|4|Finned Heaters|هیتر فین‌دار|
+3049|4|Radiant Process Heaters|هیتر تابشی صنعتی|
+3050|4|Band Heaters|هیتر نواری (کمربندی)|
+3051|4|Cartridge Heaters|هیتر فشنگی (کارتریجی)|
+3052|4|Enclosure Heaters|هیتر تابلو برق|
+3053|4|Socket-Mount Heaters|هیتر سرپیچی|
+3054|4|Immersion Heaters|هیتر غوطه‌ور (المنت آب)|
+3055|5|Screw-Plug Immersion Heaters|المنت غوطه‌ور پیچی|
+3056|5|Cartridge-Style Through-Hole Immersion Heaters|المنت غوطه‌ور فشنگی|
+3057|5|Flange-Mount Immersion Heaters|المنت غوطه‌ور فلنجی|
+3058|5|Suspended Immersion Heaters|المنت غوطه‌ور آویز|
+3059|5|Pipeline Immersion Heaters|هیتر خطی لوله|
+3060|5|Through-Hole Immersion Heaters|المنت غوطه‌ور عبوری|
+3061|4|Electric Process Heater Accessories|لوازم جانبی هیتر صنعتی|
+3062|5|Finned Tubular Heater Elements|المنت لوله‌ای فین‌دار|
+3063|5|Electric Process Heater Replacement Elements|المنت یدکی هیتر صنعتی|
+3064|5|Immersion Heater Replacement Thermostats|ترموستات یدکی المنت غوطه‌ور|
+3065|5|Process Heater Element Accessories|لوازم جانبی المنت|
+3066|3|Gas, Oil & Kerosene Heaters|بخاری گازی، گازوئیلی و نفتی|
+3067|4|Portable Gas, Oil & Kerosene Heaters|بخاری گازی، گازوئیلی و نفتی پرتابل|
+3068|5|Portable Gas Heaters|هیتر گازی پرتابل|
+3069|6|Portable Gas Ducted & Tent Heaters|هیتر گازی کانالی و چادری|
+3070|6|Portable Gas Torpedo Heaters|جت هیتر گازی|
+3071|6|Portable Gas Floor Heaters|هیتر گازی زمینی|
+3072|6|Portable Gas Table-Top Heaters|هیتر گازی رومیزی|
+3073|6|Portable Gas Tank-Top Radiant Heaters|هیتر تابشی سرکپسولی|
+3074|6|Portable Gas Heater Accessories|لوازم جانبی هیتر گازی|
+3075|5|Portable Oil & Kerosene Heaters|بخاری گازوئیلی و نفتی پرتابل|
+3076|6|Portable Oil & Kerosene Torpedo Heaters|جت هیتر گازوئیلی و نفتی|
+3077|6|Portable Oil & Kerosene Radiant Floor Heaters|بخاری تابشی نفتی زمینی|
+3078|6|Portable Oil & Kerosene Heater Accessories|لوازم جانبی بخاری نفتی|
+3079|4|Gas Wall & Ceiling Heaters|بخاری گازی دیواری و سقفی|
+3080|5|Suspended Gas Wall & Ceiling Unit Heaters|یونیت هیتر گازی آویز|
+3081|5|Suspended Infrared Gas Wall & Ceiling Heaters|هیتر تابشی گازی آویز (مادون قرمز)|
+3082|5|Recessed Gas Wall Heaters|بخاری گازی توکار دیواری|
+3083|5|Surface-Mount Gas Wall Heaters|بخاری گازی روکار دیواری|
+3084|5|Gas Wall & Ceiling Heater Accessories|لوازم جانبی بخاری گازی|
+3085|4|Gas Floor Heaters|بخاری گازی زمینی|
+3086|4|Gas-Fired Duct Furnaces|کوره کانالی گازسوز|
+3087|3|Hydronic Boilers & Heaters|دیگ و گرمکن آب گرم (هیدرونیک)|
+3088|4|Hydronic Baseboard Heaters|رادیاتور قرنیزی آب گرم|
+3089|4|Hydronic Duct Heating & Cooling Coils|کویل کانالی آب گرم و سرد|
+3090|4|Hydronic Floor Heaters|گرمایش آب گرم زمینی|
+3091|4|Hydronic Wall & Ceiling Heaters|یونیت هیتر آبی دیواری و سقفی|
+3092|5|Suspended Hydronic Wall & Ceiling Unit Heater Accessories|لوازم جانبی یونیت هیتر آبی آویز|
+3093|5|Suspended Hydronic Wall & Ceiling Unit Heaters|یونیت هیتر آبی آویز|

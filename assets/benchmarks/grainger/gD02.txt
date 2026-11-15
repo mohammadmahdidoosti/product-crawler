@@ -1,0 +1,219 @@
+7765|7|2-Way PVC Manual Ball Valves for Chemicals|شیر توپی دوراهه PVC شیمیایی|
+7766|7|2-Way CPVC Manual Ball Valves for Chemicals|شیر توپی دوراهه CPVC شیمیایی|
+7767|7|2-Way PTFE Manual Ball Valves for Chemicals|شیر توپی دوراهه تفلونی (PTFE) شیمیایی|
+7768|7|2-Way PVDF Manual Ball Valves for Chemicals|شیر توپی دوراهه PVDF شیمیایی|
+7769|7|3-Way Polypropylene Manual Ball Valves for Chemicals|شیر توپی سه‌راهه پلی‌پروپیلن شیمیایی|
+7770|7|3-Way PVC Manual Ball Valves for Chemicals|شیر توپی سه‌راهه PVC شیمیایی|
+7771|7|3-Way CPVC Manual Ball Valves for Chemicals|شیر توپی سه‌راهه CPVC شیمیایی|
+7772|6|Manual Ball Valves for Natural Gas & Propane|شیر توپی گاز (گاز طبیعی و پروپان)|
+7773|7|2-Way Brass Manual Ball Valves for Natural Gas & Propane|شیر گازی توپی برنجی|
+7774|7|2-Way Bronze Manual Ball Valves for Natural Gas and Propane|شیر گازی توپی برنزی|
+7775|7|2-Way Carbon Steel Manual Ball Valves for Natural Gas & Propane|شیر گازی توپی فولادی|
+7776|6|Fire-Safe Manual Ball Valves|شیر توپی ضدحریق (فایرسیف)|
+7777|7|2-Way Fire-Safe Carbon Steel Manual Ball Valves|شیر توپی فایرسیف فولادی|
+7778|7|2-Way Fire-Safe Stainless Steel Manual Ball Valves|شیر توپی فایرسیف استیل|
+7779|6|Manual Ball Valves for Food & Beverage|شیر توپی بهداشتی (غذایی)|
+7780|7|2-Way Stainless Steel Manual Ball Valves for Food & Beverage|شیر توپی دوراهه استیل غذایی|
+7781|7|2-Way Plastic Manual Ball Valves for Food & Beverage|شیر توپی دوراهه پلاستیکی غذایی|
+7782|7|3-Way Stainless Steel Manual Ball Valves for Food & Beverage|شیر توپی سه‌راهه استیل غذایی|
+7783|7|3-Way Plastic Manual Ball Valves for Food & Beverage|شیر توپی سه‌راهه پلاستیکی غذایی|
+7784|6|Manual Ball Valves for Medical Gas|شیر توپی گازهای طبی|
+7785|6|Manual Instrumentation Ball Valves|شیر توپی ابزاردقیق|
+7786|7|2-Way Brass Manual Instrumentation Ball Valves|شیر توپی ابزاردقیق دوراهه برنجی|
+7787|7|2-Way Stainless Steel Manual Instrumentation Ball Valves|شیر توپی ابزاردقیق دوراهه استیل|
+7788|7|3-Way Brass Manual Instrumentation Ball Valves|شیر توپی ابزاردقیق سه‌راهه برنجی|
+7789|7|3-Way Stainless Steel Manual Instrumentation Ball Valves|شیر توپی ابزاردقیق سه‌راهه استیل|
+7790|6|Combination Strainer Ball Valves|شیر توپی صافی‌دار|
+7791|5|Electrically-Actuated Ball Valves|شیر توپی برقی (موتوری)|
+7792|6|General Purpose Electrically-Actuated Ball Valves|شیر توپی برقی همه‌منظوره|
+7793|7|2-Way Carbon Steel General Purpose Electric Ball Valves|شیر توپی برقی دوراهه فولادی|
+7794|7|2-Way Bronze General Purpose Electric Ball Valves|شیر توپی برقی دوراهه برنزی|
+7795|7|2-Way Stainless Steel General Purpose Electric Ball Valves|شیر توپی برقی دوراهه استیل|
+7796|7|3-Way Brass General Purpose Electric Ball Valves|شیر توپی برقی سه‌راهه برنجی|
+7797|6|Electrically-Actuated Ball Valves for Potable Water|شیر توپی برقی آب شرب|
+7798|7|Air|هوا|
+7799|6|Electrically-Actuated Ball Valves for Chemicals|شیر توپی برقی شیمیایی|
+7800|7|2-Way PVC Electric Ball Valves for Chemicals|شیر توپی برقی دوراهه PVC شیمیایی|
+7801|7|2-Way CPVC Electric Ball Valves for Chemicals|شیر توپی برقی دوراهه CPVC شیمیایی|
+7802|7|2-Way Polypropylene Electric Ball Valves for Chemicals|شیر توپی برقی دوراهه پلی‌پروپیلن شیمیایی|
+7803|5|Pneumatically-Actuated Ball Valves|شیر توپی پنوماتیکی|
+7804|6|General Purpose Pneumatically-Actuated Ball Valves|شیر توپی پنوماتیکی همه‌منظوره|
+7805|7|2-Way Brass General Purpose Pneumatic Ball Valves|شیر توپی پنوماتیکی دوراهه برنجی|
+7806|7|2-Way Bronze General Purpose Pneumatic Ball Valves|شیر توپی پنوماتیکی دوراهه برنزی|
+7807|7|2-Way Carbon Steel General Purpose Pneumatic Ball Valves|شیر توپی پنوماتیکی دوراهه فولادی|
+7808|7|2-Way Stainless Steel General Purpose Pneumatic Ball Valves|شیر توپی پنوماتیکی دوراهه استیل|
+7809|7|3-Way Brass General Purpose Pneumatic Ball Valves|شیر توپی پنوماتیکی سه‌راهه برنجی|
+7810|7|3-Way Stainless Steel General Purpose Pneumatic Ball Valves|شیر توپی پنوماتیکی سه‌راهه استیل|
+7811|6|Pneumatically-Actuated Ball Valves for Potable Water|شیر توپی پنوماتیکی آب شرب|
+7812|7|Air|هوا|
+7813|6|Pneumatically-Actuated Ball Valves for Chemicals|شیر توپی پنوماتیکی شیمیایی|
+7814|7|2-Way PVC Pneumatic Ball Valves for Chemicals|شیر توپی پنوماتیکی دوراهه PVC شیمیایی|
+7815|7|2-Way CPVC Pneumatic Ball Valves for Chemicals|شیر توپی پنوماتیکی دوراهه CPVC شیمیایی|
+7816|6|Pneumatically-Actuated Ball Valves for Food & Beverage|شیر توپی پنوماتیکی غذایی|
+7817|7|2-Way Pneumatic Ball Valves for Food & Beverage|شیر توپی پنوماتیکی دوراهه غذایی|
+7818|7|3-Way Pneumatic Ball Valves for Food & Beverage|شیر توپی پنوماتیکی سه‌راهه غذایی|
+7819|5|Parts & Accessories for Ball Valves|قطعات و لوازم جانبی شیر توپی|
+7820|4|Gate Valves|شیر کشویی|
+7821|5|General Purpose Gate Valves|شیر کشویی همه‌منظوره|
+7822|6|Bronze General Purpose Gate Valves|شیر کشویی برنزی|
+7823|6|Brass General Purpose Gate Valves|شیر کشویی برنجی|
+7824|6|Stainless Steel General Purpose Gate Valves|شیر کشویی استیل|
+7825|6|Cast Iron & Ductile Iron General Purpose Gate Valves|شیر کشویی چدنی و چدن داکتیل|
+7826|6|PVC General Purpose Gate Valves|شیر کشویی PVC|
+7827|5|Gate Valves for Potable Water|شیر کشویی آب شرب|
+7828|6|Brass Gate Valves for Potable Water|شیر کشویی برنجی آب شرب|
+7829|6|Bronze Gate Valves for Potable Water|شیر کشویی برنزی آب شرب|
+7830|6|PVC Gate Valves for Potable Water|شیر کشویی PVC آب شرب|
+7831|5|Gate Valves for Chemicals|شیر کشویی شیمیایی|
+7832|6|PVC Gate Valves for Chemicals|شیر کشویی PVC شیمیایی|
+7833|6|CPVC Gate Valves for Chemicals|شیر کشویی CPVC شیمیایی|
+7834|5|Gate Valves for Petroleum & Gas Industry|شیر کشویی صنعت نفت و گاز|
+7835|6|Stainless Steel Gate Valves for Petroleum & Gas Industry|شیر کشویی استیل نفت و گاز|
+7836|6|Carbon Steel Gate Valves for Petroleum & Gas Industry|شیر کشویی فولادی نفت و گاز|
+7837|5|Gate Valves for Dry Materials|شیر کشویی مواد خشک (دریچه کشویی)|
+7838|5|Boiler Blow-Off Gate Valves|شیر کشویی زیرآب دیگ بخار|
+7839|5|Valve Stem Guards|محافظ ساقه شیر|
+7840|4|Diaphragm Valves|شیر دیافراگمی|
+7841|5|Manually-Operated Diaphragm Valves|شیر دیافراگمی دستی|
+7842|5|Pneumatically-Actuated Diaphragm Valves|شیر دیافراگمی پنوماتیکی|
+7843|5|High-Purity Manually-Operated Diaphragm Valves|شیر دیافراگمی دستی خلوص بالا|
+7844|5|High-Purity Pneumatically-Actuated Diaphragm Valves|شیر دیافراگمی پنوماتیکی خلوص بالا|
+7845|5|Solenoid-Actuated Diaphragm Valves|شیر دیافراگمی برقی (سلونوئیدی)|
+7846|4|Piston Valves|شیر پیستونی|
+7847|4|Float Valves & Floats|شیر فلوتر و گوی فلوتر|
+7848|5|Float Valves|شیر فلوتر|
+7849|5|Floats for Float Valves|گوی (توپ) فلوتر|
+7850|5|Rods for Float Valves|میله فلوتر|
+7851|5|Repair Parts & Accessories for Float Valves|قطعات یدکی و لوازم شیر فلوتر|
+7852|4|Purge & Fill Valves|شیر تخلیه و پرکن (هواگیری)|
+7853|4|Water Supply Stops|شیر پیسوار (شیر زیر روشویی)|ترکیبی
+7854|4|Drain Cocks|شیر تخلیه کوچک (درین‌کاک)|
+7855|4|Boiler Drain Valves|شیر تخلیه دیگ (شلنگی)|
+7856|4|Stop & Waste Valves|شیر قطع و تخلیه|
+7857|4|Curb Stop Valves|شیر قطع انشعاب (کنتور)|
+7858|4|Washing Machine Valves|شیر ماشین لباسشویی|ترکیبی
+7859|4|Manual Pinch Valves|شیر پینچ دستی|
+7860|4|Sanitary Shut-Off, Diverter & Sampling Valves|شیر قطع، تقسیم و نمونه‌گیری بهداشتی|
+7861|4|Truck Valves|شیر تانکر|
+7862|4|Axial Valves|شیر محوری (اکسیال)|
+7863|4|Instrumentation Manifolds|منیفولد ابزاردقیق|
+7864|4|Cable-Controlled Gas Shut-Off Valves|شیر قطع گاز کابلی|
+7865|4|Leak Detection & Automatic Water Shut-Off Systems|سیستم نشت‌یاب و قطع خودکار آب|
+7866|4|Emergency Shutoff Devices for Pipe Repair|ابزار قطع اضطراری جریان برای تعمیر لوله|
+7867|4|Garden Hose Manifolds & Shutoff Valves|سه‌راهی و شیر قطع شلنگ باغبانی|ترکیبی
+7868|4|Plug Valves|شیر سماوری (پلاگ ولو)|
+7869|5|Ground Plug Valves|شیر سماوری سنگ‌خورده|
+7870|5|Instrumentation Plug Valves|شیر سماوری ابزاردقیق|
+7871|5|Industrial Process Plug Valves|شیر سماوری فرآیندی صنعتی|
+7872|5|LP & Natural Gas Plug Valves|شیر سماوری گاز مایع و طبیعی|
+7873|5|High-Purity Plug Valves|شیر سماوری خلوص بالا|
+7874|4|Toggle Valves|شیر اهرمی (تاگل)|
+7875|4|Saddle Valves|شیر انشعاب زینی (سوزنی)|
+7876|3|Backflow Prevention Valves|شیر جلوگیری از برگشت جریان|
+7877|4|Check Valves|شیر یک‌طرفه|
+7878|5|Swing Check Valves|شیر یک‌طرفه لولایی|
+7879|6|Inline Swing Check Valves|شیر یک‌طرفه لولایی خطی|
+7880|6|Y Swing Check Valves|شیر یک‌طرفه لولایی Y|
+7881|6|Wafer Swing Check Valves|شیر یک‌طرفه لولایی ویفری|
+7882|6|Wafer Spring-Loaded Swing Check Valves|شیر یک‌طرفه ویفری فنری|
+7883|6|Inline Spring-Loaded Swing Check Valves|شیر یک‌طرفه لولایی فنری خطی|
+7884|6|Double-Door Wafer Check Valves|شیر یک‌طرفه ویفری دودری (دابل‌دور)|
+7885|5|Ball Check Valves|شیر یک‌طرفه توپی|
+7886|6|General Service Ball Check Valves|شیر یک‌طرفه توپی عمومی|
+7887|6|Food Grade & Sanitary Ball Check Valves|شیر یک‌طرفه توپی بهداشتی|
+7888|5|Disc Check Valves|شیر یک‌طرفه دیسکی|
+7889|6|Inline Disc Check Valves|شیر یک‌طرفه دیسکی خطی|
+7890|6|Wafer Disc Check Valves|شیر یک‌طرفه دیسکی ویفری|
+7891|6|Globe-Body Disc Check Valves|شیر یک‌طرفه دیسکی بدنه بشقابی|
+7892|5|Piston Check Valves|شیر یک‌طرفه پیستونی|
+7893|6|Inline Piston Check Valves|شیر یک‌طرفه پیستونی خطی|
+7894|6|Y Piston Check Valves|شیر یک‌طرفه پیستونی Y|
+7895|5|Poppet Check Valves|شیر یک‌طرفه سوپاپی (پاپت)|
+7896|6|General Service Poppet Check Valves|شیر یک‌طرفه سوپاپی عمومی|
+7897|6|Food Grade & Sanitary Poppet Check Valves|شیر یک‌طرفه سوپاپی بهداشتی|
+7898|6|Instrumentation Poppet Check Valves|شیر یک‌طرفه سوپاپی ابزاردقیق|
+7899|5|Diaphragm Check Valves|شیر یک‌طرفه دیافراگمی|
+7900|5|Food Grade & Sanitary Air Blow Check Valves|شیر یک‌طرفه دمش هوای بهداشتی|
+7901|5|Foot Valves|سوپاپ پمپ (فوت‌والو)|
+7902|4|Backflow Preventers|بک‌فلو (شیر ضدبرگشت)|
+7903|5|Reduced-Pressure Zone Backflow Preventers|بک‌فلو کاهش فشار (RPZ)|
+7904|5|Reduced-Pressure Zone Backflow Detectors|بک‌فلو کاهش فشار کنتوردار (RPDA)|
+7905|5|Double Check Backflow Preventers|بک‌فلو دابل‌چک|
+7906|5|Double Check Backflow Preventer Detectors|بک‌فلو دابل‌چک کنتوردار (DCDA)|
+7907|5|Dual Check Backflow Preventers|بک‌فلو دوال‌چک|
+7908|5|Combination Fill Valve Backflow Preventers|بک‌فلو ترکیبی با شیر پرکن|
+7909|5|Repair Kits & Parts for Backflow Preventers|کیت تعمیر و قطعات بک‌فلو|
+7910|5|Accessories for Backflow Preventers|لوازم جانبی بک‌فلو|
+7911|5|Test Kits for Backflow Preventers|کیت تست بک‌فلو|
+7912|4|Vacuum Breaker Valves|خلأشکن (وکیوم بریکر)|
+7913|5|Pressure Vacuum Breakers|خلأشکن فشاری (PVB)|
+7914|5|Atmospheric Vacuum Breakers|خلأشکن اتمسفریک (AVB)|
+7915|5|Hose Bibb Vacuum Breakers|خلأشکن شیر شلنگی|
+7916|5|Thermostatic Air Vent Vacuum Breakers|خلأشکن هواگیر ترموستاتیک|
+7917|5|Repair Kits & Parts for Vacuum Breakers|کیت تعمیر و قطعات خلأشکن|
+7918|4|Triple Duty Valves|شیر سه‌کاره (تریپل دیوتی)|
+7919|4|Backwater Valves|شیر ضدبرگشت فاضلاب|
+7920|3|Throttling Valves|شیر کنترل جریان (تنظیمی)|
+7921|4|Butterfly Valves|شیر پروانه‌ای|
+7922|5|Manually-Operated Butterfly Valves|شیر پروانه‌ای دستی|
+7923|6|General-Service Manual Butterfly Valves|شیر پروانه‌ای دستی عمومی|
+7924|6|High-Performance Manual Butterfly Valves|شیر پروانه‌ای دستی پرفشار (های‌پرفورمنس)|
+7925|6|Fire-Protection Manual Butterfly Valves|شیر پروانه‌ای آتش‌نشانی|
+7926|6|Food Grade & Sanitary Manual Butterfly Valves|شیر پروانه‌ای دستی بهداشتی|
+7927|6|Dry Bulk Transport Manual Butterfly Valves|شیر پروانه‌ای دستی تانکر فله خشک|
+7928|5|Pneumatically-Actuated Butterfly Valves|شیر پروانه‌ای پنوماتیکی|
+7929|6|General-Service Pneumatic Butterfly Valves|شیر پروانه‌ای پنوماتیکی عمومی|
+7930|6|High-Performance Pneumatic Butterfly Valves|شیر پروانه‌ای پنوماتیکی های‌پرفورمنس|
+7931|6|Food Grade & Sanitary Pneumatic Butterfly Valves|شیر پروانه‌ای پنوماتیکی بهداشتی|
+7932|5|Electrically-Actuated Butterfly Valves|شیر پروانه‌ای برقی (موتوری)|
+7933|6|General-Service Electric Butterfly Valves|شیر پروانه‌ای برقی عمومی|
+7934|6|High-Performance Electric Butterfly Valves|شیر پروانه‌ای برقی های‌پرفورمنس|
+7935|4|Globe Valves|شیر بشقابی (گلوب)|
+7936|5|General-Service Manual Globe Valves|شیر بشقابی دستی عمومی|
+7937|5|Pneumatically-Actuated Globe Valves|شیر بشقابی پنوماتیکی (کنترل ولو)|
+7938|5|Electrically-Actuated Globe Valves|شیر بشقابی موتوری|
+7939|5|Boiler Blow-Down Manual Globe Valves|شیر بشقابی زیرآب دیگ بخار|
+7940|4|Needle Valves|شیر سوزنی|
+7941|5|Instrumentation Needle Valves|شیر سوزنی ابزاردقیق|
+7942|5|Precision Metering Instrumentation Needle Valves|شیر سوزنی دقیق اندازه‌گیری|
+7943|5|High-Purity Needle Valves|شیر سوزنی خلوص بالا|
+7944|4|V-Port Ball Valves|شیر توپی وی‌پورت (کنترلی)|
+7945|4|Fire Hydrant & Hose Rack Valves|شیر هیدرانت و شیر جعبه آتش‌نشانی|
+7946|4|Balancing Valves|شیر بالانس|
+7947|4|Flow-Regulating Valves|شیر تنظیم جریان|
+7948|3|Pressure & Temperature Control Valves|شیر کنترل فشار و دما|
+7949|4|Pressure Relief Valves|شیر اطمینان|
+7950|5|Air, Inert Gas & Liquids Pressure Relief Valves|شیر اطمینان هوا، گاز بی‌اثر و مایعات|
+7951|5|Steam Pressure Relief Valves|شیر اطمینان بخار|
+7952|5|Hot Water Pressure Relief Valves|شیر اطمینان آب گرم|
+7953|5|Cryogenic Service Pressure Relief Valves|شیر اطمینان کرایوژنیک|
+7954|5|Corrosive & Ultra-Pure Liquids Pressure Relief Valves|شیر اطمینان مایعات خورنده و فوق خالص|
+7955|4|Temperature & Pressure Relief Valves|شیر اطمینان دما و فشار (P&T)|
+7956|4|Combination Pressure Relief & Regulator Valves|شیر اطمینان و رگولاتور ترکیبی|
+7957|4|Pressure Regulators|رگولاتور فشار (شیر فشارشکن)|
+7958|5|General Purpose Pressure Regulators|رگولاتور فشار همه‌منظوره|
+7959|5|Water Pressure Regulators|شیر فشارشکن آب|
+7960|5|Steam Pressure Regulators|شیر فشارشکن بخار|
+7961|5|Gas Pressure Regulators|رگولاتور گاز|
+7962|5|Cryogenic Service Pressure Regulators|رگولاتور کرایوژنیک|
+7963|5|Corrosive & Ultra-Pure Liquids Pressure Regulators|رگولاتور مایعات خورنده و فوق خالص|
+7964|5|Automatic Control Pressure Regulators|رگولاتور کنترل اتوماتیک (پایلوتی)|
+7965|4|Temperature Regulators|رگولاتور دما (شیر ترموستاتیک)|
+7966|4|Mixing Valves|شیر مخلوط‌کن|
+7967|5|Hot & Cold Water Mixing Valves|شیر مخلوط آب سرد و گرم (ترموستاتیک)|
+7968|5|Steam & Cold Water Mixing Valves|شیر مخلوط بخار و آب سرد|
+7969|5|Emergency Fixture Mixing Valves|شیر مخلوط دوش اضطراری|
+7970|5|Repair Kits & Replacement Parts for Mixing Valve|کیت تعمیر و قطعات یدکی شیر مخلوط|
+7971|4|Vacuum & Air Release Valves|شیر هواگیری و خلأشکن|
+7972|4|Unloader Valves|شیر آنلودر (باربردار)|
+7973|4|Steam Separators & Spargers|جداکننده بخار و اسپارجر|
+7974|4|Rupture Discs|دیسک انفجاری (راپچر دیسک)|
+7975|4|Water Hammer Arrestors|ضربه‌گیر قوچ آبی|
+7976|4|Air Admittance Valves|شیر ورود هوا|
+7977|4|Condensate Coolers|خنک‌کن کندانس|
+7978|4|Excess Flow Valves|شیر جریان اضافی (قطع‌کن خودکار)|
+7979|3|Solenoid Valves|شیر برقی (سلونوئید ولو)|
+7980|4|General Purpose Solenoid Valves|شیر برقی همه‌منظوره|
+7981|4|Steam & Hot Water Solenoid Valves|شیر برقی بخار و آب گرم|
+7982|4|Fuel Gas & Oil Solenoid Valves|شیر برقی گاز و گازوئیل|
+7983|4|Cryogenic Solenoid Valves|شیر برقی کرایوژنیک|

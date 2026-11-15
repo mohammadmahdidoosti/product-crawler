@@ -1,0 +1,268 @@
+11418|3|Temperature Strips & Dots|برچسب و نوار دمانما (حرارتی)|
+11419|3|Liquid-in-Glass & Laboratory Thermometers|دماسنج شیشه‌ای و آزمایشگاهی|
+11420|4|Liquid-in-Glass Laboratory Thermometers|دماسنج شیشه‌ای آزمایشگاهی (جیوه‌ای/الکلی)|
+11421|4|Compact Liquid-in-Glass Pocket Thermometers|دماسنج شیشه‌ای جیبی|
+11422|4|Tank-Gauging Thermometers & Woodback Cups|دماسنج مخزن و کاپ چوبی|
+11423|3|Digital Temperature & Humidity Switches|ترموسوئیچ و رطوبت‌سوئیچ دیجیتال|
+11424|3|Temperature & Humidity Transmitters|ترانسمیتر دما و رطوبت|
+11425|4|Standard Temperature Transmitters|ترانسمیتر دما استاندارد|
+11426|4|Hazardous Location Temperature & Humidity Transmitters|ترانسمیتر دما و رطوبت ضدانفجار|
+11427|4|Sanitary Temperature Transmitters|ترانسمیتر دما بهداشتی|
+11428|4|HVAC System Temperature & Humidity Transmitters|ترانسمیتر دما و رطوبت کانالی (HVAC)|
+11429|4|Indoor Wall-Mount Temperature & Humidity Transmitters|ترانسمیتر دما و رطوبت دیواری|
+11430|4|Temperature & Humidity Transmitter Accessories|لوازم جانبی ترانسمیتر دما و رطوبت|
+11431|2|Voice & Data Testing|تست شبکه صوت و دیتا|
+11432|3|Copper Cable Testing Instruments|تستر کابل مسی|
+11433|3|Tone Generators and Speaker Probes & Kits|ردیاب کابل (تون ژنراتور و پراب)|
+11434|3|Fiber Optic Cable Testing Instruments|تستر فیبر نوری|
+11435|3|Network Testing Instruments|تستر شبکه|
+11436|3|Telephone Line Test Sets|تستر خط تلفن (گوشی تست)|
+11437|3|Time Domain Reflectometers|عیب‌یاب کابل (TDR)|
+11438|3|Copper Cable Testing Accessories|لوازم جانبی تستر کابل مسی|
+11439|3|Fiber Optic Cable Testing Accessories|لوازم جانبی تستر فیبر نوری|
+11440|2|Replacement Parts for Construction and Road Material Testing|قطعات یدکی تجهیزات آزمایش مصالح و راه|
+11441|2|Leak Testing|تست نشتی|
+11442|3|Water Line Leak Testers|نشت‌یاب لوله آب|
+11443|3|Ultrasonic Leak Detectors|نشت‌یاب التراسونیک|
+11444|3|Ultrasonic Leak Detector Accessories|لوازم جانبی نشت‌یاب التراسونیک|
+11445|3|Acoustic Imaging Cameras|دوربین تصویربرداری صوتی (آکوستیک)|
+11446|2|Vibration Testing|تست ارتعاش|
+11447|3|Vibration Meters|ارتعاش‌سنج (ویبرومتر)|
+11448|3|Vibration Meter Accessories|لوازم جانبی ارتعاش‌سنج|
+11449|2|Sound Testing|تست صدا|
+11450|3|Sound Level Meters & Kits|صداسنج و کیت|
+11451|3|Sound Level Meter Cables & Accessories|کابل و لوازم جانبی صداسنج|
+11452|3|Sound Level Calibrators|کالیبراتور صداسنج|
+11453|2|Light Testing|تست نور|
+11454|3|Data Logging|دیتالاگر نور|
+11455|2|Video Inspection Equipment|تجهیزات بازرسی تصویری|
+11456|3|Borescopes|بوروسکوپ (دوربین آندوسکوپی صنعتی)|
+11457|3|Borescope Accessories|لوازم جانبی بوروسکوپ|
+11458|2|Rotational Speed Testing|اندازه‌گیری دور|
+11459|3|Tachometers|دورسنج (تاکومتر)|
+11460|3|Tachometer Sensors|سنسور دورسنج|
+11461|3|Tachometer Accessories|لوازم جانبی دورسنج|
+11462|3|Stroboscopes|استروبوسکوپ|
+11463|3|Stroboscope Accessories|لوازم جانبی استروبوسکوپ|
+11464|2|Thickness Testing|ضخامت‌سنجی|
+11465|3|Ultrasonic Thickness Gauges & Accessories|ضخامت‌سنج التراسونیک و لوازم|
+11466|4|Ultrasonic Thickness Gauges|ضخامت‌سنج التراسونیک|
+11467|4|Ultrasonic Thickness Gauge Accessories|لوازم جانبی ضخامت‌سنج التراسونیک|
+11468|3|Coating Thickness Gauges & Accessories|ضخامت‌سنج رنگ و پوشش و لوازم|
+11469|4|Steel Only|مخصوص فولاد|
+11470|2|Force Testing|تست نیرو (نیروسنج)|
+11471|2|Nonelectrical Properties Testing|تست خواص غیرالکتریکی|
+11472|3|Conductivity Level Equipment|تجهیزات سطح‌سنجی هدایتی|
+11473|4|Conductivity Level Probes|پراب سطح هدایتی (الکترود)|
+11474|4|Conductivity Level Controls|کنترل سطح هدایتی (فلوتر الکترودی)|
+11475|4|Conductivity Level Accessories|لوازم جانبی سطح‌سنج هدایتی|
+11476|3|Cleaning Efficiency Meters & Accessories|سنجشگر بهداشت سطوح (ATP) و لوازم|
+11477|4|Cleaning Efficiency Meters|سنجشگر بهداشت سطوح (ATP)|
+11478|4|Cleaning Efficiency Meter Accessories|لوازم جانبی سنجشگر ATP|
+11479|3|Stopwatches & Timers|کرنومتر و تایمر|ترکیبی
+11480|4|Stopwatches|کرنومتر|
+11481|4|Digital & Mechanical Timers|تایمر دیجیتال و مکانیکی|
+11482|3|Radiation Detectors & Accessories|آشکارساز تشعشع (دزیمتر) و لوازم|
+11483|4|Radiation Detectors|آشکارساز تشعشع (گایگرمولر)|
+11484|4|Radiation Detector Accessories|لوازم جانبی آشکارساز تشعشع|
+11485|3|Hydronic Manometers|مانومتر هیدرونیک|
+11486|3|Magnetic Field Meters|گوس‌متر (میدان‌سنج مغناطیسی)|
+11487|3|Adhesion Testers & Accessories|تستر چسبندگی پوشش و لوازم|
+11488|4|Adhesion Testers|تستر چسبندگی (پول‌آف)|
+11489|4|Adhesion Tester Accessories|لوازم جانبی تستر چسبندگی|
+11490|3|Instrument Training|آموزش کار با ابزار دقیق|
+11491|3|Milk Pasteurization Testers & Accessories|تستر پاستوریزاسیون شیر و لوازم|
+11492|4|Milk Pasteurization Testers|تستر پاستوریزاسیون شیر|
+11493|4|Milk Pasteurization Tester Accessories|لوازم جانبی تستر پاستوریزاسیون|
+11494|3|Wire Length Meters & Accessories|متراژسنج سیم و لوازم|
+11495|3|Color Analyzers|رنگ‌سنج (کالریمتر)|
+11496|3|Samplers|نمونه‌بردار|
+11497|3|Coating Pin Hole Detectors|هالیدی تستر (منفذیاب پوشش)|
+11498|3|Liquid Level & Temperature Controls|کنترل سطح و دمای مایع|
+11499|3|Soluble Salt Testers & Accessories|تستر نمک محلول سطح و لوازم|
+11500|4|Soluble Salt Testers|تستر نمک محلول|
+11501|4|Soluble Salt Tester Accessories|لوازم جانبی تستر نمک محلول|
+11502|2|Air Movement & Quality Testing|تست جریان و کیفیت هوا|
+11503|3|Air Movement Testing|سنجش جریان هوا|
+11504|4|Air Velocity Meters|بادسنج (آنمومتر)|
+11505|4|Air Velocity Meter & Anemometer Accessories|لوازم جانبی بادسنج|
+11506|4|Air Velocity Indicators & Labels|نشانگر و برچسب جریان هوا|
+11507|4|Air Velocity Transmitters|ترانسمیتر سرعت هوا|
+11508|4|Air Flow Capture Hoods|هود سنجش دبی هوا (بالومتر)|
+11509|3|Indoor Air Quality Testing|سنجش کیفیت هوای داخل|
+11510|4|Combustible Gas Detectors & Kits|نشت‌یاب گاز قابل اشتعال و کیت|
+11511|4|Combustible Gas Detector Accessories|لوازم جانبی نشت‌یاب گاز|
+11512|4|Particle Counters|ذره‌شمار (پارتیکل کانتر)|
+11513|4|Particle Counter Accessories|لوازم جانبی ذره‌شمار|
+11514|4|Gas Analyzers|آنالایزر گاز|
+11515|4|Gas Analyzer Accessories|لوازم جانبی آنالایزر گاز|
+11516|4|Indoor Air Quality Testers|سنجشگر کیفیت هوا (IAQ)|
+11517|4|Indoor Air Quality Sampling Pump Accessories|لوازم جانبی پمپ نمونه‌بردار هوا|
+11518|2|Data Recording|ثبت داده (رکوردر)|
+11519|3|Nonelectrical Properties Data Loggers & Accessories|دیتالاگر کمیت‌های غیرالکتریکی و لوازم|
+11520|4|Nonelectrical Properties Data Loggers|دیتالاگر دما، رطوبت و فشار|
+11521|4|Nonelectrical Properties Data Logger Accessories|لوازم جانبی دیتالاگر|
+11522|4|Chartless Digital Recorders|رکوردر دیجیتال بدون کاغذ|
+11523|4|Chartless Digital Recorder Software & Accessories|نرم‌افزار و لوازم رکوردر بدون کاغذ|
+11524|3|Circular Chart Recorders & Accessories|رکوردر چارت دایره‌ای و لوازم|
+11525|4|Circular Chart Recorders|رکوردر چارت دایره‌ای|
+11526|4|Circular Charts|کاغذ چارت دایره‌ای|
+11527|4|Circular Chart Recorder Pens & Ribbons|قلم و ریبون رکوردر|
+11528|3|Electrical Properties Data Loggers|دیتالاگر کمیت‌های الکتریکی|
+11529|3|Strip Chart Temperature Recorders & Accessories|رکوردر دمای نواری و لوازم|
+11530|4|Strip Chart Temperature Recorders|رکوردر دمای نواری|
+11531|4|Strip Chart Paper|کاغذ رکوردر نواری|
+11532|3|Portable KWH Recorders & Monitors|ثبات کیلووات‌ساعت پرتابل|
+11533|3|Recorder Sensor Kits|کیت سنسور رکوردر|
+11534|2|Combustion Testing|تست احتراق|
+11535|3|Combustion Analyzers|آنالایزر احتراق (دودسنج)|
+11536|3|Combustion Analyzer Accessories|لوازم جانبی آنالایزر احتراق|
+11537|2|Concrete, Asphalt & Pavement Testing|آزمایش بتن، آسفالت و روسازی|
+11538|3|Concrete Testing|آزمایش بتن|
+11539|4|Cylinder Molds|قالب نمونه بتن استوانه‌ای|
+11540|4|Cylinder Mold Accessories|لوازم قالب نمونه بتن|
+11541|4|Air Entrapment Indicators|هواسنج بتن|
+11542|4|Crack Monitors & Caliper Marks|ترک‌سنج و نشانگر ترک|
+11543|4|Slump Testing|اسلامپ (مخروط آبرامز)|
+11544|4|Slump Tester Accessories|لوازم جانبی تست اسلامپ|
+11545|4|Rebar Locators|میلگردیاب|
+11546|4|Rebar Corrosion Locators|خوردگی‌سنج میلگرد|
+11547|4|Rebar Locator Accessories|لوازم جانبی میلگردیاب|
+11548|4|Beam Forms|قالب تیر بتنی|
+11549|3|Asphalt Testing|آزمایش آسفالت|
+11550|3|Pavement Testing|آزمایش روسازی|
+11551|2|Electronic Bench Testing|تجهیزات تست رومیزی الکترونیک|
+11552|3|Bench Type Digital Multimeters|مولتی‌متر رومیزی|
+11553|3|Battery Capacity Analyzers & Accessories|آنالایزر ظرفیت باتری و لوازم|
+11554|4|Battery Capacity Analyzers|آنالایزر ظرفیت باتری|
+11555|4|Battery Capacity Analyzer Accessories|لوازم جانبی آنالایزر باتری|
+11556|3|LCR Meters|LCR متر|
+11557|3|Decade Boxes|جعبه مقاومت دهدهی (دکاد باکس)|
+11558|3|Electronic Loads|لود الکترونیکی|
+11559|3|Bench Testing Power Supplies & Accessories|منبع تغذیه آزمایشگاهی و لوازم|
+11560|4|Bench Single Output DC Power Supplies|منبع تغذیه DC تک‌خروجی|
+11561|4|Bench Triple Output DC Power Supplies|منبع تغذیه DC سه‌خروجی|
+11562|4|Bench Quadruple Output DC Power Supplies|منبع تغذیه DC چهارخروجی|
+11563|4|Bench AC Power Supplies|منبع تغذیه AC آزمایشگاهی|
+11564|4|Bench Testing Power Supply Accessories|لوازم جانبی منبع تغذیه|
+11565|5|Bench Test Leads & Patch Cords|سیم تست و پچ‌کورد آزمایشگاهی|
+11566|5|Bench Test Clips, Probes & Connectors|گیره، پراب و کانکتور تست|
+11567|5|Test Lead Holders|نگهدارنده سیم تست|
+11568|5|BNC Adapters|تبدیل BNC|
+11569|5|RF Adapter Kits|کیت تبدیل RF|
+11570|5|SMA Adapters & Terminations|تبدیل و ترمینیشن SMA|
+11571|5|Bench Power Supply Rack Mounting Kits|کیت نصب رکی منبع تغذیه|
+11572|5|Bench Power Supply Interface & Control Cards|کارت رابط و کنترل منبع تغذیه|
+11573|3|Antistatic Safety Equipment|تجهیزات آنتی‌استاتیک (ESD)|
+11574|4|Wearable Antistatic Safety Equipment & Testers|تجهیزات پوشیدنی آنتی‌استاتیک و تستر|
+11575|5|Antistatic Heel Ground Assemblies|پاشنه‌بند ارت آنتی‌استاتیک|
+11576|5|Antistatic Wrist Straps|مچ‌بند آنتی‌استاتیک|
+11577|5|Antistatic Wrist Strap Kits|کیت مچ‌بند آنتی‌استاتیک|
+11578|5|Antistatic Wrist Strap & Footwear Testers & Accessories|تستر مچ‌بند و کفش آنتی‌استاتیک|
+11579|5|Antistatic Cords|سیم ارت آنتی‌استاتیک|
+11580|5|Antistatic Systems|سیستم آنتی‌استاتیک|
+11581|4|Air Ionizers & Accessories|یونایزر هوا (بلوئر یونیزه) و لوازم|
+11582|4|Antistatic Table Mats|مت رومیزی آنتی‌استاتیک|
+11583|4|Static Shielding Bags & Films|کیسه و فیلم آنتی‌استاتیک (شیلددار)|
+11584|4|Antistatic Chemicals|مواد شیمیایی آنتی‌استاتیک|
+11585|4|Antistatic Accessories|لوازم جانبی آنتی‌استاتیک|
+11586|4|Static Sensors|سنسور الکتریسیته ساکن|
+11587|4|Antistatic Monitors|مانیتور آنتی‌استاتیک|
+11588|3|Bench Pressure Calibrators|کالیبراتور فشار رومیزی|
+11589|3|Function & Pulse Generators|فانکشن ژنراتور و پالس ژنراتور|
+11590|3|Data Acquisition Systems & Accessories|سیستم جمع‌آوری داده (DAQ) و لوازم|
+11591|4|Data Acquisition Systems|سیستم جمع‌آوری داده (DAQ)|
+11592|4|Data Acquisition System Modules|ماژول DAQ|
+11593|4|Data Acquisition System Accessories|لوازم جانبی DAQ|
+11594|3|Spectrum Analyzers & Accessories|اسپکتروم آنالایزر و لوازم|
+11595|4|Spectrum Analyzers|اسپکتروم آنالایزر|
+11596|4|Spectrum Analyzer Accessories|لوازم جانبی اسپکتروم آنالایزر|
+11597|3|Bench Type Oscilloscopes|اسیلوسکوپ رومیزی|
+11598|2|Process & Pressure Calibration|کالیبراسیون فرآیند و فشار|
+11599|3|Calibrators & Accessories|کالیبراتور و لوازم|
+11600|4|Process Calibrator Multimeters|مولتی‌متر کالیبراتور فرآیند|
+11601|4|Pressure Calibrator & Module Accessories|لوازم کالیبراتور و ماژول فشار|
+11602|4|Handheld Multifunction Calibrators & Calibration Software|کالیبراتور چندکاره دستی و نرم‌افزار|
+11603|4|Portable & Handheld Pressure Calibrators|کالیبراتور فشار پرتابل و دستی|
+11604|4|Pressure Modules|ماژول فشار|
+11605|4|Handheld Loop, Current & Process Calibrators|کالیبراتور لوپ و جریان (۴-۲۰mA)|
+11606|3|Ultrasonic Flowmeters & Accessories|فلومتر التراسونیک و لوازم|
+11607|4|Ultrasonic Flowmeters|فلومتر التراسونیک|
+11608|4|Ultrasonic Flowmeter Detectors|سنسور فلومتر التراسونیک|
+11609|4|Ultrasonic Flowmeter Detector Accessories|لوازم جانبی سنسور فلومتر|
+11610|3|Panel Mount Tachometers|دورسنج تابلویی|
+11611|1|Tools|ابزار|
+11612|2|Hand Tools|ابزار دستی|
+11613|3|Wrenches|آچار|
+11614|4|Adjustable Wrenches & Sets|آچار فرانسه و ست|ترکیبی
+11615|4|Box End Wrenches & Sets|آچار رینگی و ست|
+11616|5|Box End Wrenches|آچار رینگی|
+11617|5|Box End Wrench Sets|ست آچار رینگی|
+11618|5|Ratcheting Box End Wrenches|آچار رینگی جغجغه‌ای|
+11619|5|Ratcheting Box End Wrench Sets|ست آچار رینگی جغجغه‌ای|
+11620|4|Combination Wrenches & Sets|آچار یک‌سر تخت یک‌سر رینگی و ست|ترکیبی
+11621|5|Combination Wrenches|آچار یک‌سر تخت یک‌سر رینگی|
+11622|5|Combination Wrench Sets|ست آچار یک‌سر تخت یک‌سر رینگی|
+11623|5|Ratcheting Combination Wrenches|آچار رینگی‌تخت جغجغه‌ای|
+11624|5|Ratcheting Combination Wrench Sets|ست آچار رینگی‌تخت جغجغه‌ای|
+11625|4|Crowfoot Wrenches & Sets|آچار کلاغی (کروفوت) و ست|
+11626|5|Crowfoot Wrenches|آچار کلاغی (کروفوت)|
+11627|5|Crowfoot Wrench Sets|ست آچار کلاغی|
+11628|4|Drum Bung & Plug Wrenches|آچار درب بشکه|
+11629|4|Flare Nut Wrenches & Sets|آچار ترمز (فلر) و ست|
+11630|5|Flare Nut Wrenches|آچار ترمز (فلر)|
+11631|5|Flare Nut Wrench Sets|ست آچار ترمز|
+11632|4|Open End Wrenches & Sets|آچار دوسر تخت و ست|
+11633|5|Open End Wrenches|آچار دوسر تخت|
+11634|5|Open End Wrench Sets|ست آچار دوسر تخت|
+11635|4|Pipe Wrenches & Replacement Parts|آچار لوله‌گیر و قطعات یدکی|ترکیبی
+11636|5|Pipe Wrenches|آچار لوله‌گیر (کورپی)|
+11637|5|Pipe Wrench Replacement Parts|قطعات یدکی آچار لوله‌گیر|
+11638|4|Spanner Wrenches|آچار قلاب‌دار (پین‌دار)|
+11639|4|Spud Wrenches|آچار داربستی (اسپاد)|
+11640|4|Strap Wrenches, Chain Wrenches & Chain Tongs|آچار تسمه‌ای و زنجیری|
+11641|5|Chain Wrenches & Tongs|آچار زنجیری|
+11642|5|Strap Wrenches & Sets|آچار تسمه‌ای و ست|
+11643|4|Striking Wrenches|آچار ضربه‌ای (چکشی)|
+11644|4|Torque Wrenches & Accessories|آچار ترک‌متر و لوازم|
+11645|5|Adjustable Micrometer Torque Wrenches|آچار ترک‌متر میکرومتری قابل تنظیم|
+11646|6|Micrometer Torque Wrenches|آچار ترک‌متر میکرومتری|
+11647|6|Ratcheting Micrometer Torque Wrenches|آچار ترک‌متر میکرومتری جغجغه‌ای|
+11648|5|Dial Torque Wrenches|آچار ترک‌متر ساعتی|
+11649|5|Electronic Torque Wrenches|آچار ترک‌متر دیجیتال|
+11650|5|Flat Beam Torque Wrenches|آچار ترک‌متر عقربه‌ای (تیغه‌ای)|
+11651|5|Interchangeable Head Torque Wrenches|آچار ترک‌متر سرخور|
+11652|5|Interchangeable Torque Wrench Heads|سر آچار ترک‌متر|
+11653|5|Preset Torque Wrenches|آچار ترک‌متر پیش‌تنظیم|
+11654|5|Torque Meters, Testers & Transducers|ترک‌سنج، تستر و ترانسدیوسر گشتاور|
+11655|5|Torque Multiplier Accessories|لوازم جانبی ترک‌افزا (مالتی‌پلایر)|
+11656|5|Torque Wrench Accessories|لوازم جانبی آچار ترک‌متر|
+11657|4|Valve Wheel Wrenches|آچار فلکه شیر|
+11658|3|Screwdrivers, Nut Drivers & Keys|پیچ‌گوشتی، پیچ‌گوشتی بکسی و آچار آلن|ترکیبی
+11659|4|Screwdrivers & Sets|پیچ‌گوشتی و ست|
+11660|5|Multi-Bit Screwdrivers|پیچ‌گوشتی سرخور|
+11661|5|Multi-Bit Screwdriver Kits|کیت پیچ‌گوشتی سرخور|
+11662|5|Screwdrivers|پیچ‌گوشتی|
+11663|6|Phillips Screwdrivers|پیچ‌گوشتی چهارسو|
+11664|6|Slotted Screwdrivers|پیچ‌گوشتی دوسو|
+11665|6|Hex Screwdrivers|پیچ‌گوشتی آلنی|
+11666|6|Torx & Torx Plus Screwdrivers|پیچ‌گوشتی ستاره‌ای (تورکس)|
+11667|6|Security & Specialty Tip Screwdrivers|پیچ‌گوشتی امنیتی و سر خاص|
+11668|6|Square Screwdrivers|پیچ‌گوشتی چهارگوش|
+11669|6|Torque Screwdrivers|پیچ‌گوشتی ترک‌متر|
+11670|5|Screwdriver Sets|ست پیچ‌گوشتی|
+11671|5|Tip Magnetizers & Demagnetizers|آهنربا و مغناطیس‌زدای نوک پیچ‌گوشتی|
+11672|4|Nut Drivers & Sets|پیچ‌گوشتی بکسی و ست|
+11673|5|Nut Drivers|پیچ‌گوشتی بکسی|
+11674|5|Nut Driver Sets|ست پیچ‌گوشتی بکسی|
+11675|4|Hex, Torx & Service Keys|آچار آلن، تورکس و آچار سرویس|
+11676|5|Hex Keys|آچار آلن|
+11677|5|Hex Key Sets|ست آچار آلن|
+11678|5|Torx Keys|آچار ستاره‌ای (تورکس)|
+11679|5|Torx Key Sets|ست آچار ستاره‌ای|
+11680|5|Key Organizers|نگهدارنده آچار آلن|
+11681|5|Service Keys|آچار سرویس (کلید تابلو)|
+11682|4|Screw & Nut Starters|پیچ‌گیر و مهره‌گیر|
+11683|3|Ratchets & Drive Tools|جغجغه و ابزار بکس|
+11684|4|Ratchets|دسته جغجغه|
+11685|4|Breaker Bars|دسته بکس اهرمی (بریکر بار)|

@@ -1,0 +1,233 @@
+8228|5|Double-Acting Compact Air Cylinders|جک کامپکت دوطرفه|
+8229|5|Single-Acting Compact Air Cylinders|جک کامپکت یک‌طرفه|
+8230|5|Mounting Hardware for Compact Cylinders|یراق نصب جک کامپکت|
+8231|5|Replacement Parts & Accessories for Compact Air Cylinders|قطعات یدکی و لوازم جک کامپکت|
+8232|4|Rodless Air Cylinders|جک پنوماتیک بدون میله (رادلس)|
+8233|5|Mechanically Jointed Rodless Air Cylinders|جک رادلس کوپل مکانیکی|
+8234|5|Magnetically Coupled Rodless Air Cylinders|جک رادلس مغناطیسی|
+8235|5|Mounting Hardware for Rodless Air Cylinders|یراق نصب جک رادلس|
+8236|3|Rotary Actuators|اکچویتور دوار (روتاری)|
+8237|3|Pneumatic Slide Tables|میز کشویی پنوماتیک (اسلاید)|
+8238|3|Pneumatic Grippers|گریپر پنوماتیک|
+8239|3|Pneumatic Gripper Jaws & Jaw Blanks|فک و فک خام گریپر پنوماتیک|
+8240|3|End-of-Arm Tooling Systems|ابزار انتهای بازوی ربات (EOAT)|
+8241|3|Pneumatic Actuator Controls|کنترل‌کننده‌های عملگر پنوماتیک|
+8242|4|Speed Control Valves for Air Cylinders|شیر کنترل سرعت جک (دبی‌گیر)|
+8243|4|Quick Exhaust Valves for Air Cylinders|شیر تخلیه سریع جک|
+8244|3|Pneumatic Actuator Sensors & Hardware|سنسور و یراق عملگر پنوماتیک|
+8245|4|Position Sensors for Air Cylinders|سنسور موقعیت جک (ریدسوئیچ)|
+8246|4|Pneumatic Threshold Sensors|سنسور آستانه پنوماتیک|
+8247|4|Pneumatic Counters|شمارنده پنوماتیک|
+8248|4|Sensor Mounting Hardware for Air Cylinders|براکت نصب سنسور جک|
+8249|3|Pneumatic Actuator Shock Absorbers & Floating Joints|ضربه‌گیر و سرجک شناور|
+8250|4|Pneumatic Actuator Shock Absorbers|ضربه‌گیر (شاک ابزوربر) صنعتی|
+8251|4|Pneumatic Actuator Floating Joints|سرجک شناور (فلوتینگ جوینت)|
+8252|2|Pneumatic Motors & Gearmotors|موتور بادی و گیربکس بادی|
+8253|3|Air Motors|موتور بادی (ایرموتور)|
+8254|3|Air Gearmotors|گیربکس موتور بادی|
+8255|3|Air Motor Accessories|لوازم جانبی موتور بادی|
+8256|3|Air Motor & Gearmotor Replacement Parts|قطعات یدکی موتور بادی|
+8257|2|Pneumatic Coolers & Air Knives|خنک‌کن پنوماتیک و چاقوی هوا|
+8258|3|Air Knives|چاقوی هوا (ایرنایف)|
+8259|3|Air Wipes|حلقه دمنده هوا (ایر وایپ)|
+8260|3|Air Amplifiers|تقویت‌کننده جریان هوا|
+8261|3|Cold Air Guns|تفنگ هوای سرد|
+8262|3|Vortex Tubes|لوله گردابی (ورتکس)|
+8263|3|Cabinet & Enclosure Vortex Coolers|خنک‌کن ورتکس تابلو برق|
+8264|2|Lifting Bags & Valves|بالشتک بادی بالابر و شیر آن|
+8265|2|Pneumatic System Components|اجزای سیستم پنوماتیک|
+8266|3|Float Operated Auto Drain Valve|تخلیه خودکار فلوتری|
+8267|3|Exhaust Breather Vents, Mufflers & Silencers|صداخفه‌کن و سایلنسر پنوماتیک|
+8268|3|Pneumatic Check Valves|شیر یک‌طرفه پنوماتیک|
+8269|3|Pneumatic Safety Valves|شیر اطمینان پنوماتیک|
+8270|3|Air Fuses|فیوز هوا (قطع‌کن جریان)|
+8271|3|Air & Liquid Bypass Valves|شیر بای‌پس هوا و مایع|
+8272|3|Zero-Loss Condensate Drains|تخلیه کندانس بدون اتلاف|
+8273|3|Air Operated Drain Valves|شیر تخلیه پنوماتیکی|
+8274|3|Timed Electric Auto Drain Valves|تخلیه خودکار تایمری برقی|
+8275|3|Pneumatic Soft Start-up Valves|شیر راه‌انداز نرم پنوماتیک|
+8276|2|Vacuum System Components|اجزای سیستم وکیوم|
+8277|3|Vacuum Pads & Pad Assemblies|بادکش وکیوم (ساکشن کاپ)|
+8278|4|Sheet Metal, Automotive & Universal Vacuum Pads & Pad Assemblies|بادکش وکیوم ورق، خودرو و عمومی|
+8279|4|Food-Safe Vacuum Pads & Pad Assemblies|بادکش وکیوم غذایی|
+8280|4|Packaging & Logistics Vacuum Pads & Pad Assemblies|بادکش وکیوم بسته‌بندی|
+8281|4|Electronics & ESD Vacuum Pads & Pad Assemblies|بادکش وکیوم الکترونیک و آنتی‌استاتیک|
+8282|4|Vacuum Pad Test Kits|کیت تست بادکش وکیوم|
+8283|4|Chip & Wafer-Handling Vacuum Pads & Components|بادکش وکیوم جابجایی چیپ و ویفر|
+8284|3|Vacuum Pad Adapters|رابط بادکش وکیوم|
+8285|3|Vacuum Buffers|بافر فنری بادکش|
+8286|3|Vacuum Pad Mounting Brackets|براکت نصب بادکش|
+8287|3|Vacuum Saving Valves|شیر صرفه‌جویی وکیوم|
+8288|3|Vacuum Generators|وکیوم ژنراتور (اجکتور)|
+8289|3|Vacuum Generators with Gripper Assembly|وکیوم ژنراتور با گریپر|
+8290|3|Vacuum Area Gripping Systems|گریپر وکیوم سطحی|
+8291|3|Vacuum Gripper Integration Kits|کیت نصب گریپر وکیوم|
+8292|3|Magnetic Grippers for Vacuum Systems|گریپر مغناطیسی|
+8293|3|Benchtop Vacuum Systems|سیستم وکیوم رومیزی|
+8294|3|Vacuum Regulators|رگولاتور وکیوم|
+8295|3|Vacuum Suction Filters|فیلتر مکش وکیوم|
+8296|3|Vacuum Water Separators|آبگیر وکیوم|
+8297|3|Vacuum Pressure Switches|پرشر سوئیچ وکیوم|
+8298|3|Cobotic End-of-Arm Vacuum Tool Extensions|رابط ابزار وکیوم کوبات|
+8299|3|Cobotic Vacuum System End Effectors|گریپر وکیوم کوبات (ربات همکار)|
+8300|3|Cobotic Tool Changers & Tool Mounts|تعویض‌کن و پایه ابزار کوبات|
+8301|3|Cobotic Mounting & Quick-Change Components|اجزای نصب و تعویض سریع کوبات|
+8302|2|Pneumatic Valves|شیرهای پنوماتیک|
+8303|3|Pneumatic Directional Control Valve Systems, Fieldbus Modules & Accessories|شیر کنترل جهت پنوماتیک، ماژول فیلدباس و لوازم|
+8304|4|Solenoid-Operated Air Control Valve Systems & Accessories|شیر برقی پنوماتیک و لوازم جانبی|
+8305|5|Aventics Solenoid Valves & Accessories|شیر برقی Aventics و لوازم جانبی|
+8306|6|Aventics 501 Series Directional Control Valves & Accessories|شیر کنترل جهت Aventics سری 501|
+8307|6|Aventics 502 Series Directional Control Valves & Accessories|شیر کنترل جهت Aventics سری 502|
+8308|6|Aventics 503 Series Directional Control Valves & Accessories|شیر کنترل جهت Aventics سری 503|
+8309|6|Aventics 581 Series Directional Control Valves & Accessories|شیر کنترل جهت Aventics سری 581|
+8310|6|Aventics 740 Series Directional Control Valves & Accessories|شیر کنترل جهت Aventics سری 740|
+8311|6|Aventics 2035 Series Directional Control Valves & Accessories|شیر کنترل جهت Aventics سری 2035|
+8312|6|Aventics CERAM Series Directional Control Valves & Accessories|شیر کنترل جهت Aventics سری CERAM|
+8313|6|Aventics L01 Series Directional Control Valves & Accessories|شیر کنترل جهت Aventics سری L01|
+8314|6|Aventics L1 Series Directional Control Valves & Accessories|شیر کنترل جهت Aventics سری L1|
+8315|6|Aventics L2 Series Directional Control Valves & Accessories|شیر کنترل جهت Aventics سری L2|
+8316|6|Aventics XV Series Directional Control Valves & Accessories|شیر کنترل جهت Aventics سری XV|
+8317|5|Parker Solenoid Valves & Accessories|شیر برقی Parker و لوازم جانبی|
+8318|6|Parker DX ISO Series Directional Control Valves & Accessories|شیر کنترل جهت Parker سری DX ISO|
+8319|6|Parker H ISO Series Directional Control Valves & Accessories|شیر کنترل جهت Parker سری H ISO|
+8320|6|Parker Valvair Series Directional Control Valves & Accessories|شیر کنترل جهت Parker سری Valvair|
+8321|5|ARO Solenoid Valves & Accessories|شیر برقی ARO و لوازم جانبی|
+8322|6|ARO Sierra Series Directional Control Valves & Accessories|شیر کنترل جهت ARO سری Sierra|
+8323|6|ARO MaxAir Series Directional Control Valves & Accessories|شیر کنترل جهت ARO سری MaxAir|
+8324|5|SMC Solenoid Valves & Accessories|شیر برقی SMC و لوازم جانبی|
+8325|6|SMC SV Series Directional Control Valves & Accessories|شیر کنترل جهت SMC سری SV|
+8326|6|SMC SY Series Directional Control Valves & Accessories|شیر کنترل جهت SMC سری SY|
+8327|6|SMC SYJ Series Directional Control Valves & Accessories|شیر کنترل جهت SMC سری SYJ|
+8328|6|SMC VFR Series Directional Control Valves & Accessories|شیر کنترل جهت SMC سری VFR|
+8329|6|SMC VFS Series Directional Control Valves & Accessories|شیر کنترل جهت SMC سری VFS|
+8330|6|SMC VQ Series Directional Control Valves & Accessories|شیر کنترل جهت SMC سری VQ|
+8331|6|SMC VQC Series Directional Control Valves & Accessories|شیر کنترل جهت SMC سری VQC|
+8332|6|SMC VQZ Series Directional Control Valves & Accessories|شیر کنترل جهت SMC سری VQZ|
+8333|6|SMC VP Series Directional Control Valves & Accessories|شیر کنترل جهت SMC سری VP|
+8334|6|SMC V100 Series Directional Control Valves & Accessories|شیر کنترل جهت SMC سری V100|
+8335|6|SMC SX10 Series Directional Control Valves & Accessories|شیر کنترل جهت SMC سری SX10|
+8336|6|SMC Solenoid Valve Manifold Fittings|اتصالات منیفولد شیر برقی SMC|
+8337|5|Numatics Solenoid Valves & Accessories|شیر برقی Numatics و لوازم جانبی|
+8338|6|Numatics Mark 3 Series Directional Control Valves & Accessories|شیر کنترل جهت Numatics سری Mark 3|
+8339|6|Numatics Mark 7 Series Directional Control Valves & Accessories|شیر کنترل جهت Numatics سری Mark 7|
+8340|6|Numatics Mark 8 Series Directional Control Valves & Accessories|شیر کنترل جهت Numatics سری Mark 8|
+8341|6|Numatics Mark 15 Series Directional Control Valves & Accessories|شیر کنترل جهت Numatics سری Mark 15|
+8342|6|Numatics Mark 55 Series Directional Control Valves & Accessories|شیر کنترل جهت Numatics سری Mark 55|
+8343|5|Sharpe Solenoid Valves & Accessories|شیر برقی Sharpe و لوازم جانبی|
+8344|5|Bonomi Solenoid Valves & Accessories|شیر برقی Bonomi و لوازم جانبی|
+8345|4|Pneumatic Directional Control Valve Solenoids, Fieldbus Modules & Accessories|بوبین شیر کنترل جهت، ماژول فیلدباس و لوازم|
+8346|5|Pneumatic Directional Control Valve Solenoids and Accessories|بوبین (سلونوئید) شیر پنوماتیک و لوازم|
+8347|5|Pneumatic Directional Control Valve Fieldbus Modules and Accessories|ماژول فیلدباس شیر پنوماتیک و لوازم|
+8348|3|Inline Air Control Valves|شیر کنترل هوای خطی|
+8349|4|Manually-Activated Inline Air Control Valves|شیر کنترل هوای دستی (اهرمی و پدالی)|
+8350|5|ARO Manual Air Control Valves|شیر کنترل هوای دستی ARO|
+8351|5|Parker Manual Air Control Valves|شیر کنترل هوای دستی Parker|
+8352|5|Aventics Manual Air Control Valves|شیر کنترل هوای دستی Aventics|
+8353|5|Pneumadyne Manual Air Control Valves|شیر کنترل هوای دستی Pneumadyne|
+8354|5|Speedaire Manual Air Control Valves|شیر کنترل هوای دستی Speedaire|
+8355|5|SMC Manual Air Control Valves|شیر کنترل هوای دستی SMC|
+8356|4|Solenoid-Operated Inline Air Control Valves|شیر برقی پنوماتیک خطی|
+8357|5|Aventics Solenoid-Operated Inline Air Control Valves|شیر برقی پنوماتیک Aventics|
+8358|5|Parker Solenoid-Operated Inline Air Control Valves|شیر برقی پنوماتیک Parker|
+8359|5|ARO Solenoid-Operated Inline Air Control Valves|شیر برقی پنوماتیک ARO|
+8360|4|Pilot-Operated Inline Air Control Valves|شیر پنوماتیک پایلوتی (بادی)|
+8361|5|Aventics Pilot-Operated Inline Air Control Valves|شیر پنوماتیک پایلوتی Aventics|
+8362|5|Parker Pilot-Operated Inline Air Control Valves|شیر پنوماتیک پایلوتی Parker|
+8363|5|ARO Pilot-Operated Inline Air Control Valves|شیر پنوماتیک پایلوتی ARO|
+8364|3|Pneumatic Limit Valves|شیر لیمیت پنوماتیک (مکانیکی)|
+8365|3|Pneumatic Flow Control & Needle Valves|شیر کنترل جریان و سوزنی پنوماتیک|
+8366|3|Pneumatic Shuttle Valves|شیر شاتل (OR) پنوماتیک|
+8367|3|Vacuum & Pressure Relief Valves|شیر اطمینان فشار و خلأ|
+8368|3|Electro-Pneumatic Actuators|اکچویتور الکتروپنوماتیک|
+8369|3|Piloted Non-Return Valves|شیر یک‌طرفه پایلوتی|
+8370|3|Exhaust Flow Controls|کنترل جریان خروجی (صداخفه‌کن دبی‌گیر)|
+8371|3|Filtered Ball Valves|شیر توپی صافی‌دار|
+8372|3|Pneumatic Pressure Regulators|رگولاتور فشار پنوماتیک|
+8373|3|Sandwich Manifold Compressed Air Regulators|رگولاتور ساندویچی منیفولد|
+8374|3|Pneumatic Sleeve Valves|شیر کشویی آستینی پنوماتیک|
+8375|2|Vibration-Isolating Air Springs|کوسن بادی ضدارتعاش (ایرفنر)|
+8376|2|Pneumatic Equipment Parts|قطعات تجهیزات پنوماتیک|
+8377|1|Power Transmission|انتقال قدرت|
+8378|2|Bearings|بلبرینگ و یاتاقان|
+8379|3|Rolling-Element Bearings|بلبرینگ و رولبرینگ|
+8380|4|Ball Bearings|بلبرینگ|
+8381|5|Radial Ball Bearings|بلبرینگ شیار عمیق (شعاعی)|
+8382|5|Self-Aligning Ball Bearings|بلبرینگ خودتنظیم|
+8383|5|Angular Contact Ball Bearings|بلبرینگ تماس زاویه‌ای|
+8384|5|Flanged Ball Bearings|بلبرینگ فلنج‌دار|
+8385|5|Retaining Ring Ball Bearings|بلبرینگ خاردار|
+8386|5|Agricultural Bearings|بلبرینگ کشاورزی|
+8387|5|Thin-Section Bearings|بلبرینگ مقطع نازک|
+8388|4|Roller Bearings|رولبرینگ|
+8389|5|Cylindrical Roller Bearings|رولبرینگ استوانه‌ای|
+8390|5|Spherical Roller Bearings|رولبرینگ کروی (بشکه‌ای)|
+8391|5|Needle Roller Bearings|بلبرینگ سوزنی|
+8392|5|Tapered Roller Bearings|رولبرینگ مخروطی|
+8393|5|Split Cylindrical Roller Bearings|رولبرینگ استوانه‌ای دوتکه|
+8394|4|Mounted Rolling-Element Bearings|یاتاقان (بلبرینگ پایه‌دار)|
+8395|5|Flange-Mount Rolling-Element Bearings|یاتاقان فلنجی (بلبرینگ فلنچی)|
+8396|5|Bearing Caps|درپوش یاتاقان|
+8397|5|Insert Bearings|بلبرینگ داخل یاتاقانی (اینسرت)|
+8398|5|Take-Up Units|یاتاقان کشویی (تیک‌آپ)|
+8399|5|Pillow Block Bearings|یاتاقان ایستاده (پیلوبلاک)|
+8400|6|Pillow Block Ball Bearings|یاتاقان ایستاده بلبرینگی|
+8401|6|Pillow Block Spherical Roller Bearings|یاتاقان ایستاده رولبرینگ کروی|
+8402|6|Pillow Block Tapered Roller Bearings|یاتاقان ایستاده رولبرینگ مخروطی|
+8403|6|Split-Housing Pillow Block Tapered Roller Bearings|یاتاقان ایستاده دوتکه رولبرینگ مخروطی|
+8404|6|Tapped-Base Pillow Block Ball Bearings|یاتاقان ایستاده پایه رزوه‌دار|
+8405|4|Thrust Bearings|بلبرینگ کف‌گرد|
+8406|5|Ball Thrust Bearings|بلبرینگ کف‌گرد ساچمه‌ای|
+8407|5|Cylindrical Roller Thrust Bearings|رولبرینگ کف‌گرد استوانه‌ای|
+8408|5|Needle Roller Thrust Bearings & Washers|بلبرینگ کف‌گرد سوزنی و واشر آن|
+8409|4|Combination Bearings|بلبرینگ ترکیبی (شعاعی و محوری)|
+8410|3|Plain Bearings|یاتاقان لغزشی (بوش)|
+8411|4|Sleeve Bearings|بوش یاتاقانی|
+8412|5|Metallic Sleeve Bearings|بوش یاتاقانی فلزی|
+8413|6|Maintenance-Free Metallic & Multi-Layered Sleeve Bearings|بوش خودروانکار فلزی و چندلایه|
+8414|6|Lubricated Metallic Sleeve Bearings|بوش فلزی روغن‌خور (برنزی)|
+8415|5|Plastic Sleeve Bearings|بوش پلاستیکی|
+8416|6|Nylon|نایلون|
+8417|4|Flanged Sleeve Bearings|بوش لبه‌دار|
+8418|5|Metallic Flanged Sleeve Bearings|بوش لبه‌دار فلزی|
+8419|6|Maintenance-Free Metallic & Multi-Layered Flanged Sleeve Bearings|بوش لبه‌دار خودروانکار فلزی و چندلایه|
+8420|6|Lubricated Metallic Flanged Sleeve Bearings|بوش لبه‌دار فلزی روغن‌خور|
+8421|5|Plastic Flanged Sleeve Bearings|بوش لبه‌دار پلاستیکی|
+8422|6|Nylon|نایلون|
+8423|4|Mounted Plain Bearings|یاتاقان لغزشی پایه‌دار|
+8424|4|Thrust Washers|واشر کف‌گرد|
+8425|4|Clip Bearings|بوش کلیپسی|
+8426|3|Spherical Bearings|بلبرینگ کروی (رادیال اسفریکال)|
+8427|3|Cam Followers & Track Rollers|بادامک‌رو و غلتک ریلی|
+8428|4|Stud Cam Followers|بادامک‌رو پیچی (کم‌فالوور)|
+8429|4|Yoke Cam Followers|بادامک‌رو یوک (توپی)|
+8430|4|Stud Track Rollers|غلتک ریلی پیچی|
+8431|4|Yoke Track Rollers|غلتک ریلی یوک|
+8432|4|Yoke Roller Shafts|شفت غلتک یوک|
+8433|3|Slewing Ring Bearings|بلبرینگ گردان (اسلوئینگ)|
+8434|3|Bearing Adapters, Withdrawal Sleeves, & Locknuts|بوش آداپتور، بوش بیرون‌کش و مهره قفلی بلبرینگ|
+8435|3|Bearing Heaters|هیتر بلبرینگ|
+8436|2|Bushings|بوش (پولی و چرخ‌زنجیر)|
+8437|3|Quick Detachable Bushings|بوش QD (جداشونده سریع)|
+8438|3|Split Taper Bushings|بوش مخروطی شکاف‌دار|
+8439|3|Taper Lock Bushings|بوش تیپرلاک|
+8440|3|Keyless Bushings|بوش قفلی بدون خار (لاکینگ اسمبلی)|
+8441|3|Idler Bushings|بوش هرزگرد|
+8442|3|Weld-On Bushing Hubs|توپی جوشی بوش|
+8443|2|Gearmotors|گیربکس موتور (موتور گیربکس)|
+8444|3|AC Gearmotors|موتور گیربکس AC|
+8445|3|DC Gearmotors|موتور گیربکس DC|
+8446|3|Universal AC/DC Gearmotors|موتور گیربکس یونیورسال AC/DC|
+8447|3|Gearmotor Accessories|لوازم جانبی موتور گیربکس|
+8448|3|Gearmotor Replacement Parts|قطعات یدکی موتور گیربکس|
+8449|2|Speed Reducers & Gearboxes|گیربکس کاهنده|
+8450|3|Speed Reducers|گیربکس کاهنده دور|
+8451|3|Mounting Bases|پایه نصب گیربکس|
+8452|3|Flange Coupling Kits|کیت فلنج کوپلینگ|
+8453|3|Bushings & Torque Arm Kits|کیت بوش و بازوی گشتاور|
+8454|3|Speed Reducer Replacement Parts|قطعات یدکی گیربکس|
+8455|2|Brakes, Clutches & Torque Limiters|ترمز، کلاچ و تورک لیمیتر|
+8456|3|Brakes & Clutches|ترمز و کلاچ صنعتی|
+8457|3|Torque Limiters|تورک لیمیتر (محدودکننده گشتاور)|
+8458|3|Brake & Clutch Accessories|لوازم جانبی ترمز و کلاچ|
+8459|3|Brake & Clutch Replacement Parts|قطعات یدکی ترمز و کلاچ|
+8460|2|Shaft Couplings & Universal Joints|کوپلینگ و چهارشاخ (یونیورسال)|

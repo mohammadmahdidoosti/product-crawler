@@ -1,0 +1,259 @@
+10938|1|Security|امنیت و حفاظت|
+10939|2|Access Barriers & Crowd Control|موانع تردد و کنترل جمعیت|
+10940|3|Bollards & Bollard Covers|بولارد و روکش بولارد|
+10941|4|Bollards|بولارد (استوبل)|
+10942|4|Covers for Bollards|روکش بولارد|
+10943|4|Decorative Bollards|بولارد تزئینی|
+10944|4|Planter Bollards|بولارد گلدانی|
+10945|4|Accessories for Bollards|لوازم جانبی بولارد|
+10946|3|Retractable Belt Barriers|راهبند نواری جمع‌شو (استند صف)|
+10947|4|Mountable Retractable Belt Barriers|نوار جمع‌شو دیواری|
+10948|4|Retractable Belt Post Barriers|پایه استند صف نواری|
+10949|4|Receiver Posts for Retractable Belt Barriers|پایه دریافت‌کننده نوار|
+10950|4|Retractable Belt Barrier Systems|سیستم استند صف نواری|
+10951|4|Accessories for Retractable Belt Barriers|لوازم جانبی استند صف|
+10952|3|Plastic Chain Barriers|راهبند زنجیر پلاستیکی|
+10953|4|Plastic Chains|زنجیر پلاستیکی|
+10954|4|Receiver Posts for Plastic Chains|پایه زنجیر پلاستیکی|
+10955|4|Plastic Chain Barrier Systems|سیستم راهبند زنجیر پلاستیکی|
+10956|4|Mountable Plastic Chain Barriers|راهبند زنجیری دیواری|
+10957|4|Accessories for Plastic Chain Barriers|لوازم جانبی راهبند زنجیری|
+10958|3|Rope Barriers|راهبند طنابی (تشریفاتی)|
+10959|4|Barrier Ropes|طناب راهبند|
+10960|4|Receiver Posts for Rope Barriers|پایه راهبند طنابی|
+10961|4|Accessories for Rope Barriers|لوازم جانبی راهبند طنابی|
+10962|3|Post Top Signs & Accessories|تابلو سرپایه و لوازم|
+10963|3|Barrier & Flagging Tape|نوار هشدار و نوار علامت‌گذاری|
+10964|4|Barrier Tape|نوار هشدار (خطر)|
+10965|4|Flagging Tape|نوار علامت‌گذاری|
+10966|4|Dispensers & Rewind Reels for Barrier & Flagging Tape|دیسپنسر و قرقره نوار هشدار|
+10967|3|Barrier & Safety Fencing|فنس ایمنی و حصار موقت|
+10968|3|Railing, Expandable & Modular Barricades|نرده، راهبند آکاردئونی و ماژولار|
+10969|4|Railing & Expandable Barricades|نرده و راهبند آکاردئونی|
+10970|4|Accessories for Expandable Barricades|لوازم جانبی راهبند آکاردئونی|
+10971|4|Modular Rigid Barrier Components|قطعات راهبند ماژولار|
+10972|4|Vehicle Mitigation Systems|سیستم ضدخودرو (راهبند ضدتهاجم)|
+10973|3|Turnstiles & Swing Gates|گیت تردد و گیت بازویی|
+10974|4|Turnstiles|گیت ترنستایل (تردد)|
+10975|4|Swing Gates|گیت لولایی (سوئینگ)|
+10976|3|Gate Operator Systems & Vehicle Detectors|جک درب اتوماتیک و آشکارساز خودرو|
+10977|4|Gate Operator Systems|جک و موتور درب اتوماتیک|
+10978|4|Accessories for Gate Operator Systems|لوازم جانبی درب اتوماتیک|
+10979|4|Vehicle Detectors|آشکارساز خودرو (لوپ دتکتور)|
+10980|4|Accessories for Vehicle Detectors|لوازم جانبی آشکارساز خودرو|
+10981|2|Metal Detectors, Scanners & Accessories|فلزیاب، اسکنر و لوازم جانبی|
+10982|3|Walk-Through Metal Detectors|گیت فلزیاب|
+10983|3|Handheld Metal Detectors|راکت فلزیاب دستی|
+10984|3|Metal Detector & Scanner Accessories|لوازم جانبی فلزیاب و اسکنر|
+10985|3|Explosive Detectors & Neutralizers|آشکارساز و خنثی‌کننده مواد منفجره|
+10986|2|Security & Access Doors|درب امنیتی و دریچه بازدید|
+10987|3|Access & Inspection Service Doors|دریچه بازدید و سرویس|
+10988|3|Security Doors & Door Frames|درب ضدسرقت و چارچوب|
+10989|3|Door Louver Kits, Window Kits & Replacement Glass|کیت دریچه کرکره‌ای، پنجره و شیشه یدکی درب|
+10990|3|Counter Shutters|کرکره پیشخوان|
+10991|2|Folding Security Gates|درب آکاردئونی امنیتی (حفاظ کشویی)|
+10992|2|Key Control & Duplication|مدیریت و تکثیر کلید|
+10993|3|Key Cabinets|جاکلیدی دیواری (کابینت کلید)|
+10994|3|Key Tags|پلاک جاکلیدی|
+10995|3|Key Rings, Clips & Lanyards|حلقه کلید، گیره و بند جاکلیدی|ترکیبی
+10996|3|Lockboxes|صندوق کلید رمزدار|
+10997|3|Key Duplicators|دستگاه کلیدسازی|
+10998|3|Accessories for Key Duplicators|لوازم جانبی دستگاه کلیدسازی|
+10999|3|Key Blanks|کلید خام|
+11000|2|ID Cards, Printers & Supplies|کارت شناسایی، چاپگر و ملزومات|
+11001|3|ID Card Printers, Encoders & Laminators|چاپگر کارت، انکودر و لمینیتور|
+11002|3|ID Card Blanks, Laminates & Printer Ribbons|کارت خام PVC، لمینت و ریبون|
+11003|3|Accessories for ID Card Printers|لوازم جانبی چاپگر کارت|
+11004|3|Security Badges, Wristbands & Hangers|بج، دستبند شناسایی و آویز|
+11005|3|Security ID Holders & Accessories|جاکارتی و لوازم جانبی|
+11006|2|Locks|قفل|
+11007|3|Keyed Padlocks & Padlock Keys|قفل آویز کلیدی و کلید|ترکیبی
+11008|4|Keyed Different Padlocks|قفل آویز کلید متفاوت|
+11009|4|Keyed Alike Padlocks|قفل آویز هم‌کلید|
+11010|4|Master Keyed Padlocks & Keys|قفل آویز مسترکی و کلید|
+11011|4|Coreless Keyed Padlocks|قفل آویز بدون سیلندر|
+11012|3|Combination Padlocks & Control Keys|قفل رمزی و کلید کنترل|ترکیبی
+11013|4|Combination Padlocks|قفل آویز رمزی|
+11014|4|Combination Padlock Control Keys|کلید کنترل قفل رمزی|
+11015|3|Bluetooth Padlocks|قفل آویز بلوتوثی (هوشمند)|ترکیبی
+11016|3|Cable Locks|قفل کابلی|ترکیبی
+11017|3|Padlock Cables, Chains & Anchors|کابل، زنجیر و انکر قفل|
+11018|4|Security Chains & Cables|زنجیر و کابل امنیتی|
+11019|4|Security Anchors & Hasps|انکر امنیتی و زلفی (کلون)|
+11020|3|Padlock Guards & Padlock Guards with Lock|محافظ قفل آویز|
+11021|4|Padlock Guards with Lock|محافظ قفل همراه قفل|
+11022|4|Padlock Guards|محافظ قفل آویز|
+11023|3|Cam, Locker, Cabinet & Drawer Locks|قفل بادامکی، کمدی، کابینتی و کشو|
+11024|4|Cam Locks|قفل بادامکی|
+11025|4|Built-in Locker Locks|قفل توکار کمد|
+11026|4|Keyed Cabinet & Drawer Locks|قفل کلیدی کابینت و کشو|
+11027|4|Keyless Cabinet & Locker Locks|قفل بدون کلید کابینت و کمد|
+11028|4|File Cabinet Locks & Gang Locks|قفل فایل و قفل سراسری کشو|
+11029|2|Mailboxes & Mailbox Accessories|صندوق پست و لوازم|ترکیبی
+11030|3|Mailboxes|صندوق پست|
+11031|3|Mailbox Posts & Pedestals|پایه صندوق پست|
+11032|3|Accessories & Replacement Products for Mailboxes|لوازم و قطعات یدکی صندوق پست|
+11033|2|Safes|گاوصندوق|
+11034|3|Security Safes|گاوصندوق امنیتی|
+11035|3|Depository Safes|گاوصندوق واریزی (شکاف‌دار)|
+11036|3|Gun Safes|گاوصندوق اسلحه|
+11037|3|Pharmacy Safes|گاوصندوق داروخانه|
+11038|3|Hotel Safes|گاوصندوق هتلی|
+11039|3|Portable Safes & Diversion Safes|گاوصندوق قابل حمل و مخفی|ترکیبی
+11040|3|Accessories for Safes|لوازم جانبی گاوصندوق|
+11041|2|Security Alarms & Warnings|آلارم و هشداردهنده امنیتی|
+11042|3|Door Alarms & Warnings|آلارم درب|
+11043|3|Accessories for Door Alarms|لوازم جانبی آلارم درب|
+11044|3|Security Systems|سیستم دزدگیر (اعلام سرقت)|
+11045|4|Sensors for Security Systems|سنسور دزدگیر|
+11046|4|Panels & Keypads for Security Systems|پنل و کی‌پد دزدگیر|
+11047|4|Network Devices for Security Systems|تجهیزات شبکه دزدگیر|
+11048|4|Accessories for Security Systems|لوازم جانبی دزدگیر|
+11049|2|Security Equipment Replacement Parts|قطعات یدکی تجهیزات امنیتی|
+11050|3|CCL|CCL|
+11051|2|Military, Tactical & Public Security Equipment|تجهیزات نظامی، تاکتیکال و انتظامی|
+11052|3|Clothing & Protective Equipment for Military, EMS & Law Enforcement|پوشاک و تجهیزات حفاظتی نظامی، امدادی و انتظامی|
+11053|4|Military, Law Enforcement & EMS Clothing|پوشاک نظامی، انتظامی و امدادی|
+11054|5|Military, Law Enforcement & EMS Jackets & Coats|کاپشن و کت نظامی و انتظامی|
+11055|5|Military, Law Enforcement & EMS Sweatshirts & Hoodies|سویشرت و هودی نظامی و انتظامی|
+11056|5|Military, Law Enforcement & EMS Shirts|پیراهن نظامی و انتظامی|
+11057|5|Military, Law Enforcement & EMS Pants|شلوار نظامی و انتظامی|
+11058|5|Military, Law Enforcement & EMS Shorts|شلوارک نظامی و انتظامی|
+11059|5|Military Flight Suits|لباس پرواز نظامی|
+11060|5|Tactical Vests|جلیقه تاکتیکال|
+11061|5|High-Visibility Public Safety Vests|جلیقه شبرنگ انتظامی|
+11062|5|Public Service Hats|کلاه خدمات عمومی|
+11063|5|Uniform Patches, Emblems & Accessories|اتیکت، آرم و لوازم یونیفرم|
+11064|4|Military, Law Enforcement & Tactical Gloves|دستکش نظامی و تاکتیکال|
+11065|5|Mechanics-Style Military, Law Enforcement & Tactical Gloves|دستکش تاکتیکال مکانیکی|
+11066|5|Leather Military, Law Enforcement & Tactical Gloves|دستکش چرمی تاکتیکال|
+11067|4|Tactical Hearing Protection|محافظ شنوایی تاکتیکال|
+11068|4|Riot Gear & Ballistic Protection|تجهیزات ضدشورش و ضدگلوله|
+11069|5|Riot Gear|تجهیزات ضدشورش|
+11070|5|Ballistic Helmets & Accessories|کلاه ضدگلوله و لوازم|
+11071|5|Body Armor|زره بدن (جلیقه ضدگلوله)|
+11072|6|Body Armor Plates|پلیت ضدگلوله|
+11073|6|Body Armor & Plate Carrier Vests|جلیقه ضدگلوله و پلیت‌کریر|
+11074|5|Riot & Ballistic Shields & Accessories|سپر ضدشورش و ضدگلوله|
+11075|4|Tactical Response Gas Masks & Replacement Cartridges|ماسک ضدگاز تاکتیکال و کارتریج|
+11076|5|Tactical Response Gas Masks|ماسک ضدگاز تاکتیکال|
+11077|5|Replacement Cartridges for Tactical Response Gas Masks|کارتریج یدکی ماسک ضدگاز|
+11078|4|Tactical Safety Glasses|عینک ایمنی تاکتیکال|
+11079|4|Tactical Safety Goggles|عینک گاگل تاکتیکال|
+11080|4|Accessories & Parts for Tactical Eye Protection|لوازم و قطعات عینک تاکتیکال|
+11081|3|Military, Public Safety & Firefighting Footwear|کفش و پوتین نظامی، انتظامی و آتش‌نشانی|
+11082|4|Military, Law Enforcement & Tactical Boots & Shoes|پوتین و کفش تاکتیکال|
+11083|4|Structural & Wildland Firefighting & Rescue Boots|پوتین آتش‌نشانی و امداد|
+11084|3|Duty Gear, Holsters & Tactical Backpacks|تجهیزات انفرادی، غلاف و کوله تاکتیکال|
+11085|4|Duty Belts & Harnesses|کمربند و هارنس انتظامی|
+11086|4|Tactical Pouches for Duty Belts & Harnesses|کیف کمری تاکتیکال (پاوچ)|
+11087|4|Tactical Duffle Bags, Sling Bags & Backpacks|ساک، کیف دوشی و کوله تاکتیکال|
+11088|4|Gun, Taser & Pepper Spray Holsters|غلاف اسلحه، شوکر و اسپری فلفل|
+11089|3|Binoculars, Scopes, Thermal Imaging & Night Vision Devices|دوربین دوچشمی، دوربین تفنگ، حرارتی و دید در شب|
+11090|4|Binoculars, Monoculars & Rifle Scopes|دوربین دوچشمی، تک‌چشمی و دوربین تفنگ|ترکیبی
+11091|4|Thermal Imaging Devices|دوربین حرارتی (ترموویژن)|
+11092|4|Night Vision Devices|دوربین دید در شب|
+11093|4|Laser Sights & Accessories for Rifle Scopes|نشانه‌روی لیزری و لوازم دوربین تفنگ|
+11094|4|Mounts for Optic Devices|پایه نصب تجهیزات اپتیکی|
+11095|3|Law Enforcement & Public Security Protective Equipment|تجهیزات دفاعی انتظامی|
+11096|4|Personal Safety Horns, Alarms & Stun Guns|بوق، آژیر شخصی و شوکر|ترکیبی
+11097|4|Handcuffs & Restraints|دستبند و پابند|
+11098|4|Batons|باتوم|
+11099|4|Forcible Entry Tools|ابزار ورود اجباری (هالیگان)|
+11100|3|Evidence Management & Forensics Equipment|تجهیزات مدیریت مدارک و پزشکی قانونی|
+11101|4|Evidence Markers & Collection Kits|نشانگر صحنه جرم و کیت جمع‌آوری مدارک|
+11102|4|Evidence Storage Lockers|کمد نگهداری مدارک|
+11103|4|Fingerprint Stations|ایستگاه انگشت‌نگاری|
+11104|4|Counterfeit Detection Devices|دستگاه تشخیص اسکناس تقلبی|
+11105|3|Weapon Storage, Maintenance & Shooting Targets|نگهداری، نظافت سلاح و سیبل تیراندازی|
+11106|4|Weapon Storage Cabinets & Racks|کمد و رک سلاح|
+11107|4|Weapon Cases & Bags|کیف و جعبه سلاح|
+11108|4|Gun Maintenance & Cleaners|لوازم نظافت و نگهداری اسلحه|
+11109|4|Gun Accessories|لوازم جانبی اسلحه|
+11110|4|Shooting Range Targets & Accessories|سیبل تیراندازی و لوازم|
+11111|3|Firefighting Clothing & Rescue Equipment|لباس آتش‌نشانی و تجهیزات امداد|
+11112|4|Firefighting & Extrication Clothing|لباس آتش‌نشانی و امداد و نجات|
+11113|5|Firefighting & Extrication Coveralls|لباس سرهمی آتش‌نشانی|
+11114|5|Firefighting & Extrication Coats & Overshirts|کت و روپیراهنی آتش‌نشانی|
+11115|5|Firefighting & Extrication Pants|شلوار آتش‌نشانی|
+11116|5|Firefighting Hoods & Shrouds|کلاه‌کاپوت ضدحریق آتش‌نشانی|
+11117|4|Fire and Rescue Helmets|کلاه آتش‌نشانی و امداد|
+11118|4|Firefighting & Rescue Gloves|دستکش آتش‌نشانی و امداد|
+11119|5|Mechanics-Style Rescue & Extrication Gloves|دستکش امداد و نجات مکانیکی|
+11120|5|Leather Firefighting Gloves|دستکش چرمی آتش‌نشانی|
+11121|4|Ladder Rescue & Escape Belts & Harnesses|کمربند و هارنس نجات و فرار|
+11122|4|Turnout Gear Storage Racks & Accessories|رک نگهداری لباس آتش‌نشانی|
+11123|4|Firefighting Straps, Bags & Packs|تسمه، کیف و کوله آتش‌نشانی|
+11124|4|Firefighting & Rescue Thermal Imaging Cameras & Accessories|دوربین حرارتی آتش‌نشانی و لوازم|
+11125|4|Firefighting Safety Goggles|عینک گاگل آتش‌نشانی|
+11126|4|Accessories & Parts for Firefighting Safety Goggles|لوازم و قطعات عینک آتش‌نشانی|
+11127|2|Security Seals|پلمب امنیتی|
+11128|3|High Security Seals|پلمب امنیتی بالا|
+11129|4|Bolt Seals|پلمب پیچی (بولت سیل)|
+11130|4|Cable Seals|پلمب کابلی|
+11131|3|Tamper-Evident Seals|پلمب ضددستکاری|
+11132|4|Pull-Tight Seals|پلمب کمربندی (کششی)|
+11133|4|Strap Seals|پلمب تسمه‌ای|
+11134|4|Padlock Seals|پلمب قفلی|
+11135|4|Tote Seals|پلمب جعبه و باکس|
+11136|4|Lead & Wire Seals & Presses|پلمب سربی و سیمی و انبر پلمب|
+11137|2|Asset Tracking & Protection|ردیابی و حفاظت دارایی|
+11138|2|Video Surveillance|دوربین مداربسته (نظارت تصویری)|
+11139|3|Video Surveillance Cameras & Systems|دوربین و سیستم مداربسته|
+11140|4|Video Surveillance Cameras|دوربین مداربسته|
+11141|5|Digital Video Cameras & Dummy Surveillance Cameras|دوربین دیجیتال و دوربین مداربسته نمایشی (فیک)|
+11142|5|Network IP Video Cameras|دوربین تحت شبکه (IP)|
+11143|4|Video Surveillance Network IP Systems|سیستم مداربسته تحت شبکه (IP)|
+11144|4|Mobile Video Surveillance Systems & Trailers|سیستم و تریلر مداربسته سیار|
+11145|4|Video Surveillance Digital Systems|سیستم مداربسته دیجیتال|
+11146|3|Vehicular Video Surveillance|مداربسته خودرویی|
+11147|4|1600|1600|
+11148|3|Video Surveillance Devices & Accessories|تجهیزات و لوازم جانبی مداربسته|
+11149|4|Video Surveillance Transmitters and Receivers|فرستنده و گیرنده تصویر مداربسته|
+11150|4|Video Surveillance Testers|تستر دوربین مداربسته|
+11151|4|Video Surveillance Power Supplies|منبع تغذیه مداربسته|
+11152|4|Video Camera Lenses|لنز دوربین مداربسته|
+11153|4|Video Camera Illuminators|نورافکن مادون قرمز دوربین (IR)|
+11154|4|Surveillance System Housings, Mounts, and Brackets|کاور، پایه و براکت دوربین|
+11155|4|Video Surveillance Accessories|لوازم جانبی مداربسته|
+11156|5|Surveillance Accessories|لوازم جانبی نظارتی|
+11157|5|Video Surveillance Camera & Recorder Drives & Accessories|هارد دوربین و دستگاه ضبط و لوازم|
+11158|4|Video Surveillance Recording Devices|دستگاه ضبط مداربسته|
+11159|5|Hybrid Video Recorders|دستگاه ضبط هایبرید (XVR)|
+11160|5|Network IP Video Recorders|دستگاه ضبط تحت شبکه (NVR)|
+11161|4|Video Surveillance Enclosures|محفظه دوربین مداربسته|
+11162|4|Video Surveillance Monitors|مانیتور مداربسته|
+11163|4|Video Surveillance Power Over Ethernet Devices|تجهیزات PoE مداربسته|
+11164|1|Test Instruments|ابزار تست و اندازه‌گیری|
+11165|2|Electrical Power Testing|تست برق و توان الکتریکی|
+11166|3|Multimeters|مولتی‌متر|
+11167|4|Digital Multimeters|مولتی‌متر دیجیتال|
+11168|4|Digital Multimeter Kits|کیت مولتی‌متر دیجیتال|
+11169|4|Analog Multimeters|مولتی‌متر عقربه‌ای|
+11170|3|Accessories for Multimeters & Clamp Meters|لوازم جانبی مولتی‌متر و کلمپ‌متر|
+11171|3|Clamp Meters|کلمپ‌متر (آمپرمتر انبری)|
+11172|4|Digital Clamp Meters|کلمپ‌متر دیجیتال|
+11173|4|Digital Clamp Meter Kits|کیت کلمپ‌متر دیجیتال|
+11174|4|Analog Clamp Meters|کلمپ‌متر عقربه‌ای|
+11175|3|Multimeter & Clamp Meter Combination Kits|کیت ترکیبی مولتی‌متر و کلمپ‌متر|
+11176|3|Resistance Testers|تستر مقاومت|
+11177|4|Megohmmeters|میگر (مگااهم‌متر)|
+11178|4|Megohmmeter Kits|کیت میگر|
+11179|4|Accessories for Megohmmeters|لوازم جانبی میگر|
+11180|4|Milli- & Micro-Ohm Meters|میلی‌اهم‌متر و میکرواهم‌متر|
+11181|4|Accessories for Milli- & Micro-Ohm Meters|لوازم جانبی میکرواهم‌متر|
+11182|4|Earth Ground Resistance Testers|ارت‌سنج (تستر مقاومت زمین)|
+11183|4|Accessories for Earth Ground Resistance Testers|لوازم جانبی ارت‌سنج|
+11184|4|HiPot Testers|تستر هایپات (ولتاژ بالا)|
+11185|4|Handheld Earth Resistance Testers|ارت‌سنج دستی|
+11186|3|Test Leads & Test Probes|سیم رابط تست و پراب|
+11187|4|Test Leads|سیم رابط تست (ترمینال تست)|
+11188|4|Test Clips & Probes|گیره تست و پراب|
+11189|4|Test Lead Kits|کیت سیم تست|
+11190|4|Test Lead Connectors|اتصال سیم تست|
+11191|4|Test Lead Wire|سیم تست|
+11192|4|Current Probes|پراب جریان|
+11193|4|Shorting Cables|کابل اتصال کوتاه|
+11194|3|Power Quality Testers|آنالایزر کیفیت توان|
+11195|4|Power Analyzers|پاورآنالایزر|
+11196|4|Power Meters|پاورمتر (وات‌متر)|

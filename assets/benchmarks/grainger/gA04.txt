@@ -1,0 +1,253 @@
+811|4|Wire Connector Weatherproofing Kits|کیت ضدآب‌سازی اتصال سیم|
+812|4|Terminal Blocks & Barrier Terminal Strips|ترمینال ریلی و ترمینال شینه‌ای|
+813|5|Terminal Blocks|ترمینال ریلی (ترمینال تابلویی)|
+814|5|Terminal Block Accessories|لوازم جانبی ترمینال|
+815|5|Barrier Terminal Strips|ترمینال پیچی شینه‌ای (بریر)|
+816|5|Mounting Channels for Terminal Blocks|ریل نصب ترمینال|
+817|4|Power Distribution Blocks & Accessories|ترمینال توزیع برق و لوازم|
+818|5|Power Distribution Blocks|ترمینال توزیع برق (بلوک تقسیم)|
+819|5|Power Distribution Block Accessories|لوازم جانبی بلوک تقسیم|
+820|3|Plugs, Receptacles & Wiring Devices|دوشاخه، پریز و کلید|
+821|4|NEMA Straight-Blade Plugs & Receptacles|دوشاخه و پریز تیغه‌صاف NEMA|
+822|5|NEMA Straight-Blade Plugs|دوشاخه تیغه‌صاف NEMA|
+823|6|Straight-Blade Plugs|دوشاخه تیغه‌صاف|
+824|6|Hospital-Grade Straight-Blade Plugs|دوشاخه بیمارستانی|
+825|6|Watertight Straight-Blade Plugs|دوشاخه ضدآب|
+826|6|Hazardous-Location Straight-Blade Plugs|دوشاخه ضدانفجار|
+827|5|NEMA Straight-Blade Connectors|مادگی سیار تیغه‌صاف NEMA|
+828|6|Straight-Blade Connectors|مادگی سیار تیغه‌صاف|
+829|6|Hospital-Grade Straight-Blade Connectors|مادگی سیار بیمارستانی|
+830|6|Watertight Straight-Blade Connectors|مادگی سیار ضدآب|
+831|5|NEMA Straight-Blade Receptacles|پریز تیغه‌صاف NEMA|
+832|6|Straight-Blade Receptacles|پریز تیغه‌صاف|
+833|6|Hospital-Grade Straight-Blade Receptacles|پریز بیمارستانی|
+834|6|Weather-Resistant & Watertight Straight-Blade Receptacles|پریز ضدآب و مقاوم در برابر شرایط جوی|
+835|6|Hazardous-Location Straight-Blade Receptacles|پریز ضدانفجار|
+836|6|USB Charging Receptacles|پریز USB|
+837|6|Combination Duplex Receptacles|پریز دوبل ترکیبی|
+838|6|Combination Receptacles with Switches|کلید و پریز ترکیبی|
+839|6|Blank Face GFCI Devices|محافظ جان (GFCI) بدون پریز|
+840|6|NEMA Straight-Blade Receptacle Power Splitters|چندراهی پریز NEMA|
+841|6|Snap-In Receptacle Wiring Modules|ماژول سیم‌کشی پریز کلیپسی|
+842|5|NEMA Straight-Blade Inlets|ورودی برق پنلی NEMA (اینلت)|
+843|5|NEMA Straight-Blade Accessories|لوازم جانبی دوشاخه و پریز NEMA|
+844|4|NEMA Locking-Blade Plugs & Receptacles|دوشاخه و پریز قفل‌شو (توئیست‌لاک) NEMA|
+845|5|NEMA Locking-Blade Plugs|دوشاخه قفل‌شو NEMA|
+846|5|NEMA Locking-Blade Connectors|مادگی سیار قفل‌شو NEMA|
+847|5|NEMA Locking-Blade Receptacles|پریز قفل‌شو NEMA|
+848|5|NEMA Locking-Blade Inlets|ورودی پنلی قفل‌شو NEMA|
+849|5|NEMA Locking-Blade Accessories & Replacement Parts|لوازم و قطعات یدکی دوشاخه قفل‌شو|
+850|4|Non-NEMA Plugs & Receptacles|دوشاخه و پریز غیر NEMA|
+851|5|Non-NEMA Plugs|دوشاخه غیر NEMA|
+852|5|Non-NEMA Connectors|مادگی سیار غیر NEMA|
+853|5|Non-NEMA Receptacles|پریز غیر NEMA|
+854|5|Non-NEMA Inlets|ورودی پنلی غیر NEMA|
+855|4|Electrical Wall Plates & Covers|قاب و درپوش کلید و پریز|ترکیبی
+856|4|Electrical Wall Switches|کلید برق دیواری|ترکیبی
+857|4|Pin & Sleeve Plugs & Receptacles|دوشاخه و پریز صنعتی (CEE)|
+858|5|Pin & Sleeve Plugs|دوشاخه صنعتی|
+859|5|Pin & Sleeve Connectors|مادگی سیار صنعتی|
+860|5|Pin & Sleeve Receptacles|پریز صنعتی|
+861|5|Pin & Sleeve Inlets|ورودی پنلی صنعتی|
+862|5|Pin & Sleeve Mechanical Interlocks|پریز صنعتی با اینترلاک مکانیکی|
+863|5|Pin & Sleeve Back Boxes & Angle Adapters|قوطی پشت و آداپتور زاویه‌دار پریز صنعتی|
+864|5|Pin & Sleeve Bodies & Interiors|بدنه و داخلی پریز صنعتی|
+865|5|Pin & Sleeve Accessories & Replacement Parts|لوازم و قطعات یدکی پریز صنعتی|
+866|4|High-Current Single-Pole Plugs & Receptacles|دوشاخه و پریز تک‌پل جریان بالا|
+867|5|Single-Pole Inline Plugs & Connectors|دوشاخه و مادگی سیار تک‌پل|
+868|5|Single-Pole Receptacles|پریز تک‌پل|
+869|5|Single-Pole Gender-Reversing Adapters|تبدیل نر و ماده تک‌پل|
+870|5|Single-Pole Tapping Tees|سه‌راهی انشعاب تک‌پل|
+871|5|Single-Pole Distribution Blocks|بلوک توزیع تک‌پل|
+872|5|Single-Pole Caps & Covers|درپوش تک‌پل|
+873|5|Single-Pole Replacement Bodies & Contacts|بدنه و کنتاکت یدکی تک‌پل|
+874|5|Single-Pole Part Kits|کیت قطعات تک‌پل|
+875|3|Circular Connectors|کانکتور گرد|
+876|4|M8 Circular Connectors|کانکتور گرد M8|
+877|4|M12 Circular Connectors|کانکتور گرد M12|
+878|4|M12 x M8 Circular Connectors|کانکتور گرد M12 به M8|
+879|4|Y & T Splitter Connectors|کانکتور انشعاب Y و T|
+880|4|M18 Circular Connectors|کانکتور گرد M18|
+881|4|M23 Circular Connectors|کانکتور گرد M23|
+882|4|7/8 Inch Circular Connectors|کانکتور گرد ۷/۸ اینچ|
+883|4|Circular Connector Hoods & Caps|درپوش و کلاهک کانکتور گرد|
+884|4|Circular Connector Thread Adapters|تبدیل رزوه کانکتور گرد|
+885|4|Industrial Power Circular Connectors|کانکتور گرد قدرت صنعتی|
+886|4|Electrical Contacts for Circular Connectors|پین کنتاکت کانکتور گرد|
+887|4|Industrial Circular Connector Accessories|لوازم جانبی کانکتور گرد صنعتی|
+888|3|Rectangular Connectors|کانکتور مستطیلی (هارتینگ)|
+889|4|Modular Rectangular Connectors|کانکتور مستطیلی ماژولار|
+890|4|Rectangular Connector Hoods, Housings & Covers|کاور و بدنه کانکتور مستطیلی|
+891|4|Rectangular Connector Inserts|اینسرت کانکتور مستطیلی|
+892|4|Rectangular Connector Contacts|پین کنتاکت کانکتور مستطیلی|
+893|3|Modular Industrial Power & Battery Connectors|کانکتور قدرت و باتری صنعتی ماژولار|
+894|4|Industrial Power & Signal Connectors|کانکتور قدرت و سیگنال صنعتی|
+895|4|Industrial Power & Battery Connectors, Assemblies & Kits|کانکتور باتری و قدرت، مجموعه و کیت|
+896|4|Industrial Power & Battery Connector Contacts|پین کنتاکت کانکتور باتری|
+897|4|Industrial Power & Battery Connector Housings & Shells|بدنه کانکتور باتری|
+898|4|Industrial Power & Battery Connector Hardware & Accessories|متعلقات و لوازم کانکتور باتری|
+899|4|Prewired Industrial Power & Signal Connector Assemblies|کانکتور قدرت و سیگنال سیم‌کشی‌شده|
+900|3|Data & Network Interface Connectors|کانکتور داده و شبکه|
+901|4|Industrial Service & Interface Connectors|کانکتور سرویس و رابط صنعتی|
+902|5|Ethernet & Network Connectors|کانکتور اترنت و شبکه|
+903|5|USB & D-Sub Connectors|کانکتور USB و D-Sub|
+904|5|Service Connector Covers & Tools|درپوش و ابزار کانکتور سرویس|
+905|5|Industrial Panel Interface Connector Housings & Covers|بدنه و درپوش کانکتور رابط پنلی|
+906|5|Industrial Panel Interface Connector Inserts|اینسرت کانکتور رابط پنلی|
+907|5|Backplane Connectors|کانکتور بک‌پلین|
+908|4|Panel Interface Connectors|کانکتور رابط پنلی|
+909|3|Voice & Data Connectors, Jacks & Housings|کانکتور، کیستون و قاب شبکه و تلفن|
+910|4|Ethernet Switches|سوئیچ شبکه|
+911|4|Fiber Optic Adapters & Cassettes|آداپتور و کاست فیبر نوری|
+912|4|Fiber Optic Data Transceivers & Attenuators|ماژول فیبر (SFP) و تضعیف‌کننده|
+913|4|Voice & Data Connectors|سوکت شبکه و تلفن (RJ45/RJ11)|
+914|4|Voice & Data Housings|قاب و محفظه شبکه|
+915|4|Voice & Data Jack Boxes|جعبه پریز شبکه روکار|
+916|4|Voice & Data Jack Accessories|لوازم جانبی کیستون|
+917|4|Voice & Data Jacks, Couplers & Inserts|کیستون، بری‌کیستون و اینسرت|
+918|4|Voice & Data Wiring Block Accessories|لوازم جانبی بلوک سیم‌بندی|
+919|4|Voice & Data Wiring Blocks|بلوک سیم‌بندی (ترمینال کرون)|
+920|4|Voice & Data Modules, Wall Plates & Frames|ماژول، قاب و فریم پریز شبکه|
+921|3|Power & Data Distribution Blocks|بلوک توزیع برق و داده|
+922|4|Sensor Junction Blocks|جعبه تقسیم سنسور|
+923|4|ASI Distribution Boxes|جعبه توزیع ASI|
+924|4|IO-Link Gateways & Signal Converters|گیت‌وی IO-Link و مبدل سیگنال|
+925|2|Wire & Cable Management|مدیریت سیم و کابل|
+926|3|Wireways|داکت فلزی کابل (وایروی)|
+927|4|Indoor Wireways|داکت فلزی داخلی|
+928|4|Dust-Tight Wireways|داکت فلزی ضدگرد|
+929|4|Corrosion-Resistant Washdown Wireways|داکت فلزی ضدخوردگی قابل شستشو|
+930|4|Wire Trough Enclosures|کانال سیم (تراف)|
+931|3|Cable Ladder & Wire Mesh Trays|نردبان کابل و سینی کابل مشبک|
+932|4|Cable Ladder Trays|نردبان کابل|
+933|4|Wire Mesh Cable Trays|سینی کابل مفتولی (توری)|
+934|3|Surface Raceways & Cable Concealers|داکت روکار و کاور کابل|
+935|4|Single-Channel Surface Raceways|داکت روکار تک‌کانال|
+936|5|Metallic Single-Channel Surface Raceways|داکت روکار فلزی تک‌کانال|
+937|5|Nonmetallic Single-Channel Surface Raceways|داکت روکار پلاستیکی تک‌کانال|
+938|4|Multichannel Surface Raceways|داکت روکار چندکانال|
+939|4|Low-Profile Over Floor Raceways|داکت کف کم‌ارتفاع|
+940|4|Fiber-Routing Data Center Raceways|داکت فیبر دیتاسنتر|
+941|4|Prewired Outlet Raceways Strips|داکت پریزدار سیم‌کشی‌شده|
+942|4|Outlet Power Poles|ستون برق پریزدار|
+943|4|Half- & Quarter-Round Cable Concealers|کاور کابل نیم‌گرد و ربع‌گرد|
+944|4|J-Channel Cable Concealers|کاور کابل J|
+945|4|Outdoor Cable Guards|محافظ کابل فضای باز|
+946|3|Wiring Ducts|داکت شیاردار تابلویی|
+947|3|Cable Hangers, Clips & Organizers|آویز، کلیپس و نظم‌دهنده کابل|
+948|4|Cable Clips & Organizers|کلیپس و نظم‌دهنده کابل|ترکیبی
+949|4|Cable Grommets & Grommet Edging|گرومت کابل و نوار لبه|
+950|4|Cable Strap Hangers & Magnetic-Mount Rings|آویز تسمه‌ای و حلقه مغناطیسی کابل|
+951|4|Cable J-Hooks|قلاب J کابل|
+952|3|Cable & Hose Carriers|زنجیر کابل (انرژی‌چین)|
+953|4|Standard Cable & Hose Carriers|انرژی‌چین استاندارد|
+954|4|Heavy-Duty Steel Cable & Hose Carriers|انرژی‌چین فولادی سنگین|
+955|4|Enclosed Cable & Hose Carriers|انرژی‌چین بسته|
+956|4|Multiaxis Cable & Hose Carriers|انرژی‌چین چندمحوره (رباتیک)|
+957|3|Corrugated Loom Tubing|لوله خرطومی کابل (کاروگیت)|
+958|4|Standard Corrugated Loom Tubing|لوله خرطومی کابل استاندارد|
+959|4|Split Corrugated Loom Tubing|لوله خرطومی شکاف‌دار|
+960|4|Continuous-Flex Corrugated Tubing|لوله خرطومی فلکسیبل حرکتی|
+961|4|Cobot Cable Tubing Kits|کیت لوله کابل کوبات (ربات همکار)|
+962|3|Cable Sleeving & Wraps|غلاف و پیچ کابل|
+963|4|Standard Cable Sleeving|غلاف کابل استاندارد|
+964|4|Expandable Cable Sleeving|غلاف کابل انبساطی (حصیری)|
+965|4|Wraparound Cable Sleeving|غلاف کابل پیچشی|
+966|4|Cable Harness Sleeving|غلاف دسته‌سیم|
+967|4|Cable Spiral Wraps|اسپیرال کابل (فنری)|
+968|4|Cable Wrap Sleeving Tapes|نوار پیچ کابل|
+969|3|Cable Ramps & Cable Floor Covers|محافظ کابل کف (کابل‌پوش)|
+970|4|Drop-Over Cable Ramps|کابل‌پوش روگذار|
+971|5|Drop-Over Modular Cable Ramps|کابل‌پوش ماژولار|
+972|5|Lightweight Drop-Over Cable Ramps|کابل‌پوش سبک|
+973|5|Twistable Drop-Over Cable Ramps|کابل‌پوش انعطاف‌پذیر|
+974|5|Aluminum Drop-Over Cable Ramps|کابل‌پوش آلومینیومی|
+975|4|Lay-In Cable Ramps|کابل‌پوش جاگذاری|
+976|4|Light-Duty Pedestrian Cable Covers|کابل‌پوش سبک عابر پیاده|
+977|4|ADA Accessibility Cable Ramps|کابل‌پوش ویژه دسترسی معلولان|
+978|4|Cable & Hose Bridges|پل کابل و شیلنگ|
+979|3|Cable Ties & Mounts|بست کمربندی و پایه|
+980|4|Cable Tie Assortment Kits|ست بست کمربندی|
+981|4|Cable Tie Mounts|پایه بست کمربندی (چسبی و پیچی)|
+982|4|Hook-and-Loop Cable Ties|بست کابل چسبی (ولکرو)|
+983|5|Buckle Hook-and-Loop Cable Ties|بست ولکرو سگک‌دار|
+984|5|Cut-To-Length Hook-and-Loop Cable Tie Rolls|بست ولکرو رولی|
+985|5|Mountable Hook-and-Loop Cable Ties|بست ولکرو قابل نصب|
+986|5|Perforated Hook-and-Loop Cable Tie Strips|بست ولکرو نواری پرفراژ|
+987|5|Plenum Rated Hook-and-Loop Cable Ties|بست ولکرو پلنوم|
+988|5|Pre-Cut Hook-and-Loop Cable Tie Strips|بست ولکرو بریده‌شده|
+989|5|Slotted Hook-and-Loop Cable Ties|بست ولکرو شکاف‌دار|
+990|5|Tethered Hook-and-Loop Cable Ties|بست ولکرو بنددار|
+991|5|Write-On Hook-and-Loop Cable Ties|بست ولکرو قابل نوشتن|
+992|4|Metal Cable Ties|بست کمربندی فلزی (استیل)|
+993|4|Standard Cable Ties|بست کمربندی استاندارد|
+994|5|All Purpose Cable Ties|بست کمربندی همه‌کاره|ترکیبی
+995|5|Cable Ties with Built-In Tail Clipper|بست کمربندی با برش دنباله|
+996|5|Chemical- & Radiation-Resistant Cable Ties|بست کمربندی مقاوم شیمیایی و تشعشع|
+997|5|Colored and Striped Cable Ties|بست کمربندی رنگی|
+998|5|Double Loop Cable Ties|بست کمربندی دوحلقه|
+999|5|Heat-Stabilized Cable Ties|بست کمربندی حرارتی|
+1000|5|High-Temperature Cable Ties|بست کمربندی نسوز|
+1001|5|Identification Cable Ties|بست کمربندی پلاک‌دار|
+1002|5|Metal-Detectable Cable Ties|بست کمربندی قابل تشخیص با فلزیاب|
+1003|5|Mountable Cable Ties|بست کمربندی پیچ‌خور|
+1004|5|Plenum Cable Ties|بست کمربندی پلنوم|
+1005|5|HVAC Cable Ties|بست کمربندی تأسیسات (HVAC)|
+1006|5|Releasable Cable Ties|بست کمربندی بازشو|
+1007|4|Rubber Cable Ties|بست کابل لاستیکی|
+1008|4|Twist Locks|بست پیچشی (توئیست)|
+1009|3|Cable Grips, Mesh Grips & Safety Springs|گلند کابل، جوراب کابل و فنر ایمنی|
+1010|4|Cable Grips|گلند کابل|
+1011|5|Liquid-Tight Cable Grips|گلند کابل ضدآب|
+1012|5|Multi-Cable Liquid-Tight Grips|گلند چندکابل ضدآب|
+1013|5|Cable Grips with Strain Relief|گلند کابل با کشش‌گیر|
+1014|5|Cable Grip Lock Nuts|مهره گلند کابل|
+1015|4|Cable Pulling Grips & Grip Kits|جوراب کابل‌کشی و کیت|
+1016|4|Cable Safety Springs|فنر ایمنی کابل|
+1017|4|Standard Cable Support Mesh Grips|جوراب نگهدارنده کابل|
+1018|4|I-Grip Cable Mesh Supports|جوراب نگهدارنده کابل I-Grip|
+1019|3|Heat Shrink & Cold Shrink Tubing|وارنیش حرارتی و سردپیچ|
+1020|4|Adhesive-Lined Heat Shrink Tubing|وارنیش حرارتی چسب‌دار|
+1021|4|All Purpose Heat Shrink Tubing|وارنیش حرارتی همه‌کاره|
+1022|4|Cold Shrink Tubing|وارنیش سرد (کلداشرینک)|
+1023|4|Heat Shrink Breakout Boots|سرکابل انشعابی حرارتی (بریک‌اوت)|
+1024|4|Heat Shrink & Cold Shrink Tubing Assortment Kits|ست وارنیش حرارتی و سرد|
+1025|4|Heat Shrink End Caps|کلاهک حرارتی سرکابل|
+1026|3|Cable Reels for Teaching Pendants|قرقره کابل تیچ‌پندنت ربات|
+1027|2|Power Strips, Extension Cords & Cord Reels|چندراهی، سیم رابط و قرقره کابل|ترکیبی
+1028|3|Power Strips, Surge Protectors & Accessories|چندراهی برق، محافظ نوسان و لوازم|
+1029|4|Furniture Power Strips|چندراهی مبلمانی (میزی)|
+1030|4|Power Strips & Surge Protectors|چندراهی و محافظ نوسان|
+1031|4|Accessories for Power Strips & Surge Protectors|لوازم جانبی چندراهی|
+1032|3|Extension Cords|سیم رابط|
+1033|3|Extension Cord Reels|قرقره سیم رابط|
+1034|4|Self-Retracting Extension Cord Reels|قرقره سیم رابط جمع‌شونده خودکار|
+1035|4|Lighted Cord Reels|قرقره کابل چراغ‌دار|
+1036|4|Hazardous Location Extension Cord Reels|قرقره سیم رابط ضدانفجار|
+1037|4|Extension Cord Storage Reels|قرقره نگهداری سیم رابط|
+1038|4|Hand-Winding Extension Cord Reels|قرقره سیم رابط دستی|
+1039|4|Accessories for Cord Reels|لوازم جانبی قرقره کابل|
+1040|3|Extension Cords with Outlet Boxes|سیم رابط با جعبه پریز|
+1041|4|Extension Cords with Single Outlet Box|سیم رابط با جعبه تک‌پریز|
+1042|4|Extension Cords with Multiple Outlet Boxes|سیم رابط با جعبه چندپریز|
+1043|4|Covered Extension Cords with Outlet Boxes|سیم رابط درپوش‌دار با جعبه پریز|
+1044|3|GFCI & ELCI Cords, Plugs & Panels|سیم، دوشاخه و پنل محافظ جان (GFCI/ELCI)|
+1045|4|General Purpose GFCI Cords & Plugs|سیم و دوشاخه محافظ جان عمومی|
+1046|4|General Purpose ELCI/GFCI Panels & Cables|پنل و کابل محافظ جان عمومی|
+1047|4|Hazardous Location GFCI Extension Cords|سیم رابط محافظ جان ضدانفجار|
+1048|3|Extension Cord Adapters|تبدیل سیم رابط|
+1049|3|Power Cords|کابل برق (پاور)|
+1050|3|Anti-Restart Extension Cords|سیم رابط ضدراه‌اندازی مجدد|
+1051|2|Grounding Rods, Braids & Connectors|میله ارت، بافه ارت و اتصالات|
+1052|3|Grounding Braids|بافه ارت (تسمه بافته)|
+1053|3|Grounding Rods|میله ارت|
+1054|3|Pipe, Rod & Wire Grounding Clamps|بست ارت لوله، میله و سیم|
+1055|3|Isolated Ground Bars|شینه ارت ایزوله|
+1056|3|Grounding Strips, Busbars & Kits|تسمه ارت، شینه و کیت|
+1057|3|Grounding Crimping Connectors|کانکتور پرسی ارت|
+1058|2|Fuses, Circuit Breakers & Safety Switches|فیوز، کلید اتوماتیک و کلید قطع‌کن|
+1059|3|Fuses & Accessories|فیوز و لوازم جانبی|
+1060|4|Fuses|فیوز|
+1061|5|Automotive & Fleet Fuses|فیوز خودرو و ناوگان|
+1062|6|Automotive Blade Fuses|فیوز تیغه‌ای (کاردی) خودرو|
+1063|6|Automotive Bolt-On Fuses|فیوز پیچی خودرو|

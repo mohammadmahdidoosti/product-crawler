@@ -1,0 +1,274 @@
+8461|3|Flexible Couplings|کوپلینگ انعطاف‌پذیر|
+8462|4|Jaw Couplings|کوپلینگ فکی (لاستیکی ستاره‌ای)|
+8463|4|Sleeve Couplings|کوپلینگ غلافی|
+8464|4|Tire Couplings|کوپلینگ تایری|
+8465|4|Chain Couplings|کوپلینگ زنجیری|
+8466|4|Flexible Rubber Couplings|کوپلینگ لاستیکی|
+8467|4|Grid Couplings & Accessories|کوپلینگ فنری (گرید) و لوازم|
+8468|5|Grid Coupling Hubs|توپی کوپلینگ فنری|
+8469|5|Grid Cover Kits|کیت کاور کوپلینگ فنری|
+8470|5|Grid Coupling Grids|فنر کوپلینگ گرید|
+8471|5|Grid Coupling Covers|کاور کوپلینگ فنری|
+8472|5|Grid Coupling Accessories|لوازم جانبی کوپلینگ فنری|
+8473|3|Precision Motion Control Couplings|کوپلینگ دقیق (سروو)|
+8474|4|Beam Shaft Couplings|کوپلینگ فنری مارپیچ (بیم)|
+8475|4|Slit Couplings|کوپلینگ شیاردار (اسلیت)|
+8476|4|Bellows Shaft Couplings|کوپلینگ فانوسی (بلوز)|
+8477|4|Disc Shaft Couplings|کوپلینگ دیسکی|
+8478|4|Oldham Couplings|کوپلینگ اولدهام|
+8479|4|Controlflex Couplings|کوپلینگ کنترل‌فلکس|
+8480|3|Rigid Couplings & Shaft Adapters|کوپلینگ صلب و تبدیل شفت|
+8481|4|Rigid Shaft Couplings for Round Shafts|کوپلینگ صلب شفت گرد|
+8482|4|Rigid Shaft Couplings for Keyed Shafts|کوپلینگ صلب شفت جاخاردار|
+8483|4|Keyless Locking Rigid Couplings|کوپلینگ صلب قفلی بدون خار|
+8484|4|Shaft Adapters|تبدیل شفت|
+8485|3|Universal Joints|چهارشاخ (یونیورسال)|
+8486|4|Single Universal Joints|چهارشاخ تک|
+8487|4|Double Universal Joints & Drive Shafts|چهارشاخ دوبل و گاردان|
+8488|4|Universal Joint Boots|گردگیر چهارشاخ|
+8489|3|Quick-Fit Couplings|کوپلینگ نصب سریع|
+8490|2|Shaft Collars|طوقه شفت|
+8491|3|One-Piece Shaft Collars|طوقه شفت یک‌تکه|
+8492|3|Two-Piece Shaft Collars|طوقه شفت دوتکه|
+8493|3|Set Screw Shaft Collars|طوقه شفت پیچ‌تنظیمی|
+8494|3|Thin Shaft Collars|طوقه شفت باریک|
+8495|3|Double-Wide Shaft Collars|طوقه شفت پهن|
+8496|3|Heavy-Duty Shaft Collars|طوقه شفت سنگین|
+8497|3|Mountable Shaft Collars|طوقه شفت سوراخ‌دار (قابل نصب)|
+8498|3|Mountable Clamping Lever Shaft Collars|طوقه شفت اهرمی قابل نصب|
+8499|3|Clamping Lever Shaft Collars|طوقه شفت اهرمی|
+8500|3|Cam Lever Quick-Clamping Shaft Collars|طوقه شفت قفل سریع بادامکی|
+8501|3|Shaft Collars for Threaded Shafts|طوقه شفت رزوه‌دار|
+8502|3|Shaft Collars for Keyed Shafts|طوقه شفت جاخاردار|
+8503|3|Shaft Collars for D-Shafts|طوقه شفت D|
+8504|3|Shaft Collars for Hexagonal Shafts|طوقه شفت شش‌گوش|
+8505|3|Bearing Locknuts|مهره قفلی بلبرینگ|
+8506|3|Shaft Collar Damping Washers|واشر میرایی طوقه شفت|
+8507|3|Sensor Brackets for Shaft Collars|براکت سنسور طوقه شفت|
+8508|2|Belts & Pulleys|تسمه و پولی|
+8509|3|V-Belts|تسمه پروانه (V)|
+8510|4|Standard & Cogged V-Belts|تسمه V ساده و دندانه‌دار|
+8511|4|Banded Standard & Cogged V-Belts|تسمه V چندتایی (باندی)|
+8512|4|Link V-Belts|تسمه V بندی (لینکی)|
+8513|4|Lawn & Garden V-Belts|تسمه V چمن‌زن و باغبانی|
+8514|4|Metric V-Belts|تسمه V متریک|
+8515|4|Micro-Ribbed V-Belts|تسمه شیاردار (پلی‌وی)|
+8516|4|Double-Sided V-Belts|تسمه V دوطرفه (شش‌ضلعی)|
+8517|4|Variable Speed Belts|تسمه واریاتور|
+8518|4|Cut-to-Length V-Belts|تسمه V متری|
+8519|3|V-Belt Pulleys & Idlers|پولی و هرزگرد تسمه V|
+8520|4|V-Belt Pulleys|پولی تسمه V|
+8521|4|Variable-Pitch V-Belt Pulleys|پولی گام متغیر|
+8522|4|Stepped V-Belt Pulleys|پولی پله‌ای|
+8523|4|V-Belt Idler Pulleys|پولی هرزگرد تسمه V|
+8524|3|Timing Belts|تسمه تایم|
+8525|4|Trapezoidal Timing Belts|تسمه تایم ذوزنقه‌ای|
+8526|4|Curvilinear Timing Belts (GT & HTD)|تسمه تایم دندانه گرد (GT و HTD)|
+8527|4|Double-Helix Timing Belts|تسمه تایم جناقی (دوبل هلیکس)|
+8528|4|Reinforced Parabolic Timing Belts|تسمه تایم سهموی تقویت‌شده|
+8529|3|Timing Belt Pulleys & Idlers|پولی تایم و هرزگرد|
+8530|4|Trapezoidal Timing Belt Pulleys|پولی تایم ذوزنقه‌ای|
+8531|4|Curvilinear Timing Belt Pulleys (GT & HTD)|پولی تایم دندانه گرد (GT و HTD)|
+8532|4|Double-Helix Timing Belt Pulleys|پولی تایم جناقی|
+8533|4|Timing Belt Pulley Bar Stock & Flanges|شاخه پولی تایم و فلنج|
+8534|5|Timing Belt Pulley Bar Stocks|شاخه خام پولی تایم|
+8535|5|Timing Belt Pulley Flanges|فلنج (لبه) پولی تایم|
+8536|4|Timing Belt Idler Pulleys|پولی هرزگرد تایم|
+8537|3|Round Belts|تسمه گرد|
+8538|3|Round Belt Pulleys|پولی تسمه گرد|
+8539|3|Flat Belts|تسمه تخت|
+8540|3|Flat Belt Idler Pulleys|پولی هرزگرد تسمه تخت|
+8541|3|Vertical Form Fill & Seal Belts|تسمه دستگاه بسته‌بندی عمودی (VFFS)|
+8542|3|Belt Tools & Gauges|ابزار و گیج تسمه|
+8543|2|Roller Chains & Sprockets|زنجیر غلتکی و چرخ‌زنجیر|
+8544|3|Roller Chains|زنجیر غلتکی|
+8545|4|ANSI Standard Roller Chains|زنجیر غلتکی استاندارد ANSI|
+8546|4|British Standard Roller Chains|زنجیر غلتکی استاندارد بریتانیا (BS)|
+8547|4|Conveyor Roller Chains|زنجیر نقاله|
+8548|4|Leaf Chains|زنجیر تسمه‌ای (لیف)|
+8549|4|Plastic Roller Chains|زنجیر غلتکی پلاستیکی|
+8550|3|Roller Chain Links & Connectors|قفل و رابط زنجیر|
+8551|4|ANSI Standard Roller Chain Links|قفل زنجیر ANSI|
+8552|4|British Standard Roller Chain Links|قفل زنجیر BS|
+8553|4|Conveyor Roller Chain Links|قفل زنجیر نقاله|
+8554|4|Leaf Chain Links|قفل زنجیر لیف|
+8555|3|Roller Chain Sprockets & Idlers|چرخ‌زنجیر و هرزگرد|
+8556|4|Fixed-Bore Roller Chain Sprockets|چرخ‌زنجیر سوراخ نهایی|
+8557|4|Plain-Bore Roller Chain Sprockets|چرخ‌زنجیر سوراخ خام|
+8558|4|Plain-Bore Conveyor Roller Chain Sprockets|چرخ‌زنجیر نقاله سوراخ خام|
+8559|4|Bushed-Bore Roller Chain Sprockets|چرخ‌زنجیر بوش‌خور|
+8560|4|Idler Sprockets|چرخ‌زنجیر هرزگرد|
+8561|3|Chain Tools|ابزار زنجیر|
+8562|2|Belt & Chain Guides, Tensioners & Tighteners|راهنما و سفت‌کن تسمه و زنجیر|
+8563|3|V-Belt Guides|راهنمای تسمه V|
+8564|3|Round Belt Guides|راهنمای تسمه گرد|
+8565|3|Elastomeric Belt & Chain Tensioners|سفت‌کن لاستیکی تسمه و زنجیر|
+8566|3|Self-Adjusting Belt & Chain Tensioners|سفت‌کن خودتنظیم تسمه و زنجیر|
+8567|3|Drive Tighteners, Shafts & Adapters|سفت‌کن، شفت و رابط انتقال قدرت|
+8568|3|Chain Guides|راهنمای زنجیر|
+8569|3|Linear Chain Tensioners|زنجیرسفت‌کن خطی|
+8570|2|Gearing|چرخ‌دنده|
+8571|3|Spur Gears|چرخ‌دنده ساده|
+8572|3|Helical Gears|چرخ‌دنده مارپیچ (هلیکال)|
+8573|3|Gear Racks|شانه دنده (رک)|
+8574|3|Miter Gears|چرخ‌دنده مخروطی ۱:۱ (مایتر)|
+8575|3|Bevel Gears|چرخ‌دنده مخروطی|
+8576|3|Screw Gears|چرخ‌دنده پیچی|
+8577|3|Worm Gears|چرخ حلزون و حلزون|
+8578|3|Internal Gears|چرخ‌دنده داخلی|
+8579|3|Ratchet Gears & Pawls|چرخ جغجغه و ضامن|
+8580|2|Vibrators|ویبراتور صنعتی|
+8581|3|Pneumatic Vibrators & Air Cannons|ویبراتور پنوماتیک و توپ هوا|
+8582|4|Turbine & Ball Pneumatic Vibrators|ویبراتور پنوماتیک توربینی و ساچمه‌ای|
+8583|4|Piston Pneumatic Vibrators|ویبراتور پنوماتیک پیستونی|
+8584|4|High Frequency Pneumatic Vibrators|ویبراتور پنوماتیک فرکانس بالا|
+8585|4|Heavy-Duty Pneumatic Vibrators|ویبراتور پنوماتیک سنگین|
+8586|4|Air Cannon Pneumatic Tanks|مخزن توپ هوا (ایرکنن)|
+8587|3|Electric Vibrators|ویبراتور برقی (الکتروموتور ویبره)|
+8588|3|Hydraulic Vibrators|ویبراتور هیدرولیک|
+8589|3|Vibrator Mounting Brackets|براکت نصب ویبراتور|
+8590|3|Vibrator Accessories|لوازم جانبی ویبراتور|
+8591|2|Linear Motion|حرکت خطی|
+8592|3|Precision Linear Shafts|شفت خطی دقیق (شفت تراشکاری‌شده)|
+8593|4|Linear Motion Shafts|شفت حرکت خطی|
+8594|4|Linear Support Rails & Shafts|ریل و شفت پایه‌دار|
+8595|4|End Support Blocks for Linear Shafts|پایه نگهدارنده شفت خطی|
+8596|4|Ball Spline Linear Shafts|شفت هزارخار ساچمه‌ای|
+8597|4|Linear Square Shafting|شفت خطی چهارگوش|
+8598|4|Linear Square Shafting Accessories|لوازم جانبی شفت چهارگوش|
+8599|3|Linear Bearings|بلبرینگ خطی (لینیر)|
+8600|4|Linear Plain & Sleeve Bearings|بوش خطی لغزشی|
+8601|4|Pillow Block Linear Plain Bearings|بلوک بوش خطی لغزشی|
+8602|4|Flange-Mount Linear Plain Bearings|بوش خطی لغزشی فلنج‌دار|
+8603|4|Linear Ball Bearings|بلبرینگ خطی ساچمه‌ای|
+8604|4|Pillow Block Linear Ball Bearings|بلبرینگ خطی بلوکی|
+8605|4|Flange-Mount Linear Ball Bearings|بلبرینگ خطی فلنج‌دار|
+8606|4|Round-Shaft Linear Roller Pillow Blocks|بلوک غلتکی شفت گرد|
+8607|4|Linear Rings and Seals|رینگ و کاسه‌نمد بلبرینگ خطی|
+8608|4|Ball Spline Nuts|مهره هزارخار ساچمه‌ای|
+8609|4|Linear Square Sleeve Bearings|بوش خطی چهارگوش|
+8610|4|Linear Die Sets|ست قالب خطی (دای‌ست)|
+8611|3|Linear Guide Systems & Components|ریل و واگن خطی (لینیر گاید)|
+8612|4|Linear Guide Rails|ریل لینیر گاید|
+8613|4|Ring Slide Guide Rails|ریل راهنمای حلقوی|
+8614|4|Linear Guide Carriages & Slides|واگن (کالسکه) لینیر گاید|
+8615|4|Heavy-Duty Linear Cam Roller Bearings|بلبرینگ غلتکی خطی سنگین|
+8616|4|Linear Bearing Guide Components|اجزای راهنمای خطی|
+8617|4|Linear Guide Rail & Carriage Slide Assemblies|مجموعه ریل و واگن خطی|
+8618|4|Miniature Linear Guide Rail & Carriage Assemblies|ریل و واگن خطی مینیاتوری|
+8619|3|Ball Screws & Lead Screws|بال‌اسکرو و پیچ لید|
+8620|4|Precision Ball Screws|بال‌اسکرو دقیق|
+8621|4|Precision Ball Nuts|مهره بال‌اسکرو|
+8622|4|Precision Lead Screws with Nuts|پیچ لید دقیق با مهره|
+8623|4|Ball Screw Flanges & End Blocks|فلنج و پایه انتهایی بال‌اسکرو|
+8624|4|Acme Screws|پیچ ذوزنقه‌ای (آکمه)|
+8625|4|Acme Nuts|مهره ذوزنقه‌ای (آکمه)|
+8626|4|Acme Flanges & End Blocks|فلنج و پایه انتهایی پیچ ذوزنقه‌ای|
+8627|3|Linear Actuators & Screw Jacks|اکچویتور خطی و جک پیچی|
+8628|4|Linear Actuators|اکچویتور خطی (جک برقی)|
+8629|4|Actuated Linear Motion Systems|سیستم حرکت خطی موتوردار|
+8630|4|Motorized Linear Lead Screw Actuator Systems|اکچویتور پیچی موتوردار|
+8631|4|Actuator Accessories|لوازم جانبی اکچویتور|
+8632|4|Electric Linear Modules & Accessories|ماژول خطی برقی و لوازم|
+8633|3|Connecting Rods|شاتون (میله رابط)|
+8634|2|Rotary Shafts & Accessories|شفت دوار و لوازم|
+8635|3|Round Rotary Shafts|شفت گرد|
+8636|3|Keyed Rotary Shafts|شفت جاخاردار|
+8637|3|Partially Keyed Rotary Shafts|شفت جاخار جزئی|
+8638|3|D-Profile Rotary Shafts|شفت D|
+8639|3|Partially D-Profile Rotary Shafts|شفت D جزئی|
+8640|3|D-Profile Rotary Shafts with Tapped Hole|شفت D با سوراخ رزوه‌دار|
+8641|3|Tapped Hole Rotary Shafts|شفت سوراخ رزوه‌دار|
+8642|3|Partially Threaded Rotary Shafts|شفت نیمه‌رزوه|
+8643|3|Stepped Rotary Shafts|شفت پله‌دار|
+8644|3|Grooved Rotary Shafts|شفت شیاردار (جاخار حلقوی)|
+8645|3|Ball Bearing Mandrels|محور بلبرینگ‌دار (ماندرل)|
+8646|3|Mounts for Bearings & Rotary Components|پایه بلبرینگ و قطعات دوار|
+8647|2|Rotary Shaft Sealing|آب‌بندی شفت دوار|
+8648|3|Rotary Shaft Oil Seals|کاسه‌نمد|
+8649|3|Rotary Shaft Grease Seals|کاسه‌نمد گریس|
+8650|3|Spring-Energized Seals|آب‌بند فنری (اسپرینگ انرجایزد)|
+8651|3|Wear Sleeves|بوش سایش شفت (اسلیو)|
+8652|3|Labyrinth Seals|آب‌بند لابیرنتی|
+8653|2|Spherical Rod Ends, Fixed Rod Ends, & Yoke Ends|سرشاتونی (راد اند) و دوشاخه|
+8654|3|Spherical Rod Ends|سرشاتونی کروی (راد اند)|
+8655|4|Female Plain Spherical Rod Ends|سرشاتونی کروی مادگی|
+8656|4|Female Spherical Rod Ends with Stud|سرشاتونی کروی مادگی پیچ‌دار|
+8657|4|Male Plain Spherical Rod Ends|سرشاتونی کروی نری|
+8658|4|Male Spherical Rod Ends with Stud|سرشاتونی کروی نری پیچ‌دار|
+8659|3|Fixed Rod Ends|سرمیله ثابت|
+8660|3|Clevis & Yoke Ends|دوشاخه (کلویس)|
+8661|1|Pumps|پمپ|
+8662|2|Dewatering & Wastewater Pumps|پمپ آبکش و فاضلاب|
+8663|3|Sump Pumps & Systems|پمپ کفکش و سیستم آن|
+8664|4|Submersible Sump Pumps|پمپ کفکش شناور|
+8665|4|Pedestal Sump Pumps|پمپ کفکش پایه‌دار|
+8666|4|Backup Sump Pumps|پمپ کفکش پشتیبان|
+8667|4|Combination Sump Pump Systems|سیستم ترکیبی پمپ کفکش|
+8668|4|Elevator Sump Pumps|پمپ کفکش چاهک آسانسور|
+8669|4|Sump Pumps with Basins|پمپ کفکش با مخزن|
+8670|4|Sump Pump Hoses|شلنگ پمپ کفکش|
+8671|3|Effluent Pumps|پمپ پساب|
+8672|3|Sewage Ejector Pumps & Systems|پمپ لجن‌کش فاضلاب و سیستم آن|
+8673|4|Sewage Ejector Pumps|پمپ لجن‌کش فاضلاب|
+8674|4|Sewage Ejector Pump Systems|سیستم پمپ فاضلاب (ایستگاه پمپاژ)|
+8675|3|Sewage Grinder & Shredder Pumps & Systems|پمپ فاضلاب خردکن (گریندر) و سیستم آن|
+8676|4|Sewage Grinder & Shredder Pumps|پمپ فاضلاب خردکن|
+8677|4|Sewage Grinder Pump Systems|سیستم پمپ فاضلاب خردکن|
+8678|3|Sink Drain Pump Systems|پمپ تخلیه سینک|
+8679|3|Sludge Pumps|پمپ لجن‌کش|
+8680|3|Trash, Dewatering & Utility Pumps|پمپ گل‌کش، آبکش و همه‌کاره|
+8681|4|Engine-Driven Trash & Water Pumps|موتورپمپ گل‌کش و آبکش|
+8682|4|Cordless Utility Pumps|پمپ همه‌کاره شارژی|
+8683|4|Electric-Operated Trash & Dewatering Pumps|پمپ گل‌کش و آبکش برقی|
+8684|4|Air-Operated Trash & Dewatering Pumps|پمپ گل‌کش و آبکش بادی|
+8685|4|Hydraulic-Operated Trash & Dewatering Pumps|پمپ گل‌کش و آبکش هیدرولیکی|
+8686|4|Electric Utility Pumps|پمپ همه‌کاره برقی|
+8687|4|Pedestal-Mount Flexible Impeller Utility Pumps|پمپ پروانه لاستیکی پایه‌دار|
+8688|4|Drill-Driven Utility Pumps|پمپ سردریلی|
+8689|4|Hose Kits for Water Transfer Utility Pumps|کیت شلنگ پمپ انتقال آب|
+8690|3|Sump Basins, Stands & Guide Rails|مخزن، پایه و ریل راهنمای پمپ کفکش|
+8691|4|Basins for Sump & Sewage|مخزن چاهک کفکش و فاضلاب|
+8692|4|Guide Rail Systems for Sewage & Grinder Pumps|سیستم ریل راهنمای پمپ فاضلاب|
+8693|4|Stands for Sump & Effluent Pumps|پایه پمپ کفکش و پساب|
+8694|3|Repair Parts for Dewatering & Wastewater Pumps|قطعات یدکی پمپ آبکش و فاضلاب|
+8695|4|Seals & Gaskets for Dewatering & Wastewater Pumps|آب‌بند و واشر پمپ فاضلاب|
+8696|4|Impellers & Diaphragms for Dewatering & Wastewater Pumps|پروانه و دیافراگم پمپ فاضلاب|
+8697|4|Float & Switch Parts for Dewatering & Wastewater Pumps|فلوتر و کلید پمپ فاضلاب|
+8698|4|Flanges, Fittings & Valves for Dewatering & Wastewater Pumps|فلنج، اتصالات و شیر پمپ فاضلاب|
+8699|4|Motor & Electrical Parts for Dewatering & Wastewater Pumps|موتور و قطعات برقی پمپ فاضلاب|
+8700|4|Pump Casings & Liners for Dewatering & Wastewater Pumps|پوسته و لاینر پمپ فاضلاب|
+8701|4|Hardware & Fasteners for Dewatering & Wastewater Pumps|یراق و پیچ‌ومهره پمپ فاضلاب|
+8702|2|Well & Groundwater Pumps|پمپ چاه و آب زیرزمینی|
+8703|3|Submersible Deep-Well Pumps|پمپ شناور چاه عمیق|
+8704|3|Shallow-Well Jet Pumps|پمپ جتی چاه کم‌عمق|
+8705|3|Convertible Well Jet Pumps|پمپ جتی تبدیل‌پذیر|
+8706|3|Hand-Operated Pitcher Pumps|تلمبه دستی|
+8707|3|Jet Pump Ejectors & Venturi|اجکتور و ونتوری پمپ جتی|
+8708|3|Well Water Tanks & Accessories|منبع تحت فشار چاه و لوازم|
+8709|4|Well Water Tanks|منبع تحت فشار (دیافراگمی)|
+8710|4|Fittings & Automatic Control Valves for Well Water Tanks|اتصالات و شیر کنترل خودکار منبع تحت فشار|
+8711|3|Well Points, Couplings & Drive Caps|سرچاهی، کوپلینگ و کلاهک کوبش|
+8712|3|Well Caps & Seals|درپوش و آب‌بند سرچاه|
+8713|3|Torque Arrestors & Pitless Adapters|ضدگشتاور پمپ شناور و آداپتور سرچاهی|
+8714|3|Repair Parts for Well & Groundwater Pumps|قطعات یدکی پمپ چاه|
+8715|4|Bladders for Well Pumps Systems|تیوپ (بلادر) منبع تحت فشار|
+8716|4|Pressure Gauges for Well Pumps & Systems|گیج فشار پمپ چاه|
+8717|4|Valves & Fittings for Well Pumps & Systems|شیر و اتصالات پمپ چاه|
+8718|4|Bearings & Bearing Parts for Well Water Pumps & Systems|بلبرینگ و قطعات پمپ چاه|
+8719|4|Motors & Motor Parts for Well Pumps & Systems|موتور و قطعات موتور پمپ چاه|
+8720|4|Pressure Switches for Well Pumps & Systems|کلید اتوماتیک (پرشر سوئیچ) پمپ|
+8721|4|Seals & Gaskets for Well Pumps & Systems|آب‌بند و واشر پمپ چاه|
+8722|4|Casings & Casing Parts for Well Pumps|پوسته و قطعات پوسته پمپ چاه|
+8723|4|Impellers & Diffusers for Well Pumps & Systems|پروانه و دیفیوزر پمپ چاه|
+8724|2|Circulating & Boosting Pumps|پمپ سیرکوله و بوستر|
+8725|3|Circulating & Inline Centrifugal Pumps|پمپ سیرکوله و سانتریفیوژ خطی|
+8726|4|Inline Circulators & Recirculation Pumps|پمپ سیرکولاتور خطی (برگشت آب گرم)|
+8727|4|Flanges & Unions for Circulator Pumps|فلنج و مهره ماسوره پمپ سیرکوله|
+8728|4|Timers & Aquastats for Circulator Pumps|تایمر و آکوااستات پمپ سیرکوله|
+8729|4|Motor Mounts for Circulator Pumps|پایه موتور پمپ سیرکوله|
+8730|4|Lubricants for Circulator Pumps|روانکار پمپ سیرکوله|
+8731|4|Repair Parts for Circulator Pumps|قطعات یدکی پمپ سیرکوله|
+8732|5|Seals & Gaskets for Circulator Pumps|آب‌بند و واشر پمپ سیرکوله|
+8733|5|Bearings & Bearing Assemblies for Circulator Pumps|بلبرینگ و مجموعه بلبرینگ پمپ سیرکوله|
+8734|5|Shafts & Shaft Sleeves for Circulator Pumps|شفت و بوش شفت پمپ سیرکوله|

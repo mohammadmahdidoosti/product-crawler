@@ -1,0 +1,245 @@
+5339|4|Replacement Parts for Suction Lifters|قطعات یدکی بالابر وکیومی|
+5340|3|Lifting Magnets|آهنربای بالابر (مگنت لیفتر)|
+5341|4|End-of-Arm Transporter Lifting Magnets|آهنربای بالابر سر بازوی ربات|
+5342|4|Below-the-Hook Lifting Magnets|آهنربای بالابر زیرقلابی|
+5343|4|Electromagnetic Lifts|بالابر الکترومغناطیسی|
+5344|4|Manual Lifting Magnets|آهنربای بالابر دستی (اهرمی)|
+5345|4|Magnetic Sheet Fanners|جداکننده مغناطیسی ورق (شیت فنر)|
+5346|3|Manual Lifting Straps|تسمه حمل دستی بار|
+5347|3|Push-Pull Jacks|جک هل‌دادنی و کششی|
+5348|2|Load Securing & Cargo Control|مهار و کنترل بار|
+5349|3|Ratchet Straps & Cam Straps|تسمه جغجغه‌ای و تسمه قفلی (کمربند بار)|
+5350|3|Winch Straps, Tie-Down Winches & Winch Bars|تسمه وینچی، وینچ مهار بار و اهرم وینچ|
+5351|3|Bungee Cords, Straps & Balls|کش بار (کش عنکبوتی) و توپی کشی|
+5352|3|Rope Tie-Downs|طناب مهار بار|
+5353|3|Corner Protectors for Cargo Loads|محافظ گوشه بار|
+5354|3|Load Binders for Chain Tie-Downs|زنجیرسفت‌کن مهار بار (لود بایندر)|
+5355|3|Load & Cargo Bars|میله مهار بار (کارگو بار)|
+5356|3|Cargo Nets|تور بار|
+5357|3|Truck & Trailer Anchors for Tie-Downs|نقطه مهار کامیون و تریلر|
+5358|3|Bulk Webbing & Hardware|تسمه رولی و یراق‌آلات|
+5359|3|Accessories for Load Securing & Cargo Control|لوازم جانبی مهار بار|
+5360|2|Scales & Scale Accessories|ترازو و لوازم جانبی|
+5361|3|Industrial Bench Scales|ترازوی رومیزی صنعتی|
+5362|3|Shipping Scales|ترازوی مرسوله (پستی)|
+5363|3|Dimensioners|ابعادسنج بسته|
+5364|3|Floor Scales|باسکول (ترازوی کفی)|
+5365|3|Crane Scales & Dynamometers|ترازوی جرثقیلی (آویز) و نیروسنج|
+5366|3|Hanging Scales|ترازوی آویز|
+5367|3|Conveyor Scales|ترازوی نوار نقاله|
+5368|3|Medical Scales|ترازوی پزشکی|
+5369|3|Food Scales|ترازوی آشپزخانه و مواد غذایی|ترکیبی
+5370|3|Industrial Balances|ترازوی دقیق آزمایشگاهی|
+5371|3|Mechanical Scales|ترازوی مکانیکی (عقربه‌ای)|
+5372|3|Truck & Axle Scales|باسکول کامیون و محورکش|
+5373|3|Scale Calibration Weights|وزنه کالیبراسیون ترازو|
+5374|3|Load Cells|لودسل|
+5375|4|Inline Load Cells|لودسل خطی (این‌لاین)|
+5376|4|Low-Profile Load Cells|لودسل کم‌ارتفاع|
+5377|4|S Beam Load Cells|لودسل S شکل|
+5378|4|Compression Type Load Cells|لودسل فشاری|
+5379|4|Double Ended Shear Beam Load Cells|لودسل برشی دوسر (پلی)|
+5380|4|Single Ended Shear Beam Load Cells|لودسل برشی تک‌سر|
+5381|4|Single Point Load Cells|لودسل تک‌نقطه‌ای|
+5382|4|Load Cell Accessories|لوازم جانبی لودسل|
+5383|3|Scale Indicators & Accessories|نمایشگر توزین و لوازم جانبی|
+5384|4|Scale Indicators|نمایشگر توزین (اندیکاتور)|
+5385|4|Scale Printers|پرینتر ترازو|
+5386|4|Replacement Parts for Scales|قطعات یدکی ترازو|
+5387|2|Structural Framing Systems|سیستم سازه و قاب‌بندی|
+5388|3|T-Slot Framing Systems|سیستم پروفیل آلومینیوم شیاردار (T-Slot)|
+5389|4|Preconfigured T-Slot Framing Kits|کیت آماده پروفیل شیاردار|
+5390|4|Profiles for T-Slot Framing|پروفیل شیاردار|
+5391|5|Inch Profiles for T-Slot Framing|پروفیل شیاردار اینچی|
+5392|5|Metric Profiles for T-Slot Framing|پروفیل شیاردار متریک|
+5393|4|Fasteners & Connectors for T-Slot Framing|اتصالات و پیچ و مهره پروفیل شیاردار|
+5394|5|Fasteners for T-Slot Framing|پیچ و مهره پروفیل شیاردار (مهره T)|
+5395|5|Connectors for T-Slot Framing|اتصالات پروفیل شیاردار (گونیا و رابط)|
+5396|4|Linear Motion for T-Slot Framing|حرکت خطی پروفیل شیاردار|
+5397|4|Floor Mounts, Base Plates & Casters for T-Slot Framing|پایه کف، صفحه پایه و چرخ پروفیل شیاردار|
+5398|4|Door & Panel Hardware for T-Slot Framing|یراق‌آلات درب و پنل پروفیل شیاردار|
+5399|5|Panel Mounting for T-Slot Framing|نصب پنل پروفیل شیاردار|
+5400|5|Hinges & Pivots for T-Slot Framing|لولا و محور گردان پروفیل شیاردار|
+5401|5|Door Latches & Catches for T-Slot Framing|چفت و قفل درب پروفیل شیاردار|
+5402|5|Door Handles for T-Slot Framing|دستگیره درب پروفیل شیاردار|
+5403|4|Workbench, Automation & Machine Guarding For T-Slot Framing|میزکار، اتوماسیون و حفاظ ماشین با پروفیل شیاردار|
+5404|4|Power, Storage, Lighting & Cable Management For T-Slot Framing|برق، انبارش، روشنایی و مدیریت کابل پروفیل شیاردار|
+5405|4|Gaskets, Covers & End Caps for T-Slot Framing|نوار شیار، درپوش و کلاهک انتهایی پروفیل شیاردار|
+5406|4|Tools for T-Slot Framing|ابزار پروفیل شیاردار|
+5407|3|Quick-Assemble Press-Fit Framing Systems|سیستم قاب‌بندی پرسی سریع‌مونتاژ|
+5408|4|Profiles for Press-Fit Framing Systems|پروفیل سیستم قاب‌بندی پرسی|
+5409|4|Fittings for Press-Fit Framing|اتصالات قاب‌بندی پرسی|
+5410|3|Clamp-On Pipe Framing Systems|سیستم سازه لوله‌ای کلمپی (اتصال بستی)|
+5411|3|Heavy-Duty Slide-On Pipe Railing Systems|سیستم نرده لوله‌ای کشویی سنگین|
+5412|4|Pipe for Slide-On Pipe Railings Systems|لوله سیستم نرده لوله‌ای کشویی|
+5413|4|Fittings for Slide-On Pipe Railing Systems|اتصالات سیستم نرده لوله‌ای کشویی|
+5414|2|Storage & Workspace|انبارش و فضای کار|
+5415|3|Shelving & Storage Racks|قفسه و رک انبار|
+5416|4|Freestanding Shelving & Shelf Racks|قفسه و رک ایستاده|
+5417|5|Freestanding Metal Shelving & Shelf Racks|قفسه و رک فلزی ایستاده|
+5418|6|Standard Metal Shelving & Components|قفسه فلزی استاندارد و قطعات|
+5419|7|Spill‑Containment Shelving with Sumps|قفسه مهار نشتی با سینی جمع‌آوری|
+5420|7|Open Metal Shelving|قفسه فلزی باز|
+5421|7|Corrosion-Resistant Open Metal Shelving|قفسه فلزی باز ضدخوردگی|
+5422|7|Mobile Open Metal Shelving|قفسه فلزی باز چرخ‌دار|
+5423|7|Closed Metal Shelving|قفسه فلزی بسته|
+5424|7|Shelves for Standard Metal Shelving|طبقه قفسه فلزی|
+5425|7|Posts for Standard Metal Shelving|ستون (نبشی) قفسه فلزی|
+5426|7|Braces, Brackets & Hardware for Standard Metal Shelving|بادبند، براکت و یراق قفسه فلزی|
+5427|7|Panels, Doors & Base Strips for Standard Metal Shelving|پنل، درب و قرنیز قفسه فلزی|
+5428|7|Dividers for Standard Metal Shelving|جداکننده قفسه فلزی|
+5429|7|Mobile Bases & Feet for Standard Metal Shelving|پایه چرخ‌دار و پایه قفسه فلزی|
+5430|7|Spill-Containment Liners for Standard Metal Shelving|کفپوش مهار نشتی قفسه فلزی|
+5431|6|Boltless Metal Shelving & Components|قفسه فلزی بدون پیچ (پیچ‌خور‌نشو) و قطعات|
+5432|7|General Purpose Boltless Metal Shelving|قفسه فلزی بدون پیچ همه‌منظوره|
+5433|7|Split-Post Configurable Boltless Metal Shelving|قفسه فلزی بدون پیچ ستون‌دوتکه قابل‌پیکربندی|
+5434|7|Archival Boltless Metal Shelving|قفسه فلزی بدون پیچ بایگانی|
+5435|7|Gravity-Flow Boltless Metal Shelving|قفسه فلزی بدون پیچ ثقلی (رولری)|
+5436|7|Shelf Kits & Decking for Boltless Metal Shelving|کیت طبقه و کفی قفسه بدون پیچ|
+5437|7|Posts for Boltless Metal Shelving|ستون قفسه بدون پیچ|
+5438|7|Plates & Caps for Boltless Metal Shelving|صفحه و درپوش قفسه بدون پیچ|
+5439|6|Bulk Rack Metal Shelving & Components|قفسه فلزی سنگین (بالک رک) و قطعات|
+5440|7|Bulk Rack Metal Shelving|قفسه فلزی سنگین (بالک رک)|
+5441|7|Shelf Kits & Decking for Bulk Rack Metal Shelving|کیت طبقه و کفی قفسه سنگین|
+5442|7|Uprights for Bulk Rack Metal Shelving|ستون (فریم) قفسه سنگین|
+5443|7|Beams & Crossbars for Bulk Rack Metal Shelving|تیر و میله عرضی قفسه سنگین|
+5444|6|Metal Bin Shelving & Racks|قفسه و رک فلزی جعبه‌دار (بین)|
+5445|7|Stationary Metal Bin Shelving & Racks|قفسه فلزی جعبه‌دار ثابت|
+5446|7|Mobile Metal Bin Racks|رک فلزی جعبه‌دار چرخ‌دار|
+5447|6|Cantilever Metal Shelving|قفسه فلزی کنسولی|
+5448|6|Welded Metal Shelving|قفسه فلزی جوشی|
+5449|6|Roll-Out Metal Shelving|قفسه فلزی کشویی (طبقه بیرون‌کش)|
+5450|6|Compartmented Metal Shelving|قفسه فلزی خانه‌خانه|
+5451|5|Freestanding Wire Shelving|قفسه مفتولی ایستاده|
+5452|6|Stationary Wire Shelving|قفسه مفتولی ثابت|
+5453|6|Mobile Wire Shelving|قفسه مفتولی چرخ‌دار|
+5454|6|Top-Track Wire Shelving|قفسه مفتولی ریل سقفی|
+5455|6|Posts for Wire Shelving|ستون قفسه مفتولی|
+5456|6|Wire Shelves for Wire Shelving|طبقه مفتولی|
+5457|6|Solid & Louvered Shelves for Wire Shelving|طبقه توپر و شیاردار قفسه مفتولی|
+5458|6|Wire Shelving Hardware & Accessories|یراق و لوازم جانبی قفسه مفتولی|
+5459|7|Wire Shelving Hardware|یراق قفسه مفتولی|
+5460|7|Wire Shelving Casters, Dollies & Push Handles|چرخ، دالی و دستگیره هل قفسه مفتولی|
+5461|7|Wire Shelving Dividers, Ledges, Liners & Panels|جداکننده، لبه، کفپوش و پنل قفسه مفتولی|
+5462|7|Wire Shelving Baskets, Bins & Holders|سبد، جعبه و نگهدارنده قفسه مفتولی|
+5463|7|Wire Shelving Hooks & Hanger Rods|قلاب و میله آویز قفسه مفتولی|
+5464|7|Wire Shelving Shelf Label Holders & Markers|جابرچسب و نشانگر قفسه مفتولی|
+5465|6|Mobile Wire Bin Shelving|قفسه مفتولی جعبه‌دار چرخ‌دار|
+5466|6|Stationary Wire Bin Shelving|قفسه مفتولی جعبه‌دار ثابت|
+5467|5|Freestanding Plastic Shelving|قفسه پلاستیکی ایستاده|
+5468|6|Stationary Plastic Shelving|قفسه پلاستیکی ثابت|
+5469|6|Mobile Plastic Shelving|قفسه پلاستیکی چرخ‌دار|
+5470|6|Posts for Plastic Shelving|ستون قفسه پلاستیکی|
+5471|6|Shelves for Plastic Shelving|طبقه قفسه پلاستیکی|
+5472|6|Plastic Shelving Hardware & Accessories|یراق و لوازم جانبی قفسه پلاستیکی|
+5473|7|Plastic Shelving Hardware|یراق قفسه پلاستیکی|
+5474|7|Plastic Shelving Casters|چرخ قفسه پلاستیکی|
+5475|7|Plastic Shelving Dividers & Ledges|جداکننده و لبه قفسه پلاستیکی|
+5476|7|Plastic Shelving Baskets & Trays|سبد و سینی قفسه پلاستیکی|
+5477|7|Plastic Shelving Label Holders & Markers|جابرچسب و نشانگر قفسه پلاستیکی|
+5478|4|Wall-Mount Shelving & Overhead Racks|قفسه دیواری و رک سقفی|
+5479|5|Metal Wall-Mount Shelving|قفسه دیواری فلزی|
+5480|5|Wire Wall-Mount Shelving|قفسه دیواری مفتولی|
+5481|5|Plastic Wall-Mount Shelving|قفسه دیواری پلاستیکی|
+5482|5|Slotted-Standard Wall-Mount Shelving Systems|سیستم قفسه دیواری ریل شیاردار|
+5483|5|Overhead Racks|رک سقفی (آویز)|
+5484|4|Pallet Racks & Components|رک پالت و قطعات|
+5485|5|Pallet Rack Beam Protectors|محافظ تیر رک پالت|
+5486|5|Pallet Rack Kits|کیت رک پالت|
+5487|5|Pallet Rack Uprights|فریم (ستون) رک پالت|
+5488|5|Pallet Rack Beams|تیر (بیم) رک پالت|
+5489|5|Pallet Rack Decking|کفی (دکینگ) رک پالت|
+5490|5|Pallet Rack Crossbars, Spacers & Hardware|میله عرضی، فاصله‌انداز و یراق رک پالت|
+5491|5|Pallet Rack Enclosures, Fall Guards & Netting|محفظه، حفاظ سقوط و تور رک پالت|
+5492|5|Pallet Rack Upright Protectors|محافظ ستون رک پالت|
+5493|5|Pallet Rack Gravity-Flow Hangers|آویز رولری ثقلی رک پالت|
+5494|4|Cantilever Racks & Components|رک کنسولی و قطعات|
+5495|5|Cantilever Rack Kits|کیت رک کنسولی|
+5496|5|Cantilever Rack Uprights|ستون رک کنسولی|
+5497|5|Cantilever Rack Braces|بادبند رک کنسولی|
+5498|5|Cantilever Rack Arms & Stop Sockets|بازو و سوکت توقف رک کنسولی|
+5499|4|Dunnage Racks|رک کف‌انبار (دانیج)|
+5500|4|Stack Racks|رک قابل‌چیدمان (استک رک)|
+5501|4|Flow Racks & Components|رک ثقلی (فلو رک) و قطعات|
+5502|5|Stationary Flow Racks|رک ثقلی ثابت|
+5503|5|Mobile Flow Racks|رک ثقلی چرخ‌دار|
+5504|5|Flow Rack Beams, Shelves & Flow Lanes|تیر، طبقه و ریل رولری رک ثقلی|
+5505|4|Bar & Pipe Racks|رک میلگرد و لوله|
+5506|4|Panel & Sheet Racks|رک ورق و پنل|
+5507|4|Reel & Spool Racks|رک قرقره و کلاف|
+5508|4|Hose Clamp Racks|رک بست شیلنگ|
+5509|4|Cylinder Racks|رک کپسول گاز|
+5510|3|Storage Cabinets|کمد و کابینت انبار|
+5511|4|Shelf, Wardrobe & Janitorial Cabinets|کمد طبقه‌دار، رختکن و نظافت|
+5512|5|Shelf Cabinets|کمد طبقه‌دار|
+5513|6|Stationary Shelf Cabinets|کمد طبقه‌دار ثابت|
+5514|6|Plastic Stationary Shelf Cabinets|کمد طبقه‌دار پلاستیکی ثابت|
+5515|6|Mobile Shelf Cabinets|کمد طبقه‌دار چرخ‌دار|
+5516|6|Clearview Stationary Shelf Cabinets|کمد طبقه‌دار ثابت درب شفاف|
+5517|6|Clearview Mobile Shelf Cabinets|کمد طبقه‌دار چرخ‌دار درب شفاف|
+5518|6|Ventilated Stationary Shelf Cabinets|کمد طبقه‌دار ثابت مشبک (تهویه‌دار)|
+5519|6|Ventilated Mobile Shelf Cabinets|کمد طبقه‌دار چرخ‌دار مشبک|
+5520|5|Wardrobe Cabinets|کمد رختکن (لباس)|
+5521|6|Stationary Wardrobe Cabinets|کمد لباس ثابت|
+5522|6|Mobile Wardrobe Cabinets|کمد لباس چرخ‌دار|
+5523|5|Shelf & Wardrobe Combination Cabinets|کمد ترکیبی طبقه‌دار و لباس|
+5524|6|Drawers|کشو|
+5525|5|Janitorial Cabinets|کمد لوازم نظافت|
+5526|6|Stationary Janitorial Cabinets|کمد لوازم نظافت ثابت|
+5527|6|Mobile Janitorial Cabinets|کمد لوازم نظافت چرخ‌دار|
+5528|5|Shelf, Wardrobe & Janitorial Cabinet Accessories|لوازم جانبی کمد طبقه‌دار، لباس و نظافت|
+5529|4|Access-Control Compartmented Shift Cabinets|کمد خانه‌دار شیفتی با کنترل دسترسی|
+5530|4|Wall-Mount Cabinets|کابینت دیواری|
+5531|4|Drawer Cabinets|فایل کشویی (کابینت کشودار)|
+5532|4|Modular Drawer & Shelf Cabinets|کابینت کشویی و طبقه‌دار ماژولار|
+5533|5|Stationary Modular Drawer Cabinets|کابینت کشویی ماژولار ثابت|
+5534|5|Stationary Modular Shelf Cabinets|کابینت طبقه‌دار ماژولار ثابت|
+5535|5|Mobile Modular Drawer Cabinets|کابینت کشویی ماژولار چرخ‌دار|
+5536|5|Modular Drawer & Shelf Cabinet Accessories|لوازم جانبی کابینت ماژولار|
+5537|4|Bin Cabinets & Accessories|کابینت جعبه‌دار (بین) و لوازم جانبی|
+5538|5|Stationary Bin Cabinets|کابینت جعبه‌دار ثابت|
+5539|5|Mobile Bin Cabinets|کابینت جعبه‌دار چرخ‌دار|
+5540|5|Bin Cabinet Accessories|لوازم جانبی کابینت جعبه‌دار|
+5541|4|Small Parts Cabinets|کابینت قطعات ریز|
+5542|5|Small Parts Drawer Cabinets|کابینت کشویی قطعات ریز (فایل پیچ و مهره)|
+5543|5|Small Parts Compartmented-Box Cabinets & Boxes|کابینت و جعبه خانه‌خانه قطعات ریز|
+5544|5|Small Parts Cabinet Accessories|لوازم جانبی کابینت قطعات ریز|
+5545|4|Aerosol, Hoist & Hose Cabinets|کابینت اسپری، جرثقیل و شیلنگ|
+5546|3|Lockers|کمد لاکر (کمد کارگری)|
+5547|4|Standard Lockers|لاکر استاندارد|
+5548|5|Large Compartment Wardrobe Lockers|لاکر لباس تک‌درب بزرگ|
+5549|5|Small Compartment Box Lockers|لاکر چنددرب کوچک|
+5550|4|Industrial Lockers|لاکر صنعتی|
+5551|4|Security Cage & Bulk Storage Lockers|لاکر قفسی امنیتی و انبارش حجیم|
+5552|4|Athletic & Tactical Gear Lockers|لاکر تجهیزات ورزشی و تاکتیکی|
+5553|4|Mobile-Device & Cell-Phone Lockers|لاکر موبایل و دستگاه همراه|
+5554|4|Locker Room Benches|نیمکت رختکن|
+5555|4|Accessories & Replacement Parts for Lockers|لوازم جانبی و قطعات یدکی لاکر|
+5556|3|Storage Panels & Panel Racks|پنل ابزار و رک پنلی|
+5557|4|Pegboard Panels, Racks & Accessories|تابلو ابزار سوراخ‌دار (پگ‌برد)، رک و لوازم جانبی|
+5558|5|Stationary Pegboard Panels & Racks|پگ‌برد و رک ثابت|
+5559|5|Mobile Pegboard Racks|رک پگ‌برد چرخ‌دار|
+5560|5|Pegboard Hooks, Bins & Toolholders|قلاب، جعبه و جاابزاری پگ‌برد|
+5561|6|Round-Hole Pegboard Hooks, Bins & Toolholders|قلاب، جعبه و جاابزاری پگ‌برد سوراخ گرد|
+5562|6|Square-Hole Pegboard Hooks, Bins & Toolholders|قلاب، جعبه و جاابزاری پگ‌برد سوراخ مربعی|
+5563|6|Slotted Pegboard Hooks & Bins|قلاب و جعبه پگ‌برد شیاردار|
+5564|5|Pegboard Shelves|طبقه پگ‌برد|
+5565|5|Pegboard Mounting & Finishing Accessories|لوازم نصب و تکمیل پگ‌برد|
+5566|4|Louvered Panels, Racks & Accessories|پنل شیاردار (لوور)، رک و لوازم جانبی|
+5567|5|Louvered Panel Accessories|لوازم جانبی پنل شیاردار|
+5568|5|Stationary Louvered Panels & Racks|پنل و رک شیاردار ثابت|
+5569|5|Mobile Louvered Racks & Mobile Kits|رک شیاردار چرخ‌دار و کیت چرخ|
+5570|5|Louvered Panel Shelves|طبقه پنل شیاردار|
+5571|5|Louvered Panel Hooks & Hangers|قلاب و آویز پنل شیاردار|
+5572|4|Wire Grid Panels, Racks & Accessories|پنل توری مفتولی، رک و لوازم جانبی|
+5573|5|Wire Grid Panels & Racks|پنل و رک توری مفتولی|
+5574|5|Wire Grid Panel Shelves & Hooks|طبقه و قلاب پنل توری|
+5575|4|Wall-Mount Track Systems, Racks & Accessories|سیستم ریل دیواری، رک و لوازم جانبی|
+5576|5|Wall-Mount Track System Kits|کیت سیستم ریل دیواری|
+5577|5|Wall-Mount Track System Hooks, Racks & Shelves|قلاب، رک و طبقه سیستم ریل دیواری|
+5578|3|Bin & Compartmented Storage Units|واحد انبارش جعبه‌ای و خانه‌خانه|
+5579|4|Bin Shelving & Racks|قفسه و رک جعبه‌دار|
+5580|5|Stationary Bin Shelving & Pick Racks|قفسه جعبه‌دار ثابت و رک برداشت|
+5581|5|Mobile Bin Shelving & Pick Racks|قفسه جعبه‌دار چرخ‌دار و رک برداشت|
+5582|5|Stationary Bin Rail Racks|رک ریلی جعبه ثابت|
+5583|5|Mobile Bin Rail Racks|رک ریلی جعبه چرخ‌دار|

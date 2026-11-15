@@ -1,0 +1,230 @@
+1064|6|Automotive Cartridge Fuses|فیوز فشنگی خودرو|
+1065|6|Automotive Glass Fuses|فیوز شیشه‌ای خودرو|
+1066|6|Forklift Fuses|فیوز لیفتراک|
+1067|5|Cable Limiter Fuses|فیوز محدودکننده کابل|
+1068|5|Capacitor Fuses|فیوز خازن|
+1069|5|Ceramic Fuses|فیوز سرامیکی|
+1070|5|Dummy Fuses & Non-Fuse Actuators|فیوز ساختگی (بی‌فیوز)|
+1071|5|E-Rated Fuses|فیوز فشارمتوسط E-Rated|
+1072|5|Glass Fuses|فیوز شیشه‌ای|
+1073|5|Inline Fuses|فیوز سرراهی|
+1074|5|International Fuses|فیوز استاندارد بین‌المللی (IEC)|
+1075|5|Midget Fuses|فیوز مینیاتوری (میجت)|
+1076|5|Multimeter Fuses|فیوز مولتی‌متر|
+1077|5|Plug Fuses|فیوز پیچی (فشنگی خانگی)|
+1078|5|R-Rated Fuses|فیوز موتوری R-Rated|
+1079|5|Semiconductor Fuses|فیوز نیمه‌هادی (فیوز سریع)|
+1080|5|Solar Fuses|فیوز خورشیدی (PV)|
+1081|5|Sub-Miniature Circuit Board Fuses|فیوز مینیاتوری برد مدار|
+1082|5|Telecom Fuses|فیوز مخابراتی|
+1083|5|UL Class Fuses|فیوز کلاس UL|
+1084|6|UL Class CC Fuses|فیوز کلاس CC|
+1085|6|UL Class CF Fuses|فیوز کلاس CF|
+1086|6|UL Class G Fuses|فیوز کلاس G|
+1087|6|UL Class H Fuses|فیوز کلاس H|
+1088|6|UL Class J Fuses|فیوز کلاس J|
+1089|6|UL Class K5 Fuses|فیوز کلاس K5|
+1090|6|UL Class L Fuses|فیوز کلاس L|
+1091|6|UL Class RK1 Fuses|فیوز کلاس RK1|
+1092|6|UL Class RK5 Fuses|فیوز کلاس RK5|
+1093|6|UL Class T Fuses|فیوز کلاس T|
+1094|4|Fuse Blocks, Holders & Covers|پایه فیوز، فیوزگیر و درپوش|
+1095|5|Finger-Safe Fuse Blocks|پایه فیوز ایمن (فینگرسیف)|
+1096|5|Open Fuse Blocks|پایه فیوز باز|
+1097|6|Fuse Block Covers & Accessories|درپوش و لوازم پایه فیوز|
+1098|6|Automotive & Fleet Open Fuse Blocks|جعبه فیوز خودرو|
+1099|6|Glass & Ceramic Open Fuse Blocks|پایه فیوز شیشه‌ای و سرامیکی|
+1100|6|Plug Fuse Box Covers|درپوش جعبه فیوز پیچی|
+1101|6|Semiconductor Open Fuse Blocks|پایه فیوز نیمه‌هادی|
+1102|6|UL Class & Midget Open Fuse Blocks|پایه فیوز کلاس UL و میجت|
+1103|5|Fuse Clips|گیره فیوز|
+1104|5|In-Line Fuse Holders|فیوزگیر سرراهی|
+1105|5|Panel-Mount Fuse Holders|فیوزگیر پنلی|
+1106|4|Fuse Cutout Links|فیوز لینک کات‌اوت|
+1107|4|Fuse Reducers|تبدیل فیوز|
+1108|4|Fuse Assortment Kits & Storage Cabinets|ست فیوز و کابینت نگهداری|
+1109|3|Circuit Breakers, Panelboards & Load Centers|کلید اتوماتیک، تابلو توزیع و جعبه فیوز|
+1110|4|Busway & Bus Plugs|باس‌داکت و پلاگ باس|
+1111|5|GE-Style Bus Plugs|پلاگ باس‌داکت سبک GE|
+1112|5|Siemens-Style Bus Plugs|پلاگ باس‌داکت سبک Siemens|
+1113|5|Square D-Style Bus Plugs|پلاگ باس‌داکت سبک Square D|
+1114|5|Eaton Cutler-Hammer-Style Bus Plugs|پلاگ باس‌داکت سبک Eaton Cutler-Hammer|
+1115|5|Bus Plug & Busway Accessories|لوازم جانبی باس‌داکت|
+1116|4|Circuit Breakers & Accessories|کلید اتوماتیک و لوازم جانبی|
+1117|5|DIN-Rail Mount Miniature Circuit Breakers|کلید مینیاتوری ریلی|
+1118|6|UL1053 DIN Rail-Mount Ground Fault Protectors|محافظ جان ریلی UL1053|
+1119|6|UL1077 DIN Rail-Mount Supplementary Protectors|کلید مینیاتوری تکمیلی ریلی UL1077|
+1120|7|1-Pole, UL1077 DIN-Rail Mount Supplementary Protectors|کلید مینیاتوری تک‌پل UL1077|
+1121|7|2-Pole, UL1077 DIN Rail-Mount Supplementary Protectors|کلید مینیاتوری دوپل UL1077|
+1122|7|3-Pole, UL1077 DIN Rail-Mount Supplementary Protectors|کلید مینیاتوری سه‌پل UL1077|
+1123|7|4-Pole, UL1077 DIN Rail-Mount Supplementary Protectors|کلید مینیاتوری چهارپل UL1077|
+1124|6|UL489 DIN Rail-Mount Miniature Circuit Breakers|کلید مینیاتوری ریلی UL489|
+1125|7|4-Pole, UL489 DIN-Rail Mount Miniature Circuit Breakers|کلید مینیاتوری چهارپل UL489|
+1126|7|1-Pole, UL489 DIN Rail-Mount Miniature Circuit Breakers|کلید مینیاتوری تک‌پل UL489|
+1127|7|2-Pole, UL489 DIN Rail-Mount Miniature Circuit Breakers|کلید مینیاتوری دوپل UL489|
+1128|7|3-Pole, UL489 DIN Rail-Mount Miniature Circuit Breakers|کلید مینیاتوری سه‌پل UL489|
+1129|5|DIN Rail-Mount Circuit Protection Modules|ماژول حفاظت مدار ریلی|
+1130|5|Front Panel-Mount Miniature Circuit Breakers|کلید مینیاتوری روپنلی|
+1131|5|Hazardous Location Enclosed Circuit Breakers|کلید اتوماتیک محفظه‌دار ضدانفجار|
+1132|5|Miniature Circuit Breakers for Panelboards & Load Centers|کلید مینیاتوری تابلو توزیع|
+1133|6|Eaton Cutler-Hammer Miniature Circuit Breakers for Panelboards & Load Centers|کلید مینیاتوری تابلو Eaton Cutler-Hammer|
+1134|6|GE Miniature Circuit Breakers for Panelboards & Load Centers|کلید مینیاتوری تابلو GE|
+1135|6|Obsolete Miniature Circuit Breakers for Panelboards & Load Centers|کلید مینیاتوری تابلو مدل‌های قدیمی|
+1136|6|Siemens Miniature Circuit Breakers for Panelboards and Load Centers|کلید مینیاتوری تابلو Siemens|
+1137|6|Square D Miniature Circuit Breakers for Panelboards and Load Centers|کلید مینیاتوری تابلو Square D|
+1138|5|Molded Case Circuit Breakers|کلید اتوماتیک کامپکت (MCCB)|
+1139|6|Eaton Molded Case Circuit Breakers|کلید کامپکت Eaton|
+1140|6|GE Molded Case Circuit Breakers|کلید کامپکت GE|
+1141|6|Siemens Molded Case Circuit Breakers|کلید کامپکت Siemens|
+1142|6|Square D Molded Case Circuit Breakers|کلید کامپکت Square D|
+1143|5|Automotive Mini Circuit Breakers|کلید مینیاتوری خودرو|
+1144|5|Circuit Breaker Accessories|لوازم جانبی کلید اتوماتیک|
+1145|6|Eaton Circuit Breaker Accessories|لوازم جانبی کلید Eaton|
+1146|6|GE Circuit Breaker Accessories|لوازم جانبی کلید GE|
+1147|6|Siemens Circuit Breaker Accessories|لوازم جانبی کلید Siemens|
+1148|6|Square D Circuit Breaker Accessories|لوازم جانبی کلید Square D|
+1149|6|Murrelektronik MICO Circuit Breaker Accessories|لوازم جانبی کلید Murrelektronik MICO|
+1150|4|Hardwired GFCIs|محافظ جان (GFCI) سیم‌کشی ثابت|
+1151|4|Hardwire Surge Protection Devices|محافظ اضافه ولتاژ تابلویی (SPD)|
+1152|5|External-Mount SPDs|SPD نصب خارجی|
+1153|5|Internal-Mount SPDs|SPD نصب داخلی|
+1154|4|Panelboards & Load Centers|تابلو توزیع و جعبه فیوز|
+1155|5|Eaton Panelboards & Load Centers|تابلو توزیع Eaton|
+1156|6|Eaton BR Load Centers|جعبه فیوز Eaton BR|
+1157|6|Eaton CH Load Centers|جعبه فیوز Eaton CH|
+1158|6|Eaton Enclosure Panel Boxes & Covers|بدنه و درب تابلو Eaton|
+1159|6|Eaton Panelboard & Load Center Accessories|لوازم جانبی تابلو Eaton|
+1160|5|GE Panelboards & Load Centers|تابلو توزیع GE|
+1161|6|GE Circuit Breaker Enclosures|محفظه کلید GE|
+1162|6|GE Enclosure Panel Boxes & Covers|بدنه و درب تابلو GE|
+1163|6|GE Panelboard & Load Center Accessories|لوازم جانبی تابلو GE|
+1164|6|GE THQL Load Centers|جعبه فیوز GE THQL|
+1165|5|Siemens Panelboards & Load Centers|تابلو توزیع Siemens|
+1166|5|Square D Panelboards & Load Centers|تابلو توزیع Square D|
+1167|6|Square D Circuit Breaker Enclosures & Accessories|محفظه و لوازم کلید Square D|
+1168|6|Square D Enclosure Panel Boxes & Covers|بدنه و درب تابلو Square D|
+1169|6|Square D HOM Load Centers|جعبه فیوز Square D HOM|
+1170|6|Square D NQ, NF, I-Line Panel Interiors|داخلی تابلو Square D NQ، NF و I-Line|
+1171|6|Square D Panelboard & Load Center Accessories|لوازم جانبی تابلو Square D|
+1172|6|Square D QO Load Centers|جعبه فیوز Square D QO|
+1173|3|Safety & Disconnect Switches|کلید قطع‌کن ایمنی (سکسیونر)|
+1174|4|Safety Disconnect Switches|کلید قطع‌کن ایمنی|
+1175|4|Safety Disconnect Switches with Interlock Receptacles|کلید قطع‌کن با پریز اینترلاک|
+1176|4|Motor Disconnect Switches|کلید قطع‌کن موتور|
+1177|4|Air Conditioner Disconnect Switches|کلید قطع‌کن کولر|
+1178|4|Solar Power Disconnect Switches|کلید قطع‌کن خورشیدی (DC)|
+1179|4|Hazardous Location Disconnect Switches|کلید قطع‌کن ضدانفجار|
+1180|4|Safety & Disconnect Switch Kits & Components|کیت و قطعات کلید قطع‌کن|
+1181|5|Disconnect Switch Kits & Components|کیت و قطعات کلید قطع‌کن|
+1182|5|Flange-Mounted Safety Switch Assemblies|مجموعه کلید قطع‌کن فلنجی|
+1183|5|Grounding & Neutral Assembly Kits|کیت شینه ارت و نول|
+1184|5|Disconnect Switch Fuse Kits|کیت فیوز کلید قطع‌کن|
+1185|5|Disconnect Switch Interlock Kits|کیت اینترلاک کلید قطع‌کن|
+1186|5|Disconnect Switch Enclosure Hubs|هاب محفظه کلید قطع‌کن|
+1187|2|Solar Panels & Accessories|پنل خورشیدی و لوازم جانبی|ترکیبی
+1188|3|Solar Panels & Kits|پنل خورشیدی و کیت|
+1189|3|Solar Inverters|اینورتر خورشیدی|
+1190|3|Solar Charge Controllers|شارژ کنترلر خورشیدی|
+1191|3|Solar Testers & Meters|تستر و سنجشگر خورشیدی|
+1192|3|PV Solar Wire|کابل خورشیدی (PV)|
+1193|3|Solar Panel Accessories & Tools|لوازم و ابزار پنل خورشیدی|
+1194|2|Temporary Power Distribution|توزیع برق موقت (کارگاهی)|
+1195|3|Temporary Power Distribution Boxes & Carts|تابلو برق موقت و ترولی|
+1196|3|Power Centers & Portable Power Stations|مرکز برق و پاوراستیشن قابل حمل|
+1197|3|Temporary Power Distribution Cords & Accessories|کابل و لوازم توزیع برق موقت|
+1198|3|Mobile Medical Equipment Power Inverters|اینورتر تجهیزات پزشکی سیار|
+1199|2|Industrial Controls, Automation and Machine Safety|کنترل صنعتی، اتوماسیون و ایمنی ماشین|
+1200|3|Control Stations, Control Pendants & Tumbler Switches|جعبه فرمان، پندنت کنترل و کلید تامبلر|
+1201|4|Control Stations|جعبه فرمان (جعبه شستی)|
+1202|5|General Purpose Control Stations with Operators|جعبه فرمان عمومی با شستی|
+1203|5|Liquid- & Corrosion-Resistant Control Stations with Operators|جعبه فرمان ضدآب و ضدخوردگی با شستی|
+1204|5|Hazardous-Location Control Stations with Operators|جعبه فرمان ضدانفجار با شستی|
+1205|5|Control Station Enclosures without Operator Switches|جعبه فرمان خالی (بدون شستی)|
+1206|4|Control Pendants|پندنت کنترل (ریموت سیمی جرثقیل)|
+1207|5|Liquid- & Corrosion-Resistant Control Pendants with Operators|پندنت کنترل ضدآب و ضدخوردگی با شستی|
+1208|5|Control Pendants without Operator Switches|پندنت کنترل خالی|
+1209|4|Tumbler Switches|کلید تامبلر|
+1210|4|Parts for Control Stations, Pendants & Tumbler Switches|قطعات جعبه فرمان، پندنت و کلید تامبلر|
+1211|3|Operator Switches & Pilot Lights|شستی، کلید فرمان و چراغ سیگنال|
+1212|4|Biometric Switches|کلید بیومتریک|
+1213|4|Joystick Operator Switches|کلید جوی‌استیک|
+1214|4|Push Buttons|شستی (پوش‌باتن)|
+1215|5|Push-Button Assemblies with Contact Blocks|شستی کامل با کنتاکت|
+1216|5|Push-Button Operators without Contact Blocks|سر شستی بدون کنتاکت|
+1217|5|Multihead Push-Button Assemblies with Contact Blocks|شستی چندتایی با کنتاکت|
+1218|5|Multihead Push-Button Operators without Contact Blocks|سر شستی چندتایی بدون کنتاکت|
+1219|5|Hazardous-Location Push Buttons with Contact Blocks|شستی ضدانفجار با کنتاکت|
+1220|5|Hazardous-Location Push Buttons without Contact Blocks|شستی ضدانفجار بدون کنتاکت|
+1221|5|Wireless Push Buttons|شستی بی‌سیم|
+1222|5|Operator Guards, Heads & Legends for Push Buttons|محافظ، سر و پلاک شستی|
+1223|6|Guards for Push Buttons|محافظ شستی|
+1224|6|Heads for Push Buttons|سر شستی|
+1225|6|Legends for Push Buttons|پلاک نوشته شستی|
+1226|6|Installation Tools & Replacement Parts for Push Buttons|ابزار نصب و قطعات یدکی شستی|
+1227|4|Rocker Switches|کلید راکر (الاکلنگی)|
+1228|5|Non-Illuminated Rocker Switches|کلید راکر بدون چراغ|
+1229|5|Illuminated Rocker Switches|کلید راکر چراغ‌دار|
+1230|5|Prewired Rocker Switches|کلید راکر سیم‌کشی‌شده|
+1231|4|Selector & Rotary Switches|کلید سلکتور و چرخشی|
+1232|5|Selector-Switch Assemblies with Contact Blocks|کلید سلکتور کامل با کنتاکت|
+1233|5|Selector-Switch Operators without Contact Blocks|سر کلید سلکتور بدون کنتاکت|
+1234|5|Hazardous-Location Selector Switches|کلید سلکتور ضدانفجار|
+1235|5|Selector-Switch Knobs & Replacement Parts|دسته و قطعات یدکی کلید سلکتور|
+1236|5|Key Switches|کلید سوئیچی (کلیدی)|
+1237|5|Potentiometers|پتانسیومتر (ولوم)|
+1238|5|Cam Selector Switches|کلید سلکتور بادامکی (کلید گردان)|
+1239|5|Rotary Selector Switches|کلید سلکتور چرخشی|
+1240|4|Toggle Switches|کلید تاگل (اهرمی)|
+1241|4|Pilot & Indicator Lights|چراغ سیگنال و نشانگر|
+1242|5|Modular Pilot-Light Assemblies|چراغ سیگنال ماژولار|
+1243|5|Single-Piece Monolithic Pilot Lights|چراغ سیگنال یکپارچه|
+1244|5|Hazardous-Location Pilot Lights|چراغ سیگنال ضدانفجار|
+1245|5|Heads for Pilot Lights|سر چراغ سیگنال|
+1246|5|Lenses for Pilot Lights|لنز چراغ سیگنال|
+1247|4|Contact Blocks & Lamp Modules for Operator Switches|کنتاکت و ماژول لامپ شستی|
+1248|5|Contact Blocks for Operator Switches|کنتاکت شستی (بلوک کنتاکت)|
+1249|5|Lamp Modules for Operator Switches|ماژول لامپ شستی|
+1250|5|Contact & Light Block Assemblies for Operator Switches|مجموعه کنتاکت و لامپ شستی|
+1251|4|Boots, Covers & Padlocks for Operator Switches|کاور، درپوش و قفل شستی|
+1252|3|Limit Switches|لیمیت‌سوئیچ (میکروسوئیچ صنعتی)|
+1253|4|Roller-Lever Arm Limit Switches|لیمیت‌سوئیچ اهرم قرقره‌ای|
+1254|4|Rod-Lever Limit Switches|لیمیت‌سوئیچ اهرم میله‌ای|
+1255|4|Plunger Limit Switches|لیمیت‌سوئیچ پلانجری|
+1256|4|Roller-Plunger Limit Switches|لیمیت‌سوئیچ پلانجر قرقره‌ای|
+1257|4|Lever & Rod Plunger Limit Switches|لیمیت‌سوئیچ اهرمی و پلانجر میله‌ای|
+1258|4|Roller Lever-Plunger Limit Switches|لیمیت‌سوئیچ پلانجر اهرم قرقره‌ای|
+1259|4|Wobble Limit Switches|لیمیت‌سوئیچ فنری (وابل)|
+1260|4|Limit Switches without Actuators|لیمیت‌سوئیچ بدون اهرم|
+1261|4|Heads for Limit Switches|سر لیمیت‌سوئیچ|
+1262|4|Actuators for Limit Switches|اهرم لیمیت‌سوئیچ|
+1263|4|Bodies & Receptacles for Limit Switches|بدنه و پایه لیمیت‌سوئیچ|
+1264|3|Snap-Action Switches|میکروسوئیچ|
+1265|4|Lever Snap-Action Switches|میکروسوئیچ اهرمی|
+1266|4|Roller-Lever Snap-Action Switches|میکروسوئیچ اهرم قرقره‌ای|
+1267|4|Plunger Snap-Action Switches|میکروسوئیچ پلانجری|
+1268|4|Roller Plunger Snap-Action Switches|میکروسوئیچ پلانجر قرقره‌ای|
+1269|3|Liquid-Level Control Switches|لول‌سوئیچ (فلوتر برقی)|
+1270|4|Open Tank Float Switches & Alternators|فلوتر برقی مخزن باز و آلترنیتور|
+1271|4|Flange-Mounted Float Switches & Alternators|فلوتر برقی فلنجی و آلترنیتور|
+1272|4|Bushing-Mounted Float Switches & Alternators|فلوتر برقی بوشی و آلترنیتور|
+1273|4|Side-Mounted Float Switches|فلوتر برقی بغل‌نصب|
+1274|4|Vertically-Mounted Float Switches|فلوتر برقی عمودی|
+1275|4|Float Switch Parts & Accessories|قطعات و لوازم فلوتر برقی|
+1276|3|Pressure & Vacuum Switches|پرشر سوئیچ و وکیوم سوئیچ|
+1277|4|Digital Pressure & Vacuum Switches|پرشر سوئیچ دیجیتال|
+1278|4|Mechanical Pressure & Vacuum Switches|پرشر سوئیچ مکانیکی|
+1279|4|Replacement Valves & Accessories for Pressure Switches|شیر یدکی و لوازم پرشر سوئیچ|
+1280|3|Proximity, Motion & Vision Sensors|سنسور مجاورتی، حرکتی و بینایی|
+1281|4|Photoelectric Proximity Sensors|سنسور نوری (فتوالکتریک)|
+1282|5|Retroreflective Photoelectric Proximity Sensors|سنسور نوری رفلکتوری|
+1283|5|Reflectors for Photoelectric Proximity Sensors|رفلکتور سنسور نوری|
+1284|5|Diffuse Photoelectric Proximity Sensors|سنسور نوری انعکاسی (دیفیوز)|
+1285|5|Through-Beam Photoelectric Proximity Sensors|سنسور نوری فرستنده-گیرنده|
+1286|5|Multimodal Photoelectric Sensors|سنسور نوری چندحالته|
+1287|5|Fiber Optic Sensors|سنسور فیبر نوری|
+1288|4|Capacitive Proximity Sensors|سنسور خازنی|
+1289|4|Inductive Proximity Sensors|سنسور القایی|
+1290|4|Ultrasonic Proximity Sensors|سنسور التراسونیک|
+1291|4|Vibration Motion Sensors|سنسور ارتعاش|
+1292|4|Vision Sensors & Code Readers|سنسور بینایی و بارکدخوان صنعتی|
+1293|5|Handheld Industrial Multicode Readers|بارکدخوان دستی صنعتی|

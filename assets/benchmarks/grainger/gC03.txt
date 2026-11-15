@@ -1,0 +1,251 @@
+5584|4|Compartmented Shelving|قفسه خانه‌خانه|
+5585|5|Compartmented Metal Shelving|قفسه فلزی خانه‌خانه|
+5586|5|Compartmented Glass Shelving Systems|سیستم قفسه شیشه‌ای خانه‌خانه|
+5587|4|Sectional Stacking Bin Units|واحد جعبه‌ای مدولار قابل‌چیدمان|
+5588|4|Revolving Storage Bins & Accessories|قفسه گردان قطعات و لوازم جانبی|
+5589|5|Revolving Storage Bins|قفسه گردان قطعات|
+5590|5|Pans, Dividers & Shelves for Revolving Storage Bins|سینی، جداکننده و طبقه قفسه گردان|
+5591|3|Workbenches & Shop Furniture|میزکار و مبلمان کارگاهی|
+5592|4|Worktables & Workbenches|میز کار و میزکار کارگاهی|
+5593|5|Stationary Worktables|میز کار ثابت|
+5594|5|Mobile Worktables|میز کار چرخ‌دار|
+5595|5|Stationary Workbenches|میزکار کارگاهی ثابت|
+5596|5|Mobile Workbenches|میزکار کارگاهی چرخ‌دار|
+5597|4|Preconfigured Workbenches & Workstations|میزکار و ایستگاه کاری آماده|
+5598|4|Configurable Workbenches & Accessories|میزکار قابل‌پیکربندی و لوازم جانبی|
+5599|5|Configurable Workbenches|میزکار قابل‌پیکربندی|
+5600|5|Accessories for Configurable Workbenches|لوازم جانبی میزکار قابل‌پیکربندی|
+5601|6|Proline Configurable Workbench Accessories|لوازم جانبی میزکار Proline|
+5602|6|BenchPro Configurable Workbench Accessories|لوازم جانبی میزکار BenchPro|
+5603|6|Tennsco Configurable Workbench Accessories|لوازم جانبی میزکار Tennsco|
+5604|4|Fully Assembled Configurable Workbenches & Accessories|میزکار قابل‌پیکربندی مونتاژشده و لوازم جانبی|
+5605|4|Replacement Components & Kits for Workbenches|قطعات یدکی و کیت میزکار|
+5606|5|Replacement Parts & Accessories for Workbenches|قطعات یدکی و لوازم جانبی میزکار|
+5607|5|Hydraulic Lift Kits|کیت بالابر هیدرولیکی|
+5608|4|Cabinet Benches|میزکار کابینت‌دار|
+5609|5|Stationary Cabinet Benches|میزکار کابینت‌دار ثابت|
+5610|5|Mobile Cabinet Benches|میزکار کابینت‌دار چرخ‌دار|
+5611|5|Cabinet Bench Accessories|لوازم جانبی میزکار کابینت‌دار|
+5612|4|Computer Cabinet Workstations|ایستگاه کاری کابینت کامپیوتر صنعتی|
+5613|4|Modular Storage & Workbench Systems|سیستم انبارش و میزکار ماژولار|
+5614|4|Sawhorses & Portable Workbenches|خرک و میزکار پرتابل|
+5615|4|Shop Desks|میز کارگاهی (تحریر)|
+5616|4|Shop Seating|صندلی کارگاهی|
+5617|5|Shop Stools|چهارپایه کارگاهی|
+5618|5|Shop Stool Accessories|لوازم جانبی چهارپایه کارگاهی|
+5619|3|Buildings & Shelters|ساختمان پیش‌ساخته و سرپناه|
+5620|4|Modular Indoor Buildings|ساختمان پیش‌ساخته داخل سوله|
+5621|5|In-Plant Offices|دفتر پیش‌ساخته داخل کارخانه|
+5622|5|Cleanrooms & Controlled Environments|اتاق تمیز و محیط کنترل‌شده|
+5623|5|Restrooms|سرویس بهداشتی پیش‌ساخته|
+5624|5|Modular Indoor Building Accessories|لوازم جانبی ساختمان پیش‌ساخته داخلی|
+5625|4|Outdoor Storage Buildings|انبار پیش‌ساخته فضای باز|
+5626|5|Storage Sheds|انبارک (سوله کوچک)|ترکیبی
+5627|5|Storage Shed Accessories|لوازم جانبی انبارک|ترکیبی
+5628|5|Outdoor Equipment Enclosures|محفظه تجهیزات فضای باز|
+5629|4|Outdoor Shelters|سایبان و سرپناه فضای باز|
+5630|4|Guard Buildings|کیوسک نگهبانی|
+5631|3|Partitions, Wire Machine Guards & Curtain Walls|پارتیشن، حفاظ توری ماشین و دیوار پرده‌ای|
+5632|4|Wire Partitions & Cages|پارتیشن و قفس توری|
+5633|5|Complete Wire Security Cages|قفس امنیتی توری کامل|
+5634|5|Wire Partition Components & Hardware|قطعات و یراق پارتیشن توری|
+5635|6|Wire Partition Components|قطعات پارتیشن توری|
+5636|6|Wire Partition Hardware|یراق پارتیشن توری|
+5637|4|Modular Partition Walls|دیوار پارتیشن ماژولار|
+5638|4|Wire Machine Guards|حفاظ توری ماشین‌آلات|
+5639|5|Machine Guard Components|قطعات حفاظ ماشین|
+5640|5|Machine Guard Hardware|یراق حفاظ ماشین|
+5641|4|Curtain Walls|دیوار پرده‌ای (پارتیشن برزنتی)|
+5642|3|Storage Containers & Bins|ظروف و جعبه‌های انبارش|
+5643|4|Bins|جعبه قطعات (بین)|
+5644|5|Hanging, Stacking & Nesting Bins|جعبه قطعات آویز، روی‌هم‌چین و تودرتو|
+5645|5|Shelf Bins|جعبه قطعات قفسه‌ای|
+5646|5|Drawer Bins|جعبه کشویی|
+5647|5|Giant Hopper Bins|جعبه قیفی بزرگ|
+5648|5|Tip-Out Bins|جعبه کج‌شو (تیپ‌اوت)|
+5649|5|Bin Accessories|لوازم جانبی جعبه قطعات|
+5650|6|Bin Lids|درب جعبه|
+5651|6|Bin Dividers|جداکننده جعبه|
+5652|6|Bin Cups & Windows|فنجانک و پنجره جعبه|
+5653|6|Bin Labels, Sheets & Label Holders|برچسب، شیت و جابرچسب جعبه|
+5654|6|Bin Mounting & Locking Accessories|لوازم نصب و قفل جعبه|
+5655|4|Totes & Storage Boxes|باکس و جعبه انبارش|
+5656|5|Totes with Snap-On & Latch-On Lids|باکس با درب کلیپسی و چفت‌دار|
+5657|5|Straight-Wall Containers & Lids|باکس دیواره صاف و درب|
+5658|6|Straight-Wall Containers|باکس دیواره صاف|
+5659|6|Straight-Wall Container Lids & Cups|درب و فنجانک باکس دیواره صاف|
+5660|5|Attached-Lid Totes|باکس درب‌لولایی (درب‌متصل)|
+5661|5|Standard Divider Boxes|جعبه جداکننده‌دار استاندارد|
+5662|5|ESD Static-Control Storage & Divider Boxes & Accessories|جعبه انبارش و جداکننده آنتی‌استاتیک (ESD) و لوازم جانبی|
+5663|5|Stacking & Nesting Open-Top Totes & Lids|باکس روباز روی‌هم‌چین و تودرتو و درب|
+5664|5|Extreme-Temperature Process Totes & Lids|باکس فرایندی دمای بالا/پایین و درب|
+5665|4|Storage Trunks|صندوق انبارش|
+5666|4|Bulk Containers & Accessories|مخزن حمل فله (باکس پالت) و لوازم جانبی|
+5667|5|Bulk Containers|مخزن حمل فله (باکس پالت)|
+5668|5|Collapsible Corrugated Sleeve Bulk Containers|باکس پالت تاشو با دیواره کارتنی|
+5669|5|Bulk Container Lids, Pallets & Straps|درب، پالت و تسمه مخزن فله|
+5670|4|Protective Equipment Cases|کیف و جعبه محافظ تجهیزات (هاردکیس)|
+5671|5|Standard Suitcase-Style Protective Equipment Cases|هاردکیس چمدانی استاندارد|
+5672|5|Literature Protective Equipment Cases|کیف محافظ اسناد|
+5673|5|Electronics & Personal Belonging Protective Equipment Cases|کیف محافظ الکترونیک و وسایل شخصی|
+5674|5|Protective Transport Cases|کیس محافظ حمل‌ونقل|
+5675|5|Protective Long Cases|کیس محافظ بلند|
+5676|5|Rack-Mount Communication Systems Cases|کیس رک‌خور تجهیزات ارتباطی|
+5677|5|Protective Tube Cases|کیس محافظ لوله‌ای|
+5678|5|Protective Case Foam Inserts|فوم داخلی کیس محافظ|
+5679|5|Protective Case Waterproof Panels & Desiccants|پنل ضدآب و رطوبت‌گیر کیس محافظ|
+5680|5|Protective Case Wheel & Riser Kits|کیت چرخ و پایه کیس محافظ|
+5681|5|Protective Case Organizers|نظم‌دهنده کیس محافظ|
+5682|5|Protective Case Handles & Straps|دسته و بند کیس محافظ|
+5683|4|Small Parts Compartmented Organizer Boxes, Systems & Frames|جعبه، سیستم و قاب خانه‌خانه قطعات ریز (ارگانایزر)|
+5684|4|Conveyor, Assembly & Dryer Trays|سینی نقاله، مونتاژ و خشک‌کن|
+5685|3|Drums, Buckets, IBC Totes & Tanks|بشکه، سطل، مخزن IBC و تانک|
+5686|4|Drums & Drum Handling Equipment|بشکه و تجهیزات جابجایی بشکه|
+5687|5|Transport & Salvage Drums|بشکه حمل و بشکه نجات|
+5688|6|Open-Head Transport Drums|بشکه درب‌باز|
+5689|6|Closed-Head Transport Drums|بشکه درب‌بسته (دوسوراخ)|
+5690|6|Salvage & Overpack Drums|بشکه نجات و اورپک|
+5691|5|Lids, Covers & Rings for Open-Head Drums|درب، پوشش و حلقه بشکه درب‌باز|
+5692|5|Covers for Closed-Head Drums|پوشش بشکه درب‌بسته|
+5693|5|Lids for Overpack & Salvage Drums|درب بشکه اورپک و نجات|
+5694|5|Drum Bungs, Capseals & Locks|درپوش، کپ‌سیل و قفل بشکه|
+5695|5|Drum Handling Equipment|تجهیزات جابجایی بشکه|
+5696|6|Drum Trucks & Dollies|گاری و دالی بشکه|
+5697|7|Drum Hand Trucks|گاری دستی بشکه|
+5698|7|Drum Dollies|دالی بشکه|
+5699|7|Drum Dispensing & Palletizing Trucks|گاری تخلیه و پالت‌گذاری بشکه|
+5700|6|Drum Dumpers & Stackers|بشکه‌خالی‌کن و استاکر بشکه|
+5701|6|Drum Lifting Hooks & Slings|قلاب و اسلینگ بالابر بشکه|
+5702|6|Drum Cradles & Upenders|پایه گهواره‌ای و بشکه‌چرخان|
+5703|6|Drum Storage Racks|رک نگهداری بشکه|
+5704|6|Drum Crushers & Compactors|پرس و فشرده‌ساز بشکه|
+5705|5|Drum Liners|کیسه داخل بشکه (لاینر)|
+5706|5|Drum Funnels & Faucets|قیف و شیر بشکه|
+5707|6|Drum Faucets|شیر بشکه|
+5708|6|Drum Funnels & Accessories|قیف بشکه و لوازم جانبی|
+5709|5|Drum Vents & Desiccants|هواکش و رطوبت‌گیر بشکه|
+5710|5|Drum Deheaders & Capseal Tools|درب‌بازکن بشکه و ابزار کپ‌سیل|
+5711|5|Drum Replacement Gaskets & Leak Repair|واشر یدکی بشکه و تعمیر نشتی|
+5712|5|Replacement Parts for Drum-Handling Equipment|قطعات یدکی تجهیزات جابجایی بشکه|
+5713|4|Heaters & Insulators for Drums, IBC Totes & Buckets|گرمکن و عایق بشکه، IBC و سطل|
+5714|4|Liquid-Level Gauges for Drums & Tanks|گیج سطح مایع بشکه و مخزن|
+5715|4|Mixers & Mixing Enclosures for Drums, Tanks & Buckets|همزن و محفظه همزن بشکه، مخزن و سطل|
+5716|5|Drum, Tank & Bucket Propeller Mixers|همزن پروانه‌ای بشکه، مخزن و سطل|
+5717|5|Drum & Bucket Roller & Tumbler Mixers|همزن غلتکی و چرخشی بشکه و سطل|
+5718|5|Safety Enclosures for Roller & Tumbler Mixers|محفظه ایمنی همزن غلتکی و چرخشی|
+5719|4|Liquid Storage Tanks & IBC Totes|مخزن ذخیره مایعات و IBC (تانکر مکعبی)|
+5720|5|IBC Totes|مخزن IBC (تانکر مکعبی)|
+5721|5|Accessories for IBC Totes|لوازم جانبی مخزن IBC|
+5722|5|Liquid Storage Tanks|مخزن ذخیره مایعات|
+5723|5|Liquid Storage Bases & Stands|پایه و استند مخزن مایعات|
+5724|5|Stock Tanks & Accessories|آبشخور (مخزن آب دام) و لوازم جانبی|
+5725|4|Storage Buckets & Bucket Handling Equipment|سطل انبارش و تجهیزات جابجایی سطل|
+5726|5|Open- & Closed- Head Storage Buckets|سطل درب‌باز و درب‌بسته|
+5727|5|Storage Bucket Lids, Caps & Liners|درب، درپوش و لاینر سطل|
+5728|5|Storage Bucket Handling Equipment|تجهیزات جابجایی سطل|
+5729|4|Metal Cans & Paint Cans|قوطی فلزی و قوطی رنگ|
+5730|3|Pallets|پالت|
+5731|2|Casters & Wheels|چرخ و چرخ‌دستی (کاستر)|
+5732|3|Plate-Mount Casters|چرخ صفحه‌ای|
+5733|4|Standard Plate Casters|چرخ صفحه‌ای استاندارد|
+5734|4|Corrosion, Debris- & Heat-Resistant Standard Plate Casters|چرخ صفحه‌ای مقاوم در برابر خوردگی، پسماند و حرارت|
+5735|4|Shock-Absorbing Plate Casters|چرخ صفحه‌ای ضربه‌گیر (فنردار)|
+5736|4|Impact-Resistant Kingpinless Plate Casters|چرخ صفحه‌ای بدون پین مرکزی مقاوم به ضربه|
+5737|4|Leveling Plate Casters|چرخ صفحه‌ای تراز‌شو|
+5738|4|Maintenance-Free Plate Casters|چرخ صفحه‌ای بدون نیاز به سرویس|
+5739|4|NSF-Listed Sanitary Plate Casters|چرخ صفحه‌ای بهداشتی (NSF)|
+5740|4|Quiet-Roll Medical Plate Casters|چرخ صفحه‌ای بی‌صدا پزشکی|
+5741|4|Track-Wheel Plate Casters|چرخ صفحه‌ای ریلی|
+5742|4|Continuous-Use AGV & AMR Plate Casters|چرخ صفحه‌ای کار مداوم ربات AGV و AMR|
+5743|4|Smooth-Ride Pneumatic & Flat-Free Plate Casters|چرخ صفحه‌ای بادی و پنچری‌ناپذیر|
+5744|4|Inverted-Mount Plate Casters|چرخ صفحه‌ای نصب وارونه|
+5745|4|Quick-Mount Brackets for Plate Casters|براکت نصب سریع چرخ صفحه‌ای|
+5746|3|Stem Casters|چرخ میله‌ای (پین‌دار)|
+5747|4|Standard Threaded Stem Casters|چرخ پیچی استاندارد|
+5748|4|Corrosion, Debris- & Heat-Resistant Standard Threaded Stem Casters|چرخ پیچی مقاوم در برابر خوردگی، پسماند و حرارت|
+5749|4|NSF-Listed Sanitary Standard Threaded Stem Casters|چرخ پیچی بهداشتی (NSF)|
+5750|4|Medical Equipment Standard Threaded Stem Casters|چرخ پیچی تجهیزات پزشکی|
+5751|4|Expanding Stem Casters|چرخ میله‌ای انبساطی|
+5752|4|Friction-Ring Stem Casters|چرخ میله‌ای حلقه اصطکاکی (فشاری)|
+5753|4|Grip-Neck Stem Casters|چرخ میله‌ای گلوگیر|
+5754|4|Bolt-In Stem Casters with Round & Square Stems|چرخ میله‌ای پیچی با میله گرد و چهارگوش|
+5755|3|Bolt-Hole Casters|چرخ سوراخ‌دار (تک‌پیچ)|
+5756|4|Standard Bolt-Hole Casters|چرخ سوراخ‌دار استاندارد|
+5757|4|Corrosion- & Debris-Resistant Standard Bolt-Hole Casters|چرخ سوراخ‌دار مقاوم در برابر خوردگی و پسماند|
+5758|4|Shock-Absorbing Bolt-Hole Casters|چرخ سوراخ‌دار ضربه‌گیر|
+5759|4|Leveling Bolt-Hole Casters|چرخ سوراخ‌دار تراز‌شو|
+5760|4|Expanding Mounting Stems for Bolt-Hole Casters|میله نصب انبساطی چرخ سوراخ‌دار|
+5761|3|Side-Mount Casters|چرخ نصب جانبی|
+5762|3|Caster Wheels|رینگ و چرخ (بدون پایه)|
+5763|4|Metal Tread Standard Wheels|چرخ رویه فلزی|
+5764|4|Plastic & Phenolic Tread Standard Wheels|چرخ رویه پلاستیکی و فنولی|
+5765|4|Polyurethane Tread Standard Wheels|چرخ رویه پلی‌اورتان|
+5766|4|Rubber Tread Standard Wheels|چرخ رویه لاستیکی|
+5767|3|Track Wheels|چرخ ریلی|
+5768|3|Pneumatic & Flat-Free Wheels|چرخ بادی و پنچری‌ناپذیر|
+5769|3|Replacement Tires & Tubes for Pneumatic Wheels|تایر و تیوب یدکی چرخ بادی|
+5770|3|Accessories for Casters & Wheels|لوازم جانبی چرخ|
+5771|4|Floor Locks|قفل کف (ترمز زمینی)|
+5772|4|Brake & Lock Kits for Casters|کیت ترمز و قفل چرخ|
+5773|4|Stem Caster Accessories|لوازم جانبی چرخ میله‌ای|
+5774|4|Toe Guards for Casters|محافظ پنجه پا چرخ|
+5775|2|Transporting|حمل‌ونقل داخلی|
+5776|3|Carts & Trucks|ترولی و گاری|
+5777|4|Shelf & Utility Carts|ترولی طبقه‌دار و همه‌کاره|
+5778|5|General Purpose Plastic Shelf & Utility Carts|ترولی پلاستیکی طبقه‌دار همه‌منظوره|
+5779|5|NSF, Antimicrobial & Chemical-Resistant Plastic Utility Carts|ترولی پلاستیکی بهداشتی (NSF)، ضدمیکروب و مقاوم شیمیایی|
+5780|5|Paneled & Configurable Utility Carts|ترولی همه‌کاره پنل‌دار و قابل‌پیکربندی|
+5781|5|General Purpose Metal Utility Carts|ترولی فلزی همه‌منظوره|
+5782|5|Flow-Through Metal Utility Carts|ترولی فلزی دوطرفه (عبوری)|
+5783|5|Low-Profile Metal Utility Carts|ترولی فلزی کم‌ارتفاع|
+5784|5|Metal Shelf & Utility Carts for Instruments|ترولی فلزی طبقه‌دار ابزار دقیق|
+5785|5|Order-Picking Metal Shelf & Utility Carts with Writing Surface|ترولی فلزی سفارش‌چینی با سطح نوشتن|
+5786|5|Vertical-Access Metal Shelf & Utility Carts with Ladder|ترولی فلزی طبقه‌دار نردبان‌دار|
+5787|5|Wire Shelf & Utility Carts|ترولی مفتولی طبقه‌دار|
+5788|5|Wire Shelf & Utility Cart Covers|روکش ترولی مفتولی|
+5789|5|Accessories for Shelf & Utility Carts|لوازم جانبی ترولی طبقه‌دار|
+5790|4|Security Carts|ترولی امنیتی (قفل‌دار)|
+5791|4|Cylinder Carts|گاری کپسول گاز|
+5792|4|Organization & Workstation Carts|ترولی نظم‌دهی و ایستگاه کاری|
+5793|5|Bin & Tub Carts|ترولی جعبه و تشت|
+5794|5|Mobile Workstations|ایستگاه کاری سیار|
+5795|5|Wire-Spool Carts|ترولی قرقره سیم|
+5796|5|Accessories for Bin & Tub Carts|لوازم جانبی ترولی جعبه و تشت|
+5797|4|Battery-Powered Workstation Carts|ترولی ایستگاه کاری باتری‌دار|
+5798|4|Office, Furniture & Luggage Carts|ترولی اداری، مبلمان و چمدان|
+5799|5|Audio-Visual Carts|ترولی صوتی و تصویری|
+5800|5|Chair & Table Carts|ترولی حمل صندلی و میز|
+5801|5|Mail Carts|ترولی نامه و مرسوله|
+5802|4|Enclosed-Shelf Stock Trucks & Carts|گاری و ترولی انبار طبقه‌دار بسته|
+5803|5|Metal Stock Trucks|گاری انبار فلزی|
+5804|5|Wire Stock Carts|ترولی انبار مفتولی|
+5805|5|Accessories for Stock Trucks & Carts|لوازم جانبی گاری انبار|
+5806|4|Bulk Container Trucks & Tilt Trucks|گاری مخزن‌دار و گاری کج‌شو|
+5807|5|Tilt Trucks|گاری کج‌شو (تیلت)|
+5808|5|Cube Trucks|گاری مکعبی|
+5809|5|Basket Trucks|گاری سبدی|
+5810|5|Box Trucks|گاری جعبه‌ای|
+5811|5|Hopper Trucks|گاری قیفی (هاپر)|
+5812|5|Lids & Covers for Bulk Container Trucks & Tilt Trucks|درب و پوشش گاری مخزن‌دار و کج‌شو|
+5813|5|Accessories for Bulk Container Trucks & Tilt Trucks|لوازم جانبی گاری مخزن‌دار و کج‌شو|
+5814|5|Parts for Bulk Container Trucks & Tilt Trucks|قطعات گاری مخزن‌دار و کج‌شو|
+5815|4|Panel, Bar, Pipe & Bucket Trucks|گاری حمل ورق، میلگرد، لوله و سطل|
+5816|5|Panel Trucks|گاری حمل ورق و پنل|
+5817|5|Bar & Pipe Trucks|گاری حمل میلگرد و لوله|
+5818|5|Bucket Trucks|گاری حمل سطل|
+5819|5|Parts for Panel, Bar, Pipe & Bucket Trucks|قطعات گاری حمل ورق، میلگرد، لوله و سطل|
+5820|4|Platform Trucks|گاری کفی (چهارچرخ)|
+5821|5|Electric Metal-Deck Platform Trucks|گاری کفی فلزی برقی|
+5822|5|Plastic-Deck Platform Trucks|گاری کفی پلاستیکی|
+5823|5|Steel-Deck Platform Trucks|گاری کفی فولادی|
+5824|5|Corrosion-Resistant Metal-Deck Platform Trucks|گاری کفی فلزی ضدخوردگی|
+5825|5|Wooden-Deck Platform Trucks|گاری کفی چوبی|
+5826|5|Railroad Platform Trucks|گاری کفی راه‌آهن|
+5827|5|Accessories for Platform Trucks|لوازم جانبی گاری کفی|
+5828|4|Wagon Trucks & Trailers|واگن دستی و تریلر صنعتی|
+5829|5|Wagon Trucks|واگن دستی|
+5830|5|Industrial Trailers|تریلر صنعتی (یدک‌کش)|
+5831|5|Parts for Wagon Trucks & Trailers|قطعات واگن دستی و تریلر|
+5832|3|Hand Trucks & Dollies|چرخ‌دستی (گاری دوچرخ) و دالی|
+5833|4|Electric Hand Trucks & Stair Climbers|گاری دستی برقی و پله‌رو|
+5834|4|General Purpose Manual Hand Trucks|گاری دستی دوچرخ همه‌منظوره|

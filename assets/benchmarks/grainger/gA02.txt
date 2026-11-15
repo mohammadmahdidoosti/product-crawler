@@ -1,0 +1,278 @@
+301|4|Hazardous Waste Bags|کیسه زباله خطرناک|
+302|4|Trash & Waste Disposal Accessories|لوازم جانبی دفع زباله|
+303|3|Trash & Recycling Containers|سطل زباله و بازیافت|ترکیبی
+304|4|Heavy-Duty Plastic Cans|سطل زباله پلاستیکی سنگین|
+305|4|Slim-Profile Plastic Cans|سطل زباله پلاستیکی باریک|
+306|4|Indoor Plastic Cans|سطل زباله پلاستیکی داخلی|
+307|4|Indoor Metal Cans|سطل زباله فلزی داخلی|
+308|4|Rolling Plastic Cans|سطل زباله چرخ‌دار|
+309|4|Institutional Plastic Cans|سطل زباله پلاستیکی اداری|
+310|4|Step-On Cans|سطل زباله پدالی|
+311|4|Outdoor Cans|سطل زباله فضای باز|
+312|4|Cardboard Disposable Cans|سطل زباله مقوایی یک‌بارمصرف|
+313|4|Dumpsters|مخزن زباله (کانتینر زباله)|
+314|4|Trash & Recycling Can Accessories|لوازم جانبی سطل زباله|
+315|3|Prepaid Recycling Kits|کیت بازیافت پیش‌پرداخت|
+316|4|Light Bulb & Ballast Recycling|بازیافت لامپ و بالاست|
+317|4|Battery Recycling|بازیافت باتری|
+318|4|Home & Office Electronics Prepaid Recycling|بازیافت پیش‌پرداخت لوازم الکترونیکی خانگی و اداری|
+319|4|Medical, Laboratory, & Pharmaceutical Waste Prepaid Recycling|بازیافت پیش‌پرداخت پسماند پزشکی، آزمایشگاهی و دارویی|
+320|4|Mercury Devices & Smoke Detector Prepaid Recycling|بازیافت پیش‌پرداخت تجهیزات جیوه‌ای و دتکتور دود|
+321|4|Personal Protective Equipment Prepaid Recycling|بازیافت پیش‌پرداخت تجهیزات حفاظت فردی|
+322|4|Breakroom Waste Prepaid Recycling|بازیافت پیش‌پرداخت پسماند آبدارخانه|
+323|4|All-in-One Prepaid Recycling|بازیافت پیش‌پرداخت همه‌کاره|
+324|4|Aerosol Can Prepaid Recycling|بازیافت پیش‌پرداخت قوطی اسپری|
+325|3|Cigarette Disposal|دفع ته‌سیگار|
+326|4|Outdoor Ashtrays & Cigarette Receptacles|زیرسیگاری و سطل ته‌سیگار فضای باز|
+327|4|Ashtray Sand, Pails & Cigarette Receptacle Liners|ماسه زیرسیگاری، سطل و کیسه داخلی|
+328|3|Pet Waste Disposal|دفع فضولات حیوانات خانگی|
+329|4|Pet Waste Stations|ایستگاه دفع فضولات حیوانات|
+330|4|Pet Waste Bags|کیسه فضولات حیوانات|ترکیبی
+331|3|Sanitary Napkin Disposal|دفع نوار بهداشتی|
+332|4|Sanitary Napkin Receptacles|سطل نوار بهداشتی|
+333|4|Sanitary Napkin Disposal Bags & Bag Dispensers|کیسه دفع نوار بهداشتی و دیسپنسر|
+334|3|Trash Pickers & Grabbers|انبر جمع‌آوری زباله|
+335|3|Trash Compactors, Balers & Can Crushers|پرس زباله، دستگاه عدل‌بندی و قوطی‌خردکن|
+336|2|Paper Products & Dispensers|محصولات کاغذی و دیسپنسر|ترکیبی
+337|3|Paper Towels & Dispensers|دستمال کاغذی (حوله کاغذی) و دیسپنسر|
+338|4|Universal Paper Towel Rolls & Dispensers|رول حوله کاغذی یونیورسال و دیسپنسر|
+339|4|Paper Towel Sheets & Dispensers|حوله کاغذی برگی و دیسپنسر|
+340|4|Standard Kitchen Paper Towels & Dispensers|دستمال حوله‌ای آشپزخانه و جای دستمال|
+341|4|Georgia Pacific Paper Towel Roll & Dispenser Systems|سیستم رول حوله کاغذی و دیسپنسر Georgia Pacific|
+342|4|Kimberly-Clark Paper Towel Roll & Dispenser Systems|سیستم رول حوله کاغذی و دیسپنسر Kimberly-Clark|
+343|4|Tork Paper Towel & Dispenser Systems|سیستم حوله کاغذی و دیسپنسر Tork|
+344|3|Toilet Paper & Dispensers|دستمال توالت و جای دستمال|
+345|4|Standard Core Toilet Paper Rolls & Dispensers|دستمال توالت رولی معمولی و جای دستمال|
+346|4|Jumbo Core Toilet Paper Rolls & Dispensers|دستمال توالت جامبو رول و دیسپنسر|
+347|4|Small Core & Coreless Toilet Paper Rolls & Dispensers|دستمال توالت بدون مغزی و مغزی کوچک و دیسپنسر|
+348|4|Center-Pull & Sheet Toilet Paper & Dispensers|دستمال توالت برگی و کشش از مرکز و دیسپنسر|
+349|4|Ligature-Resistant Toilet Paper Dispensers|جای دستمال توالت ضدآویز (ایمن)|
+350|4|Toilet Paper Holders & Spindles|جای دستمال توالت و محور|
+351|3|Facial Tissues & Dispensers|دستمال کاغذی جعبه‌ای و جای دستمال|
+352|3|Toilet Seat Covers & Dispensers|روکش توالت فرنگی و دیسپنسر|
+353|2|Hand & Personal Care|بهداشت دست و شخصی|ترکیبی
+354|3|Hand Care|بهداشت دست|
+355|4|Bottled Hand Soaps|مایع دستشویی بطری|
+356|4|Bottled Hand Sanitizers|ژل ضدعفونی دست بطری|
+357|4|Refillable Soap Dispensers & Hand Pumps|جاصابونی مایع قابل شارژ و پمپ|
+358|4|Hand Soap & Sanitizer Systems|سیستم مایع دستشویی و ضدعفونی‌کننده|
+359|5|Gojo & Purell Cartridge Hand Soap & Sanitizer Dispensers & Refills|دیسپنسر و شارژ کارتریجی مایع دستشویی و ضدعفونی Gojo و Purell|
+360|5|Georgia-Pacific Cartridge Hand Soap & Sanitizer Dispensers & Refills|دیسپنسر و شارژ کارتریجی مایع دستشویی و ضدعفونی Georgia-Pacific|
+361|5|Tork Cartridge Hand Soap & Sanitizer Dispensers & Refills|دیسپنسر و شارژ کارتریجی مایع دستشویی و ضدعفونی Tork|
+362|5|Ecolab Cartridge Hand Soap & Sanitizer Dispensers & Refills|دیسپنسر و شارژ کارتریجی مایع دستشویی و ضدعفونی Ecolab|
+363|5|Kimberly-Clark Cartridge Hand Soap & Sanitizer Dispensers & Refills|دیسپنسر و شارژ کارتریجی مایع دستشویی و ضدعفونی Kimberly-Clark|
+364|5|Rubbermaid Cartridge Hand Soap & Sanitizer Dispensers & Refills|دیسپنسر و شارژ کارتریجی مایع دستشویی و ضدعفونی Rubbermaid|
+365|5|Best Sanitizers Cartridge Hand Soap & Sanitizer Dispensers & Refills|دیسپنسر و شارژ کارتریجی مایع دستشویی و ضدعفونی Best Sanitizers|
+366|5|SC Johnson Cartridge Hand Soap & Sanitizer Dispensers & Refills|دیسپنسر و شارژ کارتریجی مایع دستشویی و ضدعفونی SC Johnson|
+367|5|Sloan Cartridge Hand Soap Dispensers & Refills|دیسپنسر و شارژ کارتریجی مایع دستشویی Sloan|
+368|5|OPS Cartridge Hand Soap & Sanitizer Dispensers & Refills|دیسپنسر و شارژ کارتریجی مایع دستشویی و ضدعفونی OPS|
+369|5|AbilityOne Cartridge Hand Soap & Sanitizer Dispensers & Refills|دیسپنسر و شارژ کارتریجی مایع دستشویی و ضدعفونی AbilityOne|
+370|4|Heavy-Duty Hand Cleaners|پاک‌کننده دست صنعتی (دست‌شوی مکانیکی)|
+371|5|Hand Cleaners|خمیر و مایع دست‌شوی صنعتی|
+372|5|Hand Cleaner Dispenser & Refill Systems|سیستم دیسپنسر و شارژ دست‌شوی صنعتی|
+373|4|Hand Cleaning Wipes|دستمال مرطوب پاک‌کننده دست|
+374|4|Hand Sanitizer Wipes|دستمال مرطوب ضدعفونی دست|
+375|3|Hand & Body Lotion|لوسیون دست و بدن|
+376|4|Jar|کرم کاسه‌ای (جار)|
+377|3|Facial, Body & Hair Care|بهداشت صورت، بدن و مو|مصرفی
+378|4|Shampoo, Conditioner & Body Wash|شامپو، نرم‌کننده و شامپو بدن|
+379|4|Diaper & Body Wipes|دستمال مرطوب کودک و بدن|
+380|4|Deodorants & Antiperspirants|دئودورانت و ضدتعریق|
+381|4|Hair Brushes & Combs|برس مو و شانه|
+382|4|Razors & Shaving Cream|تیغ و خمیر اصلاح|
+383|4|Personal Care Kits|کیت بهداشت شخصی|
+384|3|Hand Dryers|دست‌خشک‌کن|
+385|4|Hand Dryers|دست‌خشک‌کن برقی|
+386|4|Hand Dryer Floor Mats|کفپوش زیر دست‌خشک‌کن|
+387|4|Hand Dryer Accessories, Recess Kits & Replacement Parts|لوازم، کیت توکار و قطعات یدکی دست‌خشک‌کن|
+388|3|Sanitary Napkins, Tampons & Dispensers|نوار بهداشتی، تامپون و دیسپنسر|
+389|4|Sanitary Napkins & Tampons|نوار بهداشتی و تامپون|مصرفی
+390|4|Sanitary Napkin & Tampon Dispensers|دیسپنسر نوار بهداشتی و تامپون|
+391|3|Oral Care|بهداشت دهان و دندان|مصرفی
+392|2|Cleaning Chemicals|مواد شوینده و پاک‌کننده|ترکیبی
+393|3|Surface Disinfectants & Sanitizers|ضدعفونی‌کننده سطوح|
+394|3|Degreasers|چربی‌زدا|
+395|3|Cleaners|پاک‌کننده|
+396|4|All Purpose Cleaners|پاک‌کننده همه‌کاره|
+397|4|Electrical Contact Cleaners|اسپری کنتاکت‌شوی|
+398|4|Bathroom Cleaners|پاک‌کننده سرویس بهداشتی|
+399|4|Glass Cleaners|شیشه‌پاک‌کن|
+400|4|Grill & Oven Cleaners|پاک‌کننده گریل و فر|
+401|4|Furniture Polish & Wood Cleaners|واکس مبلمان و پاک‌کننده چوب|
+402|4|Metal Polish & Cleaners|پولیش و پاک‌کننده فلزات|
+403|4|Stone Polish, Cleaners & Sealers|پولیش، پاک‌کننده و سیلر سنگ|
+404|3|Dilution Control Systems|سیستم رقیق‌سازی (دوزینگ) مواد شوینده|
+405|4|Ecolab Dilution Control Chemicals|مواد شوینده سیستم رقیق‌سازی Ecolab|
+406|4|P&G Pro Line Dilution Control Chemicals|مواد شوینده سیستم رقیق‌سازی P&G Pro Line|
+407|4|Diversey Dilution Control Systems|سیستم رقیق‌سازی Diversey|
+408|4|3M Dilution Control Systems|سیستم رقیق‌سازی 3M|
+409|4|AbiltyOne Dilution Control Chemicals|مواد شوینده سیستم رقیق‌سازی AbilityOne|
+410|4|Portable Bottle-Based Dilution|رقیق‌ساز بطری قابل حمل|
+411|3|Dishwashing|مایع ظرفشویی و شوینده ظرف|
+412|3|Floor Care Chemicals|مواد نگهداری کف|
+413|4|Floor Cleaners & Maintainers|کف‌شوی و نگهدارنده کف|
+414|4|Floor Finishes & Sealers|واکس و سیلر کف|
+415|4|Floor & Baseboard Strippers|واکس‌بردار کف و قرنیز|
+416|4|Floor Sweeping Compounds|پودر جاروکشی کف (خاک‌اره روغنی)|
+417|4|Dust Mop Treatments|محلول تی گردگیر|
+418|3|Laundry|شوینده لباس (پودر و مایع لباسشویی)|
+419|3|Drain Cleaners & Openers|لوله‌بازکن|
+420|3|Calcium, Lime & Rust Removers|جرم‌گیر و زنگ‌زدا|
+421|3|Adhesive Removers|چسب‌زدا|
+422|3|Carpet & Upholstery Cleaners|فرش‌شوی و مبل‌شوی|
+423|3|Portable Toilet Odor Eliminators|بوگیر توالت سیار|
+424|3|Mold & Mildew Removers|کپک‌زدا|
+425|3|Moisture Absorbers|رطوبت‌گیر|
+426|3|Graffiti Removers|پاک‌کننده گرافیتی (رنگ‌زدای دیوار)|
+427|3|Water-Repellent Fabric Protectors|اسپری ضدآب پارچه|
+428|3|Pool Chemicals|مواد شیمیایی استخر|
+429|2|Air Fresheners & Urinal Screens|خوشبوکننده هوا و توری یورینال|ترکیبی
+430|3|Air Fresheners|خوشبوکننده هوا|
+431|3|Toilet & Urinal Mats|زیرپایی توالت و یورینال|
+432|3|Urinal Cakes, Urinal Screens & Toilet Rim Hangers|قرص یورینال، توری یورینال و خوشبوکننده لبه توالت|
+433|2|Floor Cleaning Machines|دستگاه‌های نظافت کف|
+434|3|Vacuum Cleaners|جاروبرقی|
+435|4|Corded Shop Vacuums|جاروبرقی کارگاهی برقی|
+436|4|Cordless Shop Vacuums|جاروبرقی کارگاهی شارژی|
+437|4|Electric Industrial Vacuums|جاروبرقی صنعتی برقی|
+438|4|Pneumatic Industrial Vacuums|جاروبرقی صنعتی بادی|
+439|4|Handheld Vacuums|جاروبرقی دستی|ترکیبی
+440|4|Upright Vacuums|جاروبرقی ایستاده|ترکیبی
+441|4|Backpack Vacuums|جاروبرقی کوله‌ای|
+442|4|Canister Vacuums|جاروبرقی مخزنی|ترکیبی
+443|4|Robotic Vacuums|جاروبرقی رباتیک|ترکیبی
+444|4|Wide-Area Vacuums|جاروبرقی عرض‌زیاد|
+445|4|Ride-On Vacuums|جاروبرقی سرنشین‌دار|
+446|4|Vacuum Attachments & Accessories|متعلقات و لوازم جانبی جاروبرقی|
+447|5|Vacuum Bags|کیسه جاروبرقی|
+448|5|Vacuum Filters|فیلتر جاروبرقی|
+449|5|Vacuum Hoses|شیلنگ جاروبرقی|
+450|5|Vacuum Cleaner Attachments|سری جاروبرقی|
+451|5|Vacuum Cleaner Attachment Kits|کیت سری جاروبرقی|
+452|5|Vacuum Belts|تسمه جاروبرقی|
+453|5|Vacuum Replacement Parts & Accessories|قطعات یدکی و لوازم جاروبرقی|
+454|3|Floor Scrubbers|اسکرابر (کف‌شوی صنعتی)|
+455|4|Compact Floor Scrubbers|اسکرابر کامپکت|
+456|4|Walk-Behind Floor Scrubbers|اسکرابر دستی (پشت‌رو)|
+457|4|Ride-On Floor Scrubbers|اسکرابر سرنشین‌دار|
+458|4|Autonomous Robotic Floor Scrubbers|اسکرابر رباتیک خودکار|
+459|4|Escalator Cleaners|دستگاه نظافت پله‌برقی|
+460|4|Floor Scrubber Accessories|لوازم جانبی اسکرابر|
+461|5|Pad Drivers & Clutch Plates|پدگیر و صفحه کلاچ|
+462|5|Floor Machine Accessories & Replacement Parts|لوازم و قطعات یدکی دستگاه کف‌شوی|
+463|3|Burnishers & Polishers|دستگاه پولیش و براق‌کن کف|
+464|4|High-Speed Burnishers|براق‌کن پرسرعت کف|
+465|4|Low-Speed Floor Polishers|پولیشر کف دورپایین (زمین‌شوی تک‌دیسک)|
+466|3|Pads & Brushes|پد و برس|
+467|4|Round Floor Scrubber & Polisher Pads|پد گرد اسکرابر و پولیشر|
+468|4|Rectangular Floor Scrubber Pads|پد مستطیلی اسکرابر|
+469|4|Twister Floor Scrubber Pads|پد الماسه توئیستر|
+470|4|Burnishing Pads for High-Speed Machines|پد براق‌کن دستگاه پرسرعت|
+471|4|Stone & Polished Concrete Pads|پد سنگ و بتن پولیشی|
+472|4|Abrasives for Floor Polishers, Burnishers & Accessories|ساینده دستگاه پولیش و براق‌کن کف|
+473|4|Rotary Brushes|برس دوار|
+474|4|Carpet Bonnets|پد بونت فرش|
+475|3|Carpet & Floor Sweepers|جاروی مکانیکی فرش و کف|
+476|3|Carpet Cleaners|دستگاه فرش‌شوی|
+477|4|Carpet Cleaners|دستگاه فرش‌شوی|
+478|4|Carpet Cleaner Attachments & Accessories|متعلقات و لوازم فرش‌شوی|
+479|3|Multi-Surface Cleaning Machines|دستگاه نظافت چندسطحی|
+480|3|Steam Cleaners|بخارشوی|
+481|4|Steam Cleaners|دستگاه بخارشوی|
+482|4|Brushes, Parts & Accessories for Steam Cleaners|برس، قطعات و لوازم بخارشوی|
+483|3|Gum Cleaning Machines|دستگاه آدامس‌زدا|
+484|2|Dry Wipes, Rags & Towels|دستمال خشک، کهنه و حوله|ترکیبی
+485|3|Dry Wipes|دستمال خشک یک‌بارمصرف|
+486|3|Shop Towels & Rags|دستمال کارگاهی و کهنه|
+487|3|Microfiber Cloths|دستمال میکروفایبر|
+488|3|Controlled Environment Wipes|دستمال اتاق تمیز (کلین‌روم)|
+489|3|Add-Your-Own Solution Bucket System|سطل دستمال با محلول دلخواه|
+490|3|Personal-Care Dry Wipes|دستمال خشک بهداشتی|
+491|3|Dry Wipe Dispensers|دیسپنسر دستمال|
+492|2|Mops, Brooms & Brushes|تی، جارو و برس|ترکیبی
+493|3|Brushes, Brooms & Dust Pans|برس، جارو و خاک‌انداز|
+494|4|Cleaning Brushes|برس نظافت|
+495|5|Scrub Brushes|برس شستشو|
+496|6|Hand Scrub Brushes|برس شستشوی دستی|
+497|6|Deck & Wall Brushes|برس کف و دیوار|
+498|6|Tank Brushes|برس مخزن|
+499|5|Wire Scratch Brushes|برس سیمی دستی|
+500|5|Pipe & Tube Brushes|برس لوله|
+501|5|Dusting Brushes|برس گردگیری|
+502|5|Toilet Brushes|فرچه توالت|
+503|4|Brooms|جارو|
+504|4|Broom Heads|سر جارو|
+505|4|Brush & Broom Handles|دسته جارو و برس|
+506|4|Dust Pans|خاک‌انداز|
+507|4|Broom & Dust Pan Sets|ست جارو و خاک‌انداز|
+508|4|Broom Accessories & Replacement Parts|لوازم و قطعات یدکی جارو|
+509|3|Mops & Floor Finish Applicators|تی و پد واکس‌زنی کف|
+510|4|Floor Mops, Buckets & Wringers|تی، سطل و آبگیر تی|
+511|5|Wet Mops, Heads & Handles|تی خیس، سر تی و دسته|
+512|6|String Mops, Heads & Handles|تی نخی، سر تی و دسته|
+513|7|Mops & Handles|تی و دسته|
+514|7|Mop Heads|سر تی|
+515|7|Mop Handles|دسته تی|
+516|6|Microfiber Flat Mops & Pads|تی تخت میکروفایبر و پد|
+517|7|Microfiber Flat Mops, Frames & Handles|تی تخت میکروفایبر، قاب و دسته|
+518|7|Microfiber Flat Mop Pads|پد تی تخت میکروفایبر|
+519|6|Spray Mops & Pads|تی اسپری‌دار و پد|
+520|6|Sponge Mops & Heads|تی اسفنجی و سر تی|
+521|5|Dust Mops, Heads & Handles|تی گردگیر، سر و دسته|
+522|6|Dust Mops|تی گردگیر|
+523|6|Dust Mop Heads|سر تی گردگیر|
+524|6|Dust Mop Frames|قاب تی گردگیر|
+525|6|Dust Mop Handles|دسته تی گردگیر|
+526|5|Mop Buckets & Wringers|سطل تی و آبگیر|
+527|6|Microfiber Charging Buckets|سطل شارژ پد میکروفایبر|
+528|6|Mop Bucket & Wringer Combinations|سطل تی آبگیردار|
+529|6|Mop Buckets|سطل تی|
+530|6|Mop Wringers|آبگیر تی|
+531|6|Replacement Parts for Mop Buckets|قطعات یدکی سطل تی|
+532|4|Baseboard Cleaning Pads & Holders|پد و نگهدارنده نظافت قرنیز|
+533|4|Floor Finish Applicators & Pads|پد و ابزار واکس‌زنی کف|
+534|3|Squeegees & Window Cleaning|طی و نظافت شیشه|
+535|4|Window Washing Squeegees & Equipment|طی و تجهیزات شیشه‌شوی|
+536|5|Window Washing Squeegees & Scrubbers|طی و پشمک شیشه‌شوی|
+537|5|Pure Water Cleaning|شستشو با آب خالص (سیستم آب مقطر)|
+538|4|Floor Squeegees|طی کف (کف‌کش)|
+539|4|Bench Squeegees|طی میز|
+540|4|Ceiling Squeegees|طی سقف|
+541|4|Squeegee Handles & Poles|دسته و چوب طی|
+542|4|Squeegee Replacement Blades|لاستیک یدکی طی|
+543|3|Dusters|گردگیر|
+544|2|Buckets & Spray Bottles|سطل و بطری اسپری|ترکیبی
+545|3|Cleaning Buckets|سطل نظافت|
+546|3|Spray Bottles & Trigger Sprayers|آب‌پاش (بطری اسپری) و سرپمپی|
+547|3|Cleaning Dispenser Containers & Accessories|ظروف و لوازم دیسپنسر مواد شوینده|
+548|3|Electrostatic Sprayers|سم‌پاش الکترواستاتیک (ضدعفونی)|
+549|2|Sponges & Scouring Pads|اسفنج و اسکاچ|ترکیبی
+550|2|Cleaning Carts & Caddies|ترولی نظافت و سبد ابزار|
+551|3|Cleaning Carts|ترولی نظافت|
+552|4|Janitorial Carts|ترولی خدمات|
+553|4|Accessories for Janitorial & Housekeeping Carts|لوازم جانبی ترولی خدمات و هاوس‌کیپینگ|
+554|3|Cleaning Supplies Holders|نگهدارنده لوازم نظافت|
+555|4|Cleaning Caddies|سبد حمل لوازم نظافت|
+556|4|Cleaning Tool Holders|جای ابزار نظافت (آویز تی و جارو)|
+557|3|Plungers|پمپ توالت (تخلیه‌کن)|ترکیبی
+558|2|Cleaning & Janitorial Equipment Parts|قطعات تجهیزات نظافت|
+559|1|Electrical|برق|
+560|2|Wire, Cable & Cordsets|سیم، کابل و کابل آماده (کردست)|
+561|3|Automotive & Electric Vehicle (EV) Wire & Cable|سیم و کابل خودرو و خودروی برقی (EV)|
+562|4|Automotive Wire & Cable|سیم و کابل خودرو|
+563|4|Electric Vehicle Charging Cable|کابل شارژ خودروی برقی|
+564|3|Bonding & Grounding Wire|سیم ارت و همبندی|
+565|3|Building Wire & Cable|سیم و کابل ساختمانی|
+566|4|Building Wire|سیم ساختمانی|
+567|4|Metal-Clad & Armored Building Cable|کابل ساختمانی زره‌دار و روکش فلزی|
+568|5|General Purpose Armored & Metal-Clad Building Cable|کابل زره‌دار و روکش فلزی عمومی|
+569|5|Healthcare Metal-Clad Building Cable|کابل روکش فلزی مراکز درمانی|
+570|5|Fire Alarm Metal-Clad Building Cable|کابل روکش فلزی اعلام حریق|
+571|4|Nonmetallic Sheathed Building Cable|کابل ساختمانی روکش غیرفلزی (NM)|
+572|4|Above-Ground Service Entrance Cable|کابل ورودی انشعاب روزمینی|
+573|3|Bus Drop & Tray Cable|کابل سینی (تری) و انشعاب باس|
+574|3|Continuous Flexing Automation & Robotics Cable|کابل فلکسیبل حرکتی اتوماسیون و رباتیک|
+575|4|Continuous Flexing Automation Cable|کابل فلکسیبل حرکتی اتوماسیون|
+576|4|Continuous Flexing Bus Drop & Tray Cable|کابل فلکسیبل حرکتی سینی و انشعاب باس|
+577|4|Continuous Flexing Robotic Cable|کابل فلکسیبل رباتیک|
+578|4|Continuous Flexing Servo Cable|کابل سروو فلکسیبل|

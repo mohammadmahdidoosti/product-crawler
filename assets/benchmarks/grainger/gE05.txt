@@ -1,0 +1,227 @@
+10307|7|Car Pool Parking Signs|تابلو پارکینگ خودروی اشتراکی|
+10308|7|Church Parking Signs|تابلو پارکینگ کلیسا|
+10309|7|Compact Car Parking Signs|تابلو پارکینگ خودروی کوچک|
+10310|7|Company Vehicles Parking Signs|تابلو پارکینگ خودروهای سازمانی|
+10311|7|Customer Parking Signs|تابلو پارکینگ مشتریان|
+10312|7|Doctor & Nurse Parking Signs|تابلو پارکینگ پزشک و پرستار|
+10313|7|Emergency Vehicle Parking Signs|تابلو پارکینگ خودروهای امدادی|
+10314|7|Employee, Faculty & Staff Parking Signs|تابلو پارکینگ کارکنان|
+10315|7|Expectant Mothers Parking Signs|تابلو پارکینگ مادران باردار|
+10316|7|Hybrid & Electric Vehicle Parking & Charging Signs|تابلو پارکینگ و شارژ خودروی برقی و هیبرید|
+10317|7|Motorcycle Parking Signs|تابلو پارکینگ موتورسیکلت|
+10318|7|Office Parking Signs|تابلو پارکینگ اداری|
+10319|7|Permit Parking Signs|تابلو پارکینگ با مجوز|
+10320|7|Private Parking Signs|تابلو پارکینگ خصوصی|
+10321|7|Reserved Parking Signs|تابلو پارکینگ رزرو شده|
+10322|7|Resident & Tenant Parking Signs|تابلو پارکینگ ساکنین|
+10323|7|Security Parking Signs|تابلو پارکینگ نگهبانی|
+10324|7|Student Parking Signs|تابلو پارکینگ دانشجویان|
+10325|7|Time Limit Parking Signs|تابلو پارکینگ زمان‌دار|
+10326|8|10 Minute Parking Signs|تابلو پارک ۱۰ دقیقه|
+10327|8|30 Minute Parking Signs|تابلو پارک ۳۰ دقیقه|
+10328|8|5 Minute Parking Signs|تابلو پارک ۵ دقیقه|
+10329|8|One Hour Parking Signs|تابلو پارک یک ساعت|
+10330|8|Two Hour Parking Signs|تابلو پارک دو ساعت|
+10331|7|Visitor, Guest & Patient Parking Signs|تابلو پارکینگ مهمان، مراجعه‌کننده و بیمار|
+10332|6|No Parking & Parking Restriction Signs|تابلو توقف ممنوع و محدودیت پارک|
+10333|7|Door No Parking Signs|تابلو جلوی درب پارک ممنوع|
+10334|7|Driveway No Parking Signs|تابلو جلوی ورودی پارک ممنوع|
+10335|7|Dumpster No Parking Signs|تابلو پارک جلوی مخزن زباله ممنوع|
+10336|7|Emergency Lane No Parking Signs|تابلو پارک در خط امدادی ممنوع|
+10337|7|Fire Lane, Zone & Equipment No Parking Signs|تابلو پارک در مسیر آتش‌نشانی ممنوع|
+10338|8|No Parking Fire Lane Signs|تابلو پارک ممنوع مسیر آتش‌نشانی|
+10339|8|No Parking Fire Zone Signs|تابلو پارک ممنوع محدوده آتش‌نشانی|
+10340|8|No Stopping Fire Lane Signs|تابلو توقف ممنوع مسیر آتش‌نشانی|
+10341|7|Garage No Parking Signs|تابلو پارک جلوی پارکینگ ممنوع|
+10342|7|Gate No Parking Signs|تابلو پارک جلوی دروازه ممنوع|
+10343|7|Humorous No Parking Signs|تابلو طنز پارک ممنوع|
+10344|7|Loading & Unloading Zone No Parking Signs|تابلو پارک ممنوع محل بارگیری و تخلیه|
+10345|8|Loading & Unloading Zone Signs|تابلو محل بارگیری و تخلیه|
+10346|8|Passenger Loading Zone Signs|تابلو محل سوار و پیاده شدن مسافر|
+10347|7|No Commuter Parking Signs|تابلو پارک خودروهای عبوری ممنوع|
+10348|7|No Idling Signs|تابلو روشن نگه‌داشتن موتور ممنوع|
+10349|7|No Motorcycle Parking Signs|تابلو پارک موتورسیکلت ممنوع|
+10350|7|No Overnight Parking Signs|تابلو پارک شبانه ممنوع|
+10351|7|No Parking After Business Hours Signs|تابلو پارک پس از ساعات کاری ممنوع|
+10352|7|No Parking Anytime Signs|تابلو پارک در همه ساعات ممنوع|
+10353|7|No Parking Between Signs Signs|تابلو پارک بین دو تابلو ممنوع|
+10354|7|No Parking Beyond This Point Signs|تابلو پارک از این نقطه به بعد ممنوع|
+10355|7|No Parking Bike Lane Signs|تابلو پارک در مسیر دوچرخه ممنوع|
+10356|7|No Parking Day Or Night Signs|تابلو پارک شبانه‌روزی ممنوع|
+10357|7|No Parking Emergency Vehicle Turnaround Signs|تابلو پارک ممنوع محل دور زدن خودروهای امدادی|
+10358|7|No Parking Entrance & Exit Signs|تابلو پارک جلوی ورودی و خروجی ممنوع|
+10359|7|No Parking Here To Corner Signs|تابلو پارک تا سر نبش ممنوع|
+10360|7|No Parking On Grass Signs|تابلو پارک روی چمن ممنوع|
+10361|7|No Parking Signs|تابلو پارک ممنوع|
+10362|7|No Parking This Side Signs|تابلو پارک در این سمت ممنوع|
+10363|7|No Standing Signs|تابلو توقف ممنوع|
+10364|7|Pick-Up & Drop-Off Only No Parking Signs|تابلو فقط سوار و پیاده کردن|
+10365|8|Carpool Pick-Up & Drop-Off Signs|تابلو سوار و پیاده کردن خودروی اشتراکی|
+10366|8|Customer Pick-Up Signs|تابلو تحویل به مشتری|
+10367|8|Patient Pick-Up & Drop-Off Signs|تابلو سوار و پیاده کردن بیمار|
+10368|8|Pick-Up & Drop-Off Signs|تابلو سوار و پیاده کردن|
+10369|7|Private Property No Parking Signs|تابلو پارک ممنوع ملک خصوصی|
+10370|7|Restricted Area No Parking Signs|تابلو پارک ممنوع منطقه محدود|
+10371|7|Tow Zone No Parking Signs|تابلو پارک ممنوع، خودرو حمل می‌شود|
+10372|6|Parking Lot Entrance & Exit Signs|تابلو ورود و خروج پارکینگ|
+10373|7|Bus Entrance Signs For Parking Lots|تابلو ورودی اتوبوس پارکینگ|
+10374|7|Church Entrance Signs For Parking Lots|تابلو ورودی پارکینگ کلیسا|
+10375|7|Delivery Entrance Signs For Parking Lots|تابلو ورودی تحویل کالا|
+10376|7|Drive Thru Entrance Signs|تابلو ورودی خدمات خودرویی (درایو ترو)|
+10377|7|Enter Signs For Parking Lots|تابلو ورود پارکینگ|
+10378|7|Exit Closed Signs For Parking Lots|تابلو خروجی بسته پارکینگ|
+10379|7|Exit Signs For Parking Lots|تابلو خروج پارکینگ|
+10380|7|No Exit Signs For Parking Lots|تابلو خروج ممنوع پارکینگ|
+10381|7|Parking Lot Open/Closed Signs|تابلو پارکینگ باز/بسته|
+10382|7|Pedestrian Entrance Signs For Parking Lots|تابلو ورودی عابر پیاده پارکینگ|
+10383|7|Plant Entrance Signs For Parking Lots|تابلو ورودی کارخانه پارکینگ|
+10384|7|Truck Entrance Signs For Parking Lots|تابلو ورودی کامیون پارکینگ|
+10385|6|Parking Lot Security Signs|تابلو امنیتی پارکینگ|
+10386|7|Illegal & Unauthorized Vehicles Will Be Towed Signs|تابلو خودروهای غیرمجاز حمل می‌شوند|
+10387|7|Improperly Parked Vehicles Will Be Towed Signs|تابلو خودروهای بد پارک‌شده حمل می‌شوند|
+10388|7|Parking Lot Damage & Theft Advisory Signs|تابلو سلب مسئولیت خسارت و سرقت پارکینگ|
+10389|7|Parking Lot Gate Signs|تابلو درب پارکینگ|
+10390|7|Parking Lot Surveillance Signs|تابلو نظارت تصویری پارکینگ|
+10391|7|Unauthorized Parked Vehicles Fine Signs|تابلو جریمه پارک غیرمجاز|
+10392|6|Supplemental Parking Signs|تابلو تکمیلی پارکینگ|
+10393|7|ADA Handicapped Supplemental Signs|تابلو تکمیلی معلولین|
+10394|7|Arrow Supplemental Signs|تابلو تکمیلی فلش|
+10395|7|Between Signs Supplemental Signs|تابلو تکمیلی بین دو تابلو|
+10396|7|Do Not Block Door or Driveway Supplemental Signs|تابلو تکمیلی جلوی درب و ورودی را مسدود نکنید|
+10397|7|Fine & Penalty Supplemental Signs|تابلو تکمیلی جریمه|
+10398|7|Fire Lane Supplemental Signs|تابلو تکمیلی مسیر آتش‌نشانی|
+10399|7|Loading Zone Supplemental Signs|تابلو تکمیلی محل بارگیری|
+10400|7|No Parking Supplemental Signs|تابلو تکمیلی پارک ممنوع|
+10401|7|Time Limit Supplemental Signs|تابلو تکمیلی محدودیت زمانی|
+10402|7|Tow Zone Supplemental Signs|تابلو تکمیلی حمل خودرو|
+10403|7|Visitor Supplemental Signs|تابلو تکمیلی مهمان|
+10404|4|Inspection, Maintenance & Inventory Labeling & Marking|برچسب بازرسی، نگهداری و انبار|
+10405|5|Safety Inspection Labeling & Marking|برچسب بازرسی ایمنی|
+10406|6|Spill Prevention, Response Checklists, & Logs|چک‌لیست و دفترچه پیشگیری و واکنش نشتی|
+10407|6|General Purpose Safety Inspection Labels & Tags|برچسب و تگ بازرسی ایمنی عمومی|
+10408|6|Fire Extinguisher Inspection Labels & Tags|برچسب و کارت بازرسی کپسول آتش‌نشانی|
+10409|6|Eyewash & Emergency Shower Inspection Labels & Tags|برچسب و کارت بازرسی چشم‌شوی و دوش اضطراری|
+10410|6|Scaffold Inspection Labels & Tags|برچسب و کارت بازرسی داربست (اسکفولد تگ)|
+10411|6|Ladder Inspection Labels & Tags|برچسب و کارت بازرسی نردبان|
+10412|6|Forklift Inspection Labels & Tags|برچسب و کارت بازرسی لیفتراک|
+10413|6|AED Inspection Labels & Tags|برچسب و کارت بازرسی AED|
+10414|6|Safety Harness Inspection Labels & Tags|برچسب و کارت بازرسی هارنس|
+10415|6|Crane Inspection Labels & Tags|برچسب و کارت بازرسی جرثقیل|
+10416|6|Confined Space Inspection Labels & Tags|برچسب و کارت بازرسی فضای بسته|
+10417|6|Gauge Marking Labels|برچسب محدوده گیج (درجه)|
+10418|6|Valve Inspection Labels & Tags|برچسب و کارت بازرسی شیر|
+10419|6|Inspection & Identification Arrows|فلش بازرسی و شناسایی|
+10420|5|Repair & Maintenance Record Labels & Tags|برچسب و کارت سوابق تعمیر و نگهداری|
+10421|6|Maintenance & Service Record Labels & Tags|برچسب سوابق سرویس و نگهداری|
+10422|6|Calibration Labels & Tags|برچسب و کارت کالیبراسیون|
+10423|6|Repair Order & Status Labels & Tags|برچسب دستور و وضعیت تعمیر|
+10424|6|Equipment Status Labels & Tags|برچسب و کارت وضعیت تجهیزات|
+10425|5|Inventory & Production Status Tags|تگ انبار و وضعیت تولید|
+10426|6|Asset Tracking Labels & Tags|برچسب اموال (ردیابی دارایی)|
+10427|6|Inventory Control Labels & Tags|برچسب و تگ کنترل موجودی|
+10428|6|Production Status Labels & Tags|برچسب و تگ وضعیت تولید|
+10429|6|Quality Control Inspection Labels|برچسب کنترل کیفیت (QC)|
+10430|6|Blank Write-On Labels & Tags|برچسب و تگ سفید قابل نوشتن|
+10431|5|Inspection Timers|تایمر بازرسی|
+10432|4|LED Signs and Message Displays|تابلو LED و نمایشگر پیام|
+10433|5|LED Message Displays|نمایشگر پیام LED (روان)|
+10434|5|LED Signs|تابلو LED|
+10435|4|Sign Posts, Bases, Stands & Accessories|پایه، ستون و لوازم جانبی تابلو|
+10436|5|Sign Mounting Brackets, Hardware & Accessories|براکت، اتصالات و لوازم نصب تابلو|
+10437|6|Cross-Piece Brackets|براکت چهارراهی (متقاطع)|
+10438|6|Post & Pole Mounting Brackets|براکت نصب روی ستون|
+10439|6|Post Top Brackets & Caps|براکت و درپوش سر ستون|
+10440|6|Roll-Up Sign Braces & Accessories|قاب و لوازم تابلو رولی|
+10441|6|Safety Cone Accessories|لوازم جانبی مخروط ترافیکی|
+10442|6|Sign Frames|قاب تابلو|
+10443|6|Sign Mounting Hardware|اتصالات نصب تابلو|
+10444|6|Wing Brackets|براکت بالدار|
+10445|5|Sign Post Bases & Anchors|پایه و انکر ستون تابلو|
+10446|6|Portable Sign Post Bases|پایه سیار ستون تابلو|
+10447|6|Sign Post Anchors|انکر ستون تابلو|
+10448|6|Surface Mount Sign Post Bases|پایه پیچی ستون تابلو|
+10449|5|Sign Post Reflectors & Covers|شبرنگ و روکش ستون تابلو|
+10450|5|Sign Posts|ستون (تیرک) تابلو|
+10451|5|Sign Post & Sign Installation & Removal Tools|ابزار نصب و برداشت تابلو و ستون|
+10452|5|Sign Posts With Bases|ستون تابلو پایه‌دار|
+10453|6|Portable Sign Posts With Bases|ستون تابلو پایه‌دار سیار|
+10454|6|Surface Mount Sign Posts With Bases|ستون تابلو پایه‌دار پیچی|
+10455|5|Sign Stands|استند تابلو|
+10456|4|Tag Fasteners|بست تگ|
+10457|4|Label Protection Tapes & Overlaminates|نوار محافظ و روکش لمینت برچسب|
+10458|3|5S Storage & Labeling|ذخیره‌سازی و برچسب‌گذاری 5S|
+10459|4|Shadow Boards|تابلو ابزار (شدو بورد)|
+10460|5|Cleaning Station Shadow Boards|شدو بورد ایستگاه نظافت|
+10461|5|Personal Protective Equipment Station Shadow Boards|شدو بورد ایستگاه PPE|
+10462|5|Fall Protection Station Shadow Boards|شدو بورد ایستگاه ضدسقوط|
+10463|5|Lockout Tagout Station Shadow Boards|شدو بورد ایستگاه لاک‌اوت تگ‌اوت|
+10464|5|Battery Changing & Charging Station Shadow Boards|شدو بورد ایستگاه شارژ و تعویض باتری|
+10465|5|Packaging & Shipping Station Shadow Boards|شدو بورد ایستگاه بسته‌بندی و ارسال|
+10466|5|Hardware & Accessories for Shadow Boards|اتصالات و لوازم جانبی شدو بورد|
+10467|4|5S Tags|تگ 5S|
+10468|4|5S Tag Stations, Binders & Clipboards|ایستگاه تگ، کلاسور و تخته شاسی 5S|
+10469|3|Safety & Facility Banners, Posters & Mirrors|بنر، پوستر و آینه ایمنی|
+10470|4|Safety & Facility Banners|بنر ایمنی|
+10471|5|Housekeeping Banners|بنر نظم و نظافت|
+10472|5|Industrial Vehicle Traffic Control Safety Banners|بنر ایمنی تردد خودروهای صنعتی|
+10473|5|Lockout & Tagout Banners|بنر لاک‌اوت تگ‌اوت|
+10474|5|Personal Protective Equipment Banners|بنر تجهیزات حفاظت فردی|
+10475|5|Safety Slogan & Motivation Banners|بنر شعار و انگیزشی ایمنی|
+10476|5|Slip, Trip & Fall Hazard Banners|بنر خطر لغزش و سقوط|
+10477|4|Safety & Facility Posters|پوستر ایمنی|
+10478|5|Safety Posters|پوستر ایمنی|
+10479|6|Chemical, Gas & Hazardous Material Posters|پوستر مواد شیمیایی و خطرناک|
+10480|6|Confined Space Posters|پوستر فضای بسته|
+10481|6|Construction Safety Posters|پوستر ایمنی ساختمانی|
+10482|6|Driver Safety Posters|پوستر ایمنی رانندگی|
+10483|6|Electrical Safety Posters|پوستر ایمنی برق|
+10484|6|General Safety Posters|پوستر ایمنی عمومی|
+10485|6|Hot Work Safety Posters|پوستر ایمنی کار گرم|
+10486|6|Industrial Vehicle Traffic Control Posters|پوستر تردد خودروهای صنعتی|
+10487|6|Lockout & Tagout Posters|پوستر لاک‌اوت تگ‌اوت|
+10488|6|Machine Safety Posters|پوستر ایمنی ماشین‌آلات|
+10489|6|Personal Protective Equipment Posters|پوستر تجهیزات حفاظت فردی|
+10490|6|Right-To-Know Posters|پوستر حق آگاهی از خطر|
+10491|6|Safety Scoreboard Posters|پوستر امتیاز ایمنی|
+10492|6|Safety Slogan & Motivation Posters|پوستر شعار و انگیزشی ایمنی|
+10493|6|Slip, Trip & Fall Posters|پوستر لغزش و سقوط|
+10494|5|Fire & Emergency Posters|پوستر آتش‌نشانی و اضطراری|
+10495|6|Fire & Emergency Equipment Posters|پوستر تجهیزات آتش‌نشانی و اضطراری|
+10496|6|Fire & Emergency Exit & Evacuation Posters|پوستر خروج و تخلیه اضطراری|
+10497|6|Fire Prevention Posters|پوستر پیشگیری از حریق|
+10498|6|First Aid Posters|پوستر کمک‌های اولیه|
+10499|5|Facility Posters|پوستر محیط کار|
+10500|6|Conservation Posters|پوستر صرفه‌جویی و محیط زیست|
+10501|6|Housekeeping Posters|پوستر نظم و نظافت|
+10502|6|Weapon, Violence, & Substance Restrictions Posters|پوستر ممنوعیت سلاح، خشونت و مواد|
+10503|6|Workplace Health Posters|پوستر بهداشت محیط کار|
+10504|3|Floor Marking Tape, Shapes & Applicators|نوار خط‌کشی کف، اشکال و دستگاه نصب|
+10505|4|Floor Marking Tape|نوار خط‌کشی کف|
+10506|4|Floor Marking Shapes|اشکال علامت‌گذاری کف|
+10507|4|Floor Marking Tape Applicators|دستگاه نصب نوار خط‌کشی کف|
+10508|3|Utility & Location Marking|علامت‌گذاری تأسیسات و محل|
+10509|4|Utility Marking Posts|ستون نشانگر تأسیسات|
+10510|4|Underground Utility Marking Tape|نوار هشدار زیرزمینی (نوار خطر کابل)|
+10511|4|Marking Flags|پرچم نشانه‌گذاری|
+10512|4|Utility Pole Marking Letters, Numbers & Mounting Plates|حروف، اعداد و پلاک نشانه‌گذاری تیر برق|
+10513|4|KVA Markers|نشانگر KVA|
+10514|3|Stencils|شابلون|
+10515|4|Letter & Number Stencil Sets|ست شابلون حروف و اعداد|
+10516|4|Safety Stencils|شابلون ایمنی|
+10517|4|Traffic & Parking Control Stencils|شابلون ترافیکی و پارکینگ|
+10518|5|Message Stencils for Traffic & Parking Control|شابلون پیام ترافیکی|
+10519|5|Symbol Stencils for Traffic & Parking Control|شابلون نماد ترافیکی|
+10520|6|Accessibility Parking Stencils|شابلون پارکینگ معلولین|
+10521|6|Electric Vehicle Parking & Charging Stencils|شابلون پارکینگ و شارژ خودروی برقی|
+10522|6|Carpool, Rideshare & Shuttle Parking Stencils|شابلون پارکینگ خودروی اشتراکی و شاتل|
+10523|6|Expectant Parent Parking Stencils|شابلون پارکینگ والدین باردار|
+10524|6|No Parking Stencils|شابلون پارک ممنوع|
+10525|6|Parking Stencils|شابلون پارکینگ|
+10526|6|Arrow Stencils|شابلون فلش|
+10527|6|Bike Lane Stencils|شابلون مسیر دوچرخه|
+10528|6|Pedestrian Crossing Stencils|شابلون گذرگاه عابر پیاده|
+10529|6|Roadway & Parking Lot Marking Stencils|شابلون خط‌کشی جاده و پارکینگ|
+10530|5|Stencil Kits for Traffic & Parking Control|کیت شابلون ترافیکی|
+10531|4|Airport Stencils|شابلون فرودگاهی|
+10532|4|Athletic Field & Recreational Stencils|شابلون زمین ورزشی و تفریحی|
+10533|3|Stamping Tools|ابزار حکاکی (سنبه حروف)|

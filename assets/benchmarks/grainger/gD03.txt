@@ -1,0 +1,244 @@
+7984|4|Low Power-Consuming Solenoid Valves|شیر برقی کم‌مصرف|
+7985|4|Dust Collector Solenoid Valves|شیر برقی پالس جت (غبارگیر)|
+7986|4|Air & Inert Gas Compact Solenoid Valves|شیر برقی کامپکت هوا و گاز بی‌اثر|
+7987|4|Solenoid Valve Coils|بوبین شیر برقی|
+7988|4|Solenoid Valve Bodies|بدنه شیر برقی|
+7989|4|Solenoid Valve Repair Kits & Replacement Parts|کیت تعمیر و قطعات یدکی شیر برقی|
+7990|3|Air-Operated Piston Valves|شیر پیستونی پنوماتیکی (زاویه‌ای)|
+7991|3|Valve Repair Kits & Replacement Parts|کیت تعمیر و قطعات یدکی شیر|
+7992|3|Valve Boxes & Enclosures|جعبه و محفظه شیر|
+7993|3|Valve Actuators & Accessories|عملگر شیر (اکچویتور) و لوازم جانبی|
+7994|4|Pneumatic Valve Actuators|اکچویتور پنوماتیکی شیر|
+7995|4|Electric Valve Actuators|اکچویتور برقی شیر (موتور شیر)|
+7996|4|Valve Actuator Parts & Accessories|قطعات و لوازم جانبی اکچویتور|
+7997|4|Linear Gas Valve Actuators & Bodies|اکچویتور خطی و بدنه شیر گاز|
+7998|2|Hose Stations, Hoses & Nozzles|ایستگاه شلنگ، شلنگ و سرشلنگ|
+7999|3|Hose Stations|ایستگاه شلنگ شست‌وشو (آب سرد و گرم)|
+8000|3|Replacement Hoses, Nozzles & Covers|شلنگ، سرشلنگ و کاور یدکی|
+8001|2|Institutional Plumbing Fixtures|شیرآلات و چینی بهداشتی ضدتخریب (زندان و اماکن عمومی)|
+8002|3|Institutional Faucets|شیرآلات ضدتخریب|
+8003|3|Institutional Sinks, Drinking Fountains & Bottle Fillers|سینک، آبخوری و پرکن بطری ضدتخریب|
+8004|3|Institutional Toilets & Urinals|توالت و یورینال ضدتخریب|
+8005|3|Flush Valves & Valve Covers for Institutional Toilets & Urinals|فلاش‌والو و کاور شیر توالت ضدتخریب|
+8006|3|Institutional Sink & Toilet Combination Units|توالت و روشویی یکپارچه ضدتخریب|
+8007|3|Water Management System for Institutional Combination Units|سیستم مدیریت آب واحدهای یکپارچه|
+8008|3|Institutional Showers & Bathtub Spouts|دوش و علمک وان ضدتخریب|
+8009|3|Institutional Bathroom Fixtures|لوازم سرویس بهداشتی ضدتخریب|
+8010|3|Institutional Drains|کف‌شور ضدتخریب|
+8011|3|Repair Parts for Institutional Plumbing Fixtures|قطعات یدکی شیرآلات ضدتخریب|
+8012|2|Plumbing Fixture Remote Monitoring Modules|ماژول پایش از راه دور شیرآلات بهداشتی|
+8013|2|Supply Valve Outlet Boxes|جعبه شیر توکار (باکس شیر لباسشویی)|
+8014|2|Plumbing Replacement Parts|قطعات یدکی تأسیسات|
+8015|1|Pneumatics|پنوماتیک|
+8016|2|Pneumatic Tools|ابزار بادی|
+8017|3|Air Guns, Vacuum Guns & Air Excavation Tools|بادپاش، مکنده بادی و ابزار حفاری بادی|
+8018|4|Air Guns & Accessories|بادپاش (گان باد) و لوازم جانبی|
+8019|5|Air Guns|بادپاش (گان باد)|
+8020|5|Air Gun Nozzles|نازل بادپاش|
+8021|5|Air Gun Accessories|لوازم جانبی بادپاش|
+8022|5|Bend & Stay Blow Off Stations|ایستگاه دمنده شلنگ خم‌شو|
+8023|4|Air-Powered Siphon Spray Guns & Power Washers|پیستوله سیفونی و کارواش بادی|
+8024|5|Air-Powered Siphon Spray Guns|پیستوله سیفونی بادی|
+8025|5|Air-Powered Power Washers|کارواش بادی|
+8026|4|Air-Powered Vacuum Guns & Accessories|مکنده بادی و لوازم جانبی|
+8027|5|Air-Powered Vacuum Guns|مکنده بادی (وکیوم گان)|
+8028|5|Air-Powered Vacuum Gun Nozzles & Attachments|نازل و متعلقات مکنده بادی|
+8029|4|Air Excavation Tools & Accessories|ابزار حفاری با هوا و لوازم جانبی|
+8030|5|Air Excavation Tools|ابزار حفاری با هوا (ایرنایف)|
+8031|5|Air Excavation Tool Nozzles, Barrel Extensions & Accessories|نازل، رابط لوله و لوازم ابزار حفاری با هوا|
+8032|4|Static-Eliminating Air Guns & Accessories|بادپاش ضدالکتریسیته ساکن و لوازم|
+8033|5|Static-Eliminating Air Guns & Cannons|بادپاش و دمنده یونیزه ضدالکتریسیته ساکن|
+8034|5|Static-Eliminating Air Gun Filters, Nozzles & Power Supplies|فیلتر، نازل و منبع تغذیه بادپاش یونیزه|
+8035|3|Air Hose Tool Balancers|بالانسر ابزار بادی|
+8036|3|Air-Powered Sanding & Finishing Tools|سنباده و پولیش بادی|
+8037|4|Air-Powered Random Orbital Disc Sanders|سنباده لرزان بادی (اوربیتال)|
+8038|4|Air-Powered Rotary Disc Sanders|سنباده دیسکی بادی|
+8039|4|Air-Powered Belt Sanders|سنباده نواری بادی|
+8040|4|Contact Arms for Air-Powered Belt Sanders|بازوی سنباده نواری بادی|
+8041|4|Air-Powered Sheet & Detail Sanders|سنباده لرزان تخت و گوشه‌ای بادی|
+8042|4|Air-Powered Drum & Flap Wheel Finishing Tools|ابزار پرداخت فلاپ و درام بادی|
+8043|4|Air-Powered Polishers & Buffers|پولیش بادی|
+8044|4|Dust Collection Accessories for Air-Powered Sanders|لوازم مکش گردوغبار سنباده بادی|
+8045|4|Replacement Parts for Air-Powered Sanding & Finishing Tools|قطعات یدکی سنباده و پولیش بادی|
+8046|3|Air-Powered Engravers & Accessories|قلم حکاکی بادی و لوازم جانبی|
+8047|3|Air-Powered Files|سوهان بادی|
+8048|3|Air-Powered Concrete Vibrators|ویبراتور بتن بادی|
+8049|3|Air-Powered Grinders & Cut-Off Tools|سنگ‌زن و برش بادی|
+8050|4|Air-Powered Bevelers|پخ‌زن بادی|
+8051|4|Air-Powered Angle Grinders|فرز سنگ بادی|
+8052|4|Air-Powered Cut-Off Tools|برش‌زن بادی (کاتر بادی)|
+8053|4|Air-Powered Die Grinders|فرز انگشتی بادی|
+8054|4|Air-Powered Pencil Grinders|فرز مدادی بادی|
+8055|4|Air-Powered Straight Wheel Grinders|سنگ‌زن مستقیم بادی|
+8056|4|Air-Powered Vertical Grinders|سنگ‌زن عمودی بادی|
+8057|4|Replacement Parts for Air-Powered Grinders & Cut-Off Tools|قطعات یدکی سنگ‌زن و برش بادی|
+8058|3|Air-Powered Routers|اور فرز بادی|
+8059|3|Air-Powered Drills & Drivers|دریل و پیچ‌گوشتی بادی|
+8060|4|Air-Powered Inline & Right-Angle Drills|دریل بادی مستقیم و زاویه‌ای|
+8061|4|Air-Powered Pistol-Grip Drills|دریل بادی تفنگی|
+8062|4|Air-Powered Screwdrivers|پیچ‌گوشتی بادی|
+8063|4|Air-Powered Hammer Drills|دریل چکشی بادی|
+8064|4|Air-Powered Core Drills|دریل کرگیری بادی|
+8065|4|Air-Powered Spike Drivers|میخ‌کوب ریل بادی|
+8066|3|Air-Powered Scarifiers & Cutter Bundles|اسکاریفایر بادی (کف‌تراش) و تیغه|
+8067|3|Air-Powered Hammers & Chisels|چکش و قلم بادی|
+8068|4|Air-Powered Hammers|چکش بادی|
+8069|4|Chisel Retainers for Air-Powered Hammers|نگهدارنده قلم چکش بادی|
+8070|4|Chisels & Punches for Air-Powered Hammers|قلم و سنبه چکش بادی|
+8071|5|Air Hammer Chisels|قلم چکش بادی|
+8072|5|Chipping Hammer Chisels|قلم چکش تخریب سبک|
+8073|5|Demolition Hammer & Breaker Chisels|قلم چکش تخریب|
+8074|5|Scaler Chisels|قلم زنگ‌زدا|
+8075|4|Air-Powered Rotary Hammers|دریل بتن‌کن بادی|
+8076|3|Air-Powered Shears & Nibblers|قیچی ورق‌بر و نیبلر بادی|
+8077|4|Air-Powered Shears|قیچی ورق‌بر بادی|
+8078|4|Air-Powered Nibblers|نیبلر بادی|
+8079|3|Air-Powered Nail Guns, Staple Guns & Riveting Tools|میخکوب، منگنه‌کوب و پرچ‌کن بادی|
+8080|4|Air-Powered Nail Guns|میخکوب بادی|
+8081|4|Air-Powered Riveting Tools|پرچ‌کن بادی|
+8082|4|Air-Powered Staple Guns|منگنه‌کوب بادی|
+8083|4|Air-Powered Rivet Shavers|سرپرچ‌تراش بادی|
+8084|4|Rivet Presenters|پرچ‌دهنده (رسان پرچ)|
+8085|4|Replacement Parts for Air-Powered Nail Guns, Staple Guns & Riveting Tools|قطعات یدکی میخکوب، منگنه‌کوب و پرچ‌کن بادی|
+8086|3|Air-Powered Wrenches & Ratchets|بکس بادی و جغجغه بادی|
+8087|4|Air-Powered Impact Wrenches|بکس بادی ضربه‌ای|
+8088|4|Air-Powered Ratchets|جغجغه بادی|
+8089|4|Air-Powered Torque Wrenches & Nutrunners|آچار ترک بادی و مهره‌بند بادی|
+8090|3|Diggers, Breakers, Jackhammers & Sand Rammers|بیل بادی، پیکور و کوبنده بادی|
+8091|4|Air-Powered Sand Rammers & Backfill Tampers|کوبنده ماسه و خاک بادی|
+8092|4|Air-Powered Diggers, Jackhammers, Pavement Breakers & Rock Drills|بیل بادی، پیکور، آسفالت‌شکن و دریل سنگ|
+8093|4|Rock Drill Rods & Rod Tips|میله و سرمته دریل سنگ|
+8094|3|Air-Powered Saws|اره بادی|
+8095|4|Air-Powered Concrete Chain Saws|اره زنجیری بتن بادی|
+8096|4|Air-Powered Hacksaws|اره کمانی بادی|
+8097|4|Air-Powered Reciprocating Saws|اره افقی‌بر بادی|
+8098|4|Air-Powered Hacksaw Accessories|لوازم جانبی اره کمانی بادی|
+8099|4|Air-Powered Portable Band Saw Accessories|لوازم جانبی اره نواری دستی بادی|
+8100|4|Air-Powered Portable Band Saws|اره نواری دستی بادی|
+8101|4|Air-Powered Reciprocating Saw Accessories|لوازم جانبی اره افقی‌بر بادی|
+8102|3|Torque Arms & Holders|بازوی گشتاورگیر و نگهدارنده ابزار|
+8103|4|Torque Arms|بازوی گشتاورگیر (ترک آرم)|
+8104|4|Torque Arm Tool Holders|نگهدارنده ابزار بازوی گشتاورگیر|
+8105|3|Air Tool Accessories|لوازم جانبی ابزار بادی|
+8106|3|Air Tool Combination Kits|کیت ابزار بادی|
+8107|3|Air Tool Oils|روغن ابزار بادی|
+8108|3|Flexible Air Fittings|اتصال انعطاف‌پذیر باد (شلنگ رابط)|
+8109|3|Needle Scalers & Scaling Needles|زنگ‌زدای سوزنی و سوزن|
+8110|4|Needle & Chisel Scalers|زنگ‌زدای سوزنی و قلمی بادی|
+8111|4|Scaler Needles|سوزن زنگ‌زدا|
+8112|4|Needle & Chisel Scaler Accessories|لوازم جانبی زنگ‌زدای سوزنی|
+8113|3|Air Tapping Tools|قلاویززن بادی|
+8114|3|Air Tapping Arms|بازوی قلاویززنی بادی|
+8115|3|Air Tool Pneumatic Replacement Parts|قطعات یدکی ابزار بادی|
+8116|3|Air-Powered Pipe Cutting Kits|کیت لوله‌بر بادی|
+8117|3|Air-Powered Circular Saws|اره گردبر بادی|
+8118|3|Air-Powered Magnetic Drills|دریل مگنتی بادی|
+8119|3|Air-Powered Scabblers|بتن‌تراش بادی (اسکابلر)|
+8120|3|Pneumatic Dust Extractors|مکنده گردوغبار بادی|
+8121|2|Cable Reels|قرقره کابل|
+8122|3|Cable Reels|قرقره کابل|
+8123|3|Hose and Hose Reel Replacement Parts|قطعات یدکی شلنگ و قرقره شلنگ|
+8124|2|Air Compressors, Vacuum Pumps & Blowers|کمپرسور باد، پمپ وکیوم و بلوور|
+8125|3|Air Compressors|کمپرسور باد|
+8126|4|Electric Air Compressors|کمپرسور برقی|
+8127|5|Portable Electric Air Compressors|کمپرسور برقی پرتابل|
+8128|5|Stationary Electric Air Compressors|کمپرسور برقی ثابت|
+8129|5|Rotary Screw Electric Air Compressors|کمپرسور اسکرو|
+8130|5|Vehicle Mounted Electric Air Compressors|کمپرسور برقی خودرویی|
+8131|5|Laboratory & Health Sciences Electric Air Compressors|کمپرسور آزمایشگاهی و دندانپزشکی|
+8132|5|Oil-Free Scroll Electric Air Compressors|کمپرسور اسکرال بدون روغن|
+8133|4|Engine Driven Air Compressors|کمپرسور موتوری (بنزینی و دیزلی)|
+8134|5|Portable Engine Driven Air Compressors|کمپرسور موتوری پرتابل|
+8135|5|Vehicle Mounted Engine Driven Air Compressors|کمپرسور موتوری خودرویی|
+8136|4|Air Compressor Pumps|سرسیلندر (پمپ) کمپرسور|
+8137|4|Air Tanks|مخزن هوای فشرده|
+8138|4|Air Compressor Accessories|لوازم جانبی کمپرسور|
+8139|5|Air Compressor Oils|روغن کمپرسور|
+8140|5|Air Compressor Air Filter Replacement Elements|المنت فیلتر هوای کمپرسور|
+8141|5|Air Compressor Parts Kits|کیت قطعات کمپرسور|
+8142|5|Air Compressor Valves|شیر کمپرسور|
+8143|5|Air Compressor Intake Filters & Silencers|فیلتر ورودی و صداخفه‌کن کمپرسور|
+8144|5|Air Compressor Separator Kits|کیت سپراتور کمپرسور|
+8145|5|Air Compressor Covers|کاور کمپرسور|
+8146|5|Pneumatic Tank Manifolds|منیفولد مخزن هوا|
+8147|5|Vehicle Mounted Air Compressor Accessories|لوازم جانبی کمپرسور خودرویی|
+8148|5|Low Oil Guards|محافظ کمبود روغن|
+8149|5|Engine Driven Compressor Controls|کنترل کمپرسور موتوری|
+8150|5|Air Compressor System Controllers|کنترلر سیستم کمپرسور|
+8151|5|Stationary Electric Air Compressor Accessories|لوازم جانبی کمپرسور برقی ثابت|
+8152|4|Air Compressor Pneumatic Replacement Parts|قطعات یدکی کمپرسور|
+8153|3|Vacuum Pumps|پمپ وکیوم|
+8154|4|Rotary Vane Vacuum Pumps|پمپ وکیوم روتاری پره‌ای|
+8155|4|Diaphragm Vacuum Pumps|پمپ وکیوم دیافراگمی|
+8156|4|Liquid Ring Vacuum Pumps|پمپ وکیوم رینگ مایع|
+8157|4|Rotary Claw Vacuum Pumps|پمپ وکیوم کلاو (چنگالی)|
+8158|4|Vacuum Pump Oils|روغن پمپ وکیوم|
+8159|4|Vacuum Pump Filters|فیلتر پمپ وکیوم|
+8160|3|Combination Compressor & Vacuum Pumps|پمپ ترکیبی کمپرسور و وکیوم|
+8161|4|Diaphragm Combination Compressor & Vacuum Pumps|پمپ ترکیبی دیافراگمی کمپرسور و وکیوم|
+8162|4|Piston Combination Compressor & Vacuum Pumps|پمپ ترکیبی پیستونی کمپرسور و وکیوم|
+8163|4|Rotary Vane Combination Compressor & Vacuum Pumps|پمپ ترکیبی روتاری پره‌ای کمپرسور و وکیوم|
+8164|3|Blowers|بلوور (دمنده)|
+8165|4|Regenerative Blowers|بلوور حلزونی (ساید چنل)|
+8166|4|Direct-Drive High-Flow Turbo Blowers|توربو بلوور پرجریان مستقیم|
+8167|4|Positive Displacement Blowers|بلوور روتس (جابجایی مثبت)|
+8168|4|Regenerative Blower Accessories|لوازم جانبی بلوور ساید چنل|
+8169|4|Regenerative Blower Replacement Parts|قطعات یدکی بلوور ساید چنل|
+8170|4|Positive Displacement Blower Silencers|صداخفه‌کن بلوور روتس|
+8171|2|Compressed Air Treatment|تصفیه هوای فشرده|
+8172|3|Compressed Air Filters|فیلتر هوای فشرده|
+8173|4|FRL Compressed Air Filters|فیلتر واحد مراقبت (FRL)|
+8174|4|Main Line Compressed Air Filters|فیلتر خط اصلی هوای فشرده|
+8175|4|Miniature Compressed Air Filters|فیلتر مینیاتوری هوا|
+8176|4|Disposable Compressed Air Filters|فیلتر یکبارمصرف هوا|
+8177|4|Sterile Compressed Air Filters|فیلتر استریل هوای فشرده|
+8178|4|Filter Elements for Compressed Air Filters|المنت فیلتر هوای فشرده|
+8179|4|Corrosive & Ultra-Pure Gases Pressure Filters|فیلتر گازهای خورنده و فوق خالص|
+8180|3|Compressed Air Regulators|رگولاتور هوای فشرده|
+8181|4|FRL Compressed Air Regulators|رگولاتور واحد مراقبت (FRL)|
+8182|4|Main Line Compressed Air Regulators|رگولاتور خط اصلی هوا|
+8183|4|Miniature Compressed Air Regulators|رگولاتور مینیاتوری هوا|
+8184|4|Hose Line Compressed Air Regulators|رگولاتور سر شلنگ|
+8185|4|Tubing Compressed Air Regulators|رگولاتور خطی شلنگ پنوماتیک|
+8186|4|Compressed Air Booster Regulators|بوستر فشار هوا|
+8187|4|Electronic Proportional Compressed Air Regulators|رگولاتور تناسبی الکترونیکی (پروپورشنال)|
+8188|4|Corrosive & Ultra-Pure Gases Pressure Regulators|رگولاتور گازهای خورنده و فوق خالص|
+8189|4|General Purpose Industrial Air Regulators|رگولاتور هوای صنعتی همه‌منظوره|
+8190|3|Compressed Air Filter/Regulators|فیلتر رگولاتور|
+8191|3|Compressed Air Lubricators|روغن‌زن هوای فشرده|
+8192|4|FRL Compressed Air Lubricators|روغن‌زن واحد مراقبت (FRL)|
+8193|4|Miniature Compressed Air Lubricators|روغن‌زن مینیاتوری|
+8194|3|Filter, Regulator & Lubricators (FRLs)|واحد مراقبت (فیلتر، رگولاتور، روغن‌زن)|
+8195|3|Compressed Air Dryers|درایر هوای فشرده|
+8196|4|Refrigerated Compressed Air Dryers|درایر تبریدی|
+8197|4|Membrane Compressed Air Dryers|درایر ممبرانی|
+8198|4|Desiccant Compressed Air Dryers|درایر جذبی|
+8199|4|Regenerative Desiccant Compressed Air Dryers|درایر جذبی احیاشونده|
+8200|4|Replacement Desiccant for Compressed Air Dryers|ماده جاذب رطوبت یدکی درایر|
+8201|3|Compressed Air Aftercoolers|افترکولر هوای فشرده|
+8202|3|Compressed Air Separators|سپراتور (آبگیر) هوای فشرده|
+8203|4|Pneumatic Drip Legs|آبگیر قطره‌ای خط هوا (دریپ لگ)|
+8204|4|Compressed Air Liquid Separators|جداکننده مایع هوای فشرده|
+8205|4|Oil/Water Separators for Condensate|جداکننده آب و روغن کندانس|
+8206|3|Compressed Air Line Lockout Valves|شیر قفل‌شو خط هوا (لاک‌اوت)|
+8207|3|Compressed Air Flow Rate Sensors|سنسور دبی هوای فشرده|
+8208|3|Compressed Breathing Air Purifiers|تصفیه‌کننده هوای تنفسی|
+8209|3|Filter, Regulator & Lubricator Accessories|لوازم جانبی واحد مراقبت|
+8210|3|Compressed Air Treatment Replacement Parts|قطعات یدکی تصفیه هوای فشرده|
+8211|2|Pneumatic Actuators|عملگرهای پنوماتیک|
+8212|3|Air Cylinders|جک پنوماتیک (سیلندر بادی)|
+8213|4|Round Body Air Cylinders|جک پنوماتیک بدنه گرد|
+8214|5|Double-Acting Round Body Air Cylinders|جک گرد دوطرفه|
+8215|5|Single-Acting Round Body Air Cylinders|جک گرد یک‌طرفه|
+8216|5|Mounting Hardware for Round Body Air Cylinders|یراق نصب جک گرد|
+8217|5|Replacement Parts & Accessories for Round Body Air Cylinders|قطعات یدکی و لوازم جک گرد|
+8218|4|Tie Rod Air Cylinders|جک پنوماتیک تای‌راد (میله‌دار)|
+8219|5|Double-Acting Tie Rod Air Cylinders|جک تای‌راد دوطرفه|
+8220|5|Single-Acting Tie Rod Air Cylinders|جک تای‌راد یک‌طرفه|
+8221|5|Mounting Hardware for Tie Rod Air Cylinders|یراق نصب جک تای‌راد|
+8222|5|Replacement Parts for Tie Rod Air Cylinders|قطعات یدکی جک تای‌راد|
+8223|4|Extruded Air Cylinders|جک پنوماتیک پروفیلی (اکسترودی)|
+8224|5|Double-Acting Extruded Air Cylinders|جک پروفیلی دوطرفه|
+8225|5|Mounting Hardware for Extruded Air Cylinders|یراق نصب جک پروفیلی|
+8226|5|Replacement Parts & Accessories for Extruded Air Cylinders|قطعات یدکی و لوازم جک پروفیلی|
+8227|4|Compact Air Cylinders|جک پنوماتیک کامپکت|

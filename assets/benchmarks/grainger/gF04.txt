@@ -1,0 +1,270 @@
+11686|4|Socket Drivers & Speeder Handles|دسته بکس پیچ‌گوشتی و دسته هندلی|
+11687|4|Ratchet Accessories & Repair Parts|لوازم جانبی و قطعات تعمیر جغجغه|
+11688|3|Pliers|انبردست و انبر|ترکیبی
+11689|4|Tongue & Groove Pliers & Sets|انبر کلاغی (قفلی شیاری) و ست|
+11690|5|General Purpose Tongue & Groove Pliers & Sets|انبر کلاغی عمومی و ست|
+11691|5|Insulated Tongue & Groove Pliers|انبر کلاغی عایق|
+11692|5|Non-Sparking Tongue & Groove Pliers|انبر کلاغی ضدجرقه|
+11693|4|Diagonal-Cutting Pliers|سیم‌چین|
+11694|5|General Purpose Diagonal-Cutting Pliers|سیم‌چین عمومی|
+11695|5|Insulated Diagonal-Cutting Pliers|سیم‌چین عایق|
+11696|5|Non-Sparking Diagonal-Cutting Pliers|سیم‌چین ضدجرقه|
+11697|4|Precision-Cutting Pliers|سیم‌چین ظریف‌کاری|
+11698|4|Long-Nose Pliers & Sets|دم‌باریک و ست|
+11699|5|General Purpose Long-Nose Pliers & Sets|دم‌باریک عمومی و ست|
+11700|5|Insulated Long-Nose Pliers|دم‌باریک عایق|
+11701|5|Non-Sparking Long-Nose Pliers|دم‌باریک ضدجرقه|
+11702|4|Slip-Joint Pliers|انبر دوحالته (مکانیکی)|
+11703|4|Lineman's Pliers|انبردست برقکاری|
+11704|5|General Purpose Lineman's Pliers|انبردست عمومی|
+11705|5|Insulated Lineman's Pliers|انبردست عایق|
+11706|5|Non-Sparking Lineman's Pliers|انبردست ضدجرقه|
+11707|4|Locking Pliers & Sets|انبر قفلی و ست|
+11708|4|Assorted Pliers Sets|ست انبر|
+11709|4|Retaining-Ring Pliers & Sets|انبر خار و ست|
+11710|4|Specialty Use Pliers|انبر کاربرد خاص|
+11711|3|Hammers|چکش|ترکیبی
+11712|4|Sledge Hammers|پتک|
+11713|4|Engineering & Drilling Hammers|چکش مهندسی و چکش سنگ‌کاری|
+11714|4|Ball-Peen & Cross-Peen Hammers|چکش مهندسی سرگرد و سرتخت|
+11715|4|Claw & Framing Hammers|چکش دوشاخ (میخ‌کش) و چکش نجاری|
+11716|4|Dead-Blow Hammers|چکش بی‌برگشت (ضدضربه)|
+11717|4|Mallets|چکش لاستیکی و چوبی|
+11718|4|Soft-Face Split-Head Hammers & Replacement Tips|چکش سرنرم دوسر و سر یدکی|
+11719|4|Chipping & Riveting Hammers|چکش گل‌زن (جوشکاری) و پرچ|
+11720|4|Assorted Hammer Sets|ست چکش|
+11721|4|Hammer Replacement Handles & Wedges|دسته و گوه یدکی چکش|
+11722|3|Punching Tools & Chisels|سنبه و قلم|
+11723|4|Punches & Sets|سنبه و ست|
+11724|5|Pin Loosening & Removing Punches|سنبه پین‌درآر|
+11725|5|Hole Aligning Punches|سنبه هم‌راستاکن سوراخ|
+11726|5|Centering & Marking Punches|سنبه نشان|
+11727|5|Hole Making Punches|سنبه سوراخ‌کن|
+11728|5|Assorted Punch Sets|ست سنبه|
+11729|4|Knockout Punches & Dies|پانچ تابلو (سنبه سوراخ‌کن ورق) و ماتریس|
+11730|5|Knockout Punch Tool Kits|کیت پانچ تابلو|
+11731|5|Knockout Punch & Die Sets|ست پانچ و ماتریس|
+11732|5|Individual Knockout Punches & Dies|پانچ و ماتریس تکی|
+11733|5|Knockout Punch Draw Studs & Accessories|پیچ کشش و لوازم پانچ|
+11734|4|Chisels & Sets|قلم و ست|
+11735|5|Chisels for Metal|قلم فلزکاری|
+11736|5|Chisels for Wood|مغار نجاری|
+11737|5|Chisels for Brick, Concrete, & Stone|قلم بنایی (آجر، بتن و سنگ)|
+11738|5|Chisels for Wood Flooring & Siding|قلم کفپوش چوبی و نما|
+11739|5|Assorted Chisel Sets|ست قلم|
+11740|4|Combination Punch & Chisel Sets|ست سنبه و قلم|
+11741|4|Nail Setters|سنبه میخ|
+11742|4|Punch & Chisel Holders|نگهدارنده سنبه و قلم|
+11743|4|Scratch Awls & Tapping Tools|درفش خط‌کش و ابزار سوراخ‌زنی|
+11744|3|Files|سوهان|
+11745|4|Material-Removing American-Pattern Files|سوهان براده‌برداری طرح آمریکایی|
+11746|5|Material-Removing Files for General Purpose|سوهان عمومی|
+11747|6|Rectangular Files|سوهان تخت|
+11748|6|Half-Round Files|سوهان نیم‌گرد|
+11749|6|Round Files|سوهان گرد (دم‌موشی)|
+11750|6|Triangular Files|سوهان سه‌گوش|
+11751|6|Square Files|سوهان چهارگوش|
+11752|6|Knife-Edge Files|سوهان کاردی|
+11753|6|Warding Files|سوهان کلیدسازی (باریک تخت)|
+11754|5|Material-Removing File Sets for General Purpose|ست سوهان عمومی|
+11755|5|Material-Removing Files for Aluminum|سوهان آلومینیوم|
+11756|5|Material-Removing Files for Wood|سوهان چوب (رنده سوهانی)|
+11757|4|Precision Swiss-Pattern Files|سوهان دقیق طرح سوئیسی|
+11758|5|Standard Precision Files|سوهان دقیق استاندارد|
+11759|5|Standard Needle Files & Sets|سوهان سوزنی و ست|
+11760|5|Diamond-Coated Needle Files & Sets|سوهان سوزنی الماسه و ست|
+11761|4|Sharpening Files|سوهان تیزکن|
+11762|4|Electrical Contact Files|سوهان پلاتین (کنتاکت)|
+11763|4|File Handles & Holders|دسته سوهان|
+11764|4|File Cleaners|برس سوهان‌پاک‌کن|
+11765|3|Pryers & Pullers|دیلم و پولی‌کش|
+11766|4|Pry Bars|دیلم (اهرم)|
+11767|4|Flange & Set-Up Wedges|گوه فلنج‌بازکن و تنظیم|
+11768|4|Jaw Pullers & Sets|پولی‌کش فکی و ست|
+11769|4|Bearing Splitters & Sets|بلبرینگ‌کش کفگیری و ست|
+11770|4|Push-Pullers & Sets|پولی‌کش فشاری و ست|
+11771|4|Slide Hammer Pullers & Sets|پولی‌کش چکشی و ست|
+11772|4|Assorted Puller & Separator Sets|ست پولی‌کش و جداکننده|
+11773|4|Puller Replacement Parts|قطعات یدکی پولی‌کش|
+11774|3|Scissors, Snips & Cutting Tools|قیچی و ابزار برش|
+11775|4|Bolt & Chain Cutters|قیچی مفتول‌بر و زنجیربر|
+11776|4|Cable Cutters|کابل‌بر|
+11777|4|Gasket Cutters|واشربر|
+11778|4|Glass Cutters|الماس شیشه‌بری|
+11779|4|Hand Planes|رنده دستی|
+11780|4|Nippers|گازانبر (انبر سرکج)|
+11781|4|Scissors & Shears|قیچی|ترکیبی
+11782|4|Sheet Metal Snips, Notchers & Nibblers|قیچی ورق‌بر، فارسی‌بر و نیبلر دستی|
+11783|4|Siding Cutters|ورق‌بر نما (سایدینگ)|
+11784|3|Knives & Blades|چاقو و تیغ|ترکیبی
+11785|4|Blade Disposal Containers|مخزن دورریز تیغ|
+11786|4|Fixed-Blade Knives|چاقو تیغه ثابت|
+11787|4|Folding Knives|چاقو تاشو|
+11788|4|Precision Knives & Blades|کاتر دقیق (اسکالپل) و تیغ|
+11789|4|Rotary Cutters & Blades|کاتر گردبر و تیغ|
+11790|4|Utility Knives & Blades|کاتر و تیغ کاتر|
+11791|5|Concealed-Blade & Bladeless Cutters|کاتر تیغه‌مخفی و بدون تیغ|
+11792|5|Replacement Utility Knife & Cutter Blades|تیغ یدکی کاتر|
+11793|6|Replacement Cutter Blades & Heads|تیغ و سر یدکی کاتر|
+11794|6|Replacement Snap-Off Blades|تیغ کاتر شکستنی|
+11795|6|Replacement Utility Blades|تیغ ذوزنقه‌ای کاتر|
+11796|5|Utility Knives|کاتر|
+11797|6|Fixed-Blade Utility Knives & Cutters|کاتر تیغه ثابت|
+11798|6|Folding Utility Knives|کاتر تاشو|
+11799|6|Manually Retracting Utility Knives|کاتر کشویی|
+11800|6|Safety Utility Knives|کاتر ایمنی (تیغه برگشتی)|
+11801|6|Snap-Off Utility Knives|کاتر تیغ شکستنی|
+11802|5|Utility Knife Accessories|لوازم جانبی کاتر|
+11803|3|Multi-Tools|ابزار چندکاره (مولتی‌تول)|ترکیبی
+11804|3|Hand Saws & Blades|اره دستی و تیغه|ترکیبی
+11805|4|Hand Saw Blades|تیغه اره دستی|
+11806|4|Hand Saws|اره دستی|
+11807|3|Clamps|پیچ‌دستی و گیره|
+11808|4|C-Clamps|پیچ‌دستی C (کلمپ C)|
+11809|4|Bar Clamps|پیچ‌دستی میله‌ای (سرگیره)|
+11810|4|Pipe Clamps|پیچ‌دستی لوله‌ای|
+11811|4|Trigger Clamps & Spreaders|پیچ‌دستی فوری (ماشه‌ای) و بازکن|
+11812|4|Locking Clamps|انبر قفلی گیره‌ای|
+11813|4|Spring Clamps|گیره فنری|
+11814|4|Angle & Strap Clamps|گیره گونیا و تسمه‌ای|
+11815|4|Cabinetry Clamps|پیچ‌دستی کابینت‌سازی|
+11816|4|Clamp Replacement Parts|قطعات یدکی پیچ‌دستی|
+11817|5|C-Clamp Parts|قطعات پیچ‌دستی C|
+11818|5|Bar & Pipe Clamp Parts|قطعات پیچ‌دستی میله‌ای و لوله‌ای|
+11819|5|Locking Clamp Parts|قطعات انبر قفلی|
+11820|5|Angle & Strap Clamp Parts|قطعات گیره گونیا و تسمه‌ای|
+11821|3|Vises & Anvils|گیره رومیزی و سندان|
+11822|4|Vises|گیره رومیزی (گیره موازی)|
+11823|4|Vise Jaw Caps|روکش فک گیره|
+11824|4|Vise Bases & Brackets|پایه و براکت گیره|
+11825|4|Vise Heads|سر گیره|
+11826|4|Multi-Angle Precision Vise Attachments|متعلقات گیره دقیق چندزاویه|
+11827|4|Anvils|سندان|
+11828|3|Hand Nailers, Staplers & Riveting Tools|میخکوب، منگنه‌کوب و پرچ دستی|
+11829|4|Rivet Tools & Accessories|انبر پرچ و لوازم|
+11830|4|Hand Nailers, Staplers & Tackers|میخکوب و منگنه‌کوب دستی|
+11831|3|Electrical & Data Hand Tools|ابزار دستی برق و شبکه|
+11832|4|Wire Strippers & Cable Slitters|سیم‌لخت‌کن و روکش‌بر کابل|
+11833|4|Wire & Data Cable Crimpers|آچار پرس سیم و کابل شبکه|
+11834|5|Wire Connector & Terminal Crimpers|آچار پرس سرسیم|
+11835|5|Wire Ferrule Crimpers|آچار پرس وایرشو|
+11836|5|Pin Terminal Crimpers|آچار پرس سوکت پین|
+11837|5|Compression Lug & Splice Crimpers|آچار پرس کابلشو و مفصل|
+11838|5|Insulation Displacement Connector Crimpers|آچار پرس کانکتور IDC|
+11839|5|Data Cable Crimpers & Compression Tools|آچار سوکت‌زن شبکه و پرس کانکتور|
+11840|5|Solar Connector Crimpers|آچار پرس کانکتور خورشیدی (MC4)|
+11841|5|Wire Crimping Dies & Accessories|فک پرس سیم و لوازم|
+11842|5|Data Cable Crimping Dies & Blades|فک و تیغه آچار شبکه|
+11843|4|Wire & Cable Pullers|کابل‌کش|
+11844|5|Fish Tapes|فنر سیم‌کشی|
+11845|5|Fish Sticks, Glow Rods & Magnetic Retrievers|میله سیم‌کشی و آهنربای سیم‌گیر|
+11846|5|Conduit Rodders|میله لوله‌کش (رادر)|
+11847|5|Fish Tape Accessories|لوازم جانبی فنر سیم‌کشی|
+11848|4|Cable Tie Tools|ابزار بست کمربندی|
+11849|4|Fuse Pullers|فیوزکش|
+11850|4|Punchdown Tools|آچار پانچ (کیستون‌زن)|
+11851|4|Alignment & Connector Tools|ابزار هم‌راستایی و کانکتور|
+11852|4|Fiber Optic Tools|ابزار فیبر نوری|
+11853|4|Wire Wrapping Tools|ابزار سیم‌پیچی (وایررپ)|
+11854|4|Shearbolt Holding Tools|ابزار نگهدارنده پیچ شیربولت|
+11855|4|Fiber Optic Microduct Tools|ابزار میکروداکت فیبر|
+11856|3|Pipe, Hose & Conduit Hand Tools|ابزار دستی لوله، شیلنگ و لوله برق|
+11857|4|Pipe, Tubing, and Conduit Hand Benders|لوله‌خم‌کن دستی|
+11858|5|Copper, Aluminum & Stainless Steel Tubing Bending Tools|لوله‌خم‌کن مس، آلومینیوم و استیل|
+11859|5|Metal Conduit Bending Tools|خم‌کن لوله برق فلزی|
+11860|5|PVC Pipe Bending Tools|خم‌کن لوله PVC|
+11861|4|Pipe, Tubing & Conduit Hand Cutters|لوله‌بر دستی|
+11862|4|Replacement Pipe Cutter Wheels & Accessories|تیغه یدکی لوله‌بر و لوازم|
+11863|4|Tube Flaring & Swaging Tools|ابزار پرچ سر لوله (فلر) و گشادکن|
+11864|4|Pipe, Tubing & Conduit Reamers & Descalers|برقوی لوله و پلیسه‌گیر|
+11865|4|Pipe Threading & Beveling Hand Tools|حدیده و پخ‌زن دستی لوله|
+11866|4|Hose & Valve Tag Crimpers|پرس پلاک شیلنگ و شیر|
+11867|4|Pipe & Tubing Connection Tools|ابزار اتصال لوله|
+11868|4|Pipe Shut-Off Hand Tools|ابزار دستی مسدودکن لوله|
+11869|4|Pipe Extractors|لوله‌درآر (شکسته‌درآر لوله)|
+11870|4|Hose Crimping Tools & Accessories|ابزار پرس شیلنگ و لوازم|
+11871|4|Tube Rerounding Tools|ابزار گردکن لوله|
+11872|3|Drain Cleaning & Plumbing Hand Tools|ابزار دستی لوله‌بازکنی و لوله‌کشی|ترکیبی
+11873|4|Manual Augers & Drain Cleaners|فنر لوله‌بازکنی دستی|
+11874|4|Sink & Faucet Tools|ابزار سینک و شیرآلات|
+11875|4|Tub & Shower Tools|ابزار وان و دوش|
+11876|3|Wire Rope Swaging Tools|ابزار پرس سیم بکسل|
+11877|3|Sheet Metal Folders & Crimpers|ابزار خم و چین ورق|
+11878|4|Hand Seamers|انبر خم‌کن ورق|
+11879|4|Sheet Metal Crimpers|ابزار چین‌زن ورق|
+11880|4|Sheet Metal Folding Tools|ابزار تاکن ورق|
+11881|3|Assorted Tool Sets & Kits|جعبه ابزار و ست ابزار|
+11882|4|General Maintenance Tool Sets|ست ابزار تعمیرات عمومی|ترکیبی
+11883|4|Electrical, Communications & Electronics Tool Sets|ست ابزار برق، مخابرات و الکترونیک|
+11884|5|Standard Electrical Tool Sets|ست ابزار برقکاری|
+11885|5|Insulated Electrical Tool Sets|ست ابزار عایق برق|
+11886|5|Communications & Electronics Tool Sets|ست ابزار مخابرات و الکترونیک|
+11887|4|Electric Vehicle Tool Sets|ست ابزار خودرو برقی|
+11888|4|Plumbing & HVAC Tool Sets|ست ابزار لوله‌کشی و تأسیسات|
+11889|4|Nonsparking Tool Sets|ست ابزار ضدجرقه|
+11890|3|Hand Tool Replacement Parts|قطعات یدکی ابزار دستی|
+11891|4|Assorted Brands Hand Tool Parts|قطعات ابزار دستی برندهای مختلف|
+11892|4|Milwaukee Hand Tool Parts|قطعات ابزار دستی Milwaukee|
+11893|3|Inspection & Retrieval Tools|ابزار بازرسی و برداشتن|
+11894|4|Inspection Mirrors|آینه بازرسی|
+11895|4|Tweezers|پنس|
+11896|4|Hooks, Picks & Precision Applicators|قلاب، سوزن و اپلیکاتور دقیق|
+11897|4|Magnetic & Claw Pickups|آهنربای تلسکوپی و گیره چنگکی|
+11898|4|Handheld Vacuum Pens & Pickups|قلم وکیوم (برداشت قطعه)|
+11899|4|Magnetic Sweepers|جاروی مغناطیسی|
+11900|4|Inspection & Retrieval Kits|کیت بازرسی و برداشتن|
+11901|3|Scrapers & Compound Spreading Hand Tools|کاردک و ابزار بتونه‌کاری|ترکیبی
+11902|4|Stiff Putty Knives & Scrapers|کاردک سخت و لیسه|
+11903|4|Flexible Putty Knives & Spreaders|کاردک نرم و ماله بتونه|
+11904|4|Painter's Multi-Tools|کاردک چندکاره نقاشی|
+11905|4|Combination Spreader & Scraper Sets|ست کاردک و ماله|
+11906|3|Drywall Trowels, Tapers & Mud Pans|ماله، نوارچسب‌زن و سینی بتونه کناف|
+11907|4|Drywall Trowels & Corner Tools|ماله کناف و ابزار کنج|
+11908|4|Drywall Tapers|نوارچسب‌زن کناف|
+11909|4|Mud Pans & Hawks|سینی بتونه و تخته ماله|
+11910|4|Wall Texturizing Tools|ابزار بافت‌دار کردن دیوار|
+11911|4|Drywall Tool Kits|کیت ابزار کناف|
+11912|4|Replacement Parts for Drywall Tools|قطعات یدکی ابزار کناف|
+11913|3|Concrete & Masonry Hand Tools|ابزار دستی بتن و بنایی|
+11914|4|Rebar Forming & Stake Setting Tools|ابزار خم میلگرد و میخ‌کوبی میخ قالب|
+11915|4|Concrete Placers & Mortar Hoes|شن‌کش بتن و کج‌بیل ملات|
+11916|4|Concrete Leveling Floats|ماله تراز بتن|
+11917|4|Concrete Finishing Trowels|ماله پرداخت بتن|
+11918|4|Concrete Edgers, Groovers & Step Tools|ماله لبه، شیارزن و پله بتن|
+11919|4|Concrete Kneeboards|زیرزانویی بتن‌کاری|
+11920|4|Concrete Brooms & Masonry Brushes|جاروی بتن و برس بنایی|
+11921|4|Concrete & Masonry Tool Kits|کیت ابزار بتن و بنایی|
+11922|4|Masonry Trowels|کمچه بنایی|
+11923|4|Masonry Jointers|بندکش|
+11924|4|Masonry Leveling Line & Tongs|ریسمان تراز و گیره بنایی|
+11925|4|Mortar Pans, Stands & Bucket Scoops|تشت ملات، پایه و ملاقه سطل|
+11926|3|Asphalt Hand Tools|ابزار دستی آسفالت|
+11927|3|Flooring, Tile & Carpet Hand Tools|ابزار دستی کفپوش، کاشی و موکت|
+11928|4|Flooring & Tile Cutters|کاشی‌بر و کفپوش‌بر|
+11929|4|Flooring & Tile Installation Tools|ابزار نصب کفپوش و کاشی|
+11930|4|Carpet Installation Tools|ابزار نصب موکت|
+11931|3|Bolt & Screw Extractor Tools|پیچ‌درآر|
+11932|4|Bolt & Screw Extractors|پیچ‌درآر (پیچ‌شکسته‌درآر)|
+11933|4|Bolt & Screw Extractor Sets|ست پیچ‌درآر|
+11934|4|Screw Extractor & Drill Bit Sets|ست پیچ‌درآر و مته|
+11935|2|Power Tools|ابزار برقی|
+11936|3|Cordless Tool Tracking Tags|تگ ردیابی ابزار شارژی|
+11937|3|Cordless Tool Jobsite Fans|پنکه شارژی کارگاهی|
+11938|3|Cordless Tool Batteries & Power Accessories|باتری ابزار شارژی و لوازم برق|
+11939|4|Cordless Tool Batteries|باتری ابزار شارژی|
+11940|4|Cordless Tool Battery Chargers|شارژر باتری ابزار|
+11941|4|Cordless Tool Battery-Powered Inverter Generators|ژنراتور اینورتری باتری‌دار|
+11942|4|Cordless Tool Power Adapters & Accessories|آداپتور و لوازم برق ابزار شارژی|
+11943|4|Battery Charging Power Managers|مدیریت شارژ باتری|
+11944|3|Cordless Tool Combination Kits|کیت ترکیبی ابزار شارژی|
+11945|3|Cordless Tool Jobsite Radios & Speakers|رادیو و اسپیکر کارگاهی شارژی|
+11946|3|Impact Wrenches, Power Torque Wrenches & Power Ratchets|بکس ضربه‌ای، آچار ترک برقی و جغجغه برقی|
+11947|4|Impact Wrenches|بکس ضربه‌ای (بکس برقی)|
+11948|5|Cordless Impact Wrenches|بکس ضربه‌ای شارژی|
+11949|5|Corded Impact Wrenches|بکس ضربه‌ای برقی (سیمی)|
+11950|5|Impact Wrench Repair Kits & Accessories|کیت تعمیر و لوازم بکس ضربه‌ای|
+11951|4|Power Ratchets|جغجغه برقی|
+11952|5|Cordless Ratchets|جغجغه شارژی|
+11953|5|Power Ratchet Repair Kits & Accessories|کیت تعمیر و لوازم جغجغه برقی|
+11954|4|Power Torque Wrenches & Nutrunners|آچار ترک برقی و مهره‌بند|
+11955|5|Cordless Torque Wrenches & Nutrunners|آچار ترک شارژی و مهره‌بند|

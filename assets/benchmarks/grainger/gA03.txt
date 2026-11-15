@@ -1,0 +1,232 @@
+579|4|Continuous Flexing Pneumatic Tubing|شیلنگ پنوماتیک فلکسیبل حرکتی|
+580|3|Diesel Locomotive (DLO) Cable|کابل DLO (کابل قدرت فلکسیبل)|
+581|3|Direct Burial & Submersible Wire & Cable|سیم و کابل دفنی و غوطه‌ور|
+582|4|Landscape Lighting Wire|سیم روشنایی محوطه|
+583|4|Submersible Pump Wire|کابل پمپ شناور|
+584|4|Underground Feeder Cable|کابل تغذیه زیرزمینی (UF)|
+585|4|Underground Service Entrance Cable|کابل ورودی انشعاب زیرزمینی|
+586|4|Direct Burial-Rated Category Cable|کابل شبکه دفنی (Cat)|
+587|3|Fire Alarm Cables|کابل اعلام حریق|
+588|3|Flat Cable|کابل تخت (فلت)|
+589|3|HVAC Control Wire & Cable|سیم و کابل کنترل تأسیسات (HVAC)|
+590|4|Mini-Split Cable|کابل کولر اسپلیت|
+591|4|Thermostat Wire|سیم ترموستات|
+592|3|Industrial Power & Communication Cordsets|کابل آماده قدرت و ارتباطی صنعتی|
+593|4|Telecom Equipment Cordsets|کابل آماده تجهیزات مخابراتی|
+594|4|Actuator & Sensor Cordsets|کابل آماده سنسور و عملگر|
+595|5|M8 Actuator & Sensor Cordsets|کابل سنسور M8|
+596|5|M12 Actuator & Sensor Cordsets|کابل سنسور M12|
+597|5|M12 x M8 Actuator & Sensor Cordsets|کابل سنسور M12 به M8|
+598|5|M23 Actuator & Sensor Cordsets|کابل سنسور M23|
+599|5|1/2 inch Actuator & Sensor Cordsets|کابل سنسور ۱/۲ اینچ|
+600|5|7/8 inch Actuator & Sensor Cordsets|کابل سنسور ۷/۸ اینچ|
+601|5|1 inch Actuator & Sensor Cordsets|کابل سنسور ۱ اینچ|
+602|5|1-1/8 inch Actuator & Sensor Cordsets|کابل سنسور ۱-۱/۸ اینچ|
+603|5|Actuator & Sensor Receptacles|سوکت پنلی سنسور و عملگر|
+604|4|Ethernet & Fieldbus Cordsets|کابل آماده اترنت و فیلدباس|
+605|4|Solenoid Valve Cordsets|کابل و سوکت شیر برقی|
+606|4|Preassembled Automation Cable Cordsets|کابل آماده اتوماسیون|
+607|4|PNP-NPN Converters|مبدل PNP به NPN|
+608|4|D-Sub & Micro-D Cordsets|کابل D-Sub و Micro-D|
+609|3|Machine Tool & Specialty Wire|سیم ماشین‌آلات و سیم خاص|
+610|4|Hook-Up & Machine Tool Wire|سیم افشان تابلویی و ماشین‌آلات|
+611|4|High-Temperature Wire|سیم نسوز|
+612|4|High-Voltage Wire|سیم فشارقوی|
+613|4|Lamp Cord|سیم چراغ (دورشته)|
+614|4|Wire Wrapping Wire|سیم وایرپیچ|
+615|3|Portable Cord|کابل افشان سیار (کابل لاستیکی)|
+616|3|Voice & Data Cables & Patch Cords|کابل شبکه و تلفن و پچ‌کورد|
+617|4|Category Cables|کابل شبکه (Cat)|
+618|4|Category Cable Patch Cords|پچ‌کورد شبکه|
+619|4|Fiber Optic Cable|کابل فیبر نوری|
+620|4|Fiber Optic Cable Patch Cords|پچ‌کورد فیبر نوری|
+621|4|Coaxial Cables|کابل کواکسیال|
+622|4|Rollover Console Cable|کابل کنسول|
+623|3|Communication & Control Cables|کابل ارتباطی و کنترل|
+624|3|Computer Cables|کابل کامپیوتر|ترکیبی
+625|2|Electrical Boxes & Enclosures|قوطی و تابلو برق|
+626|3|Electrical Boxes & Covers|قوطی برق و درپوش|
+627|4|Standard Electrical Boxes & Covers|قوطی برق استاندارد و درپوش|
+628|5|Electrical Boxes|قوطی برق (قوطی کلید و تقسیم)|
+629|5|Electrical Box Covers|درپوش قوطی برق|
+630|5|Accessories for Electrical Boxes|لوازم جانبی قوطی برق|
+631|4|Electrical Floor Boxes & Covers|قوطی برق کف و درپوش|
+632|5|Electrical Floor Boxes|قوطی برق کف (پریز کفی)|
+633|5|Electrical Floor Box Covers|درپوش قوطی برق کف|
+634|5|Accessories for Electrical Floor Box Covers|لوازم جانبی درپوش قوطی کف|
+635|4|Weatherproof Electrical Boxes & Covers|قوطی برق ضدآب و درپوش|
+636|5|Weatherproof Electrical Boxes|قوطی برق ضدآب|
+637|5|Weatherproof Electrical Box Covers|درپوش قوطی برق ضدآب|
+638|5|While-In-Use Weatherproof Electrical Box Covers|درپوش ضدآب حین استفاده (حبابی)|
+639|5|Accessories for Weatherproof Electrical Box Covers|لوازم جانبی درپوش ضدآب|
+640|4|Portable Watertight Electrical Boxes|جعبه برق ضدآب سیار|
+641|4|Hazardous Location Electrical Boxes|قوطی برق ضدانفجار|
+642|4|Enclosed Power Receptacles|پریز صنعتی محفظه‌دار|
+643|3|Electrical Enclosures & Accessories|تابلو برق و لوازم جانبی|
+644|4|Electrical Enclosures|تابلو برق (باکس)|
+645|5|Indoor Enclosures|تابلو برق داخلی|
+646|5|Weather-Resistant Enclosures|تابلو برق مقاوم در برابر شرایط جوی|
+647|5|Dust-Tight Enclosures|تابلو برق ضدگرد و غبار|
+648|5|Washdown Enclosures|تابلو برق قابل شستشو|
+649|5|Corrosion-Resistant Washdown Enclosures|تابلو برق ضدخوردگی قابل شستشو|
+650|5|Submersible Enclosures|تابلو برق غوطه‌ور|
+651|5|Electrical Enclosure Consoles|کنسول تابلو برق (میز فرمان)|
+652|5|Disconnect Switch Electrical Enclosures|تابلو کلید قطع‌کن|
+653|5|Electrical Enclosures with Built-In Ventilation|تابلو برق با تهویه داخلی|
+654|5|Hazardous Location Electrical Enclosures|تابلو برق ضدانفجار|
+655|5|Underground Electrical Enclosures & Covers|جعبه برق زیرزمینی و درپوش (هندهول)|
+656|6|Underground Electrical Enclosures|جعبه برق زیرزمینی|
+657|6|Underground Electrical Enclosure Covers|درپوش جعبه برق زیرزمینی|
+658|5|Small Terminal & Electronic Project Boxes|جعبه ترمینال و جعبه پروژه الکترونیک|
+659|4|Temperature Controls for Enclosures|کنترل دمای تابلو برق|
+660|5|Heaters for Electrical Enclosures|هیتر تابلو برق|
+661|5|Air Conditioners & Coolers for Electrical Enclosures|کولر تابلو برق|
+662|5|Thermostats for Electrical Enclosures|ترموستات تابلو برق|
+663|5|Louver Kits for Electrical Enclosures|کیت دریچه تهویه تابلو|
+664|5|Replacement Filters for Electrical Enclosures|فیلتر یدکی فن تابلو|
+665|4|DIN-Rails & Mounting Hardware|ریل DIN و متعلقات نصب|
+666|4|Accessories for Electrical Enclosures|لوازم جانبی تابلو برق|
+667|5|Interior Mounting Panels|سینی داخلی تابلو (صفحه نصب)|
+668|5|Hole Seals & Gland Plates for Electrical Enclosures|درپوش سوراخ و صفحه گلند تابلو|
+669|5|Cable & Pipe Seals for Electrical Enclosures|آب‌بند عبور کابل و لوله تابلو|
+670|5|Window Kits for Electrical Enclosures|کیت پنجره تابلو برق|
+671|5|Electrical Enclosure Accessories & Replacement Parts|لوازم و قطعات یدکی تابلو برق|
+672|3|Server Rack Enclosures & Accessories|رک سرور و لوازم جانبی|
+673|4|Server Racks & Network Cabinets|رک سرور و رک شبکه|
+674|4|Network Patch Panels|پچ‌پنل شبکه|
+675|4|Power Distribution Units|چندراهی رک (PDU)|
+676|4|Server Rack & Network Cabinet Cable Management|مدیریت کابل رک (داکت و ارگانایزر)|
+677|4|Rack-Mounted Instrument Enclosures|محفظه رک‌مونت تجهیزات|
+678|4|Rack-Mounted Equipment Shelves & Mounting Hardware|سینی رک و متعلقات نصب|
+679|4|Server Rack & Network Cabinet Doors, Cages & Panels|درب، قفس و پنل رک|
+680|4|Data Center & Server Rack Ventilation & Lighting|تهویه و روشنایی رک و دیتاسنتر|
+681|4|KVM Switches & Server Management Consoles|سوئیچ KVM و کنسول مدیریت سرور|
+682|4|Wireless Access Point Enclosures|محفظه اکسس‌پوینت|
+683|4|Aisle Containment Systems & Components|سیستم راهروی سرد و گرم (Containment)|
+684|4|Power Distribution Unit Accessories|لوازم جانبی PDU|
+685|2|Conduit, Fittings & Strut Channel Framing|لوله برق (کاندوئیت)، اتصالات و ناودانی یونیسترات|
+686|3|Conduit & Fittings|لوله برق و اتصالات|
+687|4|Metal Conduit & Fittings|لوله برق فلزی و اتصالات|
+688|5|Heavy-Wall RMC & Medium-Wall IMC Metal Conduit & Fittings|لوله فولادی برق سنگین (RMC) و متوسط (IMC) و اتصالات|
+689|6|Heavy-Wall RMC & Medium-Wall IMC Metal Conduit|لوله فولادی برق RMC و IMC|
+690|6|Connectors for Heavy-Wall RMC & Medium-Wall IMC Metal Conduit|کانکتور لوله RMC و IMC|
+691|6|Couplings for Heavy-Wall RMC & Medium-Wall IMC Metal Conduit|بوشن لوله RMC و IMC|
+692|6|Elbows for Heavy-Wall RMC & Medium-Wall IMC Metal Conduit|زانو لوله RMC و IMC|
+693|6|Nipples for Heavy-Wall RMC & Medium-Wall IMC Metal Conduit|مغزی لوله RMC و IMC|
+694|6|Hubs for Heavy-Wall RMC & Medium-Wall IMC Metal Conduit|هاب لوله RMC و IMC|
+695|6|Bushings & Reducer Bushings for Heavy-Wall RMC & Medium-Wall IMC Metal Conduit|بوش و تبدیل لوله RMC و IMC|
+696|6|Locknuts for Heavy-Wall RMC & Medium-Wall IMC Metal Conduit|مهره قفلی لوله RMC و IMC|
+697|6|End Caps & Plugs for Heavy-Wall RMC & Medium-Wall IMC Metal Conduit|درپوش لوله RMC و IMC|
+698|6|Service Entrance Caps for Heavy-Wall RMC & Medium-Wall IMC Metal Conduit|کلاهک ورودی انشعاب لوله RMC و IMC|
+699|6|Wall Grommets for Heavy-Wall RMC & Medium-Wall IMC Metal Conduit|گرومت دیواری لوله RMC و IMC|
+700|6|Hazardous Location Conduit Fittings|اتصالات لوله برق ضدانفجار|
+701|7|Hazardous Location Conduit Unions, Expansion Unions & Nipples|مهره ماسوره، انبساطی و مغزی ضدانفجار|
+702|7|Hazardous Location Conduit Elbows|زانو ضدانفجار|
+703|7|Hazardous Location Conduit Flexible Couplings|اتصال فلکسیبل ضدانفجار|
+704|7|Hazardous Location Capped Elbows|زانو درپوش‌دار ضدانفجار|
+705|7|Hazardous Location Sealing Fittings|اتصال آب‌بند (سیل‌فیتینگ) ضدانفجار|
+706|7|Hazardous Location Access Fittings|جعبه دسترسی (کاندولت) ضدانفجار|
+707|7|Hazardous Location Reducing Bushings|تبدیل ضدانفجار|
+708|7|Hazardous Location Blank Plugs|درپوش کور ضدانفجار|
+709|7|Hazardous Location Drains & Breathers|درین و هواکش ضدانفجار|
+710|6|Expansion Fittings|اتصال انبساطی|
+711|5|Thin-Wall EMT Metal Conduit & Fittings|لوله فولادی جدار نازک (EMT) و اتصالات|
+712|6|Thin-Wall EMT Metal Conduit|لوله فولادی جدار نازک EMT|
+713|6|Connectors for Thin-Wall EMT Metal Conduit|کانکتور لوله EMT|
+714|6|Couplings for Thin-Wall EMT Metal Conduit|بوشن لوله EMT|
+715|6|Elbows for Thin-Wall EMT Metal Conduit|زانو لوله EMT|
+716|6|Bushings for Thin-Wall EMT Metal Conduit|بوش لوله EMT|
+717|5|Access Fittings for Metal Conduit|جعبه دسترسی لوله فلزی (کاندولت)|
+718|4|PVC Conduit & Fittings|لوله برق PVC و اتصالات|
+719|5|PVC Conduit|لوله برق PVC|
+720|5|Couplings for PVC Conduit|بوشن لوله PVC|
+721|5|Adapters for PVC Conduit|آداپتور لوله PVC|
+722|5|Elbows for PVC Conduit|زانو لوله PVC|
+723|5|Reducers for PVC Conduit|تبدیل لوله PVC|
+724|5|Bushings for PVC Conduit|بوش لوله PVC|
+725|5|Service Entrance Caps for PVC Conduit|کلاهک ورودی انشعاب لوله PVC|
+726|5|Access Fittings for PVC Conduit|جعبه دسترسی لوله PVC|
+727|4|PVC-Coated Metal Conduit & Fittings|لوله فولادی روکش PVC و اتصالات|
+728|5|PVC-Coated Metal Conduit|لوله فولادی روکش PVC|
+729|5|Reducer Bushings for PVC-Coated Metal Conduit|تبدیل لوله روکش PVC|
+730|5|Hubs for PVC-Coated Metal Conduit|هاب لوله روکش PVC|
+731|5|Couplings for PVC-Coated Metal Conduit|بوشن لوله روکش PVC|
+732|5|Elbows for PVC-Coated Metal Conduit|زانو لوله روکش PVC|
+733|5|Nipples for PVC-Coated Metal Conduit|مغزی لوله روکش PVC|
+734|5|Access Fittings for PVC-Coated Metal Conduit|جعبه دسترسی لوله روکش PVC|
+735|5|PVC Touch Up Compound Spray|اسپری ترمیم روکش PVC|
+736|4|PVC Innerduct Conduit & Fittings|لوله داکت داخلی PVC (ساب‌داکت) و اتصالات|
+737|5|Couplings for PVC Innerduct Conduit|بوشن ساب‌داکت|
+738|5|Adapters for PVC Innerduct Conduit|آداپتور ساب‌داکت|
+739|4|Flexible Conduit (FMC/FNC) & Fittings|لوله خرطومی (فلکسیبل) و اتصالات|
+740|5|Flexible Conduit (FMC/FNC)|لوله خرطومی (فلکسیبل)|
+741|5|Connectors for Flexible Metal Conduit, AC & MC Cable|کانکتور لوله فلکسیبل فلزی و کابل زره‌دار|
+742|5|Liquid-Tight Connectors for Flexible Conduit|کانکتور ضدآب لوله فلکسیبل|
+743|5|Couplings for Flexible Conduit|بوشن لوله فلکسیبل|
+744|5|Grommets for Flexible Conduit|گرومت لوله فلکسیبل|
+745|5|Connectors for Non-Metallic Sheathed Cable & Flexible Cords|گلند کابل غیرفلزی و سیم افشان|
+746|4|Liquid-Tight Flexible Conduit (LFMC/LFNC) & Fittings|لوله فلکسیبل ضدآب (روکش‌دار) و اتصالات|
+747|5|Liquid-Tight Conduit (LFMC/LFNC)|لوله فلکسیبل ضدآب|
+748|5|Liquid-Tight Conduit Fittings|اتصالات لوله فلکسیبل ضدآب|
+749|5|Liquid-Tight Conduit Fittings with Strain Relief|اتصالات لوله فلکسیبل ضدآب با کشش‌گیر|
+750|5|Hazardous Location Liquid-Tight Conduit Fittings|اتصالات لوله فلکسیبل ضدآب ضدانفجار|
+751|4|Sealants, Fiber Fillers & Antioxidant Compounds for Conduit & Fittings|درزگیر، الیاف پرکننده و خمیر ضداکسید لوله برق|
+752|3|Beam Clamps & Conduit, Pipe & Cable Mounting Supports|بست تیرآهن و نگهدارنده لوله و کابل|
+753|4|Beam, Wire Rod & Purlin Clamps|بست تیرآهن، میلگرد و لاپه|
+754|4|Surface Mount Clamps for Conduit & Pipe|بست روکار لوله|
+755|4|Hangers for Conduit & Pipe|آویز لوله|
+756|4|Beam Mounts for Conduit, Pipe & Cable|نگهدارنده تیرآهنی لوله و کابل|
+757|4|Wire Rod Mounts for Conduit, Pipe & Cable|نگهدارنده میله‌ای لوله و کابل|
+758|4|Stud Mounts for Conduit & Cable|نگهدارنده استادی لوله و کابل|
+759|4|Conduit, Cable & Electrical Box Hangers|آویز لوله، کابل و قوطی برق|
+760|3|Strut Channel & Components|ناودانی یونیسترات و متعلقات|
+761|4|Strut Channel|ناودانی یونیسترات|
+762|4|Plate Connectors for Strut Channel|اتصال صفحه‌ای یونیسترات|
+763|4|Angle Connectors for Strut Channel|اتصال گونیا یونیسترات|
+764|4|Base Posts for Strut Channel|پایه کف یونیسترات|
+765|4|Shelf Brackets & Braces for Strut Channel|براکت و بازو یونیسترات|
+766|4|End Caps & Covers for Strut Channel|درپوش یونیسترات|
+767|4|Strut Channel Nuts, Washers & Bolts|مهره فنری، واشر و پیچ یونیسترات|
+768|4|Strut Channel Trolleys|ترولی یونیسترات|
+769|4|Beam Clamps for Strut Channel|بست تیرآهن یونیسترات|
+770|4|Strut Channel Hangers & Clamps for Conduit, Pipe & Cable|بست و آویز یونیسترات برای لوله و کابل|
+771|4|Strut Channel Electrical Boxes|قوطی برق یونیسترات|
+772|2|Electrical Connectors & Wiring Devices|کانکتور، سرسیم و تجهیزات سیم‌کشی|
+773|3|Wire Connectors, Terminals & Lugs|کانکتور، سرسیم و کابلشو|
+774|4|Wire Connectors|کانکتور سیم|
+775|5|Butt Splice Wire Connectors|اتصال وسط‌سیم (باتی)|
+776|5|Closed-End Crimp Wire Connectors|کلاهک پرسی سیم|
+777|5|Insulation-Displacement Wire Connectors|کانکتور IDC (بدون لخت‌کردن)|
+778|5|Lever Wire Connectors|کانکتور اهرمی|
+779|5|Push-In Wire Connectors|کانکتور فشاری سیم|
+780|5|Splice Cap Crimp Connectors & Insulators|کلاهک اتصال پرسی و عایق|
+781|5|Twist-On Wire Nut Connectors|کلاهک پیچی سیم (وایرنات)|
+782|4|Wire Terminals & Disconnects|سرسیم و فیش|
+783|5|Ring Terminals|سرسیم حلقوی|
+784|5|Fork Terminals|سرسیم دوشاخ (Y)|
+785|5|Pin Terminals|سرسیم سوزنی|
+786|5|Ferrules|سرسیم وایرشو (فرول)|
+787|5|Bullet Disconnects|فیش گرد (بولت)|
+788|5|Quick Disconnects|فیش تخت (اتصال سریع)|
+789|5|Flag Quick Disconnects|فیش تخت پرچمی|
+790|5|Piggyback Quick Disconnects|فیش تخت دوبل|
+791|5|Motor Lead Pigtail Disconnects|اتصال سیم موتور|
+792|5|Ballast-To-Luminaire Disconnects|اتصال بالاست به چراغ|
+793|5|Street Light Disconnects|اتصال چراغ خیابانی|
+794|4|Wire Connector & Terminal Kits|کیت سرسیم و کانکتور|
+795|4|Compression Lugs & Connectors|کابلشو و کانکتور پرسی|
+796|5|Compression Lugs|کابلشو پرسی|
+797|6|One-Hole Compression Lugs|کابلشو یک‌سوراخ|
+798|6|Two-Hole Compression Lugs|کابلشو دوسوراخ|
+799|5|Butt Splice Compression Connectors|مفصل پرسی (اتصال وسط کابل)|
+800|5|C-Tap & H-Tap Compression Connectors|کلمپ انشعاب پرسی C و H|
+801|5|Compression Pin Adapters|تبدیل پین پرسی|
+802|5|Compression Stacking Adapters|تبدیل طبقه‌ای پرسی|
+803|4|Multitap, Mechanical & Split Bolt Connectors|کانکتور چندانشعاب، مکانیکی و اسپلیت‌بولت|
+804|5|Insulated Multitap Connectors|کانکتور چندانشعاب عایق‌دار|
+805|5|Mechanical Insulation Piercing Connectors|کلمپ انشعاب سوراخ‌کن (پیرسینگ)|
+806|5|Mechanical Lugs|کابلشو پیچی (مکانیکی)|
+807|5|Mechanical Shearbolt Lugs|کابلشو پیچ‌شکن (شیربولت)|
+808|5|Mechanical Panelboard Lugs|کابلشو پیچی تابلویی|
+809|5|In-Line Mechanical Splice Connectors|مفصل مکانیکی خطی|
+810|5|Clamps, Split Bolts & Service Post Connectors|کلمپ، اسپلیت‌بولت و اتصال پست|

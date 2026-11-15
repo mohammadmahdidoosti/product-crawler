@@ -1,0 +1,259 @@
+1294|5|Fixed-Location Vision Sensors & Code Readers|سنسور بینایی و بارکدخوان ثابت|
+1295|5|RFID Sensors, Systems & Tags|سنسور، سیستم و تگ RFID|
+1296|5|Illumination Units for Object & Position Sensing|واحد روشنایی سنسور بینایی|
+1297|5|Sensor Mounting Systems|براکت و سیستم نصب سنسور|
+1298|5|Optical Distance Switches|سنسور فاصله‌سنج نوری|
+1299|3|Machine Safety|ایمنی ماشین‌آلات|
+1300|4|Cable-Pull Switches|کلید طنابی (پول‌کورد)|
+1301|5|Cable-Pull Switches for Dry & Wet Environments|کلید طنابی محیط خشک و مرطوب|
+1302|5|Cable-Pull Switches for Hazardous Locations|کلید طنابی ضدانفجار|
+1303|5|Cable & Cable-Pull Switch Kits|کیت کلید طنابی و سیم بکسل|
+1304|4|Door Hinge Safety-Interlock Switches|کلید اینترلاک ایمنی لولایی درب|
+1305|4|Door Handle Safety Interlock Switches|کلید اینترلاک ایمنی دستگیره درب|
+1306|4|Foot Switches & Foot Switch Guards|پدال پایی و محافظ پدال|
+1307|5|Electrical Foot Switches|پدال پایی برقی|
+1308|5|Pneumatic Foot Switches|پدال پایی بادی|
+1309|5|Hazardous-Location Foot Switches|پدال پایی ضدانفجار|
+1310|5|Foot-Switch Guards & Shields|محافظ پدال پایی|
+1311|4|Locking Gate Boxes with Safety Switches|جعبه قفل درب با کلید ایمنی|
+1312|4|Magnetically Actuated Safety-Interlock Switches|کلید اینترلاک ایمنی مغناطیسی|
+1313|5|Rectangular Magnetic Safety-Interlock Switches|کلید اینترلاک مغناطیسی مستطیلی|
+1314|5|Cylindrical Magnetic Safety-Interlock Switches|کلید اینترلاک مغناطیسی استوانه‌ای|
+1315|5|Magnetic Actuators for Safety-Interlock Switches|آهنربای عملگر کلید اینترلاک|
+1316|4|Non-Contact Transponder-Coded Safety Switches|کلید ایمنی بدون تماس کددار (RFID)|
+1317|4|Electro-Mechanically Actuated Safety-Interlock Switches|کلید اینترلاک ایمنی الکترومکانیکی|
+1318|4|Safety Light Curtains|پرده نوری ایمنی (لایت کرتن)|
+1319|4|Safety Controllers & Evaluation Units|کنترلر ایمنی و واحد ارزیابی|
+1320|3|Industrial Automation|اتوماسیون صنعتی|
+1321|4|Lighting Photocells|فتوسل روشنایی|
+1322|4|Meters & Counters|نمایشگر و کانتر|
+1323|5|Energy Meters|کنتور انرژی (پاورمتر)|
+1324|5|Mechanical Solenoids|سلونوئید مکانیکی (بوبین کششی)|
+1325|5|Rotary Encoders and Pulse Generators|انکودر دورانی و پالس ژنراتور|
+1326|6|Pulse Generators|پالس ژنراتور|
+1327|6|Rotary Encoder Accessories|لوازم جانبی انکودر|
+1328|6|Rotary Encoders|انکودر دورانی|
+1329|5|Panel Meters & Accessories|نمایشگر پنلی و لوازم|
+1330|6|Digital Panel Meters|نمایشگر پنلی دیجیتال (ولت‌متر و آمپرمتر تابلویی)|
+1331|6|Analog Panel Meters|نمایشگر پنلی عقربه‌ای|
+1332|6|Panel Meter Accessories|لوازم جانبی نمایشگر پنلی|
+1333|6|Panel Meter Shunts|شنت آمپرمتر|
+1334|5|Counters & Hour Meters|کانتر و ساعت‌کارکرد|
+1335|6|Counters, Hour Meters & Totalizers|کانتر، ساعت‌کارکرد و توتالایزر|
+1336|6|Mechanical & Hand Tally Counters|شمارنده مکانیکی و دستی|
+1337|6|Counter & Hour Meter Accessories|لوازم جانبی کانتر|
+1338|5|Mechanical & Electronic Position Indicators|نشانگر موقعیت مکانیکی و الکترونیکی|
+1339|5|Powder & Bulk Level Controls & Accessories|کنترل سطح پودر و مواد فله و لوازم|
+1340|6|Powder & Bulk Level Controls|لول‌سوئیچ پودر و مواد فله|
+1341|6|Powder & Bulk Level Control Accessories|لوازم جانبی کنترل سطح مواد فله|
+1342|5|Current Transducers|ترانسدیوسر جریان|
+1343|5|Signal Conditioners|مبدل سیگنال (ایزولاتور)|
+1344|5|Benchtop PID Controllers|کنترلر PID رومیزی|
+1345|4|PLCs & HMIs|PLC و HMI|
+1346|5|PLCs & Smart Relays|PLC و رله هوشمند (لوگو)|
+1347|5|PLC & Smart Relay Extension and Interface Modules|کارت توسعه و ماژول ارتباطی PLC|
+1348|5|PLC Accessories & Replacement Parts|لوازم و قطعات یدکی PLC|
+1349|5|HMIs, Control & Display Panels|HMI و پنل اپراتوری|
+1350|5|HMI Enclosures|محفظه HMI|
+1351|5|Pendant Arm System Components|قطعات سیستم بازوی آویز (پندنت آرم)|
+1352|5|Workstation Enclosures|محفظه ایستگاه کاری|
+1353|4|Timer Switches|تایمر|
+1354|5|General Purpose Timer Switches|تایمر همه‌کاره|
+1355|5|In-Wall Timer Switches|تایمر توکار دیواری|ترکیبی
+1356|5|Defrost Timer Switches|تایمر دیفراست|
+1357|5|DIN-Rail & Panel-Mount Timer Switches|تایمر ریلی و پنلی|
+1358|5|Plug-In Timer Switches|تایمر پریزی|ترکیبی
+1359|5|Timer Switch Trippers & Replacement Parts|زبانه و قطعات یدکی تایمر|
+1360|3|Relays|رله|
+1361|4|General Purpose & Power Relays|رله همه‌کاره و قدرت|
+1362|4|Time-Delay Relays|رله تأخیری (تایمر)|
+1363|5|Single-Function Time-Delay Relays|رله تأخیری تک‌کاره|
+1364|5|Multifunction Time-Delay Relays|رله تأخیری چندکاره|
+1365|4|Monitoring Relays|رله کنترلی (مانیتورینگ)|
+1366|5|Current-Monitoring Relays|رله کنترل جریان|
+1367|5|Voltage-Monitoring Relays|رله کنترل ولتاژ|
+1368|5|Phase-Monitoring Relays|رله کنترل فاز|
+1369|5|Liquid-Level Monitoring Relays|رله کنترل سطح مایع (رله سطح)|
+1370|5|Seal-Leakage Monitoring Relays|رله کنترل نشتی آب‌بند|
+1371|5|Temperature-Monitoring Relays|رله کنترل دما|
+1372|5|Frequency-Monitoring Relays|رله کنترل فرکانس|
+1373|5|Speed-Monitoring Relays|رله کنترل سرعت|
+1374|4|Safety Relays|رله ایمنی|
+1375|5|Safety-Monitoring Relays|رله ایمنی مانیتورینگ|
+1376|5|Intrinsically Safe Relays for Hazardous Locations|رله ایمنی ذاتی (IS) ضدانفجار|
+1377|5|Force-Guided Relays|رله کنتاکت اجباری (فورس‌گاید)|
+1378|5|Arc-Flash Relays|رله آرک فلش|
+1379|4|Solid-State Relays|رله اس‌اس‌آر (SSR)|
+1380|5|General Purpose Solid-State Relays|رله SSR همه‌کاره|
+1381|5|Hazardous-Location Solid-State Relays|رله SSR ضدانفجار|
+1382|5|Time-Delay Solid-State Relays|رله SSR تأخیری|
+1383|5|Proportional Controllers|کنترلر تناسبی (پاور کنترلر)|
+1384|4|Slim Width Relays|رله باریک (اسلیم)|
+1385|4|Alternating Relays|رله تناوبی (آلترنیتور پمپ)|
+1386|4|Automotive Relays|رله خودرو|
+1387|4|IEC & NEMA Control Relays|رله کنترل IEC و NEMA (کنتاکتور کمکی)|
+1388|4|Input/Output Relay Modules|ماژول رله ورودی/خروجی|
+1389|4|Prewired Relays|رله سیم‌کشی‌شده|
+1390|4|Wireless Relays & Transmitters|رله و فرستنده بی‌سیم|
+1391|4|Relay Sockets|سوکت رله|
+1392|4|Relay Accessories|لوازم جانبی رله|
+1393|5|Surface & PCB-Mounting Hardware|متعلقات نصب روی سطح و برد|
+1394|5|Relay Heat Sinks|هیت‌سینک رله|
+1395|5|Relay Retaining Clamps & Clips|گیره نگهدارنده رله|
+1396|5|Relay Protective Covers & Enclosures|کاور و محفظه محافظ رله|
+1397|5|Relay Timers|ماژول تایمر رله|
+1398|5|Relay Probes & Sensors|پراب و سنسور رله|
+1399|5|Relay Communication Modules|ماژول ارتباطی رله|
+1400|3|Robotics|رباتیک|
+1401|4|Robot Arms|بازوی رباتیک|
+1402|4|Multiaxis Gantries|گنتری چندمحوره|
+1403|4|Delta Robots|ربات دلتا|
+1404|4|Robot Control Components|قطعات کنترل ربات|
+1405|4|Robot Bases, Mounts & Accessories|پایه، نگهدارنده و لوازم ربات|
+1406|3|Tower Lights|چراغ برجی (سیگنال تاور)|
+1407|4|Tower Light Assemblies|چراغ برجی کامل|
+1408|4|Light Modules for Modular Tower Lights|ماژول نور چراغ برجی|
+1409|4|Sounder Modules for Modular Tower Lights|ماژول آژیر چراغ برجی|
+1410|4|Wireless Controllers for Modular Tower Lights|کنترلر بی‌سیم چراغ برجی|
+1411|4|Mounts, Bases & Extenders for Modular Tower Lights|پایه و رابط چراغ برجی|
+1412|2|Motor Controls|کنترل موتور|
+1413|3|Contactors & Overload Relays|کنتاکتور و بی‌متال (رله اضافه‌بار)|
+1414|4|IEC Contactors|کنتاکتور IEC|
+1415|4|IEC Overload Relays|بی‌متال IEC|
+1416|4|NEMA Contactors|کنتاکتور NEMA|
+1417|4|NEMA Overload Relays|بی‌متال NEMA|
+1418|4|Definite Purpose Contactors|کنتاکتور کولری (Definite Purpose)|
+1419|4|Definite Purpose Overload Relays|بی‌متال Definite Purpose|
+1420|4|Lighting Contactors|کنتاکتور روشنایی|
+1421|4|Safety Contactors|کنتاکتور ایمنی|
+1422|4|Mercury Displacement Contactors|کنتاکتور جیوه‌ای|
+1423|3|Motor Starters & Combination Starters|راه‌انداز موتور و راه‌انداز ترکیبی|
+1424|4|Motor Starters|راه‌انداز موتور (استارتر)|
+1425|5|IEC Motor Starters|راه‌انداز موتور IEC|
+1426|5|NEMA Motor Starters|راه‌انداز موتور NEMA|
+1427|5|Definite Purpose Motor Starters|راه‌انداز موتور Definite Purpose|
+1428|5|Hazardous-Location Motor Starters|راه‌انداز موتور ضدانفجار|
+1429|4|Manual Motor Starters|کلید حرارتی (راه‌انداز دستی موتور)|
+1430|5|IEC Manual Motor Starters|کلید حرارتی IEC|
+1431|5|NEMA Manual Motor Starters|کلید حرارتی NEMA|
+1432|5|Definite & General Purpose Manual Motor Starters|کلید حرارتی Definite Purpose و عمومی|
+1433|5|Hazardous-Location Manual Motor Starters|کلید حرارتی ضدانفجار|
+1434|4|Combination Motor Starters|راه‌انداز ترکیبی موتور|
+1435|5|IEC Combination Starters|راه‌انداز ترکیبی IEC|
+1436|5|NEMA Combination Starters|راه‌انداز ترکیبی NEMA|
+1437|5|Hazardous-Location Combination Starters|راه‌انداز ترکیبی ضدانفجار|
+1438|5|Modular Combination Motor Starter Systems|سیستم راه‌انداز ترکیبی ماژولار|
+1439|3|Motor Monitoring & Management Systems|سیستم پایش و مدیریت موتور|
+1440|3|Drum & Motor Switches|کلید درام و کلید موتور (چپ‌گرد راست‌گرد)|
+1441|4|Drum Switches|کلید درام (چپ‌گرد راست‌گرد)|
+1442|4|Manual Motor Switches|کلید دستی موتور|
+1443|4|Hazardous-Location Manual Motor Switches|کلید دستی موتور ضدانفجار|
+1444|3|Motor EMC Suppressors|فیلتر EMC موتور|
+1445|3|Contactor & Motor Starter Replacement Parts & Accessories|قطعات یدکی و لوازم کنتاکتور و راه‌انداز|
+1446|4|Auxiliary Contacts|کنتاکت کمکی|
+1447|4|Thermal Units|المنت حرارتی (هیتر بی‌متال)|
+1448|4|Delay Timers for Contactors|تایمر تأخیری کنتاکتور|
+1449|4|Replacement Push Buttons & Selector Switches for Motor Starters|شستی و سلکتور یدکی راه‌انداز|
+1450|4|Motor Starter Enclosures|محفظه راه‌انداز موتور|
+1451|4|Replacement Contacts|کنتاکت یدکی (پلاتین)|
+1452|4|Replacement Coils|بوبین یدکی|
+1453|4|Drum & Motor Switch Replacement Parts|قطعات یدکی کلید درام|
+1454|4|Contactor & Motor Starter Accessories|لوازم جانبی کنتاکتور و راه‌انداز|
+1455|2|Transformers, UPS & Power Supplies|ترانسفورماتور، یو‌پی‌اس و منبع تغذیه|
+1456|3|Transformers & Phase Converters|ترانسفورماتور و مبدل فاز|
+1457|4|Control Transformers|ترانس فرمان|
+1458|4|Single Phase Transformers|ترانس تک‌فاز|
+1459|4|Three Phase Transformers|ترانس سه‌فاز|
+1460|4|Class 2 Transformers|ترانس کلاس ۲|
+1461|4|Buck Boost Transformers|ترانس باک-بوست (افزاینده-کاهنده)|
+1462|4|International Voltage Converters|مبدل ولتاژ ۱۱۰ به ۲۲۰|ترکیبی
+1463|4|Phase Converters|مبدل تک‌فاز به سه‌فاز|
+1464|4|Current Transformers|ترانس جریان (CT)|
+1465|4|Isolation Transformers|ترانس ایزوله|
+1466|4|Drive Isolation Transformers|ترانس ایزوله درایو|
+1467|4|Plug-in Transformers & Power Supplies|آداپتور برق (ترانس پریزی)|ترکیبی
+1468|4|Landscape, Pool & Spa Lighting Transformers|ترانس روشنایی محوطه، استخر و جکوزی|
+1469|4|Lighting Transformers|ترانس روشنایی|
+1470|4|Transformer Disconnects|کلید قطع‌کن ترانس|
+1471|4|Voltage Stabilizers|استابلایزر (تثبیت‌کننده ولتاژ)|ترکیبی
+1472|4|Transformer Accessories|لوازم جانبی ترانس|
+1473|3|UPS & UPS Batteries|یو‌پی‌اس و باتری یو‌پی‌اس|
+1474|4|UPS Systems|یو‌پی‌اس (UPS)|
+1475|4|Batteries for UPS Systems|باتری یو‌پی‌اس|
+1476|4|Accessories for UPS Systems|لوازم جانبی یو‌پی‌اس|
+1477|3|Power Supplies|منبع تغذیه|
+1478|4|DC Power Supplies|منبع تغذیه DC (پاور سوئیچینگ)|
+1479|4|Accessories for DC Power Supplies|لوازم جانبی منبع تغذیه|
+1480|3|Power Conditioners|بهساز توان (پاور کاندیشنر)|
+1481|3|Micro Data Center Systems|میکرو دیتاسنتر|
+1482|1|Electronics & Batteries|الکترونیک و باتری|
+1483|2|Batteries & Chargers|باتری و شارژر|
+1484|3|Disposable Batteries|باتری یک‌بارمصرف|ترکیبی
+1485|4|Disposable Standard Batteries|باتری قلمی و نیم‌قلمی (استاندارد)|
+1486|4|Disposable Coin & Button Batteries|باتری سکه‌ای و ساعتی|
+1487|4|Disposable Specialty Batteries|باتری خاص یک‌بارمصرف|
+1488|4|Disposable Lantern Batteries|باتری فانوسی|
+1489|3|Rechargeable Batteries & Chargers|باتری قابل شارژ و شارژر|ترکیبی
+1490|3|Lead Acid & Lithium Batteries & Chargers|باتری سربی و لیتیومی و شارژر|
+1491|4|Lead Acid & Lithium Batteries|باتری سیلد اسید و لیتیومی|
+1492|4|Chargers for Lead Acid & Lithium Batteries|شارژر باتری سربی و لیتیومی|
+1493|3|Mobile Device Chargers & Power Stations|شارژر موبایل و ایستگاه شارژ|ترکیبی
+1494|4|Plug-In & Wireless USB Chargers|شارژر USB دیواری و بی‌سیم|
+1495|4|Portable Power Banks|پاوربانک|
+1496|4|Device Charging Stations|ایستگاه شارژ دستگاه‌ها|
+1497|3|Battery Storage & Organizers|جاباتری و نظم‌دهنده باتری|ترکیبی
+1498|2|Electronic Communication Equipment|تجهیزات ارتباطی و الکترونیکی|
+1499|3|Video Equipment|تجهیزات تصویری|ترکیبی
+1500|4|Televisions & Monitors|تلویزیون و مانیتور|
+1501|5|HD Televisions|تلویزیون HD|
+1502|5|TV Accessories|لوازم جانبی تلویزیون|
+1503|5|Video Monitors|مانیتور تصویر|
+1504|5|Mobile TV & Monitor Carts|پایه چرخ‌دار تلویزیون و مانیتور|
+1505|5|TV, Monitor, and Projector Mounts|براکت دیواری تلویزیون، مانیتور و ویدئوپروژکتور|
+1506|5|Interactive Display Monitors and Systems|نمایشگر تعاملی (برد هوشمند)|
+1507|4|DVD Players|دی‌وی‌دی پلیر|
+1508|3|Audio Equipment|تجهیزات صوتی و ارتباطی|
+1509|4|Two-Way Radios & Accessories|بی‌سیم (واکی‌تاکی) و لوازم جانبی|
+1510|5|Two-Way Radios|بی‌سیم دوطرفه|
+1511|6|Handheld Two-Way Radios|بی‌سیم دستی (واکی‌تاکی)|
+1512|6|Vehicle-Mounted & Desktop Two-Way Radios|بی‌سیم خودرویی و رومیزی (بیس)|
+1513|6|Marine Two-Way Radios|بی‌سیم دریایی|
+1514|6|Aviation Two-Way Radios|بی‌سیم هوانوردی|
+1515|6|CB Two-Way Radios|بی‌سیم CB|
+1516|5|Batteries & Chargers for Two-Way Radios|باتری و شارژر بی‌سیم|
+1517|6|Batteries for Two-Way Radios|باتری بی‌سیم|
+1518|6|Chargers & Power Cords for Two-Way Radios|شارژر و کابل برق بی‌سیم|
+1519|6|Power Accessories & Replacement Parts for Two-Way Radios|لوازم برق و قطعات یدکی بی‌سیم|
+1520|5|Audio Accessories for Two-Way Radios|لوازم صوتی بی‌سیم|
+1521|6|Earpieces & Headsets for Two-Way Radios|هندزفری و هدست بی‌سیم|
+1522|6|Microphones & Speakers for Two-Way Radios|میکروفون و بلندگوی بی‌سیم (اسپیکر مایک)|
+1523|6|Audio Adapters for Two-Way Radios|تبدیل صوتی بی‌سیم|
+1524|6|Audio Accessories & Replacement Parts for Two-Way Radios|لوازم و قطعات یدکی صوتی بی‌سیم|
+1525|5|Antennas & Antenna Accessories for Two-Way Radios|آنتن و لوازم آنتن بی‌سیم|
+1526|6|Antennas for Two-Way Radios|آنتن بی‌سیم|
+1527|6|Antenna Tuners for Two-Way Radios|تیونر آنتن بی‌سیم|
+1528|6|Antenna Accessories & Replacement Parts for Two-Way Radios|لوازم و قطعات یدکی آنتن بی‌سیم|
+1529|5|Carrying & Mounting Accessories for Two-Way Radios|لوازم حمل و نصب بی‌سیم|
+1530|6|Belt Clips, Cases & Harnesses for Handheld Radios|گیره کمری، کیف و بند بی‌سیم دستی|
+1531|6|Mounting Hardware for Vehicle-Mounted & Desktop Radios|متعلقات نصب بی‌سیم خودرویی و رومیزی|
+1532|5|Programming Cables & Software for Two-Way Radios|کابل و نرم‌افزار برنامه‌ریزی بی‌سیم|
+1533|5|Repeaters for Two-Way Radios|تکرارکننده (رپیتر) بی‌سیم|
+1534|5|Police Scanners|اسکنر فرکانس|
+1535|5|Call Boxes for Two-Way Radios|جعبه تماس بی‌سیم|
+1536|5|Radio Dispatch Programming Accessories|لوازم برنامه‌ریزی دیسپچ رادیویی|
+1537|4|Portable Radios|رادیو قابل حمل|ترکیبی
+1538|5|Battery-Powered & Hand-Crank Powered Portable Radios|رادیو باتری‌خور و دینامی|
+1539|5|Shortwave Radios|رادیو موج کوتاه|
+1540|4|Phones & Accessories|تلفن و لوازم جانبی|ترکیبی
+1541|5|Landline & VoIP Telephones|تلفن ثابت و تلفن VoIP|
+1542|5|Emergency Phone Towers|ستون تلفن اضطراری|
+1543|5|Phone Enclosures|محفظه تلفن (ضدآب)|
+1544|5|Acoustic Booths|کابین آکوستیک (اتاقک تلفن)|
+1545|5|Phone Accessories|لوازم جانبی تلفن|
+1546|5|Cell Phone Accessories|لوازم جانبی موبایل|
+1547|5|Signal Amplifiers|تقویت‌کننده سیگنال موبایل|
+1548|4|Headphones & Headsets|هدفون و هدست|
+1549|5|Headphones|هدفون|ترکیبی
+1550|5|Warehouse Automation Headsets|هدست انبارداری (پیک‌بای‌وویس)|
+1551|5|Warehouse Automation Headsets Accessories|لوازم جانبی هدست انبارداری|
+1552|5|Automotive Headsets|هدست خودرویی|

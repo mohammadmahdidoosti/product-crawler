@@ -1,0 +1,240 @@
+8735|5|Cartridge Assemblies for Circulator Pumps|کارتریج پمپ سیرکوله|
+8736|5|Motors for Circulator Pumps|موتور پمپ سیرکوله|
+8737|5|Couplers for Circulator Pump Motors|کوپلینگ موتور پمپ سیرکوله|
+8738|5|Impellers for Circulator Pumps|پروانه پمپ سیرکوله|
+8739|3|Booster Pumps|پمپ بوستر (افزایش فشار)|
+8740|4|Water Pressure Booster Pumps|پمپ افزایش فشار آب|ترکیبی
+8741|4|Beverage System Booster Pumps|پمپ بوستر دستگاه نوشیدنی|
+8742|4|RV Water Supply Booster Pumps|پمپ آب کاروان (RV)|
+8743|4|Repair Parts & Accessories for Booster Pumps|قطعات یدکی و لوازم پمپ بوستر|
+8744|5|Flanges for Booster Pumps|فلنج پمپ بوستر|
+8745|5|Motors for Booster Pumps|موتور پمپ بوستر|
+8746|5|Impellers & Diffusers for Booster Pumps|پروانه و دیفیوزر پمپ بوستر|
+8747|5|Shafts & Shaft Sleeves for Booster Pumps|شفت و بوش شفت پمپ بوستر|
+8748|5|Pressure Switches for Booster Pumps|پرشر سوئیچ پمپ بوستر|
+8749|5|Casings & Casing Parts for Booster Pumps|پوسته و قطعات پوسته پمپ بوستر|
+8750|5|Seals & Gaskets for Booster Pumps|آب‌بند و واشر پمپ بوستر|
+8751|2|Condensate Pumps & Boiler Feed Systems|پمپ کندانس و سیستم تغذیه دیگ|
+8752|3|Condensate Removal Pumps|پمپ تخلیه آب کندانس (کولر و پکیج)|
+8753|3|Condensate Return Pump Systems|سیستم پمپ برگشت کندانس|
+8754|3|Boiler Feed Pump Systems|سیستم پمپ تغذیه دیگ بخار|
+8755|3|Pumps for Condensate Return & Boiler Feed Systems|پمپ برگشت کندانس و تغذیه دیگ|
+8756|3|Safety Overflow Switches for Condensate Removal Pumps|کلید ایمنی سرریز پمپ کندانس|
+8757|3|Repair Parts for Condensate Pumps & Boiler Feed Systems|قطعات یدکی پمپ کندانس و تغذیه دیگ|
+8758|4|Seals & Gaskets for Condensate Pumps & Boiler Feed Systems|آب‌بند و واشر پمپ کندانس|
+8759|4|Switches for Condensate Return & Boiler Feed Systems|کلید سیستم برگشت کندانس و تغذیه دیگ|
+8760|4|Motors for Condensate Return & Boiler Feed Systems|موتور سیستم برگشت کندانس و تغذیه دیگ|
+8761|4|Alternators for Condensate Return Pumps|کنترلر تناوبی پمپ برگشت کندانس|
+8762|2|Pump Control Panels, Switches & Alarms|تابلو کنترل پمپ، کلید و آلارم|
+8763|3|Pump Control Panels|تابلو کنترل پمپ|
+8764|3|Pump Controllers & Alternators|کنترلر پمپ و کنترلر تناوبی (آلترناتور)|
+8765|3|Float Switches for Pumps & Pump Control Panels|فلوتر سوئیچ پمپ|
+8766|3|Liquid Level Alarms|آلارم سطح مایع|
+8767|3|Sump Pump Check Valves|شیر یک‌طرفه پمپ کفکش|
+8768|3|Float Switch Accessories & Parts|لوازم و قطعات فلوتر سوئیچ|
+8769|3|Pump Protection Devices|محافظ پمپ (کنترل فاز و خشک‌کارکرد)|
+8770|2|Diaphragm Pumps|پمپ دیافراگمی|
+8771|3|Air-Operated Double Diaphragm Pumps|پمپ دیافراگمی بادی دوطرفه (AODD)|
+8772|4|Industrial AODD Pumps|پمپ دیافراگمی بادی صنعتی|
+8773|4|Sanitary AODD Pumps|پمپ دیافراگمی بادی بهداشتی|
+8774|4|High Purity AODD Pumps|پمپ دیافراگمی بادی خلوص بالا|
+8775|4|Compact AODD Dispensing Pumps|پمپ دیافراگمی بادی کامپکت توزیع|
+8776|4|Blending AODD Pumps|پمپ دیافراگمی بادی مخلوط‌کن|
+8777|4|Solenoid-Controlled AODD Pumps|پمپ دیافراگمی بادی شیر برقی‌دار|
+8778|3|Electric-Operated Double Diaphragm Pumps|پمپ دیافراگمی برقی دوطرفه (EODD)|
+8779|4|Industrial EODD Pumps|پمپ دیافراگمی برقی صنعتی|
+8780|4|Sanitary EODD Pumps|پمپ دیافراگمی برقی بهداشتی|
+8781|3|Natural Gas-Operated Double Diaphragm Pumps|پمپ دیافراگمی گازی دوطرفه|
+8782|3|Diaphragm Pump Repair Parts|قطعات یدکی پمپ دیافراگمی|
+8783|4|Fluid-End Repair Kits for Double Diaphragm Pumps|کیت تعمیر بخش سیال پمپ دیافراگمی|
+8784|4|Air-End Repair Kits for Double Diaphragm Pumps|کیت تعمیر بخش هوای پمپ دیافراگمی|
+8785|4|Diaphragms for Double Diaphragm Pumps|دیافراگم پمپ|
+8786|4|Check Balls, Valves & Seats for Double Diaphragm Pumps|توپ، سوپاپ و نشیمنگاه پمپ دیافراگمی|
+8787|4|Manifolds & Housing Components for Double Diaphragm Pumps|منیفولد و پوسته پمپ دیافراگمی|
+8788|4|Mufflers for Double Diaphragm Pumps|صداخفه‌کن پمپ دیافراگمی|
+8789|4|Air-End Repair Parts for Double Diaphragm Pumps|قطعات بخش هوای پمپ دیافراگمی|
+8790|4|Seals & Gaskets for Double Diaphragm Pumps|آب‌بند و واشر پمپ دیافراگمی|
+8791|4|Fluid-End Repair Parts for Double Diaphragm Pumps|قطعات بخش سیال پمپ دیافراگمی|
+8792|4|Hardware & Fasteners for Double Diaphragm Pumps|یراق و پیچ‌ومهره پمپ دیافراگمی|
+8793|3|Pulsation Dampeners|ضربان‌گیر (دمپر پالس)|
+8794|2|End-Suction & Self-Priming Centrifugal Pumps|پمپ سانتریفیوژ و خودمکش|
+8795|3|End-Suction Centrifugal Pumps|پمپ سانتریفیوژ (مکش از انتها)|
+8796|4|Close-Coupled End-Suction Centrifugal Pumps|پمپ سانتریفیوژ کوپل مستقیم (منوبلاک)|
+8797|4|Mag-Drive End-Suction Centrifugal Pumps|پمپ سانتریفیوژ کوپل مغناطیسی|
+8798|4|Frame-Mount End-Suction Centrifugal Pumps|پمپ سانتریفیوژ شاسی‌دار (کوپلینگی)|
+8799|4|Hydraulic-Driven End-Suction Centrifugal Pumps|پمپ سانتریفیوژ هیدرولیکی|
+8800|3|Self-Priming Centrifugal Pumps|پمپ سانتریفیوژ خودمکش|
+8801|4|Close-Coupled Self-Priming Centrifugal Pumps|پمپ خودمکش منوبلاک|
+8802|4|Mag-Drive Self-Priming Centrifugal Pumps|پمپ خودمکش کوپل مغناطیسی|
+8803|4|Frame-Mount Self-Priming Centrifugal Pumps|پمپ خودمکش شاسی‌دار|
+8804|3|Irrigation Pumps|پمپ آبیاری|
+8805|3|Sewage & Trash-Handling Centrifugal Pumps|پمپ سانتریفیوژ فاضلاب و گل‌کش|
+8806|3|DC-Powered Centrifugal Pumps|پمپ سانتریفیوژ DC|
+8807|3|Commercial Dishwasher Centrifugal Pumps|پمپ ماشین ظرفشویی صنعتی|
+8808|3|Mounting Bases for Horizontal Centrifugal Pumps|شاسی پمپ سانتریفیوژ افقی|
+8809|3|Centrifugal Pump Parts & Accessories|قطعات و لوازم پمپ سانتریفیوژ|
+8810|4|Seals & Sealing Components for Centrifugal Pumps|مکانیکال سیل و آب‌بند پمپ سانتریفیوژ|
+8811|4|Impellers & Rotating Components for Centrifugal Pumps|پروانه و قطعات دوار پمپ سانتریفیوژ|
+8812|4|Pump Heads for Centrifugal Pumps|سرپمپ سانتریفیوژ|
+8813|4|Motors, Drives & Electrical Components for Centrifugal Pumps|موتور، درایو و قطعات برقی پمپ سانتریفیوژ|
+8814|4|Shaft Sleeves for Centrifugal Pumps|بوش شفت پمپ سانتریفیوژ|
+8815|4|Valves & Internal Flow Components for Centrifugal Pumps|شیر و قطعات جریان داخلی پمپ سانتریفیوژ|
+8816|4|Hardware for Centrifugal Pumps|یراق پمپ سانتریفیوژ|
+8817|4|Volutes, Diffusers & Pump Housings|حلزونی، دیفیوزر و پوسته پمپ|
+8818|4|Mounting & Connection Components for Centrifugal Pumps|قطعات نصب و اتصال پمپ سانتریفیوژ|
+8819|4|Centrifugal Pump Rebuild Kits|کیت اورهال پمپ سانتریفیوژ|
+8820|2|Turbine Pumps|پمپ توربینی|
+8821|3|Regenerative Turbine Pumps|پمپ محیطی (پریفرال)|
+8822|3|Impellers for Turbine Pumps|پروانه پمپ توربینی|
+8823|3|Seals & Gaskets for Turbine Pumps|آب‌بند و واشر پمپ توربینی|
+8824|2|Rotary Gear Pumps|پمپ دنده‌ای|
+8825|3|Rotary Gear Pumps with Motor|پمپ دنده‌ای با موتور|
+8826|3|Rotary Gear Pump Heads|سرپمپ دنده‌ای|
+8827|3|Pedestal-Mount Rotary Gear Pumps|پمپ دنده‌ای پایه‌دار|
+8828|3|Motors for Rotary Gear Pumps|موتور پمپ دنده‌ای|
+8829|3|Repair Parts for Rotary Gear Pumps|قطعات یدکی پمپ دنده‌ای|
+8830|4|Repair Kits for Gear Pumps|کیت تعمیر پمپ دنده‌ای|
+8831|4|Hardware Parts for Gear Pumps|یراق پمپ دنده‌ای|
+8832|4|Retaining Rings for Gear Pumps|خار پمپ دنده‌ای|
+8833|4|Mounting Adapters & Clamps for Gear Pumps|رابط نصب و بست پمپ دنده‌ای|
+8834|4|Gears, Shafts & Couplings for Gear Pumps|دنده، شفت و کوپلینگ پمپ دنده‌ای|
+8835|4|Seals, Gaskets & Seats for Rotary Gear Pumps|آب‌بند، واشر و نشیمنگاه پمپ دنده‌ای|
+8836|4|Bearings & Bushings for Rotary Gear Pumps|بلبرینگ و بوش پمپ دنده‌ای|
+8837|2|Rotary Vane Pumps|پمپ پره‌ای (روتاری وین)|
+8838|3|Rotary Vane Pumps with Motor|پمپ پره‌ای با موتور|
+8839|3|Rotary Vane Pump Heads|سرپمپ پره‌ای|
+8840|3|Mounting Parts & Accessories for Rotary Vane Pump Heads|قطعات نصب و لوازم سرپمپ پره‌ای|
+8841|3|Repair Kits for Rotary Vane Pumps|کیت تعمیر پمپ پره‌ای|
+8842|2|Progressive Cavity Pumps|پمپ مارپیچی (مونو پمپ)|
+8843|3|Standard Suction Progressive Cavity Pumps|پمپ مونو مکش استاندارد|
+8844|3|Hopper-Feed Progressive Cavity Pumps|پمپ مونو قیفی (هاپر)|
+8845|3|Metering Progressive Cavity Pumps|پمپ مونو دوزینگ|
+8846|3|Repair Parts for Progressive Cavity Pumps|قطعات یدکی پمپ مونو (روتور و استاتور)|
+8847|2|Drum Pumps|پمپ بشکه|
+8848|3|Manually-Operated Industrial Drum Pumps|پمپ بشکه دستی صنعتی|
+8849|3|Electric Industrial Drum Pumps|پمپ بشکه برقی صنعتی|
+8850|3|Air-Operated Industrial Drum Pumps|پمپ بشکه بادی صنعتی|
+8851|3|Cordless Battery-Powered Drum Pumps|پمپ بشکه شارژی|
+8852|3|Hydraulic-Operated Industrial Drum Pumps|پمپ بشکه هیدرولیکی|
+8853|3|Manually-Operated Sanitary Drum Pumps|پمپ بشکه دستی بهداشتی|
+8854|3|Electric Sanitary Drum Pumps|پمپ بشکه برقی بهداشتی|
+8855|3|Air-Operated Sanitary Drum Pumps|پمپ بشکه بادی بهداشتی|
+8856|3|Tank & Drum Pump Systems|سیستم پمپ مخزن و بشکه|
+8857|3|Drum Pump Accessories & Parts|لوازم و قطعات پمپ بشکه|
+8858|4|Drum Pump Nozzles, Spouts & Nozzle Holsters|نازل، لوله خروجی و جانازلی پمپ بشکه|
+8859|4|Meters for Drum Pump Nozzles|کنتور نازل پمپ بشکه|
+8860|4|Drum Pump Suction & Discharge Tubes & Hoses|لوله و شلنگ مکش و دهش پمپ بشکه|
+8861|4|Drum Pump Tube Assemblies|لوله پمپ بشکه (مجموعه)|
+8862|4|Drum & Tote Fittings, Valves & Adapters|اتصالات، شیر و تبدیل بشکه و مخزن IBC|
+8863|4|Drum Pump Motors|موتور پمپ بشکه|
+8864|4|Drum Pump Collars|طوقه پمپ بشکه|
+8865|4|Drum Pump Repair Kits & Parts|کیت تعمیر و قطعات پمپ بشکه|
+8866|4|Batteries and Chargers for Cordless Drum Pumps|باتری و شارژر پمپ بشکه شارژی|
+8867|4|Follower Plates & Elevators for Grease Pumps|صفحه فشار و بالابر پمپ گریس|
+8868|4|Mounting Brackets & Drip Pans for Drum Pumps|براکت نصب و سینی قطره‌گیر پمپ بشکه|
+8869|3|Gasoline & Diesel Jugs|گالن بنزین و گازوئیل|ترکیبی
+8870|2|Fuel & DEF Transfer Pumps|پمپ انتقال سوخت و ادبلو (DEF)|
+8871|3|Fuel Transfer Pumps|پمپ انتقال سوخت|
+8872|4|AC-Powered Fuel Transfer Pumps|پمپ سوخت برق AC|
+8873|4|DC-Powered Fuel Transfer Pumps|پمپ سوخت ۱۲/۲۴ ولت (DC)|
+8874|4|Hand-Operated Fuel Transfer Pumps|پمپ سوخت دستی|
+8875|4|Cordless Battery-Powered Fuel Transfer Pumps|پمپ سوخت شارژی|
+8876|4|Engine-Driven Bulk Fuel Transfer Pumps|پمپ موتوری انتقال سوخت فله|
+8877|4|Air-Operated Bulk Fuel Transfer Pumps|پمپ بادی انتقال سوخت فله|
+8878|4|Remote Fuel Dispensers|دیسپنسر سوخت ریموت|
+8879|3|DEF Transfer Pumps|پمپ انتقال ادبلو (DEF)|
+8880|4|Electric-Operated DEF Transfer Pumps|پمپ ادبلو برقی|
+8881|4|Air-Operated DEF Pumps|پمپ ادبلو بادی|
+8882|4|Manually-Operated DEF Transfer Pumps|پمپ ادبلو دستی|
+8883|3|Nozzles for Fuel & DEF Transfer Pumps|نازل (گان) سوخت و ادبلو|
+8884|3|Discharge Hoses for Fuel & DEF Transfer Pumps|شلنگ خروجی پمپ سوخت و ادبلو|
+8885|3|Swivels, Breakaways & Adaptors for Fuel & DEF Transfer Pumps|گردان، قطع‌کن اضطراری و تبدیل پمپ سوخت|
+8886|3|Filters for Fuel Transfer Pumps|فیلتر پمپ سوخت|
+8887|3|Meters for Fuel & DEF Transfer Pumps|کنتور سوخت و ادبلو|
+8888|3|Suction Tubes & Hoses for Fuel & DEF Transfer Pumps|لوله و شلنگ مکش پمپ سوخت|
+8889|3|Couplings, Valves & Fittings for DEF Transfer Pumps|کوپلینگ، شیر و اتصالات پمپ ادبلو|
+8890|3|Repair Parts for Fuel & DEF Transfer Pumps|قطعات یدکی پمپ سوخت و ادبلو|
+8891|4|Rebuild Kits & Repair Parts for Fuel Transfer Pumps|کیت اورهال و قطعات پمپ سوخت|
+8892|4|Seals & Gaskets for Fuel & DEF Transfer Pumps|آب‌بند و واشر پمپ سوخت|
+8893|4|Flanges & Fittings for Fuel & DEF Transfer Pumps|فلنج و اتصالات پمپ سوخت|
+8894|4|Fuel Tank Accessories|لوازم جانبی مخزن سوخت|
+8895|4|Biodiesel & E85 Conversion Kits|کیت تبدیل بیودیزل و E85|
+8896|4|Anti-Siphon Kits & Parts|کیت و قطعات ضدسیفون|
+8897|2|Chemical Metering Pumps|پمپ دوزینگ مواد شیمیایی|
+8898|3|Diaphragm Chemical Metering Pumps|پمپ دوزینگ دیافراگمی|
+8899|3|Peristaltic Chemical Metering Pumps|پمپ دوزینگ پریستالتیک|
+8900|3|Peristaltic Hose Pumps|پمپ شلنگی پریستالتیک|
+8901|3|Progressive Cavity Chemical Metering Pumps|پمپ دوزینگ مارپیچی|
+8902|3|Fittings & Valves for Chemical Metering Pumps|اتصالات و شیر پمپ دوزینگ|
+8903|3|Tubing & Hoses for Chemical Metering Pumps|لوله و شلنگ پمپ دوزینگ|
+8904|3|In-Line Mixers & Flow Indicators for Chemical Metering Pumps|میکسر خطی و نشانگر جریان پمپ دوزینگ|
+8905|3|Controllers for Chemical Metering Pumps|کنترلر پمپ دوزینگ|
+8906|3|Feed Tanks for Chemical Metering Pumps|مخزن تغذیه پمپ دوزینگ|
+8907|3|Repair Kits & Parts for Peristaltic Metering Pumps|کیت تعمیر و قطعات پمپ پریستالتیک|
+8908|3|Repair Kits & Parts for Diaphragm Metering Pumps|کیت تعمیر و قطعات پمپ دوزینگ دیافراگمی|
+8909|3|Pump Enclosures|محفظه پمپ|
+8910|3|Mounting Brackets & Shelves for Chemical Metering Pumps|براکت و طبقه نصب پمپ دوزینگ|
+8911|2|Pressure Washer Pumps|پمپ کارواش|
+8912|3|Triplex Plunger Pumps|پمپ پیستونی سه‌پیستون (تریپلکس)|
+8913|3|Axial Cam Pressure Washer Pumps|پمپ کارواش بادامک محوری|
+8914|3|Chemical Injectors for Pressure Washer Pumps|تزریق‌کننده شوینده کارواش|
+8915|3|Mounting Kits for Triplex Pumps|کیت نصب پمپ تریپلکس|
+8916|3|Repair Parts for Pressure Washer Pumps|قطعات یدکی پمپ کارواش|
+8917|2|Sprayer Pumps|پمپ سمپاش|
+8918|3|Diaphragm Sprayer Pumps|پمپ سمپاش دیافراگمی|
+8919|4|Compact Electric Diaphragm Sprayer Pumps|پمپ سمپاش دیافراگمی برقی کوچک|
+8920|4|Compact Air-Operated Diaphragm Sprayer Pumps|پمپ سمپاش دیافراگمی بادی کوچک|
+8921|4|Industrial Diaphragm Sprayer Pumps|پمپ سمپاش دیافراگمی صنعتی|
+8922|3|Roller Pumps|پمپ غلتکی|
+8923|4|PTO-Driven Roller Pumps|پمپ غلتکی گاردانی (PTO)|
+8924|4|Electric Roller Pumps|پمپ غلتکی برقی|
+8925|4|Hydraulic Roller Pumps|پمپ غلتکی هیدرولیکی|
+8926|3|Turbine Sprayer Pumps|پمپ سمپاش توربینی|
+8927|3|Sprayer Pump Parts & Accessories|قطعات و لوازم پمپ سمپاش|
+8928|4|Repair Parts & Accessories for Diaphragm Sprayer Pumps|قطعات یدکی پمپ سمپاش دیافراگمی|
+8929|4|Repair Kits for Roller Pumps|کیت تعمیر پمپ غلتکی|
+8930|4|Fittings for Sprayer Pumps|اتصالات پمپ سمپاش|
+8931|4|PTO Couplings for Sprayer Pumps|کوپلینگ PTO پمپ سمپاش|
+8932|2|Pond Aeration, Fountain & Waterfall Pumps|هواده استخر، پمپ آبنما و آبشار|
+8933|3|Pond & Wastewater Aerators|هواده حوضچه و فاضلاب (اریتور)|
+8934|4|Diffused Aerators|هواده دیفیوزری|
+8935|4|Surface Aerators|هواده سطحی|
+8936|4|Fountain Aerators|هواده فواره‌ای|
+8937|3|Decorative Fountain Pumps|پمپ آبنما تزیینی|ترکیبی
+8938|3|Pond & Waterfall Pumps|پمپ حوض و آبشار|ترکیبی
+8939|3|Pond, Fountain & Waterfall Treatment, Cleaning & Lights|تصفیه، نظافت و چراغ حوض و آبنما|ترکیبی
+8940|4|Pond & Fountain Lights|چراغ حوض و آبنما|
+8941|4|Pond Cleaning Chemicals & Clarifiers|مواد شیمیایی تمیزکننده و شفاف‌کننده حوض|
+8942|4|Pond Skimmers, Filters & Waterfall Spillways|اسکیمر، فیلتر و سرریز آبشار حوض|
+8943|4|Pond Vacuums & Nets|جاروی حوض و تور|
+8944|4|Pond Liners & Sealants|ورق ژئوممبران و آب‌بند حوض|
+8945|2|Fire Pumps|پمپ آتش‌نشانی|
+8946|3|75 gpm|۷۵ گالن در دقیقه|
+8947|2|Hydrostatic Test Pumps|پمپ تست هیدرواستاتیک|
+8948|3|Electric Hydrostatic Test Pumps|پمپ تست فشار برقی|
+8949|3|Air-Operated Hydrostatic Test Pumps|پمپ تست فشار بادی|
+8950|3|Engine-Driven Hydrostatic Test Pumps|پمپ تست فشار موتوری|
+8951|3|Hand-Operated Hydrostatic Test Pumps|پمپ تست فشار دستی|
+8952|3|Fire Hose Testers|تستر شلنگ آتش‌نشانی|
+8953|3|Hoses for Hydrostatic Test Pumps|شلنگ پمپ تست فشار|
+8954|3|Repair Kits & Parts for Hydrostatic Test Pumps|کیت تعمیر و قطعات پمپ تست فشار|
+8955|2|Marine Pumps|پمپ دریایی|
+8956|3|Marine Bilge Pumps|پمپ آبکش قایق (بیلج)|
+8957|4|Electric Bilge Pumps|پمپ بیلج برقی|
+8958|4|Manual Bilge Pumps|پمپ بیلج دستی|
+8959|4|Check Valves for Bilge Pumps|شیر یک‌طرفه پمپ بیلج|
+8960|3|Marine Utility Pumps|پمپ همه‌کاره دریایی|
+8961|3|Marine HVAC Circulator Pumps|پمپ سیرکوله تهویه دریایی|
+8962|3|Bait & Live Well Pumps|پمپ مخزن طعمه زنده|
+8963|2|Jet Eductors|اجکتور جت (اداکتور)|
+8964|2|Flow & Level Measurement & Controls|اندازه‌گیری و کنترل دبی و سطح|
+8965|3|Tube-Style Liquid Level Sight Glasses|شیشه آب‌نما (لول گیج لوله‌ای)|
+8966|3|Flowmeters & Totalizers|فلومتر و کنتور (توتالایزر)|
+8967|4|Variable Area Flowmeters|فلومتر روتامتری (سطح متغیر)|
+8968|4|Turbine Flowmeters & Totalizers|فلومتر توربینی|
+8969|4|Nutating Disc Flowmeters & Totalizers|فلومتر دیسک نوسانی|
+8970|4|Paddlewheel Flowmeters|فلومتر پره‌ای (پدل‌ویل)|
+8971|4|Oval Gear Flowmeters & Totalizers|فلومتر دنده بیضوی|
+8972|4|Compound Flowmeters|کنتور مرکب|
+8973|4|Magnetic Flowmeters|فلومتر مغناطیسی|
+8974|4|Ultrasonic Flowmeters|فلومتر التراسونیک|

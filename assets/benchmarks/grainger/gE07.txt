@@ -1,0 +1,149 @@
+10789|4|AED Storage Cabinets & Cases|کابینت و کیف نگهداری AED|
+10790|4|AED & CPR Training Equipment|تجهیزات آموزش AED و احیا (مولاژ)|
+10791|4|CPR Masks & Shields|ماسک و شیلد تنفس مصنوعی CPR|
+10792|4|Automated CPR Devices|دستگاه احیای خودکار CPR|
+10793|3|Airway Opening & Oxygen Delivery Equipment|تجهیزات باز کردن راه هوایی و اکسیژن‌رسانی|
+10794|4|Intubation & Suction Equipment|تجهیزات لوله‌گذاری و ساکشن|
+10795|5|Intubation & Airway Management Supplies|ملزومات لوله‌گذاری و راه هوایی (ایروی)|
+10796|5|Suction Equipment & Accessories|دستگاه ساکشن و لوازم جانبی|
+10797|4|Medical Oxygen & Accessories|اکسیژن پزشکی و لوازم جانبی|
+10798|5|Medical Oxygen & Cylinders|کپسول اکسیژن پزشکی|
+10799|5|Medical Oxygen Tubing & Regulators|شیلنگ و مانومتر (رگولاتور) اکسیژن|
+10800|5|Medical Oxygen Face Masks & Bags|ماسک اکسیژن و آمبوبگ|
+10801|5|Nasal Cannulas|کانولای بینی|
+10802|5|Medical Oxygen Kits & Storage|کیت و کیف اکسیژن پزشکی|
+10803|5|Ventilator Test Lungs|ریه تست ونتیلاتور|
+10804|4|Medical Gas Delivery|توزیع گازهای طبی|
+10805|5|Medical Gas Flow Measurement Devices|فلومتر گاز طبی|
+10806|5|Medical Gas Analyzers & Sensors|آنالایزر و سنسور گاز طبی|
+10807|5|Air-Oxygen Mixers, Blenders & Accessories|مخلوط‌کن هوا و اکسیژن (بلندر) و لوازم جانبی|
+10808|5|Medical Gas Tubing Adapters|آداپتور شیلنگ گاز طبی|
+10809|5|Medical Gas Hoses|شیلنگ گاز طبی|
+10810|4|Respiratory Nebulizers & Steam Inhalers|نبولایزر و بخور تنفسی|ترکیبی
+10811|3|EMS & Rescue Tools|تجهیزات امداد و نجات (EMS)|
+10812|4|Evacuation Chairs|صندلی تخلیه اضطراری (پله‌رو)|
+10813|4|EMS Stretchers|برانکارد امدادی|
+10814|4|EMS Backboards|تخته اسپاینال (بک‌برد)|
+10815|4|EMS Backboard & Stretcher Straps|تسمه بک‌برد و برانکارد|
+10816|4|EMS Backboard & Stretcher Accessories|لوازم جانبی بک‌برد و برانکارد|
+10817|4|Trauma Cervical Collars|کولار گردنی|
+10818|4|EMS Gurneys & Pads|برانکارد چرخ‌دار و تشک|
+10819|4|Patient Transfer Sheets, Mats & Straps|ملحفه، تشک و تسمه جابجایی بیمار|
+10820|4|EMS Tools|ابزار امدادی|
+10821|4|Animal Rescue Equipment|تجهیزات نجات حیوانات|
+10822|4|Medical Quarantine & Containment Chambers|محفظه قرنطینه و ایزوله پزشکی|
+10823|3|Emergency & Exam Room Supplies|ملزومات اورژانس و اتاق معاینه|
+10824|4|MRI Supplies|ملزومات MRI|
+10825|4|Medical Bags & Cases|کیف پزشکی|
+10826|4|Medical Isolation Gowns|گان ایزوله پزشکی|
+10827|4|Exam Room Clothing & Table Paper|گان بیمار و رول کاغذی تخت معاینه|
+10828|4|Medical Basins|لگن و کاسه پزشکی|
+10829|4|Medical Scissors & Shears|قیچی پزشکی|
+10830|4|Medical Swabs & Applicators|سواب و اپلیکاتور پزشکی|
+10831|4|Medical Thermometers & Temperature Screening Devices|تب‌سنج و دستگاه سنجش دما|ترکیبی
+10832|4|Splints & Arm Slings|آتل و آویز دست|
+10833|4|Medical Tweezers & Forceps|پنس و فورسپس پزشکی|
+10834|4|Pill Cutters, Crushers & Organizers|قرص‌بر، قرص‌کوب و جاقرصی|ترکیبی
+10835|4|Medical Specimen Containers|ظرف نمونه آزمایش|
+10836|4|Medical Supply Containers|ظرف نگهداری ملزومات پزشکی|
+10837|3|Exam Room Furnishings|تجهیزات اتاق معاینه|
+10838|4|Healthcare Bed Parts|قطعات تخت بیمارستانی|
+10839|4|X-Ray Equipment|تجهیزات رادیولوژی (اشعه ایکس)|
+10840|4|Exam Room Tables|تخت معاینه|
+10841|4|Patient Room Furnishings|مبلمان اتاق بیمار|
+10842|4|Healthcare Beds|تخت بیمارستانی|
+10843|4|Healthcare Dispensers|دیسپنسر بیمارستانی|
+10844|4|Over-the-Bed Tables|میز روی تخت (اوربد)|
+10845|4|Blood Draw Chairs|صندلی خون‌گیری|
+10846|4|Medical Privacy Screens & Curtains|پاراوان و پرده بیمارستانی|
+10847|4|Medical Gurney Sheets & Pillowcases|ملحفه و روبالشی برانکارد|
+10848|4|Mattress Replacement & Repair Parts|قطعات یدکی و تعمیر تشک بیمارستانی|
+10849|4|Medical Carts|ترولی پزشکی|
+10850|5|Medical Equipment & Procedure Carts|ترولی تجهیزات و پروسیجر پزشکی|
+10851|5|Medical Cart Accessories|لوازم جانبی ترولی پزشکی|
+10852|4|Medical Cabinets|کابینت پزشکی|
+10853|5|Stationary Medical Cabinets|کابینت پزشکی ثابت|
+10854|5|Mobile Medical Cabinets|کابینت پزشکی چرخ‌دار|
+10855|5|Wall-Mount Medical Cabinets|کابینت پزشکی دیواری|
+10856|5|Medical Cabinet Accessories|لوازم جانبی کابینت پزشکی|
+10857|4|Pass-Through-Cabinets & Access Devices|کابینت پاس‌باکس و دریچه دسترسی|
+10858|4|Warming Cabinets|کابینت گرمکن|
+10859|4|Exam Room Flags|پرچم نشانگر اتاق معاینه|
+10860|3|Healthcare Lighting|روشنایی بیمارستانی|
+10861|4|Ceiling-Mounted LED Patient Room Lights|چراغ سقفی LED اتاق بیمار|
+10862|4|Wall-Mounted LED Bed Lights|چراغ دیواری LED بالای تخت|
+10863|4|Wall-Mounted LED Nightlights|چراغ خواب دیواری LED|
+10864|4|Movable Exam & Surgical Lights|چراغ معاینه و جراحی متحرک|
+10865|4|Healthcare Lighting Accessories|لوازم جانبی روشنایی بیمارستانی|
+10866|3|IV Supplies|ملزومات تزریق وریدی (سرم)|
+10867|4|IV Lock Boxes|جعبه قفل‌دار سرم|
+10868|4|IV Poles|پایه سرم|
+10869|4|IV Sets & Accessories|ست سرم و لوازم جانبی|
+10870|4|IV Catheters|آنژیوکت (کاتتر وریدی)|
+10871|3|Medical Diagnostics|تجهیزات تشخیص پزشکی|
+10872|4|Stethoscopes|گوشی پزشکی (استتوسکوپ)|
+10873|4|Blood Glucose Monitoring|دستگاه تست قند خون|ترکیبی
+10874|4|Blood Pressure Monitors|فشارسنج|ترکیبی
+10875|4|ECG Supplies|ملزومات نوار قلب (ECG)|
+10876|4|ENT Diagnostic Instruments|ابزار معاینه گوش، حلق و بینی|
+10877|4|Pulse Oximeters & Accessories|پالس اکسیمتر و لوازم جانبی|ترکیبی
+10878|3|Incontinence Supplies & Commode Chairs|ملزومات بی‌اختیاری و صندلی توالت|ترکیبی
+10879|3|Patient & Resident Monitoring|سیستم مانیتورینگ بیمار و سالمند|
+10880|4|Call-for-Assistance Devices|دستگاه احضار پرستار|
+10881|4|Resident Tags & Pendants|تگ و گردنبند سالمند|
+10882|4|Fall Monitoring Systems|سیستم پایش سقوط بیمار|
+10883|4|Patient Wandering Systems|سیستم کنترل سرگردانی بیمار|
+10884|3|Rehabilitation & Durable Medical Equipment|تجهیزات توانبخشی و پزشکی بادوام|ترکیبی
+10885|4|Patient Lifts & Transfer Aids|بالابر و وسایل جابجایی بیمار|
+10886|4|Wheelchairs|ویلچر|
+10887|4|Wheelchair Parts & Accessories|قطعات و لوازم جانبی ویلچر|
+10888|4|Walkers, Rollators & Crutches|واکر، رولیتور و عصای زیربغل|
+10889|4|Canes|عصا|
+10890|4|Grooming & Dressing Aids|وسایل کمکی آراستگی و لباس پوشیدن|
+10891|4|Posture Correctors, Belts & Traction Equipment|قوزبند، کمربند طبی و تجهیزات کشش|
+10892|2|Joint & Back Support|ساپورت مفاصل و کمر|ترکیبی
+10893|3|Kneeling Pads|زیرزانویی|
+10894|3|Elbow, Knee & Shoulder Supports|ساپورت آرنج، زانو و شانه|
+10895|3|Back Supports|کمربند طبی (ساپورت کمر)|
+10896|3|Wrist Supports and Wraps|مچ‌بند طبی|
+10897|2|Arc Flash Protection|حفاظت آرک فلش و برق|
+10898|3|Arc Protection Blankets|پتوی محافظ آرک|
+10899|3|Electrical Safety Accessories|لوازم جانبی ایمنی برق|
+10900|3|Electrical Sticks & Rescue Hooks|چوب عایق (هات استیک) و قلاب نجات|
+10901|3|Grounding Equipment|تجهیزات ارت موقت (اتصال زمین)|
+10902|3|Insulating Line Hoses|غلاف عایق خط برق|
+10903|3|Shock Protection Blankets|پتوی عایق برق|
+10904|2|Training|آموزش|
+10905|3|Labor Law Posters & Workplace Legal Notices|پوستر قانون کار و اطلاعیه‌های قانونی|
+10906|3|Workplace Skills Training Systems|سیستم آموزش مهارت‌های کاری|
+10907|3|Workplace Safety & Compliance Training|آموزش ایمنی و انطباق محیط کار|
+10908|4|OSHA & Workplace Safety Training|آموزش OSHA و ایمنی محیط کار|
+10909|4|Chemical & Hazardous Substances Safety Training|آموزش ایمنی مواد شیمیایی و خطرناک|
+10910|4|DOT & Driver Safety Training|آموزش DOT و ایمنی رانندگی|
+10911|4|Vehicle Safety, Inspection & Maintenance Training|آموزش ایمنی، بازرسی و نگهداری خودرو|
+10912|4|Construction Safety Training|آموزش ایمنی ساختمانی|
+10913|4|Fire Safety Training|آموزش ایمنی حریق|
+10914|4|Electrical Safety Training|آموزش ایمنی برق|
+10915|4|Welding & Hot Work Safety Training|آموزش ایمنی جوشکاری و کار گرم|
+10916|4|Personal Protective Equipment Safety Training|آموزش تجهیزات حفاظت فردی|
+10917|4|Respiratory Safety Training|آموزش حفاظت تنفسی|
+10918|4|Machine & Equipment Safety Training|آموزش ایمنی ماشین‌آلات و تجهیزات|
+10919|4|Ergonomics Training|آموزش ارگونومی|
+10920|4|Lockout Tagout Safety Training|آموزش لاک‌اوت تگ‌اوت|
+10921|4|Fall Protection & Working at Heights Safety Training|آموزش کار در ارتفاع و حفاظت از سقوط|
+10922|4|Slips, Trips & Falls Safety Training|آموزش پیشگیری از لغزش و سقوط|
+10923|4|Emergency Eyewash & Shower Safety Training|آموزش چشم‌شوی و دوش اضطراری|
+10924|4|Confined Spaces Safety Training|آموزش ایمنی فضای بسته|
+10925|4|First Aid & First Responder Safety Training|آموزش کمک‌های اولیه و امدادگری|
+10926|4|Bloodborne Pathogens & Diseases Safety Training|آموزش عوامل بیماری‌زای منتقله از خون|
+10927|4|Health & Wellness Training|آموزش سلامت و تندرستی|
+10928|4|Environmental Safety Training|آموزش ایمنی محیط زیست|
+10929|3|Human Resources Training|آموزش منابع انسانی|
+10930|4|General Human Resources Training|آموزش عمومی منابع انسانی|
+10931|4|Harassment & Violence Training|آموزش پیشگیری از آزار و خشونت|
+10932|2|Water Safety|ایمنی آب|
+10933|3|Water Suits & Accessories|لباس آب (غواصی و نجات) و لوازم جانبی|
+10934|3|Life Jackets, PFDs & Rearming Kits|جلیقه نجات و کیت شارژ|ترکیبی
+10935|3|Throwable Flotation Rescue Aids|حلقه و وسایل نجات پرتابی|
+10936|3|Rescue Boats|قایق نجات|
+10937|2|Safety Equipment Replacement Parts|قطعات یدکی تجهیزات ایمنی|

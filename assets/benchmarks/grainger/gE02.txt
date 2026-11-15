@@ -1,0 +1,257 @@
+9570|4|High-Visibility Shirts|پیراهن شبرنگ|
+9571|4|High-Visibility Pants, Overalls & Gaiters|شلوار، لباس پیشبندی و گتر شبرنگ|
+9572|4|High-Visibility Reflective Clothing Tape|نوار شبرنگ لباس|
+9573|4|High-Visibility Sashes|حمایل شبرنگ|
+9574|3|Multi-Hazard Protective Clothing|لباس حفاظتی چندخطره|
+9575|4|Multi-Hazard Overalls|لباس پیشبندی چندخطره|
+9576|4|Multi-Hazard Jackets & Coats|کاپشن و کت چندخطره|
+9577|4|Multi-Hazard Pants & Leggings|شلوار و گتر چندخطره|
+9578|4|Multi-Hazard Hoods|کلاه‌کاپشن چندخطره|
+9579|3|Welding Protective Clothing|لباس کار جوشکاری|
+9580|4|Welding Jackets|کاپشن جوشکاری|
+9581|4|Welding Aprons|پیش‌بند جوشکاری|
+9582|4|Welding Coveralls|لباس یکسره جوشکاری|
+9583|4|Welding Chaps & Pants|شلوار و ساق‌پوش جوشکاری|
+9584|4|Welding Leggings & Spats|گتر و ساق‌بند جوشکاری|
+9585|4|Welding Hats & Hoods|کلاه و کلاه‌کاپشن جوشکاری|
+9586|4|Welding Helmets|کلاه ماسک جوشکاری|
+9587|4|Welding Helmet Accessories & Parts|لوازم جانبی و قطعات ماسک جوشکاری|
+9588|4|Welding Goggles|عینک گاگل جوشکاری|
+9589|3|Dispensers for Protective Clothing|دیسپنسر لباس حفاظتی|
+9590|3|Elbow & Knee Pads|زانوبند و آرنج‌بند|
+9591|2|Workwear|لباس کار|
+9592|3|Chemical Warmers|گرمکن شیمیایی (جیبی)|ترکیبی
+9593|3|Cooling Vests & Shirts|جلیقه و پیراهن خنک‌کننده|
+9594|3|Electronically Heated Workwear|لباس کار گرمایشی برقی|
+9595|3|General Purpose Work Apparel|لباس کار عمومی|
+9596|4|Work Coveralls|لباس کار یکسره|
+9597|4|Work Jackets & Coats|کاپشن و کت کار|
+9598|4|Work Hoodies & Sweatshirts|هودی و سویشرت کار|
+9599|4|Work Vests|جلیقه کار|
+9600|4|Work Aprons|پیش‌بند کار|
+9601|4|Work Shirts|پیراهن کار|
+9602|4|Work Pants, Overalls & Shorts|شلوار، لباس پیشبندی و شلوارک کار|
+9603|4|Work Hats, Headbands, & Headwear|کلاه، هدبند و پوشش سر کار|
+9604|4|Work Belts & Suspenders|کمربند و بند شلوار کار|
+9605|4|Work Wrist Bands, Sleeves & Hand Muffs|مچ‌بند، ساق‌دست و دستگرم کار|
+9606|3|Medical Scrubs|لباس فرم پزشکی (اسکراب)|
+9607|3|Lab Coats and Jackets|روپوش آزمایشگاهی و کاپشن|
+9608|3|Rainwear|لباس بارانی|ترکیبی
+9609|4|Rain Ponchos|بارانی پانچو|
+9610|4|Rain Suits|ست بارانی (کت و شلوار)|
+9611|4|Rain Jackets & Coats|کاپشن و کت بارانی|
+9612|4|Rain Pants & Overalls|شلوار بارانی|
+9613|4|Umbrellas|چتر|
+9614|3|Snakebite Protective Gaiters|گتر ضدمارگزیدگی|
+9615|3|Duffel Bags, Backpacks & Draw String Bags|ساک، کوله‌پشتی و کیسه بنددار|ترکیبی
+9616|2|Fall Protection|حفاظت در برابر سقوط|
+9617|3|Fall Protection Harnesses & Body Belts|هارنس و کمربند ایمنی|
+9618|4|Safety Harnesses for General Fall Arrest|هارنس ضدسقوط عمومی|
+9619|4|Safety Harnesses for Positioning|هارنس کار در ارتفاع (پوزیشنینگ)|
+9620|4|Safety Harnesses for Climbing|هارنس صعود|
+9621|4|Safety Harnesses for Confined Spaces|هارنس فضای بسته|
+9622|4|Safety Harnesses for Positioning & Climbing|هارنس پوزیشنینگ و صعود|
+9623|4|Safety Harnesses for Positioning & Confined Spaces|هارنس پوزیشنینگ و فضای بسته|
+9624|4|Safety Harnesses for Positioning, Climbing & Confined Spaces|هارنس پوزیشنینگ، صعود و فضای بسته|
+9625|4|Safety Harness Replacement Parts & Accessories|قطعات یدکی و لوازم جانبی هارنس|
+9626|4|Body Belts|کمربند ایمنی|
+9627|4|Bosun's Chairs & Seat Slings|صندلی کار در ارتفاع (بوسان)|
+9628|3|Self-Retracting Lifelines & Fall Protection Lanyards|لنیارد و کابل نجات خودجمع‌شو|
+9629|4|Self-Retracting Lifelines|کابل نجات خودجمع‌شو (SRL)|
+9630|4|Shock-Absorbing Lanyards|لنیارد کمک‌فنردار (شوک‌گیر)|
+9631|4|Positioning & Restraint Lanyards|لنیارد پوزیشنینگ و مهار|
+9632|3|Anchorage Connectors|نقطه اتصال (انکر)|
+9633|4|Concrete Anchors|انکر بتنی|
+9634|4|Roof Anchors|انکر پشت‌بام|
+9635|5|Permanent-Installation & Single-Use Roof Anchors|انکر پشت‌بام دائمی و یکبار مصرف|
+9636|5|Reinstallable Roof Anchors|انکر پشت‌بام قابل نصب مجدد|
+9637|5|Mobile Roof Anchors|انکر پشت‌بام سیار|
+9638|4|Steel & Beam Anchors|انکر تیرآهن و سازه فلزی|
+9639|4|Strap & Cable Anchors|انکر تسمه‌ای و کابلی|
+9640|4|Door & Window Jamb Anchors|انکر چارچوب در و پنجره|
+9641|4|Freestanding Anchors|انکر مستقل (ایستاده)|
+9642|4|Telescoping Post Anchors & Components|انکر دکلی تلسکوپی و قطعات|
+9643|4|Fixed-Height Post Anchors|انکر دکلی ارتفاع ثابت|
+9644|4|Vacuum Anchors|انکر وکیومی|
+9645|3|Fall Protection Kits|کیت ضدسقوط|
+9646|3|Fall Rescue & Descent Equipment|تجهیزات نجات و فرود|
+9647|3|Ladder Lifeline Systems|سیستم لایف‌لاین نردبان|
+9648|3|Horizontal Lifelines|لایف‌لاین افقی|
+9649|3|Vertical Rope Lifelines & Rope Grabs|لایف‌لاین طنابی عمودی و طناب‌گیر|
+9650|3|Carabiners for Fall Protection|کارابین ایمنی|
+9651|3|Guardrails, Gates & Warning Lines for Fall Prevention|نرده، درب و خط هشدار پیشگیری از سقوط|
+9652|4|Self-Closing Safety Gates|درب ایمنی خودبسته‌شو|
+9653|4|Guardrails for Fall Prevention|نرده ایمنی ضدسقوط|
+9654|4|Roof Hatch Guardrails|نرده دریچه پشت‌بام|
+9655|4|Safety Netting|تور ایمنی|
+9656|4|Skylight Guards|محافظ نورگیر سقفی|
+9657|4|Warning Lines|خط هشدار|
+9658|3|Pole Climbing Equipment|تجهیزات صعود تیر (دکل)|
+9659|4|Lineman Belts|کمربند سیم‌بانی|
+9660|4|Pole Climbers & Components|کفش صعود تیر (ستون‌کفشی) و قطعات|
+9661|4|Pole-Climbing Straps & Lanyards|تسمه و لنیارد صعود تیر|
+9662|3|Tool Tethering & Dropped-Object Safety|بند ابزار و ایمنی سقوط اشیا|
+9663|4|Anchor Points for Tool Tethers|نقطه اتصال بند ابزار|
+9664|4|Attachment Points for Tool Tethers|اتصال‌دهنده بند ابزار|
+9665|4|Containers for Dropped-Object Safety|کیسه و ظرف ابزار ضدسقوط|
+9666|4|Tool Tethering Kits|کیت بند ابزار|
+9667|4|Tool Tethers|بند ابزار|
+9668|2|Confined Space|فضای بسته (محصور)|
+9669|3|Confined Space Fans & Ventilation|فن و تهویه فضای بسته|
+9670|4|Electric Fans & Blowers for Confined Spaces|فن و دمنده برقی فضای بسته|
+9671|4|Air-Powered Fans & Blowers for Confined Spaces|فن و دمنده بادی فضای بسته|
+9672|4|Gasoline-Powered Blowers for Confined Spaces|دمنده بنزینی فضای بسته|
+9673|4|Ducts, Vents & Duct Connectors for Confined Spaces|داکت، دریچه و اتصال داکت فضای بسته|
+9674|3|Confined Space Entry & Retrieval|ورود و نجات فضای بسته|
+9675|4|Davit Systems & Components|سیستم داویت و قطعات|
+9676|4|Tripod Systems for Vertical Entry|سه‌پایه نجات ورود عمودی|
+9677|4|Pole Hoist Systems & Components|سیستم بالابر دکلی و قطعات|
+9678|4|Confined Space Winches|وینچ فضای بسته|
+9679|4|Confined Space Lanyards|لنیارد فضای بسته|
+9680|3|Confined Space Permits & Permit Holders|مجوز ورود فضای بسته و جای مجوز|
+9681|3|Manhole Entry, Retrieval & Fall Prevention|ورود، نجات و ضدسقوط منهول|
+9682|4|Manhole Guardrails|نرده منهول|
+9683|4|Manhole Guardrail Winches|وینچ نرده منهول|
+9684|4|Manhole Shelters, Umbrellas & Shields|سایبان، چتر و حفاظ منهول|
+9685|4|Manhole Removal Dollies|چرخ درب‌بردار منهول|
+9686|4|Manhole Lifters & Hooks|درب‌بازکن و قلاب منهول|
+9687|3|Confined Space Covers|درپوش فضای بسته|
+9688|2|Respiratory Protection|حفاظت تنفسی|
+9689|3|Disposable Respirators & Masks|ماسک تنفسی یکبار مصرف|
+9690|4|Cleanroom Face Masks|ماسک کلین‌روم|
+9691|4|General Purpose Disposable Respirators & Dust Masks|ماسک یکبار مصرف و ماسک گردوغبار|
+9692|4|Healthcare Masks & Respirators|ماسک پزشکی و تنفسی بهداشتی|
+9693|4|Welding Disposable Respirators|ماسک یکبار مصرف جوشکاری|
+9694|3|Emergency Escape Respirators|ماسک فرار اضطراری|
+9695|3|PAPR (Powered Air-Purifying Respirator) Systems & Components|ماسک تصفیه هوای موتوردار (PAPR) و قطعات|
+9696|4|Full PAPR Systems|سیستم کامل PAPR|
+9697|5|Harsh Environment PAPR Systems|سیستم PAPR محیط سخت|
+9698|5|General Purpose PAPR Systems|سیستم PAPR عمومی|
+9699|5|Healthcare & Pharmaceutical PAPR Systems|سیستم PAPR پزشکی و دارویی|
+9700|5|Painting & Spraying PAPR Systems|سیستم PAPR رنگ‌کاری و اسپری|
+9701|5|Welding PAPR Systems|سیستم PAPR جوشکاری|
+9702|4|PAPR System Components|قطعات سیستم PAPR|
+9703|5|PAPR Assemblies & Partial Systems|مجموعه و سیستم ناقص PAPR|
+9704|5|PAPR Batteries & Battery Chargers|باتری و شارژر PAPR|
+9705|5|PAPR Belts & Harnesses|کمربند و بند PAPR|
+9706|5|PAPR Blowers|دمنده (موتور) PAPR|
+9707|5|PAPR Breathing Tubes|شیلنگ تنفس PAPR|
+9708|5|PAPR Lenses, Lens Covers & Protective Plates|لنز، کاور لنز و طلق محافظ PAPR|
+9709|5|PAPR Particulate Filters & Vapor Cartridges|فیلتر ذرات و کارتریج بخار PAPR|
+9710|5|PAPR & Supplied-Air Hoods & Helmets|کلاه و کلاه‌کاپشن PAPR و هوارسان|
+9711|5|Spectacle Kits for Full-Face Respirators|کیت عینک طبی ماسک تمام‌صورت|
+9712|3|Respirator Cleaning Kits & Wipes|کیت و دستمال تمیزکننده ماسک|
+9713|3|Respirator Fit Testing|تست انطباق (فیت تست) ماسک|
+9714|3|Respiratory Equipment Storage|جعبه نگهداری تجهیزات تنفسی|
+9715|3|Reusable Respirators, Replacement Filters & Cartridges|ماسک تنفسی چندبار مصرف، فیلتر و کارتریج|
+9716|4|Cloth Face Masks|ماسک پارچه‌ای|ترکیبی
+9717|4|Full-Face Respirators|ماسک تمام‌صورت|
+9718|4|Half-Mask Respirators|ماسک نیم‌صورت|
+9719|4|Particulate Filters & Vapor Cartridges|فیلتر ذرات و کارتریج بخار (فیلتر ماسک)|
+9720|4|Reusable Respirator Replacement Parts|قطعات یدکی ماسک چندبار مصرف|
+9721|3|SAR (Supplied-Air Respirator) Systems & Components|ماسک هوارسان (SAR) و قطعات|
+9722|4|Airline Breathing Tubes and Cooling & Heating Control for SAR|شیلنگ تنفس و کنترل دمای ماسک هوارسان|
+9723|4|Airline Filtration & CO Monitors for SAR|فیلتراسیون هوا و مانیتور CO ماسک هوارسان|
+9724|4|Complete SAR (Supplied-Air Respirator) Systems|سیستم کامل ماسک هوارسان|
+9725|4|Partial SAR Assemblies|مجموعه ناقص ماسک هوارسان|
+9726|4|SAR Airline Hoses|شیلنگ هوای ماسک هوارسان|
+9727|4|SAR Compressors & Ambient Air Pumps|کمپرسور و پمپ هوای محیط ماسک هوارسان|
+9728|3|SCBA (Self-Contained Breathing Apparatus) Systems & Components|دستگاه تنفسی مستقل (SCBA) و قطعات|
+9729|4|Industrial SCBA Systems|دستگاه SCBA صنعتی|
+9730|4|SCBA Backframe Assemblies|قاب پشتی SCBA|
+9731|4|SCBA & Breathing Air Cylinders|کپسول هوای تنفسی SCBA|
+9732|4|SCBA Cylinder Carts|ترولی کپسول SCBA|
+9733|2|Gas Detection|گازسنجی (تشخیص گاز)|
+9734|3|Portable Gas Detection|گازسنج پرتابل|
+9735|4|Portable Gas Detectors|گازسنج پرتابل|
+9736|4|Area Gas Monitors|مانیتور گاز محیطی|
+9737|4|Replacement Gas Detector Sensors & Parts|سنسور و قطعات یدکی گازسنج|
+9738|4|Accessories for Portable Gas Detectors|لوازم جانبی گازسنج پرتابل|
+9739|4|Portable Gas Detector Calibration|کالیبراسیون گازسنج پرتابل|
+9740|4|Badge Gas Monitors|گازسنج جیبی (بجی)|
+9741|4|Gas Detection Tubes & Sample Pumps|تیوب گازسنج و پمپ نمونه‌برداری|
+9742|5|Gas Detection Tubes|تیوب گازسنج (دراگر تیوب)|
+9743|5|Sample Draw Pumps|پمپ نمونه‌برداری|
+9744|5|Accessories for Gas Detection Tubes & Pumps|لوازم جانبی تیوب و پمپ گازسنج|
+9745|3|Fixed Gas Detection|گازسنج ثابت (دتکتور گاز)|
+9746|2|Sorbents, Spill Control & Spill Containment|جاذب، کنترل و مهار نشتی|
+9747|3|Sorbents & Spill Kits|جاذب و کیت نشتی (اسپیل کیت)|
+9748|4|Universal Sorbents & Spill Kits|جاذب و اسپیل کیت عمومی|
+9749|5|Universal Spill Kits|اسپیل کیت عمومی|
+9750|5|Universal Loose & Granular Sorbents|جاذب گرانولی عمومی|
+9751|5|Universal Sorbent Pads|پد جاذب عمومی|
+9752|5|Universal Sorbent Rolls|رول جاذب عمومی|
+9753|5|Universal Sorbent Floor Mats|کفپوش جاذب عمومی|
+9754|5|Universal Sorbent Pillows|بالشتک جاذب عمومی|
+9755|5|Universal Sorbent Socks & Booms|بوم و جوراب جاذب عمومی|
+9756|4|Oil-Only Sorbents & Spill Kits|جاذب و اسپیل کیت نفتی (فقط روغن)|
+9757|5|Oil-Only Spill Kits|اسپیل کیت نفتی|
+9758|5|Oil-Only Loose & Granular Sorbents|جاذب گرانولی روغن|
+9759|5|Oil-Only Sorbent Pads|پد جاذب روغن|
+9760|5|Oil-Only Sorbent Rolls|رول جاذب روغن|
+9761|5|Oil-Only Sorbent Socks & Booms|بوم و جوراب جاذب روغن|
+9762|5|Oil-Only Sorbent Pillows, Blankets & Ground Mats|بالشتک، پتو و زیرانداز جاذب روغن|
+9763|5|Oil-Only Skimmers & Sweeps|اسکیمر و نوار جمع‌آوری روغن|
+9764|5|Oil-Eating Microbes|میکروب تجزیه‌کننده روغن|
+9765|4|Fuel & Flammable Liquid Sorbents & Spill Kits|جاذب و اسپیل کیت سوخت و مایعات قابل اشتعال|
+9766|5|Fuel & Flammable Liquid Spill Kits|اسپیل کیت سوخت و مایعات قابل اشتعال|
+9767|5|Fuel & Flammable Liquid Sorbent Pads & Rolls|پد و رول جاذب سوخت|
+9768|5|Fuel & Flammable Liquid Sorbent Socks|جوراب جاذب سوخت|
+9769|5|Fuel-Eating Microbes|میکروب تجزیه‌کننده سوخت|
+9770|4|Harsh Chemical Sorbents & Spill Kits|جاذب و اسپیل کیت مواد شیمیایی خورنده|
+9771|5|Harsh Chemical Spill Kits|اسپیل کیت مواد شیمیایی خورنده|
+9772|5|Harsh Chemical Loose & Granular Sorbents|جاذب گرانولی مواد شیمیایی|
+9773|5|Harsh Chemical Neutralizers|خنثی‌کننده مواد شیمیایی|
+9774|5|Harsh Chemical Sorbent Pads|پد جاذب مواد شیمیایی|
+9775|5|Harsh Chemical Sorbent Rolls|رول جاذب مواد شیمیایی|
+9776|5|Harsh Chemical Sorbent Socks & Booms|بوم و جوراب جاذب مواد شیمیایی|
+9777|5|Harsh Chemical Sorbent Pillows|بالشتک جاذب مواد شیمیایی|
+9778|4|Biohazardous Liquid & Bodily Fluid Sorbents & Spill Kits|جاذب و اسپیل کیت مایعات عفونی و بدن|
+9779|5|Biohazardous Liquid & Bodily Fluid Spill Kits|اسپیل کیت مایعات عفونی و بدن|
+9780|5|Biohazardous Liquid & Bodily Fluid Sorbent Pads & Rolls|پد و رول جاذب مایعات عفونی|
+9781|5|Biohazardous Liquid & Bodily Fluid Granular Sorbents|جاذب گرانولی مایعات عفونی|
+9782|5|Biohazardous Liquid & Bodily Fluid Floor Skimmers|کاردک جمع‌آوری مایعات عفونی از کف|
+9783|4|Mercury Sorbents & Spill Kits|جاذب و اسپیل کیت جیوه|
+9784|5|Mercury Spill Kits|اسپیل کیت جیوه|
+9785|5|Mercury Sponges, Pickup Tools & Waste Containers|اسفنج، ابزار جمع‌آوری و ظرف پسماند جیوه|
+9786|5|Mercury Vapor Suppressants, Capture & Indicating Powders|پودر جاذب، مهارکننده و نشانگر بخار جیوه|
+9787|4|Sorbent & Spill Kit Accessories|لوازم جانبی جاذب و اسپیل کیت|
+9788|5|Spill Kit Parts & Accessories|قطعات و لوازم جانبی اسپیل کیت|
+9789|5|Sorbent Cleanup Supplies|ملزومات جمع‌آوری جاذب|
+9790|5|Sorbent Mat Installation & Removal Tools|ابزار نصب و جمع‌کردن کفپوش جاذب|
+9791|4|Cabinets, Carts & Dispensers for Sorbents|کابینت، ترولی و دیسپنسر جاذب|
+9792|5|Spill Cabinets & Carts|کابینت و ترولی اسپیل کیت|
+9793|5|Sorbent Roll Dispensers|دیسپنسر رول جاذب|
+9794|5|Granular Sorbent Containers|ظرف جاذب گرانولی|
+9795|3|Spill Containment Pallets, Platforms & Dollies|پالت، سکو و چرخ مهار نشتی|
+9796|4|Spill Containment Pallets|پالت مهار نشتی (اسپیل پالت)|
+9797|4|Covered Spill Containment Pallets|اسپیل پالت سرپوشیده|
+9798|4|Accessories & Replacement Parts for Spill Pallets|لوازم جانبی و قطعات یدکی اسپیل پالت|
+9799|4|Spill Decks & Platforms|سکو و دک مهار نشتی|
+9800|4|Spill Deck & Platform Accessories & Replacement Parts|لوازم جانبی و قطعات یدکی سکوی مهار نشتی|
+9801|4|IBC Spill Pallets|اسپیل پالت IBC|
+9802|4|Covered IBC Spill Pallets|اسپیل پالت IBC سرپوشیده|
+9803|4|IBC Tote Dispensing Systems|سیستم تخلیه مخزن IBC|
+9804|4|Accessories for IBC Spill Pallets|لوازم جانبی اسپیل پالت IBC|
+9805|4|Spill Containment Trucks & Dollies|ترولی و چرخ مهار نشتی|
+9806|4|Drum Dispensing Racks & Trucks|رک و ترولی تخلیه بشکه|
+9807|4|Spill Containment Sumps|حوضچه مهار نشتی|
+9808|3|Spill Trays, Drip Pillows & Leak Protection|سینی نشتی، بالشتک قطره‌گیر و محافظ نشتی|
+9809|4|Spill Trays|سینی نشتی (تشتک)|
+9810|4|Collapsible Spill Trays|سینی نشتی تاشو|
+9811|4|Drip Pillows|بالشتک قطره‌گیر|
+9812|4|Leak Diverters|منحرف‌کننده نشتی سقف|
+9813|4|Leak Repair Patches, Putties & Plugs|وصله، بتونه و درپوش تعمیر نشتی|
+9814|3|Drain Protection & Stormwater Filtration|محافظ آبرو و فیلتر آب باران|
+9815|4|Storm Drain Cover Seals|پوشش آب‌بند دریچه آبرو|
+9816|4|Accessories for Storm Drain Cover Seals|لوازم جانبی پوشش دریچه آبرو|
+9817|4|Storm Drain & Pipe Filter Socks|جوراب فیلتر آبرو و لوله|
+9818|4|Curb Drain Filters|فیلتر آبروی جدول|
+9819|4|Street Drain Filters|فیلتر آبروی خیابان|
+9820|4|Combination Curb & Street Drain Filters|فیلتر ترکیبی آبروی جدول و خیابان|
+9821|4|Drain Plugs|درپوش آبرو|
+9822|4|Stormwater Filter Pads & Rolls|پد و رول فیلتر آب باران|
+9823|4|Trench Drain Filters & Booms|فیلتر و بوم کانال آبرو|
+9824|4|Dewatering Bags|کیسه آبگیری (دی‌واترینگ)|
+9825|3|Spill Containment Berms, Dikes & Pools|دیواره، خاکریز و استخر مهار نشتی|
+9826|4|Collapsible Spill Containment Berms|دیواره مهار نشتی تاشو|

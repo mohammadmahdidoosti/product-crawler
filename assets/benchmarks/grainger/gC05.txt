@@ -1,0 +1,301 @@
+6101|5|All Weather Notebook Kits|کیت دفتر ضدآب|
+6102|5|General Purpose All Weather Notebooks & Notepads|دفتر و دفترچه ضدآب همه‌منظوره|
+6103|5|Task-Specific All-Weather Notebooks|دفتر ضدآب تخصصی|
+6104|4|Lab Notebooks & Graph Paper|دفتر آزمایشگاه و کاغذ میلی‌متری|
+6105|4|Portfolios|کیف کنفرانس (پورتفولیو)|
+6106|4|Standard Notebooks & Notepads|دفتر و دفترچه یادداشت استاندارد|
+6107|3|Sticky Notes & Flags|کاغذ یادداشت چسب‌دار و نشانگر|
+6108|4|Standard Sticky Notes|کاغذ یادداشت چسب‌دار (استیکی نوت)|
+6109|4|Sticky Flags|نشانگر چسب‌دار (فلگ)|
+6110|2|Writing & Correction|نوشت‌افزار و غلط‌گیر|
+6111|3|Pens|خودکار و روان‌نویس|
+6112|4|Standard Pens|خودکار استاندارد|
+6113|5|Rollerball & Gel Pens|روان‌نویس و خودکار ژله‌ای|
+6114|5|Ballpoint Pens|خودکار|
+6115|5|Felt Tip Pens|ماژیک نوک‌نمدی (راپید نمدی)|
+6116|4|Metal- & X-Ray-Detectable Pens|خودکار قابل‌ردیابی با فلزیاب و اشعه X|
+6117|4|Cleanroom Pens|خودکار اتاق تمیز|
+6118|4|All-Weather & Anti-Gravity Pens|خودکار ضدآب و ضدجاذبه|
+6119|4|Tactical Pens|خودکار تاکتیکی|
+6120|4|Security & Counterfeit-Detection Pens|خودکار امنیتی و تشخیص اسکناس جعلی|
+6121|4|Technical Pens|راپید (قلم فنی)|
+6122|4|Touchscreen Stylus Pens|قلم لمسی (استایلوس)|
+6123|3|Markers|ماژیک|
+6124|4|Permanent Markers|ماژیک ضدآب (پرمننت)|
+6125|4|Wet- & Dry-Erase Markers|ماژیک وایت‌برد و پاک‌شونده با آب|
+6126|5|Standard Wet- & Dry-Erase Markers|ماژیک وایت‌برد استاندارد|
+6127|5|Metal- & X-Ray-Detectable Dry-Erase Markers|ماژیک وایت‌برد قابل‌ردیابی با فلزیاب|
+6128|4|Highlighters|ماژیک هایلایت (شبرنگ)|
+6129|5|Standard Highlighters|ماژیک هایلایت استاندارد|
+6130|5|Metal- & X-Ray-Detectable Highlighters|هایلایت قابل‌ردیابی با فلزیاب|
+6131|4|Metal- & X-Ray-Detectable Markers|ماژیک قابل‌ردیابی با فلزیاب|
+6132|4|Cleanroom Markers|ماژیک اتاق تمیز|
+6133|4|Chalk & Paint Markers|ماژیک گچی و ماژیک رنگ (مارکر رنگ)|
+6134|4|Art Markers|ماژیک طراحی|
+6135|3|Pencils & Sharpeners|مداد و تراش|
+6136|4|Pencils|مداد|
+6137|4|Pencil Sharpeners|مدادتراش|
+6138|3|Crayons, Oil Pastels, Chalk & Clay|مداد شمعی، پاستل روغنی، گچ و خمیر بازی|
+6139|3|Erasers & Correction Supplies|پاک‌کن و غلط‌گیر|
+6140|4|Erasers|پاک‌کن|
+6141|4|Correction Tape, Fluids & Pens|غلط‌گیر نواری، مایع و قلمی|
+6142|2|Staplers & Hole Punches|منگنه و پانچ|
+6143|3|Electric Office Staplers|منگنه برقی|
+6144|3|Manual Office Staplers|منگنه دستی|
+6145|3|Office Staples|سوزن منگنه|
+6146|3|Staple Removers|سوزن‌کش|
+6147|3|Paper Hole Punches|پانچ کاغذ|
+6148|2|Binders & Clipboards|کلاسور و تخته شاسی|
+6149|3|3-Ring Binders|کلاسور سه‌حلقه|
+6150|3|Clipboards|تخته شاسی (کلیپ‌بورد)|
+6151|3|Binder Dividers, Index Tabs & Accessories|جداکننده کلاسور، ایندکس و لوازم جانبی|
+6152|2|File Folders & Boxes|پوشه و جعبه بایگانی|
+6153|3|File Folders|پوشه|
+6154|3|Expandable File Folders|پوشه آکاردئونی|
+6155|3|Hanging File Folders|پوشه آویز|
+6156|3|File Jackets, Pocket Folders & Report Covers|پوشه جیبی، کاور گزارش و جلد پرونده|
+6157|3|File Boxes|جعبه بایگانی (باکس فایل)|
+6158|2|Clips, Push Pins, & Rubber Bands|گیره، پونز و کش|
+6159|3|Binder Clips, Binder Rings & Bulldog Clips|گیره دوبل (کلیپس)، حلقه کلاسور و گیره فنری|
+6160|3|Paper Clips|گیره کاغذ (سوزن ته‌گرد)|
+6161|3|Paper File Fasteners|گیره پرونده (اسکلت)|
+6162|3|Push Pins|پونز|
+6163|3|Rubber Bands & Wraps|کش لاستیکی و نوار بسته‌بندی|
+6164|2|Office Organizers|نظم‌دهنده رومیزی اداری|
+6165|3|Desk Supply Organizers|جامدادی و نظم‌دهنده رومیزی|
+6166|3|Index Card & Business Card Holders|جاکارتی و جای کارت یادداشت|
+6167|3|Letter Trays & File Holders|سینی نامه و جاپوشه‌ای|
+6168|3|Wall Files & Partition Organizers|جاپوشه‌ای دیواری و نظم‌دهنده پارتیشن|
+6169|3|Cable Organizers|نظم‌دهنده کابل|
+6170|3|Desk Mats, Bumpers & Protective Film|زیردستی، ضربه‌گیر و فیلم محافظ میز|
+6171|2|Boards & Easels|تابلو و سه‌پایه|
+6172|3|Dry-Erase Boards & Sheets|وایت‌برد و برگه وایت‌برد|
+6173|4|Wall-Mounted Dry-Erase Boards|وایت‌برد دیواری|
+6174|4|Mobile Dry-Erase Boards|وایت‌برد چرخ‌دار|
+6175|4|Specific Use Dry-Erase Boards|وایت‌برد کاربرد خاص|
+6176|5|Grid Dry-Erase Boards|وایت‌برد شطرنجی|
+6177|5|Calendar Dry-Erase Boards|وایت‌برد تقویمی|
+6178|5|In/Out Dry-Erase Boards|وایت‌برد حضور و غیاب|
+6179|5|Continuous Improvement Dry-Erase Boards|وایت‌برد بهبود مستمر (کایزن)|
+6180|5|Healthcare Dry-Erase Boards|وایت‌برد بیمارستانی|
+6181|4|Dry-Erase Sheets|برگه وایت‌برد (استیکری)|
+6182|4|Cleaning Supplies for Dry-Erase Boards|لوازم تمیزکاری وایت‌برد|
+6183|4|Outdoor Dry-Erase Boards|وایت‌برد فضای باز|
+6184|3|Bulletin Boards & Accessories|تابلو اعلانات و لوازم جانبی|
+6185|4|Bulletin Boards|تابلو اعلانات (چوب‌پنبه‌ای)|
+6186|4|Enclosed Bulletin Boards|تابلو اعلانات درب‌دار (ویترینی)|
+6187|4|Bulletin Board Display Rails|ریل نمایش تابلو اعلانات|
+6188|4|Bulletin Board Tiles & Rolls|کاشی و رول چوب‌پنبه تابلو اعلانات|
+6189|4|Bulletin Board & Easel Accessories|لوازم جانبی تابلو اعلانات و سه‌پایه|
+6190|3|Chalkboards|تخته سیاه (گچی)|
+6191|3|Combination Boards|تابلو ترکیبی|
+6192|3|Letter Board Signs & Sandwich Boards|تابلو حروف‌چین و استند A شکل|
+6193|3|Easels & Pads|سه‌پایه و فلیپ‌چارت|
+6194|3|Board Accessories & Magnets|لوازم جانبی تابلو و آهنربا|
+6195|2|Wall Clocks|ساعت دیواری|
+6196|3|Analog Clocks|ساعت دیواری عقربه‌ای|
+6197|3|Digital Clocks|ساعت دیجیتال|
+6198|3|Synchronized Clocks|ساعت همزمان‌شونده (مرکزی)|
+6199|2|Time Clocks, Cards & Badge Racks|دستگاه حضور و غیاب، کارت و جاکارتی|
+6200|3|Time Clocks, Cards & Ribbons|دستگاه حضور و غیاب، کارت و ریبون|
+6201|3|Time Card & Badge Racks|جاکارتی حضور و غیاب|
+6202|2|Sign Holders & Document Displays|استند تابلو و نمایشگر اسناد|
+6203|3|Shop Ticket Holders & Tag Protectors|جاکارتی کارگاهی و محافظ برچسب|
+6204|3|Sign Holders for Walls & Doors|استند تابلو دیواری و دری|
+6205|3|Freestanding Sign Holders|استند تابلو ایستاده|
+6206|3|Document Displays & Frames|قاب و نمایشگر اسناد|
+6207|2|Business Forms & Recordkeeping Books|فرم‌های اداری و دفاتر ثبت|
+6208|3|Parking Violation Tags & Petty Cash Forms|برگه تخلف پارکینگ و فرم تنخواه|
+6209|3|Bill of Lading, Shipping & Receiving Forms|فرم بارنامه، ارسال و دریافت کالا|
+6210|3|Purchase Order Forms & Sales Order Forms|فرم سفارش خرید و فروش|
+6211|3|Work Order Forms & Invoice Forms|فرم دستور کار و فاکتور|
+6212|3|Guest Checks & Receipts|صورت‌حساب رستوران و رسید|
+6213|3|HR & Payroll Related Forms|فرم‌های منابع انسانی و حقوق‌ودستمزد|
+6214|3|Healthcare & Insurance Forms|فرم‌های پزشکی و بیمه|
+6215|3|Address Books, Telephone Messages & Desk Messages|دفترچه آدرس، فرم پیغام تلفنی و یادداشت رومیزی|
+6216|3|Visitor Register Books|دفتر ثبت مراجعین|
+6217|3|Notary Books|دفتر ثبت اسناد|
+6218|3|Accounting Ledger & Record Books|دفتر حسابداری (کل و معین) و دفتر ثبت|
+6219|2|Calendars & Planners|تقویم و سررسید|
+6220|3|Desk Calendars|تقویم رومیزی|
+6221|3|Wall Calendars|تقویم دیواری|
+6222|3|Planners & Planner Refills|سررسید و برگ یدک|
+6223|2|Printers, Ink and Toners & Printer Accessories|پرینتر، جوهر، تونر و لوازم جانبی|
+6224|3|Ink & Toner Cartridges|کارتریج جوهر و تونر|
+6225|3|Printers|پرینتر|
+6226|3|Printer Drums|درام پرینتر|
+6227|3|Printer Accessories|لوازم جانبی پرینتر|
+6228|2|Scanners|اسکنر|
+6229|2|Computer Supplies & Media|لوازم جانبی کامپیوتر و رسانه ذخیره‌سازی|
+6230|3|Computer Connection Cables|کابل‌های اتصال کامپیوتر|
+6231|3|Computer Adapters & Splitters|تبدیل و اسپلیتر کامپیوتر|
+6232|3|Computer Storage Devices|حافظه ذخیره‌سازی|
+6233|4|Flash Drives & Memory Cards|فلش مموری و کارت حافظه|
+6234|4|CDs & DVDs|سی‌دی و دی‌وی‌دی|
+6235|3|Webcams|وب‌کم|
+6236|3|Keyboards|کیبورد|
+6237|3|Computer Mice|ماوس|
+6238|3|Keyboard & Mouse Sets|ست کیبورد و ماوس|
+6239|3|Computer Monitor Arms|پایه بازویی مانیتور|
+6240|3|Tablet Holders, Stands & Cases|نگهدارنده، پایه و کیف تبلت|
+6241|3|Mouse Pads & Wrist Rests|ماوس‌پد و مچ‌بند|
+6242|3|Computer Screen Filters|فیلتر صفحه نمایش (پرایوسی)|
+6243|3|Aerosol Dusters, Screen & Equipment Cleaners|اسپری هوای فشرده و تمیزکننده صفحه و تجهیزات|
+6244|3|Portable Monitors|مانیتور قابل‌حمل|
+6245|3|Wireless Phone Chargers|شارژر بی‌سیم موبایل|
+6246|3|Laptop Docking Stations|داک لپ‌تاپ (داکینگ استیشن)|
+6247|2|Projectors & Projector Screens|ویدئو پروژکتور و پرده نمایش|
+6248|3|Projectors|ویدئو پروژکتور|
+6249|3|Projection Screens|پرده نمایش|
+6250|2|Laminating & Binding Equipment|دستگاه لمینیت و صحافی|
+6251|3|Laminating Machines|دستگاه لمینیت (پرس کارت)|
+6252|3|Laminating Pouches & Film|طلق و فیلم لمینیت|
+6253|3|Binding Machines|دستگاه صحافی (فنرزن)|
+6254|3|Binding Covers & Spines|طلق جلد و فنر صحافی|
+6255|2|Paper Shredders, Paper Cutters and Paper Folding Machines|کاغذخردکن، کاغذبر و دستگاه تاکن|
+6256|3|Paper Cutters & Cutting Mats|کاغذبر و کاتینگ‌مت|
+6257|4|Paper Cutters|کاغذبر (گیوتین)|
+6258|4|Paper Cutting Mats|کاتینگ‌مت|
+6259|3|Paper Folding Machines|دستگاه تاکن کاغذ|
+6260|3|Paper Shredders & Paper Shredder Bags|کاغذخردکن و کیسه کاغذخردکن|
+6261|4|Paper Shredder Oils|روغن کاغذخردکن|
+6262|4|Cardboard Shredders|کارتن‌خردکن|
+6263|4|CD & Hard Drive Shredders|خردکن سی‌دی و هارد|
+6264|4|High Security Paper Shredders|کاغذخردکن امنیتی|
+6265|4|Industrial Paper Shredders|کاغذخردکن صنعتی|
+6266|4|Shredder Bags|کیسه کاغذخردکن|
+6267|4|Standard Paper Shredders|کاغذخردکن استاندارد|
+6268|2|Calculators|ماشین‌حساب|
+6269|3|Desk & Pocket Calculators|ماشین‌حساب رومیزی و جیبی|
+6270|3|Printing Calculators|ماشین‌حساب چاپگردار|
+6271|3|Graphing & Scientific Calculators|ماشین‌حساب مهندسی و گرافیکی|
+6272|3|Construction Calculators|ماشین‌حساب ساختمانی|
+6273|2|Laser Pointers|لیزر پوینتر|
+6274|2|Flags & Flag Poles|پرچم و میله پرچم|
+6275|3|US Flags|پرچم آمریکا|
+6276|3|US State & Territory Flags|پرچم ایالت‌ها و مناطق آمریکا|
+6277|3|Country Flags|پرچم کشورها|
+6278|3|Armed Forces & Specialty Flags|پرچم نیروهای مسلح و پرچم‌های خاص|
+6279|3|Message & Feather Flags|پرچم تبلیغاتی و پرچم ساحلی (بادبانی)|
+6280|3|Pennants|پرچم مثلثی (ریسه)|
+6281|3|Flag Poles & Accessories|میله پرچم و لوازم جانبی|
+6282|2|Ink Stamps & Ink Pads|مهر و استامپ|
+6283|3|Alphanumeric Stamps|مهر حروف و اعداد|
+6284|3|Date Stamps|مهر تاریخ‌زن|
+6285|3|Electronic Digital Stamps|مهر دیجیتال الکترونیکی|
+6286|3|Ink Pads & Refills|استامپ و جوهر استامپ|
+6287|4|Stamp Ink Pads|استامپ|
+6288|4|Stamp Ink Refills|جوهر استامپ|
+6289|3|Message & Date Stamps|مهر پیام و تاریخ|
+6290|3|Message Stamps|مهر پیام (عبارت)|
+6291|3|Numbering Stamps|مهر شماره‌زن|
+6292|2|Office Tape & Dispensers|چسب نواری اداری و پایه چسب|
+6293|3|Transparent Office Tape|چسب نواری شفاف (چسب‌کاغذی شفاف)|
+6294|3|Office Tape Dispensers|پایه چسب نواری|
+6295|2|Laptop Bags & Business Cases|کیف لپ‌تاپ و کیف اداری|
+6296|2|Office Equipment Replacement Parts|قطعات یدکی تجهیزات اداری|
+6297|2|Craft Die Cutting Machines & Accessories|دستگاه برش کاردستی (دای‌کات) و لوازم جانبی|
+6298|1|Outdoor Equipment|تجهیزات فضای باز و باغبانی|
+6299|2|Weed Killers & Herbicides|علف‌کش|ترکیبی
+6300|2|Outdoor Power Equipment|ماشین‌آلات موتوری فضای باز|
+6301|3|Debris & Leaf Blowers|دمنده برگ (بلوور)|ترکیبی
+6302|4|Handheld Blowers|دمنده برگ دستی|
+6303|4|Backpack Blowers|دمنده برگ کوله‌ای|
+6304|4|Walk-Behind Blowers|دمنده برگ چرخ‌دار|
+6305|4|Blower Attachments & Parts|متعلقات و قطعات دمنده|
+6306|3|String Trimmers, Brush Cutters & Edgers|علف‌زن (تریمر)، شمشادزن و لبه‌زن چمن|ترکیبی
+6307|4|String Trimmers|علف‌زن نخی (تریمر)|
+6308|4|Trimmer Line & Replacement Heads|نخ و سر یدکی علف‌زن|
+6309|4|Lawn Edgers & Bed Redefiners|لبه‌زن چمن و باغچه|
+6310|4|Brush Cutters|علف‌زن تیغه‌ای (بوته‌بر)|
+6311|4|Brush Cutter & Edger Blades|تیغه علف‌زن و لبه‌زن|
+6312|4|Trimmer, Cutter & Edger Accessories|لوازم جانبی علف‌زن و لبه‌زن|
+6313|3|Mowers, Aerators & Power Rakes|ماشین چمن‌زنی، هوادهنده و شن‌کش موتوری|ترکیبی
+6314|4|Walk-Behind Lawn Mowers|ماشین چمن‌زنی دستی (هلی)|
+6315|4|Zero-Turn Riding Lawn Mowers|ماشین چمن‌زنی سواری زیروترن|
+6316|4|Power Rakes & Overseeders|شن‌کش موتوری و بذرپاش|
+6317|4|Walk-Behind Aerators|هوادهنده چمن هلی|
+6318|4|Field & Brush Mowers|علف‌بر مزرعه و بوته‌بر|
+6319|4|Lawn Mower Blades|تیغه ماشین چمن‌زنی|
+6320|4|Lawn Mower Tires|لاستیک ماشین چمن‌زنی|
+6321|4|Tow-Behind Attachments|ادوات یدک‌کش|
+6322|5|Dump Carts & Trailers|کارت و تریلر تخلیه|
+6323|5|Drag Harrows|دیسک (هرس) کششی|
+6324|5|Lawn Aerators|هوادهنده چمن|
+6325|5|Lawn Rollers|غلتک چمن|
+6326|5|Lawn Sweepers|جاروی چمن|
+6327|5|Lawn Dethatchers|کاه‌گیر چمن (دتچر)|
+6328|4|Lawn Mower Lifts|بالابر ماشین چمن‌زنی|
+6329|4|Lawn Mower Parts & Accessories|قطعات و لوازم جانبی ماشین چمن‌زنی|
+6330|3|Landscaping Power Heads & Attachments|موتور چندکاره باغبانی و متعلقات|
+6331|4|Landscaping Power Heads|موتور چندکاره باغبانی|
+6332|4|Landscaping Power Head Attachments|متعلقات موتور چندکاره باغبانی|
+6333|3|Power Brushes, Leaf & Litter Vacuums & Chipper Shredders|برس موتوری، مکنده برگ و زباله و خردکن شاخه|
+6334|4|Power Brushes & Replacement Brushes|برس موتوری و برس یدکی|
+6335|4|Leaf & Litter Vacuums|مکنده برگ و زباله|
+6336|4|Power Brush & Litter Vacuum Parts & Accessories|قطعات و لوازم جانبی برس موتوری و مکنده|
+6337|4|Chipper Shredders & Vacuums|خردکن شاخه (چیپر) و مکنده|
+6338|3|Chainsaws, Pole Saws & Log Splitters|اره زنجیری، اره شاخه‌زن و هیزم‌شکن|ترکیبی
+6339|4|Chainsaws|اره زنجیری (موتوری)|
+6340|4|Pole Saws & Accessories|اره شاخه‌زن دسته‌بلند و لوازم جانبی|
+6341|4|Chains & Bars for Chainsaws|زنجیر و تیغه (شمشیر) اره زنجیری|
+6342|4|Cases, Sharpening Tools, Cutting Guides & Parts for Chainsaws|کیف، ابزار تیزکن، راهنمای برش و قطعات اره زنجیری|
+6343|4|Chainsaw Lubricants|روغن زنجیر اره|
+6344|4|Chainsaw Protective Clothing|لباس محافظ اره‌کاری|
+6345|4|Log Splitters & Accessories|هیزم‌شکن و لوازم جانبی|
+6346|3|Hedge Trimmers & Pruners|شمشادزن و شاخه‌زن|ترکیبی
+6347|4|Standard Hedge Trimmers|شمشادزن استاندارد|
+6348|4|Extended-Reach Hedge Trimmers|شمشادزن دسته‌بلند|
+6349|4|Hedge Trimmer Accessories|لوازم جانبی شمشادزن|
+6350|4|Power Pruners|قیچی شاخه‌زن برقی|
+6351|4|Power Grass Shears|قیچی چمن برقی|
+6352|3|Outdoor Utility Vehicles|خودروی خدماتی فضای باز|
+6353|4|Outdoor Personnel & Utility Vehicles|خودروی نفربر و خدماتی|
+6354|4|Outdoor Personnel & Utility Vehicle Accessories & Parts|لوازم جانبی و قطعات خودروی خدماتی|
+6355|3|Cultivators & Tillers|کولتیواتور و تیلر (شخم‌زن)|ترکیبی
+6356|3|Outdoor Equipment Combination Kits|کیت ترکیبی تجهیزات فضای باز|ترکیبی
+6357|3|Power Concrete Mixers, Compactors & Finishing Tools|میکسر بتن، کمپکتور و ابزار پرداخت بتن|
+6358|4|Concrete & Mortar Mixers|بتونیر و میکسر ملات|
+6359|4|Concrete & Mortar Mixer Accessories|لوازم جانبی بتونیر|
+6360|4|Tamping Rams & Plate Compactors|کوبنده (تمپر) و کمپکتور صفحه‌ای|
+6361|4|Plate Compactor Accessories|لوازم جانبی کمپکتور|
+6362|4|Power Concrete Screeds & Boards|شمشه موتوری بتن|
+6363|4|Power Concrete Trowels & Blades|ماله‌پروانه‌ای بتن و پره|
+6364|4|Concrete Stamps & Rollers|قالب و غلتک بتن‌ریزی (استامپ بتن)|
+6365|4|Cordless Vibratory Bull Floats|ماله لرزشی شارژی بتن|
+6366|3|Power Earth Augers & Post Drivers|چاله‌کن موتوری و تیرکوب|
+6367|4|Power Earth Augers|چاله‌کن موتوری (اوگر)|
+6368|4|Earth Auger Bits|مته چاله‌کن|
+6369|4|Power Post Drivers|تیرکوب موتوری|
+6370|4|Accessories for Power Post Drivers|لوازم جانبی تیرکوب موتوری|
+6371|3|Batteries & Chargers for Outdoor Equipment|باتری و شارژر تجهیزات فضای باز|ترکیبی
+6372|4|Outdoor Equipment Batteries|باتری تجهیزات فضای باز|
+6373|4|Outdoor Equipment Battery Chargers|شارژر باتری تجهیزات فضای باز|
+6374|4|Battery Backpacks & Harnesses|باتری کوله‌ای و بند حمل|
+6375|2|Wheelbarrows|فرغون|ترکیبی
+6376|3|Standard Wheelbarrows|فرغون استاندارد|
+6377|3|Battery-Powered Wheelbarrows & Carts|فرغون و گاری شارژی|
+6378|3|Wheelbarrow Handles|دسته فرغون|
+6379|3|Replacement Parts for Wheelbarrows|قطعات یدکی فرغون|
+6380|2|Outdoor Hand Tools|ابزار دستی باغبانی و فضای باز|ترکیبی
+6381|3|Shovels, Scoops & Garden Trowels|بیل، خاک‌انداز و بیلچه باغبانی|
+6382|4|Digging Shovels & Spades|بیل حفاری و بیل تخت|
+6383|4|Scoop Shovels|بیل خاک‌برداری (پارو)|
+6384|4|Garden Trowels & Cultivators|بیلچه و چنگک باغبانی|
+6385|4|Roofing Shovels & Gutter Scoops|بیل سقف و خاک‌انداز ناودان|
+6386|4|Sod Cutters|چمن‌بر (برش چمن رولی)|
+6387|3|Rakes|شن‌کش|
+6388|4|Landscape & Bow Rakes|شن‌کش محوطه و شن‌کش کمانی|
+6389|4|Leaf & Shrub Rakes|شن‌کش برگ (جارو چنگکی)|
+6390|4|Road & Asphalt Rakes|شن‌کش آسفالت|
+6391|4|Lake Rakes|شن‌کش جلبک‌گیر دریاچه|
+6392|3|Forks, Hoes & Weed Cutters|چنگک، کج‌بیل و علف‌بر|
+6393|4|Agricultural & Garden Forks & Hooks|چنگک (دوشاخ) کشاورزی و باغبانی|
+6394|4|Garden Hoes|کج‌بیل (تیشه باغبانی)|
+6395|4|Weed Cutters|علف‌بر دستی|
+6396|3|Axes, Machetes, Hooks & Wedges|تبر، قمه، داس و گوه|
+6397|3|Digging Bars, Mattocks & Soil Probes|دیلم، کلنگ و نمونه‌گیر خاک|
+6398|4|Digging Bars|دیلم حفاری|
+6399|4|Pick & Cutter Mattocks|کلنگ و کلنگ تبری|
+6400|4|Soil Probes|نمونه‌گیر خاک (پروب خاک)|
+6401|3|Hand Tampers|کوبه دستی (تخماق)|

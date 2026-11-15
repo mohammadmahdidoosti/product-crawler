@@ -1,0 +1,283 @@
+6402|3|Brush Removal Tools & Log Grapples|ابزار پاکسازی بوته و گیره حمل کنده|
+6403|3|Hookaroons|قلاب کنده‌کش (هوکارون)|
+6404|3|Post Drivers & Post Hole Diggers|تیرکوب و چاله‌کن دستی|
+6405|4|Manual Post Drivers|تیرکوب دستی|
+6406|4|Post Hole Diggers|چاله‌کن دستی (بیل دوپر)|
+6407|3|Saws, Knives, Shears & Loppers|اره، چاقو، قیچی باغبانی و قیچی شاخه‌زن|
+6408|4|Tree Pruners & Pole Saws|شاخه‌زن درخت و اره دسته‌بلند|
+6409|4|Pruning Saws & Bow Saws|اره هرس و اره کمانی|
+6410|4|Pruning Knives|چاقوی هرس (پیوندزنی)|
+6411|4|Garden Shears & Loppers|قیچی باغبانی و قیچی شاخه‌زن دسته‌بلند|
+6412|3|Garden Tool & Shovel Replacement Handles|دسته یدکی بیل و ابزار باغبانی|
+6413|2|Garden Fabrics, Erosion Control Blankets & Tree Care|پارچه باغبانی، پتوی کنترل فرسایش و مراقبت درخت|ترکیبی
+6414|3|Erosion Control Blankets|پتوی کنترل فرسایش خاک|
+6415|3|Weed Barrier & Landscape Fabric|پارچه ضدعلف (ژئوتکستایل باغبانی)|
+6416|3|Tree Watering Bags & Root Feeders|کیسه آبیاری درخت و تغذیه‌کننده ریشه|
+6417|3|Tree Grates|شبکه (گریتینگ) دور درخت|
+6418|3|Landscape Edging|لبه‌بند باغچه|
+6419|3|Plant Protection Fabric|پارچه محافظ گیاه (توری سایه)|
+6420|3|Tree Wraps & Protectors|محافظ و پوشش تنه درخت|
+6421|3|Garden Stakes & Plant Supports|قیم و نگهدارنده گیاه|
+6422|2|Fencing|فنس و حصار|
+6423|3|Chicken Wire|توری مرغی|
+6424|3|Silt Fence|حصار رسوب‌گیر (سیلت فنس)|
+6425|3|Barbed Wire & Supplies|سیم خاردار و ملزومات|
+6426|3|Electric Fence Supplies|ملزومات حصار برقی|
+6427|3|Smooth Wire|سیم صاف حصار|
+6428|3|Deer Fence|حصار ضد حیوانات (آهو)|
+6429|3|Snow Fence|حصار برف‌گیر|
+6430|3|Privacy & Wind Screens|توری حریم و بادشکن|
+6431|3|Fence Stretching Tools|ابزار کشش فنس|
+6432|3|T-Posts & U-Posts for Fencing|پایه T و U فنس|
+6433|3|Chain Link Fence, Posts & Hardware|فنس توری (چین‌لینک)، پایه و یراق|
+6434|4|Chain Link Fence Fabric|توری فنس (چین‌لینک)|
+6435|4|Chain Link Fence Gates|درب فنس توری|
+6436|4|Chain Link Fence Rails, Posts & Hardware|نبشی، پایه و یراق فنس توری|
+6437|3|Gate Hardware|یراق‌آلات درب حیاط|
+6438|3|Privacy Fences, Gates & Supplies|حصار حریم، درب و ملزومات|
+6439|2|Small Engines & Accessories|موتور کوچک بنزینی و لوازم جانبی|
+6440|3|Small Engines|موتور کوچک بنزینی|
+6441|3|Small Engine Service Kits, Mufflers & Parts|کیت سرویس، اگزوز و قطعات موتور کوچک|
+6442|2|Watering Equipment & Irrigation Systems|تجهیزات آبیاری|ترکیبی
+6443|3|Garden Hose Nozzles|سرشیلنگ باغبانی|
+6444|3|Lawn Sprinklers|آبپاش چمن|
+6445|3|Sprinkler Heads & Nozzles|سر آبپاش (اسپرینکلر) و نازل|
+6446|3|Sprinkler Valves|شیر برقی آبیاری|
+6447|3|Automatic Sprinkler Systems|سیستم آبیاری خودکار|
+6448|3|Watering Controllers, Timers & Sensors|کنترلر، تایمر و سنسور آبیاری|
+6449|3|Drip Sprinkler Systems & Accessories|سیستم آبیاری قطره‌ای و لوازم جانبی|
+6450|4|Drip Irrigation Sprinkler Accessories|لوازم جانبی آبیاری قطره‌ای|
+6451|4|Drip Irrigation Sprinkler Systems|سیستم آبیاری قطره‌ای|
+6452|3|Irrigation Maintenance & Repair Parts|قطعات تعمیر و نگهداری آبیاری|
+6453|3|Watering Cans|آب‌پاش دستی|
+6454|3|Irrigation Fittings|اتصالات آبیاری|
+6455|3|Rain Barrels, Harvesting Pumps & Accessories|مخزن آب باران، پمپ و لوازم جانبی|
+6456|2|Electrical Generators & Power Stations|ژنراتور برق و پاوراستیشن|
+6457|3|Portable Generators|ژنراتور (موتور برق) قابل‌حمل|ترکیبی
+6458|3|Portable Power Stations|پاوراستیشن قابل‌حمل|ترکیبی
+6459|3|Standby Generators|ژنراتور اضطراری (استندبای)|
+6460|3|Generator Light Towers|برج روشنایی سیار|
+6461|3|Generator Transfer Switches|کلید انتقال ژنراتور (چنج‌اور)|
+6462|4|Manual Generator Transfer Switches|کلید چنج‌اور دستی|
+6463|4|Automatic Generator Transfer Switches|کلید چنج‌اور اتوماتیک (ATS)|
+6464|3|Generator Accessories|لوازم جانبی ژنراتور|
+6465|4|Generator Maintenance Kits|کیت سرویس ژنراتور|
+6466|4|Generator Cold Weather Kits|کیت هوای سرد ژنراتور|
+6467|4|Portable Generator Wheel Kits|کیت چرخ ژنراتور|
+6468|4|Portable Generator Covers|کاور ژنراتور|
+6469|4|Portable Generator Power Cords|کابل برق ژنراتور|
+6470|4|Portable Generator Power Inlet Boxes|جعبه ورودی برق ژنراتور|
+6471|4|Generator Accessories & Replacement Parts|لوازم جانبی و قطعات یدکی ژنراتور|
+6472|2|Ground-Protection Mats|صفحه محافظ زمین (مت تردد)|
+6473|2|Insect & Wildlife Control|کنترل حشرات و حیوانات|ترکیبی
+6474|3|Bug & Insect Control|کنترل حشرات|
+6475|4|Insecticides, Insect Traps & Flyswatters|حشره‌کش، تله حشرات و مگس‌کش|
+6476|5|Insecticides & Insect Traps|حشره‌کش و تله حشرات|
+6477|5|Flyswatters|مگس‌کش|
+6478|5|Electronic Insect Killers|حشره‌کش برقی|
+6479|5|Electronic Insect Killer Accessories|لوازم جانبی حشره‌کش برقی|
+6480|4|Insect Repellent Sprays & Wipes|اسپری و دستمال دافع حشرات|
+6481|4|Outdoor Head & Body Nets|توری سر و بدن (پشه‌بند)|
+6482|3|Rodent Control|کنترل جوندگان (موش)|
+6483|3|Bird Control|دفع پرندگان|
+6484|4|Bird Control Netting|تور دفع پرندگان|
+6485|4|Bird Spikes & Adhesives|خار ضد پرنده و چسب|
+6486|4|Bird Prevention Arms|بازوی چرخان دافع پرنده|
+6487|4|Bird Repellent Gel Disks, Gel & Liquid|ژل، دیسک ژلی و مایع دافع پرنده|
+6488|4|Bird Control Slides, Connectors & End Caps|شیب‌دهنده، اتصال و درپوش دفع پرنده|
+6489|4|Bird Control Shock Tracks, Chargers & Wire|نوار شوک، شارژر و سیم دفع پرنده|
+6490|4|Visual Bird Repellents|دافع بصری پرنده|
+6491|4|Audio Bird Repellents|دافع صوتی پرنده|
+6492|4|Bird Control Traps|تله پرنده|
+6493|4|Bird Waste & Stain Removers|پاک‌کننده فضله و لکه پرنده|
+6494|4|Bird Birth Control Systems|سیستم کنترل جمعیت پرندگان|
+6495|4|Bird Control Wire Systems|سیستم سیمی دفع پرنده|
+6496|4|Bird Control Industrial Vent Covers|پوشش دریچه صنعتی ضد پرنده|
+6497|4|Bird Control Solar Panel Exclusion Wire Mesh|توری ضد پرنده پنل خورشیدی|
+6498|3|Wildlife Control|کنترل حیوانات وحشی|
+6499|4|Wildlife Repellents|دافع حیوانات|
+6500|4|Wildlife Traps|تله حیوانات|
+6501|4|Mole Killers|سم و تله موش‌کور|
+6502|2|Pressure Washers|کارواش (واترجت)|ترکیبی
+6503|3|Electric Pressure Washers|کارواش برقی|
+6504|3|Gas-Powered Pressure Washers|کارواش بنزینی|
+6505|3|Battery-Powered Pressure Washers|کارواش شارژی|
+6506|3|Trailer Pressure Washers|کارواش تریلری|
+6507|3|Nozzles for Pressure Washers|نازل کارواش|
+6508|3|Spray Guns, Wands & Foamers for Pressure Washers|تفنگ، لانس و فوم‌پاش کارواش|
+6509|3|Pressure Washer Detergents|شوینده کارواش|
+6510|3|Rotary Surface Cleaners & Water Brooms|کف‌شوی چرخشی و جاروی آبی|
+6511|4|Rotary Surface Cleaners|کف‌شوی چرخشی (سرفیس کلینر)|
+6512|4|Water Brooms|جاروی آبی|
+6513|3|Duct, Tank & Manhole Cleaners for Pressure Washers|سرشوی کانال، مخزن و منهول کارواش|
+6514|3|Pressure Washer Connectors & Adapters|اتصال و تبدیل کارواش|
+6515|3|Replacement Parts for Pressure Washers|قطعات یدکی کارواش|
+6516|2|Snow & Ice Removal|برف‌روبی و یخ‌زدایی|ترکیبی
+6517|3|Ice Melt & Traction Control|نمک یخ‌زدا و ضدلغزش|
+6518|3|Snow Blowers|برف‌روب موتوری|
+6519|3|Maintenance Kits, Accessories & Repair Parts for Snow Blowers|کیت سرویس، لوازم جانبی و قطعات برف‌روب|
+6520|3|Snow Shovels & Pushers|پارو و تیغه برف‌روب دستی|
+6521|3|Roof Rakes|برف‌روب سقف (دسته‌بلند)|
+6522|3|Ice Scrapers & Choppers|یخ‌تراش و یخ‌شکن|
+6523|3|Snow Sweepers & Replacement Brushes|جاروی برف و برس یدکی|
+6524|2|Sprayers & Foggers|سمپاش و مه‌پاش|
+6525|3|Handheld & Cart Sprayers|سمپاش دستی و چرخ‌دار|ترکیبی
+6526|3|Backpack Sprayers|سمپاش پشتی|ترکیبی
+6527|3|Walk-Behind Sprayers|سمپاش هلی|
+6528|3|Tow-Behind Sprayers|سمپاش یدک‌کش|
+6529|3|Vehicle-Mounted Sprayers|سمپاش نصب روی خودرو|
+6530|3|Hoses, Wands, Guns & Nozzles for Sprayers|شیلنگ، لانس، تفنگ و نازل سمپاش|
+6531|3|Parts & Accessories for Sprayers|قطعات و لوازم جانبی سمپاش|
+6532|3|Foggers|مه‌پاش (فاگر)|
+6533|2|Spreaders|کودپاش و بذرپاش|
+6534|3|Walk-Behind Spreaders|کودپاش هلی|ترکیبی
+6535|3|Shoulder & Handheld Spreaders|کودپاش دستی و دوشی|ترکیبی
+6536|3|Vehicle-Mounted Spreaders|کودپاش نصب روی خودرو|
+6537|3|Tow-Behind Spreaders|کودپاش یدک‌کش|
+6538|3|Parts & Accessories for Spreaders|قطعات و لوازم جانبی کودپاش|
+6539|2|Temporary Outdoor Structures & Furniture|سازه موقت و مبلمان فضای باز|ترکیبی
+6540|3|Canopy Tents & Temporary Shelters|چادر سایبان (گازبو) و سرپناه موقت|
+6541|3|Sidewalls & Bags for Canopy Tents & Temporary Shelters|دیواره و کیف چادر سایبان|
+6542|3|Anchors & Weights for Canopies & Temporary Shelters|میخ و وزنه چادر سایبان|
+6543|3|Collapsible Outdoor Tables & Chairs|میز و صندلی تاشو فضای باز|
+6544|3|Replacement Parts for Canopy Tents & Temporary Structures|قطعات یدکی چادر سایبان و سازه موقت|
+6545|1|Packaging & Shipping|بسته‌بندی و ارسال|
+6546|2|Shipping Boxes, Pads & Tubes|کارتن، صفحه و لوله ارسال|
+6547|3|Shipping Boxes|کارتن بسته‌بندی|
+6548|4|Standard Shipping Boxes|کارتن بسته‌بندی استاندارد|
+6549|4|Bulk Cargo, Gaylord Containers & Lids|باکس کارتنی فله (گیلورد) و درب|
+6550|4|Wood Shipping Crates|جعبه چوبی حمل (باکس چوبی)|
+6551|4|Literature Mailers|کارتن پستی اسناد و کتاب|
+6552|5|Standard Literature Mailers|کارتن پستی اسناد استاندارد|
+6553|5|Reinforced Literature Mailers|کارتن پستی اسناد تقویت‌شده|
+6554|5|Easy-Fold Mailers|کارتن پستی تاشو آسان|
+6555|4|Insulated Shipping Kits|کیت ارسال عایق‌دار (یونولیتی)|
+6556|4|Hazardous Materials Shipping Kits|کیت ارسال مواد خطرناک|
+6557|4|Weather-Resistant Military Spec Boxes|کارتن مقاوم استاندارد نظامی|
+6558|4|Printed Moving Boxes|کارتن اسباب‌کشی چاپی|
+6559|5|Printed Moving Boxes|کارتن اسباب‌کشی چاپی|
+6560|5|Printed Moving Box Kits|کیت کارتن اسباب‌کشی|
+6561|4|Carton Sizers|ابزار تغییر اندازه کارتن|
+6562|4|Corrugated Pallet Runners|پایه کارتنی پالت (رانر)|
+6563|3|Mailing Tubes|لوله پستی (کارتنی)|
+6564|4|Round Mailing Tubes|لوله پستی گرد|
+6565|4|Square Mailing Tubes|لوله پستی چهارگوش|
+6566|4|Triangle Mailing Tubes|لوله پستی مثلثی|
+6567|3|Corrugated Pads & Sheets|صفحه و ورق کارتن (مقوای کنگره‌ای)|
+6568|3|Retail & Gift Boxes|جعبه خرده‌فروشی و کادو|ترکیبی
+6569|4|Reverse Tuck Cartons|جعبه درب‌چفتی معکوس (ریورس تاک)|
+6570|4|Gift Boxes|جعبه کادو|
+6571|2|Packing Tape|چسب بسته‌بندی|
+6572|3|Standard Packing Tape|چسب بسته‌بندی استاندارد|
+6573|4|General Purpose Acrylic Packing Tape|چسب بسته‌بندی اکریلیک همه‌منظوره|
+6574|4|Instant Bond Hot Melt Packing Tape|چسب بسته‌بندی هات‌ملت چسبندگی فوری|
+6575|4|Premium Natural Rubber Packing Tape|چسب بسته‌بندی لاستیک طبیعی ممتاز|
+6576|4|General Purpose Tape for Recycled Boxes|چسب همه‌منظوره کارتن بازیافتی|
+6577|4|Post-Consumer Recycled (PCR) Tape|چسب بازیافتی (PCR)|
+6578|4|Packing Tape & Dispenser Combo Packs|پک چسب بسته‌بندی و چسب‌زن|
+6579|3|Water-Activated Kraft Tape|چسب کاغذی کرافت آب‌فعال (گام‌دار)|
+6580|3|Strapping Tape|چسب رشته‌ای (فیلامنت)|
+6581|3|Pressure-Sensitive Paper Tape|چسب کاغذی فشارحساس|
+6582|3|Quiet Packing Tape|چسب بسته‌بندی کم‌صدا|
+6583|3|Crystal Clear Packing Tape|چسب بسته‌بندی کریستالی شفاف|
+6584|3|Color-Coding Packing Tape|چسب بسته‌بندی رنگی (کدگذاری)|
+6585|3|Cold-Temperature Packing Tape|چسب بسته‌بندی دمای پایین (سردخانه)|
+6586|3|Preprinted Packing Tape|چسب بسته‌بندی چاپ‌دار|
+6587|4|Tamper-Evident Packing Tape|چسب امنیتی (نشانگر دستکاری)|
+6588|4|Preprinted Messaging Packing Tape|چسب بسته‌بندی با پیام چاپی (شکستنی و...)|
+6589|3|Pre-Cut Packing Tape Sheets & Strips|برگه و نوار چسب بسته‌بندی پیش‌بریده|
+6590|3|Bag Sealing Tape|چسب درب کیسه|
+6591|3|Label Protection Tape|چسب محافظ برچسب|
+6592|3|Packing Tape Dispensers & Machines|چسب‌زن و دستگاه چسب بسته‌بندی|
+6593|4|Manual Packing Tape Dispensers|چسب‌زن دستی (کارتن)|
+6594|4|Case Sealing Machines & Accessories|دستگاه چسب‌زن کارتن و لوازم جانبی|
+6595|5|Case Sealing Machines|دستگاه چسب‌زن کارتن|
+6596|5|Tape Heads for Case Sealing Machines|هد چسب دستگاه چسب‌زن کارتن|
+6597|5|Case Sealing Machine Accessories|لوازم جانبی دستگاه چسب‌زن کارتن|
+6598|4|Water-Activated Kraft Tape Machines & Accessories|دستگاه چسب کرافت آب‌فعال و لوازم جانبی|
+6599|5|Water-Activated Kraft Tape Machines|دستگاه چسب کرافت آب‌فعال|
+6600|5|Water-Activated Kraft Tape Machine Parts|قطعات دستگاه چسب کرافت آب‌فعال|
+6601|4|Strapping Tape Dispensers|چسب‌زن چسب رشته‌ای|
+6602|4|Bag Sealing Tape Dispensers|دستگاه چسب‌زن درب کیسه|
+6603|4|Automatic Tape Dispensers|چسب‌برش اتوماتیک|
+6604|5|Countertop Automatic Tape Machines|دستگاه چسب‌برش اتوماتیک رومیزی|
+6605|5|Automatic Tape Dispenser Accessories|لوازم جانبی چسب‌برش اتوماتیک|
+6606|2|Packing List Envelopes|پاکت چسب‌دار بارنامه (پکینگ لیست)|
+6607|3|Printed Packing List Envelopes|پاکت پکینگ لیست چاپی|
+6608|3|Clear Packing List Envelopes|پاکت پکینگ لیست شفاف|
+6609|3|Bilingual Packing List Envelopes|پاکت پکینگ لیست دوزبانه|
+6610|3|Recycled Plastic Packing List Envelopes|پاکت پکینگ لیست پلاستیک بازیافتی|
+6611|3|SDS Packing List Envelopes|پاکت برگه ایمنی (SDS)|
+6612|3|Transportation Packing List Envelopes|پاکت اسناد حمل‌ونقل|
+6613|3|Military Spec Packing List Envelopes|پاکت پکینگ لیست استاندارد نظامی|
+6614|2|Barcode Labeling & Scanning|برچسب‌زنی و اسکن بارکد|
+6615|3|Barcode Labels & Ribbons|لیبل بارکد و ریبون|
+6616|4|Direct Thermal Labels|لیبل حرارتی مستقیم|
+6617|4|Thermal Transfer Labels - Ribbon Required|لیبل انتقال حرارتی (نیازمند ریبون)|
+6618|4|Thermal Transfer Ribbons|ریبون انتقال حرارتی|
+6619|4|Inkjet Barcode Labels & Ink|لیبل بارکد جوهرافشان و جوهر|
+6620|4|RFID Labels|لیبل RFID|
+6621|4|Weatherproof Barcode Labels|لیبل بارکد ضدآب و هوا|
+6622|4|Medical Direct Thermal Barcode Labels|لیبل بارکد حرارتی پزشکی|
+6623|4|Cryogenic Thermal Transfer Labels - Ribbon Required|لیبل انتقال حرارتی کرایوژنیک (نیازمند ریبون)|
+6624|4|Linerless Direct Thermal Barcode Labels|لیبل حرارتی بدون کاغذ پشت (لاینرلس)|
+6625|4|Blockout Labels|لیبل پوشاننده (بلاک‌اوت)|
+6626|4|Barcode Tags|تگ بارکد|
+6627|4|Laser Barcode Labels|لیبل بارکد لیزری|
+6628|3|Barcode Label Printers|لیبل پرینتر بارکد|
+6629|4|Desktop Barcode Label Printers|لیبل پرینتر رومیزی|
+6630|4|Industrial Barcode Label Printers|لیبل پرینتر صنعتی|
+6631|4|Mobile Barcode Label Printers|لیبل پرینتر همراه (موبایل)|
+6632|4|RFID Barcode Label Printers|لیبل پرینتر RFID|
+6633|4|Inkjet Barcode Label Printers|لیبل پرینتر جوهرافشان|
+6634|4|Healthcare Label Printers|لیبل پرینتر پزشکی|
+6635|4|Barcode Label Printer Replacement Parts & Accessories|قطعات یدکی و لوازم جانبی لیبل پرینتر|
+6636|3|Barcode Label Scanners|بارکدخوان|
+6637|4|General Purpose Barcode Label Scanners|بارکدخوان همه‌منظوره|
+6638|4|Rugged Barcode Label Scanners|بارکدخوان صنعتی مقاوم|
+6639|4|Hands-Free Barcode Label Scanners|بارکدخوان رومیزی (هندزفری)|
+6640|4|Wearable Barcode Label Scanners|بارکدخوان پوشیدنی (انگشتی/مچی)|
+6641|4|Mobile Computer Barcode Scanners|دیتاکالکتور (PDA بارکدخوان)|
+6642|4|Lanyards & Harnesses for Barcode Scanners|بند و هارنس بارکدخوان|
+6643|4|Barcode Scanner Replacement Parts|قطعات یدکی بارکدخوان|
+6644|2|Shipping Mailers|پاکت پستی|
+6645|3|Bubble Mailers|پاکت پستی حباب‌دار|
+6646|3|Recyclable Mailers|پاکت پستی بازیافت‌پذیر|
+6647|3|Tear-Resistant Poly Mailers|پاکت پستی پلاستیکی ضدپارگی|
+6648|3|Chipboard & Fiberboard Flat Mailers|پاکت پستی مقوایی تخت|
+6649|3|Glamour Mailers|پاکت پستی متالایز (گلامور)|
+6650|2|Protective Packaging|بسته‌بندی محافظ|
+6651|3|Bubble Bags & Rolls|کیسه و رول نایلون حباب‌دار|
+6652|4|Bubble Bags|کیسه حباب‌دار|
+6653|4|Bubble Rolls|رول نایلون حباب‌دار|
+6654|4|Bubble Dispensing Boxes|جعبه توزیع نایلون حباب‌دار|
+6655|4|Bubble Roll Machines & Films|دستگاه تولید نایلون حباب‌دار و فیلم|
+6656|5|Bubble Roll Machine Films|فیلم دستگاه نایلون حباب‌دار|
+6657|5|Bubble Roll Machines|دستگاه تولید نایلون حباب‌دار|
+6658|3|Foam Rolls, Pouches & Sheets|رول، کیسه و ورق فوم|
+6659|4|Convoluted Foam|فوم تخم‌مرغی|
+6660|4|Foam Pouches|کیسه فومی|
+6661|4|Foam Rolls|رول فوم|
+6662|4|Foam Sheets|ورق فوم|
+6663|4|Plank Foam|فوم تخته‌ای (پلانک)|
+6664|3|Packaging Paper|کاغذ بسته‌بندی|
+6665|4|Kraft Paper|کاغذ کرافت|
+6666|5|Kraft Paper Rolls|رول کاغذ کرافت|
+6667|5|Kraft Paper Sheets|برگ کاغذ کرافت|
+6668|4|Poly-Coated Paper Rolls|رول کاغذ پوشش‌دار پلی‌اتیلن|
+6669|4|Bogus Paper Rolls|رول کاغذ پرکن (بوگوس)|
+6670|4|Tissue Paper Sheets|کاغذ پوستی (تیشو)|
+6671|4|Corrugated Wraps|رول مقوای کنگره‌ای|
+6672|4|Crinkle Paper|کاغذ ریش‌ریش (پرکن تزئینی)|
+6673|4|Fragile Wrap Honeycomb Paper|کاغذ لانه‌زنبوری محافظ|
+6674|4|Newsprint Paper|کاغذ روزنامه|
+6675|4|Kraft Paper for Crumpling Machines|کاغذ کرافت دستگاه مچاله‌ساز|
+6676|4|Paper Machines & Dispensers|دستگاه و توزیع‌کننده کاغذ|
+6677|5|Kraft Paper Crumpling Machines|دستگاه مچاله‌ساز کاغذ کرافت|
+6678|5|Paper Dispensers & Cutters|پایه رول کاغذ و کاغذبر|
+6679|3|Air Pillow Machines & Films|دستگاه بالشتک هوا و فیلم|
+6680|4|Air Pillow Films|فیلم بالشتک هوا|
+6681|4|Air Pillow Machines|دستگاه بالشتک هوا|
+6682|3|Dunnage Bag Packaging|کیسه هوای مهار بار (داناژ)|
+6683|4|Dunnage Bags|کیسه هوای مهار بار|
+6684|4|Dunnage Bag Inflators|بادکن کیسه هوای مهار بار|

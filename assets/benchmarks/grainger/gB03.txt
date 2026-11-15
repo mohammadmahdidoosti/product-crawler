@@ -1,0 +1,253 @@
+3094|4|Whole-House Hot Water & Steam Boilers|دیگ آب گرم و بخار ساختمان|
+3095|5|Gas-Fired Whole-House Hot Water & Steam Boilers|دیگ گازسوز آب گرم و بخار|
+3096|5|Oil Burners for Hot Water & Steam Boilers|مشعل گازوئیلی دیگ|
+3097|5|Oil-Fired Whole-House Hot Water & Steam Boilers|دیگ گازوئیل‌سوز آب گرم و بخار|
+3098|5|Whole-House Hot Water & Steam System Accessories|لوازم جانبی سیستم آب گرم و بخار|
+3099|2|Heat Exchangers|مبدل حرارتی|
+3100|3|Shell & Tube Heat Exchangers|مبدل پوسته و لوله|
+3101|3|High-Efficiency Plate Heat Exchangers|مبدل صفحه‌ای پربازده|
+3102|3|Immersion Heat Exchangers|مبدل حرارتی غوطه‌ور (کویل)|
+3103|3|Heat Exchanger Replacement Parts|قطعات یدکی مبدل حرارتی|
+3104|2|HVAC Controls and Thermostats|کنترل و ترموستات تهویه مطبوع|
+3105|3|Thermostats|ترموستات|
+3106|4|Room Thermostats|ترموستات اتاقی|
+3107|5|Line-Voltage Thermostats|ترموستات ولتاژ شبکه (۲۲۰ ولت)|
+3108|6|Nonprogrammable Line-Voltage Thermostats|ترموستات ولتاژ شبکه غیربرنامه‌پذیر|
+3109|6|Plug-In Line-Voltage Thermostats|ترموستات دوشاخه‌ای|
+3110|6|Programmable Line-Voltage Thermostats|ترموستات ولتاژ شبکه برنامه‌پذیر|
+3111|5|Low-Voltage Thermostats|ترموستات ولتاژ پایین (۲۴ ولت)|
+3112|6|Nonprogrammable Low-Voltage Thermostats|ترموستات ولتاژ پایین غیربرنامه‌پذیر|
+3113|6|Programmable Low-Voltage Thermostats|ترموستات ولتاژ پایین برنامه‌پذیر|
+3114|6|Wi-Fi Programmable Low-Voltage Thermostats|ترموستات هوشمند وای‌فای|
+3115|5|Thermostat Accessories|لوازم جانبی ترموستات|
+3116|6|Thermostat Connectivity Accessories|لوازم ارتباطی ترموستات|
+3117|6|Thermostat Guards|محافظ (قفل) ترموستات|
+3118|6|Thermostat Remote Sensors|سنسور از راه دور ترموستات|
+3119|6|Thermostat Wall Cover Plates & Mounting Kits|قاب دیواری و کیت نصب ترموستات|
+3120|4|Process Thermostats|ترموستات صنعتی (فرایندی)|
+3121|4|Building Automation System Thermostat Controls|ترموستات سیستم هوشمند ساختمان (BMS)|
+3122|4|Pneumatic Thermostats & Retrofit Kits|ترموستات پنوماتیک و کیت جایگزینی|
+3123|5|Pneumatic Thermostats|ترموستات پنوماتیک|
+3124|5|Pneumatic Thermostat Retrofit Kits|کیت جایگزینی ترموستات پنوماتیک|
+3125|5|Direct-Digital-Control (DDC) Pneumatic Thermostats|ترموستات پنوماتیک DDC|
+3126|5|Pneumatic Thermostat Accessories|لوازم جانبی ترموستات پنوماتیک|
+3127|3|HVAC Sensors & Switches|سنسور و سوئیچ تهویه مطبوع|
+3128|4|Temperature & Humidity Sensors|سنسور دما و رطوبت|
+3129|4|Pneumatic Temperature Transmitters|ترانسمیتر دمای پنوماتیک|
+3130|4|Air Quality Sensors|سنسور کیفیت هوا|
+3131|4|Air Pressure Sensors & Switches|سنسور و سوئیچ فشار هوا|
+3132|5|Differential Air Pressure Sensors|سنسور اختلاف فشار هوا|
+3133|5|Air Pressure Sensing Switches|پرشر سوئیچ هوا|
+3134|5|Air Pressure Sensing Probes|پراب اندازه‌گیری فشار هوا|
+3135|4|Airflow Switches|سوئیچ جریان هوا (ایرفلو)|
+3136|4|Economizers|اکونومایزر|
+3137|3|HVAC Hydronic Valves|شیرآلات سیستم آب گرم و سرد تأسیسات|
+3138|4|HVAC Zone Valves|شیر زون (موتوری)|
+3139|4|HVAC Ball Valves|شیر توپی تأسیساتی|
+3140|4|HVAC Globe Valves|شیر کف‌فلزی (گلوب) تأسیساتی|
+3141|4|HVAC Check Valves|شیر یک‌طرفه تأسیساتی|
+3142|4|Zone Valve Parts & Accessories|قطعات و لوازم جانبی شیر زون|
+3143|3|Steam System Traps & Vents|تله بخار و هواگیری سیستم بخار|
+3144|4|Steam Traps|تله بخار (استیم تراپ)|
+3145|5|High-Flow Inverted Bucket Steam Traps|تله بخار سطلی معکوس پرظرفیت|
+3146|5|Efficient Float & Thermostatic Steam Traps|تله بخار شناوری ترموستاتیک|
+3147|5|Compact Thermodynamic Steam Traps|تله بخار ترمودینامیک کامپکت|
+3148|5|Fast-Acting Thermostatic Steam Traps|تله بخار ترموستاتیک سریع|
+3149|5|Steam Trap Repair Kits, Parts & Accessories|کیت تعمیر، قطعات و لوازم جانبی تله بخار|
+3150|4|Air Release Vents|شیر هواگیری|
+3151|4|Air Separators|جداکننده هوا (ایرسپریتور)|
+3152|3|HVAC Equipment Controls & Components|کنترل و قطعات تجهیزات تهویه مطبوع|
+3153|4|Temperature Controls|کنترلر دما|
+3154|5|Electronic Temperature Controls|کنترلر دمای الکترونیکی|
+3155|5|Mechanical Temperature Controls|ترموستات مکانیکی|
+3156|6|Air-Coil & Bimetal Sensor Temperature Controls|ترموستات بی‌متال و کویل هوا|
+3157|6|Remote-Bulb Sensor Temperature Controls|ترموستات بولب‌دار (حبابی)|
+3158|6|Direct-Immersion Thermowell Temperature Controls|ترموستات غوطه‌ور غلاف‌دار|
+3159|6|Pipe-Mounted Sensor Temperature Controls|ترموستات روی لوله (بستی)|
+3160|6|HVAC Thermowells|غلاف ترموستات (ترموول)|
+3161|6|Proportional Temperature Controls|کنترلر دمای تناسبی|
+3162|4|Heating Controls|کنترل‌های گرمایشی|
+3163|5|Furnace Control Boards|برد کنترل کوره|
+3164|5|Ignition Controls & Components|کنترل و قطعات جرقه‌زنی|
+3165|6|Ignition Gas Valves|شیر گاز جرقه‌ای|
+3166|6|Ignition Controls|رله جرقه (کنترل احتراق)|
+3167|6|Ignitors|جرقه‌زن (ایگنایتر)|
+3168|6|Flame Sensors|سنسور شعله|
+3169|6|Pilot Light Assemblies|مجموعه پیلوت|
+3170|6|Thermocouples & Thermopiles|ترموکوپل و ترموپیل|
+3171|5|Fan & Limit Controls|کنترل فن و لیمیت|
+3172|5|Hydronic Heating Controls & Components|کنترل و قطعات گرمایش آبی|
+3173|6|Aquastat Relays|رله آکواستات|
+3174|6|Steam Pressure Limit Controls|پرشر سوئیچ بخار|
+3175|6|Water Level Controllers|کنترلر سطح آب|
+3176|6|Boiler Low-Water Cut-Offs|قطع‌کن کمبود آب دیگ|
+3177|6|Boiler Temperature Limit Controls|ترموستات حد دمای دیگ|
+3178|6|Hydronic Zone-Switching Relays|رله زون گرمایشی|
+3179|4|Humidity Controls|کنترلر رطوبت (هیگروستات)|
+3180|4|Air Conditioning & Refrigeration Controls|کنترل‌های تهویه و تبرید|
+3181|5|Pressure Controls for Air Conditioning & Refrigeration|پرشر سوئیچ تهویه و تبرید|
+3182|6|Single-Pressure Refrigerant Controls|پرشر سوئیچ تک|
+3183|6|Dual-Pressure Refrigerant Controls|پرشر سوئیچ دوبل (کم و زیاد)|
+3184|6|Differential Pressure Refrigerant Controls|پرشر سوئیچ اختلافی|
+3185|6|Lube Oil Pressure Controls|اویل پرشر سوئیچ|
+3186|6|Condenser Fan Speed Controls|کنترل دور فن کندانسور|
+3187|5|Refrigeration Cold Controls|کنترل‌های سرمایش یخچال|
+3188|6|Refrigeration Defrost Cycle Controls|تایمر دیفراست|
+3189|6|Refrigeration Temperature Controls|ترموستات یخچالی|
+3190|6|Defrost Termination & Fan Delay Controls|کنترل پایان دیفراست و تأخیر فن|
+3191|5|Defrost Thermostats|ترموستات دیفراست|
+3192|5|Room Air Conditioner Temperature Controls|ترموستات کولر|
+3193|5|Potential Relays|رله پتانسیلی|
+3194|5|Compressor Hard Start Kits|کیت استارت کمپرسور (هارد استارت)|
+3195|5|Heat Pump Reversing Valves & Solenoid Coils|شیر چهارراهه و بوبین هیت‌پمپ|
+3196|4|HVAC Relays & Sequencers|رله و سکوئنسر تهویه مطبوع|
+3197|5|HVAC Switching Relays|رله تأسیساتی|
+3198|5|HVAC Time-Delay Relays|رله تأخیری|
+3199|5|HVAC Sequencers|سکوئنسر|
+3200|5|Line Voltage Monitors|کنترل فاز و ولتاژ|
+3201|5|Building Automation Bus System Components|اجزای شبکه هوشمند ساختمان (BMS)|
+3202|3|Actuators for HVAC Dampers & Valves|اکچویتور دمپر و شیر|
+3203|4|Electric HVAC Damper Actuators|موتور دمپر برقی|
+3204|4|Electric HVAC Valve Actuators|اکچویتور برقی شیر|
+3205|4|Pneumatic HVAC Damper Actuators|اکچویتور پنوماتیک دمپر|
+3206|4|Pneumatic HVAC Valve Actuators|اکچویتور پنوماتیک شیر|
+3207|4|Electric HVAC Actuator Accessories|لوازم جانبی اکچویتور برقی|
+3208|4|Pneumatic HVAC Actuator Accessories|لوازم جانبی اکچویتور پنوماتیک|
+3209|3|Pneumatic Controls|کنترل‌های پنوماتیک|
+3210|4|Pneumatic Receiver-Controllers|کنترلر گیرنده پنوماتیک|
+3211|4|Variable Air Volume Reset Controllers|کنترلر ریست VAV|
+3212|4|Pneumatic Variable Air Volume Control Kits|کیت کنترل VAV پنوماتیک|
+3213|4|Air-Switching Valves|شیر سوئیچینگ هوا|
+3214|5|Pneumatically Actuated Air-Switching Valves|شیر سوئیچینگ هوا پنوماتیکی|
+3215|5|Electrically Actuated Air-Switching Valves|شیر سوئیچینگ هوا برقی|
+3216|4|Electric-to-Pneumatic Transducers|مبدل الکتریکی به پنوماتیک (E/P)|
+3217|4|Pneumatic Relays|رله پنوماتیک|
+3218|4|Pneumatic Positioning Switches|سوئیچ موقعیت پنوماتیک|
+3219|4|Pneumatic Gradual Switches|سوئیچ تدریجی پنوماتیک|
+3220|4|Pneumatic-Electric Switches|سوئیچ پنوماتیک به الکتریک (P/E)|
+3221|4|Pneumatic Temperature Dials|درجه دمای پنوماتیک|
+3222|2|Refrigerants, Heat-Transfer Fluids & Lubricants|گاز مبرد، سیال انتقال حرارت و روغن|
+3223|3|Refrigerants|گاز مبرد (فریون)|
+3224|3|Heat-Transfer Fluids|سیال انتقال حرارت (گلایکول)|
+3225|3|Glycol Testing|تست گلایکول|
+3226|3|Refrigeration Oils|روغن کمپرسور یخچالی|
+3227|3|Pumps for Refrigeration Oils|پمپ روغن کمپرسور|
+3228|3|Heaters for Refrigerant Cylinders|گرمکن کپسول گاز مبرد|
+3229|2|HVAC Diagnostics, Recovery & Evacuation|عیب‌یابی، ریکاوری و وکیوم تهویه مطبوع|
+3230|3|Refrigerant Evacuation & Recovery|وکیوم و ریکاوری گاز مبرد|
+3231|4|Refrigerant Evacuation Pumps|پمپ وکیوم تبرید|
+3232|4|Refrigerant Recovery Machines|دستگاه ریکاوری گاز|
+3233|4|Refrigerant Recovery Cylinders & Tools|کپسول و ابزار ریکاوری گاز|
+3234|4|Refrigerant Scales|ترازوی شارژ گاز|
+3235|3|HVAC Manifold Gauge Sets, Gauges & Hoses|گیج منیفولد، گیج و شلنگ شارژ|
+3236|4|Manifold Gauges & Sets|گیج منیفولد و ست|
+3237|4|Refrigeration Diagnostic Kits & Sensors|کیت و سنسور عیب‌یابی تبرید|
+3238|4|Refrigeration Gauges & Boots|گیج تبرید و روکش|
+3239|4|Manifold Hoses & Sets|شلنگ شارژ گاز و ست|
+3240|4|Manifold Hose & Valve Accessories|لوازم جانبی شلنگ و شیر منیفولد|
+3241|4|HVAC Vacuum Gauges|وکیوم‌گیج (میکرون‌گیج)|
+3242|3|Refrigeration Access Valves, Tools & Accessories|شیر سرویس (والو شریدر)، ابزار و لوازم جانبی|
+3243|4|Access Valves & Couplers|شیر سرویس و کوپلر|
+3244|4|Accessories for Access Valves|لوازم جانبی شیر سرویس|
+3245|4|Adapters, Fittings & Nuts for Access Valves|تبدیل، اتصال و مهره شیر سرویس|
+3246|3|HVACR Leak Detection|نشت‌یابی تهویه و تبرید|
+3247|4|Electronic Leak Detectors for HVACR|نشت‌یاب الکترونیکی گاز مبرد|
+3248|4|Fluorescent Dye Leak Detection for HVACR|نشت‌یابی با رنگ فلورسنت (UV)|
+3249|4|Bubble Leak Detection for HVACR|اسپری کف نشت‌یابی|
+3250|4|Smoke Leak Detection for HVAC|نشت‌یابی با دود|
+3251|2|HVAC Cleaning Chemicals, Equipment & Kits|مواد، تجهیزات و کیت شستشوی تأسیسات|
+3252|3|Coil Cleaning Chemicals & Sprayers|مواد شستشوی کویل و سمپاش|
+3253|4|Coil Cleaning & Treatment Fluids|مایع شستشوی کویل|
+3254|4|Coil Cleaner Sprayers|سمپاش شستشوی کویل|
+3255|4|Mini-Split Maintenance Kits|کیت سرویس اسپلیت (کاور شستشو)|
+3256|3|Descaling Chemicals|مواد رسوب‌زدا|
+3257|3|Descaling Systems|دستگاه رسوب‌زدایی|
+3258|3|Ultraviolet Disinfection Cleaning Systems|سیستم ضدعفونی UV|
+3259|3|HVAC Brushes & Combs|برس و شانه تأسیساتی|
+3260|4|HVAC Brushes|برس تأسیساتی (برس لوله)|
+3261|4|Modular HVAC Brush Systems|سیستم برس ماژولار|
+3262|4|Condenser Fin Combs|شانه فین کندانسور|
+3263|3|Heat Exchanger Cleaning Equipment|تجهیزات شستشوی مبدل حرارتی|
+3264|3|Disinfectants & Odor Neutralizers|ضدعفونی‌کننده و بوگیر|
+3265|3|Flushing Equipment & Accessories|تجهیزات فلاشینگ و لوازم جانبی|
+3266|3|Heating Fuel Treatments|افزودنی سوخت گرمایشی|
+3267|2|HVAC Installation, Repair, & Mounting Equipment|تجهیزات نصب و تعمیر تهویه مطبوع|
+3268|3|Refrigeration Valves|شیرآلات تبرید|
+3269|4|Refrigeration Ball Valves|شیر توپی تبرید|
+3270|4|Refrigeration Service Valves|شیر سرویس تبرید|
+3271|4|Packed Line Refrigeration Valves|شیر خط تبرید پکینگ‌دار|
+3272|4|Packless Refrigeration Diaphragm Valves|شیر دیافراگمی تبرید بدون پکینگ|
+3273|4|Refrigeration Pressure Relief Valves & Rupture Disks|شیر اطمینان و دیسک انفجار تبرید|
+3274|4|Refrigeration Check Valves|شیر یک‌طرفه تبرید|
+3275|4|Line Piercing Refrigeration Valves|شیر سوراخ‌کن لوله (پیرسینگ)|
+3276|4|Solenoid Refrigeration Valves & Coils|شیر برقی تبرید و بوبین|
+3277|4|Thermostatic Expansion Valves|شیر انبساط ترموستاتیک (اکسپنشن)|
+3278|4|Head Pressure Refrigeration Control Valves|شیر کنترل فشار کندانسور|
+3279|4|Refrigerant Pressure Regulators|رگلاتور فشار گاز مبرد|
+3280|4|Refrigeration Capillary Tubing|لوله مویین|
+3281|3|Condensate Management|مدیریت آب کندانس|
+3282|4|Condensate Drain Pans|تشتک آب کندانس|
+3283|4|Condensate Evaporator Pans|تشتک تبخیر آب کندانس|
+3284|4|HVAC Condensate Neutralizers|خنثی‌کننده آب کندانس|
+3285|4|Cleaning & Neutralizing Treatments for Condensate Pans|قرص و مواد شستشوی تشتک کندانس|
+3286|4|Condensate Drain Clearing|بازکننده لوله تخلیه کندانس|
+3287|3|HVAC Tapes, Sealants & Cements|نوار، درزگیر و چسب تأسیساتی|
+3288|4|Insulation & Sealants for HVAC Pipes & Ducts|عایق و درزگیر لوله و کانال|
+3289|4|Refrigerant Leak Sealants|نشت‌گیر گاز مبرد|
+3290|4|Furnace Cements|چسب نسوز کوره|
+3291|3|Air Conditioning Installation & Mounting Equipment|تجهیزات نصب کولر|
+3292|4|Mounting Pads for HVAC Systems|پد زیر دستگاه تهویه|
+3293|4|Mounting Brackets for Air Conditioners|براکت (پایه) کولر|
+3294|4|Risers for Air Conditioners|پایه بلندکننده کولر|
+3295|4|Refrigerant Line Sets|لوله مسی اسپلیت (لاین‌ست)|
+3296|4|Conduit Kits for Air Conditioners|کیت لوله برق کولر|
+3297|3|Air Conditioning Theft Protection|محافظ ضدسرقت کولر|
+3298|4|Air Conditioning Security Cages|قفس محافظ کولر|
+3299|4|Locking Refrigerant Caps|درپوش قفل‌دار شیر سرویس|
+3300|4|Accessories for Locking Refrigerant Caps|لوازم جانبی درپوش قفل‌دار|
+3301|3|Filter Driers, Sight Glasses & Suction Line Accumulators|فیلتر درایر، سایت‌گلاس و آکومولاتور|
+3302|4|Refrigerant Filter Driers|فیلتر درایر|
+3303|4|Cooling Sight Glasses|سایت‌گلاس|
+3304|4|Suction Line Accumulators|آکومولاتور خط مکش|
+3305|2|Fan Blades and Propellers|پروانه فن و ملخ|
+3306|3|Aluminum Fan Blades|پروانه آلومینیومی|
+3307|3|Condenser Fan Blades|پروانه فن کندانسور|
+3308|3|Condenser Propeller Hubs|توپی پروانه کندانسور|
+3309|3|Plastic Fan Blades|پروانه پلاستیکی|
+3310|3|Replacement Propellers|پروانه یدکی|
+3311|3|Tubeaxial Fan Blades|پروانه فن آکسیال لوله‌ای|
+3312|2|HVAC & Refrigeration Replacement Parts|قطعات یدکی تهویه و تبرید|
+3313|3|Replacement Motor Accessories for HVACR Equipment|لوازم جانبی موتور تجهیزات تهویه|
+3314|3|Bearings, Bushings & Sheaves for HVACR Equipment|بلبرینگ، بوش و پولی تجهیزات تهویه|
+3315|3|Replacement HVACR Controls, Switches & Thermostats|کنترل، سوئیچ و ترموستات یدکی|
+3316|3|Replacement HVACR Fans, Filters & Ventilation Parts|فن، فیلتر و قطعات تهویه یدکی|
+3317|3|Replacement HVACR Pumps, Valves & Tubing|پمپ، شیر و لوله یدکی|
+3318|3|HVACR Bases, Housings & Mounting Kits|پایه، بدنه و کیت نصب|
+3319|3|Seals, Fittings & Fasteners for HVACR Equipment|آب‌بند، اتصالات و پیچ‌ومهره تجهیزات تهویه|
+3320|3|Replacement Parts for HVACR Heaters & Heat Exchangers|قطعات یدکی هیتر و مبدل حرارتی|
+3321|3|Power Sources & Cables for HVACR Equipment|منبع تغذیه و کابل تجهیزات تهویه|
+3322|3|Knobs, Handles & Wheels for HVACR Equipment|ولوم، دستگیره و چرخ تجهیزات تهویه|
+3323|1|Hardware|یراق‌آلات|
+3324|2|Door Hardware|یراق‌آلات درب|
+3325|3|Locksets & Exit Devices|قفل و دستگیره و یراق خروج اضطراری|
+3326|4|Lever Locksets|دستگیره قفل اهرمی|
+3327|4|Knob Locksets|دستگیره قفل گرد (تخم‌مرغی)|
+3328|4|Paddle Locksets|قفل دستگیره پدالی|
+3329|4|Keyless Access Locksets|قفل رمزی بدون کلید|
+3330|4|Electronic Activation Devices|قفل فعال‌شونده الکترونیکی|
+3331|4|Deadlatch Handles|دستگیره زبانه ثابت|
+3332|4|Push Bars & Exit Devices|پنیک بار و یراق خروج اضطراری|
+3333|4|Door Pulls & Push Plates|دستگیره کششی و پلاک فشاری درب|
+3334|4|Lockset Latches|زبانه قفل|
+3335|4|Intruder Defense Systems|سیستم بستن سریع درب (مقابله با مهاجم)|
+3336|3|Door Locks & Strike Plates|قفل درب و قفل‌گیر|
+3337|4|Deadbolt Locks|قفل کتابی (ددبولت)|
+3338|4|Keyless Access Deadbolt Locks|قفل ددبولت رمزی|
+3339|4|Cylinders & Re-Keying Kits|سیلندر قفل و کیت تعویض رمز|
+3340|4|Strike Plates|قفل‌گیر (پلاک زبانه)|
+3341|4|Electric Strikes|قفل‌گیر برقی|
+3342|4|Electromagnetic Locks|قفل مغناطیسی (مگنتی)|
+3343|4|Electromagnetic Lock Power Supplies|منبع تغذیه قفل مغناطیسی|
+3344|4|Magnetic Contacts|مگنت کنتاکت (سنسور درب)|
+3345|4|Rim Locks|قفل روکار|
+3346|4|Mullions for Double Doors|ستون وسط درب دولنگه|

@@ -1,0 +1,302 @@
+3347|4|Door Reinforcers|تقویت‌کننده درب (قاب تقویت قفل)|
+3348|3|Door Closers & Operators|آرام‌بند و درب‌بازکن|
+3349|4|Manual Door Closers|آرام‌بند درب (جک درب)|
+3350|4|Powered Door Operators|درب‌بازکن برقی|
+3351|3|Door Guards, Sweeps and Weatherstripping|محافظ درب، جاروی زیر درب و نوار درزگیر|
+3352|4|Door Kick Plates|پلاک ضربه‌گیر پایین درب|
+3353|4|Door Latch Guards & Rod Covers|محافظ زبانه و روکش میله درب|
+3354|4|Door Hole Covers & Filler Plates|درپوش سوراخ و پلاک پرکننده درب|
+3355|4|Door Edge & Frame Guards|محافظ لبه و چارچوب درب|
+3356|4|Door Bottoms|نوار زیر درب (جارو)|
+3357|4|Door Weatherstripping & Drip Guards|نوار درزگیر و آبریزگیر درب|
+3358|4|Protector Bars for Door Handles & Exit Devices|میله محافظ دستگیره و پنیک بار|
+3359|4|Door Knob Wall Guards|ضربه‌گیر دیواری دستگیره|
+3360|3|Door Stops & Holders|استاپر و نگهدارنده درب|
+3361|3|Door Thresholds|آستانه درب|
+3362|3|Door Ramps|رمپ آستانه درب|
+3363|3|Door Knockers & Viewers|کوبه و چشمی درب|
+3364|3|Sliding Door Hardware|یراق درب کشویی|
+3365|3|Glass Door Hardware|یراق درب شیشه‌ای (سکوریت)|
+3366|3|Screen Door Hardware|یراق درب توری|
+3367|2|Window Hardware|یراق‌آلات پنجره|
+3368|3|Door & Window Replacement Screen|توری یدکی درب و پنجره|ترکیبی
+3369|3|Rubber Locking Gaskets|نوار لاستیکی قفل‌شو (زیپر گسکت)|
+3370|3|Window & Door Seals|نوار آب‌بند درب و پنجره|
+3371|3|Window Insulation Kits|کیت عایق پنجره|ترکیبی
+3372|3|Window Locks & Hardware|قفل و یراق پنجره|
+3373|3|Window Security Bars|حفاظ پنجره|
+3374|3|Window Opening Control Devices|محدودکننده بازشوی پنجره|
+3375|2|Handles, Pulls & Knobs|دستگیره، کشو و پیچ دستی|
+3376|3|Handles & Pulls|دستگیره و دستگیره کششی|
+3377|3|Load-Rated Pull Handles|دستگیره کششی باربر|
+3378|3|Recessed Handles & Pulls|دستگیره توکار|
+3379|3|Cabinet Knobs|دستگیره کابینت (گرد)|ترکیبی
+3380|3|Closet Door Knobs|دستگیره درب کمد|ترکیبی
+3381|3|Hand Knobs|پیچ دستی (ولوم)|
+3382|4|3-Arm Knobs|پیچ دستی سه‌پر|
+3383|4|4-Arm Knobs|پیچ دستی چهارپر|
+3384|4|5-Arm Knobs|پیچ دستی پنج‌پر (ستاره‌ای)|
+3385|4|6-Arm Knobs|پیچ دستی شش‌پر|
+3386|4|7-Arm Knobs|پیچ دستی هفت‌پر|
+3387|4|8-Arm Knobs|پیچ دستی هشت‌پر|
+3388|4|Ball Knobs|سر اهرم توپی|
+3389|4|Control Knobs|ولوم کنترل|
+3390|4|Fluted Knobs|پیچ دستی شیاردار|
+3391|4|Knurled Knobs|پیچ دستی آج‌دار|
+3392|4|Pull Knobs|دستگیره کششی گرد|
+3393|4|Tapered Knobs|سر اهرم مخروطی|
+3394|4|T-Handle Knobs|پیچ دستی T شکل|
+3395|4|Wing Knobs|پیچ دستی پروانه‌ای|
+3396|4|Dog-Point Hand Knob Screws|پیچ دستی سرصاف (داگ‌پوینت)|
+3397|3|Hand Wheels|فلکه دستی|
+3398|3|Machine Handles|دسته ماشین‌آلات|
+3399|4|Adjustable Machine Handles|دسته قابل تنظیم (اهرم ضامن‌دار)|
+3400|5|Teardrop-Style Adjustable Handles|دسته قابل تنظیم قطره‌ای|
+3401|5|Ball-Style Adjustable Handles|دسته قابل تنظیم توپی|
+3402|5|Adjustable Tension Levers|اهرم کششی قابل تنظیم|
+3403|4|Cam Handles|دسته بادامکی (کمی)|
+3404|4|Crank Handles|دسته هندلی (میل‌لنگ)|
+3405|4|Lever Handles|دسته اهرمی|
+3406|2|Drawer Slides|ریل کشو|
+3407|2|Hinges|لولا|
+3408|3|Butt Hinges|لولا معمولی (پروانه‌ای)|
+3409|3|Electrified Hinges|لولا برق‌دار|
+3410|3|Piano Hinges|لولا پیانویی (سرتاسری)|
+3411|3|Lift-Off Hinges|لولا جداشونده|
+3412|3|Pivot Hinges|لولا پاشنه‌ای (محوری)|
+3413|3|Spring Hinges|لولا فنری|
+3414|3|Concealed Hinges|لولا گازر (مخفی)|
+3415|3|Specialty Hinges|لولا خاص|
+3416|2|Hasps, Latches and Catches|قفل‌بند، چفت و قفلک|
+3417|3|Hasps|قفل‌بند (زلفی)|
+3418|3|Push-to-Close Latches & Catches|چفت و قفلک فشاری|
+3419|3|Cam Latches|قفل کمی (قفل تابلویی)|
+3420|3|Compression Latches|قفل فشاری (کامپرشن)|
+3421|3|Draw Latches|قفل کلیپسی (سگک)|
+3422|3|Door Bolts, Latches & Chain Guards|کلون، چفت و زنجیر درب|
+3423|3|Hanging Door Latches, Locks & Hardware|چفت، قفل و یراق درب ریلی|
+3424|2|Corner Guards, Wall Protection & Handrails|محافظ گوشه، محافظ دیوار و نرده دستی|
+3425|3|Corner Guards, Edge Guards & Bumpers|محافظ گوشه، محافظ لبه و ضربه‌گیر|
+3426|4|Self-Adhesive Corner Guards|محافظ گوشه چسب‌دار|
+3427|4|Adhesive-Ready Corner Guards|محافظ گوشه چسبی|
+3428|4|Screw-In Corner Guards|محافظ گوشه پیچی|
+3429|4|Clip-On Corner Guards|محافظ گوشه کلیپسی|
+3430|4|Bull Nose Corner Guards|محافظ گوشه گرد (بول‌نوز)|
+3431|4|Corner Bumpers|ضربه‌گیر گوشه|
+3432|4|Edge Guards|محافظ لبه|
+3433|3|Crash Rails & Bumper Guards|ریل ضربه‌گیر و محافظ دیوار|
+3434|3|Combined Handrail & Wall Guards|نرده دستی و ضربه‌گیر دیواری ترکیبی|
+3435|3|Wall-Mounted Handrails|نرده دستی دیواری (هندریل)|
+3436|3|Door Handle Wall Guards|ضربه‌گیر دیواری دستگیره|
+3437|3|Protective Wall Panels & Coverings|پنل و پوشش محافظ دیوار|
+3438|3|Wall Rub Rails & Strips|نوار و ریل محافظ دیوار|
+3439|3|Wall & Handrail Adhesives & Sealers|چسب و درزگیر محافظ دیوار و نرده|
+3440|2|Sealing Supplies|ملزومات آب‌بندی|
+3441|3|O-Rings & O-Ring Kits|اورینگ و ست اورینگ|
+3442|4|O-Rings|اورینگ|
+3443|4|Backup O-Rings|رینگ پشتیبان اورینگ (بک‌آپ)|
+3444|4|O-Ring Splicing Kits|کیت ساخت اورینگ|
+3445|4|Cord Stock|نخ اورینگ (طناب لاستیکی)|
+3446|3|Rubber Edging|نوار لبه لاستیکی|
+3447|3|Edge Protection Grommets|گرومت محافظ لبه|
+3448|3|Rubber Edge Trim Seals|نوار لبه‌گیر لاستیکی (آب‌بند)|
+3449|3|Hole Plugs|درپوش سوراخ|
+3450|3|Nylon Bushings|بوش نایلونی|
+3451|3|Rubber Edging & Seal Application Tools|ابزار نصب نوار لبه و آب‌بند|
+3452|2|Springs|فنر|
+3453|3|Compression & Die Springs|فنر فشاری و فنر قالب|
+3454|3|Extension Springs|فنر کششی|
+3455|3|Torsion Springs|فنر پیچشی|
+3456|3|Disc & Belleville Springs|فنر بشقابی (بلویل)|
+3457|3|Constant Force Coil Springs|فنر نیروی ثابت|
+3458|3|Garter Springs|فنر حلقوی (گارتر)|
+3459|3|Gas Springs, Shock Absorbers & Accessories|جک گازی، کمک‌فنر و لوازم جانبی|
+3460|3|Rotary Dampers|دمپر دورانی (ترمز چرخشی)|
+3461|2|Tarps & Tarp Accessories|برزنت و لوازم جانبی|
+3462|3|Tarps|برزنت (چادر)|
+3463|3|Tarp Accessories|لوازم جانبی برزنت|
+3464|3|Tarp Replacement Grommets|پرچ (منگنه) یدکی برزنت|
+3465|2|Hooks, Eye Pulleys, & Snap Hooks|قلاب، قرقره چشمی و کارابین|
+3466|3|Utility Hooks|قلاب و آویز همه‌کاره|
+3467|4|Wall & Ceiling Mounted Utility Hooks|آویز دیواری و سقفی|
+3468|4|Adhesive-Backed & Removable Hooks|آویز چسبی|ترکیبی
+3469|4|Magnetic Hooks|آویز مغناطیسی|
+3470|3|Snap Hooks & Connectors|قلاب فنری (کارابین) و اتصال|
+3471|3|S Hooks|قلاب S|
+3472|3|Eye Pulleys|قرقره چشمی|
+3473|3|Rope Guides|راهنمای طناب|
+3474|2|Wire Hangers & Suspension Kits|آویز سیمی و کیت آویز|
+3475|2|Vibration Control & Leveling Mounts|ضربه‌گیر لرزش و پایه تراز|
+3476|3|Surface-Mount Vibration Damping Bumpers|ضربه‌گیر لاستیکی روکار|
+3477|3|Hanger-Mount Vibration Isolators|لرزه‌گیر آویز (فنری سقفی)|
+3478|3|Floor-Mount Vibration Isolators|لرزه‌گیر زمینی|
+3479|3|Vibration-Isolating Pads|پد لرزه‌گیر|
+3480|3|Vibration Isolating Mounts|دسته موتور لرزه‌گیر (ضربه‌گیر لاستیکی)|
+3481|3|Leveling Mounts|پایه تراز (پایه رگلاژی)|
+3482|4|Male Leveling Mounts|پایه تراز پیچ‌دار (نر)|
+3483|4|Female Leveling Mounts|پایه تراز مهره‌ای (ماده)|
+3484|4|Tube End Leveling Mounts|پایه تراز انتهای لوله|
+3485|3|Anti-Vibration Grip Wraps|روکش دسته ضدلرزش|
+3486|2|Magnets & Magnetic Strips|آهنربا و نوار مغناطیسی|
+3487|3|Ceramic Magnets|آهنربای سرامیکی (فریت)|
+3488|3|Alnico Magnets|آهنربای آلنیکو|
+3489|3|Rare Earth Magnets|آهنربای نئودیمیوم (خاک کمیاب)|
+3490|3|Flexible Magnets|آهنربای انعطاف‌پذیر (ورقه‌ای)|
+3491|2|Braces & Brackets|براکت و نبشی اتصال|
+3492|3|Shelf & Closet Hardware|یراق قفسه و کمد|ترکیبی
+3493|4|Shelf Brackets|براکت (زیرسری) قفسه|
+3494|4|Shelf Supports|نگهدارنده طبقه (پین قفسه)|
+3495|4|Closet Rods & Caps|میله رخت‌آویز کمد و سرپوش|
+3496|3|Braces & Reinforcement Hardware|نبشی و یراق تقویتی|
+3497|3|Handrail Brackets|پایه هندریل|
+3498|3|Seismic Bracing Hardware|مهاربند لرزه‌ای|
+3499|3|Structural Support Braces & Replacement Hardware|مهاربند سازه‌ای و یراق یدکی|
+3500|3|Hangers|آویز (هنگر)|
+3501|3|Mirror Clips & Hangers|گیره و آویز آینه|
+3502|2|Hook & Loop Fasteners|چسب پارچه‌ای (ولکرو)|
+3503|3|Hook & Loop Cut-to-Length Bulk Rolls|رول چسب پارچه‌ای|
+3504|3|Hook & Loop Pre-Cut Pieces|چسب پارچه‌ای برش‌خورده|
+3505|3|Hook & Loop Straps|بند چسب پارچه‌ای|
+3506|2|Flooring Hardware|یراق کفپوش (پروفیل)|
+3507|2|Protective Caps, Plugs & Netting|درپوش، کلاهک و توری محافظ|
+3508|3|Sealing & Finishing Caps & Plugs|درپوش و کلاهک آب‌بند|
+3509|3|Thread-Protection Caps & Plugs|درپوش محافظ رزوه|
+3510|3|Sheet Metal Button Plugs|درپوش دکمه‌ای ورق|
+3511|3|Expandable Sleeve Netting|توری محافظ انبساطی|
+3512|3|Handle Grips|روکش دسته (گریپ)|
+3513|3|Corner Cover Caps|درپوش گوشه|
+3514|1|Hydraulics|هیدرولیک|
+3515|2|Hydraulic Accumulators|آکومولاتور هیدرولیک|
+3516|3|Bladder Accumulators & Accessories|آکومولاتور بادکنکی و لوازم جانبی|
+3517|3|Diaphragm Accumulators|آکومولاتور دیافراگمی|
+3518|3|Hydraulic Accumulator Charging & Gauging Kits|کیت شارژ و گیج آکومولاتور|
+3519|3|Piston Accumulators & Accessories|آکومولاتور پیستونی و لوازم جانبی|
+3520|2|Hydraulic Cylinders & Seals|جک هیدرولیک و کاسه‌نمد|
+3521|3|Compact Hydraulic Cylinders|جک هیدرولیک کامپکت|
+3522|3|Hydraulic Cylinder Mounts|پایه جک هیدرولیک|
+3523|3|Hydraulic Cylinder Seals|کاسه‌نمد جک هیدرولیک|
+3524|4|Dual Rod & Piston Seals|کاسه‌نمد دوکاره شفت و پیستون|
+3525|4|Piston Seals|پکینگ پیستون|
+3526|4|Rod Seals|کاسه‌نمد شفت|
+3527|4|Rod Wiper Seals|گردگیر (وایپر)|
+3528|4|V-Ring Seals|کاسه‌نمد وی‌رینگ|
+3529|4|Seal Kits for Hydraulic Cylinders|کیت کاسه‌نمد جک|
+3530|3|Tie-Rod Hydraulic Cylinders|جک هیدرولیک چهارمیل (تای‌راد)|
+3531|3|Welded Hydraulic Cylinders|جک هیدرولیک جوشی|
+3532|3|Telescopic Hydraulic Cylinders|جک هیدرولیک تلسکوپی|
+3533|3|Workholding Hydraulic Cylinders|جک هیدرولیک فیکسچر (قیدوبند)|
+3534|4|Block Body Hydraulic Cylinders|جک هیدرولیک بلوکی|
+3535|4|Hydraulic Work Supports|ساپورت هیدرولیک قطعه‌کار|
+3536|4|Swing Clamp Cylinders|جک کلمپ چرخشی|
+3537|4|Threaded Body Hydraulic Cylinders|جک هیدرولیک بدنه رزوه‌ای|
+3538|4|Workholding Hydraulic Rams|جک فشاری فیکسچر|
+3539|4|Workholding Palletized Fixture Components|اجزای فیکسچر پالتی|
+3540|3|Snowplow Hydraulic Cylinders|جک هیدرولیک تیغه برف‌روب|
+3541|3|Hydraulic Cylinder Stroke Controls|کنترل کورس جک هیدرولیک|
+3542|2|Hydraulic Equipment Replacement Parts|قطعات یدکی تجهیزات هیدرولیک|
+3543|2|Hydraulic Filtration|فیلتراسیون هیدرولیک|
+3544|3|Filtration Carts|دستگاه فیلتر روغن سیار|
+3545|3|Handheld Filtration Units|دستگاه فیلتر روغن دستی|
+3546|3|Hydraulic Tank Filters|فیلتر مخزن هیدرولیک|
+3547|4|Hydraulic Tank Desiccant Breathers|درب تنفسی رطوبت‌گیر (سیلیکاژل)|
+3548|4|Hydraulic Tank Fillers & Breathers|درب باک و تنفسی هیدرولیک|
+3549|4|Hydraulic Tank Suction Strainers|صافی مکش هیدرولیک|
+3550|3|In-Line Hydraulic Filters|فیلتر هیدرولیک خطی|
+3551|4|Compact Pressure Line Hydraulic Filters|فیلتر خط فشار کامپکت|
+3552|4|Pressure Line Hydraulic Cartridge Filters|فیلتر کارتریجی خط فشار|
+3553|4|Return Line Hydraulic Filters|فیلتر خط برگشت|
+3554|3|Hydraulic Interchangeable Filter Elements|المنت فیلتر هیدرولیک|
+3555|3|Hydraulic Oil Test Kits|کیت تست روغن هیدرولیک|
+3556|3|Replacement Parts for Hydraulic Filtration Systems|قطعات یدکی سیستم فیلتراسیون|
+3557|2|Hydraulic Fittings|اتصالات هیدرولیک|
+3558|3|Sight Plugs|درپوش نمایشگر (روغن‌نما)|
+3559|3|Hydraulic Tank Plugs|درپوش مخزن هیدرولیک|
+3560|2|Hydraulic Hose Crimping Machines & Accessories|دستگاه پرس شیلنگ هیدرولیک و لوازم جانبی|
+3561|3|Hydraulic Hose Crimping Machines|دستگاه پرس شیلنگ|
+3562|3|Dies & Die Sets for Hydraulic Hose Crimping Machines|فک و ست فک پرس شیلنگ|
+3563|3|Hydraulic Hose Crimper Die Racks|رک فک پرس شیلنگ|
+3564|3|Accessories for Hydraulic Hose Crimping Machines|لوازم جانبی پرس شیلنگ|
+3565|2|Hydraulic Motors & Replacement Parts|هیدروموتور و قطعات یدکی|
+3566|3|Hydraulic Motors|هیدروموتور|
+3567|3|Hydraulic Motor Replacement Parts|قطعات یدکی هیدروموتور|
+3568|2|Hydraulic Oil Coolers|اویل کولر هیدرولیک|
+3569|3|Air-Cooled Oil Coolers|اویل کولر هوایی|
+3570|3|Forced Air Oil Coolers|اویل کولر فن‌دار|
+3571|3|Off-Line Forced Air Oil Coolers|اویل کولر فن‌دار آفلاین (مدار مستقل)|
+3572|2|Hydraulic Tools|ابزار هیدرولیک|
+3573|3|Hydraulic Torque Wrenches|آچار ترک هیدرولیک|
+3574|4|Square-Drive Hydraulic Torque Wrenches & Sockets|آچار ترک هیدرولیک درایو چهارگوش و بکس|
+3575|4|Low-Profile Hydraulic Torque Wrenches|آچار ترک هیدرولیک کم‌ارتفاع (کاست)|
+3576|4|Hydraulic Torque Wrench Replacement Parts & Accessories|قطعات یدکی و لوازم جانبی آچار ترک|
+3577|3|Hydraulic Cable Cutters|کابل‌بر هیدرولیک|
+3578|3|Replacement Blades & Heads for Hydraulic Cable Cutters|تیغه و سر یدکی کابل‌بر|
+3579|3|Hydraulic Cable Crimping Heads|سر پرس کابلشو هیدرولیک|
+3580|3|Hydraulic Pipe Cutters & Accessories|لوله‌بر هیدرولیک و لوازم جانبی|
+3581|3|Hydraulic Pipe Benders|لوله‌خم‌کن هیدرولیک|
+3582|3|Hydraulic Impact Wrenches & Nut Runners|بکس ضربه‌ای و مهره‌بازکن هیدرولیک|
+3583|3|Hydraulic Impact Hammer Drills|دریل چکشی هیدرولیک|
+3584|3|Hydraulic Chain Saws & Pruners|اره زنجیری و شاخه‌زن هیدرولیک|
+3585|3|Hydraulic Paving Breakers|چکش تخریب هیدرولیک|
+3586|3|Hydraulic Sign Post & Ground Rod Drivers|کوبنده تیرک و میله ارت هیدرولیک|
+3587|3|Hydraulic Tampers|کوبنده (تمپر) هیدرولیک|
+3588|3|Hydraulic Valve Exercisers|دستگاه باز و بسته‌کن شیر هیدرولیک|
+3589|3|Hydraulic Bar Cutters|میلگردبر هیدرولیک|
+3590|3|Hydraulic Bench Vises|گیره رومیزی هیدرولیک|
+3591|3|Hydraulic Bolt Tensioners|تنشنر پیچ هیدرولیک|
+3592|3|Hydraulic Magnetic Drills|دریل مگنتی هیدرولیک|
+3593|3|Hydraulic Core Drills|دستگاه کرگیری هیدرولیک|
+3594|3|Hydraulic Reciprocating Saws|اره افقی‌بر هیدرولیک|
+3595|3|Hydraulic Hacksaws|اره کمانی هیدرولیک|
+3596|3|Hydraulic Rotary Hammers|دریل بتن‌کن هیدرولیک|
+3597|3|Hydraulic Portable Bandsaws|اره نواری دستی هیدرولیک|
+3598|3|Hydraulic Pipe Cutting Kits|کیت لوله‌بری هیدرولیک|
+3599|2|Hydraulic Power Units|پاورپک هیدرولیک|
+3600|3|AC Hydraulic Power Units|پاورپک هیدرولیک AC|
+3601|3|DC Hydraulic Power Units|پاورپک هیدرولیک DC|
+3602|3|Gas Powered Hydraulic Power Units|پاورپک هیدرولیک بنزینی|
+3603|3|Hydraulic Power Unit Replacement Parts & Accessories|قطعات یدکی و لوازم جانبی پاورپک|
+3604|2|Hydraulic Pumps|پمپ هیدرولیک|
+3605|3|Electric Hydraulic Pump Units|پمپ هیدرولیک برقی|
+3606|3|Air-Operated Hydraulic Pump Units|پمپ هیدرولیک بادی|
+3607|3|Manual Hydraulic Pump Units|پمپ هیدرولیک دستی|
+3608|3|Hydraulic Gear Pumps|پمپ دنده‌ای هیدرولیک|
+3609|3|Hydraulic Vane Pumps|پمپ پره‌ای هیدرولیک|
+3610|3|Hydraulic Piston Pumps|پمپ پیستونی هیدرولیک|
+3611|3|PTO-Driven Hydraulic Gear Pumps|پمپ دنده‌ای شافت‌گردان (PTO)|
+3612|3|Replacement Parts for Hydraulic Pumps|قطعات یدکی پمپ هیدرولیک|
+3613|3|Engine-Driven Hydraulic Pump Units|پمپ هیدرولیک موتوری|
+3614|2|Hydraulic Rams & Tools|جک فشاری هیدرولیک و ابزار|
+3615|3|Hydraulic Maintenance Sets|ست تعمیراتی هیدرولیک|
+3616|3|Hydraulic Nut Splitters|مهره‌شکن هیدرولیک|
+3617|3|Hydraulic Ram Accessories|لوازم جانبی جک فشاری|
+3618|3|Hydraulic Ram Machine Lifts|بالابر ماشین‌آلات هیدرولیک|
+3619|3|Hydraulic Ram Pullers|پولی‌کش (بیرینگ‌کش) هیدرولیک|
+3620|3|Hydraulic Rams|جک فشاری هیدرولیک (سیلندر)|
+3621|4|Hollow Hydraulic Rams|جک توخالی|
+3622|4|Hydraulic Ram & Pump Sets|ست جک و پمپ هیدرولیک|
+3623|4|Lock Nut Hydraulic Rams|جک مهره‌قفلی|
+3624|4|Pull Hydraulic Rams|جک کششی|
+3625|4|Standard Hydraulic Rams|جک فشاری استاندارد|
+3626|4|Telescopic Hydraulic Rams|جک تلسکوپی|
+3627|3|Hydraulic Ram Spreaders|بازکن هیدرولیک (اسپریدر)|
+3628|3|Hydraulic Post-Tension & Stressing Jacks|جک پس‌کشیدگی و کشش کابل|
+3629|3|Synchronized Hydraulic Lifting Systems|سیستم بالابر هیدرولیک همزمان|
+3630|3|Hydraulic Ram Cribbing Rings & Spacers|رینگ و فاصله‌انداز جک|
+3631|2|Hydraulic Tanks|مخزن روغن هیدرولیک|
+3632|3|Aluminum Hydraulic Tanks|مخزن هیدرولیک آلومینیومی|
+3633|3|Hydraulic Tank Flanges|فلنج مخزن هیدرولیک|
+3634|3|Hydraulic Tank Isolators|لرزه‌گیر مخزن هیدرولیک|
+3635|3|Pump & Motor Mounts|پایه پمپ و موتور (بل‌هوزینگ)|
+3636|3|Steel Hydraulic Tanks|مخزن هیدرولیک فولادی|
+3637|2|Hydraulic Valves & Flow Control|شیرآلات هیدرولیک و کنترل جریان|
+3638|3|Hydraulic Cartridge Valves|شیر کارتریجی هیدرولیک|
+3639|3|Hydraulic Flow Dividers|تقسیم‌کننده جریان هیدرولیک|
+3640|3|Hydraulic Ball Valves|شیر توپی هیدرولیک|
+3641|3|Hydraulic Check Valves|شیر یک‌طرفه هیدرولیک|
+3642|3|Hydraulic Stack Valves|شیر طبقاتی (مدولار) هیدرولیک|
+3643|3|Hydraulic Manifold Valves|شیر منیفولدی هیدرولیک|
+3644|4|Hydraulic Directional Control Valves|شیر کنترل جهت (دیرکشنال)|
+3645|4|Hydraulic Flow Control & Check Manifold Valves|شیر کنترل جریان و یک‌طرفه منیفولدی|
+3646|4|Hydraulic Pressure Control Manifold Valves|شیر کنترل فشار منیفولدی|
+3647|4|Hydraulic Manual Selector Manifold Valves|شیر انتخاب دستی منیفولدی|
+3648|4|Hydraulic Valve Manifolds & Subplates|منیفولد و ساب‌پلیت شیر هیدرولیک|

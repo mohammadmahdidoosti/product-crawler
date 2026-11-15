@@ -1,0 +1,257 @@
+3938|3|Cell Lifters, Spreaders & Inoculating Picks|سل لیفتر، پخش‌کن (اسپریدر) و لوپ کشت|
+3939|3|Automated Microplate Sealers|سیلر خودکار میکروپلیت|
+3940|3|Hemacytometers|لام نئوبار (هموسیتومتر)|
+3941|3|Paraffin Wax Dispensers & Trimmers|دیسپنسر و تریمر پارافین|
+3942|2|Lab Diagnostics|کیت‌های تشخیصی|
+3943|3|Drug & Alcohol Kits|کیت تست اعتیاد و الکل|
+3944|3|Pregnancy Tests|تست بارداری|مصرفی
+3945|2|Agricultural & Soil Testing|آزمایش خاک و کشاورزی|
+3946|3|Grain & Soil Moisture Testers|رطوبت‌سنج غلات و خاک|
+3947|3|Soil Core Sampling Kits & Accessories|کیت مغزه‌گیری خاک و لوازم جانبی|
+3948|3|Soil Augers, Kits & Accessories|اوگر نمونه‌برداری خاک، کیت و لوازم جانبی|
+3949|3|Penetrometers & Accessories|پنترومتر و لوازم جانبی|
+3950|3|Soil Testing Probe Products|پراب آزمایش خاک|
+3951|3|Density Gauges & Voluvessels for Soil-Compaction Testing|دانسیته‌سنج و ولومتر تراکم خاک|
+3952|3|Soil Grinders & Accessories|آسیاب خاک و لوازم جانبی|
+3953|3|Soil Testing Kits & Accessories|کیت آزمایش خاک و لوازم جانبی|
+3954|3|Soil Gas & Vapor Probe Kits & Accessories|کیت پراب گاز و بخار خاک|
+3955|3|Dredges|نمونه‌بردار رسوب بستر (گرب)|
+3956|3|Vane Shear Testers|دستگاه برش پره‌ای (وین‌شیر)|
+3957|2|Chromatography|کروماتوگرافی|
+3958|3|Chromatography Paper|کاغذ کروماتوگرافی|
+3959|3|Ion Exchange Chromatography Columns|ستون کروماتوگرافی تبادل یونی|
+3960|3|Chromatography Equipment Accessories|لوازم جانبی تجهیزات کروماتوگرافی|
+3961|3|Chromatography Column Packing Beads|ذرات پرکن ستون کروماتوگرافی|
+3962|3|HPLC Waste Cans|مخزن پسماند HPLC|
+3963|3|HPLC Waste Can Accessories|لوازم جانبی مخزن پسماند HPLC|
+3964|1|Lighting|روشنایی|
+3965|2|Light Bulbs & Lamps|لامپ|ترکیبی
+3966|3|Linear Light Bulbs & Lamps|لامپ خطی (مهتابی و تیوب LED)|
+3967|3|Standard & Decorative Light Bulbs & Lamps|لامپ معمولی و تزئینی|
+3968|3|Spot, Reflector & Flood Light Bulbs & Lamps|لامپ هالوژن، رفلکتوری و پروژکتوری|
+3969|3|High-Output HID & LED Light Bulbs & Lamps|لامپ پرتوان HID و LED (کم‌مصرف صنعتی)|
+3970|3|Miniature Light Bulbs & Lamps|لامپ مینیاتوری (ریز)|
+3971|4|Screw Base Miniature Light Bulbs & Lamps|لامپ ریز پایه پیچی|
+3972|4|Flanged & Grooved Base Miniature Light Bulbs & Lamps|لامپ ریز پایه فلنجی و شیاردار|
+3973|4|Wedge Base Miniature Light Bulbs & Lamps|لامپ ریز پایه گوه‌ای (آریایی)|
+3974|4|Bayonet Base Miniature Light Bulbs & Lamps|لامپ ریز پایه سرنیزه‌ای|
+3975|4|2-Pin Base Miniature Light Bulbs & Lamps|لامپ ریز دوپین|
+3976|4|Telephone Slide Base Miniature Light Bulbs & Lamps|لامپ ریز پایه کشویی تلفنی|
+3977|4|R7S Base Miniature Light Bulbs & Lamps|لامپ قلمی R7S|
+3978|4|Prefocus Flanged Base Miniature Light Bulbs & Lamps|لامپ ریز پایه پریفوکوس|
+3979|4|Printed Circuit Socket Miniature Light Bulbs & Lamps|لامپ ریز سوکت مدار چاپی|
+3980|4|Spade & Wire Terminal Base Miniature Light Bulbs & Lamps|لامپ ریز ترمینال سیمی و تخت|
+3981|4|Festoon, Cap & Loop Base Miniature Light Bulbs & Lamps|لامپ ریز فستونی (دوسر) و حلقه‌ای|
+3982|3|Plug-In CFL & LED Light Bulbs & Lamps|لامپ کم‌مصرف و LED پین‌دار (PL)|
+3983|3|U-Bend Light Bulbs & Lamps|لامپ U شکل|
+3984|3|Circular Light Bulbs & Lamps|لامپ مهتابی حلقوی|
+3985|3|Light Bulb & Lamp Accessories & Changers|لوازم جانبی لامپ و لامپ‌عوض‌کن|
+3986|2|Ballasts & Drivers|بالاست و درایور|
+3987|3|Fluorescent Ballasts|بالاست (ترانس) مهتابی|
+3988|4|Electronic Fluorescent Ballasts|بالاست الکترونیکی مهتابی|
+3989|4|Dimmable Electronic Fluorescent Ballasts|بالاست الکترونیکی دیمردار|
+3990|4|Fluorescent Sign Ballasts|بالاست مهتابی تابلو|
+3991|4|Fluorescent Light Starters|استارتر مهتابی|
+3992|4|Ballast Accessories|لوازم جانبی بالاست|
+3993|3|HID Ballasts|بالاست HID (چوک)|
+3994|4|HID Core & Coil Ballast Kits|کیت بالاست هسته‌وسیم‌پیچ HID|
+3995|4|HID Electronic & F-Can Ballasts|بالاست الکترونیکی و قوطی HID|
+3996|4|HID Ballast Ignitors|ایگنیتر لامپ HID|
+3997|4|HID Capacitors|خازن لامپ HID|
+3998|3|LED Drivers|درایور LED|
+3999|4|LED Drivers for Fixture Arrays|درایور LED چراغ|
+4000|4|LED Drivers for UL Type C Lamps|درایور LED لامپ تایپ C|
+4001|4|Dimmable Driver & Lamp Retrofit Kits|کیت تبدیل درایور و لامپ دیمردار|
+4002|3|Emergency Lighting Ballasts & Drivers|بالاست و درایور اضطراری|
+4003|4|Emergency Ballasts for Fluorescent or LED Retrofit Lamps|بالاست اضطراری مهتابی یا LED|
+4004|4|Emergency Drivers for LED Fixture Arrays|درایور اضطراری چراغ LED|
+4005|4|Emergency Drivers with LED Array Retrofit Kits|درایور اضطراری با کیت تبدیل LED|
+4006|4|Emergency Lighting Inverters|اینورتر روشنایی اضطراری|
+4007|4|Generator Transfer Devices for Emergency Ballasts & Drivers|سوئیچ انتقال ژنراتور روشنایی اضطراری|
+4008|2|Lighting Fixtures & Retrofit Kits|چراغ و کیت تبدیل (رتروفیت)|
+4009|3|Surface Mount Light Fixtures|چراغ روکار|
+4010|4|LED Strip Lights|چراغ خطی LED|
+4011|4|LED Wraparound Lights|چراغ LED قاب‌دار (رپ‌اراند)|
+4012|4|LED Wall-Mounted Lights|چراغ دیواری LED|
+4013|4|LED Shop Lights|چراغ کارگاهی LED|
+4014|4|Retrofit Kits for LED Strip Lights|کیت تبدیل چراغ خطی|
+4015|4|Accessories for Surface Mount Light Fixtures|لوازم جانبی چراغ روکار|
+4016|3|Panel & Troffer Light Fixtures|پنل و چراغ توکار سقف کاذب|
+4017|4|LED Panel & Troffer Light Fixtures|پنل LED و چراغ ۶۰×۶۰|
+4018|4|Light Diffusers|طلق پخش‌کن نور (دیفیوزر)|
+4019|4|Retrofit Kits for Panel & Troffer Light Fixtures|کیت تبدیل پنل و چراغ توکار|
+4020|4|Accessories for Panel & Troffer Light Fixtures|لوازم جانبی پنل و چراغ توکار|
+4021|3|Bay Lights|چراغ سوله‌ای (های‌بی)|
+4022|4|Linear LED Bay Lights|چراغ سوله‌ای خطی LED|
+4023|4|Round LED Bay Lights|چراغ سوله‌ای گرد LED (UFO)|
+4024|4|Mounting Supplies & Accessories for Bay Lights|لوازم نصب و جانبی چراغ سوله‌ای|
+4025|3|Can Lights & Downlights|چراغ هالوژنی و دانلایت|
+4026|4|Canless LED Downlights|دانلایت LED بدون قوطی (فلت)|
+4027|4|Recessed Can LED Retrofit Trim Modules|ماژول تبدیل LED چراغ توکار|
+4028|4|Recessed LED Downlight Housings|قوطی دانلایت LED توکار|
+4029|4|Bulb-Dependent Downlight Housings & Kits|قوطی و کیت دانلایت لامپ‌خور|
+4030|4|Accessories for Can Lights & Downlights|لوازم جانبی دانلایت|
+4031|3|Vapor-Tight Light Fixtures|چراغ ضدآب و ضدبخار|
+4032|4|Linear Vapor-Tight Light Fixtures|چراغ خطی ضدآب|
+4033|4|Jelly Jar Vapor-Tight Light Fixtures|چراغ حبابی ضدآب (جلی جار)|
+4034|4|Retrofit Kits for Vapor-Tight Light Fixtures|کیت تبدیل چراغ ضدآب|
+4035|4|Replacement Lenses for Vapor-Tight Light Fixtures|طلق یدکی چراغ ضدآب|
+4036|3|Vandal-Resistant & Confinement Light Fixtures|چراغ ضدضربه و زندانی|
+4037|4|Panel & Troffer Vandal-Resistant LED Lights|پنل LED ضدضربه|
+4038|4|Surface Mount Vandal-Resistant LED Lights|چراغ روکار LED ضدضربه|
+4039|4|Corner-Mount Vandal-Resistant LED Light Fixtures|چراغ گوشه‌ای LED ضدضربه|
+4040|4|Shower-Area Confinement LED Light Fixtures|چراغ LED ضدضربه حمام|
+4041|3|Hazardous Location Light Fixtures|چراغ ضدانفجار|
+4042|4|Jelly Jar Hazardous Location Lights|چراغ حبابی ضدانفجار|
+4043|4|Linear Hazardous Location Light Fixtures|چراغ خطی ضدانفجار|
+4044|4|Flood Hazardous Location Light Fixtures|پروژکتور ضدانفجار|
+4045|4|Accessories for Hazardous Location Lighting|لوازم جانبی چراغ ضدانفجار|
+4046|3|Healthcare Light Fixtures|چراغ بیمارستانی|
+4047|4|Wall-Mounted LED Patient Room Lights|چراغ دیواری LED اتاق بیمار|
+4048|4|Patient & Exam Room LED Panels & Troffers|پنل LED اتاق بیمار و معاینه|
+4049|4|Movable Exam & Surgical Lights|چراغ سیار معاینه و جراحی|
+4050|4|Accessories for Healthcare Lighting|لوازم جانبی چراغ بیمارستانی|
+4051|3|Disinfecting & Sanitizing UV Light Fixtures|چراغ UV ضدعفونی|
+4052|4|Dosimeter Cards for UV Light Fixtures|کارت دزیمتر UV|
+4053|4|Disinfection Light Fixtures|چراغ ضدعفونی|
+4054|4|Sanitizing Chambers|محفظه ضدعفونی UV|
+4055|3|Track Light Fixtures|چراغ ریلی|
+4056|4|Track Light Heads & Pendants|سر چراغ ریلی و آویز|
+4057|4|Rails & Connectors for Track Light Fixtures|ریل و اتصال چراغ ریلی|
+4058|4|Fixed Rail LED Light Fixtures|چراغ LED ریل ثابت|
+4059|3|Under-Cabinet & Accent Lights|چراغ زیرکابینتی و تزئینی|ترکیبی
+4060|4|Under-Cabinet Light Fixtures|چراغ زیرکابینتی|
+4061|4|Accessories for Under-Cabinet & Accent Lighting|لوازم جانبی چراغ زیرکابینتی|
+4062|4|LED Christmas & Party String Lights|ریسه LED جشن|
+4063|3|Decorative Light Fixtures|چراغ تزئینی (دکوراتیو)|ترکیبی
+4064|4|Decorative LED Ceiling Lights|چراغ سقفی تزئینی LED|
+4065|4|Decorative Surface-Mount LED Downlights|دانلایت روکار تزئینی LED|
+4066|4|Decorative LED Pendant Lights|چراغ آویز تزئینی LED|
+4067|4|Bath & Vanity LED Lights|چراغ LED بالای آینه و حمام|
+4068|4|Decorative LED Wall Sconces|چراغ دیوارکوب تزئینی LED|
+4069|4|Suspension-Mount LED Architectural Lights|چراغ معماری آویز LED|
+4070|4|Ceiling-Mount LED Retrofit Spin Lights|چراغ سقفی LED پیچی جایگزین|
+4071|4|Retrofit Kits for Decorative Light Fixtures|کیت تبدیل چراغ تزئینی|
+4072|4|Accessories for Decorative Light Fixtures|لوازم جانبی چراغ تزئینی|
+4073|3|Rope & Tape Lights|ریسه شلنگی و نوار LED|ترکیبی
+4074|4|LED Tape Lights|نوار LED (ریسه)|
+4075|4|LED Rope & Flexible Linear Lights|ریسه شلنگی و نئون فلکسی LED|
+4076|4|Power Supplies for Tape & Linear Lights|آداپتور (منبع تغذیه) نوار LED|
+4077|4|Accessories for Tape & Linear Lights|لوازم جانبی نوار LED|
+4078|3|Grow Lights for Indoor Plants|لامپ رشد گیاه (گرولایت)|ترکیبی
+4079|4|Grow Light Fixtures|چراغ رشد گیاه|
+4080|5|Grow Light Clamp-On Fixtures|چراغ رشد گیاه گیره‌ای|
+4081|5|Grow Light String Fixtures|ریسه رشد گیاه|
+4082|5|LED Grow Light Panels|پنل LED رشد گیاه|
+4083|4|Standard LED Grow Light Bulbs|لامپ LED رشد گیاه|
+4084|4|LED Grow Light Kits|کیت چراغ رشد گیاه|
+4085|5|Multiple Fixture Style LED Grow Light Kits|کیت گرولایت چندچراغ|
+4086|5|Single Fixture Style LED Grow Light Kits|کیت گرولایت تک‌چراغ|
+4087|3|Night Lights|چراغ خواب|ترکیبی
+4088|2|Outdoor Lighting|روشنایی فضای باز|
+4089|3|Wall Packs & Decorative Wall Lights|چراغ دیواری محوطه (وال‌پک) و دیوارکوب|
+4090|4|Full-Size Wall Packs|وال‌پک بزرگ|
+4091|4|Compact Wall Packs|وال‌پک کوچک|
+4092|4|Decorative Wall Lights|دیوارکوب تزئینی|ترکیبی
+4093|4|Replacement Parts for Wall Packs|قطعات یدکی وال‌پک|
+4094|3|Floodlights|پروژکتور|
+4095|3|Parking Garage & Canopy Lights|چراغ پارکینگ و سایبان (کانوپی)|
+4096|3|Street & Parking Lot Lights|چراغ خیابانی و محوطه پارکینگ|
+4097|4|Street & Parking Lot Light Fixtures|چراغ خیابانی|
+4098|4|Parts & Accessories for Street & Parking Lot Lights|قطعات و لوازم جانبی چراغ خیابانی|
+4099|3|Landscape Lights|چراغ محوطه و فضای سبز|ترکیبی
+4100|4|Pathway & Sidewalk Lights|چراغ مسیر و پیاده‌رو|
+4101|5|Bollard Lights|چراغ چمنی (بولارد)|
+4102|5|Pathway Lights|چراغ مسیر|
+4103|5|Post-Top Lights|چراغ سرستونی|
+4104|4|Landscape Flood & Accent Lights|پروژکتور و چراغ نماسازی فضای سبز|
+4105|4|Step Lights|چراغ پله|
+4106|4|Deck Lights|چراغ دک (کف تراس)|
+4107|4|In-Ground Well Lights|چراغ توکار زمینی|
+4108|4|Replacement Parts & Accessories for Landscape Lights|قطعات یدکی و لوازم جانبی چراغ محوطه|
+4109|3|Security Lights|چراغ امنیتی|
+4110|4|Adjustable Beam Security Lights|چراغ امنیتی قابل تنظیم|
+4111|4|Fixed Beam Security Lights|چراغ امنیتی ثابت|
+4112|4|Mounting Supplies & Parts for Security Lights|لوازم نصب و قطعات چراغ امنیتی|
+4113|3|Solar Lights|چراغ خورشیدی|ترکیبی
+4114|3|Outdoor Lampholders|سرپیچ فضای باز|
+4115|3|Parks & Recreation Lights|چراغ پارک و فضای تفریحی|
+4116|2|Emergency & Exit Lighting|روشنایی اضطراری و خروج|
+4117|3|Emergency Light Fixtures|چراغ اضطراری|
+4118|4|General Purpose Emergency Lights|چراغ اضطراری عمومی|
+4119|4|Wet Location Emergency Lights|چراغ اضطراری ضدآب|
+4120|3|Remote Head Emergency Lights|سر چراغ اضطراری ریموت|
+4121|3|Combination Exit Signs & Emergency Lights|تابلو خروج و چراغ اضطراری ترکیبی|
+4122|4|General Purpose Combination Exit Signs & Emergency Lights|تابلو خروج و چراغ اضطراری عمومی|
+4123|4|Wet Location Combination Exit Signs & Emergency Lights|تابلو خروج و چراغ اضطراری ضدآب|
+4124|3|Lighted Exit Signs|تابلو خروج نوری (EXIT)|
+4125|4|General Purpose Lighted Exit Signs|تابلو خروج نوری عمومی|
+4126|4|Edge-Lit Exit Signs|تابلو خروج لبه‌نور (طلقی)|
+4127|4|Wet Location Lighted Exit Signs|تابلو خروج ضدآب|
+4128|4|Vandal-Resistant Lighted Exit Signs|تابلو خروج ضدضربه|
+4129|3|Self-Luminous Exit Signs|تابلو خروج خودتابان (تریتیوم)|
+4130|3|LED Exit Sign Retrofit Kits|کیت تبدیل LED تابلو خروج|
+4131|3|Emergency Lighting Accessories & Batteries|لوازم جانبی و باتری روشنایی اضطراری|
+4132|4|Exit Sign & Emergency Light Batteries|باتری تابلو خروج و چراغ اضطراری|
+4133|4|Emergency Light Covers, Shields & Accessories|کاور، محافظ و لوازم جانبی چراغ اضطراری|
+4134|2|Task & Jobsite Lighting|چراغ کار و روشنایی کارگاهی|
+4135|3|Hand Lamps|چراغ دستی سیار|
+4136|3|Jobsite Lights|چراغ کارگاهی|
+4137|3|360-Degree Jobsite Lights|چراغ کارگاهی ۳۶۰ درجه|
+4138|3|Remote Area & Emergency Scene Lights|برج نوری و چراغ صحنه حادثه|
+4139|3|Hanging & String Lights|ریسه و چراغ آویز کارگاهی|
+4140|3|Dock Lights & Replacement Heads|چراغ سکوی بارگیری و سر یدکی|
+4141|3|Workstation Task Lights|چراغ میز کار|
+4142|3|Magnifier Lights|چراغ ذره‌بین‌دار (لوپ)|
+4143|3|Machine Tool Lights|چراغ ماشین‌ابزار|
+4144|2|Flashlights|چراغ قوه|ترکیبی
+4145|3|Handheld Flashlights|چراغ قوه دستی|
+4146|4|Industrial Handheld Flashlights|چراغ قوه صنعتی|
+4147|4|Tactical Handheld Flashlights|چراغ قوه تاکتیکال|
+4148|4|Safety-Rated Handheld Flashlights|چراغ قوه ضدانفجار|
+4149|3|Headlamps & Helmet Lights|چراغ پیشانی و چراغ کلاه ایمنی|
+4150|4|Industrial Headlamps & Helmet Lights|چراغ پیشانی صنعتی|
+4151|4|Tactical Headlamps & Helmet Lights|چراغ پیشانی تاکتیکال|
+4152|4|Safety-Rated Headlamps|چراغ پیشانی ضدانفجار|
+4153|3|Penlights & Inspection Lights|چراغ قلمی و چراغ بازرسی|
+4154|4|Industrial Penlights|چراغ قلمی صنعتی|
+4155|4|Safety-Rated Penlights|چراغ قلمی ضدانفجار|
+4156|4|UV Inspection Lights|چراغ بازرسی UV|
+4157|3|Right-Angle Flashlights|چراغ قوه سرکج (زاویه‌دار)|
+4158|4|Industrial Right-Angle Flashlights|چراغ قوه زاویه‌دار صنعتی|
+4159|4|Tactical Right-Angle Flashlights|چراغ قوه زاویه‌دار تاکتیکال|
+4160|4|Safety-Rated Right-Angle Flashlights|چراغ قوه زاویه‌دار ضدانفجار|
+4161|3|Lanterns & Spotlights|فانوس و نورافکن دستی|
+4162|3|Weapon-Mounted Flashlights|چراغ قوه روی سلاح|
+4163|3|Hand Crank & Power Outage Flashlights|چراغ قوه دینامی و اضطراری|
+4164|3|Clip & Keychain Flashlights|چراغ قوه جاکلیدی و گیره‌ای|
+4165|3|Flashlight Parts & Accessories|قطعات و لوازم جانبی چراغ قوه|
+4166|4|Rechargeable Flashlight Battery Packs|باتری شارژی چراغ قوه|
+4167|4|Flashlight Chargers|شارژر چراغ قوه|
+4168|4|Flashlight Holsters & Cases|جلد و کیف چراغ قوه|
+4169|4|Flashlight Replacement Bulbs & Light Modules|لامپ و ماژول یدکی چراغ قوه|
+4170|4|Flashlight Wands & Cones|باتوم و مخروط چراغ قوه (ترافیکی)|
+4171|4|Flashlight Mounting Supplies|لوازم نصب چراغ قوه|
+4172|2|Lighting Controls|کنترل روشنایی|
+4173|3|Lighting Dimmers|دیمر روشنایی|
+4174|4|Wall Switch Dimmers|کلید دیمر دیواری|
+4175|4|Plug-In Dimmers|دیمر دوشاخه‌ای|
+4176|4|Lighting Control Smart Switch Systems & Kits|سیستم و کیت کلید هوشمند روشنایی|
+4177|4|Dimmer Accessories|لوازم جانبی دیمر|
+4178|3|Lighting Occupancy Sensors|سنسور حضور روشنایی|
+4179|4|Switch Box Mount Occupancy Sensors|کلید سنسوردار (جعبه کلید)|
+4180|4|Ceiling, Wall & Fixture Mount Occupancy Sensors|سنسور حضور سقفی و دیواری|
+4181|3|Lighting Control Accessories|لوازم جانبی کنترل روشنایی|
+4182|4|Companion Switches|کلید کمکی (تبدیل)|
+4183|4|Wireless Remote Controls|ریموت کنترل بی‌سیم|
+4184|4|Power & Relay Control Units|یونیت رله و تغذیه|
+4185|4|Occupancy Sensor Photocells|فتوسل سنسور حضور|
+4186|4|Lighting Control Mounting Accessories|لوازم نصب کنترل روشنایی|
+4187|2|Light Bulb & Lamp Crushers|دستگاه خردکن لامپ|
+4188|2|Lighting Replacement Parts|قطعات یدکی روشنایی|
+4189|3|Lighting Parts|قطعات چراغ|
+4190|3|Lamp Replacement Parts|قطعات یدکی لامپ|
+4191|1|Lubrication|روانکاری|
+4192|2|Grease|گریس|
+4193|3|Multipurpose Grease|گریس چندمنظوره|
+4194|3|Food-Grade Multipurpose Grease|گریس خوراکی (فودگرید) چندمنظوره|

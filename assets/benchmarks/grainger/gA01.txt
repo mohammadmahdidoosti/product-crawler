@@ -1,0 +1,301 @@
+0|1|Abrasives|ساینده‌ها (سنباده و سنگ)|
+1|2|Sanding Abrasives|سنباده|
+2|3|Sanding Discs|دیسک سنباده|
+3|4|Flap Discs|سنباده فلاپ (پره‌ای)|
+4|4|Fiber Discs|دیسک سنباده فیبری|
+5|4|Arbor-Mount Surface-Conditioning Discs|دیسک اسکاچ‌برایت سوراخ‌دار (نصب روی شفت)|
+6|4|Quick-Change Sanding Discs|دیسک سنباده تعویض سریع (رولاک)|
+7|4|Hook & Loop Sanding Discs|دیسک سنباده چسبی (ولکرو)|
+8|4|Adhesive-Back Sanding Discs|دیسک سنباده پشت‌چسب‌دار|
+9|4|Shank-Mount Surface-Conditioning Discs|دیسک اسکاچ‌برایت دنباله‌دار|
+10|4|Floor Sander Discs|دیسک سنباده کف‌سابی|
+11|3|Sanding Belts|سنباده نواری (تسمه‌ای)|
+12|3|Sanding Pads, Sponges & Steel Wool|پد سنباده، اسفنج سنباده و سیم ظرفشویی فولادی|
+13|4|Sanding Pads|پد سنباده (اسکاچ)|
+14|4|Sanding Sponges|اسفنج سنباده|
+15|4|Steel Wool|پشم فولاد (سیم ظرفشویی فولادی)|
+16|3|Sandpaper Sheets|سنباده ورقی|
+17|3|Sanding Rolls|سنباده رولی|
+18|3|Flap Wheels|فلاپ ویل (سنباده پره‌ای چرخی)|
+19|3|Surface-Conditioning Wheels|چرخ اسکاچ‌برایت|
+20|3|Cartridge Rolls|سنباده لوله‌ای (کارتریج رول)|
+21|3|Spiral Bands|سنباده حلقوی (اسپیرال)|
+22|3|Specialty Abrasives|ساینده‌های خاص|
+23|3|Abrasive Cord|نخ سنباده|
+24|2|Abrasive Brushes|برس ساینده (برس سیمی)|
+25|3|Wire Wheel Brushes|برس سیمی چرخی|
+26|3|Cup Brushes|برس سیمی کاسه‌ای|
+27|3|End Brushes|برس سیمی انگشتی|
+28|3|Abrasive Brush Kits|کیت برس ساینده|
+29|3|Power Tube Brushes|برس لوله‌شوی ماشینی|
+30|3|Bristle Brushes & Discs|برس و دیسک برسی (بریستل)|
+31|4|Bristle Discs|دیسک برسی|
+32|4|Radial Bristle Discs|دیسک برسی شعاعی|
+33|4|Radial Bristle Brushes|برس برسی شعاعی|
+34|3|Disc Brushes|برس دیسکی|
+35|3|Honing Brushes|برس هونینگ|
+36|4|Flexible Cylinder Hones|هون سیلندر انعطاف‌پذیر (فلکس‌هون)|
+37|4|Firearm Barrel & Chamber Hones|هون لوله و خزانه اسلحه|
+38|2|Cut-Off & Grinding Abrasives|صفحه برش و سنگ سنباده|
+39|3|Cut-Off Wheels|صفحه برش|
+40|4|Angle Grinder & Circular Saw Cut-Off Wheels|صفحه برش فرز و اره گرد|
+41|4|Die Grinder Cut-Off Wheels|صفحه برش فرز انگشتی (مینی)|
+42|4|Chop Saw Cut-Off Wheels|صفحه برش پروفیل‌بر|
+43|4|High-Speed Saw Cut-Off Wheels|صفحه برش اره پرسرعت|
+44|4|Toolroom & Foundry Cut-Off Wheels|صفحه برش ابزارسازی و ریخته‌گری|
+45|3|Grinding Wheels|سنگ سنباده|
+46|4|Depressed-Center Grinding Wheels|سنگ فرز (مرکز فرورفته)|
+47|4|Diamond Segment Cup Grinding Wheels|سنگ کاسه‌ای سگمنت الماسه|
+48|4|Bench & Pedestal Grinding Wheels|سنگ سنباده رومیزی و ایستاده|
+49|4|Surface & Cylindrical Grinding Wheels|سنگ سنگ‌زنی تخت و گرد|
+50|4|Tool & Cutter Grinding Wheels|سنگ ابزارتیزکنی|
+51|5|Straight Cup Grinding Wheels|سنگ کاسه‌ای صاف|
+52|5|Flaring Cup Grinding Wheels|سنگ کاسه‌ای مخروطی|
+53|5|Dish Grinding Wheels|سنگ بشقابی|
+54|5|Diamond & Cubic Boron Nitride (CBN) Grinding Wheels|سنگ الماسه و CBN|
+55|4|Foundry Grinding Wheels|سنگ سنباده ریخته‌گری|
+56|3|Combination Cut-Off & Grinding Wheels|صفحه برش و سنگ ترکیبی|
+57|3|Grinding Cones & Plugs|سنگ مخروطی و استوانه‌ای|
+58|3|Rubbing Bricks|آجر سنباده (سنگ ساب)|
+59|3|Surface Grinding Segments|سگمنت سنگ‌زنی تخت|
+60|3|Dressing & Truing Tools|ابزار دیسک‌زنی و تیزکن سنگ (درسر)|
+61|4|Cutter Dressers|درسر ستاره‌ای|
+62|4|Dressing Sticks|سنگ درسر (چوبی)|
+63|4|Diamond Dressers|الماس سنگ‌تیزکن (درسر الماسه)|
+64|4|Dressing & Truing Devices|دستگاه درسر و بالانس سنگ|
+65|4|Dressing & Truing Wheels|چرخ درسر|
+66|2|Abrasive Blasting|سندبلاست|
+67|3|Abrasive Blasting Media|ساچمه و ماده سندبلاست|
+68|3|Blasting Cabinets|کابین سندبلاست|
+69|3|Blasting Cabinet Parts & Accessories|قطعات و لوازم کابین سندبلاست|
+70|4|Gloves for Blasting Cabinets|دستکش کابین سندبلاست|
+71|4|Hoses & Hose Fittings for Blasting Cabinets|شیلنگ و اتصالات کابین سندبلاست|
+72|4|Lighting for Blasting Cabinets|روشنایی کابین سندبلاست|
+73|4|Window & Door Components for Blasting Cabinets|قطعات پنجره و درب کابین سندبلاست|
+74|4|Work Area Components for Blasting Cabinets|قطعات فضای کار کابین سندبلاست|
+75|4|Compressed Air Treatment for Blasting Cabinets|تصفیه هوای فشرده کابین سندبلاست|
+76|4|Foot Pedals & Controls for Blasting Cabinets|پدال و کنترل کابین سندبلاست|
+77|4|Gaskets for Blasting Cabinets|واشر آب‌بندی کابین سندبلاست|
+78|4|Media Delivery Components for Blasting Cabinets|قطعات تغذیه ساچمه کابین سندبلاست|
+79|3|Portable Abrasive Blasters|دستگاه سندبلاست پرتابل|
+80|3|Blasting Guns & Nozzles|تفنگ و نازل سندبلاست|
+81|4|Blasting Guns|تفنگ سندبلاست|
+82|4|Blasting Nozzles|نازل سندبلاست|
+83|4|Air Jets for Blasting Guns|جت هوای تفنگ سندبلاست|
+84|4|Mounting Brackets for Blasting Guns|براکت نصب تفنگ سندبلاست|
+85|3|Abrasive Blasting Dust Collectors & Accessories|غبارگیر سندبلاست و لوازم|
+86|4|Abrasive Blasting Dust Collectors|غبارگیر سندبلاست|
+87|4|Filters for Abrasive Blasting Dust Collectors|فیلتر غبارگیر سندبلاست|
+88|4|Replacement Parts for Abrasive Blasting Dust Collectors|قطعات یدکی غبارگیر سندبلاست|
+89|3|Abrasive Blasting Hoods|کلاه سندبلاست|
+90|2|Deburring|پلیسه‌گیری|
+91|3|Carbide Burs|فرز انگشتی کاربید (بور)|
+92|4|Cylinder Burs (SA)|بور استوانه‌ای (SA)|
+93|4|End-Cut Cylinder Burs (SB)|بور استوانه‌ای سربرش (SB)|
+94|4|Ball-Nosed Cylinder Burs (SC)|بور استوانه‌ای سرگرد (SC)|
+95|4|Ball Burs (SD)|بور کروی (SD)|
+96|4|Oval Burs (SE)|بور بیضی (SE)|
+97|4|Ball-Nosed Tree Burs (SF)|بور درختی سرگرد (SF)|
+98|4|Pointed-End Tree Burs (SG)|بور درختی نوک‌تیز (SG)|
+99|4|Flame Burs (SH)|بور شعله‌ای (SH)|
+100|4|60-Degree Cone Burs (SJ)|بور مخروطی ۶۰ درجه (SJ)|
+101|4|90-Degree Cone Burs (SK)|بور مخروطی ۹۰ درجه (SK)|
+102|4|Ball-Nosed Cone Burs (SL)|بور مخروطی سرگرد (SL)|
+103|4|Pointed-End Cone Burs (SM)|بور مخروطی نوک‌تیز (SM)|
+104|4|Inverted Cone Burs (SN)|بور مخروطی معکوس (SN)|
+105|4|Radius Burs|بور شعاعی|
+106|4|Combi Burs|بور ترکیبی|
+107|4|Carbide Bur Sets|ست بور کاربید|
+108|4|Carbide Bur Storage|جعبه نگهداری بور|
+109|3|Mounted Points & Kits|سنگ انگشتی و کیت|
+110|4|Mounted Points|سنگ انگشتی|
+111|4|Mounted Point Kits|کیت سنگ انگشتی|
+112|3|Hand Deburring Tools & Blades|پلیسه‌گیر دستی و تیغه|
+113|4|Replaceable-Blade Hand Deburring Tools|پلیسه‌گیر دستی تیغه‌تعویضی|
+114|4|Adjustable-Length Hand Deburring Tools|پلیسه‌گیر دستی طول‌متغیر|
+115|4|Hand Deburring Tool Kits|کیت پلیسه‌گیر دستی|
+116|4|Deburring Blades|تیغه پلیسه‌گیر|
+117|4|Deburring Tool Handles|دسته پلیسه‌گیر|
+118|4|Deburring Blade Holders|نگهدارنده تیغه پلیسه‌گیر|
+119|4|Disposable Hand Deburring Tools|پلیسه‌گیر دستی یک‌بارمصرف|
+120|4|Fixed-Blade Deburring Scrapers|شابر پلیسه‌گیر تیغه‌ثابت|
+121|2|Sharpening|تیزکنی|
+122|3|Sharpening Stones|سنگ تیزکن (سنگ رومیزی)|
+123|4|Dual-Grit Sharpening Stones|سنگ تیزکن دورو|
+124|4|Single-Grit Sharpening Stones|سنگ تیزکن یک‌رو|
+125|4|Diamond Sharpening Stones|سنگ تیزکن الماسه|
+126|4|Three-Grit Sharpening Systems|سیستم تیزکن سه‌زبری|
+127|4|Sharpening Stone Sets|ست سنگ تیزکن|
+128|4|Sharpening Stone Accessories|لوازم جانبی سنگ تیزکن|
+129|3|Abrasive Sharpening Files|سوهان تیزکن|
+130|3|Sharpening Machines|دستگاه تیزکن|
+131|4|Drill Bit Sharpeners|مته‌تیزکن|
+132|4|Drill Bit Sharpener Parts & Accessories|قطعات و لوازم مته‌تیزکن|
+133|4|Knife & Blade Sharpeners|چاقوتیزکن و تیغه‌تیزکن|ترکیبی
+134|3|Hand Sharpening Tools|تیزکن دستی|
+135|2|Buffing & Polishing|پولیش‌کاری|
+136|3|Buffing Wheels|پولیش نمدی و کتانی (فرچه پولیش)|
+137|3|Buffing & Polishing Compounds|خمیر پولیش|
+138|3|Buffing & Polishing Kits|کیت پولیش|
+139|3|Lapping Compounds|خمیر لپینگ (سنگ‌زنی سوپاپ)|
+140|3|Diamond Polishing Pads|پد پولیش الماسه|
+141|3|Felt Bobs|نمد پولیش انگشتی|
+142|2|Vibratory Tumbling & Finishing|ویبره پولیش (تامبلر)|
+143|3|Tumbling Media|سنگ ویبره|
+144|3|Tumbling Media Finishing Compounds|ترکیبات پرداخت ویبره|
+145|3|Vibratory Tumblers|دستگاه ویبره پولیش|
+146|3|Vibratory Tumbler Bowls & Lids|کاسه و درب دستگاه ویبره|
+147|3|Vibratory Tumbler Replacement Parts|قطعات یدکی دستگاه ویبره|
+148|3|Manual Separating Screens|الک جداکننده دستی|
+149|2|Abrasive Accessories|لوازم جانبی ساینده‌ها|
+150|3|Backing Pads & Fasteners|پد پشت سنباده و متعلقات|
+151|4|Quick-Change Disc Backing Pads|پد پشت دیسک تعویض سریع|
+152|4|Hook & Loop Disc Backing Pads|پد پشت دیسک چسبی (ولکرو)|
+153|4|Adhesive-Backed Sanding Disc Backing Pads|پد پشت دیسک سنباده پشت‌چسب‌دار|
+154|4|Fiber Disc Backing Pads|پد پشت دیسک فیبری|
+155|4|Fiber Disc Pad Hubs, Face Plates & Retainer Nuts|توپی، صفحه و مهره نگهدارنده پد دیسک فیبری|
+156|4|Cut-Off & Grinding Wheel Flanges|فلنج صفحه برش و سنگ|
+157|3|Mandrels, Arbors & Adapters for Abrasives|شفت، مندرل و تبدیل ساینده‌ها|
+158|4|Abrasive Wheel Arbors|شفت سنگ سنباده|
+159|4|Cartridge Roll Mandrels|مندرل سنباده لوله‌ای|
+160|4|Grinding Cone & Plug Mandrels|مندرل سنگ مخروطی و استوانه‌ای|
+161|4|Quick-Change Disc Mandrels|مندرل دیسک تعویض سریع|
+162|4|Radial Bristle Disc Mandrels|مندرل دیسک برسی شعاعی|
+163|4|Specialty Abrasive Mandrels|مندرل ساینده‌های خاص|
+164|4|Arbor Hole Adapters|تبدیل سوراخ سنگ|
+165|4|Threaded Shank Adapters|تبدیل دنباله رزوه‌ای|
+166|4|Disc Brush Arbors|شفت برس دیسکی|
+167|3|Expanding Drums & Wheels|درام و چرخ بادی سنباده (اکسپندینگ)|
+168|3|Sanding Blocks|کف‌کش سنباده (بلوک سنباده)|
+169|1|Adhesives, Sealants and Tape|چسب، درزگیر و نوار چسب|
+170|2|Adhesives & Glues|چسب|
+171|3|Load-Bearing Structural Adhesives|چسب سازه‌ای باربر|
+172|4|Epoxy Structural Adhesives|چسب سازه‌ای اپوکسی|
+173|4|Acrylic Structural Adhesives|چسب سازه‌ای اکریلیک|
+174|4|Urethane Structural Adhesives|چسب سازه‌ای پلی‌اورتان|
+175|3|Construction Adhesives|چسب ساختمانی|
+176|3|Spray Adhesives|چسب اسپری|
+177|3|Contact Adhesives|چسب تماسی|
+178|3|Instant Adhesives|چسب قطره‌ای (سیانوآکریلات)|ترکیبی
+179|3|Hot Melt Adhesives|چسب حرارتی (چسب تفنگی)|
+180|3|Wood Glues|چسب چوب|ترکیبی
+181|3|General Purpose Glues|چسب همه‌کاره|ترکیبی
+182|3|Shoe & Fabric Repair Glues|چسب کفش و پارچه|ترکیبی
+183|2|Hybrid Adhesive Sealants|چسب درزگیر هیبریدی (MS پلیمر)|
+184|2|Concrete & Asphalt Repair|تعمیر بتن و آسفالت|
+185|3|Cold Patch for Pothole Repair|آسفالت سرد ترمیم چاله|
+186|3|Patching Compounds for Concrete & Asphalt Repair|ملات ترمیم بتن و آسفالت|
+187|3|Joint Sealants & Crack Fillers for Concrete & Asphalt Repair|درزگیر و پرکننده ترک بتن و آسفالت|
+188|3|Cleaners & Sealcoatings for Concrete & Asphalt|پاک‌کننده و پوشش محافظ بتن و آسفالت|
+189|3|Concrete Mix & Cement|بتن آماده و سیمان|
+190|3|Mortar, Grout & Joint Sand|ملات، دوغاب و ماسه بندکشی|
+191|3|Concrete Surface Primers & Admixes|پرایمر سطح بتن و افزودنی بتن|
+192|2|Patching & Repairing Compounds|خمیر ترمیم و بتونه|
+193|3|Repair Putties|بتونه تعمیر|
+194|3|Wall Repair Patching|بتونه و خمیر تعمیر دیوار|ترکیبی
+195|3|Wood Fillers & Hardeners|بتونه چوب و سخت‌کننده|ترکیبی
+196|3|Metal & Fiberglass Repair Fillers|بتونه تعمیر فلز و فایبرگلاس|
+197|2|Adhesive & Sealant Surface Preparation|آماده‌سازی سطح چسب و درزگیر (پرایمر)|
+198|2|Caulks, Sealants & Gasket Makers|درزگیر، سیلر و واشرساز|
+199|3|Caulks & Sealants|درزگیر (سیلر)|
+200|4|Silicone Caulks & Sealants|چسب سیلیکون|
+201|4|Polyurethane Caulks & Sealants|درزگیر پلی‌اورتان|
+202|4|Acrylic Latex Caulks & Sealants|درزگیر اکریلیک|
+203|4|Hybrid Caulks & Sealants|درزگیر هیبریدی|
+204|4|Hybrid Caulking Strips, Cords & Compounds|نوار، طناب و خمیر درزگیر هیبریدی|
+205|3|Spray Foam Sealants|اسپری فوم درزگیر (فوم پلی‌اورتان)|
+206|4|Spray Foam Sealant Cans|اسپری فوم قوطی|
+207|4|Spray Foam Sealant Cylinders|فوم درزگیر سیلندری|
+208|4|Spray Foam Sealant Kits|کیت فوم درزگیر|
+209|3|Gasket Sealants & Makers|چسب واشر و واشرساز|
+210|4|Gasket Sealants & Adhesives|چسب واشر|
+211|4|RTV Gasket Makers|چسب واشرساز RTV|
+212|4|Anaerobic Gasket Makers|چسب واشرساز بی‌هوازی (آناروبیک)|
+213|3|Pipe Sealants|درزگیر لوله|
+214|4|Pipe Thread Sealants|چسب آب‌بندی رزوه لوله|
+215|4|Pipe Thread Sealant Tape|نوار تفلون|
+216|4|Plumber's Putty|بتونه لوله‌کشی|
+217|4|Pipe Cement|چسب لوله (PVC)|
+218|3|Valve Sealants|گریس و درزگیر شیر|
+219|2|Threadlockers & Retaining Compounds|چسب قفل رزوه و چسب نگهدارنده|
+220|3|Threadlockers for Metals|چسب قفل رزوه فلزات|
+221|3|Threadlockers for Plastics|چسب قفل رزوه پلاستیک|
+222|3|Reusable Threadlockers for Metals & Plastics|چسب قفل رزوه قابل استفاده مجدد|
+223|3|Retaining Compounds for Metals|چسب نگهدارنده یاتاقان و بوش (فلزات)|
+224|2|Potting Compounds & Protective Coatings|رزین پاتینگ و پوشش محافظ|
+225|2|Adhesive & Sealant Dispensing Equipment|تجهیزات تزریق چسب و درزگیر|
+226|3|Caulk Gun Applicators & Accessories|گان چسب و لوازم جانبی|
+227|4|Manual Caulk Guns|گان چسب دستی|
+228|4|Cordless Caulk Guns|گان چسب شارژی|
+229|4|Air-Powered Caulk Guns|گان چسب بادی|
+230|4|Accessories for Caulk Guns|لوازم جانبی گان چسب|
+231|3|Two-Part Applicators & Nozzles|گان و نازل چسب دوجزئی|
+232|4|Two-Part Adhesive Mix Monitors|نمایشگر اختلاط چسب دوجزئی|
+233|4|Manual Two-Part Applicators|گان چسب دوجزئی دستی|
+234|4|Cordless Two-Part Applicators|گان چسب دوجزئی شارژی|
+235|4|Air-Powered Two-Part Applicators|گان چسب دوجزئی بادی|
+236|4|Replacement Parts for Two-Part Applicators|قطعات یدکی گان دوجزئی|
+237|4|Mixing Nozzles|نازل میکسر|
+238|3|Spray Applicators|اسپری‌کن چسب|
+239|3|Hot Melt Applicators|دستگاه چسب حرارتی|
+240|4|Hot Melt Applicator Guns|تفنگ چسب حرارتی|
+241|4|Parts & Accessories for Hot Melt Applicators|قطعات و لوازم تفنگ چسب حرارتی|
+242|3|Dispensing Syringes, Bottles & Tips|سرنگ، بطری و سرسوزن تزریق|
+243|4|Dispensing Syringes|سرنگ تزریق چسب|
+244|4|Dispensing Syringe Tips & Caps|سرسوزن و درپوش سرنگ|
+245|4|Adhesive Dispensing Bottles & Accessories|بطری چسب‌زن و لوازم|
+246|4|Tube Adhesive & Sealant Dispensers|دیسپنسر چسب تیوبی|
+247|2|Tape|نوار چسب|
+248|3|Sealing & Repair Tape|نوار چسب آب‌بندی و تعمیر|
+249|4|Duct & Repair Tape|چسب برزنتی (داکت‌تیپ)|ترکیبی
+250|4|Foil Tape|چسب آلومینیومی (فویلی)|
+251|4|Sealing Cloth & Film Tape|نوار آب‌بندی پارچه‌ای و فیلمی|
+252|4|Sealing Foam Tape|نوار فوم آب‌بندی|
+253|3|Masking Tape, Painter's Tape & Dispensers|چسب کاغذی، نوار نقاشی و دیسپنسر|
+254|4|Masking Tape|چسب کاغذی|
+255|4|Painter's Tape & Dispensers|نوار نقاشی و دیسپنسر|
+256|5|Painter's Tape|نوار نقاشی|
+257|5|Painter's Tape Dispensers|دیسپنسر نوار نقاشی|
+258|4|High-Temperature Film Masking Tape|نوار ماسک فیلمی نسوز|
+259|4|Surface Finishing Masking Tape|نوار ماسک پرداخت سطح|
+260|4|Containment Tape|نوار ایزوله محیط|
+261|4|Blast Impact Tape|نوار محافظ سندبلاست|
+262|3|Electrical Tape|چسب برق|
+263|4|Insulating Electrical Tape|چسب برق عایق|
+264|4|Conducting Electrical Tape|نوار چسب رسانا|
+265|4|Liquid Insulating Electrical Tape|چسب برق مایع|
+266|3|Mounting & Bonding Tape & Dispensers|نوار چسب نصب و اتصال و دیسپنسر|
+267|4|Double-Sided Tape|چسب دوطرفه|
+268|5|Double-Sided Film Tape|چسب دوطرفه نواری (فیلمی)|
+269|5|Double-Sided Foam Tape|چسب دوطرفه فومی|
+270|4|High-Strength Double-Sided Tape|چسب دوطرفه قوی (VHB)|
+271|4|Splicing Tape|چسب اتصال (اسپلایس)|
+272|4|Double-Sided Carpet Mounting Tape|چسب دوطرفه موکت|
+273|4|Double-Sided Tape Dispensers|دیسپنسر چسب دوطرفه|
+274|3|Adhesive Transfer Tape & Dispensers|چسب ترانسفر و دیسپنسر|
+275|4|Adhesive Transfer Tape|چسب ترانسفر|
+276|4|High-Strength Adhesive Transfer Tape|چسب ترانسفر قوی|
+277|4|Adhesive Transfer Tape Dispensers|دیسپنسر چسب ترانسفر|
+278|3|Surface Protection Tape|نوار محافظ سطح|
+279|4|Mirror Backing Protective Cloth Tape|نوار پارچه‌ای محافظ پشت آینه|
+280|4|Slick Surface Tape|نوار کم‌اصطکاک (تفلونی)|
+281|4|Surface Protection Film Tape|فیلم محافظ سطح (نایلون پروتکشن)|
+282|3|Specialty Application Tape|نوار چسب کاربرد خاص|
+283|4|Antimicrobial Film Tape|نوار فیلمی ضدمیکروب|
+284|4|Water Contact Indicator Tape|نوار نشانگر تماس آب|
+285|4|High-Temperature Silica Tape|نوار سیلیکا نسوز|
+286|4|Light Blocking Tape|نوار مسدودکننده نور|
+287|4|Riveter's Tape|نوار پرچ‌کاری|
+288|3|Residue-Free Gaffer's Tape|چسب گافر بدون رد|
+289|1|Cleaning and Janitorial|نظافت و خدمات|
+290|2|Waste, Recycling & Trash Supplies|ملزومات زباله و بازیافت|
+291|3|Trash Bags|کیسه زباله|ترکیبی
+292|4|General Purpose Trash Bags|کیسه زباله عمومی|
+293|4|Recycled Plastic Trash Bags|کیسه زباله پلاستیک بازیافتی|
+294|4|Drawstring Trash Bags|کیسه زباله بنددار|
+295|4|Contractor Trash Bags|کیسه زباله ساختمانی (ضخیم)|
+296|4|Compostable Trash Bags|کیسه زباله کمپوست‌شدنی|
+297|4|Pest- & Rodent-Repellent Trash Bags|کیسه زباله دافع حشرات و جوندگان|
+298|4|Antistatic ESD-Safe Trash Bags|کیسه زباله آنتی‌استاتیک (ESD)|
+299|4|Paper Trash Bags|کیسه زباله کاغذی|
+300|4|Reusable Trash & Litter Bags|کیسه زباله قابل استفاده مجدد|

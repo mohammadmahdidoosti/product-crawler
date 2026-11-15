@@ -1,0 +1,289 @@
+3649|4|Hydraulic Manifold Valve Replacement Parts & Accessories|قطعات یدکی و لوازم جانبی شیر منیفولدی|
+3650|3|Hydraulic Selector Valves|شیر انتخاب‌گر هیدرولیک|
+3651|3|Hydraulic Manual Spool Monoblock Valves|شیر دستی مونوبلوک (بیل مکانیکی)|
+3652|3|Hydraulic Pressure Relief Valves|شیر اطمینان هیدرولیک (فشارشکن)|
+3653|3|Hydraulic Pressure Control Valves|شیر کنترل فشار هیدرولیک|
+3654|3|Hydraulic Flow Control Valves|شیر کنترل جریان (فلوکنترل) هیدرولیک|
+3655|3|Hydraulic Tank Drain Valves & Fittings|شیر تخلیه و اتصالات مخزن هیدرولیک|
+3656|1|Lab Supplies|تجهیزات و لوازم آزمایشگاهی|
+3657|2|Plastic & Glass Containers & Closures|ظروف پلاستیکی و شیشه‌ای و درپوش|
+3658|3|Plastic Lab Containers|ظروف پلاستیکی آزمایشگاهی|
+3659|4|Plastic Lab Bottles|بطری پلاستیکی آزمایشگاهی|
+3660|5|Wide Mouth Round Plastic Lab Bottles|بطری پلاستیکی گرد دهانه‌گشاد|
+3661|5|Narrow Mouth Round Plastic Lab Bottles|بطری پلاستیکی گرد دهانه‌باریک|
+3662|5|Rectangular Plastic Lab Bottles|بطری پلاستیکی چهارگوش|
+3663|5|Plastic Dispenser & Dropper Bottles|بطری قطره‌چکان و دیسپنسر پلاستیکی|
+3664|5|Plastic Lab Media & Roller Bottles|بطری محیط کشت و رولر پلاستیکی|
+3665|5|Plastic Lab Centrifuge Bottles|بطری سانتریفیوژ پلاستیکی|
+3666|5|Plastic Lab Vacuum Bottles|بطری خلأ پلاستیکی|
+3667|4|Plastic Jars|ظرف دهانه‌گشاد پلاستیکی (جار)|
+3668|4|Wash Bottles|پیست (بطری شستشو)|
+3669|4|Plastic Beakers|بشر پلاستیکی|
+3670|4|Plastic Carboys, Jerricans & Jugs|گالن و جری‌کن پلاستیکی (کربوی)|
+3671|5|Rectangular & Square Carboys & Jugs without Spigots|گالن چهارگوش بدون شیر|
+3672|5|Rectangular Plastic Carboys & Jerricans with Spigots|گالن و جری‌کن چهارگوش شیردار|
+3673|5|Round Plastic Carboys, Jerricans & Jugs without Spigots|گالن گرد بدون شیر|
+3674|5|Round Plastic Carboys & Jerricans with Spigots|گالن گرد شیردار|
+3675|5|Carboys, Jerricans & Jugs Spigots & Accessories|شیر و لوازم جانبی گالن|
+3676|4|Plastic Flasks|فلاسک (ارلن) پلاستیکی|
+3677|4|Plastic Centrifuge, Culture & Test Tubes|لوله سانتریفیوژ، کشت و آزمایش پلاستیکی|
+3678|4|Plastic Vials|ویال پلاستیکی|
+3679|4|Plastic Graduated Cylinders|استوانه مدرج پلاستیکی|
+3680|4|Plastic Cuvettes & Caps|کووت پلاستیکی و درپوش|
+3681|4|Plastic Burets|بورت پلاستیکی|
+3682|3|Glass Lab Containers|ظروف شیشه‌ای آزمایشگاهی|
+3683|4|Glass Lab Bottles|بطری شیشه‌ای آزمایشگاهی|
+3684|5|Wide Mouth Round Glass Lab Bottles|بطری شیشه‌ای گرد دهانه‌گشاد|
+3685|5|Narrow Mouth Round Glass Lab Bottles|بطری شیشه‌ای گرد دهانه‌باریک|
+3686|5|Rectangular Glass Lab Bottles|بطری شیشه‌ای چهارگوش|
+3687|5|Glass Dispenser & Dropper Bottles|بطری قطره‌چکان و دیسپنسر شیشه‌ای|
+3688|5|Glass Media, BOD & Specialty Lab Bottles|بطری محیط کشت، BOD و خاص شیشه‌ای|
+3689|4|Glass Jars|ظرف دهانه‌گشاد شیشه‌ای (جار)|
+3690|4|Glass Beakers|بشر شیشه‌ای|
+3691|4|Glass Centrifuge, Culture, Test & Specialty Tubes|لوله آزمایش، کشت و سانتریفیوژ شیشه‌ای|
+3692|4|Glass Vials & Ampules|ویال و آمپول شیشه‌ای|
+3693|4|Glass Flasks|ارلن و بالن شیشه‌ای|
+3694|4|Glass Carboys & Jugs|گالن شیشه‌ای|
+3695|4|Glass Graduated Cylinders|استوانه مدرج شیشه‌ای|
+3696|4|Glass Burets|بورت شیشه‌ای|
+3697|4|Lab Glassware Sets|ست ظروف شیشه‌ای آزمایشگاهی|
+3698|3|Bottle Top Dispensers|دیسپنسر سربطری|
+3699|3|Lab Bottle Caps & Closures|درب و درپوش بطری آزمایشگاهی|
+3700|3|Stoppers & Stopcocks|درپوش (چوب‌پنبه) و شیر بورت|
+3701|3|Films, Seals & Dispensers|پارافیلم، سیل و دیسپنسر|
+3702|3|Lab Tapes & Labels|نوار و برچسب آزمایشگاهی|
+3703|3|Beaker Covers & Lids|درپوش بشر|
+3704|3|Vial Top Crimpers & Decrimpers|پرس و بازکن درب ویال|
+3705|3|Flask Stabilizers & Pour Rings|پایه نگهدارنده فلاسک و حلقه وزنه|
+3706|3|Centrifuge Tube Accessories|لوازم جانبی لوله سانتریفیوژ|
+3707|3|Lab Adapters, Joints & Accessories|رابط، سنباده‌ای و لوازم جانبی آزمایشگاهی|
+3708|3|Ampule Breakers|آمپول‌شکن|
+3709|2|Lab Chemicals|مواد شیمیایی آزمایشگاهی|
+3710|2|Distilled & High Purity Water|آب مقطر و آب فوق‌خالص|
+3711|2|Lab Cooling & Refrigeration|سرمایش و یخچال آزمایشگاهی|
+3712|3|Lab Refrigerators & Freezers|یخچال و فریزر آزمایشگاهی|
+3713|4|Lab Refrigerators|یخچال آزمایشگاهی|
+3714|4|Lab Freezers|فریزر آزمایشگاهی|
+3715|4|Lab Refrigerator-Freezers|یخچال‌فریزر آزمایشگاهی|
+3716|4|Temperature Monitoring Devices|دستگاه پایش دما (دیتالاگر)|
+3717|3|Freeze Dryers & Accessories|فریز درایر و لوازم جانبی|
+3718|3|Cryogenic Equipment|تجهیزات کرایوژنیک (تانک ازت)|
+3719|3|Cold Storage Racks & Boxes|رک و باکس نگهداری سرد (کرایوباکس)|
+3720|3|Cold Storage Locks, Alarms & Accessories|قفل، آلارم و لوازم جانبی یخچال|
+3721|2|Lab Heating|گرمایش آزمایشگاهی|
+3722|3|Lab Ovens & Furnaces|آون و کوره آزمایشگاهی|
+3723|3|Incubators & Stability Chambers|انکوباتور و اتاقک پایداری|
+3724|3|Heating Blankets, Tapes & Cords|پتو، نوار و سیم گرمایشی|
+3725|3|Autoclaves & Sterilizers|اتوکلاو و استریلایزر|
+3726|3|Controlled Room Temperature Cabinets|کابینت دمای کنترل‌شده|
+3727|3|Bunsen Burners, Wire Gauze & Tubing|چراغ بونزن، توری نسوز و شلنگ|
+3728|3|Lab Heating Mantles & Covers|هیتر مانتل (شوفاژ بالن) و روکش|
+3729|3|Heating Mantle Controllers|کنترلر هیتر مانتل|
+3730|3|Lab Heating Equipment Accessories|لوازم جانبی تجهیزات گرمایشی آزمایشگاه|
+3731|2|Temperature Control|کنترل دما|
+3732|3|Lab Chillers & Coolers|چیلر و سردکن آزمایشگاهی|
+3733|3|Lab Circulators|سیرکولاتور آزمایشگاهی|
+3734|3|Lab Water Baths|بن‌ماری (حمام آب)|
+3735|3|Lab Circulator & Water Bath Fluids & Accessories|سیال و لوازم جانبی سیرکولاتور و بن‌ماری|
+3736|3|Cylindrical Vessel Heaters|گرمکن ظروف استوانه‌ای|
+3737|3|Dry & Bead Baths|حمام خشک و حمام بید (دری بلاک)|
+3738|3|Dry Bath Blocks, Beads & Accessories|بلوک، بید و لوازم جانبی حمام خشک|
+3739|3|Laboratory Temperature Controllers|کنترلر دمای آزمایشگاهی|
+3740|3|Lab Temperature Controller Switches & Accessories|سوئیچ و لوازم جانبی کنترلر دما|
+3741|2|Lab Equipment|تجهیزات آزمایشگاهی|
+3742|3|Lab Cleaning Equipment|تجهیزات شستشوی آزمایشگاه|
+3743|4|Ultrasonic Cleaning Products|دستگاه التراسونیک (شستشوی فراصوت)|
+3744|4|Ultrasonic Cleaner Inserts & Lids|سبد و درب التراسونیک|
+3745|4|Glassware Washers|دستگاه شستشوی ظروف آزمایشگاهی|
+3746|4|Glassware Washers Accessories|لوازم جانبی شستشوی ظروف|
+3747|4|Steam Jet Cleaners|بخارشوی آزمایشگاهی|
+3748|3|Lab Mixing & Grinding|همزن و آسیاب آزمایشگاهی|
+3749|4|Lab Shakers, Vortex Mixers & Rockers|شیکر، ورتکس و راکر|
+3750|4|Lab Shaker, Mixer & Rocker Attachments & Accessories|متعلقات و لوازم جانبی شیکر و همزن|
+3751|4|Magnetic Stirrers, Hot Plates & Hot Plate Stirrers|همزن مغناطیسی، هات‌پلیت و هیتر استیرر|
+3752|4|Magnetic Stirrers & Hot Plate Accessories|لوازم جانبی همزن مغناطیسی و هات‌پلیت|
+3753|4|Overhead Stirrers|همزن مکانیکی (اورهد)|
+3754|4|Overhead Stirrer Shafts & Impellers|شفت و پروانه همزن مکانیکی|
+3755|4|Homogenizers, Blenders & Sonifiers|هموژنایزر، مخلوط‌کن و سونیکاتور|
+3756|4|Homogenizer & Sonifier Accessories|لوازم جانبی هموژنایزر و سونیکاتور|
+3757|4|Grinding Mills & Heads|آسیاب آزمایشگاهی و سر آسیاب|
+3758|4|Grinding Balls, Extractors, Chambers, Blades & Adapters|گلوله، محفظه، تیغه و رابط آسیاب|
+3759|3|Centrifuges & Rotors|سانتریفیوژ و روتور|
+3760|4|Centrifuges|سانتریفیوژ|
+3761|4|Lab Rotors, Adapters & Sleeves|روتور، آداپتور و غلاف سانتریفیوژ|
+3762|3|Lab Supports, Lifts & Clamps|پایه، جک و گیره آزمایشگاهی|
+3763|4|Lab Clamps|گیره آزمایشگاهی|
+3764|4|Lab Supports, Rods & Frames|پایه، میله و داربست آزمایشگاهی|
+3765|4|Lab Lifts|جک آزمایشگاهی (لب جک)|
+3766|3|Microscopes, Cameras, Stands & Lenses|میکروسکوپ، دوربین، پایه و عدسی|
+3767|4|Lab Microscopes|میکروسکوپ آزمایشگاهی|
+3768|4|Microscope Lenses, Eyepieces & Covers|عدسی، چشمی و کاور میکروسکوپ|
+3769|4|Microscope Arms & Stands|بازو و پایه میکروسکوپ|
+3770|4|Microscope Cameras|دوربین میکروسکوپ|
+3771|4|Lab Microscope Accessories|لوازم جانبی میکروسکوپ|
+3772|3|Microscope Slides & Storage|لام میکروسکوپ و جعبه نگهداری|
+3773|3|Slide Dryers & Warmers|خشک‌کن و گرمکن لام|
+3774|3|Desiccators & Plates|دسیکاتور و صفحه|
+3775|3|Hydrogen, Nitrogen & Zero Air Generators|ژنراتور هیدروژن، نیتروژن و هوای خالص|
+3776|3|Dry Evaporators & Concentrators|تبخیرکننده و تغلیظ‌کننده خشک|
+3777|3|Dry Evaporator & Concentrator Accessories|لوازم جانبی تبخیرکننده خشک|
+3778|3|Rotary Evaporation|تبخیر چرخشی|
+3779|4|Lab Rotary Evaporators|روتاری اواپراتور|
+3780|4|Lab Rotary Evaporation Vacuum Pumps|پمپ خلأ روتاری|
+3781|4|Lab Rotary Evaporator Accessories|لوازم جانبی روتاری|
+3782|3|Lab Aspirator Pumps & Accessories|پمپ ساکشن (آسپیراتور) و لوازم جانبی|
+3783|3|Lab Peristaltic Pumps|پمپ پریستالتیک|
+3784|3|Lab Condensers|مبرد (کندانسور) آزمایشگاهی|
+3785|2|Water Testing Equipment & Meters|تجهیزات و دستگاه‌های آزمایش آب|
+3786|3|Chemical Test Strips|نوار تست شیمیایی|
+3787|4|pH Test Strips, Paper & Pencils|کاغذ و نوار pH|
+3788|4|Single-Parameter Chemical Test Strips|نوار تست تک‌پارامتری|
+3789|4|Multi-Parameter Test Strips|نوار تست چندپارامتری|
+3790|3|pH Meters|pH متر|
+3791|3|Multiparameter Meters|مولتی‌پارامتر آب|
+3792|3|Lab Electrodes & Probes|الکترود و پراب آزمایشگاهی|
+3793|3|Calibration Solutions & Standards|محلول کالیبراسیون و استاندارد|
+3794|3|Water Quality Reagents|معرف کیفیت آب|
+3795|3|Water Quality Test Kits|کیت تست کیفیت آب|
+3796|3|Lab Hydrometers|هیدرومتر (چگالی‌سنج)|
+3797|3|Turbidity Meters|کدورت‌سنج (توربیدیمتر)|
+3798|3|Colorimeters|رنگ‌سنج (کالریمتر)|
+3799|3|Conductivity Meters|EC متر (هدایت‌سنج)|
+3800|3|Dissolved Oxygen Meters|اکسیژن‌متر محلول (DO متر)|
+3801|3|Oxidation Reduction Potential Meters|ORP متر|
+3802|3|Total Dissolved Solids Meters|TDS متر|
+3803|3|Salinity Meters|شوری‌سنج|
+3804|3|Tracer Dyes|رنگ ردیاب|
+3805|3|Lab Water Testing Meter Accessories|لوازم جانبی دستگاه‌های تست آب|
+3806|3|Secchi Discs & Accessories|دیسک سکی و لوازم جانبی|
+3807|3|Water Flow Meters|فلومتر آب|
+3808|2|Pipetting & Liquid Transfer Products|پیپت و ابزار انتقال مایعات|
+3809|3|Transfer Pipettes|پیپت پاستور (قطره‌چکان)|
+3810|3|Lab Pipetters|سمپلر (میکروپیپت)|
+3811|3|Lab Pipette Tips|سرسمپلر|
+3812|3|Volumetric & Serological Pipettes|پیپت حجمی و سرولوژیکی|
+3813|3|Pipette Controllers|پیپت‌پمپ (پیپت کنترلر)|
+3814|3|Drum Samplers, Bailers & Coliwasas|نمونه‌بردار بشکه و چاه (کولیواسا)|
+3815|3|Reagent Reservoirs|مخزن معرف (تشتک سمپلر)|
+3816|3|Lab Pipetter Accessories|لوازم جانبی سمپلر|
+3817|3|Lab Syringes|سرنگ آزمایشگاهی|
+3818|3|Automated Pipetting Stations|ایستگاه پیپت‌گذاری خودکار|
+3819|2|Water Purification & Wastewater Sampling|تصفیه آب و نمونه‌برداری فاضلاب|
+3820|3|Lab Water Purification Systems|دستگاه آب مقطرگیری و فوق‌خالص|
+3821|3|Water Purification System Cartridges & Filters|کارتریج و فیلتر دستگاه تصفیه آب|
+3822|3|Water Purification System UV Lamps|لامپ UV دستگاه تصفیه آب|
+3823|3|Lab Water Purification System Accessories|لوازم جانبی دستگاه تصفیه آب|
+3824|3|Water Level Testers|سطح‌سنج آب چاه|
+3825|3|Lab Storm Wastewater Samplers|نمونه‌بردار فاضلاب و آب سطحی|
+3826|2|Lab Ventilation & Enclosures|تهویه و محفظه‌های آزمایشگاهی|
+3827|3|Ductless Fume Hoods & Enclosures|هود بدون کانال و محفظه|
+3828|3|Ducted Fume Hoods|هود شیمیایی کانال‌دار|
+3829|3|Clean Benches|کلین بنچ (هود لامینار)|
+3830|3|Biosafety Cabinets & Enclosures|هود ایمنی زیستی (بیوسیفتی)|
+3831|3|Glove Boxes, Chambers & Bags|گلاوباکس، محفظه و کیسه دستکش‌دار|
+3832|4|Glove Boxes & Chambers|گلاوباکس و محفظه|
+3833|4|Glove Bags|کیسه دستکش‌دار (گلاوبگ)|
+3834|3|Canopy Hoods, Kits & Adapters|هود سایبانی، کیت و آداپتور|
+3835|3|Forensic Ventilation Products|تجهیزات تهویه پزشکی قانونی|
+3836|3|Exhaust Snorkels & Arms & Portable Fume Exhausters|بازوی مکش دود و دودگیر پرتابل|
+3837|3|Fume Hood Cabinets, Stands & Carts|کابینت، پایه و ترولی هود|
+3838|3|Fume Hood Work Surfaces|صفحه کار هود|
+3839|3|Fume Hood Filters|فیلتر هود|
+3840|3|Fume Hood Blowers|بلوور هود|
+3841|3|Fume Hood Airflow Monitors|مانیتور جریان هوای هود|
+3842|3|Fume Hood Tubing, Fittings, & Accessories|شلنگ، اتصالات و لوازم جانبی هود|
+3843|3|Bench Liners & Protectors|پوشش و محافظ سطح میز کار|
+3844|2|Lab Utensils & Trays|ابزار دستی و سینی آزمایشگاهی|
+3845|3|Lab Spoons & Scoops|قاشقک و اسکوپ آزمایشگاهی|
+3846|3|Lab Dippers|ملاقه نمونه‌برداری|
+3847|3|Lab Brushes|فرچه آزمایشگاهی (لوله‌شور)|
+3848|3|Lab Scrapers, Spatulas, Paddles, & Knives|اسپاتول، کاردک، پارو و چاقو آزمایشگاهی|
+3849|3|Lab Tongs & Forceps|انبر و پنس آزمایشگاهی|
+3850|3|Lab Funnels|قیف آزمایشگاهی|
+3851|3|Lab Powder Sampling Tools|ابزار نمونه‌برداری پودر|
+3852|3|Lab Trays|سینی آزمایشگاهی|
+3853|3|Crucibles & Heating Bowls|بوته و کاسه حرارتی (کروزه)|
+3854|3|Mortar & Pestle Sets|هاون و دسته هاون|
+3855|3|Stir Bars & Retrievers|مگنت همزن و مگنت‌گیر|
+3856|2|Lab Cleaners & Detergents|شوینده آزمایشگاهی|
+3857|2|Lab Furniture & Accessories|مبلمان آزمایشگاهی و لوازم جانبی|
+3858|3|Lab, ESD & Cleanroom Chairs|صندلی آزمایشگاهی، آنتی‌استاتیک و اتاق تمیز|
+3859|3|Lab, ESD & Cleanroom Stools|چهارپایه آزمایشگاهی، آنتی‌استاتیک و اتاق تمیز|
+3860|3|Lab Tables|میز آزمایشگاهی|
+3861|3|Lab Cabinets|کابینت آزمایشگاهی|
+3862|3|Lab Furniture Work Surfaces|صفحه کار آزمایشگاهی|
+3863|3|Lab Shelving|قفسه آزمایشگاهی|
+3864|3|Lab Furniture Raceways, Supports, & Accessories|داکت، پایه و لوازم جانبی مبلمان آزمایشگاهی|
+3865|3|Lab Shields|شیلد محافظ آزمایشگاهی|
+3866|2|Lab Storage & Transport|نگهداری و حمل آزمایشگاهی|
+3867|3|Sampling Bags|کیسه نمونه‌برداری|
+3868|3|Specimen Transfer Bags|کیسه انتقال نمونه|
+3869|3|Lab Mailers|بسته ارسال نمونه|
+3870|3|Stainless Steel Containers & Covers|ظرف استیل و درپوش|
+3871|3|Lab Storage & Racks|رک و جای نگهداری آزمایشگاهی|
+3872|3|Ice Buckets & Pans|سطل و سینی یخ|
+3873|3|Lab Carts & Accessories|ترولی آزمایشگاهی و لوازم جانبی|
+3874|3|Lab Carriers & Caddies|حامل و سبد آزمایشگاهی|
+3875|3|Specimen Transport Coolers|باکس حمل نمونه (کلدباکس)|
+3876|3|Lab Drying Racks|آبچکان آزمایشگاهی|
+3877|3|Test Tube Dispensers|دیسپنسر لوله آزمایش|
+3878|2|Lab Filters and Sieving|فیلتر و الک آزمایشگاهی|
+3879|3|Filter Paper|کاغذ صافی|
+3880|4|Glass-Fiber FIlter Paper|کاغذ صافی فایبرگلاس|
+3881|4|Cellulose Filter Paper|کاغذ صافی سلولزی|
+3882|4|Membrane Filter Paper|فیلتر غشایی (ممبران)|
+3883|3|Syringe Filters|سرسرنگی فیلتر (سرنگ فیلتر)|
+3884|3|Wire Cloth Lab Sieves|الک آزمایشگاهی توری|
+3885|3|Lab Sieve Shakers|شیکر الک|
+3886|3|Lab Sieve Accessories|لوازم جانبی الک|
+3887|3|Filter Systems & Components|سیستم فیلتراسیون و اجزا|
+3888|3|In-Line Filters & Filter Capsules|فیلتر خطی و کپسولی|
+3889|3|Extraction Thimbles|تیمبل استخراج (سوکسله)|
+3890|2|Lab Instrumentation|دستگاه‌های اندازه‌گیری آزمایشگاهی|
+3891|3|Lab Balances|ترازوی آزمایشگاهی|
+3892|3|Lab Balance Weighing Boats & Papers|ظرف و کاغذ توزین|
+3893|3|Moisture Analyzers|رطوبت‌سنج (آنالایزر رطوبت)|
+3894|3|Lab Refractometers|رفرکتومتر|
+3895|3|Viscometers & Viscosity Cups|ویسکومتر و کاپ ویسکوزیته|
+3896|3|Lab Viscometer Calibration Standards|استاندارد کالیبراسیون ویسکومتر|
+3897|3|Lab Polarimeters|پلاریمتر|
+3898|3|Spectrophotometers & Accessories|اسپکتروفتومتر و لوازم جانبی|
+3899|3|Lab Hardness Testers|سختی‌سنج آزمایشگاهی|
+3900|3|Lab Hardness Tester Accessories|لوازم جانبی سختی‌سنج|
+3901|3|Melting Point Testers|دستگاه نقطه ذوب|
+3902|3|Titration Products|محصولات تیتراسیون|
+3903|4|Automatic Titrators|تیتراتور اتوماتیک|
+3904|4|Manual Titrators|تیتراتور دستی|
+3905|4|Titrator Application Packages|پکیج کاربردی تیتراتور|
+3906|4|Titrator Accessories|لوازم جانبی تیتراتور|
+3907|4|Manual Titrator Test Kits|کیت تست تیتراسیون دستی|
+3908|4|Titrator Cartridges|کارتریج تیتراتور|
+3909|3|Digital Reactors|راکتور دیجیتال (هضم COD)|
+3910|3|Digital Reactor Accessories & Replacement Parts|لوازم جانبی و قطعات یدکی راکتور|
+3911|3|Fluorometers|فلورومتر|
+3912|3|Lab UV Lamps|لامپ UV آزمایشگاهی|
+3913|3|Lab UV Lamp Accessories & Replacement Parts|لوازم جانبی و قطعات یدکی لامپ UV|
+3914|2|Cleanroom Supplies|ملزومات اتاق تمیز (کلین‌روم)|
+3915|3|Cleanroom Gowning Area Garment & Footwear Racks|رک لباس و کفش اتاق تعویض|
+3916|3|Cleanroom Swabs|سواب کلین‌روم|
+3917|3|Cleanroom Mop Carts, Handles, Covers, Heads & Wringers|ترولی، دسته، سر و آبگیر طی کلین‌روم|
+3918|3|Cleanroom Notebooks & Paper|دفتر و کاغذ کلین‌روم|
+3919|2|Microbiology & Molecular Biology Supplies|ملزومات میکروبیولوژی و زیست مولکولی|
+3920|3|Dip Slides|دیپ اسلاید|
+3921|3|Protease Inhibitors|مهارکننده پروتئاز|
+3922|3|Electrophoresis Chemicals|مواد الکتروفورز|
+3923|3|Biochemicals & Biological Buffers|مواد بیوشیمیایی و بافر زیستی|
+3924|3|Research Antibiotics|آنتی‌بیوتیک تحقیقاتی|
+3925|3|Vitamin Supplements|مکمل ویتامین (محیط کشت)|
+3926|3|Scintillation Cocktails|کوکتل سینتیلاسیون|
+3927|3|Tissue Grinders|هموژنایزر بافت (هاون شیشه‌ای)|
+3928|3|Sealing Mats & Films|مت و فیلم سیل پلیت|
+3929|3|Colony Counters|کلنی‌شمار|
+3930|3|Electrophoresis Supplies|ملزومات الکتروفورز|
+3931|3|Thermal Cyclers & Blocks|ترموسایکلر (PCR) و بلوک|
+3932|3|Microbiology Media|محیط کشت میکروبی|
+3933|3|Petri Dishes & Crystallizing Dishes|پتری‌دیش و ظرف تبلور|
+3934|3|Multiple Well Plates|پلیت چندخانه (میکروپلیت)|
+3935|3|PCR Strip Tools|ابزار استریپ PCR|
+3936|3|Microbiology Staining Supplies|ملزومات رنگ‌آمیزی میکروبی|
+3937|3|Histology Products|محصولات بافت‌شناسی|

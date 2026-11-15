@@ -1,0 +1,255 @@
+10534|4|Hand Stamps|سنبه حروف و اعداد دستی|
+10535|5|Sharp-Face Hand Stamps|سنبه حروف لبه تیز|
+10536|5|Round-Face Hand Stamps|سنبه حروف لبه گرد|
+10537|5|Round-Dot-Face Hand Stamps|سنبه حروف نقطه‌ای|
+10538|5|Reverse-Character Hand Stamps|سنبه حروف معکوس|
+10539|5|Corrosion-Resistant Hand Stamps|سنبه حروف ضدزنگ|
+10540|5|Locksmith Hand Stamps|سنبه کلیدسازی|
+10541|5|Symbol & Inspection Hand Stamps|سنبه نماد و بازرسی|
+10542|5|Holders for Hand Stamps|نگهدارنده سنبه حروف|
+10543|4|Steel Type & Type Holders|حروف فولادی و حروف‌گیر|
+10544|3|Letters & Numbers|حروف و اعداد برچسبی|ترکیبی
+10545|4|Letter & Number Sets|ست حروف و اعداد|
+10546|4|Address Numbers|پلاک شماره ساختمان|
+10547|4|Vehicle Registration Letters & Numbers|حروف و اعداد شماره‌گذاری خودرو|
+10548|2|Lockout Tagout|لاک‌اوت تگ‌اوت (قفل و برچسب ایمنی)|
+10549|3|Lockout Padlocks|قفل آویز ایمنی (لاک‌اوت)|
+10550|3|Electrical Lockout Devices|قفل ایمنی برقی|
+10551|4|Battery Cable Lockout Devices|قفل ایمنی کابل باتری|
+10552|4|Circuit Breaker Lockout Devices|قفل ایمنی کلید مینیاتوری و بریکر|
+10553|4|Electrical-Plug Lockout Devices|قفل ایمنی دوشاخه|
+10554|4|Electrical-Switch Lockout Devices|قفل ایمنی کلید برق|
+10555|4|Push-Button Lockout Devices|قفل ایمنی شستی|
+10556|4|Pendant-Control Lockout Devices|قفل ایمنی ریموت آویز جرثقیل|
+10557|3|Valve Lockout Devices|قفل ایمنی شیر|
+10558|4|Ball Valve Lockout Devices|قفل ایمنی شیر توپی|
+10559|4|Butterfly Valve Lockout Devices|قفل ایمنی شیر پروانه‌ای|
+10560|4|Gate Valve Lockout Devices|قفل ایمنی شیر کشویی|
+10561|4|Universal Valve Lockout Devices|قفل ایمنی شیر یونیورسال|
+10562|3|Cable Lockout Devices|قفل ایمنی کابلی|
+10563|3|Steering Wheel Lockout Devices|قفل ایمنی فرمان|
+10564|3|Flange Lockout Devices|قفل ایمنی فلنج|
+10565|3|Gas Cylinder Lockout Devices|قفل ایمنی کپسول گاز|
+10566|3|Pneumatic Lockout Devices|قفل ایمنی پنوماتیک|
+10567|3|Lockout Hasps|هسپ (قفل گروهی) لاک‌اوت|
+10568|3|Group Lockout Boxes|جعبه لاک‌اوت گروهی|
+10569|3|Tagout Tags|کارت تگ‌اوت|
+10570|3|Lockout Stations & Kits|ایستگاه و کیت لاک‌اوت|
+10571|3|Electric Vehicle Lockout Devices|قفل ایمنی خودروی برقی|
+10572|2|Safety Storage|انبارش ایمن|
+10573|3|Safety Cabinets|کابینت ایمنی|
+10574|4|Flammables Safety Cabinets|کابینت ایمنی مواد قابل اشتعال|
+10575|4|Acids & Corrosives Safety Cabinets|کابینت ایمنی اسید و مواد خورنده|
+10576|4|Hazmat Safety Cabinets & Lockers|کابینت و کمد ایمنی مواد خطرناک|
+10577|4|Pesticide Safety Cabinets|کابینت ایمنی سموم|
+10578|4|Gas Cylinder Safety Cabinets|کابینت ایمنی کپسول گاز|
+10579|4|Safety Cabinet & Locker Accessories|لوازم جانبی کابینت و کمد ایمنی|
+10580|5|Safety Cabinet & Locker Shelves, Dividers & Trays|طبقه، جداکننده و سینی کابینت ایمنی|
+10581|5|Safety Cabinet Hardware|یراق‌آلات کابینت ایمنی|
+10582|5|Safety Cabinet Slope Covers|درپوش شیبدار کابینت ایمنی|
+10583|5|Safety Cabinet & Locker Ramps|رمپ کابینت ایمنی|
+10584|5|Safety Cabinet Spill Containment Sumps|سینی مهار نشتی کابینت ایمنی|
+10585|5|Safety Cabinet Labels|برچسب کابینت ایمنی|
+10586|5|Safety Cabinet Vent Plugs & Replacement Vent Assemblies|درپوش و مجموعه تهویه یدکی کابینت ایمنی|
+10587|5|Safety Cabinet Wheels & Dollies|چرخ و پایه چرخ‌دار کابینت ایمنی|
+10588|5|Safety Cabinet & Locker Drum Rollers & Cradles|غلتک و پایه بشکه کابینت ایمنی|
+10589|5|Safety Cabinet & Locker Touch-Up Paints|رنگ ترمیمی کابینت ایمنی|
+10590|5|Safety Cabinet & Locker Filters|فیلتر کابینت ایمنی|
+10591|3|Battery Storage & Containment|انبارش و مهار باتری|
+10592|4|Lithium-Ion Battery Safety Cabinets|کابینت ایمنی باتری لیتیوم‌یون|
+10593|4|Lithium-Ion Battery Storage Cases|کیف نگهداری باتری لیتیوم‌یون|
+10594|4|Lithium-Ion Battery Containment Kits|کیت مهار باتری لیتیوم‌یون|
+10595|3|Safety Cans & Tanks|ظرف و مخزن ایمنی|
+10596|4|Safety Cans|ظرف ایمنی سوخت|
+10597|4|Safety Can Accessories|لوازم جانبی ظرف ایمنی|
+10598|4|Bench Cans, Plunger Cans & Dispensing Bottles|ظرف رومیزی، ظرف پمپی و بطری توزیع حلال|
+10599|4|Tanks for Surface & Part Cleaning|مخزن شستشوی قطعات|
+10600|3|Safety Disposal|دفع ایمن پسماند|
+10601|4|Hazardous Liquid Waste Disposal Containers|ظرف دفع پسماند مایع خطرناک|
+10602|4|Oily Waste Containers|سطل پسماند روغنی|
+10603|4|Biohazardous Waste Disposal Containers|ظرف دفع پسماند عفونی|
+10604|4|Sharps Containers|سیفتی باکس (ظرف دفع سرسوزن)|
+10605|4|Sharps Container Accessories|لوازم جانبی سیفتی باکس|
+10606|3|Aerosol Can Recycling Equipment|دستگاه بازیافت قوطی اسپری|
+10607|2|Safety Alarms & Warning Lights|آژیر و چراغ هشدار ایمنی|
+10608|3|Audible Alarms|آژیر و بوق هشدار|
+10609|3|Warning Lights & Strobes|چراغ هشدار و فلاشر|
+10610|4|Wired Warning Lights & Strobes|چراغ هشدار و فلاشر سیمی|
+10611|4|Hazardous-Location Wired Warning Lights & Strobes|چراغ هشدار و فلاشر ضدانفجار|
+10612|4|Portable Warning Lights|چراغ هشدار پرتابل|
+10613|4|Warning Light Accessories & Replacement Parts|لوازم جانبی و قطعات یدکی چراغ هشدار|
+10614|4|Bases & Mounts for Warning Lights|پایه و نگهدارنده چراغ هشدار|
+10615|3|Combination Audible & Visual Alarms|آژیر و فلاشر ترکیبی|
+10616|3|Accessories & Replacement Parts for Audible Alarms|لوازم جانبی و قطعات یدکی آژیر|
+10617|3|Guards & Covers for Alarms & Wall Fixtures|حفاظ و کاور آژیر و تجهیزات دیواری|
+10618|2|Eyewash Equipment & Safety Showers|چشم‌شوی و دوش اضطراری|
+10619|3|Eyewash Stations|ایستگاه چشم‌شوی|
+10620|3|Safety Showers|دوش اضطراری|
+10621|3|Safety Showers with Eyewash Station|دوش اضطراری با چشم‌شوی|
+10622|3|Portable Eyewash Stations|چشم‌شوی پرتابل|
+10623|3|Portable Safety Showers with Eyewash|دوش اضطراری پرتابل با چشم‌شوی|
+10624|3|Thermostatic Mixing Valves & Water Heaters for Eyewash Equipment & Safety Showers|شیر مخلوط ترموستاتیک و آبگرمکن چشم‌شوی و دوش اضطراری|
+10625|3|Alarm Systems for Eyewash Equipment & Safety Showers|سیستم هشدار چشم‌شوی و دوش اضطراری|
+10626|3|Accessories & Testing Supplies for Eyewash Equipment & Safety Showers|لوازم جانبی و تست چشم‌شوی و دوش اضطراری|
+10627|3|Replacement Parts for Eyewash Equipment & Safety Showers|قطعات یدکی چشم‌شوی و دوش اضطراری|
+10628|3|Supplemental Eyewash Bottles & Stations|بطری و ایستگاه چشم‌شوی کمکی|
+10629|2|Floor Mats|کفپوش و پادری|
+10630|3|Antifatigue & Drainage Mats|کفپوش ضدخستگی و زهکش|
+10631|4|Antifatigue Mats|کفپوش ضدخستگی|
+10632|4|Drainage Mats|کفپوش زهکش (مشبک)|
+10633|4|Interlocking Antifatigue & Drainage Mats|کفپوش پازلی ضدخستگی و زهکش|
+10634|3|Traction Floor Mats|کفپوش ضدلغزش|
+10635|3|Entrance Mats|پادری ورودی|ترکیبی
+10636|4|Scraper Entrance Mats|پادری گل‌پاک‌کن|
+10637|4|Dryer Entrance Mats|پادری جاذب رطوبت|
+10638|4|Scraper-Dryer Entrance Mats|پادری گل‌پاک‌کن و جاذب|
+10639|4|Disposable Entrance Mats|پادری یکبار مصرف|
+10640|4|Printed Message Entrance Mats|پادری با پیام چاپی|
+10641|5|Safety Message Entrance Mats|پادری با پیام ایمنی|
+10642|5|Social-Distancing Message Entrance Mats|پادری با پیام فاصله‌گذاری اجتماعی|
+10643|3|Floor Protection Mats|کفپوش محافظ کف|
+10644|4|Hard-Surfaces Floor Protection Mats|کفپوش محافظ سطوح سخت|
+10645|4|Interlocking Floor Protection Mats|کفپوش محافظ پازلی|
+10646|3|Sticky-Surface Floor Mats|کفپوش چسبنده (استیکی مت)|
+10647|3|Footwear-Sanitizing Mats|پادری ضدعفونی کفش|
+10648|3|Static-Control Mats|کفپوش آنتی‌استاتیک|
+10649|4|Conductive & Static-Dissipative Mats|کفپوش رسانا و آنتی‌استاتیک|
+10650|4|Interlocking Static-Control Mats|کفپوش پازلی آنتی‌استاتیک|
+10651|4|ESD Mat Grounding Cords|سیم ارت کفپوش ESD|
+10652|3|Electric-Shock Protection Mats|کفپوش عایق برق (فرش عایق)|
+10653|3|Heated Mats|کفپوش گرمایشی|
+10654|2|Antislip Tapes, Treads & Stair Nosings|نوار ضدلغزش، کفی و دماغه پله|
+10655|3|Antislip Tape|نوار ضدلغزش|
+10656|3|Antislip Tape Treads|کفی نواری ضدلغزش|
+10657|3|Antislip Stair Nosings|دماغه پله ضدلغزش|
+10658|3|Antislip Stair Treads|کف پله ضدلغزش|
+10659|3|Antislip Stair Tread Covers & Nosings|روکش کف پله و دماغه ضدلغزش|
+10660|3|Antislip Stair Landing Covers|روکش پاگرد ضدلغزش|
+10661|3|Antislip Deck Sheets & Plates|ورق و صفحه ضدلغزش|
+10662|2|Fire Protection|اطفا و اعلام حریق|
+10663|3|Fire Suppressants for Electrical Enclosures & Equipment|سیستم اطفای حریق تابلو برق و تجهیزات|
+10664|3|Carbon Monoxide & Smoke Detectors|دتکتور دود و منوکسید کربن|ترکیبی
+10665|3|Facility Fire Alarm Systems|سیستم اعلام حریق ساختمان|
+10666|4|Control Panels for Fire Alarm Systems|کنترل پنل اعلام حریق|
+10667|4|Fire Alarms & Strobes|آژیر و فلاشر اعلام حریق|
+10668|5|Audible Fire Alarms|آژیر اعلام حریق|
+10669|5|Fire Alarm Strobes|فلاشر اعلام حریق|
+10670|5|Fire Alarm Combination Audible & Visual Alarms|آژیر فلاشر ترکیبی اعلام حریق|
+10671|4|Input Devices & Sensors for Fire Alarm Systems|شستی و دتکتور اعلام حریق|
+10672|4|Diagnostic & Networking Components for Fire Alarm Systems|قطعات شبکه و عیب‌یابی اعلام حریق|
+10673|4|Power Components for Fire Alarm Systems|قطعات تغذیه اعلام حریق|
+10674|4|Enclosures & Hardware for Fire Alarm Systems|جعبه و اتصالات اعلام حریق|
+10675|4|Replacement Parts for Fire Alarm Systems|قطعات یدکی اعلام حریق|
+10676|3|Fire Extinguishers & Accessories|کپسول آتش‌نشانی و لوازم جانبی|ترکیبی
+10677|4|Fire Extinguishers|کپسول آتش‌نشانی|
+10678|4|Fire Extinguisher Storage & Mounting|جعبه و پایه کپسول آتش‌نشانی|
+10679|4|Fire Extinguisher Alarms|آژیر کپسول آتش‌نشانی|
+10680|4|Fire Extinguisher Reload Cartridges|کارتریج شارژ کپسول آتش‌نشانی|
+10681|3|Fire Hoses, Nozzles & Storage|شیلنگ، سرلوله و جعبه آتش‌نشانی|
+10682|4|Fire Hoses|شیلنگ (نوار) آتش‌نشانی|
+10683|4|Fire Hose Nozzles|سرلوله آتش‌نشانی|
+10684|4|Fire Hose Reels, Racks & Covers|قرقره، رک و کاور شیلنگ آتش‌نشانی|
+10685|3|Fire Hydrant & Standpipe Accessories|لوازم جانبی شیر هیدرانت و رایزر|
+10686|4|Fire Hydrant Covers|کاور هیدرانت|
+10687|4|Fire Hydrant Wrenches|آچار هیدرانت|
+10688|4|Fire Hydrant & Standpipe Caps & Plugs|درپوش هیدرانت و رایزر|
+10689|4|Fire Hydrant & Standpipe Adapters|آداپتور هیدرانت و رایزر|
+10690|3|Firefighting Foams|فوم آتش‌نشانی|
+10691|3|Fire Blankets|پتوی نسوز اطفای حریق|ترکیبی
+10692|3|Firefighting Tools|ابزار آتش‌نشانی|
+10693|3|Fire Escape Ladders|نردبان فرار اضطراری|ترکیبی
+10694|3|Firestops & Barriers|مسدودکننده و مانع حریق (فایراستاپ)|
+10695|4|Firestop Caulks, Sealants, Putties & Sprays|درزگیر، بتونه و اسپری ضدحریق|
+10696|4|Firestop Passthroughs & Collars|غلاف و کلار ضدحریق|
+10697|4|Firestop Pillows, Plugs, Sheets & Wraps|بالشتک، درپوش، ورق و نوار ضدحریق|
+10698|3|Flame Resistant & Retardant Treatments|مواد ضدحریق و کندسوزکننده|
+10699|3|Fire & Rescue Fans|فن آتش‌نشانی و نجات|
+10700|3|Wildland Firefighting Tools & Equipment|ابزار و تجهیزات اطفای حریق جنگل|
+10701|4|Wildland Firefighting Pumps|پمپ اطفای حریق جنگل|
+10702|4|Wildland Fire Hoses|شیلنگ اطفای حریق جنگل|
+10703|4|Wildland Firefighting Tools|ابزار اطفای حریق جنگل|
+10704|4|Forest Fire Shelters|پناهگاه اضطراری آتش‌سوزی جنگل|
+10705|3|Fire Suppressants for Lithium Ion Batteries|اطفاکننده حریق باتری لیتیوم‌یون|
+10706|3|Anti-freeze Protection Fluids for Sprinkler Systems|ضدیخ سیستم اسپرینکلر|
+10707|2|Hydration Products|محصولات آبرسانی و نوشیدنی|ترکیبی
+10708|3|Bottled Water|آب معدنی بطری|
+10709|3|Sports Drinks & Thirst Quenchers|نوشیدنی ورزشی و رفع تشنگی|
+10710|4|Ready-To-Drink Sports Drinks|نوشیدنی ورزشی آماده|
+10711|4|Sports Drink Concentrates|کنسانتره نوشیدنی ورزشی|
+10712|4|Sports Drink Freezer Pops|بستنی یخی الکترولیتی|
+10713|4|Electrolyte Gum, Tablets & Chews|آدامس، قرص و جویدنی الکترولیت|
+10714|4|Accessories for Sports Drinks & Concentrates|لوازم جانبی نوشیدنی ورزشی|
+10715|3|Chest Coolers & Accessories|یخدان و لوازم جانبی|
+10716|4|Chest Coolers|یخدان|
+10717|4|Chest Cooler Cushions|تشک روی یخدان|
+10718|4|Insulated Chest Cooler Covers|کاور عایق یخدان|
+10719|3|Soft-Sided Coolers|کیف خنک‌نگهدار|
+10720|3|Beverage-Dispensing Coolers & Accessories|کلمن آب و لوازم جانبی|
+10721|4|Beverage-Dispensing Coolers|کلمن آب (شیردار)|
+10722|4|Racks for Beverage-Dispensing Coolers|پایه کلمن آب|
+10723|4|Cup Dispensers for Beverage-Dispensing Coolers|جالیوانی کلمن آب|
+10724|4|Replacement Parts for Beverage-Dispensing Coolers|قطعات یدکی کلمن آب|
+10725|3|Reusable Ice Packs|یخ مصنوعی (آیس پک)|
+10726|3|Water Containers for Storage & Transport|گالن نگهداری و حمل آب|
+10727|3|Water Bottles, Cups & Jugs|قمقمه، لیوان و پارچ آب|
+10728|3|Hydration Packs & Accessories|کوله‌آب (هیدریشن پک) و لوازم جانبی|
+10729|4|Hydration Packs|کوله‌آب (هیدریشن پک)|
+10730|4|Hydration Pack Accessories|لوازم جانبی کوله‌آب|
+10731|2|Emergency Preparedness Products|محصولات آمادگی در شرایط اضطراری|
+10732|3|Temporary Emergency Shelters & Incident Command Supplies|سرپناه موقت اضطراری و ملزومات فرماندهی حادثه|
+10733|4|Temporary Emergency Shelters|سرپناه (چادر) موقت اضطراری|
+10734|4|Incident Command & Triage Management Supplies|ملزومات فرماندهی حادثه و تریاژ|
+10735|4|Cots, Sleeping Bags & Bedding|تخت سفری، کیسه‌خواب و ملحفه|
+10736|4|Field Desks|میز صحرایی|
+10737|4|Emergency Identification Cards & Labels|کارت و برچسب شناسایی اضطراری|
+10738|4|Emergency Blankets|پتوی اضطراری (نجات)|
+10739|3|Emergency Survival Kits & Rations|کیت بقا و جیره اضطراری|ترکیبی
+10740|4|Emergency Survival Kits|کیت بقا اضطراری|
+10741|4|Emergency Response PPE Kits|کیت PPE واکنش اضطراری|
+10742|4|Emergency Food & Water Rations|جیره غذا و آب اضطراری|
+10743|4|Emergency Water Purification Systems|سیستم تصفیه آب اضطراری|
+10744|4|Temporary Water Storage|مخزن موقت آب|
+10745|4|Lightsticks|لایت استیک (چراغ شیمیایی)|
+10746|4|Lightstick Stations|ایستگاه لایت استیک|
+10747|4|Whistles|سوت|
+10748|3|Weather & Natural Disaster Preparedness|آمادگی در برابر بلایای طبیعی|ترکیبی
+10749|4|Earthquake Straps & Brackets|تسمه و براکت ضدزلزله|
+10750|4|Weather Radios|رادیو هواشناسی اضطراری|
+10751|4|Lightning Detectors|آشکارساز صاعقه|
+10752|4|Tornado & Storm Shelters|پناهگاه طوفان|
+10753|4|Sandbags & Flood Control Supplies|کیسه شن و ملزومات کنترل سیلاب|
+10754|3|Decontamination Showers & Equipment|دوش و تجهیزات رفع آلودگی|
+10755|2|First Aid & Wound Care|کمک‌های اولیه و پانسمان|ترکیبی
+10756|3|First Aid Kits|جعبه کمک‌های اولیه|
+10757|4|ANSI-Compliant Workplace First Aid Kits|جعبه کمک‌های اولیه محیط کار استاندارد ANSI|
+10758|4|General Purpose First Aid Kits|جعبه کمک‌های اولیه عمومی|
+10759|4|Burn Care Kits|کیت درمان سوختگی|
+10760|4|Bleeding Control Kits|کیت کنترل خونریزی|
+10761|4|Trauma Kits|کیت تروما|
+10762|4|First Aid Cabinet Refills & Conversion Kits|شارژ و کیت تکمیلی جعبه کمک‌های اولیه|
+10763|4|Empty First Aid Kit Housings & Accessories|جعبه خالی کمک‌های اولیه و لوازم جانبی|
+10764|3|First Aid Bandages & Wound Dressings|باند و پانسمان زخم|
+10765|4|Adhesive Bandages|چسب زخم|
+10766|4|First Aid Dressings, Wraps & Pads|پانسمان، باند و گاز استریل|
+10767|4|Spray & Liquid Bandages & Coagulants|چسب زخم مایع و اسپری و بندآورنده خون|
+10768|4|First Aid Tapes|چسب پانسمان (لکوپلاست)|
+10769|4|Triangular Bandages|باند مثلثی|
+10770|4|IV & Arterial Tourniquets|تورنیکه (گارو)|
+10771|4|Blister, Corn & Bunion Pads|پد تاول و میخچه|
+10772|3|Topical First Aid Medications & Treatments|داروهای موضعی کمک‌های اولیه|
+10773|4|Topical Antibiotics, Antiseptics & Cleansers|پماد آنتی‌بیوتیک، ضدعفونی‌کننده و شوینده زخم|
+10774|4|Topical Itch, Bite & Sting Relievers|ضدخارش و تسکین گزش موضعی|
+10775|4|Topical Pain & Burn Relievers|مسکن موضعی و پماد سوختگی|
+10776|4|Topical Skin Protectants|محافظ پوست موضعی|
+10777|4|First Aid Eye Drops & Eyewash Solutions|قطره چشم و محلول شستشوی چشم|
+10778|3|Oral & Inhalant First Aid Medications & Treatments|داروهای خوراکی و استنشاقی کمک‌های اولیه|
+10779|4|Oral Stomach & Digestion Relievers|داروی معده و گوارش|
+10780|4|Oral Pain Relievers|مسکن خوراکی|
+10781|4|Oral Sinus, Allergy, Cough & Cold Relievers|داروی سینوس، حساسیت، سرفه و سرماخوردگی|
+10782|4|Fainting Relievers, Electrolyte Replenishers & Glucose Replenishers|داروی ضعف، جبران الکترولیت و گلوکز|
+10783|3|Heat Packs & Cold Packs|کیسه آب گرم و کیسه یخ|
+10784|3|Medicine Vending Machines|دستگاه فروش خودکار دارو|B2B
+10785|2|Medical Supplies & Equipment|تجهیزات و ملزومات پزشکی|
+10786|3|AED & CPR Equipment|دستگاه شوک AED و تجهیزات احیا (CPR)|
+10787|4|AEDs|دستگاه شوک (دفیبریلاتور AED)|
+10788|4|AED Accessories|لوازم جانبی AED|

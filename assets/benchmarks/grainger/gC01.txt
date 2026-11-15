@@ -1,0 +1,290 @@
+5049|1|Material Handling|جابجایی و انبارش مواد|
+5050|2|Ladders, Platforms & Personnel Lifts|نردبان، سکوی کار و بالابر نفر|
+5051|3|Step Stools|چهارپایه پله‌دار|
+5052|4|Stationary Step Stools|چهارپایه پله‌دار ثابت|
+5053|4|Rolling Step Stools|چهارپایه پله‌دار چرخ‌دار|
+5054|3|Ladders|نردبان|
+5055|4|Stepladders|نردبان دوطرفه (A شکل)|
+5056|4|Platform Stepladders|نردبان سکودار|
+5057|5|Platform & Podium Stepladders|نردبان سکودار و پادیومی|
+5058|5|Safety-Cage Podium Stepladders|نردبان پادیومی با قفس ایمنی|
+5059|4|Straight Ladders|نردبان یک‌طرفه (تک)|
+5060|4|Extension & Telescoping Ladders|نردبان کشویی و تلسکوپی|
+5061|5|Extension Ladders|نردبان کشویی|
+5062|5|Telescoping Ladders|نردبان تلسکوپی|
+5063|5|Trestle Extension Ladders|نردبان خرک کشویی|
+5064|4|Multifunction Ladders|نردبان چندکاره (چندحالته)|
+5065|4|Rolling Ladders|نردبان چرخ‌دار انبار|
+5066|5|General Purpose Rolling Ladders|نردبان چرخ‌دار همه‌منظوره|
+5067|5|All-Direction Rolling Ladders|نردبان چرخ‌دار چندجهته|
+5068|5|Storage-Shelving-Equipped Rolling Ladders|نردبان چرخ‌دار مجهز به قفسه|
+5069|5|Tilt-&-Roll Ladders|نردبان چرخ‌دار کج‌شو (تیلت)|
+5070|5|Folding Rolling Ladders|نردبان چرخ‌دار تاشو|
+5071|5|Cantilever Rolling Ladders|نردبان چرخ‌دار کنسولی|
+5072|5|Safety-Cage Rolling Ladders|نردبان چرخ‌دار با قفس ایمنی|
+5073|4|Crossover Ladders & Bridges|نردبان و پل عبور از روی مانع|
+5074|5|Crossover Ladders|نردبان عبور از روی مانع|
+5075|5|Secured-to-Floor Crossover Bridges|پل عبور ثابت (پیچ‌شده به کف)|
+5076|4|Attic Ladders|نردبان زیرشیروانی (تاشو سقفی)|
+5077|4|Fixed Ladders & Safety Cages|نردبان ثابت و قفس ایمنی|
+5078|5|Fixed Ladders|نردبان ثابت (دیواری)|
+5079|5|Safety Cages for Fixed Ladders|قفس ایمنی نردبان ثابت|
+5080|4|Replacement Components & Accessories for Ladders|قطعات یدکی و لوازم جانبی نردبان|
+5081|5|Warning & Rating Labels for Ladders|برچسب هشدار و ظرفیت نردبان|
+5082|5|Safety Gates & Cages for Ladders|درب و قفس ایمنی نردبان|
+5083|5|Rungs, Steps & Rung Locks for Ladders|پله، پاخور و قفل پله نردبان|
+5084|5|Platforms for Ladders|سکوی نردبان|
+5085|5|Planks for Ladders|تخته (پلانک) نردبان|
+5086|5|Shelves, Trays & Containers for Ladders|سینی، طبقه و جاابزاری نردبان|
+5087|5|Carts & Storage for Ladders|گاری و نگهدارنده نردبان|
+5088|5|Stabilizers for Ladders|پایدارکننده (استابلایزر) نردبان|
+5089|5|Feet, Casters & Leg Levelers for Ladders|پایه، چرخ و تراز‌کننده پایه نردبان|
+5090|5|Jacks for Ladders|جک نردبان|
+5091|5|Rope & Pulley Kits for Ladders|کیت طناب و قرقره نردبان|
+5092|5|Trestle Brackets for Ladders|براکت خرک نردبان|
+5093|3|Stairs|پله|
+5094|4|Stairways|راه‌پله|
+5095|4|Landing Platforms & Support Legs for Stairs|پاگرد و پایه نگهدارنده پله|
+5096|3|Work Platforms|سکوی کار|
+5097|4|Single-Step Work Platforms|سکوی کار تک‌پله|
+5098|4|Multi-Step Work Platforms|سکوی کار چندپله|
+5099|4|Stackable Work Platforms|سکوی کار قابل‌چیدمان|
+5100|3|Platforms & Mezzanines|سکو و نیم‌طبقه (میزانین)|
+5101|4|Mezzanines|نیم‌طبقه (میزانین)|
+5102|5|Mezzanine Platforms|سکوی میزانین|
+5103|5|Mezzanine Stairs & Landings|پله و پاگرد میزانین|
+5104|5|Mezzanine Guardrails|نرده حفاظتی میزانین|
+5105|4|Viewing & Guard Platforms|سکوی دیدبانی و نگهبانی|
+5106|4|Crossover Platform Systems|سیستم سکوی عبور|
+5107|4|Rooftop Platform Systems|سیستم سکوی پشت‌بام|
+5108|4|Multi-Level Platform Access Systems|سیستم سکوی دسترسی چندسطحی|
+5109|3|Elevated Safety Gates|درب ایمنی سکوهای مرتفع|
+5110|4|Self-Closing Safety Gates & Accessories|درب ایمنی خودبسته‌شو و لوازم جانبی|
+5111|5|Self-Closing Safety Gates|درب ایمنی خودبسته‌شو|
+5112|5|Self-Closing Safety Gate Accessories|لوازم جانبی درب ایمنی خودبسته‌شو|
+5113|4|Mezzanine Gates|درب میزانین|
+5114|3|Scaffolding|داربست|
+5115|4|Scaffolds & Scaffold Towers|داربست و برج داربست|
+5116|4|Scaffold Components & Accessories|قطعات و لوازم جانبی داربست|
+5117|4|Scaffold Pump Jacks|جک پمپی داربست|
+5118|3|Personnel Lifts|بالابر نفر|
+5119|4|Vertical & Scissor Lifts|بالابر عمودی و قیچی|
+5120|4|Personnel Lift Accessories|لوازم جانبی بالابر نفر|
+5121|2|Dock & Loading Equipment|تجهیزات رمپ و بارگیری|
+5122|3|Rail Yard Equipment|تجهیزات محوطه ریلی|
+5123|3|Wheel Chocks|زیرچرخی (چاک چرخ)|
+5124|4|Pipe Chocks|زیرلوله‌ای (چاک لوله)|
+5125|4|General Purpose Wheel Chocks|زیرچرخی همه‌منظوره|
+5126|4|Aircraft Wheel Chocks|زیرچرخی هواپیما|
+5127|4|Railcar Wheel Chocks|زیرچرخی واگن|
+5128|4|Motorcycle Wheel Chocks|زیرچرخی موتورسیکلت|
+5129|4|Mining Equipment Wheel Chocks|زیرچرخی ماشین‌آلات معدنی|
+5130|4|Wheel Chock Accessories|لوازم جانبی زیرچرخی|
+5131|3|Trailer-Stabilizing Jacks|جک تثبیت تریلر|
+5132|3|Loading Ramps, Plates & Boards|رمپ، صفحه و پل بارگیری|
+5133|4|Shipping Container Ramps|رمپ کانتینر|
+5134|4|Curb Ramps|رمپ جدول (لبه پیاده‌رو)|
+5135|4|Dock Plates & Boards|صفحه و پل رمپ بارگیری (داک پلیت)|
+5136|4|Walk Ramps|رمپ عابر|
+5137|4|Yard Ramps & Platforms|رمپ و سکوی متحرک محوطه (یارد رمپ)|
+5138|4|Dock Levelers|داک لولر (تراز‌کننده رمپ)|
+5139|3|Dock Bumpers|ضربه‌گیر رمپ بارگیری|
+5140|3|Dock Seals & Shelters|داک سیل و داک شلتر|
+5141|3|Dock Doors, Curtains & Openers|درب، پرده و درب‌بازکن رمپ بارگیری|
+5142|4|Dock Doors & Curtains|درب و پرده رمپ بارگیری|
+5143|4|Garage Door Openers|درب‌بازکن پارکینگ (جک درب)|ترکیبی
+5144|4|Garage Door Opener Accessories|لوازم جانبی درب‌بازکن پارکینگ|ترکیبی
+5145|4|Garage Door Hardware|یراق‌آلات درب پارکینگ|ترکیبی
+5146|5|Garage Door Springs, Cables, Drums & Pulleys|فنر، سیم بکسل، درام و قرقره درب پارکینگ|
+5147|5|Garage Door Hinges|لولای درب پارکینگ|
+5148|5|Garage Door Rollers & Brackets|غلتک و براکت درب پارکینگ|
+5149|5|Garage Door Bearings|بلبرینگ درب پارکینگ|
+5150|5|Garage Door Latches & Locks|چفت و قفل درب پارکینگ|
+5151|5|Garage Door Exhaust Ports|دریچه خروج دود اگزوز درب پارکینگ|
+5152|5|Garage Bumpers & Guides|ضربه‌گیر و راهنمای پارک خودرو|
+5153|5|Garage Door Brush Seals|نوار برسی درزگیر درب پارکینگ|
+5154|3|Dock Gates|درب حفاظ رمپ بارگیری|
+5155|3|Dock Door Safety Nets|تور ایمنی درب رمپ|
+5156|3|Trailer Curtains & Strip Doors|پرده تریلر و پرده نواری (استریپ)|
+5157|3|Wheel Risers|بالابر چرخ (رمپ چرخ)|
+5158|3|Clearance Bars|میله هشدار ارتفاع مجاز|
+5159|2|Guardrails, Handrails & Protectors|گاردریل، نرده دستگیره و محافظ|
+5160|3|Guardrails|گاردریل (نرده حفاظتی)|
+5161|4|Bolt-On Guardrail Systems|سیستم گاردریل پیچی|
+5162|4|Lift-Out Guardrail Systems|سیستم گاردریل برداشتنی|
+5163|4|Highway-Style Guardrail Systems|سیستم گاردریل بزرگراهی|
+5164|4|Pipe-Style Guardrails|گاردریل لوله‌ای|
+5165|4|Modular Guardrail Systems|سیستم گاردریل ماژولار|
+5166|3|Handrails|نرده دستگیره (هندریل)|
+5167|3|Column Protectors|محافظ ستون|
+5168|3|Corner & Wall Protectors|محافظ گوشه و دیوار (کرنر)|
+5169|2|Lifting, Pulling & Positioning|بالابری، کشش و جابجایی بار|
+5170|3|Tongs|انبر بالابر|
+5171|3|Hoists & Trolleys|جرثقیل (هویست) و ترولی|
+5172|4|Electric Hoists|جرثقیل برقی (هویست برقی)|
+5173|5|Electric Chain Hoists|جرثقیل زنجیری برقی|
+5174|5|Trolley-Mounted Electric Chain Hoists|جرثقیل زنجیری برقی با ترولی|
+5175|6|Push-Trolley Electric Chain Hoists|جرثقیل زنجیری برقی با ترولی دستی (هلی)|
+5176|6|Geared-Trolley Electric Chain Hoists|جرثقیل زنجیری برقی با ترولی دنده‌ای|
+5177|6|Motorized-Trolley Electric Chain Hoists|جرثقیل زنجیری برقی با ترولی موتوری|
+5178|5|Electric Cable Hoists|جرثقیل سیم‌بکسلی برقی|
+5179|5|Trolley-Mounted Electric Cable Hoists|جرثقیل سیم‌بکسلی برقی با ترولی|
+5180|4|Manual Hoists & Pullers|جرثقیل دستی و تیفور|
+5181|5|Manual Chain Hoists|جرثقیل زنجیری دستی (بلوک زنجیری)|
+5182|5|Trolley Mounted Manual Chain Hoists|جرثقیل زنجیری دستی با ترولی|
+5183|5|Manual Lever Hoists|جرثقیل اهرمی (جغجغه‌ای)|
+5184|5|Manual Cable & Rope Hoists|جرثقیل دستی سیم‌بکسلی و طنابی (تیفور)|
+5185|4|Air Hoists & Balancers|جرثقیل بادی و بالانسر|
+5186|5|Air Chain Hoists|جرثقیل زنجیری بادی|
+5187|5|Trolley-Mounted Air Chain Hoists|جرثقیل زنجیری بادی با ترولی|
+5188|5|Air Cable Balancers|بالانسر بادی سیم‌بکسلی|
+5189|4|Trolleys for Hoists|ترولی جرثقیل|
+5190|4|Mounting Brackets for Hoists|براکت نصب جرثقیل|
+5191|4|Replacement Components for Hoists|قطعات یدکی جرثقیل|
+5192|5|Hooks, Hook Blocks & Hook Latches for Hoists|قلاب، بلوک قلاب و زبانه قلاب جرثقیل|
+5193|5|Chains, Containers, Guides, Blocks & Pins for Hoists|زنجیر، کیسه زنجیر، راهنما، بلوک و پین جرثقیل|
+5194|5|Pendant Stations & Cords for Hoists|شستی آویز (پندانت) و کابل جرثقیل|
+5195|5|Transformers for Hoists|ترانسفورماتور جرثقیل|
+5196|5|Brakes & Brake Components for Hoists|ترمز و قطعات ترمز جرثقیل|
+5197|5|Handles & Grips for Lever Chain Hoists|دسته و دستگیره جرثقیل اهرمی|
+5198|5|Labels for Hoists & Trolleys|برچسب جرثقیل و ترولی|
+5199|5|Motors, Gears & Capacitors for Hoists|موتور، دنده و خازن جرثقیل|
+5200|5|Replacement Parts for Hoists & Trolleys|قطعات یدکی جرثقیل و ترولی|
+5201|3|Cranes & Festoon Cable Systems|جرثقیل سقفی و سیستم کابل فستون|
+5202|4|Davit Cranes & Components|جرثقیل داویت و قطعات|
+5203|5|Davit Cranes|جرثقیل داویت|
+5204|5|Mounting Bases for Davit Cranes|پایه نصب جرثقیل داویت|
+5205|5|Accessories for Davit Cranes|لوازم جانبی جرثقیل داویت|
+5206|4|Gantry Cranes|جرثقیل دروازه‌ای (گنتری)|
+5207|4|Jib Cranes|جرثقیل بازویی (جیب)|
+5208|4|Overhead Monorail Cranes & Components|جرثقیل سقفی تک‌ریل (مونوریل) و قطعات|
+5209|4|Festoon Cable Systems|سیستم کابل فستون|
+5210|5|Festoon Wire Rope & Track Kits|کیت ریل و سیم‌بکسل فستون|
+5211|5|Festoon System Components|قطعات سیستم فستون|
+5212|3|Winches|وینچ|
+5213|4|Manual Winches|وینچ دستی|
+5214|4|Electric Winches|وینچ برقی|
+5215|4|Air Winches|وینچ بادی|
+5216|4|Hydraulic Winches|وینچ هیدرولیکی|
+5217|4|Mounting, Power & Control Accessories for Winches|لوازم نصب، برق و کنترل وینچ|
+5218|4|Winch Cables|سیم‌بکسل وینچ|
+5219|4|Replacement Components For Winches|قطعات یدکی وینچ|
+5220|3|Lift Tables, Turntables & Pallet Positioners|میز بالابر، صفحه گردان و تراز‌کننده پالت|
+5221|4|Stationary Lift Tables|میز بالابر ثابت|
+5222|4|Mobile Lift Tables|میز بالابر متحرک (چرخ‌دار)|
+5223|4|Pallet Positioners|تراز‌کننده پالت|
+5224|4|Turntables & Pallet Carousels|صفحه گردان و چرخ‌گردان پالت|
+5225|4|Lift Table Bellows & Accessories|گردگیر و لوازم جانبی میز بالابر|
+5226|4|Lift Table & Pallet Positioner Replacement Parts|قطعات یدکی میز بالابر و تراز‌کننده پالت|
+5227|3|Box Dumpers|تخلیه‌کن جعبه (باکس دامپر)|
+5228|3|Drywall Lifts|بالابر صفحه کناف|
+5229|3|Lifting & Rigging Hardware|یراق‌آلات بالابری و ریگینگ|
+5230|4|Lifting & Rigging Hooks|قلاب بالابری و ریگینگ|
+5231|5|Lifting Hooks|قلاب بالابر|
+5232|5|Utility & Load-Securing Hooks|قلاب همه‌کاره و مهار بار|
+5233|5|Latches for Hooks|زبانه ایمنی قلاب|
+5234|4|Shackles|شگل (شکل)|
+5235|5|Lifting Metal Shackles|شگل فلزی بالابری|
+5236|5|Load-Securing Metal Shackles|شگل فلزی مهار بار|
+5237|5|Lifting Synthetic Shackles|شگل الیافی بالابری|
+5238|5|Load-Securing Synthetic Shackles|شگل الیافی مهار بار|
+5239|5|Replacement Sleeves & Lock Rings for Synthetic Shackles|غلاف و حلقه قفل یدکی شگل الیافی|
+5240|4|Hoist Rings|حلقه بالابر (هویست رینگ)|
+5241|5|Screw-On Hoist Rings|حلقه بالابر پیچی|
+5242|5|Weld-On Hoist Rings|حلقه بالابر جوشی|
+5243|5|Quick-Release Hoist Rings|حلقه بالابر سریع‌رهاشو|
+5244|5|Hoist Ring Bolt Kits|کیت پیچ حلقه بالابر|
+5245|4|Pulley Blocks & Sheaves|قرقره بالابر (بلوک) و شیار‌قرقره|
+5246|5|Suspended Pulley Blocks|قرقره آویز|
+5247|5|Mounted Pulley Blocks|قرقره نصبی (ثابت)|
+5248|5|Sheaves|قرقره شیاردار (شیو)|
+5249|4|Turnbuckles & Swivels|مهار‌سفت‌کن (تنگ‌کن) و گردان|
+5250|5|Turnbuckle Assemblies|تنگ‌کن کامل (مهارکش)|
+5251|5|Turnbuckle Bodies & Fittings|بدنه و سرهای تنگ‌کن|
+5252|5|Swivels|گردان (هرزگرد)|
+5253|4|Master Links|حلقه اصلی (مستر لینک)|
+5254|4|Connecting Links|حلقه اتصال زنجیر|
+5255|5|Lifting Connecting Links|حلقه اتصال بالابری|
+5256|5|Load-Securing Connecting Links|حلقه اتصال مهار بار|
+5257|4|Rings for Chain & Rope|حلقه زنجیر و طناب|
+5258|4|Pad Eyes|پدآی (چشمی جوشی)|
+5259|3|Chains|زنجیر|
+5260|4|Lifting Chains|زنجیر بالابری|
+5261|4|Load-Securing & Utility Chains|زنجیر مهار بار و همه‌کاره|
+5262|4|Load-Securing & Utility Chains with Hooks|زنجیر مهار بار و همه‌کاره قلاب‌دار|
+5263|4|Protective Covers for Chains|روکش محافظ زنجیر|
+5264|3|Lifting Slings|اسلینگ بالابری|
+5265|4|Web Slings|اسلینگ تسمه‌ای|
+5266|5|Flat-Eye Web Slings|اسلینگ تسمه‌ای چشمی تخت|
+5267|5|Twisted-Eye Web Slings|اسلینگ تسمه‌ای چشمی تابیده|
+5268|5|Reverse-Eye Web Slings|اسلینگ تسمه‌ای چشمی معکوس|
+5269|5|Endless Web Slings|اسلینگ تسمه‌ای حلقوی (بی‌انتها)|
+5270|5|Wide-Lift Cargo Web Slings|اسلینگ تسمه‌ای پهن بار|
+5271|5|Hardware Web Slings|اسلینگ تسمه‌ای با سر فلزی|
+5272|5|Bridle Web Slings|اسلینگ تسمه‌ای چندشاخه|
+5273|5|Web Slings for Glass|اسلینگ تسمه‌ای حمل شیشه|
+5274|4|Round Slings|اسلینگ گرد (راند اسلینگ)|
+5275|4|Chain Slings|اسلینگ زنجیری|
+5276|5|Single-Leg Chain Slings|اسلینگ زنجیری تک‌شاخه|
+5277|5|Double-Leg Chain Slings|اسلینگ زنجیری دوشاخه|
+5278|5|Triple-Leg Chain Slings|اسلینگ زنجیری سه‌شاخه|
+5279|5|Four-Leg Chain Slings|اسلینگ زنجیری چهارشاخه|
+5280|4|Wire Mesh Slings|اسلینگ توری فلزی|
+5281|4|Wire Rope Slings|اسلینگ سیم‌بکسلی|
+5282|4|Rope Slings|اسلینگ طنابی|
+5283|4|Wear Pads & Corner Guards for Slings|پد ضدسایش و محافظ لبه اسلینگ|
+5284|4|ID Tags and Storage Stands for Slings|پلاک شناسایی و پایه نگهداری اسلینگ|
+5285|3|Rope & Twine|طناب و نخ|
+5286|4|Rope Accessories|لوازم جانبی طناب|
+5287|4|Utility & Rigging Rope|طناب همه‌کاره و ریگینگ|
+5288|4|Light-Duty Twine|نخ و ریسمان سبک|ترکیبی
+5289|3|Wire Rope & Fittings|سیم‌بکسل و اتصالات|
+5290|4|Wire Rope Lanyards|بند سیم‌بکسلی (لنیارد)|
+5291|4|Wire Rope|سیم‌بکسل|
+5292|4|Fittings & Accessories for Wire Rope|اتصالات و لوازم جانبی سیم‌بکسل|
+5293|5|Ball Swage Fittings for Wire Rope|سرسیم‌بکسل پرسی ساچمه‌ای|
+5294|5|Sleeves & Thimbles for Wire Rope|بوش پرسی و کوس سیم‌بکسل|
+5295|5|Wedge Sockets for Wire Rope|سوکت گوه‌ای سیم‌بکسل|
+5296|5|Clips for Wire Rope|بست سیم‌بکسل (کرپی)|
+5297|5|Fork End Fittings for Wire Rope|سرسیم‌بکسل دوشاخ|
+5298|5|Eye Fittings for Wire Rope|سرسیم‌بکسل چشمی|
+5299|5|Swage Stud Fittings for Wire Rope|سرسیم‌بکسل پرسی رزوه‌دار|
+5300|5|Tension Gauges for Wire Rope|کشش‌سنج سیم‌بکسل|
+5301|4|Tea Cup Pipe Slings|اسلینگ لوله‌ای فنجانی|
+5302|3|Cargo Lifting Nets|تور بالابر بار|
+5303|3|Below-the-Hook Lifting Devices|تجهیزات بالابری زیر قلاب|
+5304|4|Pallet Lifters|بالابر پالت (زیرقلابی)|
+5305|4|Multi-Purpose Lifting Beams|تیر بالابر (اسپریدر بار) چندمنظوره|
+5306|4|Battery Lifting Beams|تیر بالابر باتری|
+5307|4|Plate & Sheet Lifters|بالابر ورق و صفحه|
+5308|5|Plate Lifters|بالابر صفحه|
+5309|5|Plate Lifting Clamps|کلمپ بالابر ورق|
+5310|5|Sheet Lifters|بالابر ورق نازک|
+5311|4|Barrier & Concrete Lifters|بالابر بلوک بتنی و موانع|
+5312|5|Barrier Lifting Grabs|گیره بالابر موانع (نیوجرسی)|
+5313|5|Barrier Lifting Grab Accessories|لوازم جانبی گیره بالابر موانع|
+5314|5|Concrete Lifting Grabs & Tongs|گیره و انبر بالابر قطعات بتنی|
+5315|4|Beam & Rail Lifters|بالابر تیرآهن و ریل|
+5316|5|Rail Lifting Tongs|انبر بالابر ریل|
+5317|5|Beam Lifting Tongs|انبر بالابر تیرآهن|
+5318|5|Beam Lifting Clamps|کلمپ بالابر تیرآهن|
+5319|4|Bale & Die Lifters|بالابر عدل و قالب|
+5320|5|Bale Lifting Clamps|کلمپ بالابر عدل|
+5321|5|Die Lifting Tongs|انبر بالابر قالب|
+5322|4|Pipe Lifters|بالابر لوله|
+5323|5|Side-Grabbing Pipe Lifters|بالابر لوله گیره جانبی|
+5324|5|Top-Grabbing Pipe Lifters|بالابر لوله گیره از بالا|
+5325|4|Manhole Lifters|درب‌بازکن منهول|
+5326|4|Reel & Coil Lifters|بالابر قرقره و کلاف|
+5327|5|Reel Lifters|بالابر قرقره|
+5328|5|Vertical Coil Lifters|بالابر کلاف عمودی|
+5329|5|Coil C-Hook Lifters|قلاب C بالابر کلاف|
+5330|4|Release Hooks|قلاب رهاساز|
+5331|3|Suction Lifters|بالابر وکیومی (مکشی)|
+5332|4|Below-the-Hook Vacuum Lifters & Lift Assists|بالابر وکیومی زیرقلابی و کمک‌بالابر|
+5333|5|Below-the-Hook Vacuum Lifters|بالابر وکیومی زیرقلابی|
+5334|5|Below-the-Hook Vacuum Lift Assists|کمک‌بالابر وکیومی زیرقلابی|
+5335|4|Ladder-Mounted Window Suction Lifters|بالابر مکشی شیشه نصب روی نردبان|
+5336|4|Manual Handheld Suction-Cup Lifters|دستگیره بادکشی (وکیومی) دستی|
+5337|4|Electric Hand-Held Suction Lifters|دستگیره وکیومی برقی|
+5338|4|Suction-Cup Equipment Holders|نگهدارنده بادکشی تجهیزات|

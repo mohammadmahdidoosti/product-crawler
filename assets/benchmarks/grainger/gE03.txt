@@ -1,0 +1,227 @@
+9827|4|Accessories & Replacements Parts for Collapsible Spill Berms|لوازم جانبی و قطعات یدکی دیواره نشتی تاشو|
+9828|4|Spill Containment Berms|دیواره مهار نشتی|
+9829|4|Spill Containment Dikes|خاکریز (دایک) مهار نشتی|
+9830|4|Railroad Track Pans & Berms|سینی و دیواره نشتی ریل راه‌آهن|
+9831|4|Pop-Up Spill Containment Pools|استخر مهار نشتی بازشونده|
+9832|4|Spill Containment Booms|بوم مهار نشتی|
+9833|3|Hose Wraps & Bibs|روکش ضدنشت شیلنگ|
+9834|2|Traffic Safety|ایمنی ترافیک|
+9835|3|Traffic Cones & Accessories|مخروط ترافیکی و لوازم جانبی|
+9836|3|Traffic Delineator Posts & Accessories|استوانه ترافیکی (دلینیتور) و لوازم جانبی|
+9837|3|Traffic Channelizer Cones & Panels|مخروط و پنل هدایت ترافیک|
+9838|3|Traffic Barrels & Accessories|بشکه ترافیکی و لوازم جانبی|
+9839|3|Traffic Barricades & Accessories|راهبند ترافیکی و لوازم جانبی|
+9840|3|Pavement Markers & Tape|چشم گربه‌ای و نوار خط‌کشی آسفالت|
+9841|3|Roadway & Utility Markers|نشانگر جاده و تأسیسات|
+9842|3|Speed Bumps & Rumble Strips|سرعت‌گیر و نوار لرزاننده|
+9843|3|Parking Curbs|پارک‌بان (جدول توقف خودرو)|
+9844|3|Safety & Security Mirrors|آینه ایمنی و محدب|
+9845|3|Traffic Paddles, Flags & Batons|تابلو دستی، پرچم و باتوم ترافیکی|
+9846|3|Safety Flares|مشعل هشدار جاده‌ای|
+9847|3|ADA-Compliant Warning Pads|موزاییک هشدار نابینایان (ADA)|
+9848|3|Hole & Trench Covers|درپوش چاله و ترانشه|
+9849|3|Collision Warning Systems|سیستم هشدار برخورد|
+9850|2|Signs & Facility Identification Products|تابلو و محصولات شناسایی تأسیسات|
+9851|3|Label Makers & Supplies|لیبل‌زن و ملزومات|ترکیبی
+9852|4|Label Makers|لیبل‌زن (برچسب‌زن)|
+9853|5|Desktop Label Makers|لیبل‌زن رومیزی|
+9854|5|Handheld & Portable Label Makers|لیبل‌زن دستی و پرتابل|
+9855|5|Print & Apply Desktop Label Makers|لیبل‌زن رومیزی چاپ و الصاق|
+9856|5|Handheld Inkjet Printers & Supplies|پرینتر جوهرافشان دستی و ملزومات|
+9857|5|Embossing Label Makers & Tapes|لیبل‌زن برجسته‌ساز و نوار|
+9858|5|Label Stamping Presses|پرس حک پلاک|
+9859|5|Plates for Label Stamping Presses|پلاک پرس حک|
+9860|4|Label Maker Labels|برچسب لیبل‌زن|
+9861|5|General Purpose Label Maker Labels|برچسب عمومی لیبل‌زن|
+9862|6|Blank Precut General Purpose Label Maker Labels|برچسب برش‌خورده سفید لیبل‌زن|
+9863|6|Preprinted Precut General Purpose Label Maker Labels|برچسب برش‌خورده پیش‌چاپ لیبل‌زن|
+9864|6|Continuous General Purpose Label Maker Labels|برچسب رولی پیوسته لیبل‌زن|
+9865|5|General Purpose Label Maker Tags|تگ عمومی لیبل‌زن|
+9866|6|Continuous General Purpose Label Maker Tags|تگ رولی پیوسته لیبل‌زن|
+9867|6|Blank Precut General Purpose Label Maker Tags|تگ برش‌خورده سفید لیبل‌زن|
+9868|6|Preprinted Precut General Purpose Label Maker Tags|تگ برش‌خورده پیش‌چاپ لیبل‌زن|
+9869|5|Cable & Wire Label Maker Labels|برچسب کابل و سیم لیبل‌زن|
+9870|6|Self-Laminating Cable & Wire Label Maker Labels|برچسب کابل خودلمینیت|
+9871|6|Wraparound Cable & Wire Label Maker Labels|برچسب کابل دورپیچ|
+9872|6|Flag-Style Cable & Wire Label Maker Labels|برچسب کابل پرچمی|
+9873|6|Tag-Style Cable & Wire Label Maker Labels|برچسب کابل تگی|
+9874|6|Print-on Hook & Loop Cable & Wire Label Maker Labels|برچسب کابل چسب‌دار (ولکرو) قابل چاپ|
+9875|6|Heat-Shrink Cable & Wire Label Maker Labels|برچسب کابل وارنیش حرارتی (شرینک)|
+9876|5|Electrical Parts & Equipment Label Maker Labels|برچسب تجهیزات برقی لیبل‌زن|
+9877|6|Circuit Board Label Maker Labels|برچسب برد مدار|
+9878|6|Electrical Panel Label Maker Labels|برچسب تابلو برق|
+9879|6|Patch Panel & Terminal Block Label Maker Labels|برچسب پچ پنل و ترمینال|
+9880|5|Rating & Name Plate Label Maker Labels|برچسب پلاک مشخصات|
+9881|5|Floor Marking Label Maker Tape|نوار علامت‌گذاری کف لیبل‌زن|
+9882|5|Laboratory Label Maker Labels|برچسب آزمایشگاهی لیبل‌زن|
+9883|6|General Purpose Laboratory Label Maker Labels|برچسب آزمایشگاهی عمومی|
+9884|6|Laboratory Tube & Vial Label Maker Labels|برچسب لوله آزمایش و ویال|
+9885|6|Laboratory Slide Label Maker Labels|برچسب لام آزمایشگاهی|
+9886|6|Laboratory Microplate Label Maker Labels|برچسب میکروپلیت|
+9887|6|Laboratory Glassware & Container Label Maker Labels|برچسب ظروف شیشه‌ای آزمایشگاهی|
+9888|5|Indicating Label Maker Labels|برچسب نشانگر (اندیکاتور)|
+9889|4|Label Maker Ribbons & Ink Cartridges|ریبون و کارتریج جوهر لیبل‌زن|
+9890|5|Label Maker Ribbons|ریبون لیبل‌زن|
+9891|5|Label Maker Ink Cartridges|کارتریج جوهر لیبل‌زن|
+9892|4|Label & Ribbon Kits|کیت برچسب و ریبون|
+9893|4|Accessories & Parts for Label Makers|لوازم جانبی و قطعات لیبل‌زن|
+9894|5|Cases for Label Makers|کیف لیبل‌زن|
+9895|5|Batteries, Chargers & Power Supplies for Label Makers|باتری، شارژر و آداپتور لیبل‌زن|
+9896|5|Peripherals for Label Makers|تجهیزات جانبی لیبل‌زن|
+9897|5|Mounting Hardware for Label Makers|اتصالات نصب لیبل‌زن|
+9898|5|Cleaning Tools & Supplies for Label Makers|ابزار و ملزومات تمیزکاری لیبل‌زن|
+9899|5|Replacement Parts for Label Makers|قطعات یدکی لیبل‌زن|
+9900|5|Software for Label Makers|نرم‌افزار لیبل‌زن|
+9901|5|Media Holders, Adapters, & Rewinders for Label Makers|نگهدارنده رول، آداپتور و جمع‌کن لیبل‌زن|
+9902|3|Signs, Labels & Tags|تابلو، برچسب و تگ|
+9903|4|Safety Labeling & Marking|برچسب‌گذاری و علامت‌گذاری ایمنی|
+9904|5|Safety Signs & Labels|تابلو و برچسب ایمنی|
+9905|6|Blank & Pre-Printed Header Safety Signs & Labels|تابلو و برچسب ایمنی سرتیتردار خام و پیش‌چاپ|
+9906|6|HazCom & Right-to-Understand Signs & Labels|تابلو و برچسب اطلاع‌رسانی خطر (HazCom)|
+9907|7|GHS Signs & Labels|تابلو و برچسب GHS|
+9908|8|GHS Reference Signs & Labels|تابلو و برچسب مرجع GHS|
+9909|8|GHS Pictogram Labels|برچسب پیکتوگرام GHS|
+9910|8|Printable GHS Signs & Labels|تابلو و برچسب GHS قابل چاپ|
+9911|7|NFPA Signs & Labels|تابلو و برچسب NFPA (لوزی خطر)|
+9912|8|Write-on NFPA Signs & Labels|تابلو و برچسب NFPA قابل نوشتن|
+9913|8|NFPA Diamond Signs & Labels|تابلو و برچسب لوزی NFPA|
+9914|8|Pre-Printed Chemical Identification NFPA Signs & Labels|تابلو و برچسب NFPA پیش‌چاپ شناسایی مواد|
+9915|7|HMIS & HMIG Signs & Labels|تابلو و برچسب HMIS و HMIG|
+9916|8|Write-on HMIS & HMIG Signs & Labels|برچسب HMIS قابل نوشتن|
+9917|8|Printable HMIS & HMIG Signs & Labels|برچسب HMIS قابل چاپ|
+9918|7|Pre-Printed Chemical Identification Labels|برچسب پیش‌چاپ شناسایی مواد شیمیایی|
+9919|7|HazCom & Right-to-Understand Stations|ایستگاه اطلاع‌رسانی خطر (HazCom)|
+9920|8|Wall-Mount HazCom & Right-to-Understand Stations|ایستگاه HazCom دیواری|
+9921|8|Cabinet-Style HazCom & Right-to-Understand Stations|ایستگاه HazCom کابینتی|
+9922|8|HazCom & Right-to-Understand Binders|کلاسور HazCom|
+9923|8|HazCom & Right-to-Understand Clipboards|تخته شاسی HazCom|
+9924|6|Chemical, Gas & Hazardous Material Signs & Labels|تابلو و برچسب مواد شیمیایی، گاز و مواد خطرناک|
+9925|7|Chemical, Gas, & Hazardous Material Identification Signs|تابلو شناسایی مواد شیمیایی و خطرناک|
+9926|7|Chemical, Gas, & Hazardous Material Storage Signs|تابلو انبار مواد شیمیایی و خطرناک|
+9927|7|Chemical, Gas, & Hazardous Material Warning Signs|تابلو هشدار مواد شیمیایی و خطرناک|
+9928|7|No Smoking Hazardous Chemical Signs|تابلو سیگار ممنوع مواد شیمیایی|
+9929|7|SDS Signs|تابلو SDS (برگه ایمنی مواد)|
+9930|6|Confined Space Signs & Labels|تابلو و برچسب فضای بسته|
+9931|7|Confined Space Authorization Signs|تابلو مجوز ورود فضای بسته|
+9932|7|Confined Space Procedural Signs|تابلو دستورالعمل فضای بسته|
+9933|7|General Confined Space Signs|تابلو عمومی فضای بسته|
+9934|6|Construction Safety Signs & Labels|تابلو و برچسب ایمنی ساختمانی|
+9935|7|Blasting Signs|تابلو انفجار|
+9936|7|Construction Equipment Signs|تابلو ماشین‌آلات ساختمانی|
+9937|7|Construction Zone & Area Signs|تابلو محدوده کارگاه|
+9938|7|Crane Safety Signs|تابلو ایمنی جرثقیل|
+9939|7|Ground Hazard Signs|تابلو خطر زمین|
+9940|7|Overhead Electrical Wire Signs|تابلو سیم برق هوایی|
+9941|7|Overhead Hazard Signs|تابلو خطر بالای سر|
+9942|7|People Working Signs|تابلو کارگران مشغول کارند|
+9943|6|Electrical Hazard Signs & Labels|تابلو و برچسب خطر برق|
+9944|7|Arc Flash Signs|تابلو آرک فلش|
+9945|7|Electrical Equipment Signs|تابلو تجهیزات برقی|
+9946|7|Electrical Hazard Signs|تابلو خطر برق|
+9947|7|Electrical Panel Signs|تابلو هشدار تابلو برق|
+9948|7|High Voltage Signs|تابلو فشار قوی|
+9949|6|Hot Surface & Substance Signs & Labels|تابلو و برچسب سطح و مواد داغ|
+9950|7|Hot Substance Signs|تابلو مواد داغ|
+9951|7|Hot Surface Signs|تابلو سطح داغ|
+9952|6|Hot Work Safety Signs & Labels|تابلو و برچسب کار گرم|
+9953|7|General Hot Work Signs|تابلو عمومی کار گرم|
+9954|7|Welding Signs|تابلو جوشکاری|
+9955|6|Industrial Traffic Control Safety Signs & Labels|تابلو و برچسب کنترل ترافیک صنعتی|
+9956|7|Forklift Traffic Control Signs|تابلو تردد لیفتراک|
+9957|7|General Traffic Control Signs|تابلو عمومی کنترل ترافیک|
+9958|7|Load Capacity Signs|تابلو ظرفیت بار|
+9959|7|Traffic Controller Signal Lights|چراغ راهنمایی کنترل تردد|
+9960|7|Truck Traffic Control|تابلو کنترل تردد کامیون|
+9961|6|Lockout Safety Signs & Labels|تابلو و برچسب لاک‌اوت|
+9962|7|Confined Space Lockout Signs|تابلو لاک‌اوت فضای بسته|
+9963|7|Electrical Lockout Signs|تابلو لاک‌اوت برقی|
+9964|7|General Lockout Signs|تابلو لاک‌اوت عمومی|
+9965|7|Machine Lockout Signs|تابلو لاک‌اوت ماشین‌آلات|
+9966|6|Machine Hazard Signs & Labels|تابلو و برچسب خطر ماشین‌آلات|
+9967|7|Automatic Equipment Signs|تابلو تجهیزات اتوماتیک|
+9968|7|Elevator & Escalator Signs|تابلو آسانسور و پله برقی|
+9969|7|Machine Care & Cleaning Signs|تابلو نگهداری و نظافت ماشین|
+9970|7|Machine Guarding Signs|تابلو حفاظ ماشین|
+9971|7|Machine In Use Warning Signs|تابلو هشدار ماشین در حال کار|
+9972|7|Machine Operating Guidelines Signs|تابلو دستورالعمل کار با ماشین|
+9973|7|Pinch Point & Keep Hands Clear Signs|تابلو خطر گیرکردن دست|
+9974|7|X-Ray, Laser, UV, RF & Radiation Signs|تابلو اشعه ایکس، لیزر، UV، RF و پرتو|
+9975|6|Marine Safety Signs & Labels|تابلو و برچسب ایمنی دریایی|
+9976|7|Marine Evacuation Signs|تابلو تخلیه اضطراری دریایی|
+9977|7|Marine Fire Emergency Equipment Signs|تابلو تجهیزات آتش‌نشانی دریایی|
+9978|7|Marine Life-Saving Equipment Signs|تابلو تجهیزات نجات دریایی|
+9979|7|Marine Medical Emergency Equipment Signs|تابلو تجهیزات پزشکی اضطراری دریایی|
+9980|6|No Smoking & Smoking Area Signs & Labels|تابلو سیگار ممنوع و محل استعمال دخانیات|
+9981|7|No Smoking School Signs|تابلو سیگار ممنوع مدرسه|
+9982|7|No Smoking Signs|تابلو سیگار ممنوع|
+9983|7|Smoking Area Signs|تابلو محل استعمال دخانیات|
+9984|6|Personal Protective Equipment Signs & Labels|تابلو و برچسب تجهیزات حفاظت فردی (PPE)|
+9985|7|Eye Protection Signs|تابلو استفاده از عینک ایمنی|
+9986|7|Face Protection Signs|تابلو استفاده از محافظ صورت|
+9987|7|Fall Protection Signs|تابلو حفاظت در برابر سقوط|
+9988|7|Foot Protection Signs|تابلو استفاده از کفش ایمنی|
+9989|7|General PPE Signs|تابلو عمومی PPE|
+9990|7|Hand Protection Signs|تابلو استفاده از دستکش|
+9991|7|Hard Hat Signs|تابلو استفاده از کلاه ایمنی|
+9992|7|Hearing Protection Signs|تابلو استفاده از گوشی ایمنی|
+9993|7|Hearing Protection Signs with Decibel Meters|تابلو گوشی ایمنی با دسی‌بل‌متر|
+9994|7|Protective Clothing Signs|تابلو لباس حفاظتی|
+9995|7|Respirator Signs|تابلو استفاده از ماسک تنفسی|
+9996|6|Railroad Blue Flag Signs|تابلو پرچم آبی راه‌آهن|
+9997|7|LED Railroad Flag Signs With Lights|تابلو پرچم راه‌آهن LED چراغ‌دار|
+9998|7|Railroad Flag Signs|تابلو پرچم راه‌آهن|
+9999|7|Railroad Flags With Staffs, Stands Or Holders|پرچم راه‌آهن با میله، پایه یا نگهدارنده|
+10000|6|Restricted Area & Authorized Personnel Signs & Labels|تابلو منطقه ممنوعه و ورود افراد مجاز|
+10001|7|Authorized Personnel & Do Not Enter Signs|تابلو ورود فقط افراد مجاز و ورود ممنوع|
+10002|7|Hazardous Area Signs|تابلو منطقه خطرناک|
+10003|7|No Trespassing & Private Property Signs|تابلو ورود ممنوع و ملک خصوصی|
+10004|6|Safety Culture & Motivation Signs & Labels|تابلو و برچسب فرهنگ ایمنی و انگیزشی|
+10005|7|Accidents & Incidents Reporting Signs|تابلو گزارش حوادث|
+10006|7|Safety Culture & Motivation Signs|تابلو فرهنگ ایمنی و انگیزشی|
+10007|7|Safety Scoreboards|تابلو امتیاز ایمنی (روزهای بدون حادثه)|
+10008|6|Slip, Trip & Fall Hazard Signs & Labels|تابلو و برچسب خطر لغزش و سقوط|
+10009|7|Fall Hazard Signs|تابلو خطر سقوط|
+10010|7|Trip Hazard Signs|تابلو خطر سکندری|
+10011|7|Wet & Slippery Floor Signs|تابلو احتیاط زمین خیس|
+10012|6|Water & Pool Hazard Signs & Labels|تابلو و برچسب خطر آب و استخر|
+10013|7|Drinking Water Signs|تابلو آب آشامیدنی|
+10014|7|Pool Signs|تابلو استخر|
+10015|7|Water Safety Signs|تابلو ایمنی آب|
+10016|6|Coronavirus & Social Distancing Signs|تابلو کرونا و فاصله‌گذاری اجتماعی|
+10017|7|Coronavirus Awareness & Social Distancing Signs|تابلو آگاهی‌رسانی کرونا و فاصله‌گذاری|
+10018|7|Coronavirus Vaccine Signs|تابلو واکسن کرونا|
+10019|7|Facemask Required Signs|تابلو استفاده از ماسک الزامی است|
+10020|7|Handwashing Signs|تابلو شستشوی دست|
+10021|7|Quarantine Area Signs|تابلو منطقه قرنطینه|
+10022|7|Spanish & Bilingual Coronavirus Awareness & Social Distancing Signs|تابلو کرونا اسپانیایی و دوزبانه|
+10023|6|Slider Message Boards & Signs|تابلو پیام کشویی|
+10024|7|Sign Message Board Sign Inserts|کارت پیام تابلو کشویی|
+10025|7|Slider Message Boards|تابلو پیام کشویی|
+10026|6|Hard Hat Labels|برچسب کلاه ایمنی|
+10027|7|Training & Certification Hard Hat Labels|برچسب آموزش و گواهینامه کلاه ایمنی|
+10028|7|Safety Reminder Hard Hat Labels|برچسب یادآوری ایمنی کلاه|
+10029|7|Safety & Emergency Response Personnel Hard Hat Labels|برچسب کلاه نیروی ایمنی و امداد|
+10030|7|Reflective Hard Hat Labels|برچسب شبرنگ کلاه ایمنی|
+10031|7|Visitor Hard Hat Labels|برچسب بازدیدکننده کلاه ایمنی|
+10032|7|Decorative Hard Hat Labels|برچسب تزئینی کلاه ایمنی|
+10033|6|LED Sign Projectors, Lens, & Accessories|پروژکتور تابلو LED (نورافکن علامت کف)، لنز و لوازم جانبی|
+10034|5|Safety Tags|تگ (کارت) ایمنی|
+10035|6|HazCom & Right-to-Understand Tags|تگ اطلاع‌رسانی خطر (HazCom)|
+10036|7|GHS Tags|تگ GHS|
+10037|7|HMIS & HMIG Tags|تگ HMIS و HMIG|
+10038|7|NFPA Tags|تگ NFPA|
+10039|6|Blank & Pre-Printed Header Safety Tags|تگ ایمنی سرتیتردار خام و پیش‌چاپ|
+10040|6|Chemical, Gas & Hazardous Material Tags|تگ مواد شیمیایی، گاز و مواد خطرناک|
+10041|6|Confined Space Tags|تگ فضای بسته|
+10042|6|Electrical Safety Tags|تگ ایمنی برق|
+10043|6|General Safety Tags|تگ ایمنی عمومی|
+10044|6|Hot Surface & Substance Tags|تگ سطح و مواد داغ|
+10045|6|Hot Work Safety Tags|تگ کار گرم|
+10046|6|Machine Safety Tags|تگ ایمنی ماشین‌آلات|
+10047|6|Restricted Area Tags|تگ منطقه ممنوعه|
+10048|4|Fire Safety & Emergency Signs & Labels|تابلو و برچسب آتش‌نشانی و اضطراری|
+10049|5|Emergency Information Signs & Labels|تابلو و برچسب اطلاعات اضطراری|
+10050|6|911, Fire, Rescue, Police|تابلو اورژانس، آتش‌نشانی، امداد و پلیس|
+10051|5|Emergency Shelter Signs & Labels|تابلو و برچسب پناهگاه اضطراری|
+10052|5|Evacuation Signs & Labels|تابلو و برچسب تخلیه اضطراری|
+10053|6|Assembly Area & Area of Refuge Signs|تابلو محل تجمع و پناهگاه|

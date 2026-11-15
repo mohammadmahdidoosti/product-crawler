@@ -1,0 +1,249 @@
+7516|1|Plumbing|تأسیسات و لوله‌کشی|
+7517|2|Faucets|شیرآلات|
+7518|3|Bathroom Faucets|شیرآلات روشویی|ترکیبی
+7519|4|Sensor Bathroom Faucets|شیر روشویی چشمی (سنسوری)|
+7520|4|Handle Bathroom Faucets|شیر روشویی اهرمی|
+7521|4|Push-Button Metering Bathroom Faucets|شیر روشویی فشاری تایمردار|
+7522|3|Kitchen Faucets|شیرآلات آشپزخانه|ترکیبی
+7523|4|Kitchen Sink Faucets|شیر ظرفشویی|
+7524|4|Bar Sink Faucets|شیر سینک بار|
+7525|4|Glass Fillers|شیر پرکن لیوان|
+7526|4|Pre-Rinse Faucets|شیر دوش ظرفشویی صنعتی (پری‌رینس)|
+7527|3|Utility Faucets|شیر سرویس (شیر رختشویی)|ترکیبی
+7528|3|Laboratory Faucets|شیر آزمایشگاهی|
+7529|3|Faucet Replacement Parts|قطعات یدکی شیرآلات|ترکیبی
+7530|4|Faucet Sensor Parts|قطعات سنسور شیر|
+7531|4|Faucet Cartridges & Mixing Valves|کارتریج و شیر مخلوط|
+7532|4|Faucet Spouts & Spout Extensions|علمک و رابط علمک شیر|
+7533|4|Faucet Aerators & Outlets|سرشیر (افشانک) و خروجی شیر|
+7534|4|Faucet Handles|دسته شیر|
+7535|4|Faucet Caps & Index Buttons|درپوش و دکمه نشانگر شیر|
+7536|4|Faucet Cover Plates & Escutcheons|صفحه پوشش و قاب شیر|
+7537|4|Faucet Sprayer Parts|قطعات دوش ظرفشویی|
+7538|4|Faucet Vacuum Breaker Parts|قطعات خلأشکن شیر|
+7539|4|Faucet Foot Pedals & Knee Pedals|پدال پایی و زانویی شیر|
+7540|4|Faucet Washers, O-Rings & Hardware|واشر، اورینگ و یراق شیر|
+7541|3|Outdoor Hose Bibbs & Hydrants|شیر حیاط و هیدرانت|ترکیبی
+7542|4|Hose Bibbs & Sillcocks|شیر شلنگی حیاط|
+7543|4|Outdoor Faucet Covers|کاور عایق شیر حیاط|
+7544|4|Wall Hydrants|شیر دیواری ضدیخ (هیدرانت)|
+7545|4|Yard Hydrants|هیدرانت حیاط (شیر ایستاده ضدیخ)|
+7546|4|Wall & Yard Hydrant Replacement Parts|قطعات یدکی هیدرانت|
+7547|2|Sinks, Wash Fountains & Repair Parts|سینک، روشویی جمعی و قطعات|
+7548|3|Bathroom Sinks|روشویی|ترکیبی
+7549|4|Wall-Mounted Bathroom Sinks|روشویی دیواری|
+7550|4|Counter-Mounted Bathroom Sinks|روشویی کابینتی|
+7551|4|Pedestal Bathroom Sinks|روشویی پایه‌دار|
+7552|3|Kitchen & Bar Sinks|سینک ظرفشویی و بار|ترکیبی
+7553|4|Counter-Mounted Kitchen & Bar Sinks|سینک توکار آشپزخانه و بار|
+7554|4|Freestanding Kitchen & Bar Sinks|سینک ایستاده آشپزخانه و بار|
+7555|3|Utility & Laundry Sinks|سینک سرویس و رختشویی|ترکیبی
+7556|4|Wall-Mounted Utility & Laundry Sinks|سینک رختشویی دیواری|
+7557|4|Counter-Mounted Utility & Laundry Sinks|سینک رختشویی توکار|
+7558|4|Freestanding Utility & Laundry Sinks|سینک رختشویی ایستاده|
+7559|3|Mop Sinks|تی‌شوی (سینک تی)|
+7560|3|Hospital, Lab & Classroom Sinks|سینک بیمارستانی، آزمایشگاهی و آموزشی|
+7561|4|Hospital Sinks|سینک بیمارستانی|
+7562|4|Lab Sinks|سینک آزمایشگاهی|
+7563|4|Classroom Sinks|سینک کلاس درس|
+7564|3|Hand Wash Fountains, Sinks & Stations|روشویی جمعی و ایستگاه شست‌وشوی دست|
+7565|4|Wash Fountains|روشویی جمعی (فواره‌ای)|
+7566|4|Wall-Mounted Hand Sinks & Hand Wash Stations|روشویی و ایستگاه شست‌وشوی دست دیواری|
+7567|4|Freestanding Hand Sinks & Hand Wash Stations|روشویی و ایستگاه شست‌وشوی دست ایستاده|
+7568|4|Portable Hand Sinks & Hand Wash Stations|روشویی و ایستگاه شست‌وشوی دست سیار|
+7569|5|Portable Hand Sinks|روشویی سیار|
+7570|5|Portable Hand Wash Stations|ایستگاه شست‌وشوی دست سیار|
+7571|3|Sink, Wash Fountain & Wash Station Parts|قطعات سینک و روشویی جمعی|
+7572|4|Sink Parts & Carriers|قطعات و پایه نگهدارنده سینک|
+7573|4|Wash Fountain Parts|قطعات روشویی جمعی|
+7574|4|Wash Station Parts & Drainboards|قطعات ایستگاه شست‌وشو و آبچکان|
+7575|4|Portable Hand Sink & Wash Station Parts|قطعات روشویی سیار|
+7576|2|Bathtubs, Showers & Repair Parts|وان، دوش و قطعات یدکی|ترکیبی
+7577|3|Bathtubs|وان حمام|
+7578|4|Alcove Bathtubs|وان توکار (سه‌طرف دیوار)|
+7579|4|Bathtub Faucets|شیر وان|
+7580|4|Bathtub Spouts & Fillers|علمک وان|
+7581|4|Bathtub Overflow Plates|درپوش سرریز وان|
+7582|4|Bathtub Doors|درب وان|
+7583|3|Showers|دوش حمام|
+7584|4|Shower Faucets|شیر دوش|
+7585|4|Bathtub & Shower Faucet Combinations|شیر وان و دوش|
+7586|4|Shower Faucet Panels|پنل دوش|
+7587|4|Fixed Showerheads|سردوش ثابت|
+7588|4|Handheld Showerheads|دوش دستی (تلفنی)|
+7589|4|Fixed & Handheld Showerhead Combinations|ست سردوش ثابت و دوش دستی|
+7590|4|Shower Arms|بازوی سردوش|
+7591|4|Handheld Shower Adapters, Hoses & Mounting Parts|رابط، شلنگ و پایه دوش دستی|
+7592|4|Shower Bases & Pans|زیردوشی (کف دوش)|
+7593|4|Shower Doors|درب کابین دوش|
+7594|4|Shower Stalls|کابین دوش|
+7595|3|Bathtub & Shower Repair Parts|قطعات یدکی وان و دوش|
+7596|4|Handle, Trim & Valve Kits & Parts for Bathtubs & Showers|کیت دسته، روکار و شیر وان و دوش|
+7597|4|Cartridges & Valve Parts for Bathtubs & Showers|کارتریج و قطعات شیر وان و دوش|
+7598|4|Diverters for Bathtubs & Showers|تبدیل (دایورتر) وان و دوش|
+7599|4|Seals, Fasteners & Adapters for Bathtubs & Showers|آب‌بند، اتصالات و تبدیل وان و دوش|
+7600|2|Toilets, Urinals & Repair Parts|توالت فرنگی، یورینال و قطعات یدکی|
+7601|3|Flush Valves & Retrofit Kits|فلاش‌والو و کیت نوسازی|
+7602|4|Automatic Flush Valves|فلاش‌والو اتوماتیک (چشمی)|
+7603|4|Manual Flush Valves|فلاش‌والو دستی|
+7604|4|Bedpan Washers & Bedpan Washer Flush Valves|لگن‌شوی و فلاش‌والو لگن‌شوی|
+7605|4|Automatic Flush Valve Retrofit Kits|کیت تبدیل فلاش‌والو به اتوماتیک|
+7606|4|Toilet & Urinal Flush Valve Repair Parts|قطعات یدکی فلاش‌والو|
+7607|4|Flush Valve Repair Tools|ابزار تعمیر فلاش‌والو|
+7608|3|Toilets|توالت فرنگی|ترکیبی
+7609|4|Tankless Toilets|توالت فرنگی بدون مخزن (فلاش‌والوی)|
+7610|4|Gravity-Tank Toilets|توالت فرنگی مخزن‌دار ثقلی|
+7611|4|Pressure-Assist Toilets|توالت فرنگی فشاری|
+7612|4|Macerating Toilets|توالت فرنگی پمپ‌دار (خردکن)|
+7613|4|Portable Toilets|توالت سیار (کمپینگ)|
+7614|3|Urinals|یورینال (توالت ایستاده)|
+7615|3|Toilet Seats|درب توالت فرنگی|ترکیبی
+7616|3|Toilet Repair Parts & Accessories|قطعات یدکی و لوازم توالت|ترکیبی
+7617|4|Universal Toilet Repair Parts|قطعات یدکی یونیورسال توالت|
+7618|4|Gravity-Tank Toilet Repair Parts|قطعات یدکی مخزن ثقلی (فلاش تانک)|
+7619|4|Pressure-Assist Tank Repair Parts|قطعات یدکی مخزن فشاری|
+7620|4|Macerating Toilet Repair Parts|قطعات یدکی توالت پمپ‌دار|
+7621|4|Wall-Hung Toilet Carriers & Carrier Repair Parts|فریم توالت وال‌هنگ و قطعات|
+7622|4|Toilet Jacks, Supports, Repair Tools & Liners|جک، نگهدارنده، ابزار تعمیر و روکش توالت|
+7623|3|Urinal Repair Parts & Accessories|قطعات یدکی و لوازم یورینال|
+7624|4|Standard Urinal Repair Parts|قطعات یدکی یورینال معمولی|
+7625|4|Waterless Urinal Repair Parts|قطعات یدکی یورینال بدون آب|
+7626|4|Urinal Sealants, Cleaners & Repair Tools|درزگیر، پاک‌کننده و ابزار تعمیر یورینال|
+7627|2|Drinking Fountains, Bottle Fillers & Water Dispensers|آبخوری، ایستگاه پرکن بطری و آب‌سردکن|
+7628|3|Drinking Fountains & Bottle Fillers|آبخوری و ایستگاه پرکن بطری|
+7629|4|Drinking Fountains|آبخوری عمومی|
+7630|5|On-Wall & In-Wall Drinking Fountains|آبخوری دیواری و توکار|
+7631|5|Freestanding Drinking Fountains|آبخوری ایستاده|
+7632|4|Bottle Fillers|ایستگاه پرکن بطری|
+7633|4|Combination Drinking Fountains & Bottle Fillers|آبخوری ترکیبی با پرکن بطری|
+7634|4|Outdoor Drinking Fountains & Bottle Fillers|آبخوری فضای باز|
+7635|4|Retrofit Kits for Drinking Fountains|کیت نوسازی آبخوری|
+7636|4|Replacement Parts for Drinking Fountains & Bottle Fillers|قطعات یدکی آبخوری|
+7637|3|Water Dispensers|آب‌سردکن|ترکیبی
+7638|4|Freestanding Water Dispensers|آب‌سردکن ایستاده|
+7639|4|Hot Water Dispensers with Electric Tanks|آبجوش‌کن برقی مخزن‌دار|
+7640|4|Replacement Parts for Water Coolers & Dispensers|قطعات یدکی آب‌سردکن|
+7641|3|Remote Water Chillers|چیلر آب مجزا (برای آبخوری)|
+7642|2|Water Filtration & Purification Systems|سیستم تصفیه و فیلتراسیون آب|
+7643|3|General Purpose Water Filter Cartridges & Housings|کارتریج و هوزینگ فیلتر آب عمومی|
+7644|4|General Purpose Water Filter Cartridges|کارتریج فیلتر آب|
+7645|4|General Purpose Water Filter Cartridge Housings|هوزینگ (محفظه) فیلتر آب|
+7646|4|General Purpose Water Filter Systems|سیستم فیلتر آب|
+7647|4|General Purpose Water Pre-Filter Systems|سیستم پیش‌فیلتر آب|
+7648|3|Appliance Water Filter Systems|فیلتر آب لوازم و دستگاه‌ها|
+7649|4|Drinking Fountain & Beverage Machine Water Filter Systems|فیلتر آب آبخوری و دستگاه نوشیدنی|
+7650|4|Ice Machine & Refrigerator Water Filter Systems|فیلتر آب یخساز و یخچال|ترکیبی
+7651|4|Hot Beverage & Steam Water Filter Systems|فیلتر آب دستگاه قهوه و بخار|
+7652|4|Multi-Purpose Water Filter Systems|فیلتر آب چندمنظوره|
+7653|4|Ware Washing & Sanitizing Water Filter Systems|فیلتر آب ماشین ظرفشویی صنعتی|
+7654|4|Appliance Water Pre-Filter Systems|پیش‌فیلتر آب دستگاه‌ها|
+7655|4|Appliance Water Filter Heads|سرفیلتر آب دستگاه‌ها|
+7656|3|Plumbing Fixtures Water Filter Systems|فیلتر آب شیرآلات بهداشتی|
+7657|3|Whole House Water Filter Systems|فیلتر آب ورودی ساختمان (کل ساختمان)|ترکیبی
+7658|4|Whole House Water Filtration|سیستم تصفیه آب کل ساختمان|
+7659|4|Loose Filter Media|مدیا فیلتر فله|
+7660|3|Medical Grade Water Filter Systems|فیلتر آب درمانی (پزشکی)|
+7661|3|Sanitary Water Filter Cartridges & Housings|کارتریج و هوزینگ فیلتر بهداشتی|
+7662|4|Sanitary Water Filter Housings|هوزینگ فیلتر بهداشتی (استیل)|
+7663|4|Sanitary Water Filter Cartridges|کارتریج فیلتر بهداشتی|
+7664|3|Reverse Osmosis Water Filter Systems|دستگاه تصفیه آب اسمز معکوس (RO)|ترکیبی
+7665|3|Water Filter Bags & Water Filter Bag Housings|فیلتر کیسه‌ای و هوزینگ فیلتر کیسه‌ای|
+7666|4|Water Filter Bags|فیلتر کیسه‌ای آب|
+7667|4|Water Filter Bag Housings|هوزینگ فیلتر کیسه‌ای|
+7668|3|Ultraviolet Water Disinfection Systems|دستگاه ضدعفونی آب با UV|
+7669|3|Water Strainers|صافی آب|
+7670|4|Y Strainers|صافی Y (وای استرینر)|
+7671|4|Inline Strainers|صافی خطی|
+7672|4|Basket Strainers|صافی سبدی|
+7673|4|Suction Diffuser Strainers|صافی دیفیوزر مکش پمپ|
+7674|4|Temporary Strainers|صافی موقت (راه‌اندازی)|
+7675|3|Mounting Hardware, Repair Parts & Tools for Water Filter Systems|یراق نصب، قطعات یدکی و ابزار فیلتر آب|
+7676|2|Water Softeners & Softening Salt|سختی‌گیر و نمک سختی‌گیر|
+7677|3|Water Softener Salt|نمک سختی‌گیر|ترکیبی
+7678|3|Water Softeners|سختی‌گیر آب|
+7679|3|Water Softener Chemicals|مواد شیمیایی سختی‌گیر|
+7680|2|Water Heaters|آبگرمکن|ترکیبی
+7681|3|Electric Tank Water Heaters|آبگرمکن برقی مخزن‌دار|
+7682|3|Electric Tankless Water Heaters|آبگرمکن برقی فوری (بدون مخزن)|
+7683|3|Gas Tank Water Heaters|آبگرمکن گازی مخزن‌دار|
+7684|3|Gas Tankless Water Heaters|آبگرمکن گازی دیواری (فوری)|
+7685|3|Heat Pump Water Heaters|آبگرمکن پمپ حرارتی|
+7686|3|Water Heater Storage Tanks|مخزن ذخیره آب گرم (منبع کویل‌دار)|
+7687|3|Replacement Parts & Accessories for Water Heaters|قطعات یدکی و لوازم آبگرمکن|
+7688|4|Water Heater Elements & Heat Exchangers|المنت و مبدل حرارتی آبگرمکن|
+7689|4|Water Heater Thermostats, Controls & Power Supply Parts|ترموستات، کنترل و قطعات برق آبگرمکن|
+7690|4|Pilot, Ignition & Burners for Water Heaters|پیلوت، جرقه‌زن و مشعل آبگرمکن|
+7691|4|Relief Valves for Water Heaters|شیر اطمینان آبگرمکن|
+7692|4|Expansion Tanks for Water Heaters|منبع انبساط آبگرمکن|
+7693|4|Venting Kits & Combustion Air Parts for Water Heaters|کیت دودکش و هوای احتراق آبگرمکن|
+7694|4|Water Supply & Flow Parts for Water Heaters|قطعات ورودی و جریان آب آبگرمکن|
+7695|4|Water Heater Conversion & Retrofit Kits|کیت تبدیل و نوسازی آبگرمکن|
+7696|4|Anode Rods & Descalers for Water Heaters|میله آند و رسوب‌زدای آبگرمکن|
+7697|4|Insulation Blankets, Baffles & Kits for Water Heaters|پتوی عایق، بافل و کیت آبگرمکن|
+7698|4|Stands, Drain Pans & Installation Parts for Water Heaters|پایه، سینی تخلیه و لوازم نصب آبگرمکن|
+7699|4|Water Leak Detectors|نشت‌یاب آب|
+7700|2|Bathroom Partitions & Partition Hardware|پارتیشن سرویس بهداشتی و یراق آن|
+7701|3|Bathroom Partitions|پارتیشن سرویس بهداشتی|
+7702|3|Hardware & Replacement Parts for Bathroom Partitions|یراق و قطعات یدکی پارتیشن سرویس|
+7703|2|Bathroom Fixtures|لوازم سرویس بهداشتی|ترکیبی
+7704|3|Bathroom Grab Bars|دستگیره ایمنی حمام (گرب‌بار)|
+7705|3|Bathroom Mirrors|آینه سرویس بهداشتی|
+7706|3|Changing Stations & Liners|میز تعویض کودک و روکش|
+7707|3|Bathroom Hooks|آویز (رخت‌آویز) حمام|
+7708|3|Bathroom Shelves & Towel Bars|طبقه و حوله‌آویز حمام|
+7709|3|Shower Curtains, Rods & Rings|پرده، میله و حلقه پرده حمام|
+7710|3|Shower Chairs & Seats|صندلی حمام|
+7711|3|Shower Baskets, Soap Dishes & Retractable Clotheslines|سبد حمام، جاصابونی و بند رخت جمع‌شو|
+7712|2|Drains|کف‌شور و آبرو|
+7713|3|Sink Drains, Strainers & Traps|لوله تخلیه، صافی و سیفون سینک|ترکیبی
+7714|4|Sink Drains|لوله تخلیه سینک (ست تخلیه)|
+7715|4|Sink Drain Strainers, Stoppers & Splash Guards|صافی، درپوش و محافظ پاشش سینک|
+7716|4|Sink Drain Traps, Connectors & Extensions|سیفون، رابط و لوله رابط سینک|
+7717|4|Sink Drain Escutcheons|قاب (روزت) لوله تخلیه|
+7718|4|Trap & Pipe Coverings|روکش عایق سیفون و لوله|
+7719|3|Bathtub & Shower Pan Drains|لوله تخلیه وان و زیردوشی|
+7720|3|Floor Drains|کف‌شور|
+7721|4|Floor Drains & Drain Bodies|کف‌شور و بدنه کف‌شور|
+7722|4|Floor Drain Grates|درپوش (شبکه) کف‌شور|
+7723|4|Trap Seals, Covers & Funnel Assemblies for Floor Drains|آب‌بند سیفون، درپوش و قیف کف‌شور|
+7724|3|Floor Sinks|کف‌شور سینکی (فلور سینک)|
+7725|4|Floor Sinks & Floor Sink Liners|فلور سینک و لاینر آن|
+7726|4|Grates, Dome Strainers & Sediment Buckets for Floor Sinks|شبکه، صافی گنبدی و سطل رسوب فلور سینک|
+7727|3|Trench Drains|آبرو خطی (کانال زهکشی)|
+7728|4|Trench Drain Systems|سیستم آبرو خطی|
+7729|4|Trench Drain Grates|گریتینگ آبرو خطی|
+7730|4|Channels, Frames, Outlets & Buckets for Trench Drains|کانال، قاب، خروجی و سطل آبرو خطی|
+7731|3|Roof Drains|کف‌شور پشت‌بام (ناودانی)|
+7732|4|Roof Drains & Drain Bodies|کف‌شور و بدنه کف‌شور پشت‌بام|
+7733|4|Dome Strainers, Grates & Repair Parts for Roof Drains|صافی گنبدی، شبکه و قطعات کف‌شور بام|
+7734|3|Cleanouts & Cleanout Covers|دریچه بازدید فاضلاب و درپوش آن|
+7735|3|Drain Air Vents & Valves|هواکش و شیر ورود هوای فاضلاب|
+7736|3|Drain Interceptors & Dilution Tanks|سپتیک (جداکننده) و مخزن رقیق‌سازی|
+7737|3|Gutter & Downspout Accessories|لوازم ناودان|
+7738|2|Plumbing Valves|شیرآلات صنعتی و تأسیساتی|
+7739|3|Shut-Off Valves|شیر قطع و وصل|
+7740|4|Ball Valves|شیر توپی|
+7741|5|Manually-Operated Ball Valves|شیر توپی دستی|
+7742|6|General Purpose Manual Ball Valves|شیر توپی دستی همه‌منظوره|
+7743|7|2-Way Brass General Purpose Manual Ball Valves|شیر توپی دوراهه برنجی|
+7744|7|2-Way Bronze General Purpose Manual Ball Valves|شیر توپی دوراهه برنزی|
+7745|7|2-Way Carbon Steel General Purpose Manual Ball Valves|شیر توپی دوراهه فولادی|
+7746|7|2-Way Stainless Steel General Purpose Manual Ball Valves|شیر توپی دوراهه استیل|
+7747|7|2-Way Ductile Iron General Purpose Manual Ball Valves|شیر توپی دوراهه چدن داکتیل|
+7748|7|2-Way PVC General Purpose Manual Ball Valves|شیر توپی دوراهه PVC|
+7749|7|2-Way Polypropylene General Purpose Manual Ball Valves|شیر توپی دوراهه پلی‌پروپیلن|
+7750|7|2-Way Acetal General Purpose Manual Ball Valves|شیر توپی دوراهه استال|
+7751|7|2-Way Nylon General Purpose Manual Ball Valves|شیر توپی دوراهه نایلونی|
+7752|7|3-Way Brass General Purpose Manual Ball Valves|شیر توپی سه‌راهه برنجی|
+7753|7|3-Way Bronze General Purpose Manual Ball Valves|شیر توپی سه‌راهه برنزی|
+7754|7|3-Way Stainless Steel General Purpose Manual Ball Valves|شیر توپی سه‌راهه استیل|
+7755|6|Manual Ball Valves for Potable Water|شیر توپی دستی آب شرب|
+7756|7|2-Way Brass Manual Ball Valves for Potable Water|شیر توپی دوراهه برنجی آب شرب|
+7757|7|2-Way Bronze Manual Ball Valves for Potable Water|شیر توپی دوراهه برنزی آب شرب|
+7758|7|2-Way Stainless Steel Manual Ball Valves for Potable Water|شیر توپی دوراهه استیل آب شرب|
+7759|7|2-Way PVC Manual Ball Valves for Potable Water|شیر توپی دوراهه PVC آب شرب|
+7760|7|2-Way CPVC Manual Ball Valves for Potable Water|شیر توپی دوراهه CPVC آب شرب|
+7761|7|3-Way PVC Manual Ball Valves for Potable Water|شیر توپی سه‌راهه PVC آب شرب|
+7762|7|3-Way Acetal Manual Ball Valves for Potable Water|شیر توپی سه‌راهه استال آب شرب|
+7763|6|Manual Ball Valves for Chemicals|شیر توپی دستی مواد شیمیایی|
+7764|7|2-Way Polypropylene Manual Ball Valves for Chemicals|شیر توپی دوراهه پلی‌پروپیلن شیمیایی|

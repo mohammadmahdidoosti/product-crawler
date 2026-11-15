@@ -1,0 +1,240 @@
+11956|5|Cordless Torque Wrench & Nutrunner Accessories|لوازم جانبی آچار ترک شارژی و مهره‌بند|
+11957|4|Shear Bolt Wrenches|آچار پیچ شیربولت (TC بولت)|
+11958|5|Cordless Shear Bolt Wrenches|آچار شیربولت شارژی|
+11959|5|Corded Shear Bolt Wrenches|آچار شیربولت برقی|
+11960|5|Shear Bolt Wrench Accessories|لوازم جانبی آچار شیربولت|
+11961|3|Cordless Tool Lighting|چراغ ابزار شارژی|
+11962|4|Cordless Tool Handheld Flashlights|چراغ‌قوه دستی شارژی|ترکیبی
+11963|4|Cordless Tool Work Lights & Jobsite Lights|چراغ کار و پروژکتور کارگاهی شارژی|
+11964|4|Cordless Tool Lighting Parts & Accessories|قطعات و لوازم چراغ شارژی|
+11965|3|Drills & Drivers|دریل و پیچ‌گوشتی برقی|
+11966|4|Pistol-Grip Drills|دریل دستی (تفنگی)|ترکیبی
+11967|5|Cordless Pistol-Grip Drills|دریل پیچ‌گوشتی شارژی|
+11968|5|Corded Pistol-Grip Drills|دریل برقی (سیمی)|
+11969|5|Gas-Powered Drills|دریل بنزینی|
+11970|4|Impact Drivers & Kits|پیچ‌گوشتی ضربه‌ای (ایمپکت) و کیت|
+11971|5|Cordless Impact Drivers|پیچ‌گوشتی ضربه‌ای شارژی|
+11972|5|Manual Impact Drivers|پیچ‌گوشتی ضربه‌ای دستی (چکشی)|
+11973|5|Impact Driver Attachment & Accessories|متعلقات و لوازم پیچ‌گوشتی ضربه‌ای|
+11974|4|Power Screwdrivers & Guns|پیچ‌گوشتی برقی و پیچ‌زن|ترکیبی
+11975|5|Cordless Screwdrivers & Guns|پیچ‌گوشتی شارژی و پیچ‌زن|
+11976|5|Corded Screwdrivers & Guns|پیچ‌گوشتی برقی سیمی و پیچ‌زن|
+11977|5|Power Screwdriver & Guns Attachments & Accessories|متعلقات و لوازم پیچ‌گوشتی برقی|
+11978|4|Right-Angle Drills|دریل سرکج (زاویه‌ای)|
+11979|5|Cordless Right-Angle Drills|دریل سرکج شارژی|
+11980|5|Corded Right-Angle Drills|دریل سرکج برقی|
+11981|4|Drill & Driver Accessories|لوازم جانبی دریل و پیچ‌گوشتی برقی|
+11982|5|Drill & Driver Attachments & Accessories|متعلقات و لوازم دریل|
+11983|5|Door & Cabinet Jigs|شابلون درب و کابینت|
+11984|5|Pocket Hole Jigs|شابلون پیچ مخفی (پاکت هول)|
+11985|5|Drill & Drive Guides|راهنمای دریل|
+11986|4|Magnetic Drill Presses|دریل مگنت|
+11987|5|Cordless Magnetic Drill Presses|دریل مگنت شارژی|
+11988|5|Corded Magnetic Drills|دریل مگنت برقی|
+11989|6|Corded Magnetic Drill Presses|دریل مگنت برقی|
+11990|6|Corded Magnetic Drill Motors & Bases|موتور و پایه دریل مگنت|
+11991|5|Magnetic Drill Arbors, Adapters & Accessories|شفت، تبدیل و لوازم دریل مگنت|
+11992|4|Core Drills & Stands|دستگاه کرگیری و پایه|
+11993|5|Cordless Core Drills|کرگیر شارژی|
+11994|5|Core Drill Adapters & Attachments|تبدیل و متعلقات کرگیر|
+11995|5|Corded Core Drills|کرگیر برقی|
+11996|6|Corded Core Drill Rigs & Motors|دستگاه و موتور کرگیر برقی|
+11997|6|Stands for Corded Core Drills|پایه کرگیر|
+11998|4|Hammer Drills|دریل چکشی|ترکیبی
+11999|5|Cordless Hammer Drills|دریل چکشی شارژی|
+12000|5|Corded Hammer Drills|دریل چکشی برقی|
+12001|4|Spade-Grip Drills|دریل دسته‌بیلی|
+12002|4|Replacement Parts for Drills & Drivers|قطعات یدکی دریل و پیچ‌گوشتی برقی|
+12003|3|Grinders & Cut-Off Tools|فرز و ابزار برش|
+12004|4|Angle Grinders|فرز سنگبری (مینی‌فرز)|ترکیبی
+12005|5|Cordless Angle Grinders|فرز شارژی|
+12006|5|Corded Angle Grinders|فرز برقی|
+12007|5|Angle Grinder Accessories|لوازم جانبی فرز|
+12008|4|Beveling Machines & Weld Shavers|دستگاه پخ‌زن و تراش جوش|
+12009|5|Corded Handheld Bevelers|پخ‌زن دستی برقی|
+12010|5|Corded Stationary & Portable Beveling Machines|دستگاه پخ‌زن ثابت و پرتابل|
+12011|5|Corded Weld Shavers|دستگاه تراش گرده جوش|
+12012|5|Beveler & Weld Shaver Inserts, Bits, Heads & Guides|الماس، تیغه، سر و راهنمای پخ‌زن|
+12013|4|Floor Scrapers, Floor Grinders & Abrasives|کف‌تراش، دستگاه سنگ کف و ساینده|
+12014|5|Walk-Behind & Remote Control Floor Grinders|دستگاه سنگ کف هلدادنی و ریموتی|
+12015|5|Abrasives & Replacement Parts for Floor Grinders|ساینده و قطعات یدکی سنگ کف|
+12016|5|Floor Scraper Machines & Blades|دستگاه کف‌تراش و تیغه|
+12017|4|Handheld Concrete & Masonry Grinders|فرز بتن و سنگ دستی|
+12018|4|Cordless Cut-Off Tools|ابزار برش شارژی|
+12019|4|Die Grinders|فرز انگشتی (مینیاتوری)|
+12020|5|Corded Die Grinders|فرز انگشتی برقی|
+12021|5|Cordless Die Grinders|فرز انگشتی شارژی|
+12022|4|Tool Post Grinder Accessories|لوازم جانبی سنگ روی سوپرت|
+12023|4|Tool Post Grinders|سنگ روی سوپرت تراش|
+12024|4|Replacement Parts for Grinders|قطعات یدکی فرز|
+12025|4|Scarifiers|دستگاه شیارزن و زبرکن بتن (اسکاریفایر)|
+12026|5|Handheld Scarifiers|اسکاریفایر دستی|
+12027|5|Walk-Behind & Ride-On Scarifiers|اسکاریفایر هلدادنی و سواری|
+12028|5|Scarifier Accessories|لوازم جانبی اسکاریفایر|
+12029|3|Heat Guns, Heat Blowers & Hot Knives|سشوار صنعتی (هیت‌گان)، دمنده حرارتی و کاتر حرارتی|
+12030|4|Cordless Heat Guns|سشوار صنعتی شارژی|
+12031|4|Corded Heat Guns|سشوار صنعتی برقی|
+12032|4|Corded Heat Blowers|دمنده حرارتی برقی|
+12033|4|Heat Gun & Blower Nozzles & Accessories|نازل و لوازم سشوار صنعتی|
+12034|4|Hot Knife Foam Cutters & Accessories|کاتر حرارتی یونولیت و لوازم|
+12035|3|Mud Mixers & Concrete Vibrators|همزن ملات و ویبراتور بتن|
+12036|4|Mud Mixers & Paddles|همزن ملات و پره|
+12037|5|Corded Mud Mixers|همزن ملات برقی|
+12038|5|Cordless Mud Mixers|همزن ملات شارژی|
+12039|5|Paddles for Mud Mixers|پره همزن|
+12040|4|Concrete Vibrators|ویبراتور بتن|
+12041|5|Corded Concrete Vibrators|ویبراتور بتن برقی|
+12042|5|Cordless Concrete Vibrators|ویبراتور بتن شارژی|
+12043|5|Concrete Vibrator Heads, Shafts & Accessories|سر، شیلنگ و لوازم ویبراتور|
+12044|3|Power Planers, Jointers & Joiners|رنده برقی، کف‌رند و بیسکویت‌زن|
+12045|4|Corded Hand Planers|رنده برقی دستی|
+12046|4|Cordless Hand Planers|رنده شارژی|
+12047|4|Corded Benchtop & Stationary Planers|دستگاه گندگی رومیزی و ثابت|
+12048|4|Planer & Jointer Blades, Guides & Accessories|تیغ، راهنما و لوازم رنده|
+12049|4|Jointers|دستگاه کف‌رند|
+12050|4|Corded Biscuit Joiners|بیسکویت‌زن برقی|
+12051|4|Cordless Biscuit Joiners|بیسکویت‌زن شارژی|
+12052|4|Joiner Biscuits & Blades|بیسکویت و تیغ بیسکویت‌زن|
+12053|4|Replacement Parts for Planers & Jointers|قطعات یدکی رنده و کف‌رند|
+12054|3|Electrician's Power Tools|ابزار برقی برقکاری|
+12055|4|Powered Cable Pullers & Fishing Systems|کابل‌کش برقی و سیستم سیم‌کشی|
+12056|5|Powered Cable Pullers & Feeders|کابل‌کش و تغذیه‌کن برقی|
+12057|5|Cable Pulling Jaw Grips|جوراب و گیره کابل‌کشی|
+12058|5|Cable Pulling Rope & Sheaves|طناب و قرقره کابل‌کشی|
+12059|5|Cordless Fish Tapes|فنر سیم‌کشی شارژی|
+12060|5|Vacuum & Blower Fishing Systems|سیستم سیم‌کشی وکیومی و دمشی|
+12061|5|Fishing Lines & Conduit Pistons for Vacuum Fishing Systems|نخ و پیستون سیم‌کشی وکیومی|
+12062|4|Cable Cutting, Stripping & Crimping Power Tools|ابزار برقی برش، روکش‌برداری و پرس کابل|
+12063|5|Cordless Cable, Rod & Bolt Cutters|کابل‌بر و مفتول‌بر شارژی|
+12064|6|Cordless Cable Cutters|کابل‌بر شارژی|
+12065|6|Replacement Jaws & Blades for Cable Cutters|فک و تیغه یدکی کابل‌بر|
+12066|6|Cordless Bolt, Threaded Rod & Cable Tray Cutters|مفتول‌بر، میلگردبر و سینی‌کابل‌بر شارژی|
+12067|6|Replacement Blades for Cordless Bolt, Threaded Rod & Cable Tray Cutters|تیغه یدکی مفتول‌بر و سینی‌کابل‌بر|
+12068|5|Cordless Wire & Cable Strippers & Bushings|روکش‌بر کابل شارژی و بوش|
+12069|6|Cordless Wire & Cable Strippers|روکش‌بر کابل شارژی|
+12070|6|Cable Stripper Bushings|بوش روکش‌بر کابل|
+12071|5|Cordless Crimpers, Dies & Jaws|پرس شارژی، قالب و فک|
+12072|6|Cordless Crimpers|پرس کابلشو شارژی|
+12073|6|Dies & Jaws for Cordless Crimpers|قالب و فک پرس شارژی|
+12074|5|Cordless Cable Tie Tools|ابزار بست کمربندی شارژی|
+12075|5|Twist-On Wire Connector Drill Attachments|سری دریل برای وایرنات|
+12076|5|Power Hydraulic Wire & Cable Cutters|کابل‌بر هیدرولیک برقی|
+12077|4|Wire Wrapping Power Tools & Accessories|ابزار سیم‌پیچی برقی (وایررپ) و لوازم|
+12078|5|Wire Wrapping & Unwrapping Power Tools|ابزار پیچیدن و بازکردن سیم برقی|
+12079|5|Batteries & Chargers for Wire Wrap Power Tools|باتری و شارژر ابزار وایررپ|
+12080|4|Punchdown Power Tools|آچار پانچ برقی|
+12081|3|Plumbing Power Tools|ابزار برقی لوله‌کشی|
+12082|4|Drain Cleaning Power Tools|دستگاه لوله‌بازکنی (فنرزن)|
+12083|5|Power Guns, Augers & Sink Machines for Drain Cleaning|فنر برقی دستی و دستگاه لوله‌بازکن سینک|
+12084|5|Drum & Milling Machines for Drain Cleaning|دستگاه لوله‌بازکنی درام‌دار|
+12085|5|Sectional Machines for Drain Cleaning|دستگاه لوله‌بازکنی سکشنال (فنر تکه‌ای)|
+12086|5|Cables for Drain Cleaning|فنر لوله‌بازکنی|
+12087|5|Auger Heads & Cutters for Drain Cleaning|سرفنر و تیغه لوله‌بازکنی|
+12088|5|Auger Head & Cutter Sets for Drain Cleaning|ست سرفنر لوله‌بازکنی|
+12089|5|Drain Cleaning Accessories|لوازم جانبی لوله‌بازکنی|
+12090|5|Drain Cleaning Replacement Parts|قطعات یدکی دستگاه لوله‌بازکنی|
+12091|5|Water Jetters|دستگاه واترجت لوله‌بازکنی|
+12092|5|Nozzles & Hoses for Water Jetters|نازل و شیلنگ واترجت|
+12093|4|Pipe Inspection Equipment & Locators|دوربین بازرسی لوله و ردیاب|
+12094|5|Pipe Inspection Cameras & Monitors|دوربین و مانیتور بازرسی لوله|
+12095|5|Pipe Locators|ردیاب لوله|
+12096|5|Pipe Inspection Accessories & Replacement Parts|لوازم و قطعات یدکی دوربین لوله|
+12097|4|Pipe Connection & Cutting Power Tools|ابزار برقی اتصال و برش لوله|
+12098|5|Pipe Reamer Drill Attachments|سری دریل برقو لوله|
+12099|5|Pipe Threading Power Tools|دستگاه حدیده برقی|
+12100|6|Handheld Power Pipe Threaders|حدیده برقی دستی|
+12101|6|Die Heads for Manual & Handheld Power Pipe Threaders|سر حدیده دستی و برقی|
+12102|6|Pipe Threading Machines|دستگاه حدیده لوله|
+12103|6|Die Heads for Pipe Threading Machines|سر حدیده دستگاه|
+12104|6|Replacement Dies for Pipe Threading|شانه حدیده یدکی|
+12105|6|Pipe Threading Accessories|لوازم جانبی حدیده|
+12106|6|Pipe Threading Replacement Parts|قطعات یدکی حدیده|
+12107|6|Pipe Threading Oilers|روغن‌زن حدیده|
+12108|5|Press Fitting Tools, Jaws & Rings|دستگاه پرس اتصالات، فک و حلقه|
+12109|6|Press Fitting Tools|دستگاه پرس اتصالات لوله|
+12110|6|Jaws & Rings for Press Fitting Tools|فک و حلقه دستگاه پرس|
+12111|6|Jaw & Ring Sets for Press Fitting Tools|ست فک و حلقه پرس|
+12112|6|Actuators for Press Fitting Tools|اکچویتور دستگاه پرس|
+12113|6|Cutters & Power Adapters for Press Fitting Tools|برش‌دهنده و آداپتور دستگاه پرس|
+12114|5|Pipe Grooving Tools|دستگاه شیارزن لوله (گروو)|
+12115|6|Roll Groovers|شیارزن غلتکی (رول گروور)|
+12116|6|Roll Sets & Tool Boxes for Roll Groovers|ست غلتک و جعبه شیارزن|
+12117|6|Replacement Parts for Roll Groovers|قطعات یدکی شیارزن|
+12118|5|Pipe Cutting Tools|ابزار برش لوله|
+12119|6|Cordless Pipe & Tubing Cutters|لوله‌بر شارژی|
+12120|6|Pipe & Tube Cutting Machines|دستگاه لوله‌بر|
+12121|6|Pipe Cutting Accessories & Replacement Parts|لوازم و قطعات یدکی لوله‌بر|
+12122|6|Internal Pipe Cutter Drill Attachments|سری دریل لوله‌بر داخلی|
+12123|5|PEX Expanders|گشادکن لوله پکس|
+12124|6|Cordless PEX Expansion Tools|گشادکن پکس شارژی|
+12125|6|PEX Expansion Heads & Grease|سر گشادکن پکس و گریس|
+12126|5|Deburring Tools|پلیسه‌گیر|
+12127|5|Swaging Tools|ابزار سواژ (گشادکن لوله)|
+12128|5|Fusion Pipe Joining Tools|دستگاه جوش لوله پلی‌اتیلن|
+12129|6|Electrofusion Processors|دستگاه جوش الکتروفیوژن|
+12130|6|Pipe Peeling Tools|تراش‌دهنده سطح لوله (پیلر)|
+12131|6|Socket Fusion & Welding Tools|دستگاه جوش سوکتی (اتو لوله)|
+12132|5|Pipe Drilling & Tapping Equipment|تجهیزات انشعاب‌گیری و سوراخکاری لوله|
+12133|6|Pipe Tapping & Drilling Machines|دستگاه انشعاب‌گیری زیر فشار (هات‌تپ)|
+12134|6|Pipe Mounted Drills|دریل روی لوله|
+12135|4|Pipe Stands & Vises|پایه لوله و گیره لوله|
+12136|4|Pipe Splicing Tool Kits|کیت ابزار اتصال لوله|
+12137|4|Pipe Alignment Tools & Flange Spreaders|ابزار هم‌راستایی لوله و فلنج‌بازکن|
+12138|5|Pipe Alignment Tools|ابزار هم‌راستایی لوله (کلمپ جوش)|
+12139|5|Flange Alignment Tools|ابزار هم‌راستایی فلنج|
+12140|5|Flange Spreaders|فلنج‌بازکن|
+12141|4|Pipe Freezing & Thawing Equipment|دستگاه انجماد و یخ‌زدایی لوله|
+12142|4|Powered Valve Exercisers|دستگاه برقی بازوبست شیر (ولو اکسرسایزر)|
+12143|3|Power Punching Tools|ابزار پانچ برقی|
+12144|4|Arbor & Pneumatic Presses|پرس دستی (آربور) و پرس پنوماتیک|
+12145|4|Cordless Knockout Punches|پانچ تابلو شارژی|
+12146|4|High Force Hydraulic Punch & Die Sets|ست پانچ و ماتریس هیدرولیک|
+12147|4|Replacement Parts for Power Punching Tools|قطعات یدکی ابزار پانچ|
+12148|3|Sanding & Finishing Tools|ابزار سنباده‌زنی و پرداخت|
+12149|4|Rotary & Random Orbital Disc Sanders|سنباده‌زن دیسکی و اوربیتال (لرزان گرد)|
+12150|4|Sheet & Detail Sanders|سنباده‌زن لرزان و گوشه‌زن|ترکیبی
+12151|4|Replacement Backing Pads for Power Sanders|پد یدکی سنباده‌زن|
+12152|4|Band Files|سوهان برقی نواری|
+12153|4|Belt Sanders|سنباده‌زن نواری (تسمه‌ای)|
+12154|4|Dust Collection Accessories for Sanders|لوازم مکش گردوغبار سنباده‌زن|
+12155|4|Polishing & Buffing Power Tools|دستگاه پولیش برقی|
+12156|5|Corded Polishers, Buffers & Burnishers|دستگاه پولیش و براق‌کن برقی|
+12157|5|Cordless Polishers, Buffers & Burnishers|دستگاه پولیش شارژی|
+12158|5|Corded Wet Polishers|دستگاه پولیش آبی (سنگ)|
+12159|4|Drywall Sanders|سنباده‌زن دیوار (زرافه‌ای)|
+12160|4|Floor Sanders & Accessories|دستگاه سنباده کف (پارکت) و لوازم|
+12161|4|Drum Sanding Machines|دستگاه سنباده درام|
+12162|4|Spindle Sanding Machines|دستگاه سنباده محوری (اسپیندل)|
+12163|4|Wide Belt Sanding Machines|دستگاه سنباده نواری عریض (کالیبره)|
+12164|4|Edgebanders|دستگاه لبه‌چسبان (PVC)|
+12165|4|Replacement Parts for Sanding & Finishing Power Tools|قطعات یدکی ابزار سنباده‌زنی|
+12166|3|Engravers & Accessories|قلم حکاکی برقی و لوازم|
+12167|3|Power Saws & Blades|اره برقی و تیغه|
+12168|4|Power Saw Blades|تیغ اره برقی|
+12169|5|Band Saw Blades|تیغ اره نواری|
+12170|6|Metal-Cutting Welded Band Saw Blades|تیغ اره نواری فلزبر جوش‌شده|
+12171|6|Ceramic, Composites & Cast Iron Cutting Welded Band Saw Blades|تیغ اره نواری سرامیک، کامپوزیت و چدن|
+12172|6|Wood-Cutting Welded Band Saw Blades|تیغ اره نواری چوب‌بر|
+12173|6|Food-Cutting Welded Band Saw Blades|تیغ اره نواری استخوان‌بر (مواد غذایی)|
+12174|6|Food-Cutting Skinner Blades|تیغ پوست‌کن مواد غذایی|
+12175|6|Blades for Portable Band Saws|تیغ اره نواری دستی|
+12176|6|Band Saw Blade Coil Stock|تیغ اره نواری رولی|
+12177|6|Band Saw Blade Welders|دستگاه جوش تیغ اره نواری|
+12178|5|Reciprocating Saw Blades|تیغ اره افقی‌بر|
+12179|6|Corded & Cordless Reciprocating Saw Blades|تیغ اره افقی‌بر برقی و شارژی|
+12180|6|Reciprocating Saw Blade Sets|ست تیغ اره افقی‌بر|
+12181|6|Air-Powered Reciprocating Saw Blades|تیغ اره افقی‌بر بادی|
+12182|5|Hole Saws & Hole Cutters|گردبر و مته گردبر (هول‌سا)|
+12183|6|Hole Saws & Hole Cutter Kits|کیت گردبر|
+12184|7|Multi-Material-Cutting Hole Saw Kits|کیت گردبر همه‌کاره|
+12185|7|Metal-Cutting Hole Cutter Kits|کیت گردبر فلز|
+12186|7|Rough-In Hole Saw Kits for Wood|کیت گردبر چوب|
+12187|7|Masonry & Tile-Cutting Hole Saw Kits|کیت گردبر کاشی و بنایی|
+12188|6|Individual Hole Saws & Hole Cutters|گردبر تکی|
+12189|7|Multi-Material-Cutting Hole Saws|گردبر همه‌کاره (بای‌متال)|
+12190|7|Metal-Cutting Hole Cutters|گردبر فلز (اَنولار)|
+12191|7|Rough-In Hole Saws for Wood|گردبر چوب|
+12192|7|Drywall-Cutting Hole Saws|گردبر کناف|
+12193|7|Masonry & Tile-Cutting Hole Saws|گردبر کاشی و بنایی (الماسه)|
+12194|6|Hole Saw Arbors & Pilot Drill Bits|شفت گردبر و مته راهنما|
+12195|6|Hole Saw & Hole Cutter Cases & Chip Collectors|کیف گردبر و جمع‌کن براده|
