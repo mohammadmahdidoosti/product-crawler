@@ -1,0 +1,283 @@
+# Consumer Electronics > Audio & Sets
+Amplifier|آمپلی‌فایر|
+Home Theatre System|سینمای خانگی|مصرفی
+Karaoke Player|دستگاه کارائوکه|
+Microphone|میکروفون|
+Professional Audio|سیستم صوتی حرفه‌ای|B2B
+Speaker & Sound Box|اسپیکر|
+Other Audio & Sets|سایر صوتی|
+# Consumer Electronics > Disk, Cassette, Tape & Record
+Audio & Video Products|محصولات صوتی و تصویری|
+CD & DVD Media|دیسک خام|
+CD Bag & Case|کیف و قاب CD|
+CD Burner & DVD Burner|رایتر|
+Cassette & Tape|کاست و نوار|
+Other Disks & Tapes|سایر دیسک و نوار|
+# Consumer Electronics > Display & Accessories
+AD Player|نمایشگر تبلیغاتی|B2B
+CRT Display|مانیتور CRT|
+Digital Kiosks & Interactive Displays|کیوسک دیجیتال و نمایشگر تعاملی|B2B
+LCD Display|نمایشگر LCD|
+LCD Module|ماژول LCD|B2B
+LED Display|نمایشگر LED|B2B
+Monitor Stand|پایه مانیتور|
+OLED Display|نمایشگر OLED|
+Plasma Display|نمایشگر پلاسما|
+Touch Screen|صفحه لمسی|
+Other Displays|سایر نمایشگرها|
+# Consumer Electronics > Earphones,Headphones & Accessories
+Bluetooth Headset|هدست بلوتوثی|
+Earbuds Headphones|ایربادز|
+Earhook Headphones|هدفون دورگوشی قلابی|
+Earphone & Headphone Accessories|لوازم جانبی هدفون|
+Earphone Case|کیف هدفون|
+Headband Headphones|هدفون رو سری|
+In-Ear Headphones|هدفون توگوشی|
+Mobile Phone Earphone|هندزفری موبایل|
+Neckband Headphones|هدفون گردنی|
+Other Earphones & Headphones|سایر هدفون‌ها|
+# Consumer Electronics > HDMI Equipment
+HDMI Cable|کابل HDMI|
+HDMI Converter|مبدل HDMI|
+HDMI Splitter|اسپلیتر HDMI|B2B
+HDMI Switch|سوئیچ HDMI|
+Other HDMI Equipment|سایر تجهیزات HDMI|
+# Consumer Electronics > Portable Audio Appliance
+CD, MD & Cassette Player|ضبط CD و کاست|
+Hi-Fi Player|پخش‌کننده Hi-Fi|
+MP3 Player|MP3 پلیر|
+MP4 Player|MP4 پلیر|
+Portable Audio Recorder|رکوردر صدا|ترکیبی
+Other Portable Audio Appliances|سایر پخش‌کننده‌های قابل‌حمل|
+# Consumer Electronics > TV & Parts
+Audio & Video Cable|کابل صوتی و تصویری|
+CRT TV|تلویزیون CRT|
+LCD TV|تلویزیون LCD|
+Plasma TV|تلویزیون پلاسما|
+Radio & TV Broadcasting|تجهیزات پخش رادیو و تلویزیون|B2B
+Set Top Box|ستاپ‌باکس|
+TV Mount|پایه دیواری تلویزیون|
+Television Parts|قطعات تلویزیون|B2B
+Other TVs|سایر تلویزیون‌ها|
+# Consumer Electronics > Video
+Car Video|پخش تصویری خودرو|
+Digital Photo Frame|قاب عکس دیجیتال|
+MP4 Player|MP4 پلیر|
+PC Camera|وب‌کم|
+Surveillance, Control & Protection|دوربین مداربسته|B2B
+VCD & DVD Player|دستگاه DVD|
+Video Camera & Accessories|دوربین فیلم‌برداری|
+Video Glasses|عینک ویدیویی|
+Other Videos|سایر تجهیزات ویدیویی|
+# Consumer Electronics > Battery & Charger
+Button Cell Battery|باتری سکه‌ای|
+Primary & Dry Battery|باتری قلمی و خشک|
+Rechargeable Battery & Charger|باتری قابل شارژ و شارژر|
+# Consumer Electronics > Bluetooth Products
+Bluetooth Dongle|دانگل بلوتوث|
+Bluetooth Gloves|دستکش بلوتوثی|
+Bluetooth Headset|هدست بلوتوثی|
+Other Bluetooth Products|سایر محصولات بلوتوثی|
+# Consumer Electronics > Drone & UAV & Accessories
+Drone & UAV|پهپاد و کوادکوپتر|
+Drone Accessories|لوازم جانبی پهپاد|
+# Consumer Electronics > Entertainment Electronics
+Coin Operated Game Machine|دستگاه بازی سکه‌ای|B2B
+Entertainment Electronics Accessories|لوازم جانبی سرگرمی|
+Handheld Game Console|کنسول دستی|
+Joystick & Game Controller|دسته بازی|
+Video Game Console|کنسول بازی|
+Other Entertainment Electronics|سایر الکترونیک سرگرمی|
+# Consumer Electronics > Mobile Phone & Accessories
+Feature Phone|گوشی ساده|
+Lens Cleaner|تمیزکننده لنز|
+Mobile Phone Battery|باتری موبایل|
+Mobile Phone Cable|کابل موبایل|
+Mobile Phone Case|قاب موبایل|
+Mobile Phone Charger|شارژر موبایل|
+Mobile Phone Decoration|تزئینات موبایل|
+Mobile Phone Earphone|هندزفری|
+Mobile Phone Flex Cables|فلت موبایل (قطعه)|B2B
+Mobile Phone Holder|پایه موبایل|
+Mobile Phone Housing|قاب و شاسی موبایل (قطعه)|B2B
+Mobile Phone Keypad|کیپد موبایل|B2B
+Mobile Phone LCD|ال‌سی‌دی موبایل (قطعه)|B2B
+Power Bank|پاوربانک|
+Rugged Phone|گوشی مقاوم|ترکیبی
+Selfie Stick|مونوپاد|
+Smart Phone|گوشی هوشمند|
+Stylus|قلم لمسی|
+Other Mobile Phone Accessories|سایر لوازم جانبی موبایل|
+# Consumer Electronics > Photographic Apparatus
+Camera Bag|کیف دوربین|
+Camera Battery|باتری دوربین|
+Camera Charger|شارژر دوربین|
+Camera Lens|لنز دوربین|
+Card Reader|کارت‌خوان|
+Digital Camera|دوربین دیجیتال|
+Film|فیلم عکاسی|
+Film Camera|دوربین آنالوگ|
+Industrial Camera|دوربین صنعتی (ماشین ویژن)|B2B
+Lens Cleaner|تمیزکننده لنز|
+Memory Card|کارت حافظه|
+Photographic Accessories|لوازم جانبی عکاسی|
+Professional Photographic Equipment|تجهیزات عکاسی حرفه‌ای (استودیو)|B2B
+# Consumer Electronics > Screen Protector
+GPS Screen Protector|محافظ صفحه GPS|
+Game Player Screen Protector|محافظ صفحه کنسول|
+Mobile Phone Screen Protector|محافظ صفحه موبایل (گلس)|
+PC / Notebook Screen Protector|محافظ صفحه لپ‌تاپ|
+PDA / Tablet PC Screen Protector|محافظ صفحه تبلت|
+Other Screen Protectors|سایر محافظ‌های صفحه|
+# Consumer Electronics > Two Way Radio
+Digital Two Way Radio|بی‌سیم دیجیتال|
+Handheld Two Way Radio|بی‌سیم دستی|
+Hands-Free Two Way Radio|بی‌سیم هندزفری|
+Mobile Two Way Radio|بی‌سیم خودرویی|
+# Consumer Electronics > Wearable Devices
+Bluetooth Gloves|دستکش بلوتوثی|
+Smart Bracelet|مچ‌بند هوشمند|
+Smart Glasses|عینک هوشمند|
+Smart Ring|انگشتر هوشمند|
+Smartwatch|ساعت هوشمند|
+Other Wearable Devices|سایر پوشیدنی‌ها|
+# Consumer Electronics > Air Conditioner, Purifier & Humidifier
+Air Conditioner|کولر گازی|
+Air Cooler|کولر آبی|
+Air Purifier|تصفیه هوا|
+Dehumidifier|رطوبت‌گیر|
+Humidifier|دستگاه بخور|
+Scent Diffuser|دستگاه رایحه‌پراکن|
+Ventilation Fan|هواکش|
+Other Purifiers & Humidifiers|سایر تصفیه‌کننده‌ها|
+# Consumer Electronics > Commercial Robot
+Cleaning Robot|ربات نظافت|
+Delivery Robot|ربات تحویل|
+Pool Cleaning Robot|ربات تمیزکننده استخر|
+Security Robot|ربات نگهبان|
+Service Robot|ربات خدماتی|
+# Consumer Electronics > Electrical Fan & Exhaust Fan
+Electrical Fan|پنکه|
+Exhaust Fan|هواکش|
+Solar Fan|پنکه خورشیدی|
+# Consumer Electronics > Home Appliance Parts
+Air Conditioner Parts|قطعات کولر گازی|
+Air Purifier Parts|قطعات تصفیه هوا (فیلتر)|
+Food Blender Spare Parts|قطعات مخلوط‌کن|
+Freezer & Refrigerator Parts|قطعات یخچال و فریزر|
+Humidifier Parts|قطعات بخور|
+Television Parts|قطعات تلویزیون|
+Vacuum Cleaner Parts|قطعات جاروبرقی|
+Water Heater Parts|قطعات آبگرمکن|
+# Consumer Electronics > Kitchen Electronics
+Air Fryer|سرخ‌کن بدون روغن|
+Bread & Cake Maker|نان‌پز و کیک‌پز|
+Coffee Grinder|آسیاب قهوه|
+Coffee Maker|قهوه‌ساز|
+Dishwasher & Disinfective Apparatus|ماشین ظرفشویی و ضدعفونی‌کننده|
+Egg Cooker|تخم‌مرغ‌پز|
+Electric Food Steamer|بخارپز برقی|
+Electric Oven|فر برقی|
+Electric Pressure Cooker|زودپز برقی|
+Electric Skillet|تابه برقی|
+Electric Tea Maker|چای‌ساز|
+Electrical Kettle|کتری برقی|
+Food Blender|مخلوط‌کن|
+Food Dehydrator|میوه‌خشک‌کن|
+Food Processors|غذاساز|
+Food Warmer|گرم‌نگهدار غذا|ترکیبی
+Food Waste Disposer|خردکن زباله سینک|
+Fryer|سرخ‌کن|ترکیبی
+Gas Burner & Gas Stove|اجاق گاز|
+Ice Maker & Ice Crusher|یخ‌ساز و یخ‌خردکن|ترکیبی
+Induction Cooker|اجاق القایی|
+Infrared Cooker|اجاق اینفرارد|
+Juicer|آبمیوه‌گیری|
+Meat Grinder|چرخ گوشت|
+Microwave Oven|مایکروویو|
+Milk Frother|کف‌ساز شیر|
+Popcorn Machine|دستگاه پاپ‌کورن|ترکیبی
+Range Hood|هود آشپزخانه|
+Rice Cooker|پلوپز|
+Sandwich Maker|ساندویچ‌ساز|
+Slow Cookers and Sous Vide|آرام‌پز و سوویده|
+Toaster|توستر|
+Vacuum Packing Machine|دستگاه وکیوم خانگی|
+Vegetable & Fruit Purifier|ضدعفونی‌کننده میوه|
+Warming Tray|سینی گرم‌کن|
+Yogurt Maker|ماست‌ساز|
+Other Kitchen Electronics|سایر لوازم برقی آشپزخانه|
+# Consumer Electronics > LED Display
+Indoor LED Display|تلویزیون شهری داخلی LED|
+LED Display Controller System|کنترلر نمایشگر LED|
+LED Segment Display|سون‌سگمنت LED|
+Outdoor LED Display|تلویزیون شهری LED|
+Semi-outdoor LED Display|نمایشگر LED نیمه‌بیرونی|
+# Consumer Electronics > Refrigerator, Freezer & Parts
+Car Refrigerator|یخچال خودرو|مصرفی
+Commercial Refrigerator & Freezer|یخچال و فریزر صنعتی|B2B
+Compressor|کمپرسور یخچال|B2B
+Freezer & Refrigerator Parts|قطعات یخچال|B2B
+Heating, Refrigeration & Temperature Control|کنترل دما و تبرید|B2B
+Home Refrigerator & Freezer|یخچال و فریزر خانگی|مصرفی
+Other Refrigerators & Freezers|سایر یخچال و فریزرها|
+# Consumer Electronics > Salon Equipment
+Hair Curler|فر کننده مو|
+Hair Dryer|سشوار|
+Hair Heating Cap|کلاه حرارتی مو|B2B
+Hair Perm Machine|دستگاه فر دائم|B2B
+Hair Steamer|بخارساز مو|B2B
+Hair Straightener|اتو مو|
+Hair Trimmer|ماشین اصلاح|
+Other Salon Equipments|سایر تجهیزات آرایشگاهی|
+# Consumer Electronics > Vacuum Cleaner
+Canister Vacuum Cleaner|جاروبرقی مخزن‌دار|
+Car Vacuum Cleaner|جاروبرقی خودرو|
+Carpet Vacuum Cleaner|فرش‌شوی|
+Commercial Vacuum Cleaner|جاروبرقی تجاری|B2B
+Handheld Vacuum Cleaner|جاروشارژی دستی|
+Home Floor Scrubber|کف‌شوی خانگی|
+Industrial Vacuum Cleaner|جاروبرقی صنعتی|B2B
+Steam Mop Cleaner|بخارشوی|
+Stick Vacuum Cleaner|جارو عصایی|
+Vertical Vacuum Cleaner|جاروبرقی ایستاده|
+Other Vacuum Cleaners|سایر جاروبرقی‌ها|
+# Consumer Electronics > Warmer Appliance
+Electric Blanket|پتوی برقی|
+Electric Fireplace|شومینه برقی|
+Heater Fan|فن‌هیتر|
+Heating Radiator|رادیاتور برقی|
+Oil-Filled Radiator|شوفاژ برقی روغنی|
+Panel Heater|بخاری پنلی|
+Patio Heater|هیتر فضای باز (قارچی)|ترکیبی
+Other Warmer Appliance|سایر گرم‌کننده‌ها|
+# Consumer Electronics > Washing & Drying Machine & Parts
+Clothes Dryer|خشک‌کن لباس|
+Drying Machine Parts|قطعات خشک‌کن|B2B
+Front Load Washing Machine|لباسشویی درب از جلو|
+Portable Washing Machine|لباسشویی قابل‌حمل|
+Top Load Washing Machine|لباسشویی درب از بالا|
+Washer-Dryer Machine|لباسشویی خشک‌کن‌دار|
+Washing Machine Parts|قطعات لباسشویی|B2B
+# Consumer Electronics > Water Heater & Components
+Electric Water Heater|آبگرمکن برقی|
+Gas Water Heater|آبگرمکن گازی|
+Heat Pump Water Heater|آبگرمکن پمپ حرارتی|
+Solar Water Heater|آبگرمکن خورشیدی|
+Water Heater Parts|قطعات آبگرمکن|B2B
+Other Water Heaters|سایر آبگرمکن‌ها|
+# Consumer Electronics > Commerce & Finance Electronics
+ATM|خودپرداز|
+Banknote Sorter|دستگاه تفکیک اسکناس|
+Barcode Scanner|بارکدخوان|
+Coin Counter & Sorter|سکه‌شمار|
+Counterfeit Detector|دستگاه تشخیص اسکناس تقلبی|
+Electronic Price Tag|برچسب قیمت الکترونیکی|
+Money Counter|اسکناس‌شمار|
+POS Terminal & Cash Register|کارتخوان و صندوق فروشگاهی|
+Payment Kiosk|کیوسک پرداخت|
+Safe|گاوصندوق|
+Thermal Printer|پرینتر حرارتی (فیش)|
+Time & Attendance|حضور و غیاب|
+Vending Machine|دستگاه فروش خودکار|
+Other Commerce & Finance Electronics|سایر الکترونیک تجاری|

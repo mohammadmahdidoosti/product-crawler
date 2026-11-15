@@ -1,0 +1,223 @@
+# Arts & Crafts > Bead
+Crystal Bead|مهره کریستالی|
+Gem Bead|مهره سنگی|
+Glass Bead|مهره شیشه‌ای|
+Plastic Bead|مهره پلاستیکی|
+Wooden Bead|مهره چوبی|
+Other Beads|سایر مهره‌ها|
+# Arts & Crafts > Fashion Accessories
+Apparel Clip|گیره لباس|
+Belt & Accessories|کمربند و متعلقات|
+Body Piercing|پیرسینگ|
+Bracelet & Bangle|دستبند|
+Brooch|سنجاق سینه|
+Cuff Links|دکمه سردست|
+Earrings|گوشواره|
+Hair Ornaments|تزئینات مو|
+Handbags|کیف دستی|
+Jewelry Set|ست زیورآلات|
+Necklace|گردنبند|
+Pendant|آویز|
+Ring|انگشتر|
+Sunglasses|عینک آفتابی|
+Other Fashion Accessories|سایر اکسسوری‌ها|
+# Arts & Crafts > Hair Products
+Hair Bulk|موی طبیعی فله|B2B
+Hair Extension|اکستنشن مو|
+Hair Weaving & Hair Weft|بافت و پود مو|
+Toupee|کلاه‌گیس مردانه (توپی)|
+Wig|کلاه‌گیس|
+Wig Auxiliaries|لوازم کلاه‌گیس|
+Other Hair Products|سایر محصولات مو|
+# Arts & Crafts > Jewelry & Accessories
+Crystal Jewelry|زیورآلات کریستال|
+Diamond Jewelry|جواهر الماس|
+Gemstone Jewelry|جواهر سنگ قیمتی|
+Gold & Platinum Jewelry|طلا و پلاتین|
+Jade Jewelry|جواهر یشم|
+Jewelry Parts|قطعات زیورآلات (قفل، حلقه)|B2B
+Jewelry Tools|ابزار جواهرسازی|B2B
+Pearl Jewelry|جواهر مروارید|
+Sterling Silver Jewelry|زیورآلات نقره|
+Other Jewelry|سایر جواهرات|
+# Arts & Crafts > Wind Craft
+Kite|بادبادک|
+Wind Chime|زنگوله باد|
+Wind Spinner|چرخ‌باد تزئینی|
+# Arts & Crafts > Candle & Candle Holders
+Candle|شمع|
+Candle Holders|جاشمعی|
+# Arts & Crafts > Festival & Party Supplies
+Birthday Gifts & Crafts|هدایا و تزئینات تولد|
+Christmas Gifts & Crafts|هدایا و تزئینات کریسمس|
+Easter Gifts & Crafts|هدایای عید پاک|
+Halloween Gifts & Crafts|لوازم هالووین|
+Party Supplies|لوازم جشن|
+Wedding Gifts & Crafts|هدایا و تزئینات عروسی|
+Other Holiday Gifts & Decorations|سایر هدایا و تزئینات مناسبتی|
+# Arts & Crafts > Greeting Cards
+Birthday Card|کارت تولد|
+Business Card|کارت ویزیت|B2B
+Holiday Card|کارت تبریک مناسبتی|
+Invitation Card|کارت دعوت|
+Postcards|کارت‌پستال|
+Thank You Card|کارت تشکر|
+Other Cards|سایر کارت‌ها|
+# Arts & Crafts > Crystal Crafts
+Crystal Bead|مهره کریستالی|
+Crystal Key Chain|جاکلیدی کریستالی|
+Crystal Model|ماکت کریستالی|
+Crystal Ornament|تزئینات کریستالی|
+Crystal Vessel|ظرف کریستالی|
+Other Crystal Crafts|سایر صنایع کریستالی|
+# Arts & Crafts > Plastic & Resin Crafts
+Plastic Craft|صنایع دستی پلاستیکی|
+Resin Craft|صنایع دستی رزینی|
+# Arts & Crafts > Art Box
+Cosmetic Bag & Case|کیف لوازم آرایش|
+Decorative Box|جعبه تزئینی|
+Gift Box & Bag|جعبه و کیسه هدیه|ترکیبی
+Jewelry Box|جعبه جواهر|
+Money Box|قلک|
+Music Box|جعبه موزیکال|
+Other Art Boxes|سایر جعبه‌های تزئینی|
+# Arts & Crafts > Badge
+Award Badge|نشان افتخار|
+Cartoon Badge|پیکسل کارتونی|
+Commemorative Badge|نشان یادبود|
+Creative Badge|پیکسل خلاقانه|
+Decorative Badge|نشان تزئینی|
+Logo Badge|نشان لوگودار سازمانی|B2B
+Occupation Badge|نشان شغلی|B2B
+Organization Badge|نشان سازمانی|B2B
+Other Badges|سایر نشان‌ها|
+# Arts & Crafts > Funeral Products
+Body Bag|کاور جسد|B2B
+Coffin & Casket|تابوت|B2B
+Columbarium|کلمباریوم (محفظه خاکستر)|B2B
+Funeral Accessories|لوازم خاکسپاری|B2B
+Tombstone & Monument|سنگ قبر و یادبود|ترکیبی
+Urn|ظرف خاکستر|ترکیبی
+Other Funeral Products|سایر محصولات خاکسپاری|B2B
+# Arts & Crafts > Key Chain
+Crystal Key Chain|جاکلیدی کریستالی|
+LED Key Chain|جاکلیدی LED|
+Leather Key Chain|جاکلیدی چرمی|
+Metal Key Chain|جاکلیدی فلزی|
+Plastic Key Chain|جاکلیدی پلاستیکی|
+Silicone Keychain|جاکلیدی سیلیکونی|
+Other Key Chains|سایر جاکلیدی‌ها|
+# Arts & Crafts > Promotional Gifts
+Bottle Opener|دربازکن تبلیغاتی|
+Coaster|زیرلیوانی تبلیغاتی|
+Fan|بادبزن تبلیغاتی|
+Flag & Banner|پرچم و بنر|
+Fridge Magnets|مگنت یخچالی|
+Key Chain|جاکلیدی تبلیغاتی|
+Lanyard|بند کارت (لنیارد)|
+Luggage Tag|برچسب چمدان|
+Promotional Apparel|پوشاک تبلیغاتی|
+Promotional Bag|کیف تبلیغاتی|
+Promotional Bag & Travel|کیف و لوازم سفر تبلیغاتی|
+Promotional Bracelets & Wristbands|مچ‌بند تبلیغاتی|
+Promotional Cap & Hat|کلاه تبلیغاتی|
+Promotional Electronic Product|هدیه الکترونیکی تبلیغاتی|
+Promotional Gift Sets|ست هدیه تبلیغاتی|
+Promotional Household Products|هدیه خانگی تبلیغاتی|
+Promotional Mug|ماگ تبلیغاتی|
+Promotional Paper Product|محصول کاغذی تبلیغاتی|
+Promotional Pen|خودکار تبلیغاتی|
+Promotional Sports Supply|لوازم ورزشی تبلیغاتی|
+Promotional Umbrella|چتر تبلیغاتی|
+Other Promotional Gifts|سایر هدایای تبلیغاتی|
+# Arts & Crafts > Reed Diffuser
+Aroma Stone Diffuser|سنگ خوشبوکننده|
+Aromatherapy Bag|کیسه معطر|
+Aromatherapy Liquid|مایع خوشبوکننده|
+Ceramic Diffuser|خوشبوکننده سرامیکی|
+Paper Diffuser|خوشبوکننده کاغذی|
+Rattan Stick Diffuser|خوشبوکننده چوبی (ریدیفیوزر)|
+Scented Candle|شمع معطر|
+Other Reed Diffuser|سایر خوشبوکننده‌ها|
+# Arts & Crafts > Ribbon
+Embroidery Ribbon|روبان گلدوزی|
+Nylon Ribbon|روبان نایلونی|
+Organza Ribbon|روبان ارگانزا|
+Polyester Ribbon|روبان پلی‌استر|
+Velvet Ribbon|روبان مخمل|
+Other Ribbon|سایر روبان‌ها|
+# Arts & Crafts > Sticker
+Clear Sticker|برچسب شفاف|
+Glitter Sticker|برچسب اکلیلی|
+Holographic Sticker|برچسب هولوگرام|
+Matte Sticker|برچسب مات|
+PET Sticker|برچسب PET|
+PP Sticker|برچسب PP|
+PVC Sticker|برچسب PVC|
+Vinyl Sticker|برچسب وینیل|
+Other Stickers|سایر برچسب‌ها|
+# Arts & Crafts > Artificial Crafts
+Artificial Animal|حیوان مصنوعی (ماکت)|
+Artificial Bonsai|بونسای مصنوعی|
+Artificial Christmas Tree|درخت کریسمس مصنوعی|
+Artificial Flower|گل مصنوعی|
+Artificial Food|غذای مصنوعی (ماکت ویترین)|B2B
+Artificial Fruit|میوه مصنوعی|
+Artificial Plant|گیاه مصنوعی|
+Artificial Plant Wall|دیوار سبز مصنوعی|ترکیبی
+Artificial Succulent|ساکولنت مصنوعی|
+Silk Flower|گل ابریشمی|
+Other Artificial Crafts|سایر محصولات مصنوعی تزئینی|
+# Arts & Crafts > Carving & Sculpture
+Amusement Sculpture|مجسمه شهربازی|B2B
+Cemetery Sculpture|مجسمه آرامستان|B2B
+Commemorative Sculpture|مجسمه یادبود|B2B
+Garden Sculpture|مجسمه باغی|ترکیبی
+Interior Decoration Sculpture|مجسمه دکوراتیو داخلی|
+Public Sculpture|مجسمه شهری|B2B
+Religious Sculpture|مجسمه مذهبی|
+Special Craft Sculpture|مجسمه هنری خاص|
+Theme Sculpture|مجسمه تم‌دار|B2B
+Other Carving & Sculpture|سایر حکاکی و مجسمه|
+# Arts & Crafts > Fountain
+Cascade Fountain|آبنمای آبشاری|
+Decorative Fountain|آبنمای تزئینی|
+Dry Fountain|آبنمای خشک (کف‌پوش)|B2B
+Garden Fountain|آبنمای باغی|
+Indoor Fountain|آبنمای داخلی|
+Interactive Fountain|آبنمای تعاملی|B2B
+Laser Water Screen Fountain|آبنمای پرده لیزری|B2B
+Musical Fountain|آبنمای موزیکال|B2B
+Programmable Fountain|آبنمای برنامه‌پذیر|B2B
+Sculpture Fountain|آبنمای مجسمه‌ای|
+Other Fountain|سایر آبنماها|
+# Arts & Crafts > Art Frame
+Art Frame Accessories|لوازم قاب‌سازی|B2B
+Mirror Frame|قاب آینه|
+Painting Frame|قاب تابلو|
+Photo Frame & Picture Frame|قاب عکس|
+Other Art Frames|سایر قاب‌ها|
+# Arts & Crafts > Flower, Bonsai & Decorative Plant
+Dried Flower & Plant|گل و گیاه خشک|
+Fresh Cut Bamboo|بامبو بریده|
+Fresh Cut Flower|گل شاخه‌بریده|
+Fresh Cut Plant|گیاه شاخه‌بریده|
+Live Bonsai|بونسای زنده|
+Succulent Plant|گیاه ساکولنت|
+Other Live Plants|سایر گیاهان زنده|
+# Arts & Crafts > Painting & Calligraphy
+Art Print|چاپ هنری|
+Calligraphy|خوشنویسی|
+Glass Painting|نقاشی روی شیشه|
+Oil Painting|نقاشی رنگ روغن|
+Other Paintings & Calligraphies|سایر نقاشی و خوشنویسی|
+# Arts & Crafts > Vase
+Ceramic Vase|گلدان سرامیکی|
+Crystal Vase|گلدان کریستال|
+Glass Vase|گلدان شیشه‌ای|
+Metal Vase|گلدان فلزی|
+Plastic Vase|گلدان پلاستیکی|
+Resin Vase|گلدان رزینی|
+Stone Vase|گلدان سنگی|
+Wooden Vase|گلدان چوبی|
+Other Vases|سایر گلدان‌ها|

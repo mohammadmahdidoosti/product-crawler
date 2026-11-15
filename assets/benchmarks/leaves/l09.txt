@@ -1,0 +1,332 @@
+# Electrical & Electronics > Cable Parts
+Cable Clips|بست کابل|
+Cable Conduit|لوله و داکت کابل|
+Cable End Caps|کلاهک سر کابل|
+Cable Gland|گلند کابل|
+Cable Marker|شماره سیم|
+Cable Sleeve|غلاف کابل (اسلیو)|
+Cable Ties|بست کمربندی|
+Cable Tray|سینی کابل|
+Patch Panel|پچ پنل|
+Tie Mount|پایه بست کمربندی|
+Wiring Duct|داکت شیاردار تابلو|
+Other Cable Parts|سایر متعلقات کابل|
+# Electrical & Electronics > Circuit Board
+Breadboard|بردبورد|
+Double-Sided PCB|برد مدار چاپی دولایه|
+FPC|برد مدار انعطاف‌پذیر (FPC)|
+Multilayer PCB|برد چندلایه|
+PCBA|مونتاژ برد (PCBA)|
+Rigid PCB|برد سخت|
+Rigid-Flex PCB|برد سخت-منعطف|
+Single-Sided PCB|برد یک‌لایه|
+Other Circuit Board|سایر بردها|
+# Electrical & Electronics > Connector & Terminals
+Alligator Clip|گیره سوسماری|
+Audio & Video Connectors|کانکتور صوتی و تصویری|
+Board to Board Connector|کانکتور برد به برد|
+Circular Connector|کانکتور گرد|
+Coaxial Connector|کانکتور کواکسیال|
+Fiber Connector|کانکتور فیبر نوری|
+Jack|جک|
+PCB Connector|کانکتور PCB|
+RF Connector|کانکتور RF|
+Rectangular Connector|کانکتور مستطیلی|
+Slip Ring|اسلیپ رینگ|
+Spacer Support|اسپیسر برد|
+Terminal Blocks|ترمینال ریلی|
+Terminals|سرسیم|
+Wire to Board Connector|کانکتور سیم به برد|
+Wire to Wire Connector|کانکتور سیم به سیم|
+Other Connectors|سایر کانکتورها|
+# Electrical & Electronics > Electronic Tube & Transistor
+Laser Diode|دیود لیزری|
+Light Emitting Diode|دیود نوری (LED)|
+Photodiode|فتودیود|
+Rectifier Diode|دیود یکسوساز|
+Switching Diode|دیود سوئیچینگ|
+Triode|ترانزیستور (تریود)|
+Zener Diode|دیود زنر|
+Other Electronic Tubes & Transistors|سایر دیود و ترانزیستورها|
+# Electrical & Electronics > Insulation
+Insulation Film|فیلم عایق برق|
+Insulation Paper|کاغذ عایق|
+Insulation Rod|میله عایق|
+Insulation Sheet|ورق عایق (میکا، فیبر)|
+Insulation Sleeve & Tube|وارنیش و روکش حرارتی|
+Insulation Tape|چسب برق|
+Other Insulation Materials|سایر عایق‌های برق|
+# Electrical & Electronics > Integrated Circuit
+Analog-to-Digital Converter(ADC)|مبدل آنالوگ به دیجیتال|
+Data Acquisition|آی‌سی داده‌برداری|
+General-purpose Integrated Circuit|آی‌سی عمومی|
+Linear (Amplifiers & Comparators)|آی‌سی خطی (تقویت‌کننده)|
+Microprocessor Chip|میکروکنترلر و پردازنده|
+Multimedia & Audio|آی‌سی صوتی و چندرسانه‌ای|
+Network & Interface|آی‌سی شبکه و رابط|
+Power Management (PMIC)|آی‌سی مدیریت توان|
+Radio Frequency Integrated Circuit(RFIC)|آی‌سی RF|
+Specialized IC|آی‌سی تخصصی|
+Other Integrated Circuit|سایر آی‌سی‌ها|
+# Electrical & Electronics > Passive Components
+Capacitor|خازن|
+Inductor|سلف|
+Resistor & Potentiometer|مقاومت و پتانسیومتر|
+Resonator|کریستال و رزوناتور|
+Signal Filter|فیلتر سیگنال|
+Other Passive Components|سایر قطعات پسیو|
+# Electrical & Electronics > Relay & Contactor
+Contactor|کنتاکتور|
+Relay|رله|
+# Electrical & Electronics > Semiconductor
+Intrinsic Semiconductor|نیمه‌هادی ذاتی|
+N-type Semiconductor|نیمه‌هادی نوع N|
+P-type Semiconductor|نیمه‌هادی نوع P|
+Other Semiconductors|سایر نیمه‌هادی‌ها|
+# Electrical & Electronics > Sensor
+ABS Sensor|سنسور ABS|
+Current Sensor|سنسور جریان|
+Differential Pressure Sensor|سنسور اختلاف فشار|
+Displacement Sensor|سنسور جابجایی|
+Fiber Optic Sensor|سنسور فیبر نوری|
+Flow Sensor|سنسور جریان سیال|
+Gas Sensor|سنسور گاز|
+Image Sensor|سنسور تصویر|
+Inertial Sensor|سنسور اینرسی|
+Infrared Sensor|سنسور مادون قرمز|
+Light Sensor|سنسور نور|
+Liquid Level Sensor|سنسور سطح مایع|
+Load Cell|لودسل|
+Photoelectric Sensor|سنسور فتوالکتریک|
+Pressure Sensor|سنسور فشار|
+Temperature & Humidity Sensor|سنسور دما و رطوبت|
+Throttle Position Sensor|سنسور دریچه گاز|
+Torque Sensor|سنسور گشتاور|
+Ultrasonic Sensor|سنسور آلتراسونیک|
+Vibration Sensor|سنسور ارتعاش|
+Voltage Sensor|سنسور ولتاژ|
+Water Leak Sensor|سنسور نشت آب|
+Other Sensors|سایر سنسورها|
+# Electrical & Electronics > Speaker,Trumpet & Buzzer
+Electric Speaker|بلندگو الکتریکی|
+Electrostatic Speaker|بلندگو الکترواستاتیک|
+Magnetic Buzzer|بازر مغناطیسی|
+Magnetic Speaker|بلندگو مغناطیسی|
+Piezo Buzzer|بازر پیزو|
+Piezo Speaker|بلندگو پیزو|
+Other Speaker,Trumpet & Buzzer|سایر بلندگو و بازر|
+# Electrical & Electronics > Thermal Interface Materials
+Thermal Gel|ژل حرارتی|
+Thermal Grease|خمیر سیلیکون|
+Thermal Pad|پد حرارتی|
+Thermal Tape|نوار حرارتی|
+Other Thermal Interface Materials|سایر مواد انتقال حرارت|
+# Electrical & Electronics > Breaker & Protector
+Arrester|برقگیر|
+Circuit Breaker|کلید مینیاتوری و اتوماتیک|
+Earthing System|سیستم ارت|
+Fuse|فیوز|
+Fuse Block & Holder|پایه فیوز|
+Lightning Receiver|صاعقه‌گیر|
+Other Breaker & Protector|سایر حفاظت‌های برق|
+# Electrical & Electronics > Heating, Refrigeration & Temperature Control
+Heat Pump|پمپ حرارتی|
+Heating Element|المنت حرارتی|
+Thermoelectric Cooler Module|ماژول پلتیر|
+Thermostat & Temperature Controller|ترموستات و کنترلر دما|
+Other Heating, Refrigeration & Temperature Control|سایر کنترل دما|
+# Electrical & Electronics > Inverter
+Power Inverter|اینورتر برق|
+Solar Inverter|اینورتر خورشیدی|
+Wind Inverter|اینورتر بادی|
+Other Inverters|سایر اینورترها|
+# Electrical & Electronics > Power Supply & Distribution
+Busbar|شینه (باسبار)|
+Electric Power Fitting|یراق‌آلات خط برق|
+Junction Box|جعبه تقسیم|
+LED Conversion Kit|کیت تبدیل LED|
+LED Power Supply|درایور و منبع تغذیه LED|
+Power Adapter|آداپتور|
+Power Distribution Cabinet & Box|تابلو برق|
+Power Factor Controller|رگولاتور بانک خازنی|
+Switchgear|تابلو کلید (سوئیچگیر)|
+Switching Power Supply|منبع تغذیه سوئیچینگ|
+UPS|یو‌پی‌اس|
+Voltage Regulator|استابلایزر|
+Other Power Supply & Distribution|سایر تغذیه و توزیع برق|
+# Electrical & Electronics > Power Transmission & Transformer
+Arrester|برقگیر|
+Circuit Breaker|دژنکتور|
+Earthing System|سیستم ارت|
+Electric Power Fitting|یراق‌آلات خط|
+Instrument Transformer|ترانس جریان و ولتاژ (CT/PT)|
+Insulator|مقره|
+Isolation Switch|سکسیونر|
+Power Cable|کابل قدرت|
+Relay & Contactor|رله و کنتاکتور|
+Transformer|ترانسفورماتور|
+Transmission Tower|دکل انتقال برق|
+Other Power Transmission & Transformer|سایر تجهیزات انتقال برق|
+# Electrical & Electronics > Transmitter
+Current Transmitter|ترانسمیتر جریان|
+Differential Pressure Transmitter|ترانسمیتر اختلاف فشار|
+Flow Transmitter|ترانسمیتر جریان سیال|
+Liquid Level Transmitter|ترانسمیتر سطح|
+Pressure Transmitter|ترانسمیتر فشار|
+Temperature & Humidity Transmitter|ترانسمیتر دما و رطوبت|
+Voltage Transmitter|ترانسمیتر ولتاژ|
+Weight Transmitter|ترانسمیتر وزن|
+Other Transmitters|سایر ترانسمیترها|
+# Electrical & Electronics > Antenna
+Car Antenna|آنتن خودرو|
+Communication Antenna|آنتن مخابراتی|
+Fiberglass Antenna|آنتن فایبرگلاس|
+GPS Antenna|آنتن GPS|
+GSM Antenna|آنتن GSM|
+Grid Antenna|آنتن گرید|
+Omni Antenna|آنتن همه‌جهته|
+Outdoor Antenna|آنتن بیرونی|
+Panel Antenna|آنتن پنلی|
+Patch Antenna|آنتن پچ|
+Radar Antenna|آنتن رادار|
+Rubber Antenna|آنتن لاستیکی|
+Satellite Dish Antenna|دیش ماهواره|مصرفی
+Shortwave Antenna|آنتن موج کوتاه|
+TV Antenna|آنتن تلویزیون|مصرفی
+WIFI Antenna|آنتن وای‌فای|
+# Electrical & Electronics > Battery, Storage Battery & Charger
+Battery Holder|جاباتری|
+Battery Management System|سیستم مدیریت باتری (BMS)|
+Battery Materials|مواد اولیه باتری|
+Battery Pack|پک باتری|
+Button Cell Battery|باتری سکه‌ای|
+Camera Battery|باتری دوربین|
+Car Battery|باتری خودرو|
+Fuel Cell|پیل سوختی|
+Lithium Battery|باتری لیتیومی|
+Mobile Phone Battery|باتری موبایل|مصرفی
+Mobile Phone Charger|شارژر موبایل|مصرفی
+Motorcycle Battery|باتری موتورسیکلت|
+Power Bank|پاوربانک|مصرفی
+Primary & Dry Battery|باتری خشک|
+Rechargeable Battery & Charger|باتری قابل شارژ|
+Solar Charger|شارژر خورشیدی|
+Solar Panels|پنل خورشیدی|
+Storage Battery|باتری ذخیره‌ساز (یو‌پی‌اس و خورشیدی)|
+Storage Battery Charger|شارژر باتری صنعتی|
+Other Battery, Storage Battery & Charger|سایر باتری و شارژرها|
+# Electrical & Electronics > Electric Motor
+AC Motor|موتور AC|
+Asynchronous Motor|الکتروموتور آسنکرون|
+DC Motor|موتور DC|
+Electric Motor Parts|قطعات الکتروموتور|
+Micro Motor|میکروموتور|
+Stepper Motor|استپر موتور|
+Synchronous Motor|موتور سنکرون|
+Other Motors|سایر موتورها|
+# Electrical & Electronics > Optical Fiber, Cable & Wire
+Aluminum Foil|فویل آلومینیوم (شیلد)|
+Audio & Video Cable|کابل صوتی و تصویری|
+Cable Assembly|کابل مونتاژی|
+Cable Tools|ابزار کابل|
+Communication Cable|کابل مخابراتی|
+Computer Cable|کابل کامپیوتر|
+Electric Wire & Cable|سیم و کابل برق|
+Enameled Wire|سیم لاکی|
+Optical Fiber|فیبر نوری|
+PV Cable|کابل خورشیدی|
+Power Cable|کابل قدرت|
+Power Cord & Extension Cord|کابل برق و رابط|
+Wire Harness|دسته سیم|
+Other Wire & Cable|سایر سیم و کابل|
+# Electrical & Electronics > Plug
+American Standard Plug|دوشاخه استاندارد آمریکا|
+Australian Standard Plug|دوشاخه استاندارد استرالیا|
+British Standard Plug|دوشاخه سه‌پین انگلیسی|
+European Standard Plug|دوشاخه اروپایی|
+Germany Standard Plug|دوشاخه آلمانی|
+Industrial Plug|دوشاخه صنعتی|B2B
+Italian Standard Plug|دوشاخه ایتالیایی|
+Japanese Standard Plug|دوشاخه ژاپنی|
+Male and Female Plug|دوشاخه نر و ماده|
+Plug Converter|تبدیل دوشاخه|
+South African Standard Plug|دوشاخه آفریقای جنوبی|
+Swiss Standard Plug|دوشاخه سوئیسی|
+Other Plugs|سایر دوشاخه‌ها|
+# Electrical & Electronics > Remote Control
+Bluetooth Remote Control|ریموت بلوتوثی|
+IR Remote Control|ریموت مادون قرمز|
+Joystick Remote Control|ریموت جوی‌استیکی|
+RF Remote Control|ریموت رادیویی|
+Radar Remote Control|ریموت راداری|
+Remote Control Accessories|لوازم ریموت|
+WIFI Remote Control|ریموت وای‌فای|
+Other Remote Control|سایر ریموت‌ها|
+# Electrical & Electronics > Smart Card & Card Reader
+IC Card|کارت IC|
+Magnetic Card|کارت مغناطیسی|
+RFID Card|کارت RFID|
+RFID Tag|تگ RFID|
+RFID Wristband|مچ‌بند RFID|
+Smart Card Reader|کارت‌خوان هوشمند|
+Other Smart Card|سایر کارت‌های هوشمند|
+# Electrical & Electronics > Socket & Outlet
+Audio & Video Socket|پریز صوتی و تصویری|
+Extension Socket|چندراهی برق|
+Face Plate|قاب کلید و پریز|
+Floor Socket & Table Socket|پریز کف و رومیزی|
+PDU|پی‌دی‌یو رکی|B2B
+TV Socket|پریز آنتن|
+Telephone Socket|پریز تلفن|
+USB Socket|پریز USB|
+Wall Socket|پریز دیواری|
+Other Sockets, Outlets & Accessories|سایر پریزها|
+# Electrical & Electronics > Switch
+Automatic Transfer Switch|کلید تبدیل اتوماتیک (ATS)|
+Combination Switch|کلید ترکیبی|
+DIP Switch|دیپ سوئیچ|
+Flow Switch|فلوسوئیچ|
+Isolation Switch|کلید ایزوله|
+Limit Switch|لیمیت سوئیچ|
+Load Break Switch|سکسیونر قابل قطع زیربار|
+Membrane Switch|کلید ممبرین|
+Micro Switch|میکروسوئیچ|
+Pressure Switch|پرشر سوئیچ|
+Push Button Switch|شستی|
+Reed Switch|رید سوئیچ|
+Remote Control Switch|کلید ریموتی|
+Rocker Switch|کلید راکر|
+Rotary Switch|کلید سلکتور|
+Sensor Switch|کلید سنسوری|
+Slide Switch|کلید کشویی|
+Smart Switch|کلید هوشمند|
+Tact Switch|تک‌سوئیچ|
+Time Switch|تایمر|
+Toggle Switch|کلید اهرمی|
+Wall Switch|کلید دیواری|
+Other Switches|سایر کلیدها|
+# Electrical & Electronics > GPS
+GPS Accessories|لوازم جانبی GPS|
+GPS Module|ماژول GPS|
+GPS Navigator|مسیریاب GPS|مصرفی
+GPS Receiver|گیرنده GPS|
+GPS Tracker|ردیاب GPS|
+Other GPS|سایر GPS|
+# Electrical & Electronics > Telecommunication & Broadcasting
+Call Center Equipment|تجهیزات مرکز تماس|
+Communication Module|ماژول ارتباطی|
+Emission Transmission Equipment|تجهیزات فرستنده|
+Fiber Optic Equipment|تجهیزات فیبر نوری|
+Fixed Wireless Terminals|ترمینال بی‌سیم ثابت|
+Front-end Equipment|تجهیزات فرانت‌اند (هدند)|
+GPS|GPS|
+Network Cabinet|رک شبکه|
+PBX|سانترال|
+Radio & TV Broadcasting|تجهیزات پخش رادیو و تلویزیون|
+Repeater|تکرارکننده|
+Satellite|تجهیزات ماهواره‌ای|
+Set Top Box|ستاپ‌باکس|
+Telecom Tower|دکل مخابراتی|
+VoIP Products|تجهیزات VoIP|
+WiFi Products|تجهیزات وای‌فای|
+Other Communication Products|سایر تجهیزات مخابراتی|

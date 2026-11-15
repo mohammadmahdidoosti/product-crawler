@@ -1,0 +1,98 @@
+# Computer Products > Tablet PC
+All-in-One Tablet PC|تبلت همه‌کاره|
+Business Tablet|تبلت تجاری|B2B
+Custom Tablet|تبلت سفارشی|B2B
+Educational Tablet|تبلت آموزشی|
+Entertainment Tablet|تبلت سرگرمی|
+Rugged Tablet|تبلت مقاوم صنعتی|B2B
+Smart Home Control Tablet|تبلت کنترل خانه هوشمند|
+Other Tablet PC|سایر تبلت‌ها|
+# Computer Products > Computer
+DIY Computer|کامپیوتر اسمبل|
+Educational Computer|کامپیوتر آموزشی|
+Gaming Computer|کامپیوتر گیمینگ|
+Mini Computer|مینی‌کامپیوتر|
+Office Computer|کامپیوتر اداری|B2B
+Streaming Computer|کامپیوتر استریم|
+Other Computers|سایر کامپیوترها|
+# Computer Products > Industrial Computer & Accessories
+Industrial Chassis|کیس صنعتی|
+Industrial Computer|کامپیوتر صنعتی|
+Industrial Display|نمایشگر صنعتی|
+Industrial Motherboard|مادربرد صنعتی|
+Industrial Touchscreen|تاچ‌اسکرین صنعتی (HMI)|
+Rugged Tablet|تبلت مقاوم|
+Other Industrial Computer & Accessories|سایر کامپیوترهای صنعتی|
+# Computer Products > Server & Workstation
+Blade Server|سرور تیغه‌ای|
+High-Density Server|سرور پرچگال|
+Rack Server|سرور رکمونت|
+Tower Server|سرور تاور|
+Other Server & Workstation|سایر سرور و ورک‌استیشن|
+# Computer Products > Drive
+CD Burner & DVD Burner|رایتر CD و DVD|
+CD Drive|درایو CD|
+DVD Drive|درایو DVD|
+Floppy Drive|فلاپی درایو|
+Other Drives|سایر درایوها|
+# Computer Products > Storage Device
+CD & DVD Media|دیسک خام CD و DVD|
+Floppy Disk|فلاپی دیسک|
+HDD Enclosure|باکس هارد|
+Hard Disk|هارد دیسک|
+Memory Card|کارت حافظه|
+Network Storage|ذخیره‌ساز شبکه (NAS)|B2B
+USB Flash Disk|فلش مموری|
+Other Storage Devices|سایر ذخیره‌سازها|
+# Computer Products > Computer Cable
+Audio & Video Cable|کابل صوتی و تصویری|
+Computer Power Cable|کابل برق کامپیوتر|
+Ethernet Cable|کابل شبکه|B2B
+HDMI Cable|کابل HDMI|
+USB Cable|کابل USB|
+Other Computer Cable|سایر کابل‌های کامپیوتر|
+# Computer Products > Keyboard
+Backlit Keyboard|کیبورد نوردار|
+Ergonomic Keyboard|کیبورد ارگونومیک|
+Gaming Keyboard|کیبورد گیمینگ|
+Mechanical Keyboard|کیبورد مکانیکی|
+Membrane Keyboard|کیبورد ممبرین|
+Multimedia Keyboard|کیبورد مالتی‌مدیا|
+Wired Keyboard|کیبورد باسیم|
+Wireless Keyboard|کیبورد بی‌سیم|
+Other Keyboards|سایر کیبوردها|
+# Computer Products > Mouse
+Bluetooth Mouse|ماوس بلوتوثی|
+Ergonomic Mouse|ماوس ارگونومیک|
+Gaming Mouse|ماوس گیمینگ|
+Laser Mouse|ماوس لیزری|
+Optical Mouse|ماوس اپتیکال|
+Touch Mouse|ماوس لمسی|
+Trackball Mouse|ترک‌بال|
+Vertical Mouse|ماوس عمودی|
+Wired Mouse|ماوس باسیم|
+Wireless Mouse|ماوس بی‌سیم|
+Other Mouses|سایر ماوس‌ها|
+# Computer Products > Mousepad
+Classic Mousepad|ماوس‌پد ساده|
+Keyboard Mousepad|ماوس‌پد بزرگ (دسک‌پد)|
+Mousepad Set|ست ماوس‌پد|
+Wrist Mousepad|ماوس‌پد مچ‌دار|
+Other Mousepad|سایر ماوس‌پدها|
+# Computer Products > Speaker & Sound Box
+Digital Speaker|اسپیکر دیجیتال|
+Hi-Fi Speaker|اسپیکر Hi-Fi|
+Mini Speaker|اسپیکر کوچک|
+PA Speaker|بلندگوی PA (پیجینگ)|B2B
+Portable Speaker|اسپیکر قابل‌حمل|
+Surround Sound Speaker|اسپیکر سراوند|
+Wireless Speaker|اسپیکر بی‌سیم|
+Other Speakers & Sound Boxes|سایر اسپیکرها|
+# Computer Products > Network Hardware & Parts
+Communication Module|ماژول ارتباطی|B2B
+Hub|هاب|
+Modem|مودم|
+Network Card|کارت شبکه|
+Network Switch|سوئیچ شبکه|B2B
+Router|روتر|
+Other Network Hardware & Parts|سایر تجهیزات شبکه|

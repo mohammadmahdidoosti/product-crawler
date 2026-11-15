@@ -1,0 +1,161 @@
+# Bags, Cases & Boxes > Handbags
+Baguette Bag|کیف باگت|
+Basket Bag|کیف سبدی|
+Boston Bag|کیف بوستون|
+Bucket Bag|کیف سطلی|
+Cloud Bag|کیف ابری|
+Hobo Bag|کیف هوبو|
+Messenger Bag|کیف دوشی (مسنجر)|
+Motorcycle Bag|کیف موتورسواری|
+Non Woven Bag|کیف پارچه‌ای اسپان‌باند|ترکیبی
+Saddle Bag|کیف زینی|
+Satchel Bag|کیف ساچل|
+Shell Bag|کیف صدفی|
+Tote Bag|کیف توت|
+Other Handbags|سایر کیف‌های دستی|
+# Bags, Cases & Boxes > Organizer Rack
+Cabinet Rack|قفسه داخل کابینت|
+Corner Rack|قفسه گوشه|
+Desk Rack|قفسه رومیزی|
+Drawer Rack|نظم‌دهنده کشو|
+Floor Rack|قفسه ایستاده|
+Knife Holder|جاچاقویی|
+Over Door Rack|آویز پشت در|
+Storage Tray|سینی نظم‌دهنده|
+Under Cabinet Shelf|قفسه زیر کابینت|
+Wall Rack|قفسه دیواری|
+Other Storage Rack|سایر قفسه‌های نظم‌دهنده|
+# Bags, Cases & Boxes > Storage Bag
+Car Storage Bag|کیف نظم‌دهنده خودرو|
+Clothes Bag|کاور لباس|
+Food Storage Bag|کیسه نگهداری غذا|
+Storage Bag Kit|ست کیسه نظم‌دهنده|
+Toiletry Bag|کیف لوازم بهداشتی|
+Vacuum Storage Bag|کیسه وکیوم|
+Other Storage Bag|سایر کیسه‌های نگهداری|
+# Bags, Cases & Boxes > Storage Basket
+Fabric Storage Basket|سبد پارچه‌ای|
+Metal Storage Basket|سبد فلزی|
+Plastic Storage Basket|سبد پلاستیکی|
+Wooden Storage Basket|سبد چوبی|
+Woven Storage Basket|سبد حصیری|
+Other Storage Basket|سایر سبدها|
+# Bags, Cases & Boxes > Storage Box
+Cube Storage Bin|باکس مکعبی|
+Display Box|جعبه نمایش (ویترینی)|B2B
+Flight Case|فلایت‌کیس (کیس حمل تجهیزات)|B2B
+Jewelry Storage Box|جعبه جواهرات|
+Lidded Storage Box|جعبه درب‌دار|
+Open Storage Box|جعبه روباز|
+Parts Storage Box|جعبه قطعات (بین انبار)|B2B
+Shoe Storage Box|جعبه کفش|
+Storage Drawer|کشوی نظم‌دهنده|
+Tablet And Drug Storage|جعبه قرص و دارو|
+Thermal Insulated Box|جعبه عایق حرارتی|ترکیبی
+Other Storage Box|سایر جعبه‌ها|
+# Bags, Cases & Boxes > Wallet & Purses
+Coin Purse|کیف پول خرد|
+Key Case|جاکلیدی جیبی|
+Wallet|کیف پول|
+Other Wallets|سایر کیف پول‌ها|
+# Bags, Cases & Boxes > Wine Box
+Leather Wine Box|جعبه بطری چرمی|
+Metal Wine Box|جعبه بطری فلزی|
+Paper Wine Box|جعبه بطری کاغذی|
+Wooden Wine Box|جعبه بطری چوبی|
+Other Wine Box|سایر جعبه‌های بطری|
+# Bags, Cases & Boxes > Laptop Bag
+Laptop Backpack|کوله لپ‌تاپ|
+Laptop Messenger Bag|کیف دوشی لپ‌تاپ|
+Laptop Shoulder Bag|کیف شانه‌ای لپ‌تاپ|
+Laptop Sleeve|کاور لپ‌تاپ|
+Laptop Tote Handbag|کیف دستی لپ‌تاپ|
+Rolling Laptop Bag|کیف چرخ‌دار لپ‌تاپ|
+Other Laptop Bag|سایر کیف‌های لپ‌تاپ|
+# Bags, Cases & Boxes > Mobile Phone Case
+Anti Fall Phone Case|قاب ضدضربه|
+Arm Bag|بازوبند موبایل|
+Charging Phone Case|قاب شارژر|
+E Ink Phone Case|قاب با نمایشگر جوهری|
+Mobile Phone Basic Case|قاب ساده موبایل|
+Wallet Phone Case|قاب کیفی|
+Waterproof Phone Bag|کاور ضدآب موبایل|
+Other Mobile Phone Case|سایر قاب‌های موبایل|
+# Bags, Cases & Boxes > Trolley & Luggage
+Backpack Luggage|کوله چرخ‌دار|
+Electric Suitcase|چمدان برقی|
+Foldable Luggage|چمدان تاشو|
+Hardshell Luggage|چمدان پوسته سخت|
+Kids Suitcase|چمدان کودک|
+Luggage Set|ست چمدان|
+Rolling Suitcase|چمدان چرخ‌دار|
+Softshell Luggage|چمدان پارچه‌ای|
+Underseat Luggage|چمدان زیرصندلی|
+Zipper Luggage|چمدان زیپی|
+Other Trolley & Luggage|سایر چمدان‌ها|
+# Bags, Cases & Boxes > Backpack
+Casual Sports Backpack|کوله ورزشی|
+Drawstring Backpack|کوله بندی|
+Hiking Backpack|کوله کوهنوردی|
+Kids Backpack|کوله کودک|
+Solar Backpack|کوله خورشیدی|
+Student Backpack|کوله دانش‌آموزی|
+Tactical Backpack|کوله تاکتیکی|
+USB Backpack|کوله USBدار|
+Other Backpack|سایر کوله‌ها|
+# Bags, Cases & Boxes > Cooler Bag & Box
+Camping Insulated Bag|کیف عایق کمپینگ|
+Camping Insulated Box|یخدان کمپینگ|
+Cold Chain Insulated Box|باکس عایق زنجیره سرد|B2B
+Delivery Insulated Box|باکس عایق پیک|B2B
+Hot & Cold Pack|کیسه گرم و سرد|
+Ice Pack|یخ خشک (آیس‌پک)|ترکیبی
+Insulated Lunch Bag|کیف غذای عایق|
+Wine Cooler Bag|کیف خنک‌کننده بطری|
+Other Cooler Bags|سایر کیف‌های خنک‌کننده|
+# Bags, Cases & Boxes > Cosmetic Bag & Case
+Cosmetic Bag|کیف آرایش|
+Cosmetic Case|کیف سخت آرایش|
+# Bags, Cases & Boxes > Gift Box & Bag
+Fabric Gift Bags|کیسه هدیه پارچه‌ای|
+Leather Gift Box & Bag|جعبه هدیه چرمی|
+Metal Gift Bag|کیسه هدیه فلزی|
+Metal Gift Box|جعبه هدیه فلزی|
+Paper Gift Bag|ساک دستی کاغذی هدیه|
+Paper Gift Box|جعبه هدیه کاغذی|
+Plastic Gift Box & Bag|جعبه هدیه پلاستیکی|
+Wooden Gift Box|جعبه هدیه چوبی|
+Other Gift Boxes & Bags|سایر جعبه و کیسه هدیه|
+# Bags, Cases & Boxes > Promotional Bag
+Promotional Backpack|کوله تبلیغاتی|
+Promotional Cooler Bag|کیف خنک تبلیغاتی|
+Promotional Drawstring Bag|کیسه بندی تبلیغاتی|
+Promotional Tote Bag|ساک تبلیغاتی|
+Other Promotional Bags|سایر کیف‌های تبلیغاتی|
+# Bags, Cases & Boxes > School Bags
+Cartoon School Bag|کیف مدرسه کارتونی|
+Fashion School Bag|کیف مدرسه فشن|
+Korean School Bag|کیف مدرسه کره‌ای|
+Leisure School Bag|کیف مدرسه اسپرت|
+Rolling School Bag|کیف مدرسه چرخ‌دار|
+Simple School Bag|کیف مدرسه ساده|
+Other School Bags|سایر کیف‌های مدرسه|
+# Bags, Cases & Boxes > Shopping Bags
+Canvas Shopping Bag|کیسه خرید برزنتی|
+Non-woven Shopping Bag|کیسه خرید اسپان‌باند|
+Paper Shopping Bag|ساک خرید کاغذی|
+Plastic Shopping Bag|کیسه خرید پلاستیکی|
+Recycled Shopping Bag|کیسه خرید بازیافتی|
+Other Shopping Bags|سایر کیسه‌های خرید|
+# Bags, Cases & Boxes > Bag Parts & Accessories
+Bag & Luggage Buckle|سگک کیف و چمدان|
+Bag & Luggage Lock|قفل کیف و چمدان|
+Bag Hanger|آویز کیف|
+Bag Ring|حلقه کیف|
+Luggage Bar|دسته کشویی چمدان|
+Luggage Cover|کاور چمدان|مصرفی
+Luggage Strap|بند چمدان|
+Luggage Tag|برچسب چمدان|مصرفی
+Luggage Wheel|چرخ چمدان|
+Zipper & Slider|زیپ و سرزیپ|
+Other Bag Parts & Accessories|سایر قطعات کیف|

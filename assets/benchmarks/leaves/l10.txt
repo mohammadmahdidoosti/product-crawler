@@ -1,0 +1,285 @@
+# Furniture > Children & Baby Furniture
+Baby Crib|تخت نوزاد|
+Kids Bed|تخت کودک|
+Kids Wardrobe|کمد کودک|
+Kids Cabinet|کابینت کودک|
+Kids Dining Chair|صندلی غذای کودک|
+Kids Chair|صندلی کودک|
+Kids Sofa|مبل کودک|
+Kids Table|میز کودک|
+Baby Playpen|پارک بازی نوزاد|
+Kids Furniture Sets|سرویس اتاق کودک|
+Other Children & Baby Furniture|سایر مبلمان کودک|
+# Furniture > Bedroom Furniture
+Bedroom Bed|تخت خواب|
+Mattress|تشک|ترکیبی
+Nightstands|پاتختی|
+Bed Bench|نیمکت پای تخت|
+Wardrobe|کمد لباس|
+Drawer Chest|دراور|
+Dresser|میز آرایش|
+Dresser Stool|چهارپایه میز آرایش|
+Bedroom Furniture Sets|سرویس خواب|
+Other Bedroom Furniture|سایر مبلمان اتاق خواب|
+# Furniture > Bathroom Furniture
+Bathroom Mirror|آینه حمام|
+Bathroom Cabinets|کابینت روشویی|
+Other Bathroom Furniture|سایر مبلمان حمام|
+# Furniture > Kitchen Furniture
+Kitchen Cabinets|کابینت آشپزخانه|
+Kitchen Island|جزیره آشپزخانه|
+Kitchen Cart|ترولی آشپزخانه|
+Step Stool|چهارپایه پله‌دار|
+Other Kitchen Furniture|سایر مبلمان آشپزخانه|
+# Furniture > Dining Room Furniture
+Dining Chairs|صندلی ناهارخوری|
+Dining Table|میز ناهارخوری|
+Sideboard|بوفه|
+Dining Room Furniture Sets|سرویس ناهارخوری|
+Other Dining Room Furniture|سایر مبلمان ناهارخوری|
+# Furniture > Living Room Furniture
+Chaise Lounge|شزلون|
+Sofa Bed|مبل تختخواب‌شو|
+Living Room Sofa|مبل راحتی|
+Ottoman|پاف|
+Stool|چهارپایه|
+Living Room Chairs|صندلی پذیرایی|
+Coffee Table|میز جلومبلی|
+Side Table|میز عسلی|
+TV Stand|میز تلویزیون|
+CD Rack|قفسه CD|
+Living Room Cabinets|ویترین و کنسول پذیرایی|
+Living Room Furniture Sets|سرویس مبلمان پذیرایی|
+Other Living Room Furniture|سایر مبلمان پذیرایی|
+# Furniture > Hallway Furniture
+Coat Rack|جالباسی|
+Shoe Cabinet & Shoe Rack|جاکفشی|
+Shoes Changing Stool|چهارپایه کفش‌پوشی|
+Umbrella Stand|جاچتری|
+Console Table|میز کنسول|
+Other Hallway Furniture|سایر مبلمان ورودی|
+# Furniture > Outdoor Furniture
+Outdoor Daybed|تخت فضای باز|
+Beach Chair|صندلی ساحلی|
+Outdoor Chaise Lounge|شزلون فضای باز|
+Outdoor Bar Stools|صندلی بار فضای باز|
+Garden Chairs|صندلی باغی|
+Outdoor Sofa|مبل فضای باز|
+Park Bench|نیمکت پارک|B2B
+Hammock|ننو|مصرفی
+Garden Swing|تاب باغی|
+Camping Chairs|صندلی کمپینگ|مصرفی
+Camping Bed|تخت کمپینگ|مصرفی
+Camping Table|میز کمپینگ|مصرفی
+Outdoor Table|میز فضای باز|
+Patio Umbrella|چتر باغی و سایبان|
+Gazebo|آلاچیق|
+Mailbox|صندوق پست|
+Garden Furniture Sets|ست مبلمان باغی|
+Other Outdoor Furniture|سایر مبلمان فضای باز|
+# Furniture > Hotel Furniture
+Hotel Bed|تخت هتلی|
+Luggage Rack|پایه چمدان هتلی|
+Hotel Bedroom Furniture Sets|سرویس اتاق هتل|
+Luggage Cart|ترولی چمدان هتل|
+Hotel Lobby Furniture|مبلمان لابی هتل|
+Other Hotel Furniture|سایر مبلمان هتلی|
+# Furniture > Bar Furniture
+Bar Stools|صندلی اپن (بار)|
+Bar Chairs|صندلی کافه|
+Bar Table|میز بار|
+Wine Rack|جابطری|
+Bar Furniture Sets|ست مبلمان کافه|
+Other Bar Furniture|سایر مبلمان کافه و بار|
+# Furniture > Restaurant Furniture
+Restaurant Chairs|صندلی رستورانی|
+Restaurant Table|میز رستورانی|
+Restaurant Furniture Sets|ست مبلمان رستوران|
+Other Restaurant Furniture|سایر مبلمان رستوران|
+Workbench|میز کار (کارگاهی)|
+# Furniture > Office Furniture
+Computer Desk|میز کامپیوتر|
+Executive Table|میز مدیریت|
+Conference Table|میز کنفرانس|
+Training Desk|میز آموزشی|
+Office Desk|میز اداری|
+Training Chair|صندلی آموزشی|
+Office Chair|صندلی اداری|
+Office Sofa|مبل اداری|
+Filing Cabinets|فایل اداری|
+Office Bookcase|کتابخانه اداری|
+Magazine & Newspaper Rack|قفسه مجله و روزنامه|
+Office Partition|پارتیشن اداری|
+Reception Desk|میز پذیرش (کانتر)|
+Other Office Furniture|سایر مبلمان اداری|
+Gaming Chair|صندلی گیمینگ|مصرفی
+# Furniture > School Furniture
+Student Desk|میز دانش‌آموزی|
+Student Chair|صندلی دانش‌آموزی|
+Lectern|تریبون|
+Dormitory Bed|تخت خوابگاهی|
+School Furniture Sets|ست مبلمان مدرسه|
+Other School Furniture|سایر مبلمان آموزشی|
+# Furniture > Lab Furniture
+Lab Bench|میز آزمایشگاه|
+Fume Hood|هود آزمایشگاهی|
+Lab Cabinet|کابینت آزمایشگاه|
+Lab Stool & Chair|صندلی آزمایشگاه|
+Other Lab Furniture|سایر مبلمان آزمایشگاه|
+Super Clean Bench|هود لامینار|
+Lab Accessories|لوازم مبلمان آزمایشگاه|
+# Furniture > Library Furniture
+Library Bookshelf|قفسه کتابخانه|
+Magazine & Newspaper Rack|قفسه نشریات|
+Reading Table|میز مطالعه|
+Other Library Furniture|سایر مبلمان کتابخانه|
+# Furniture > Salon Furniture
+Barber Chair|صندلی آرایشگاه|
+Dryer Chair|صندلی سشوار|
+Shampoo Chair & Bed|صندلی سرشور|
+Master Chair|صندلی کوپ (آرایشگر)|
+Massage Chair|صندلی ماساژ|
+Massage Table & Bed|تخت ماساژ|
+Nail Table|میز کاشت ناخن|
+Salon Trolley|ترولی آرایشگاه|
+Other Salon Furniture|سایر مبلمان آرایشگاه|
+Pedicure Chair|صندلی پدیکور|
+# Furniture > Store & Supermarket Furniture
+Cash Counter|کانتر صندوق|
+Promotion Table|میز پروموشن|
+Display Stand|استند نمایش|
+Showcase|ویترین فروشگاهی|
+Supermarket Shelf|قفسه فروشگاهی|
+Locker|کمد لاکر|
+Shopping Basket & Cart|سبد و چرخ خرید فروشگاه|
+Other Store & Supermarket Furniture|سایر تجهیزات فروشگاهی|
+# Furniture > Hospital Furniture
+Hospital Bed|تخت بیمارستانی|
+Hospital Cart|ترولی بیمارستانی|
+Hospital Chair|صندلی بیمارستانی|
+Hospital Table|میز بیمارستانی|
+Hospital Cabinet|کابینت بیمارستانی|
+Other Hospital Furniture|سایر مبلمان بیمارستانی|
+Stretcher|برانکارد|
+Overbed Table|میز غذای بیمار|
+# Furniture > Public Furniture
+Auditorium Chairs|صندلی آمفی‌تئاتر|
+Bleachers|سکوی تماشاگران|
+Waiting Bench & Chair|صندلی انتظار|
+Bus Shelter & Taxi Stop|ایستگاه اتوبوس|
+Check-in Counter|کانتر پذیرش|
+Other Public Furniture|سایر مبلمان عمومی|
+# Furniture > Bamboo Furniture
+Bamboo Bed|تخت بامبو|
+Bamboo Cabinet|کابینت بامبو|
+Bamboo Sofa|مبل بامبو|
+Bamboo Table & Chair|میز و صندلی بامبو|
+Other Bamboo Furniture|سایر مبلمان بامبو|
+# Furniture > Fabric Furniture
+Fabric Sofa|مبل پارچه‌ای|
+Fabric Wardrobe|کمد پارچه‌ای|
+Other Fabric Furniture|سایر مبلمان پارچه‌ای|
+# Furniture > Glass Furniture
+Glass Coffee Table|میز جلومبلی شیشه‌ای|
+Glass Dining Table|میز ناهارخوری شیشه‌ای|
+Glass TV Stand|میز تلویزیون شیشه‌ای|
+Other Glass Furniture|سایر مبلمان شیشه‌ای|
+# Furniture > Leather Furniture
+Leather Bed|تخت چرمی|
+Leather Chair|صندلی چرمی|
+Leather Sofa|مبل چرمی|
+Other Leather Furniture|سایر مبلمان چرمی|
+# Furniture > Metal Furniture
+Metal Bed|تخت فلزی|
+Metal Cabinet|کمد فلزی|B2B
+Metal Chair|صندلی فلزی|
+Metal Shelf|قفسه فلزی|B2B
+Metal Table|میز فلزی|
+Other Metal Furniture|سایر مبلمان فلزی|
+# Furniture > Plastic Furniture
+Plastic Chair|صندلی پلاستیکی|
+Plastic Table|میز پلاستیکی|
+Other Plastic Furniture|سایر مبلمان پلاستیکی|
+# Furniture > Rattan & Wicker Furniture
+Rattan & Wicker Bed|تخت حصیری|
+Rattan & Wicker Chair|صندلی حصیری|
+Rattan & Wicker Table|میز حصیری|
+Rattan & Wicker Sofa|مبل حصیری|
+Rattan & Wicker Furniture Sets|ست مبلمان حصیری|
+Other Rattan & Wicker Furniture|سایر مبلمان حصیری|
+# Furniture > Wooden Furniture
+Wooden Bed|تخت چوبی|
+Wooden Cabinet|کمد چوبی|
+Wooden Chair|صندلی چوبی|
+Wooden Table|میز چوبی|
+Other Wooden Furniture|سایر مبلمان چوبی|
+# Furniture > Antique & Reproduction Furniture
+Antique Cabinet|کمد عتیقه|
+Antique Chair|صندلی عتیقه|
+Antique Table & Desk|میز عتیقه|
+Other Antique & Reproduction Furniture|سایر مبلمان عتیقه|
+# Furniture > Modern Furniture
+Modern Bed|تخت مدرن|
+Modern Cabinet|کمد مدرن|
+Modern Chair|صندلی مدرن|
+Modern Shelf & Rack|قفسه مدرن|
+Modern Sofa|مبل مدرن|
+Modern Stool|چهارپایه مدرن|
+Modern Table & Desk|میز مدرن|
+Other Modern Furniture|سایر مبلمان مدرن|
+# Furniture > Classic Furniture
+Classic Bed|تخت کلاسیک|
+Classic Cabinet|کمد کلاسیک|
+Classic Chair|صندلی کلاسیک|
+Classic Sofa|مبل کلاسیک|
+Classic Table & Desk|میز کلاسیک|
+Other Classic Furniture|سایر مبلمان کلاسیک|
+# Furniture > Italian Furniture
+Italian Bed|تخت ایتالیایی|
+Italian Cabinet|کمد ایتالیایی|
+Italian Chair|صندلی ایتالیایی|
+Italian Sofa|مبل ایتالیایی|
+Italian Table & Desk|میز ایتالیایی|
+Other Italian Furniture|سایر مبلمان ایتالیایی|
+# Furniture > European Furniture
+European Bed|تخت اروپایی|
+European Cabinet|کمد اروپایی|
+European Sofa|مبل اروپایی|
+European Table & Desk|میز اروپایی|
+Other European Furniture|سایر مبلمان اروپایی|
+# Furniture > Sofa
+Single Sofa|مبل تک‌نفره|
+Double Sofa|مبل دونفره|
+Corner Sofa|مبل ال|
+Combination Sofa|مبل ترکیبی|
+# Furniture > Seating, Table & Furniture
+Chair|صندلی|
+Table & Desk|میز|
+Seating and Table Sets|ست میز و صندلی|
+# Furniture > Shelf & Rack
+Bookshelf|کتابخانه|
+Coat Racks & Shoe Racks|جالباسی و جاکفشی|
+# Furniture > Furniture Hardware
+Drawer Slides|ریل کشو|
+Furniture Bolt|پیچ و مهره مبلمان|
+Furniture Casters|چرخ مبلمان|
+Furniture Handles & Pulls|دستگیره کابینت|
+Furniture Hinges|لولای کابینت|
+Furniture Lock|قفل کابینت|
+Swivel Plate|صفحه گردان|
+Other Furniture Hardware|سایر یراق‌آلات مبلمان|
+Lid Stay|جک درب کابینت|
+# Furniture > Furniture Parts & Accessories
+Cabinet Doors|درب کابینت|
+Chair Mechanism|مکانیزم صندلی (جک، زیرنشیمن)|
+Edge Banding|نوار لبه (PVC)|
+Furniture Frame|فریم مبلمان|
+Furniture Legs|پایه مبل و میز|
+Patio Umbrella Base|پایه چتر باغی|
+Other Furniture Parts & Accessories|سایر قطعات مبلمان|
+# Furniture > Mirror
+Bath Mirror|آینه حمام|
+Decorative Mirror|آینه دکوراتیو|
+Full-Length Mirror|آینه قدی|
+Makeup Mirror|آینه آرایشی|
+Other Mirrors|سایر آینه‌ها|

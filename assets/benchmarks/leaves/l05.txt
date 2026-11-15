@@ -1,0 +1,198 @@
+# Chemicals > Foam
+EPE Foam|فوم EPE (یونولیت نرم)|
+EVA Foam|فوم EVA|
+NBR Foam|فوم NBR (عایق لاستیکی)|
+PU Foam|فوم پلی‌یورتان|
+PVC Foam|فوم PVC|
+Other Foam|سایر فوم‌ها|
+# Chemicals > Plastic & Polymer
+Chemical Fiber|الیاف شیمیایی|
+FRP/GRP|کامپوزیت FRP/GRP|
+Plastic Compounds|کامپاند پلاستیک|
+Plastic Masterbatch|مستربچ|
+Plastic Materials|مواد اولیه پلاستیک|
+Polymer & Resin|پلیمر و رزین|
+# Chemicals > Plastic Products
+Injection Molding Parts|قطعات تزریقی|
+Plastic Card|کارت پلاستیکی|
+Plastic Film|فیلم پلاستیکی|
+Plastic Mould|قالب پلاستیک|
+Plastic Pipe & Tube|لوله پلاستیکی|
+Plastic Profile|پروفیل پلاستیکی|
+Plastic Rod|میله پلاستیکی (تفلون، پلی‌آمید)|
+Plastic Roll|رول پلاستیکی|
+Plastic Sheet, Board & Panel|ورق و صفحه پلاستیکی|
+Plastic Strap & Tape|تسمه و نوار پلاستیکی|
+Other Plastic Products|سایر محصولات پلاستیکی|
+# Chemicals > Rubber & Rubber Products
+Household Rubber Products|محصولات لاستیکی خانگی|مصرفی
+Rubber Belt|تسمه لاستیکی|
+Rubber Materials|مواد اولیه لاستیک|
+Rubber Mould|قالب لاستیک|
+Rubber Roller|غلتک لاستیکی|
+Rubber Seal|آب‌بند و اورینگ لاستیکی|
+Rubber Sheet & Mat|ورق و کفپوش لاستیکی|
+Rubber Tube, Pipe & Hose|شیلنگ و لوله لاستیکی|
+Tire & Accessories|لاستیک و متعلقات|
+Other Rubber Products|سایر محصولات لاستیکی|
+# Chemicals > Paint & Coating
+Appliance Paint|رنگ لوازم خانگی|
+Boat Paint|رنگ دریایی|
+Building Coating|رنگ ساختمانی|
+Car Paint|رنگ خودرو|
+Furniture Paint|رنگ مبلمان (کیلر، سیلر)|
+Machinery Coating|رنگ ماشین‌آلات|
+Paper Coating|پوشش کاغذ|
+Pipeline Coating|پوشش لوله|
+Plastic Coating|پوشش پلاستیک|
+Road Marking Paint|رنگ ترافیکی|
+Rubber Coating|پوشش لاستیکی|
+Special Paint|رنگ ویژه (نسوز، اپوکسی)|
+Other Paint & Coating|سایر رنگ و پوشش|
+# Chemicals > Pigment & Dye
+Acid Dye|رنگزای اسیدی|
+Basic Dye|رنگزای بازی|
+Direct Dye|رنگزای مستقیم|
+Disperse Dye|رنگزای دیسپرس|
+Inorganic Pigment|پیگمنت معدنی|
+Organic Pigment|پیگمنت آلی|
+Reactive Dye|رنگزای راکتیو|
+Solvent Dye|رنگزای حلال|
+Sulphur Dye|رنگزای گوگردی|
+Vat Dye|رنگزای خمی|
+Other Pigment & Dye|سایر رنگدانه‌ها|
+# Chemicals > Organic Chemicals
+Alcoholate & Derivative|الکل‌ها و مشتقات|
+Amine|آمین‌ها|
+Amino Acid|اسیدهای آمینه|
+Benzene & Derivative|بنزن و مشتقات|
+Carbohydrate|کربوهیدرات‌ها|
+Carboxylic Acid & Derivative|اسیدهای کربوکسیلیک و مشتقات|
+Ester & Derivative|استرها و مشتقات|
+Hydrocarbon & Derivative|هیدروکربن‌ها و مشتقات|
+Hydroxybenzene, Aether, Aldehyde & Ketone|فنل، اتر، آلدهید و کتون|
+Organic Intermediate|حدواسط‌های آلی|
+Organic Salt|نمک‌های آلی|
+# Chemicals > Fiberglass Products
+Fiberglass Cloth|پارچه فایبرگلاس|
+Fiberglass Mat|حصیر فایبرگلاس|
+Fiberglass Mesh|توری فایبرگلاس|
+Fiberglass Profile|پروفیل فایبرگلاس|
+Fiberglass Tape|نوار فایبرگلاس|
+Fiberglass Yarn|نخ فایبرگلاس|
+Other Fiberglass Products|سایر محصولات فایبرگلاس|
+# Chemicals > Inorganic Chemicals
+Acid|اسیدها|
+Alkali|قلیاها|
+Elementary Substance|عناصر|
+Gas|گازها|
+Oxide|اکسیدها|
+# Chemicals > Inorganic Fiber
+Carbon Fiber|فیبر کربن|
+Ceramic Fiber|الیاف سرامیکی|
+Fiberglass|الیاف شیشه|
+Other Inorganic Fiber|سایر الیاف معدنی|
+# Chemicals > Inorganic Salt
+Acetate|استات‌ها|
+Carbonate|کربنات‌ها|
+Chloride|کلریدها|
+Fluoride|فلوریدها|
+Hypochlorite|هیپوکلریت‌ها|
+Nitrate|نیترات‌ها|
+Phosphate|فسفات‌ها|
+Silicate|سیلیکات‌ها|
+Sulfate|سولفات‌ها|
+Sulfide|سولفیدها|
+Other Inorganic Salts|سایر نمک‌های معدنی|
+# Chemicals > Active Carbon
+Boxed Activated Carbon|کربن فعال بسته‌ای|
+Coal Active Carbon|کربن فعال زغالی|
+Coconut Shell Activated Carbon|کربن فعال پوسته نارگیل|
+Granular Activated Carbon|کربن فعال گرانول|
+Honeycomb Activated Carbon|کربن فعال لانه‌زنبوری|
+Industrial Activated Carbon|کربن فعال صنعتی|
+Powder Activated Carbon|کربن فعال پودری|
+Other Active Carbon|سایر کربن فعال|
+# Chemicals > Additive
+Concrete,Mortar & Admixtures|افزودنی بتن و ملات|
+Feed Additives|افزودنی خوراک دام|
+Food Additive|افزودنی غذایی|
+Fuel Additives|افزودنی سوخت|
+Petroleum Additive|افزودنی نفتی|
+Other Additives|سایر افزودنی‌ها|
+# Chemicals > Adhesive
+Acrylic Adhesive|چسب اکریلیک|
+Advanced Polymer Adhesive|چسب پلیمری پیشرفته|
+Amino Resin Adhesive|چسب رزین آمینو|
+Epoxy Resin Adhesive|چسب اپوکسی|
+Hot-Melt Adhesive|چسب حرارتی (هات‌ملت)|
+Polyurethane Adhesive|چسب پلی‌یورتان|
+Silicone Adhesive|چسب سیلیکون|
+Vinyl Resin Adhesive|چسب وینیل (چوب)|
+Other Adhesives|سایر چسب‌ها|
+# Chemicals > Chemical Auxiliary & Catalyst
+Catalyst & Active Agent|کاتالیست و عامل فعال|
+Chemical Auxiliary|مواد کمکی شیمیایی|
+Coating Auxiliary Agent|مواد کمکی رنگ و پوشش|
+Desiccant & Sorbent|رطوبت‌گیر و جاذب|
+Paper Chemical|مواد شیمیایی کاغذسازی|
+Plastic Auxiliary Agent|مواد کمکی پلاستیک|
+Rubber Auxiliary Agent|مواد کمکی لاستیک|
+Surface Disposal Agent|مواد عملیات سطحی|
+Textile Auxiliary Agent|مواد کمکی نساجی|
+Water Treatment Chemical|مواد شیمیایی تصفیه آب|
+# Chemicals > Filling
+Biological Filling|پرکن بیولوژیک (مدیا)|
+Ceramic Filling|پرکن سرامیکی|
+Chemical Fillings|پرکن برج و راکتور|
+Glass Filling|پرکن شیشه‌ای|
+Metal Filling|پرکن فلزی|
+Mineral Filling|پرکن معدنی|
+Plastic Filling|پرکن پلاستیکی (پکینگ)|
+Other Chemical Fillings|سایر پرکن‌ها|
+# Chemicals > Metalworking Fluid
+Cutting Fluid|روغن برش (آب صابون)|
+Forming Fluid|روغن شکل‌دهی|
+Heat Treatment Fluid|روغن عملیات حرارتی|
+Metal Cleaning Fluid|مایع تمیزکاری فلزات|
+Metal Protection Fluid|مایع ضدزنگ|
+Other Metalworking Fluids|سایر سیالات فلزکاری|
+# Chemicals > Lubricant
+Greases|گریس|
+Lubricating Oil|روغن روان‌کننده|
+Mineral Oil Lubricant|روغن معدنی|
+Multi-purpose Lubricant|روان‌کننده چندمنظوره|
+Synthetic Lubricant|روغن سنتتیک|
+Wax Lubricant|روان‌کننده واکسی|
+Other Lubricants|سایر روان‌کننده‌ها|
+# Chemicals > Wax
+Beauty Wax|موم اپیلاسیون|مصرفی
+Beeswax|موم زنبور عسل|
+Candle Wax|موم شمع|
+Carnauba Wax|واکس کارنوبا|
+Gum Wax|موم صمغی|
+Microcrystalline Wax|واکس میکروکریستالین|
+Natural Wax|موم طبیعی|
+Paraffin Wax|پارافین|
+Soy Wax|موم سویا|
+Synthetic Wax|واکس مصنوعی|
+Wax Oil|روغن واکس|
+Other Waxes|سایر موم‌ها|
+# Chemicals > Agricultural Chemicals
+Fungicide & Bactericide|قارچ‌کش و باکتری‌کش|
+Herbicide & Weedicide|علف‌کش|
+Pesticide & Insecticides|آفت‌کش و حشره‌کش|
+Plant Growth Regulator|تنظیم‌کننده رشد گیاه|
+# Chemicals > Fertilizer
+Compound Fertilizer|کود مرکب|
+Nitrogen Fertilizer|کود ازته|
+Phosphate Fertilizer|کود فسفاته|
+Potassium Fertilizer|کود پتاسه|
+Trace Element Fertilizer|کود ریزمغذی|
+Other Fertilizers|سایر کودها|
+# Chemicals > Airbag
+Inflatable Core Mold|قالب بادی بتن|
+Marine Airbags|بالشتک بادی دریایی (به آب‌اندازی)|
+Plugging Airbag|بالشتک مسدودکننده لوله|
+Water Bladder Tank|مخزن آب انعطاف‌پذیر|
+Other Airbags|سایر بالشتک‌های بادی|

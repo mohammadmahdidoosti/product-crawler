@@ -1,0 +1,193 @@
+# Agriculture & Food > Pest Control
+Agricultural & Cultivation Pest Control|آفت‌کش کشاورزی و زراعی|
+Biological Pest Control|کنترل بیولوژیک آفات|
+Chemical Pest Control|سم و آفت‌کش شیمیایی|
+Physical Pest Control|کنترل فیزیکی آفات (تله، توری)|
+Other Pest Control|سایر کنترل آفات|
+# Agriculture & Food > Tea & Tea Leaf
+Black Tea|چای سیاه|
+Compressed Tea|چای فشرده|
+Dark Green Tea|چای تیره (پوئر)|
+Fruit Tea|چای میوه‌ای|
+Green Tea|چای سبز|
+Health Tea|دمنوش سلامت|
+Instant Tea|چای فوری|
+Oolong Tea|چای اولانگ|
+Scented Tea|چای معطر|
+Tea Bag|چای کیسه‌ای|
+White Tea|چای سفید|
+Yellow Tea|چای زرد|
+Other Tea & Tea Leaf|سایر چای‌ها|
+# Agriculture & Food > Vegetable & Preparation
+Cabbage & Broccoli|کلم و بروکلی|
+Carrot & Radish|هویج و تربچه|
+Chilli & Pepper|فلفل|
+Garlic|سیر|
+Ginger|زنجبیل|
+Onion|پیاز|
+Potato|سیب‌زمینی|
+Tomato|گوجه‌فرنگی|
+Other Vegetable|سایر سبزیجات|
+# Agriculture & Food > Wheat Flour & Preparation
+Breadcrumb & Coating Flour|پودر سوخاری و آرد پوششی|
+Noodles|نودل|
+Pasta|ماکارونی|
+Pastry Premix|پیش‌مخلوط شیرینی‌پزی|B2B
+Wheat Flour Products|محصولات آرد گندم|
+Wheatmeal & Whole Wheat Flour|آرد سبوس‌دار|
+# Agriculture & Food > Beverage
+Alcoholic Beverage|نوشیدنی الکلی|
+Soft Drinks|نوشابه و نوشیدنی غیرالکلی|
+Tea & Tea Leaf|چای|
+Other Beverage|سایر نوشیدنی‌ها|
+# Agriculture & Food > Condiment & Seasoning
+Aromatic Spices|ادویه معطر|
+Compound Seasoning|چاشنی ترکیبی|
+Cooking Wine|شراب آشپزی|
+Flavor Enhancers & Umami Boosters|طعم‌دهنده و تقویت‌کننده طعم|B2B
+Marinade|سس مرینیت|
+Salt|نمک|
+Seasoning Sauce|سس چاشنی|
+Soy Sauce|سس سویا|
+Vinegar|سرکه|
+Other Condiment & Seasoning|سایر چاشنی‌ها|
+# Agriculture & Food > Feed Additives
+Amino Acid Additives|افزودنی اسید آمینه|
+Antibacterial Growth Promoter|محرک رشد ضدباکتری|
+Feed Nutrition Enhancer|مکمل تغذیه‌ای خوراک دام|
+Feed Preservatives|نگهدارنده خوراک دام|
+Trace Element Additives|افزودنی عناصر کمیاب|
+Vitamin Additives|افزودنی ویتامین|
+Other Feed Additives|سایر افزودنی‌های خوراک دام|
+# Agriculture & Food > Food Additive
+Bulking Agents|حجم‌دهنده|
+Chewing Gum Bases|پایه آدامس|
+Essence & Spice|اسانس و ادویه صنعتی|
+Food Acidity Regulators|تنظیم‌کننده اسیدیته|
+Food Antioxidants|آنتی‌اکسیدان غذایی|
+Food Colorants|رنگ خوراکی|
+Food Emulsifiers|امولسیفایر غذایی|
+Food Enzyme Preparations|آنزیم غذایی|
+Food Flavours Enhancers|تقویت‌کننده طعم|
+Food Preservatives|نگهدارنده غذایی|
+Food Stabilizers and Coagulators|پایدارکننده و منعقدکننده|
+Food Sweeteners|شیرین‌کننده|
+Food Thickeners|غلظت‌دهنده|
+Nutrition Enhancers|غنی‌کننده تغذیه‌ای|
+Other Food Additives|سایر افزودنی‌های غذایی|
+# Agriculture & Food > Frozen Food
+Frozen Appetizer & Snack|پیش‌غذا و اسنک منجمد|
+Frozen Aquatic Products|آبزیان منجمد|
+Frozen Chinese Snacks|اسنک چینی منجمد|
+Frozen Fried Food|غذای سرخ‌کردنی منجمد|
+Frozen Fruit|میوه منجمد|
+Frozen Hotpot Ingredients|مواد هات‌پات منجمد|
+Frozen Meat & Preparation|گوشت منجمد|
+Frozen Prepared Foods|غذای آماده منجمد|
+Frozen Vegetables|سبزیجات منجمد|
+Ice & Preparation|یخ|
+Other Frozen Food|سایر غذاهای منجمد|
+# Agriculture & Food > Instant Food
+Instant Dishes|غذای فوری|
+Instant Noodles|نودل فوری|
+Instant Rice|برنج فوری|
+Instant Soup|سوپ فوری|
+Noodle Vermicelli|ورمیشل|
+Self Heating Food|غذای خودگرمشونده|
+Sushi|سوشی|
+Other Instant Food|سایر غذاهای فوری|
+# Agriculture & Food > Sap & Extract
+Animal Extract|عصاره حیوانی|
+Fruit Extract|عصاره میوه|
+Garlic Extract|عصاره سیر|
+Ginger Extract|عصاره زنجبیل|
+Ginseng Extract|عصاره جینسینگ|
+Grape Seed Extract|عصاره هسته انگور|
+Herbal Extract|عصاره گیاهی|
+Mushroom Extract|عصاره قارچ|
+Soybean Extract|عصاره سویا|
+Tea Extract|عصاره چای|
+Other Plant Extract|سایر عصاره‌های گیاهی|
+# Agriculture & Food > Snack
+Bean Snack|اسنک حبوبات|
+Candy|آبنبات و شکلات|
+Chocolate|شکلات|
+Dried Fruit|میوه خشک|
+Fruit & Vegetable Snack|اسنک میوه و سبزی|
+Grain Snack|اسنک غلات|
+Jelly & Pudding|ژله و پودینگ|
+Meat Snack|اسنک گوشتی|
+Nut & Kernel Snack|آجیل و مغزها|
+Preserved Fruit|میوه کنسروی و شیرین‌شده|
+Puffed Food|اسنک حجیم (پفک)|
+Seafood Snack|اسنک دریایی|
+Other Snack|سایر تنقلات|
+# Agriculture & Food > Agriculture Manure
+Bio Fertilizer|کود زیستی|
+Compound Fertilizer|کود مرکب (NPK)|
+Nitrogen Fertilizer|کود ازته (اوره)|
+Organic Fertilizer|کود آلی|
+Phosphate Fertilizer|کود فسفاته|
+Potassium Fertilizer|کود پتاسه|
+Trace Element Fertilizer|کود ریزمغذی|
+# Agriculture & Food > Baked Food
+Biscuit|بیسکویت|
+Ice Cream Cone|نان قیفی بستنی|B2B
+Pastry|شیرینی|
+Other Baked Food|سایر محصولات نانوایی|
+# Agriculture & Food > Food Ingredients
+Bakery Decoration Ingredients|مواد تزئین شیرینی‌پزی|
+Beverage Ingredients|مواد اولیه نوشیدنی|
+Breadcrumb & Coating Flour|پودر سوخاری|
+Non Dairy Creamer|کریمر غیرلبنی|
+Other Accessary Foods|سایر مواد کمکی غذایی|
+# Agriculture & Food > Protected Animal Husbandry
+Beekeeping Equipment|تجهیزات زنبورداری|
+Cage & Coop for Poultry, Livestock|قفس مرغداری و دامداری|
+Ear Tag|پلاک گوش دام|
+Egg Incubator|دستگاه جوجه‌کشی|
+Farrowing Crates & Farrowing Pens|جایگاه زایمان دام|
+Horse Stable|اصطبل اسب|
+Livestock Drinker|آبخوری دام و طیور|
+Livestock Feeder|دانخوری دام و طیور|
+Livestock Weight Scales|باسکول دام|
+Slat Floor|کف اسلت دامداری|
+Veterinary Instruments|ابزار دامپزشکی|
+Other Protected Animal Husbandry|سایر تجهیزات دامپروری|
+# Agriculture & Food > Protected Aquaculture
+Breeding Box|جعبه پرورش آبزیان|
+Fish Feeder|غذادهنده ماهی|
+Other Protected Aquaculture|سایر تجهیزات آبزی‌پروری|
+# Agriculture & Food > Protected Horticulture
+Agricultural Sprayers|سمپاش کشاورزی|
+Breeding Tools|ابزار پرورش نشا|
+Ecological Greenhouse|گلخانه اکولوژیک|
+Evaporative Cooling Pad|پد سلولزی خنک‌کننده|
+Farm Irrigation System|سیستم آبیاری مزرعه|
+Garden Greenhouse|گلخانه باغی|
+Glass Greenhouse|گلخانه شیشه‌ای|
+Greenhouse Clip & Clamp|گیره و بست گلخانه|
+Greenhouse Curtain Wire|سیم پرده گلخانه|
+Greenhouse Film Rolling|بالابر نایلون گلخانه|
+Greenhouse Plastic Film|نایلون گلخانه|
+Greenhouse Shade Netting|توری سایه‌بان گلخانه|
+Greenhouse Skeleton|اسکلت گلخانه|
+Hydroponics System|سیستم هیدروپونیک|
+Insect Net|توری ضدحشره|
+LED Light for Animal Husbandry|چراغ LED مرغداری و دامداری|
+Mulch Film|نایلون مالچ|
+PC Panel Greenhouse|گلخانه پلی‌کربنات|
+Plastic Greenhouse|گلخانه پلاستیکی|
+Seed Tray & Planting Pot|سینی نشا و گلدان کاشت|
+Seedbed|بستر کاشت بذر|
+Shipping Container Greenhouse|گلخانه کانتینری|
+Smart Greenhouse|گلخانه هوشمند|
+Solar Greenhouse|گلخانه خورشیدی|
+Sunlight Greenhouse|گلخانه آفتابی|
+Vertical Grow System|سیستم کشت عمودی|
+Other Greenhouse & Accessories|سایر گلخانه و متعلقات|
+# Agriculture & Food > Rice & Preparation
+Rice|برنج|
+Rice Noodles|نودل برنج|
+Rice Products|محصولات برنجی|
+Sushi|سوشی|

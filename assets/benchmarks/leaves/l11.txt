@@ -1,0 +1,130 @@
+# Health & Medicine > Beauty Equipment
+Body Art Products|لوازم تتو و آرایش دائم|B2B
+Body Beauty Equipment|دستگاه زیبایی بدن (لاغری)|
+Salon Equipment|تجهیزات سالن زیبایی|B2B
+Skin Analyzer|دستگاه آنالیز پوست|B2B
+Skin Beauty Equipment|دستگاه زیبایی پوست|
+Other Beauty Equipment|سایر تجهیزات زیبایی|
+# Health & Medicine > Health Care Appliance
+Health Care Cosmetics|محصولات بهداشتی-آرایشی|مصرفی
+Household Health Test & Nursing Products|تست و مراقبت خانگی (فشارسنج، قندسنج)|
+Magnetic Health Care Products|محصولات مغناطیسی سلامت|مصرفی
+Memory & Sleep Health Care Products|محصولات خواب و حافظه|مصرفی
+Optical Health Care Products|محصولات سلامت چشم|
+Pedometer|گام‌شمار|مصرفی
+Other Health Care Products|سایر محصولات سلامت|
+# Health & Medicine > Massager
+Eye Massager|ماساژور چشم|
+Foot Massager|ماساژور پا|
+Hand Massager|ماساژور دست|
+Handheld Massager|ماساژور دستی (تفنگی)|
+Head Massager|ماساژور سر|
+Leg Massager|ماساژور ساق پا|
+Massage Belt|کمربند ماساژ|
+Massage Chair|صندلی ماساژ|
+Massage Cushion|کوسن ماساژ|
+Massage Pillow|بالش ماساژ|
+Massage Table & Bed|تخت ماساژ|ترکیبی
+Shoulder & Neck Massager|ماساژور گردن و شانه|
+Vibration Platform|دستگاه ویبره (لرزشی)|
+Other Massagers|سایر ماساژورها|
+# Health & Medicine > Rehabilitation Therapy Supplies
+Commode Chair|صندلی توالت بیمار|
+Hearing Aid & Accessories|سمعک و لوازم|
+Orthopedic & Immobilization Products|محصولات ارتوپدی و آتل|
+Rollator Walker|واکر چرخ‌دار|
+Shower Chair|صندلی حمام بیمار|
+Walking Stick|عصا|
+Wheelchair|ویلچر|
+Other Disabilities|سایر لوازم توانبخشی|
+# Health & Medicine > Sex Product
+Anal Sex Toy|محصول جنسی (نوع خاص)|
+Condom|کاندوم|
+Dildo|محصول جنسی (نوع خاص)|
+External Use Sex Product|محصول جنسی مصرف خارجی|
+Masturbator|محصول جنسی (نوع خاص)|
+Penis Ring|محصول جنسی (حلقه)|
+SM Product|محصول جنسی (نوع خاص)|
+Sex Doll|عروسک جنسی|
+Sex Furniture|مبلمان جنسی|
+Sex Lubricant|ژل روان‌کننده|
+Sexual Function Training Product|محصول تقویت عملکرد جنسی|
+Sexy Lingerie|لباس خواب فانتزی|
+Test Strips|نوار تست (بارداری و تخمک‌گذاری)|
+Themed Toy|محصول جنسی تم‌دار|
+Vagina Ball|توپ تقویت کف لگن|
+Vibrator|ویبراتور|
+Other Sex Products|سایر محصولات جنسی|
+# Health & Medicine > Dental Equipment & Supplies
+Dental Apparatus|دستگاه‌های دندانپزشکی|
+Dental Care|محصولات مراقبت دندان|ترکیبی
+Dental Chair|یونیت دندانپزشکی|
+Dental Consumables|مواد مصرفی دندانپزشکی|
+Dental Drill & Accessories|فرز دندانپزشکی و لوازم|
+Dental Handpiece|هندپیس دندانپزشکی|
+Dental Kit|کیت دندانپزشکی|
+Oral Care|بهداشت دهان (مسواک، نخ)|مصرفی
+Ultrasonic Scaler|جرم‌گیر اولتراسونیک|
+Other Dental Equipment & Supplies|سایر تجهیزات دندانپزشکی|
+# Health & Medicine > Medical Equipment
+Analysis Instrument|دستگاه آنالیز آزمایشگاهی|
+Body Fluid-Processing & Circulation Device|دستگاه دیالیز و گردش خون|
+Disinfect Equipment & Sterilizer|اتوکلاو و دستگاه استریل|
+Medical Bed & Table|تخت و میز پزشکی|
+Medical Cryogenic Equipment|تجهیزات سرمایش پزشکی (فریزر خون)|
+Medical Diagnosis Equipment|تجهیزات تشخیصی (رادیولوژی، ECG)|
+Nursing Equipment|تجهیزات پرستاری|
+Physical Therapy Equipment|تجهیزات فیزیوتراپی|
+Surgical Equipment|تجهیزات جراحی (اتاق عمل)|
+Ultrasonic, Optical, Electronic Equipment|سونوگرافی، اپتیک و الکترونیک پزشکی|
+Ventilator|ونتیلاتور|
+Other Medical Equipment|سایر تجهیزات پزشکی|
+# Health & Medicine > Medical Implement
+Body Temperature Measurement Instrument|دماسنج بدن|ترکیبی
+Surgical Instrument|ابزار جراحی|
+Syringe|سرنگ|
+Universal Medical Implement|ابزار پزشکی عمومی|
+Other Medical Implement|سایر ابزار پزشکی|
+# Health & Medicine > Medical Supply
+Bandage|باند|
+Disposable Medical Supplies|ملزومات پزشکی یکبار مصرف|
+First Aid Kit|جعبه کمک‌های اولیه|ترکیبی
+Gauze Pads|گاز استریل|
+Medical Cap & Medical Shoe Cover|کلاه و کاور کفش پزشکی|
+Medical Disinfection Products|مواد ضدعفونی پزشکی|
+Medical Gloves|دستکش پزشکی|
+Medical Goggles|عینک محافظ پزشکی|
+Medical Mask|ماسک پزشکی|
+Medical Protective Clothing|لباس محافظ پزشکی|
+Nursing Apron|پیش‌بند پرستاری|
+Plastic Surgery Implants|ایمپلنت جراحی زیبایی|
+Prep Pad & Swab|پد الکلی و سواب|
+Surgical Supplies|ملزومات جراحی|
+Surgical Tape|چسب جراحی|
+Tourniquet|تورنیکه (گارو)|
+Urinary Bag|کیسه ادرار|
+Wound Dressing|پانسمان زخم|
+Other Medical Supplies|سایر ملزومات پزشکی|
+# Health & Medicine > Veterinary
+Veterinary Instruments|ابزار دامپزشکی|
+Veterinary Medicine|داروی دامی|
+# Health & Medicine > Pharmaceutical Packaging
+Ampoule|آمپول خالی|
+Dropper Bottle|بطری قطره‌چکان|
+Medicinal Aluminum Bottle|بطری آلومینیومی دارویی|
+Medicinal Composite Film|فیلم کامپوزیت دارویی (بلیستر)|
+Medicinal Controlled Bottle|بطری دارویی کنترل‌شده|
+Medicinal Glass Bottle|بطری شیشه‌ای دارویی|
+Medicinal Ointment Tube|تیوب پماد|
+Medicinal Packaging Bag|کیسه بسته‌بندی دارو|
+Medicinal Plastic Bottle|بطری پلاستیکی دارویی|
+Pharmaceutical Tablet|قرص دارویی|
+Vials|ویال|
+Other Pharmaceutical Packaging|سایر بسته‌بندی‌های دارویی|
+# Health & Medicine > Oxygen Supply
+Liquid Oxygen Tank|مخزن اکسیژن مایع|
+Oxygen Bag|کیسه اکسیژن|
+Oxygen Bottle|کپسول اکسیژن|
+Oxygen Concentrator|اکسیژن‌ساز|ترکیبی
+Oxygen Tank|مخزن اکسیژن|
+Oxygen Terminal|ترمینال گاز طبی (اوت‌لت)|

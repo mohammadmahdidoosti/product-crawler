@@ -1,0 +1,510 @@
+# Construction & Decoration > Anchor Fastener
+Anchor Bolt|انکر بولت (پیچ فونداسیون)|
+Anchor Nut|مهره انکر|
+Anchor Plate|صفحه ستون (بیس‌پلیت)|
+Bolt Anchor|پیچ انکر|
+Captive Screw|پیچ اسیر|
+Channel Steel Clamp|بست ناودانی|
+Chemical Anchor|انکر شیمیایی (کاشت میلگرد)|
+Concrete Anchor|رولپلاک بتن|
+Drywall Anchor|رولپلاک گچی|
+Expansion Bolt|پیچ رولپلاک فلزی|
+Expansion Screw|پیچ انبساطی|
+Expansion Sleeve|غلاف انبساطی|
+Ground Anchor|میخ زمین|
+Metal Screw|پیچ فلزی|
+Self-tapping Screws|پیچ خودکار|
+Wing Nut|مهره پروانه‌ای|
+Wood Screws|پیچ چوب|
+Other Anchor Fasteners|سایر انکرها و اتصالات|
+# Construction & Decoration > Bathroom Fittings & Accessories
+Bathroom Hardware Sets|ست اکسسوری حمام|
+Bathroom Mirror|آینه حمام|
+Bathroom Rack|قفسه حمام|
+Coat Hooks|رخت‌آویز|
+Drain|کف‌شور|B2B
+Grab Bar|دستگیره ایمنی حمام|
+Paper Holder|جادستمال توالت|
+Soap Dish|جاصابونی|
+Soap Dispenser|پمپ مایع دستشویی|
+Toilet Brush Holder|جافرچه توالت|
+Toothbrush Holder|جامسواکی|
+Towel Bar|حوله‌آویز میله‌ای|
+Towel Ring|حوله‌آویز حلقه‌ای|
+Tumbler Holder|جالیوانی|
+Other Bathroom Fittings & Accessories|سایر اکسسوری حمام|
+# Construction & Decoration > Bathtub
+Children's Bathtub|وان کودک|مصرفی
+Corner Bathtub|وان گوشه|
+Ice Bathtub|وان یخ (ریکاوری)|
+Inflatable Bathtub|وان بادی|مصرفی
+Massage Bathtub|وان جکوزی|
+Outdoor Bathtub|وان فضای باز|
+Portable Bathtub|وان قابل‌حمل|مصرفی
+Soaking Bathtub|وان معمولی|
+Other Bathtubs|سایر وان‌ها|
+# Construction & Decoration > Faucet, Tap & Mixer
+Basin Faucet|شیر روشویی|
+Bidet Faucet|شیر توالت (شطاف)|
+Faucet Parts|قطعات شیرآلات (کارتریج)|B2B
+Kitchen Mixer & Faucet|شیر ظرفشویی|
+Lab Faucet|شیر آزمایشگاهی|B2B
+Shower Faucet|شیر دوش|
+Tub Faucet|شیر وان|
+Other Faucets, Taps & Mixers|سایر شیرآلات|
+# Construction & Decoration > Refractory Product
+Carbon Refractory Brick|آجر نسوز کربنی|
+Kiln Furniture|لوازم داخل کوره (پایه و صفحه)|
+Magnesium Refractory Brick|آجر نسوز منیزیتی|
+Refractory Abrasive|ساینده نسوز|
+Refractory Cement|سیمان نسوز|
+Refractory Fiber|الیاف نسوز (پشم سرامیک)|
+Refractory Lining|آستر نسوز|
+Refractory Mortar|ملات نسوز|
+Refractory Panel|صفحه نسوز|
+Refractory Tube|لوله نسوز|
+Silicon Aluminum Refractory Brick|آجر نسوز سیلیکو-آلومینایی|
+Zirconium Refractory Brick|آجر نسوز زیرکونیایی|
+Other Refractory Products|سایر محصولات نسوز|
+# Construction & Decoration > Sauna Room
+Dry Sauna Room|سونای خشک|
+Sauna Heater|هیتر سونا|
+Steam Generator|ژنراتور بخار سونا|
+Wet Steam Room|سونای بخار|
+Other Sauna Room & Accessories|سایر لوازم سونا|
+# Construction & Decoration > Shower Head & Shower Set
+Shower Faucet|شیر دوش|
+Shower Head|سردوش|
+Shower Hose|شلنگ دوش|
+Shower Panel|پنل دوش|
+Shower Set|ست دوش|
+Other Shower Heads & Shower Sets|سایر سردوش‌ها|
+# Construction & Decoration > Shower Room & Shower Enclosure
+Computerized Shower Room|کابین دوش هوشمند|
+Shower Base|زیردوشی|
+Shower Doors|درب شاور|
+Shower Screen|پارتیشن شیشه‌ای حمام|
+Simple Shower Room|کابین دوش ساده|
+Steam Shower Room|کابین دوش بخار|
+Other Shower Room, Shower Enclosure & Accessories|سایر کابین‌های دوش|
+# Construction & Decoration > Sink & Basin
+Bathroom Basin & Sink|روشویی|
+Kitchen Sink|سینک ظرفشویی|
+Lab Sink|سینک آزمایشگاهی|B2B
+Other Sink & Basin|سایر سینک و روشویی|
+# Construction & Decoration > Toilet & Accessories
+Bidet|بیده|
+Bidet Faucet|شیر شطاف|
+Smart Toilet|توالت هوشمند|
+Squat Pan|توالت ایرانی (زمینی)|
+Toilet|توالت فرنگی|
+Toilet Flush Valve|شیر فلاش توالت|B2B
+Toilet Seat|درب توالت فرنگی|
+Toilet Seat Parts|قطعات درب توالت|
+Toilet Tank|مخزن توالت (فلاش‌تانک)|
+Toilet Tank Parts|قطعات مخزن توالت|B2B
+Urinal|یورینال|B2B
+Other Toilet & Accessories|سایر لوازم توالت|
+# Construction & Decoration > Concrete,Mortar & Admixtures
+Air Entraining Agent|افزودنی حباب‌ساز بتن|
+Concrete|بتن|
+Crack Resistance Agent|افزودنی ضدترک|
+Curing Agent/Hardening Agent|عمل‌آورنده و سخت‌کننده بتن|
+Early Strength Agent|زودگیرکننده بتن|
+Enhancer Agent|افزایش‌دهنده مقاومت|
+Expansion Agent|منبسط‌کننده بتن|
+Mortar|ملات آماده|
+Retarder Agent|دیرگیرکننده بتن|
+Thickening Agent|غلظت‌دهنده ملات|
+Water Reducing Agent|فوق‌روان‌کننده بتن|
+Water Repellent Agent|آب‌گریزکننده|
+Water Retention Agent|نگهدارنده آب ملات|
+Other Concrete,Mortar & Admixtures|سایر افزودنی‌های بتن|
+# Construction & Decoration > Slate, Marble, Granite & Stone
+Artificial Stone|سنگ مصنوعی|
+Basalt|سنگ بازالت|
+Carving & Sculpture|حجاری و مجسمه سنگی|
+Countertop & Vanity Top|صفحه کابینت و روشویی سنگی|
+Granite|سنگ گرانیت|
+Limestone|سنگ آهک|
+Mantel|سنگ شومینه|
+Marble|سنگ مرمر|
+Paving Stone|سنگ فرش|
+Pillar|ستون سنگی|
+Quartz Stone|سنگ کوارتز|
+Sandstone, Cobble & Pebble|ماسه‌سنگ و سنگ قلوه|
+Slate|سنگ لاشه (اسلیت)|
+Tombstone & Monument|سنگ قبر و یادبود|
+Other Stones|سایر سنگ‌ها|
+# Construction & Decoration > Brick, Tile & Accessories
+Artificial Thatch|پوشش حصیری مصنوعی|
+Brick|آجر|
+Floor Tile|سرامیک کف|
+Glazed Tile|کاشی لعابدار|
+Mosaic Tile|کاشی موزاییک|
+Polished Tile|سرامیک پولیش|
+Roof Tile|سفال سقف|
+Rustic Tile|کاشی روستیک|
+Sintered Slab|اسلب سینتر|
+Tile Spacers|فاصله‌انداز کاشی|
+Tile Trim|نبشی کاشی|
+Wall Tile|کاشی دیوار|
+Other Brick, Tile & Accessories|سایر آجر و کاشی|
+# Construction & Decoration > Floors & Flooring
+Aluminum Alloy Flooring|کف آلومینیومی|
+Anti-static Flooring|کفپوش آنتی‌استاتیک|
+Bamboo Floor|کفپوش بامبو|
+Engineered Wood Flooring|پارکت مهندسی|
+Floor Tile|کاشی کف|
+Flooring Accessories|متعلقات کفپوش (قرنیز، زیرسازی)|
+Laminate Flooring|پارکت لمینت|
+Plastic Floor|کفپوش پلاستیکی (PVC)|
+Rubber Floor|کفپوش لاستیکی|
+Sports Floor|کفپوش ورزشی|
+Wood & Hardwood Floor|پارکت چوب طبیعی|
+Wood Plastic Composite Flooring|کفپوش WPC|
+Other Floors|سایر کفپوش‌ها|
+# Construction & Decoration > Blinds, Shades & Shutters
+Blind Accessories|متعلقات پرده کرکره|
+Blind Motor|موتور پرده|
+Bottom Rail|ریل پایین پرده|
+Curtain Rod|میله پرده|
+Curtain Track|ریل پرده|
+Honeycomb Blind|پرده لانه‌زنبوری|
+Horizontal Blind|پرده کرکره افقی|
+Louver|لوور (کرکره هوا)|
+Roller Blind|پرده غلتکی (رولر)|
+Roman Blind|پرده پانچی|
+Vertical Blind|پرده عمودی|
+Zebra Blind|پرده زبرا|
+Other Blinds|سایر پرده‌ها|
+# Construction & Decoration > Door
+Automatic Door|درب اتوماتیک|
+Cold Storage Door|درب سردخانه|
+Composite Door|درب کامپوزیت|
+Dock Shelter|داک شلتر (سکوی بارگیری)|
+Garage Door|درب پارکینگ|
+Glass Door|درب شیشه‌ای|
+Industrial Door|درب صنعتی|
+Metal Door|درب فلزی|
+Plastic Door|درب UPVC|
+Rolling Shutter Door|کرکره برقی|
+Sectional Door|درب سکشنال|
+Security Door|درب ضدسرقت|
+Wooden & Timber Door|درب چوبی|
+Other Doors|سایر درب‌ها|
+# Construction & Decoration > Door & Window Hardware
+Curtain Rod|میله پرده|
+Curtain Rod Accessories|متعلقات میله پرده|
+Curtain Track|ریل پرده|
+Curtain Track Fittings|اتصالات ریل پرده|
+Door & Window Bolt|کلون و چفت درب و پنجره|
+Door & Window Hinges|لولای درب و پنجره|
+Door & Window Hook|قلاب درب و پنجره|
+Door & Window Roller|قرقره درب و پنجره کشویی|
+Door & Window Slide|ریل درب و پنجره|
+Door Closer|آرام‌بند درب|
+Door Curtains|پرده درب (نوار PVC)|
+Door Handle|دستگیره درب|
+Door Opener|درب‌بازکن|
+Door Stop|استاپر درب|
+Door Viewer|چشمی درب|
+Patch Fitting|یراق درب شیشه‌ای (پچ)|
+Window Handle|دستگیره پنجره|
+Window Lock|قفل پنجره|
+Window Screening|توری پنجره|
+Other Door & Window Hardware|سایر یراق‌آلات درب و پنجره|
+# Construction & Decoration > Lock
+Car Lock|قفل خودرو|
+Card Lock|قفل کارتی (هتلی)|B2B
+Combination Lock|قفل رمزی|
+Door Lock|قفل درب|
+Electronic Lock|قفل الکترونیکی|
+Furniture Lock|قفل مبلمان و کمد|B2B
+Industrial Lock|قفل صنعتی|B2B
+Lock Key & Accessories|کلید و متعلقات قفل|
+Locksmith Tools|ابزار قفل‌سازی|B2B
+Padlock|قفل آویز|
+Window Lock|قفل پنجره|
+Other Locks|سایر قفل‌ها|
+# Construction & Decoration > Window
+Composite Window|پنجره کامپوزیت|
+Metal Window|پنجره فلزی (آلومینیوم)|
+Plastic Window|پنجره UPVC|
+Wooden Window|پنجره چوبی|
+Other Windows|سایر پنجره‌ها|
+# Construction & Decoration > Building Glass
+Clear Glass|شیشه ساده|
+Frosted Glass|شیشه مات|
+Insulated Glass|شیشه دوجداره|
+Laminated Glass|شیشه لمینت|
+Patterned Glass|شیشه طرح‌دار|
+Solar Glass|شیشه خورشیدی|
+Special Glass|شیشه ویژه|
+Stained Glass|شیشه رنگی (ویترای)|
+Tempered Glass|شیشه سکوریت|
+Tinted Glass|شیشه رفلکس و رنگی|
+Wired Glass|شیشه مسلح|
+Other Building Glass|سایر شیشه‌های ساختمانی|
+# Construction & Decoration > Ceiling
+Acoustic Ceiling|سقف کاذب آکوستیک|
+Calcium Silicate Ceiling|سقف کاذب سیلیکات کلسیم|
+Ceiling Grid|سازه سقف کاذب|
+Fiberglass Ceiling|سقف کاذب فایبرگلاس|
+Metal Ceiling|سقف کاذب فلزی|
+Mineral Wool Ceiling|سقف کاذب پشم معدنی|
+PVC Ceiling|سقف کاذب PVC|
+Plasterboard Ceiling|سقف کاذب کناف (گچی)|
+Polystyrene Ceiling|سقف کاذب یونولیتی|
+Other Ceilings|سایر سقف‌های کاذب|
+# Construction & Decoration > Decoration Materials
+Aluminum Composite Panel|ورق کامپوزیت آلومینیوم|
+Artificial Thatch|حصیر مصنوعی سقف|
+Cement Board|برد سیمانی|
+Corner Bead|کرنربید (نبشی گچ)|
+Decorative Film|فیلم دکوراتیو|
+Decorative Paper|کاغذ دکوراتیو|
+Door Skin|روکش درب|
+Honeycomb Core|هسته لانه‌زنبوری|
+Honeycomb Panel|پنل لانه‌زنبوری|
+Moulding|ابزار و قاب تزئینی|
+Plasterboard|پانل گچی (کناف)|
+Plastic Sheet, Board & Panel|ورق و پنل پلاستیکی|
+Sandwich Panel|ساندویچ پانل|
+Skirting|قرنیز|
+WPC Board|ورق WPC|
+Wall Panels|دیوارپوش|
+Wallpaper|کاغذدیواری|
+Other Decoration Materials|سایر مصالح دکوراسیون|
+# Construction & Decoration > Mirror
+Bathroom Mirror|آینه حمام|
+Decorative Mirrors|آینه دکوراتیو|
+Full-Length Mirror|آینه قدی|
+Makeup Mirror|آینه آرایشی|مصرفی
+Other Mirrors|سایر آینه‌ها|
+# Construction & Decoration > Partition
+Folding Screen|پاراوان|
+Office Partition|پارتیشن اداری|B2B
+Toilet Partitions|پارتیشن سرویس بهداشتی|B2B
+Other Partitions|سایر پارتیشن‌ها|
+# Construction & Decoration > Stairs & Stair Parts
+Stair Parts|قطعات پله (نرده، کف‌پله)|
+Stairs|پله پیش‌ساخته|
+# Construction & Decoration > Acoustic Materials
+Acoustic Ceiling|سقف آکوستیک|
+Acoustic Felt|نمد آکوستیک|
+Acoustic Foam Panel|فوم آکوستیک|
+Acoustic Partition|پارتیشن آکوستیک|
+Acoustic Tile|تایل آکوستیک|
+Acoustic Wall Panel|دیوارپوش آکوستیک|
+Acoustic Wallpaper|کاغذدیواری آکوستیک|
+Other Acoustic Materials|سایر مصالح آکوستیک|
+# Construction & Decoration > Bridge & Bridge Structure
+Bridge|پل|
+Bridge Bearing|نشیمن (بیرینگ) پل|
+Other Bridge Structures|سایر سازه‌های پل|
+# Construction & Decoration > Building Sealing
+Damp Proofing|عایق رطوبتی|
+Door Seals|نوار درزگیر درب|
+Expansion Joint Seals|درزگیر درز انبساط|
+Flooring Adhesives|چسب کفپوش|
+Glazing Sealants|درزگیر شیشه|
+Insulation Sealants|درزگیر عایق|
+Joint Tapes|نوار درز|
+Polyurethane Foam|فوم پلی‌یورتان (اسپری)|
+Roofing Sealants|درزگیر بام|
+Sealants|درزگیر (ماستیک)|
+Sealing Tape|نوار آب‌بندی|
+Silicone Sealants|چسب سیلیکون|
+Structural Adhesives|چسب سازه‌ای|
+Wallpaper Adhesives|چسب کاغذدیواری|
+Window Seals|نوار درزگیر پنجره|
+Other Building Sealings|سایر درزگیرهای ساختمانی|
+# Construction & Decoration > Building Steel & Structure
+Square Steel|قوطی و چهارپهلو فولادی|
+Steel Angle|نبشی|
+Steel Billet|شمش فولاد|
+Steel Channel|ناودانی|
+Steel Coil & Strip|کلاف و تسمه فولادی|
+Steel Grating|گریتینگ|
+Steel Rebar|میلگرد|
+Steel Round Bar|میلگرد ساده|
+Steel Sheet & Plate|ورق فولادی|
+Steel Structure|سازه فولادی|
+Truss|خرپا|
+Other Building Steel & Structures|سایر آهن‌آلات ساختمانی|
+# Construction & Decoration > Curtain Wall & Accessories
+Curtain Wall|نمای شیشه‌ای (کرتین‌وال)|
+Curtain Wall Profile|پروفیل کرتین‌وال|
+Glass Spider|اسپایدر شیشه|
+Other Curtain Wall Accessories|سایر متعلقات کرتین‌وال|
+# Construction & Decoration > Fire Retardant & Fireproof Material
+Fire Door|درب ضدحریق|
+Fireproof Blanket|پتوی نسوز|
+Fireproof Board|برد ضدحریق|
+Fireproof Coating|پوشش ضدحریق|
+Fireproof Glass|شیشه ضدحریق|
+Fireproof Rolling Shutter|کرکره ضدحریق|
+Fireproof Sealant|درزگیر ضدحریق|
+Other Fireproof Material|سایر مصالح ضدحریق|
+# Construction & Decoration > Heat Insulation Material
+Aerogel Felt|نمد ایروژل|
+Bubble Foil Insulation|عایق حبابی فویلدار|
+EPS Foam Board|یونولیت EPS|
+Foam Glass|فوم شیشه|
+Foil EPE Foam|فوم EPE فویلدار|
+Glass Wool|پشم شیشه|
+Heat Insulation Film|فیلم عایق حرارتی|
+Rock Wool|پشم سنگ|
+Silicate Insulation|عایق سیلیکاتی|
+Thermal Insulation Coating|پوشش عایق حرارتی|
+Vacuum Insulation Panel|پنل عایق وکیوم|
+XPS Foam Board|فوم XPS|
+Other Heat Insulation Material|سایر عایق‌های حرارتی|
+# Construction & Decoration > Prefabricated Building
+Apartment|آپارتمان پیش‌ساخته|
+Architectural Model|ماکت معماری|
+Booth|کیوسک و غرفه|
+Bubble House|خانه حبابی|
+Caravan|کاروان|
+Container House|کانکس و خانه کانتینری|
+Farm Facilities|سازه دامداری و مزرعه|
+Garden Shed|انباری باغ|
+Home Garage|گاراژ پیش‌ساخته|
+Integrated Bathroom|سرویس بهداشتی پیش‌ساخته|
+Office Building|ساختمان اداری پیش‌ساخته|
+Outdoor Roof|سایبان فضای باز|
+Pod Hotel|کپسول هتل|
+Portable Toilet|توالت سیار|
+Prefabricated Hotel|هتل پیش‌ساخته|
+Prefabricated Shop|مغازه پیش‌ساخته|
+Prefabricated Warehouse|انبار پیش‌ساخته|
+Silence Booth|کابین سکوت (فون‌بوث)|
+Steel Structure Building|ساختمان اسکلت فلزی|
+Sunrooms & Glass Houses|آلاچیق شیشه‌ای|
+Tiny House|خانه کوچک|ترکیبی
+Trailer Booth|کیوسک تریلری|
+Villa|ویلای پیش‌ساخته|ترکیبی
+Wooden House|خانه چوبی|ترکیبی
+Workshops & Plants|سوله و کارگاه|
+Other Prefab Houses|سایر سازه‌های پیش‌ساخته|
+# Construction & Decoration > Shaped Building Material
+Aluminum Profile|پروفیل آلومینیوم|
+Copper Profile|پروفیل مس|
+Fiberglass Profile|پروفیل فایبرگلاس|
+Plastic Profile|پروفیل پلاستیکی|
+Other Shaped Building Material|سایر پروفیل‌ها|
+# Construction & Decoration > Special Building Materials
+Fiberglass Mesh|توری فایبرگلاس|
+Fiberglass Roof Panel|ورق سقفی فایبرگلاس|
+GRP Grating|گریتینگ GRP|
+HPMC|HPMC (افزودنی ملات)|
+Polypropylene Fiber|الیاف پلی‌پروپیلن بتن|
+Steel Fibers for Concrete|الیاف فولادی بتن|
+Other Special Building Materials|سایر مصالح ویژه|
+# Construction & Decoration > Steel Structure
+Steel Bar Truss Deck|سقف عرشه فولادی|
+Steel Column|ستون فولادی|
+Steel Frame|قاب فولادی|
+Steel Roof|سقف فولادی|
+Steel Staircase|پله فلزی|
+Steel Structure Bridge|پل فلزی|
+Steel Structure Platform|سکوی فلزی|
+Steel Walkway & Floor|راهرو و کف فلزی|
+Other Steel Structure|سایر سازه‌های فولادی|
+# Construction & Decoration > Waterproof Building Materials
+Asphalt Waterproof Membrane|ایزوگام|
+Geosynthetic Clay Liner(GCL)|لاینر رسی (GCL)|
+Polymer Waterproof Membrane|عایق پلیمری|
+Roof Tile Waterproof|عایق زیرسفال|
+Waterproof Coating|پوشش آب‌بند|
+Waterproof Mortar|ملات آب‌بند|
+Other Waterproof Building Materials|سایر عایق‌های رطوبتی|
+# Construction & Decoration > Building Heater
+Fireplace, Stove & Parts|شومینه و بخاری|ترکیبی
+Floor Heating Systems & Parts|گرمایش از کف|
+Heating Radiator|رادیاتور|
+Other Building Heater|سایر گرمایش ساختمان|
+# Construction & Decoration > Construction Equipment & Tools
+Caulking Gun|تفنگ چسب|
+Formwork|قالب بتن|
+Glass Cutter|شیشه‌بُر|
+Lifting Table|میز بالابر|
+Plaster Trowel|ماله|
+Putty Knife|کاردک|
+Scaffolding|داربست|
+Scaffolding Net|توری داربست|
+Scaffolding Parts|اتصالات داربست|
+Suspended Platform|گندولا|
+Other Construction Equipment & Tools|سایر ابزار ساختمانی|
+# Construction & Decoration > Construction Pipe & Tube
+Aluminum Tube & Pipe|لوله آلومینیومی|
+Composite Pipe & Tube|لوله چندلایه (پنج‌لایه)|
+Copper Pipe & Tube|لوله مسی|
+Iron Pipe & Tube|لوله چدنی و آهنی|
+Plastic Pipe & Tube|لوله پلاستیکی|
+Steel Pipe & Tube|لوله فولادی|
+Other Pipes & Tubes|سایر لوله‌ها|
+# Construction & Decoration > Fence
+Airport Fence|فنس فرودگاهی|
+Balcony Fence|نرده بالکن|
+Bridge Fence|نرده پل|
+Farm Fence|فنس مزرعه|
+Garden Fencing|نرده باغ|
+Highway Guard Rail|گاردریل|
+Railway Fence|فنس راه‌آهن|
+Security Fence|فنس امنیتی|
+Soundproof Fence|دیوار صوتی|
+Stadium Fence|فنس ورزشگاه|
+Stair Fence|نرده پله|
+Traffic Barrier|راه‌بند ترافیکی|
+Other Fences|سایر فنس و نرده‌ها|
+# Construction & Decoration > Geosynthetics Products
+Geocell|ژئوسل|
+Geocomposite|ژئوکامپوزیت|
+Geogrid|ژئوگرید|
+Geomembrane|ژئوممبران|
+Geonet|ژئونت|
+Geotextile|ژئوتکستایل|
+Weed Mat|مالچ ضدعلف|
+Other Geosynthetics Products|سایر ژئوسنتتیک‌ها|
+# Construction & Decoration > Pipe Fittings
+Bushing|بوشن|
+Cap|درپوش|
+Coupling|کوپلینگ (بوشن دوسر)|
+Cross|چهارراه|
+Elbow|زانو|
+Expansion Joint|اتصال انبساطی|
+Nipple|مغزی|
+Reducer|تبدیل|
+Sight Glass|سایت‌گلس|
+Tee|سه‌راه|
+Union|مهره ماسوره|
+Other Pipe Fittings|سایر اتصالات لوله|
+# Construction & Decoration > Timber & Plywood
+Bamboo|بامبو|
+Blockboard|تخته بلاک‌برد|
+Fiberboard|MDF و فیبر|
+Finger Jointed Boards|تخته فینگرجوینت|
+Log and Veneer|الوار و روکش چوب|
+Melamine Board|ام‌دی‌اف ملامینه|
+Particle Board|نئوپان|
+Plywood|تخته چندلایی|
+Solid Wood Board|تخته چوب ماسیو|
+Other Artificial Wood|سایر چوب‌های مصنوعی|
+# Construction & Decoration > Wire Mesh
+Barbed Wire|سیم خاردار|
+Chain Link Fence|فنس توری|
+Crimped Wire Mesh|توری موج‌دار|
+Expanded Metal Mesh|توری منبسط (رابیتس)|
+Fiberglass Mesh|توری فایبرگلاس|
+Filter Screen|توری فیلتر|
+Gabion|گابیون (توری سنگ)|
+Hexagonal Wire Mesh|توری مرغی|
+Metal Wire|مفتول|
+Perforated Metal|ورق مشبک|
+Plastic Coated Wire Mesh|توری روکش‌دار PVC|
+Square Mesh|توری مربعی|
+Stainless Steel Wire Mesh|توری استیل|
+Welded Wire Mesh|مش جوشی|
+Other Wire Meshes|سایر توری‌ها|

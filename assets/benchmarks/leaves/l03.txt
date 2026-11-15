@@ -1,0 +1,235 @@
+# Auto, Motorcycle Parts & Accessories > Auto Sensor
+ABS Sensor|سنسور ABS|
+Flow Sensor|سنسور جریان هوا (MAF)|
+Gas Sensor|سنسور اکسیژن و گاز|
+Inertial Sensor|سنسور اینرسی|
+Pressure Sensor|سنسور فشار|
+Throttle Position Sensor|سنسور دریچه گاز|
+Other Auto Sensors|سایر سنسورهای خودرو|
+# Auto, Motorcycle Parts & Accessories > Car Accessories
+Car Bumper|سپر خودرو|
+Car Door|درب خودرو|
+Car Door Handle|دستگیره درب خودرو|
+Car Fender|گلگیر خودرو|
+Car Glass & Window|شیشه خودرو|
+Car Grille|جلوپنجره خودرو|
+Car Lock|قفل خودرو|
+Car Ramp|رمپ خودرو|B2B
+Car Seat|صندلی خودرو|
+Shift Knob|سردنده|
+Side Step|رکاب خودرو|
+Spoiler|اسپویلر|
+Tail Lift|بالابر عقب کامیون|B2B
+Wiper Blade, Arm & Motor|تیغه، بازو و موتور برف‌پاک‌کن|
+Other Car Accessories|سایر قطعات بدنه خودرو|
+# Auto, Motorcycle Parts & Accessories > Car Air Conditioning System
+Auto Air Conditioning Clutch|کلاچ کمپرسور کولر خودرو|
+Auto Air Conditioning Compressor|کمپرسور کولر خودرو|
+Auto Compressor|کمپرسور خودرو|
+Blower Motor|موتور فن بخاری|
+Car Air Conditioning Condenser Fan|فن کندانسور کولر خودرو|
+Car Condenser|کندانسور خودرو|
+Car Evaporator|اواپراتور خودرو|
+Receiver Drier|فیلتر درایر کولر خودرو|
+Other Car Air Conditioning System|سایر قطعات کولر خودرو|
+# Auto, Motorcycle Parts & Accessories > Car Electronics
+Bluetooth Dongle|دانگل بلوتوث خودرو|
+Car Audio|سیستم صوتی خودرو|
+Car Charger|شارژر فندکی|
+Car Communications|بی‌سیم و ارتباطات خودرو|
+Car Video|مانیتور و پخش تصویر خودرو|
+GPS Navigator|مسیریاب GPS|
+GPS Tracker|ردیاب GPS|ترکیبی
+Other Car Electronics|سایر الکترونیک خودرو|
+# Auto, Motorcycle Parts & Accessories > Car Light & Auto Mirror
+Brake Light|چراغ ترمز|
+Car Interior Light|چراغ داخل خودرو|
+Fog Light|چراغ مه‌شکن|
+Halogen Light|لامپ هالوژن خودرو|
+Headlight|چراغ جلو|
+LED Light Bar|لایت‌بار LED|
+LED Work Light|چراغ کار LED|B2B
+License Plate Light|چراغ پلاک|
+Rear Light|چراغ عقب|
+Rear View Mirror|آینه بغل و وسط|
+Reverse Light|چراغ دنده‌عقب|
+Rope Light|ریسه نوری خودرو|
+Turn Light|چراغ راهنما|
+Xenon Light|لامپ زنون|
+Other Car Lights & Auto Mirrors|سایر چراغ و آینه خودرو|
+# Auto, Motorcycle Parts & Accessories > Ratchet Straps & Buckle
+Ratchet Buckle|سگک جغجغه‌ای|
+Ratchet Straps|تسمه بار جغجغه‌ای (اسپانسور)|
+# Auto, Motorcycle Parts & Accessories > Tire & Accessories
+Agricultural Tire|لاستیک کشاورزی|B2B
+Bicycle Tire|لاستیک دوچرخه|مصرفی
+Car Tire|لاستیک سواری|
+Electric Bike Tire|لاستیک دوچرخه برقی|مصرفی
+Industrial Tire|لاستیک صنعتی (لیفتراک)|B2B
+Motorcycle Tire|لاستیک موتورسیکلت|
+OTR Tire|لاستیک معدنی و راهسازی (OTR)|B2B
+Off Road Tire|لاستیک آفرود|
+Tire Chain|زنجیر چرخ|
+Tire Valve|والو لاستیک|B2B
+Truck & Bus Tire|لاستیک کامیون و اتوبوس|B2B
+Other Tires|سایر لاستیک‌ها|
+# Auto, Motorcycle Parts & Accessories > Auto Electrical System
+Auto Meter|آمپر و نمایشگر خودرو|
+Auto Relay|رله خودرو|
+Car Alternator|دینام خودرو|
+Car Battery|باتری خودرو|
+Car Speakers & Horn|بلندگو و بوق خودرو|
+Car Switch|کلید خودرو|
+Fuse Holder & Car Fuses|فیوز و جافیوزی خودرو|
+Other Auto Electrical System|سایر قطعات برقی خودرو|
+# Auto, Motorcycle Parts & Accessories > Auto Engine
+Diesel Engine|موتور دیزل|
+Electric Engine|موتور برقی|
+Gasoline Engine|موتور بنزینی|
+Hybrid Engine|موتور هیبرید|
+Natural Gas Engine|موتور گازسوز|
+# Auto, Motorcycle Parts & Accessories > Auto Engine Structure
+Air Intake|سیستم هواگیری|
+Auto Cylinder|سیلندر موتور|
+Camshaft|میل‌سوپاپ|
+Cooling System|سیستم خنک‌کاری|
+Engine Mount|دسته موتور|
+Exhaust System|سیستم اگزوز|
+Fuel System|سیستم سوخت‌رسانی|
+Ignition System|سیستم جرقه (کوئل، شمع)|
+Lubrication System|سیستم روغن‌کاری (پمپ روغن)|
+Muffler|منبع اگزوز|
+Starter Motor|استارت|
+Turbocharger|توربوشارژر|
+Valve System|سیستم سوپاپ|
+Other Auto Engine Structure|سایر قطعات موتور|
+# Auto, Motorcycle Parts & Accessories > Auto Parts
+Auto Bearing|بلبرینگ خودرو|
+Auto Compressor|کمپرسور خودرو|
+Auto Filter|فیلتر خودرو|
+Auto Steering Systems|سیستم فرمان|
+Auto Transmission|گیربکس خودرو|
+Axles|اکسل|
+Brake|ترمز (لنت، دیسک)|
+Car Tire|لاستیک خودرو|
+Clock Spring|فنر ساعتی فرمان|
+Clutch|کلاچ|
+Drive Shaft|میل‌گاردان|
+Fan Belt|تسمه دینام|
+Gearbox|گیربکس|
+Shock Absorber|کمک‌فنر|
+Suspension System|سیستم تعلیق|
+Timing Belt|تسمه تایم|
+Timing Chain|زنجیر تایم|
+Universal Joint|چهارشاخ گاردان|
+Wheel Hub, Rim & Spoke|توپی، رینگ و پره|
+Other Auto Parts|سایر قطعات خودرو|
+# Auto, Motorcycle Parts & Accessories > Crank Mechanism
+Auto Cylinder|سیلندر|
+Connecting Rod|شاتون|
+Crankshaft|میل‌لنگ|
+Cylinder Head|سرسیلندر|
+Cylinder Head Cover|درب سوپاپ|
+Cylinder Head Gasket|واشر سرسیلندر|
+Cylinder Liner|بوش سیلندر|
+Flywheel|فلایویل|
+Oil Pan|کارتل|
+Piston|پیستون|
+Piston Pin|گژن‌پین|
+Piston Ring|رینگ پیستون|
+Other Crank Mechanisms|سایر قطعات مکانیزم لنگ|
+# Auto, Motorcycle Parts & Accessories > Car Decoration
+Car Cover|چادر خودرو|
+Car Film|فیلم شیشه و بدنه|
+Car Holder|پایه نگهدارنده موبایل|
+Car Mat|کفپوش خودرو|
+Car Organizer|نظم‌دهنده داخل خودرو|
+Car Perfume & Air Freshener|خوشبوکننده خودرو|
+Car Roof Box & Rack|باکس و باربند سقف|
+Car Seat Cover & Cushion|روکش و کوسن صندلی|
+Car Sticker|برچسب خودرو|
+Car Sunshade|آفتاب‌گیر خودرو|
+License Plate Frame|قاب پلاک|
+Steering Wheel Covers|روکش فرمان|
+Window Visor|بادگیر شیشه|
+Other Car Decoration|سایر تزئینات خودرو|
+# Auto, Motorcycle Parts & Accessories > Car Maintenance
+Antifreeze & Coolant|ضدیخ|
+Car Cleaning Chemical|مواد شوینده خودرو|
+Car Polisher|دستگاه پولیش خودرو|B2B
+Car Wax|واکس خودرو|
+Cleaning Ball, Sponge & Cloth|اسفنج و دستمال کارواش|
+Cleaning Brush|برس کارواش|
+Fuel Additives|مکمل سوخت|
+High Pressure Car Washer|کارواش فشار قوی|
+Ice Scraper|یخ‌تراش|مصرفی
+Lubricant|روان‌کننده|
+Paint Spray Gun|پیستوله رنگ|B2B
+Vacuum Cleaner|جاروبرقی خودرو|
+Washer Gun|تفنگ کارواش|
+Work & Safety Gloves|دستکش کار|B2B
+Other Car Maintenance|سایر محصولات نگهداری خودرو|
+# Auto, Motorcycle Parts & Accessories > New Energy Vehicle Parts & Accessories
+AC Charging Stations|شارژر AC خودروی برقی|
+AC-DC Charging Stations|ایستگاه شارژ AC/DC|B2B
+Charging Cable|کابل شارژ خودروی برقی|
+DC Charging Stations|شارژر سریع DC|B2B
+DC-DC Converter|مبدل DC-DC|
+EV Battery|باتری خودروی برقی|
+EV Connector|کانکتور شارژ|
+EV Inverter|اینورتر خودروی برقی|
+EV Motor|موتور خودروی برقی|
+Electric Pedal|پدال برقی|
+Motor Controller|کنترلر موتور|
+Off Board Charger|شارژر خارجی|
+On-board Charger|شارژر داخلی (OBC)|
+Portable Charging Stations|شارژر قابل‌حمل|
+Wireless Charging Stations|شارژر بی‌سیم خودرو|
+Other NEV Parts & Accessories|سایر قطعات خودروی برقی|
+# Auto, Motorcycle Parts & Accessories > Vehicle Repair Equipment & Tools
+Auto Painting Equipment|تجهیزات نقاشی خودرو (کابین رنگ)|
+Automotive Test Equipment|تجهیزات تست خودرو|
+Booster Cables|کابل باتری به باتری|ترکیبی
+Car Bench|شاسی‌کش|
+Car Lift|جک بالابر خودرو|
+Diagnostic Tool|دستگاه دیاگ|
+Dust Collector|مکنده گردوغبار|
+Grinder|سنگ فرز|
+Jump Starter|جامپ استارتر|ترکیبی
+Lifting Jack|جک|
+Repair Tools|ابزار تعمیرگاهی|
+Tire Inflator|پمپ باد لاستیک|ترکیبی
+Tyre Changer|دستگاه لاستیک درآر|
+Warning Triangle|مثلث خطر|مصرفی
+Welding Equipment|تجهیزات جوشکاری|
+Wheel Alignment|دستگاه تنظیم فرمان (بالانس جلوبندی)|
+Wheel Balancer|دستگاه بالانس چرخ|
+Other Auto Repair Equipment & Tools|سایر تجهیزات تعمیرگاهی|
+# Auto, Motorcycle Parts & Accessories > Car Safety
+Car Alarm|دزدگیر خودرو|
+Car Black Box|جعبه سیاه خودرو|
+Car DVR|دوربین ثبت وقایع|
+Car Radar|سنسور دنده‌عقب|
+Car Rearview Camera|دوربین دنده‌عقب|
+Car Rearview Monitor|مانیتور دنده‌عقب|
+Rear View Mirror|آینه|
+Other Car Safety|سایر ایمنی خودرو|
+# Auto, Motorcycle Parts & Accessories > Motorcycle Parts & Accessories
+Motorcycle Battery|باتری موتورسیکلت|
+Motorcycle Body Parts|قطعات بدنه موتورسیکلت|
+Motorcycle Electronics|برق موتورسیکلت|
+Motorcycle Engine|موتور موتورسیکلت|
+Motorcycle Helmets|کلاه کاسکت|مصرفی
+Motorcycle Lock|قفل موتورسیکلت|مصرفی
+Motorcycle Luggage|باکس و خورجین موتور|مصرفی
+Motorcycle Shock Absorber|کمک‌فنر موتورسیکلت|
+Motorcycle Steering & Transmission System|فرمان و انتقال قدرت موتورسیکلت|
+Sports Protection|محافظ موتورسواری|مصرفی
+Other Motorcycle Parts & Accessories|سایر قطعات موتورسیکلت|
+# Auto, Motorcycle Parts & Accessories > Car Electrical Appliances
+Car Air Purifier|تصفیه هوای خودرو|
+Car Fan|پنکه خودرو|
+Car Refrigerator|یخچال خودرو|
+Car Rice Cooker|پلوپز خودرو|
+Car Vacuum Cleaner|جاروبرقی خودرو|
+Other Car Electrical Appliances|سایر لوازم برقی خودرو|

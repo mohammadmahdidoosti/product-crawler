@@ -1,0 +1,345 @@
+# Apparel & Accessories > Baby Apparel
+Baby Bodysuit|بادی نوزاد|
+Baby One-Piece Romper|سرهمی نوزاد|
+Baby Pant Set|ست شلوار نوزاد|
+Bunting Bag|کیسه خواب نوزاد|
+Swaddling Blanket|قنداق نوزاد|
+Other Baby Apparels|سایر پوشاک نوزاد|
+# Apparel & Accessories > Belt & Accessories
+Belt Parts & Accessories|قطعات و سگک کمربند|B2B
+Fabric Belt|کمربند پارچه‌ای|
+Leather Belt|کمربند چرمی|
+Metal Belt|کمربند فلزی|
+PU Belt|کمربند چرم مصنوعی|
+Plastic Belt|کمربند پلاستیکی|
+Suspenders|بند شلوار|
+Other Belts|سایر کمربندها|
+# Apparel & Accessories > Children's Apparel
+Boys' Tops, Tees & Shirts|تیشرت و پیراهن پسرانه|
+Boys' Underwear|لباس زیر پسرانه|
+Children's Apron|پیش‌بند کودک|
+Children's Coat|کت و پالتو کودک|
+Children's Down Jacket|کاپشن پر کودک|
+Children's Hoodie|هودی کودک|
+Children's Overall|سرهمی کودک|
+Children's Pajama|لباس خواب کودک|
+Children's School Uniform|روپوش و فرم مدرسه|ترکیبی
+Children's Suit|کت‌وشلوار کودک|
+Children's Sweater|ژاکت بافتنی کودک|
+Children's Vest|جلیقه کودک|
+Girl's Skirt|دامن دخترانه|
+Girls' Tops, Tees & Blouses|تیشرت و بلوز دخترانه|
+Girls'Underwear|لباس زیر دخترانه|
+Other Children's Apparels|سایر پوشاک کودک|
+# Apparel & Accessories > Denim Clothing
+Boys' Denim Jacket|کت جین پسرانه|
+Boys' Jeans|شلوار جین پسرانه|
+Denim Overalls|سرهمی جین|
+Denim Suit|ست جین|
+Girls' Denim Jacket|کت جین دخترانه|
+Girls' Jeans|شلوار جین دخترانه|
+Men's Denim Jacket|کت جین مردانه|
+Men's Denim Shorts|شلوارک جین مردانه|
+Men's Jeans|شلوار جین مردانه|
+Women's Denim Jacket|کت جین زنانه|
+Women's Denim Shorts|شلوارک جین زنانه|
+Women's Jeans|شلوار جین زنانه|
+Other Denim Clothing|سایر پوشاک جین|
+# Apparel & Accessories > Down & Winter Apparel
+Men's Down Jacket|کاپشن پر مردانه|
+Men's Winter Apparel|پوشاک زمستانی مردانه|
+Women's Down Jacket|کاپشن پر زنانه|
+Women's Winter Apparel|پوشاک زمستانی زنانه|
+Other Down & Winter Apparels|سایر پوشاک زمستانی|
+# Apparel & Accessories > Dresses
+A-Line Dress|پیراهن زنانه کلوش (A)|
+Beach Dress|پیراهن ساحلی|
+Casual Dress|پیراهن زنانه روزمره|
+Maxi Dress|پیراهن ماکسی|
+Midi Dress|پیراهن میدی|
+Mini Dress|پیراهن کوتاه|
+One-Shoulder Dress|پیراهن تک‌شانه|
+Pleated Dress|پیراهن پلیسه|
+Set Dress|ست پیراهن|
+Shirt Dress|پیراهن مدل شومیزی|
+Slip Dress|پیراهن بندی|
+Straight Dress|پیراهن راسته|
+Strapless Dress|پیراهن دکلته|
+Suit Dress|پیراهن رسمی|
+Winter Dress|پیراهن زمستانی|
+Other Dresses|سایر پیراهن‌های زنانه|
+# Apparel & Accessories > Hoodie & Sweatshirt
+Men's Cardigan Hoodie|هودی زیپ‌دار مردانه|
+Men's Pullover Hoodie|هودی مردانه|
+Women's Cardigan Hoodie|هودی زیپ‌دار زنانه|
+Women's Pullover Hoodie|هودی زنانه|
+Other Hoodies & Sweatshirts|سایر هودی و سویشرت|
+# Apparel & Accessories > Jacket
+Baseball Jacket|کاپشن بیسبالی|
+Bomber Jacket|کاپشن بمبر|
+Denim Jacket|کت جین|
+Down Jacket|کاپشن پر|
+Hunting Jacket|کاپشن شکار|
+Leather Jacket|کاپشن چرم|
+Sports Jacket|کاپشن ورزشی|
+Tactical Jacket|کاپشن تاکتیکی|
+Technical Jacket|کاپشن فنی (کوهنوردی)|
+Windbreaker Jacket|بادگیر|
+Other Jackets|سایر کاپشن‌ها|
+# Apparel & Accessories > Outer Wear
+Men's Faux Fur Coat|پالتو خز مصنوعی مردانه|
+Men's Outer Wear|پوشاک رو مردانه|
+Women's Faux Fur Coat|پالتو خز مصنوعی زنانه|
+Women's Outer Wear|پوشاک رو زنانه|
+# Apparel & Accessories > Pajamas & Bathrobe
+Bathrobe|حوله تن‌پوش|ترکیبی
+Night Robe|روب خواب|
+Nightgown|لباس خواب بلند|
+Pajama Set|ست لباس خواب|
+Romper Pajama|لباس خواب سرهمی|
+Other Pajamas & Bathrobes|سایر لباس خواب و حوله تن‌پوش|
+# Apparel & Accessories > Pants & Trousers
+Boys' Pants|شلوار پسرانه|
+Girls' Pants|شلوار دخترانه|
+Men's Cargo Pants|شلوار کارگو مردانه|
+Men's Dress Pants|شلوار رسمی مردانه|
+Men's Shorts|شلوارک مردانه|
+Men's Sweat Pants|شلوار ورزشی مردانه|
+Women's Cargo Pants|شلوار کارگو زنانه|
+Women's Dress Pants|شلوار رسمی زنانه|
+Women's Shorts|شلوارک زنانه|
+Women's Sweat Pants|شلوار ورزشی زنانه|
+Other Pants & Trousers|سایر شلوارها|
+# Apparel & Accessories > Shirt & Blouse
+Men's 3/4 Sleeve Shirt|پیراهن مردانه سه‌ربع|
+Men's Long Sleeve Shirt|پیراهن مردانه آستین بلند|
+Men's Short Sleeve Shirt|پیراهن مردانه آستین کوتاه|
+Women's 3/4 Sleeve Blouse|بلوز زنانه سه‌ربع|
+Women's Long Sleeve Blouse|بلوز زنانه آستین بلند|
+Women's Short Sleeve Blouse|بلوز زنانه آستین کوتاه|
+Women's Sleeveless Blouse|بلوز زنانه بی‌آستین|
+Other Shirts & Blouses|سایر پیراهن و بلوز|
+# Apparel & Accessories > Safety & Protective Apparel
+Chemical Protective Clothing|لباس حفاظت شیمیایی|
+Fireproof Suit|لباس نسوز آتش‌نشانی|
+Flame Retardant Clothing|لباس کار ضدشعله|
+Isolation Gown|گان ایزوله|
+Reflective Safety Clothing|لباس و جلیقه شبرنگ|
+Stab-resistant Clothing|لباس ضدچاقو|
+Other Safety & Protective Apparels|سایر لباس‌های ایمنی|
+# Apparel & Accessories > Swimsuit
+Boys' Swim Trunk|مایو پسرانه|
+Competition Swimsuit|مایو مسابقه|
+Girl's Swimsuit|مایو دخترانه|
+Men's Board Short|شورت ساحلی مردانه|
+Men's Swim Trunk|مایو مردانه|
+Modest Swimsuit|مایو پوشیده|
+Swim Dress|پیراهن شنا|
+Swimsuit Cover Up|رولباسی ساحلی|
+Wetsuit|لباس غواصی|
+Women's Bikinis|بیکینی|
+Women's One-Piece Swimsuit|مایو یک‌تکه زنانه|
+Women's Two-Piece Swimsuit|مایو دوتکه زنانه|
+Other Swimsuits|سایر مایوها|
+# Apparel & Accessories > Tactical Apparel
+Camouflage Clothing|لباس استتار|
+Combat Boots|پوتین رزمی|
+Tactical Belt|کمربند تاکتیکی|
+Tactical Gloves|دستکش تاکتیکی|
+Tactical Helmet|کلاه تاکتیکی|
+Tactical Pants|شلوار تاکتیکی|
+Tactical Vest|جلیقه تاکتیکی|
+Other Tactical Apparels|سایر پوشاک تاکتیکی|
+# Apparel & Accessories > Uniform & Work Clothes
+Uniform|یونیفرم و لباس فرم|
+Work Clothes|لباس کار|
+# Apparel & Accessories > Wedding Dresses & Ceremonial Clothing
+Bridesmaid Dresses|لباس ساقدوش|
+Celebrity Dresses|لباس مجلسی فرش قرمز|
+Cocktail Dresses|لباس کوکتل|
+Evening Dresses|لباس شب|
+Flower Girl Dresses|لباس دختر گل‌به‌دست|
+Graduation Dresses|لباس فارغ‌التحصیلی|
+Homecoming Dresses|لباس مهمانی مدرسه|
+Men's Dress|لباس رسمی مردانه|
+Mother of the Bride Dress|لباس مادر عروس|
+Prom Dresses|لباس جشن پایان سال|
+Quinceanera Dresses|لباس جشن پانزده‌سالگی|
+Wedding Accessories|لوازم جانبی عروس|
+Wedding Dresses|لباس عروس|
+Other Ceremonial Clothing|سایر لباس‌های مجلسی|
+# Apparel & Accessories > Gloves & Mittens
+Cleaning Gloves|دستکش نظافت|ترکیبی
+Disposable Gloves|دستکش یکبار مصرف|B2B
+Etiquette Gloves|دستکش تشریفات|
+Oven Gloves|دستکش فر|
+Sports Gloves|دستکش ورزشی|مصرفی
+Warm Gloves|دستکش زمستانی|مصرفی
+Wedding Gloves|دستکش عروس|مصرفی
+Work & Safety Gloves|دستکش کار و ایمنی|B2B
+Other Gloves & Mittens|سایر دستکش‌ها|
+# Apparel & Accessories > Hat & Cap
+Disposable Cap|کلاه یکبار مصرف|B2B
+Dress Hat|کلاه رسمی|مصرفی
+Leisure Cap|کلاه روزمره|مصرفی
+Specialized Cap|کلاه مناسبتی|
+Sports Cap|کلاه ورزشی|مصرفی
+Sun Cap|کلاه آفتابی|مصرفی
+Warm Cap|کلاه زمستانی|مصرفی
+Work Caps|کلاه کار|B2B
+Other Hats & Caps|سایر کلاه‌ها|
+# Apparel & Accessories > Scarf & Warm
+Bandana, Headband & Cravat|باندانا، هدبند و کراوات|
+Scarf|شال‌گردن و روسری|
+Shawl|شال|
+Warm Set|ست زمستانی (کلاه و شال)|
+# Apparel & Accessories > Shoes
+Baby Shoes|کفش نوزاد|
+Boys' Shoes|کفش پسرانه|
+Functional Shoes|کفش کاربردی (کار، طبی)|ترکیبی
+Girls' Shoes|کفش دخترانه|
+Men's Shoes|کفش مردانه|
+Men's Slippers|دمپایی مردانه|
+Rainboots|چکمه بارانی|
+Shoes Parts & Accessories|قطعات و لوازم کفش|B2B
+Used Shoes|کفش دست‌دوم (عمده)|B2B
+Women's Shoes|کفش زنانه|
+Women's Slippers|دمپایی زنانه|
+# Apparel & Accessories > Clothing Accessories
+Apparel Beads|مهره لباس|
+Apparel Clip|گیره لباس|
+Apparel Eyelet|پرچ چشمی (سوراخ بند)|
+Buckle, Hook & Loop|سگک، قزن و چسب پارچه‌ای|
+Button|دکمه|
+Clothing Flower|گل تزئینی لباس|
+Clothing Pads|پد لباس (سرشانه)|
+Clothing Rivet|پرچ لباس|
+Clothing Stopper|استاپر بند لباس|
+Cuff Links|دکمه سردست|مصرفی
+Edging & Tassel|نوار حاشیه و منگوله|
+Fashion Chains|زنجیر تزئینی|
+Fur Collar|یقه خز|
+Garment Labels|لیبل لباس|
+Interlining & Lining|لایی و آستری|
+Lace & Purfle|تور و نوار تزئینی|
+Neckline|یقه آماده|
+Patch|پچ و آرم دوختی|
+Rhinestone|نگین (استراس)|
+Rib Cuff|کش مچ و یقه (ریب)|
+Rope & Woven Tape|بند و نوار بافته|
+Sequins|پولک|
+Sewing Thread|نخ دوخت|
+Webbing|تسمه بافته (وبینگ)|
+Zipper & Slider|زیپ و سرزیپ|
+Other Clothing Accessories|سایر خرازی و متعلقات لباس|
+# Apparel & Accessories > Mannequin
+Children's Mannequin|مانکن کودک|
+Full Body Mannequin|مانکن تمام‌قد|
+Half Body Mannequin|مانکن نیم‌تنه|
+Part Body Mannequin|مانکن عضوی (سر، دست، پا)|
+Other Mannequins|سایر مانکن‌ها|
+# Apparel & Accessories > Boys' Shoes
+Boys' Athletic Shoes|کفش ورزشی پسرانه|
+Boys' Boots|بوت پسرانه|
+Boys' Casual Shoes|کفش روزمره پسرانه|
+Boys' Dance Shoes|کفش رقص پسرانه|
+Boys' Rain Boots|چکمه بارانی پسرانه|
+Boys' Sandals|صندل پسرانه|
+Boys' Slippers|دمپایی پسرانه|
+Boys' Winter Boots|بوت زمستانی پسرانه|
+# Apparel & Accessories > Dress Hat
+Bowler & Deby Hat|کلاه لگنی|
+Fedora|کلاه فدورا|
+Formal Hat|کلاه رسمی|
+Other Dress Hat|سایر کلاه‌های رسمی|
+# Apparel & Accessories > Functional Shoes
+Chef Shoes|کفش آشپزخانه (سرآشپز)|B2B
+Heated Shoes|کفش گرمکن‌دار|مصرفی
+Height Increasing Shoes|کفش افزایش قد|مصرفی
+Nurse Shoes|کفش پرستاری|B2B
+Orthopedic Shoes|کفش طبی|مصرفی
+Work & Safety Shoes|کفش کار و ایمنی|B2B
+Other Functional Shoes|سایر کفش‌های کاربردی|
+# Apparel & Accessories > Girls' Shoes
+Girls' Athletic Shoes|کفش ورزشی دخترانه|
+Girls' Boots|بوت دخترانه|
+Girls' Casual Shoes|کفش روزمره دخترانه|
+Girls' Dance Shoes|کفش رقص دخترانه|
+Girls' Rain Boots|چکمه بارانی دخترانه|
+Girls' Sandals|صندل دخترانه|
+Girls' Slippers|دمپایی دخترانه|
+Girls' Winter Boots|بوت زمستانی دخترانه|
+# Apparel & Accessories > Leisure Cap
+Beret|کلاه برت|
+Bonnet|کلاه بونت|
+Cowboy Hat|کلاه کابوی|
+Dad Hat|کلاه کپ نرم|
+Newsboy Hat|کلاه کاسکت|
+Peaked Cap|کلاه نقاب‌دار|
+Snapback Cap|کلاه اسنپ‌بک|
+Tactical Cap|کلاه کپ تاکتیکی|
+Trucker Hat|کلاه توری (ترکر)|
+Other Leisure Cap|سایر کلاه‌های روزمره|
+# Apparel & Accessories > Men's Athletic & Sports Shoes
+Men's Athletic & Outdoor Sandals & Slides|صندل ورزشی مردانه|
+Men's Baseball Shoes|کفش بیسبال مردانه|
+Men's Basketball Shoes|کفش بسکتبال مردانه|
+Men's Fashion Sneakers|اسنیکر مردانه|
+Men's Football Shoes|کفش فوتبال مردانه|
+Men's Running Shoes|کفش دویدن مردانه|
+Men's Tennis Shoes|کفش تنیس مردانه|
+Men's Walking Shoes|کفش پیاده‌روی مردانه|
+Men's Water Shoes|کفش آبی مردانه|
+Other Men's Athletic & Sports Shoes|سایر کفش‌های ورزشی مردانه|
+# Apparel & Accessories > Men's Leisure & Comfort Shoes
+Men's Boat Shoes|کفش قایقی مردانه|
+Men's Canvas Shoes|کفش پارچه‌ای مردانه|
+Men's Casual Leather Shoes|کفش چرم روزمره مردانه|
+Men's Loafers|کفش لوفر مردانه|
+Men's Skateboarding Shoes|کفش اسکیت مردانه|
+Other Men's Leisure & Comfort Shoes|سایر کفش‌های راحتی مردانه|
+# Apparel & Accessories > Men's Shoes
+Chef Shoes|کفش آشپزخانه|B2B
+Men's Athletic & Sports Shoes|کفش ورزشی مردانه|
+Men's Boots|بوت مردانه|
+Men's Dance Shoes|کفش رقص مردانه|
+Men's Dress Shoes|کفش رسمی مردانه|
+Men's Leisure & Comfort Shoes|کفش راحتی مردانه|
+Men's Rain Boots|چکمه بارانی مردانه|
+Men's Sandals|صندل مردانه|
+Men's Slippers|دمپایی مردانه|
+Other Men's Shoes|سایر کفش‌های مردانه|
+# Apparel & Accessories > Men's Slippers
+Men's Fluffy Slippers|دمپایی پشمالو مردانه|
+Men's Athletic & Outdoor Sandals & Slides|صندل ورزشی مردانه|
+Men's Flip Flops|دمپایی لا انگشتی مردانه|
+Men's Garden Shoes|دمپایی باغبانی مردانه|
+Men's Slides Slippers|دمپایی روفرشی مردانه|
+# Apparel & Accessories > Rainboots
+Boys' Rain Boots|چکمه بارانی پسرانه|
+Girls' Rain Boots|چکمه بارانی دخترانه|
+Men's Rain Boots|چکمه بارانی مردانه|
+Women's Rain Boots|چکمه بارانی زنانه|
+# Apparel & Accessories > Shoes Parts & Accessories
+Heel Patch|پد پاشنه|
+Insole|کفی کفش|
+Shoe Bag|کیسه کفش|
+Shoe Brush|برس کفش|
+Shoe Care|واکس و مواد مراقبت کفش|
+Shoe Decorations|تزئینات کفش|
+Shoe Hanger|آویز کفش|
+Shoe Heel|پاشنه کفش|
+Shoe Hook|قلاب بند کفش|
+Shoe Horn|پاشنه‌کش|
+Shoe Lining|آستری کفش|
+Shoe Tree|قالب نگهدارنده کفش|
+Shoe Upper|رویه کفش|
+Shoelace|بند کفش|
+Sole|زیره کفش|
+Toe Cap|پنجه فلزی کفش ایمنی|
+Other Shoes Parts & Accessories|سایر قطعات کفش|
+# Apparel & Accessories > Specialized Cap
+Birthday Party Hat|کلاه تولد|
+Festive Hat & Party Cap|کلاه جشن|
+Santa's Hat|کلاه بابانوئل|
+Other Specialized Cap|سایر کلاه‌های مناسبتی|
