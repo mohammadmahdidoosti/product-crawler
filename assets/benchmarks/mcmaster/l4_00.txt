@@ -1,0 +1,318 @@
+@0.0.0 Screws & Bolts
+Socket Head Screws(9974)|پیچ آلن|
+Rounded Head Screws(10437)|پیچ سرگرد|
+Hex Head Screws(13417)|پیچ شش‌گوش|
+Flat Head Screws(6635)|پیچ خزینه|
+Tapping Screws(6430)|پیچ خودکار|
+Shoulder Screws(6874)|پیچ شانه‌دار|
+Set Screws(5635)|پیچ بی‌سر (مغزی)|
+Wood Screws(1464)|پیچ چوب|
+Thumb Screws(1551)|پیچ دستی|
+Carriage Bolts(889)|پیچ گاری (سرگرد گردن چهارگوش)|
+Oval Head Screws(307)|پیچ سربیضی|
+12-Point Screws(298)|پیچ دوازده‌گوش|
+Studs(637)|پیچ دوسر|
+Captive Panel Screws(402)|پیچ اسیر پنل|
+Drywall Screws(132)|پیچ کناف|
+Fastener Assortments(14)|ست پیچ و مهره|
+Masonry and Concrete Screws(233)|پیچ بتن|
+Square Head Screws(145)|پیچ سرچهارگوش|
+Elevator Bolts(187)|پیچ سرتخت نوار نقاله|
+Hanger Bolts(99)|پیچ دوسر چوب-فلز|
+T-Bolts(21)|پیچ T|
+Plow Bolts(50)|پیچ خزینه گاوآهن|
+Pentagon Head Screws(17)|پیچ پنج‌گوش|
+Hold-Down Bolts(51)|پیچ مهاری|
+Jack Screws(44)|پیچ جک|
+Joint Clamps for Wood(3)|بست اتصال چوب|
+Dowel Screws(13)|پیچ دوسر چوب|
+Rivet Nuts(528)|مهره پرچی|
+Weld Nuts(589)|مهره جوشی|
+Binding Barrels(893)|پیچ کلاسوری|
+Threaded Rods(5369)|میله رزوه‌ای|
+Single-End Studs(184)|پیچ یکسر رزوه|
+Standoffs(1599)|استندآف|
+Anchors(970)|انکر و رولپلاک|
+Thread Adapters(3611)|تبدیل رزوه|
+Spring Plungers(1042)|پلانجر فنری|
+Captive Pins(84)|پین اسیر|
+Standoff Caps(66)|کلاهک استندآف|
+Screw Nails(76)|میخ پیچی|
+Anchor Toggles(5)|رولپلاک پروانه‌ای|
+Nails(21)|میخ|
+Rivets(9)|پرچ|
+Screwdriver Bits(978)|سری پیچ‌گوشتی|
+L-Keys(1697)|آچار آلن L|
+Screwdrivers(1096)|پیچ‌گوشتی|
+Torque Screwdrivers(186)|پیچ‌گوشتی ترکمتر|
+T-Handle Keys(466)|آچار آلن T|
+Screw Starters(25)|نگهدارنده پیچ|
+Masonry and Concrete Screw Installation Tools(3)|ابزار نصب پیچ بتن|
+Torque-Limiting Keys(42)|آچار محدودکننده گشتاور|
+Speeder Handles(8)|دسته سریع|
+Hanger Bolt Driver Bits(4)|سری پیچ دوسر|
+L-Key Handles(1)|دسته آچار آلن|
+Driver Extension Adapters(44)|رابط سری|
+Anchor Installation Tools(20)|ابزار نصب انکر|
+Magnets(68)|آهنربا|
+Antislip Fluid(1)|مایع ضدلغزش پیچ‌گوشتی|
+Setup Studs(627)|پیچ دوسر فیکسچر|
+Fixture Clamps(170)|گیره فیکسچر|
+T-Slot Bolts(262)|پیچ شیار T|
+Grippers(107)|گیره نگهدارنده|
+Locating Pin Lock Screws(2)|پیچ قفل پین|
+Drill Bushing Lock Screws(14)|پیچ قفل بوش مته|
+Fixture Kits(50)|کیت فیکسچر|
+T-Tracks(4)|ریل T|
+Clamp Holding Screws(52)|پیچ نگهدارنده گیره|
+Bar Clamps(8)|پیچ‌دستی میله‌ای|
+Clamping Screws(47)|پیچ گیره|
+Clamping Screw Mounting Bases(7)|پایه پیچ گیره|
+Gear and Bearing Puller Forcing Screws(17)|پیچ پولی‌کش|
+Gear and Bearing Puller Step-Plate Adapters(11)|آداپتور پولی‌کش|
+Gear and Bearing Puller Shaft Protectors(5)|محافظ شفت پولی‌کش|
+Lathe Tool Insert Holder Replacement Parts(70)|قطعات هولدر تراش|
+Drills(74)|دریل|
+Precision Lead Screws and Nuts(976)|لید اسکرو دقیق و مهره|
+Lead Screws and Nuts(838)|لید اسکرو و مهره|
+Ball Screws and Nuts(205)|بال‌اسکرو و مهره|
+End Supports for Ball Screws and Precision Lead Screws(16)|یاتاقان انتهای بال‌اسکرو|
+Lead Screw Collars(55)|طوقه لید اسکرو|
+Ball Screw/Splines and Bearings(3)|بال‌اسکرو-اسپلاین|
+Precision Lead Screw Nut Flanges(18)|فلنج مهره لید اسکرو|
+Roller Screws and Nuts(8)|رولر اسکرو|
+Linear Drive Nuts(3)|مهره محرک خطی|
+Connecting Rods(808)|میل رابط|
+Knobs(692)|پیچ دستی گرد|
+Pull Knobs(33)|دستگیره کششی|
+Indicating Knobs(4)|پیچ دستی درجه‌دار|
+Strut Channel Nuts(1)|مهره ناودانی یونیسترات|
+T-Slotted Framing Fasteners(117)|اتصالات پروفیل شیاردار|
+Clamp-On Framing Fasteners(1)|اتصال کلمپی قاب|
+Locking-Slotted Framing Fasteners(3)|اتصال قفلی قاب|
+Slip-On Framing Fasteners(2)|اتصال کشویی قاب|
+Protective Caps(36)|درپوش محافظ|
+Protective Plugs(3)|توپی محافظ|
+Leveling Mounts(40)|پایه تنظیم ارتفاع|
+Protective Feet(9)|پایه محافظ|
+Eyebolts(987)|پیچ چشمی|
+Eye Nuts(111)|مهره چشمی|
+Hoist Rings(419)|حلقه بالابر|
+Jacks(142)|جک|
+Screw Jack End Fittings(4)|سر جک پیچی|
+Screw Jack Mounts(4)|پایه جک پیچی|
+Screw Conveyors(129)|نقاله مارپیچ|
+Conveyor T-Slot Bolts(12)|پیچ T نقاله|
+Wheel Axles(22)|محور چرخ|
+Tie Wire Hangers(2)|آویز سیمی|
+Wire Splices(17)|اتصال سیم|
+Binding Posts(13)|ترمینال پیچی|
+Grounding Lugs(1)|کابلشو ارت|
+Grounding Screws(8)|پیچ ارت|
+Electrical Enclosure Fasteners(3)|پیچ تابلو برق|
+Electrical Enclosure Pole Mounts(14)|نگهدارنده تابلو روی تیر|
+Hanging Hooks(94)|قلاب آویز|
+Tool Holders(3)|نگهدارنده ابزار|
+Picture Hangers(1)|آویز تابلو|
+Toilet Seat Fasteners(1)|پیچ درب توالت|
+Toilet Mounts(22)|پیچ نصب توالت|
+Urinal Flanges(2)|فلنج یورینال|
+Transfer Punches(68)|سنبه انتقال سوراخ|
+Coordinate Measuring Machine Fixture Clamps(6)|گیره فیکسچر CMM|
+Reference Charts(2)|جدول مرجع|
+Float Rods(18)|میله فلوتر|
+@0.0.1 Threaded Rods & Studs
+Left-Hand Threaded Rods(149)|میله رزوه چپ‌گرد|
+Threaded Rods with Hex Nuts(20)|میله رزوه با مهره|
+Stay-Clean Threaded Rods(18)|میله رزوه تمیزمان|
+Threaded Rod Assortments(2)|ست میله رزوه|
+Threaded Rod and Hex Nut Kits for Pipe Flanges(35)|کیت پیچ فلنج|
+Coupling Nuts(620)|مهره رابط|
+Pipe and Fittings(10331)|لوله و اتصالات|
+Rod Ends(1615)|سیبک|
+Linear Shafts(269)|شفت خطی|
+Threaded Rod Mounts(26)|پایه میله رزوه|
+Rotary Shafts(80)|شفت دوار|
+Threaded Inserts(44)|بوش رزوه‌ای|
+Idler Shafts(10)|شفت هرزگرد|
+Lamp Pipe(18)|لوله چراغ|
+Threaded Rod Anchors(44)|انکر میله رزوه|
+Gas Spring Mounts(27)|پایه جک گازی|
+Threaded Stud and Rod Drivers(14)|ابزار نصب پیچ دوسر|
+Rod End Nuts(8)|مهره سیبک|
+Threaded Rod Cutters(6)|میله‌بر|
+Threaded Rod and Stud Driver Bits(2)|سری پیچ دوسر|
+Gas Spring End Fittings(3)|سر جک گازی|
+Shaft Adapters(8)|آداپتور شفت|
+Threaded Rod Hanger Beams(6)|تیر آویز میله رزوه|
+@0.0.2 Eyebolts
+Eyebolts—For Lifting(380)|پیچ چشمی بالابر|
+Routing Eyebolts with Nuts—Not for Lifting(208)|پیچ چشمی با مهره (غیربالابر)|
+Eyebolts with Nuts—For Lifting(163)|پیچ چشمی بالابر با مهره|
+Routing Eyebolts for Wood—Not for Lifting(81)|پیچ چشمی چوب|
+Screw Eyes(1)|پیچ حلقه‌ای|
+Rotating Eyebolts—For Lifting(28)|پیچ چشمی گردان|
+Routing Eyebolts—Not for Lifting(20)|پیچ چشمی هدایت|
+Nylon-Coated Eyebolts—For Lifting(27)|پیچ چشمی روکش نایلون|
+Low-Visibility Eyebolts—For Lifting(22)|پیچ چشمی کم‌دید|
+Unthreaded Routing Eyebolts—Not for Lifting(39)|پیچ چشمی بدون رزوه|
+Low-Temperature Eyebolts—For Lifting(14)|پیچ چشمی دمای پایین|
+Routing Eyebolts for Wire Rope—Not for Lifting(4)|پیچ چشمی سیم بکسل|
+Tie-Down Rings(85)|حلقه مهار بار|
+Rope Guides(29)|راهنمای طناب|
+Carabiners(224)|کارابین|
+Routing Rings(40)|حلقه هدایت|
+Rope Cleats(60)|گیره طناب|
+Fall-Arrest Anchors(23)|انکر ضدسقوط|
+L-Track Tie-Down Rings(3)|حلقه مهار ریل L|
+Eyebolt and Hook Driver Bits(4)|سری پیچ چشمی|
+Rod End Seals(16)|آب‌بند سیبک|
+E-Track D-Rings(3)|حلقه D ریل E|
+Webbing Guides(28)|راهنمای تسمه|
+Rod End Inserts(29)|اینسرت سیبک|
+Tool Tether Anchors(3)|انکر بند ابزار|
+Webbing Anchor Plates(7)|صفحه مهار تسمه|
+@0.0.3 U-Bolts
+U-Bolts(479)|پیچ U|
+Square U-Bolts(170)|پیچ U چهارگوش|
+Clamping U-Bolts(125)|پیچ U گیره‌ای|
+U-Bolts with Mounting Plates(140)|پیچ U با صفحه|
+Rubber-Cushioned U-Bolts(38)|پیچ U لاستیک‌دار|
+Vibration-Damping U-Bolts(83)|پیچ U ضدلرزش|
+Rubber-Cushioned Square U-Bolts(24)|پیچ U چهارگوش لاستیک‌دار|
+Nonconductive U-Bolts(10)|پیچ U عایق|
+U-Bolt Plates(203)|صفحه پیچ U|
+Wire Rope Clamps(112)|کلمپ سیم بکسل|
+Strut Channel Beam Clamps(4)|بست تیر ناودانی|
+Hitch Clamps(2)|بست یدک‌کش|
+Brackets(3)|براکت|
+@0.0.4 Nuts
+Hex Nuts(3526)|مهره شش‌گوش|
+Locknuts(1676)|مهره قفلی|
+Flange Nuts(770)|مهره فلنج‌دار|
+Cap Nuts(423)|مهره کلاهی|
+Press-Fit Nuts(457)|مهره پرسی|
+Thumb Nuts(497)|مهره دستی|
+Square Nuts(160)|مهره چهارگوش|
+Panel Nuts(117)|مهره پنل|
+Bearing Nuts(412)|مهره بلبرینگ|
+Clip-On Nuts(142)|مهره کلیپسی|
+Strut Channel Framing and Fittings(338)|ناودانی یونیسترات و اتصالات|
+Tube Fittings(430)|اتصالات تیوب|
+Socket Nuts(65)|مهره آلنی|
+Tamper-Resistant Nuts(82)|مهره ضدسرقت|
+Sealing Nuts(27)|مهره آب‌بند|
+Split Nuts(18)|مهره دوتکه|
+Slotted Round Nuts(7)|مهره گرد شیاردار|
+Push-Button Nuts(15)|مهره دکمه‌ای|
+Lug Nuts(8)|مهره چرخ|
+Screw-Mount Nuts(28)|مهره پیچی|
+Adhesive-Mount Nuts(166)|مهره چسبی|
+Rivet-Mount Nuts(40)|مهره پرچی|
+Snap-In Nuts(99)|مهره کلیپسی جا‌انداز|
+Push Nuts(81)|مهره فشاری|
+Dowel Nuts(11)|مهره دوبل|
+Tube-Connecting Nuts(21)|مهره اتصال لوله|
+Lock Washers(245)|واشر فنری|
+Retaining Rings(412)|خار حلقوی|
+Spacers(8)|اسپیسر|
+Sockets(2047)|بکس|
+Socket Wrenches(44)|آچار بکس|
+Pipe Wrench Nuts(10)|مهره آچار لوله‌گیر|
+Socket Retaining Rings(39)|حلقه نگهدارنده بکس|
+Rivet Nut Tools(213)|مهره‌پرچ‌کن|
+Press-Fit Nut Installation Tools(2)|ابزار نصب مهره پرسی|
+Push Nut Installation Tools(13)|ابزار نصب مهره فشاری|
+Snap-In Nut Tools(3)|ابزار مهره کلیپسی|
+Nut Starters(1)|نگهدارنده مهره|
+Nutdrivers(239)|پیچ‌گوشتی بکسی|
+Nutdriver Bits(92)|سری بکسی|
+Rivet Tools(35)|ابزار پرچ|
+Bearing Lock Washers(82)|واشر قفلی بلبرینگ|
+Shock Absorber Mounting Nuts(24)|مهره نصب ضربه‌گیر|
+Cylinder Mount Nuts(2)|مهره نصب جک|
+Handle Nuts(52)|مهره دسته|
+Machine Handles(3)|دسته ماشین|
+Leveling Mount Inserts(113)|اینسرت پایه تنظیم|
+Pipe Locknuts(119)|مهره قفلی لوله|
+Hose Fittings(71)|اتصالات شیلنگ|
+Hose Crimpers(43)|پرس شیلنگ|
+T-Slot Nuts(310)|مهره شیار T|
+T-Slot Covers(6)|درپوش شیار T|
+T-Slot Cleaners(2)|تمیزکن شیار T|
+Collet Nuts(66)|مهره کولت|
+Milling Machine Collet Chucks(259)|کولت‌گیر فرز|
+Tap Collet Holders(37)|کولت‌گیر قلاویز|
+Lathe Chuck Jaw Nuts(13)|مهره فک سه‌نظام|
+Backup Pad Retaining Nuts(3)|مهره پد سنباده|
+Conduit Locknuts(119)|مهره قفلی لوله برق|
+Wire Splices, Connectors, and Taps(378)|اتصال و انشعاب سیم|
+Terminal Covers(2)|کاور ترمینال|
+Terminal and Splice Kits(18)|کیت سرسیم|
+Turnbuckles(92)|مهارکش|
+Cable Holders(138)|نگهدارنده کابل|
+Loop Clamps(478)|بست حلقه‌ای|
+Reference Books(1)|کتاب مرجع|
+Sink Drain Fittings(29)|اتصالات تخلیه سینک|
+@0.0.5 Washers
+General Purpose Washers(970)|واشر عمومی|
+Oversized Washers(969)|واشر پهن|
+Mil. Spec. Washers(656)|واشر استاندارد نظامی|
+SAE Washers(389)|واشر SAE|
+Plastic Washers(862)|واشر پلاستیکی|
+ASME Washers(374)|واشر ASME|
+USS Washers(241)|واشر USS|
+Undersized Washers(142)|واشر باریک|
+Structural Washers(54)|واشر سازه‌ای|
+Square Washers(182)|واشر چهارگوش|
+Self-Retaining Washers(61)|واشر خودنگهدار|
+Clipped Washers(192)|واشر لبه‌بریده|
+Hard Fiber Washers(91)|واشر فیبر|
+Adhesive-Back Washers(19)|واشر چسب‌دار|
+Reinforcing Sleeve Washers(11)|واشر غلاف‌دار|
+Fiberglass Washers(77)|واشر فایبرگلاس|
+Dished Washers(9)|واشر کاسه‌ای|
+Mil. Spec. Plastic Washers(68)|واشر پلاستیکی نظامی|
+Rectangular Washers(12)|واشر مستطیلی|
+Easy-Install Slotted Washers(37)|واشر شیاردار|
+Double-Clipped Washers(20)|واشر دولبه‌بریده|
+Beveled Washers(8)|واشر شیب‌دار|
+Tension-Indicating Structural Washers(41)|واشر نشانگر کشش|
+General Purpose Washer Assortments(5)|ست واشر عمومی|
+Washers for Square-Neck Bolts(30)|واشر پیچ گردن‌چهارگوش|
+Ultra-High-Temperature Ceramic Washers(29)|واشر سرامیکی نسوز|
+Finish-Your-Own Washers(66)|واشر خام|
+USS Washer Assortments(1)|ست واشر USS|
+Oversized Washer Assortments(3)|ست واشر پهن|
+Curved Washers(9)|واشر خمیده|
+Washers for Blind Rivets(18)|واشر پرچ|
+Plastic Washer Assortments(1)|ست واشر پلاستیکی|
+Extra-High-Temperature Mica Washers(7)|واشر میکا|
+Washers for Foam Insulation(4)|واشر عایق فومی|
+Notched Washers(4)|واشر شکاف‌دار|
+Perforated Washers(2)|واشر سوراخ‌دار|
+Magnetic Washers(7)|واشر مغناطیسی|
+SAE Washer Assortments(3)|ست واشر SAE|
+Square Washers for Blind Rivets(3)|واشر چهارگوش پرچ|
+Sealing Washers(752)|واشر آب‌بند|
+Shims(3269)|شیم|
+Disc Springs(1670)|فنر بشقابی|
+Thrust Bearings(844)|بلبرینگ کف‌گرد|
+O-Rings(13879)|اورینگ|
+Finishing Washers(156)|واشر تزئینی|
+Cushioning Washers(166)|واشر ضربه‌گیر|
+Insulating Washers(274)|واشر عایق|
+Leveling Washers(265)|واشر تراز|
+Thrust Roller Bearing Washers(102)|واشر رولبرینگ کف‌گرد|
+Backup Rings(360)|بک‌آپ رینگ|
+Hose Washers(12)|واشر شیلنگ|
+Battery Terminal Washers(1)|واشر سرباتری|
+Clamp Holding Washers(12)|واشر گیره|
+Strut Channel Washers(139)|واشر ناودانی|
+Faucet Washers(24)|واشر شیر آب|
+Electrical Terminal Washers(6)|واشر ترمینال|
+Tie-Down Washers(5)|واشر مهار|
+Cross-Bracing Washers(20)|واشر بادبند|
+Conduit Reducing Washers(19)|واشر تبدیل لوله برق|
+Sink Drain Fitting Washers(6)|واشر تخلیه سینک|
+Cord Stock(684)|نوار اورینگ‌سازی|
