@@ -34,7 +34,6 @@ def main() -> None:
         raise SystemExit("WC_BRIDGE is not set: this tool only sends through the SSH bridge")
     import app
     from crawler.config import run_dir
-    from crawler.costs import summary
     from crawler.publish import publish
     from batch_lanes import qdir, site_categories, finish
     cfg = app.build_cfg()
