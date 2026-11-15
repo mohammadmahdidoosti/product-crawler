@@ -1,0 +1,183 @@
+# Metallurgy, Mineral & Energy > Alloy
+Aluminium Alloy|آلیاژ آلومینیوم|
+Copper Alloy|آلیاژ مس (برنج، برنز)|
+Magnesium Alloy|آلیاژ منیزیم|
+Nickel Alloy|آلیاژ نیکل (اینکونل)|
+Rare Metal Alloy|آلیاژ فلزات کمیاب|
+Super Alloy|سوپرآلیاژ|
+Titanium Alloy|آلیاژ تیتانیوم|
+Zinc Alloy|آلیاژ روی (زاماک)|
+Other Alloys|سایر آلیاژها|
+# Metallurgy, Mineral & Energy > Aluminum
+Aluminum Bar|میلگرد آلومینیوم|
+Aluminum Coils|کلاف آلومینیوم|
+Aluminum Foil|فویل آلومینیوم|
+Aluminum Ingot|شمش آلومینیوم|
+Aluminum Profile|پروفیل آلومینیوم|
+Aluminum Sheet|ورق آلومینیوم|
+Aluminum Strip|تسمه آلومینیوم|
+Aluminum Tube & Pipe|لوله آلومینیوم|
+Aluminum Wire|مفتول آلومینیوم|
+Other Aluminum|سایر آلومینیوم|
+# Metallurgy, Mineral & Energy > Metal Scrap
+Aluminum Scrap|ضایعات آلومینیوم|
+Copper Scrap|ضایعات مس|
+Iron Scrap|ضایعات آهن|
+Steel Scrap|قراضه فولاد|
+# Metallurgy, Mineral & Energy > Non-ferrous Metal & Products
+Antimony|آنتیموان|
+Bismuth|بیسموت|
+Cadmium|کادمیوم|
+Cobalt|کبالت|
+Copper|مس|
+Gallium|گالیوم|
+Germanium|ژرمانیوم|
+Hafnium|هافنیوم|
+Indium|ایندیوم|
+Lead|سرب|
+Magnesium|منیزیم|
+Molybdenum|مولیبدن|
+Nickel|نیکل|
+Niobium|نیوبیوم|
+Rhenium|رنیوم|
+Tantalum|تانتالیوم|
+Tin|قلع|
+Titanium|تیتانیوم|
+Tungsten|تنگستن|
+Vanadium|وانادیوم|
+Zinc|روی|
+Zirconium|زیرکونیوم|
+Other Non-ferrous Metal & Products|سایر فلزات غیرآهنی|
+# Metallurgy, Mineral & Energy > Steel & Products
+Alloy Steel|فولاد آلیاژی|
+Flat Steel|تسمه فولادی|
+Silicon Steel|ورق سیلیکونی (ترانس)|
+Special Steel|فولاد ویژه (ابزار، فنر)|
+Square Steel|چهارپهلو فولادی|
+Stainless Steel|استیل ضدزنگ|
+Steel Angle|نبشی|
+Steel Billet|شمش فولاد|
+Steel Channel|ناودانی|
+Steel Coil & Strip|کلاف و تسمه فولادی|
+Steel H Beam|تیرآهن H|
+Steel I Beam|تیرآهن IPE|
+Steel Pipe & Tube|لوله فولادی|
+Steel Rebar|میلگرد آجدار|
+Steel Round Bar|میلگرد ساده|
+Steel Scrap|قراضه|
+Steel Sheet & Plate|ورق فولادی|
+Steel Sheet Pile|سپر فولادی (شیت‌پایل)|
+Steel Wire|مفتول فولادی|
+Steel Wire Rope|سیم بکسل|
+Other Steel & Products|سایر محصولات فولادی|
+# Metallurgy, Mineral & Energy > Ceramic Material
+Alumina Ceramics|سرامیک آلومینا|
+Carbide Ceramics|سرامیک کاربیدی|
+Glass Ceramics|شیشه-سرامیک|
+Metal Ceramics|سرمت|
+Nitride Ceramics|سرامیک نیتریدی|
+Silicate Ceramics|سرامیک سیلیکاتی|
+Zirconia Ceramics|سرامیک زیرکونیا|
+Other Ceramic Material|سایر مواد سرامیکی|
+# Metallurgy, Mineral & Energy > Crucible
+Ceramic Crucible|بوته سرامیکی|
+Graphite Crucible|بوته گرافیتی|
+Metal Crucible|بوته فلزی|
+Quartz Crucible|بوته کوارتز|
+Other Crucibles|سایر بوته‌ها|
+# Metallurgy, Mineral & Energy > Graphite & Products
+Amorphous Graphite|گرافیت آمورف|
+Carbon Graphite|کربن گرافیت|
+Expandable Graphite|گرافیت انبساطی|
+Flake Graphite|گرافیت پولکی|
+Graphene|گرافن|
+Graphite Block|بلوک گرافیت|
+Graphite Component|قطعه گرافیتی|
+Graphite Crucible|بوته گرافیتی|
+Graphite Electrode|الکترود گرافیتی|
+Graphite Mold|قالب گرافیتی|
+Graphite Petroleum Coke(GPC)|کک نفتی گرافیتی|
+Graphite Ring|رینگ گرافیتی|
+Graphite Rod|میله گرافیتی|
+Graphite Sheet|ورق گرافیت|
+Powder Graphite|پودر گرافیت|
+Synthetic Graphite|گرافیت مصنوعی|
+Other Graphites & Products|سایر محصولات گرافیتی|
+# Metallurgy, Mineral & Energy > Magnetic Material
+AlNiCo Magnet|آهنربای آلنیکو|
+Amorphous Core|هسته آمورف|
+Injection Ferrite Magnet|آهنربای فریتی تزریقی|
+Nanocrystalline Core|هسته نانوکریستال|
+NdFeB Magnet|آهنربای نئودیمیوم|
+Rubber Magnet|آهنربای لاستیکی|
+Silicon Steel|ورق سیلیکونی|
+Sintered Ferrite Magnet|آهنربای فریتی|
+SmCo Magnet|آهنربای ساماریوم-کبالت|
+Other Magnetic Material|سایر مواد مغناطیسی|
+# Metallurgy, Mineral & Energy > Nonmetallic Minerals
+Asbestos|آزبست|
+Attapulgite Earth|خاک آتاپولژیت|
+Barite|باریت|
+Bentonite|بنتونیت|
+Diatomaceous Earth|خاک دیاتومه|
+Dolomite|دولومیت|
+Feldspar|فلدسپات|
+Kaolin|کائولن|
+Mica|میکا|
+Perlite|پرلیت|
+Quartz|کوارتز (سیلیس)|
+Sand|ماسه|
+Sand, Lime & Plaster|ماسه، آهک و گچ|
+Sepiolite|سپیولیت|
+Silicon Carbide|کاربید سیلیسیوم|
+Talc|تالک|
+Vermiculite|ورمیکولیت|
+Wollastonite|ولاستونیت|
+Other Nonmetallic Minerals|سایر مواد معدنی غیرفلزی|
+# Metallurgy, Mineral & Energy > Refractory Material
+Alumina Refractory Material|نسوز آلومینایی|
+Carbon Composite Refractory Material|نسوز کربنی|
+Corundum Refractory Material|نسوز کوراندومی|
+Magnesia Refractory Material|نسوز منیزیتی|
+Silica Refractory Material|نسوز سیلیسی|
+Special Refractory Material|نسوز ویژه|
+Zirconia Refractory Material|نسوز زیرکونیایی|
+# Metallurgy, Mineral & Energy > Solar & Renewable Energy
+BIPV|پنل خورشیدی ساختمانی (BIPV)|
+Solar Brackets|سازه پنل خورشیدی|
+Solar Cell|سلول خورشیدی|
+Solar Charger|شارژر خورشیدی|ترکیبی
+Solar Collector|کلکتور خورشیدی|
+Solar Controller|شارژ کنترلر خورشیدی|
+Solar Energy System|سیستم برق خورشیدی|
+Solar Fan|پنکه خورشیدی|مصرفی
+Solar Glass|شیشه خورشیدی|
+Solar Inverter|اینورتر خورشیدی|
+Solar Light|چراغ خورشیدی|ترکیبی
+Solar Panels|پنل خورشیدی|
+Solar Vacuum Tube|لوله خلأ خورشیدی|
+Solar Water Heater|آبگرمکن خورشیدی|ترکیبی
+Wind Inverter|اینورتر بادی|
+Other Solar & Renewable Energy|سایر انرژی تجدیدپذیر|
+# Metallurgy, Mineral & Energy > Aluminium Alloy
+Aluminum Alloy Bar|میلگرد آلیاژ آلومینیوم|
+Aluminum Alloy Coil|کلاف آلیاژ آلومینیوم|
+Aluminum Alloy Ingot|شمش آلیاژ آلومینیوم|
+Aluminum Alloy Sheet|ورق آلیاژ آلومینیوم|
+Aluminum Alloy Strip|تسمه آلیاژ آلومینیوم|
+Aluminum Alloy Tube & Pipe|لوله آلیاژ آلومینیوم|
+Aluminum Alloy Wire|مفتول آلیاژ آلومینیوم|
+# Metallurgy, Mineral & Energy > Coke
+Calcined Coke|کک کلسینه|
+Formed Coke|کک قالبی|
+Metallurgical Coke|کک متالورژی|
+Needle Coke|کک سوزنی|
+Petroleum Coke|کک نفتی|
+Semi Coke|نیمه‌کک|
+Other Cokes|سایر کک‌ها|
+# Metallurgy, Mineral & Energy > Energy Storage System
+C&I Energy Storage|ذخیره‌ساز تجاری و صنعتی|
+Energy Storage Battery|باتری ذخیره انرژی|
+Energy Storage Container|کانتینر ذخیره انرژی|
+Home Energy Storage System|ذخیره‌ساز خانگی|ترکیبی
+Portable Power Stations|نیروگاه قابل‌حمل (پاور استیشن)|ترکیبی

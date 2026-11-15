@@ -1,0 +1,160 @@
+# Tools & Hardware > Abrasive & Grinding
+Abrasive Brush|برس سیمی|
+Abrasive Cloth & Mesh|سنباده پارچه‌ای و توری|
+Abrasive Grains|دانه ساینده|
+Blasting Media|ساچمه سندبلاست|
+Flap Disc|صفحه فلاپ|
+Grinder|فرز سنگ|
+Grinding Ball|گلوله آسیاب|
+Grinding Beads|مهره آسیاب|
+Grinding Disc|صفحه سنگ|
+Grinding Head|سنگ انگشتی|
+Grinding Powder|پودر ساینده|
+Grinding Rods|میله آسیاب|
+Grinding Segment|سگمنت سنگ‌زنی|
+Grinding Wheel|سنگ سنباده‌ای (چرخ)|
+Non-Woven Abrasives|اسکاچ صنعتی|
+Polishing Pad|پد پولیش|
+Sanding Belt|نوار سنباده|
+Sanding Paper|کاغذ سنباده|
+Sharpening Stone|سنگ تیزکن|
+Superhard Materials|مواد فوق‌سخت (CBN، الماس)|
+Other Abrasive & Grinding Tools|سایر ساینده‌ها|
+# Tools & Hardware > Diamond Tools
+Diamond Band Saw Blade|اره نواری الماسه|
+Diamond Circular Saw Blade|صفحه الماسه|
+Diamond Cutter|برش الماسه|
+Diamond Drilling Tools|مته الماسه (کرگیری)|
+Diamond Fickert|ساب الماسه|
+Diamond Grinding Wheel|سنگ الماسه|
+Diamond Router Bit|تیغ فرز الماسه|
+Diamond Wire Saw|سیم برش الماسه|
+# Tools & Hardware > Drilling Tools
+Drill Bit|مته|
+Drill Collar|دریل کالر|
+Drill Rod|لوله حفاری|
+Drill Sleeves|غلاف مته|
+Drilling Jar|جار حفاری|
+Drilling Stabilizer|استابلایزر حفاری|
+Earth Auger|چاله‌کن|
+Electric Drill|دریل برقی|
+Shock Absorber|ضربه‌گیر حفاری|
+Other Drilling Tools|سایر ابزار حفاری|
+# Tools & Hardware > Hand Tools
+Axe|تبر|
+Brush|برس|
+Chisel & Punch|قلم و سنبه|
+Crowbar|دیلم|
+Files|سوهان|
+Grease Gun|گریس‌پمپ|
+Hammer|چکش|
+Hand Tap & Threading Die|قلاویز و حدیده دستی|
+Hand Tool Set|جعبه ابزار ست|
+Knife|چاقو|
+Knife & Scissors|کاتر و قیچی|
+Pliers|انبردست|
+Razor Scraper|تیغ کاردک|
+Saw|اره دستی|
+Scissors|قیچی|
+Screwdriver|پیچ‌گوشتی|
+Sickle|داس|
+Tag Gun|تفنگ اتیکت‌زن|
+Wrench|آچار|
+Other Hand Tools|سایر ابزار دستی|
+# Tools & Hardware > Hydraulic Parts
+Hydraulic Accumulator|آکومولاتور|
+Hydraulic Cylinder|جک هیدرولیک|
+Hydraulic Fittings|اتصالات هیدرولیک|
+Hydraulic Motor|هیدروموتور|
+Hydraulic Pipe|شیلنگ هیدرولیک|
+Hydraulic Power Unit|پاوریونیت|
+Hydraulic Pump|پمپ هیدرولیک|
+Hydraulic Seal|کاسه‌نمد هیدرولیک|
+Hydraulic System|سیستم هیدرولیک|
+Hydraulic Valve|شیر هیدرولیک|
+Other Hydraulic Parts|سایر قطعات هیدرولیک|
+# Tools & Hardware > Pneumatic Tools
+High Pressure Gun|تفنگ فشار قوی|
+Pneumatic Drill|دریل بادی|
+Pneumatic Grinder|فرز بادی|
+Pneumatic Hammer|چکش بادی|
+Pneumatic Nail Gun|میخکوب بادی|
+Pneumatic Rivet Gun|پرچ‌کن بادی|
+Pneumatic Sander|سنباده بادی|
+Pneumatic Scissors|قیچی بادی|
+Pneumatic Screwdriver|پیچ‌گوشتی بادی|
+Pneumatic Spray Gun|پیستوله بادی|
+Pneumatic Wrench|بکس بادی|
+Other Pneumatic Tools|سایر ابزار بادی|
+# Tools & Hardware > Power Tools
+Demolition Hammer|چکش تخریب|B2B
+Electric Drill|دریل|
+Electric Planer|رنده برقی|
+Electric Saw|اره برقی|
+Electric Screwdriver|پیچ‌گوشتی برقی|
+Electric Trimmer|اورفرز|
+Electric Wrench|بکس برقی|
+Grease Gun|گریس‌پمپ برقی|
+Heat Gun|سشوار صنعتی (هیتگان)|
+Hot Knife|کاتر حرارتی|
+Hot Melt Glue Gun|تفنگ چسب حرارتی|
+Lawn Mower|چمن‌زن|
+Pipe Threading Machine|دستگاه حدیده لوله|B2B
+Power Tool Accessories|لوازم جانبی ابزار برقی|
+Power Tool Set|کیت ابزار برقی|
+Rotary Hammer|دریل بتن‌کن|
+Sander|سنباده برقی|
+Wall Chaser|شیارزن دیوار|B2B
+Other Power Tools|سایر ابزار برقی|
+# Tools & Hardware > Building Hardware
+Bathroom Fittings & Accessories|اکسسوری حمام|
+Construction Pipe & Tube|لوله ساختمانی|
+Door & Window Hardware|یراق درب و پنجره|
+Door Handle|دستگیره درب|
+Fastener & Fitting|اتصالات و پیچ‌ومهره|
+Faucet, Tap & Mixer|شیرآلات|
+Lock|قفل|
+Plumbing Hardware|یراق‌آلات لوله‌کشی|
+Stair Parts|قطعات پله|
+Window Handle|دستگیره پنجره|
+Wire Mesh|توری|
+Other Building Hardware|سایر یراق‌آلات ساختمانی|
+# Tools & Hardware > Hardware Accessories
+Brackets|براکت (نگهدارنده)|
+Chain|زنجیر|
+Chair Mechanism|مکانیزم صندلی|
+Clamps|بست و پیچ‌دستی|
+Door & Window Hardware|یراق درب و پنجره|
+Electric Power Fitting|یراق خطوط برق|
+Furniture Legs|پایه مبلمان|
+Hooks|قلاب|
+Lid Stay|جک درب|
+Patio Umbrella Base|پایه چتر|
+Ratchet Buckle|سگک جغجغه‌ای|
+Shackles|شگل|
+Spring|فنر|
+Toggle Latch|قفل کشویی اهرمی (گیره کلنگی)|
+Turnbuckle|مهارکش (تنگ‌کن)|
+Other Hardware Accessories|سایر متعلقات یراق|
+# Tools & Hardware > Home Hardware
+Knife|چاقو|
+Scissors|قیچی|
+Shears|قیچی باغبانی|
+Other Home Hardware|سایر ابزار خانگی|
+# Tools & Hardware > Machine Hardware
+Bearing|بلبرینگ|
+Fastener & Fitting|اتصالات|
+Fixture & Clamping Device|فیکسچر و گیره|
+Mould|قالب|
+Sealing & Gaskets|آب‌بند و واشر|
+Valve|شیر صنعتی|
+Other Machine Hardware|سایر یراق ماشین‌آلات|
+# Tools & Hardware > Wheel & Caster
+Dustbin Wheel|چرخ سطل زباله|
+Furniture Casters|چرخ مبلمان|
+Industrial Caster|چرخ صنعتی|
+Luggage Wheel|چرخ چمدان|
+Medical Caster|چرخ تجهیزات پزشکی|
+Supermarket Caster|چرخ ترولی فروشگاه|
+Wheel & Caster Accessories|متعلقات چرخ|
+Other Wheels & Casters|سایر چرخ‌ها|

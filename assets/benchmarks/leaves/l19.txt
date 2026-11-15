@@ -1,0 +1,258 @@
+# Packaging & Printing > Food Packaging Bag
+Back Side Sealed Bag|کیسه دوخت پشت|
+Bag in Box|بگ این باکس|
+Clear Front Stand-Up Pouch|کیسه ایستاده پنجره‌دار|
+Hang Hole Bag|کیسه سوراخ آویز|
+Multilateral Sealing Bag|کیسه چندطرف دوخت|
+Produce Bag Roll|رول کیسه میوه|
+Rice Bag|کیسه برنج|
+Roll Film|فیلم رول بسته‌بندی|
+Sample Bag|کیسه نمونه|
+Self Sealing Bag|کیسه زیپ‌کیپ|
+Side Sealed Bag|کیسه دوخت کنار|
+Snack Bag|کیسه تنقلات|
+Special Shaped Bag|کیسه فرم‌دار|
+Spout Pouch|پاکت نازل‌دار|
+Stand Up Pouch|کیسه ایستاده (دوی‌پک)|
+Vacuum Packing Bag|کیسه وکیوم|
+Woven Bag|گونی بافته|
+Zipper Bag|کیسه زیپ‌دار|
+Other Food Packaging Bags|سایر کیسه‌های بسته‌بندی غذا|
+# Packaging & Printing > Industrial Packaging Bag
+Agriculture Bag|کیسه کشاورزی|
+Anti Static Packaging Materials|بسته‌بندی آنتی‌استاتیک|
+Building Bag|کیسه مصالح (سیمان)|
+Chemical Bag|کیسه مواد شیمیایی|
+Clothing Packaging Bag|کیسه بسته‌بندی پوشاک|
+Other Industrial Packaging Bags|سایر کیسه‌های صنعتی|
+# Packaging & Printing > Logistics Packaging
+Circular Container Bag|جامبوبگ گرد|
+Container Liner Bag|لاینر کانتینر|
+FIBC Belt|تسمه جامبوبگ|
+Flexitank|فلکسی‌تانک|
+Mesh Bag|کیسه توری|
+Soft Pallet FIBC|جامبوبگ پالت‌دار|
+Square Container Bag|جامبوبگ مربعی|
+U Shaped Container Bag|جامبوبگ U|
+Woven Bag|گونی پلی‌پروپیلن|
+Woven Fabric Roll|رول پارچه گونی|
+Other Sacks & Bags for Packing|سایر کیسه‌ها و گونی‌ها|
+# Packaging & Printing > Machinery for Packaging Supplies
+Aluminum Foil Container Production Line|خط تولید ظرف آلومینیومی|
+Bag Making Machine|دستگاه کیسه‌سازی|
+Blister Packaging Machine|دستگاه بلیستر|
+Carton Machine & Box Making Machine|ماشین‌آلات کارتن‌سازی|
+Folder Gluer|دستگاه چسب‌زن جعبه|
+Paper Bag Machine|دستگاه پاکت کاغذی|
+Slitting Machine|دستگاه برش رول|
+Window Patching Machine|دستگاه پنجره‌چسبان|
+Other Packaging Machinery|سایر ماشین‌آلات تولید بسته‌بندی|
+# Packaging & Printing > Package & Conveyance
+Air Dunnage Bags|کیسه هوای بار|
+Blister Cards|کارت بلیستر|
+Body Bag|کاور جسد|
+Container & Fittings|کانتینر و متعلقات|
+Cup Sleeve|آستین لیوان|
+Edge & Corner Protector|محافظ لبه و گوشه|
+Foam Packaging|بسته‌بندی فومی|
+Garment Tag|برچسب لباس|
+Industrial Plastic Containers|ظرف پلاستیکی صنعتی (گالن، بشکه)|
+Jumbo Self Adhesive Paper|رول کاغذ چسب‌دار|
+Lids, Bottle Caps & Closers|درب بطری و ظرف|
+Logistics Packaging|بسته‌بندی حمل|
+Packaging Barrels & Buckets|بشکه و سطل بسته‌بندی|
+Packaging Bottles|بطری بسته‌بندی|
+Packaging Bowls|کاسه بسته‌بندی|
+Packaging Boxes|جعبه بسته‌بندی|
+Packaging Cans & Jars|قوطی و شیشه بسته‌بندی|
+Packaging Cartons|کارتن|
+Packaging Cups|لیوان بسته‌بندی|
+Packaging Labels|لیبل بسته‌بندی|
+Packaging Paper|کاغذ بسته‌بندی|
+Packaging Ropes & Strappings|تسمه و طناب بسته‌بندی|
+Packaging Tray|سینی بسته‌بندی|
+Packaging Tubes|تیوب بسته‌بندی|
+Packing Tape|چسب بسته‌بندی|
+Pallets|پالت|
+Pharmaceutical Packaging|بسته‌بندی دارویی|
+Plastic Preform|پریفرم|
+Pressure Vessel|مخزن تحت فشار|
+Printed Labels|لیبل چاپی|
+Protective & Cushioning Material|مواد ضربه‌گیر (حباب‌دار)|
+Ratchet Straps|تسمه جغجغه‌ای|
+Slip Sheet|اسلیپ‌شیت|
+VCI Packaging|بسته‌بندی ضدزنگ VCI|
+Woven Label|لیبل بافته|
+Other Package & Conveyance|سایر بسته‌بندی و حمل|
+# Packaging & Printing > Packaging Bags
+Cosmetic Packaging Bag|کیسه بسته‌بندی آرایشی|
+Diaper Packaging Bag|کیسه بسته‌بندی پوشک|
+Express Bag|پاکت پستی|
+Food Packaging Bag|کیسه بسته‌بندی غذا|
+Industrial Packaging Bag|کیسه صنعتی|
+Live Fish Bag|کیسه حمل ماهی زنده|
+Logistics Packaging|بسته‌بندی حمل|
+Medicinal Packaging Bag|کیسه دارویی|
+Pet Food Bag|کیسه غذای حیوانات|
+Tissue Bag|کیسه دستمال کاغذی|
+Other Packaging Bags|سایر کیسه‌های بسته‌بندی|
+# Packaging & Printing > Packaging Materials
+Aluminum Foil|فویل آلومینیوم|
+Cardboard|مقوا|
+Composite Packaging Materials|مواد بسته‌بندی چندلایه|
+Corrugated Paper & Board|ورق کارتن|
+Hot Stamping Foil|فویل طلاکوب|
+Kraft Paper|کاغذ کرافت|
+Laser Film|فیلم لیزری|
+Metallized Film|فیلم متالایز|
+PE Coated Paper|کاغذ روکش PE|
+Plastic Film|فیلم پلاستیکی|
+Plastic Roll|رول پلاستیکی|
+Plastic Sheet, Board & Panel|ورق پلاستیکی|
+Release Paper|کاغذ سیلیکونی (ریلیز)|
+Sewing Thread|نخ دوخت گونی|
+Shrink Film|فیلم شرینک|
+Stretch Film|استرچ|
+Other Packaging Materials|سایر مواد بسته‌بندی|
+# Packaging & Printing > Packing Bottle
+Aroma Bottle|بطری خوشبوکننده|
+Beer Bottle|بطری ماءالشعیر|
+Beverage Bottle|بطری نوشیدنی|
+Bottles of Spring Water|بطری آب معدنی|
+Candy Bottle|ظرف شکلات|
+Champagne Bottle|بطری شامپاین|
+Chemical Bottle|بطری مواد شیمیایی|
+Cream Bottle|ظرف کرم|
+Decorative Bottle|بطری تزئینی|
+Dropper Bottles|بطری قطره‌چکان|
+Glass Bottle|بطری شیشه‌ای|
+Lipstick Tube|تیوب رژ لب|
+Liquor Bottle|بطری مشروب|
+Lotion Bottle|بطری لوسیون|
+Mascara Tube|تیوب ریمل|
+Nail Polish Bottle|شیشه لاک|
+Perfume Bottle|شیشه عطر|
+Plastic Bottle|بطری پلاستیکی|
+Pull-ring Bottle|بطری حلقه‌ای|
+Pump Bottle|بطری پمپی|
+Red Wine Bottle|بطری شراب|
+Roller Bottle|بطری رول‌آن|
+Sauce Bottle|بطری سس|
+Set Bottle|ست بطری|
+Spirit Bottle (Whisky & Vodka & Brandy)|بطری مشروبات قوی|
+Spray Bottle|بطری اسپری|
+Squeeze Bottle|بطری فشاری|
+Sub-bottling Bottle|بطری دکانت|
+Vacuum Bottle|بطری ایرلس|
+# Packaging & Printing > Packing Machinery
+Bottle Drying Machine|خشک‌کن بطری|
+Bottle Washing Machine|بطری‌شوی|
+Capping Machine|دستگاه درب‌بند|
+Case Erector|دستگاه کارتن‌بازکن|
+Case Packer|دستگاه کارتن‌گذار|
+Coding Machine|دستگاه کدزن (تاریخ‌زن)|
+Filling Machine|دستگاه پرکن|
+Gluing Machine|دستگاه چسب‌زن|
+Heat Shrink Packaging Machine|دستگاه شرینک‌پک|
+Labeling Machine|دستگاه لیبل‌زن|
+Laminating Machine|دستگاه لمینیت|
+Multi-Function Packing Machine|دستگاه بسته‌بندی چندکاره|
+Packing Line|خط بسته‌بندی|
+Packing Machinery Parts|قطعات ماشین بسته‌بندی|
+Palletizer|پالت‌چین|
+Pressure Filling Machine|پرکن فشاری|
+Rewinding Machine|دستگاه ریوایندر|
+Sealing Machine|دستگاه دوخت (سیلر)|
+Strapping Machine|دستگاه تسمه‌کش|
+Unpacking Machine|دستگاه بازکن بسته|
+Vacuum Filling Machine|پرکن وکیومی|
+Vacuum Packing Machine|دستگاه وکیوم صنعتی|
+Wrapping Machine|دستگاه استرچ‌پیچ|
+Other Packing Machinery|سایر ماشین‌آلات بسته‌بندی|
+# Packaging & Printing > Tag & Sign
+Metal Tag & Sign|پلاک و تابلو فلزی|
+Nonmetallic Tag & Sign|پلاک و تابلو غیرفلزی|
+# Packaging & Printing > Tool Packaging
+Tool Bag|کیف ابزار|ترکیبی
+Tool Box & Case|جعبه ابزار|ترکیبی
+Tool Cabinet|کمد ابزار|
+# Packaging & Printing > Post-Press Equipment
+Binding Machine|دستگاه صحافی|
+Coating Unit|یونیت پوشش (UV، ورنی)|
+Compound Machine|دستگاه لمینیت چندلایه|
+Die Cutting Machine|دستگاه دایکات|
+Embossing Machine|دستگاه برجسته‌زنی|
+Folding Machine|دستگاه تاکن|
+Hole Puncher|دستگاه پانچ|
+Hot Stamping Machine|دستگاه طلاکوب|
+Paper Cutter|گیوتین کاغذ|
+Polishing / Glazing Machine|دستگاه براق‌کن|
+Pressing Machine|دستگاه پرس|
+Other Post-Press Equipment|سایر تجهیزات پس از چاپ|
+# Packaging & Printing > Pre-Press Equipment
+Color Card & Color Comparator|کارت رنگ|
+Developing Machine|دستگاه ظهور|
+Duplicator|دستگاه ریسوگراف|
+Exposure Machine|دستگاه اکسپوز|
+Imagesetter|ایمیج‌ستر|
+Inkjet System|سیستم جوهرافشان|
+Plate Drying Oven|کوره خشک‌کن زینک|
+Plate Machine|دستگاه CTP|
+Prepress Auxiliary Equipment|تجهیزات جانبی پیش از چاپ|
+Proofing Machine / Proofer|دستگاه پروف|
+Scanner|اسکنر|
+Thermal Printer|پرینتر حرارتی|
+Other Pre-Press Equipment|سایر تجهیزات پیش از چاپ|
+# Packaging & Printing > Printing Machinery
+Bill Printing Machine|دستگاه چاپ فاکتور|
+Business Card Printing Machine|دستگاه چاپ کارت ویزیت|
+Code Printing Machine|دستگاه چاپ کد|
+Color Printing Press|دستگاه چاپ رنگی|
+Desktop 3D Printer|پرینتر سه‌بعدی رومیزی|
+Digital Printing Machine|دستگاه چاپ دیجیتال|
+Flexographic Printer|چاپ فلکسو|
+Glass Printing Machine|چاپ روی شیشه|
+Heat Press Machine|دستگاه پرس حرارتی (سابلیمیشن)|
+Heat Transfer Equipment|تجهیزات چاپ انتقالی|
+Industrial 3D Printer|پرینتر سه‌بعدی صنعتی|
+Label Printing Machine|دستگاه چاپ لیبل|
+Leather Printing Machine|چاپ روی چرم|
+Offset Printing Machine|دستگاه چاپ افست|
+Pad Printer|چاپ تامپو|
+Plastic Printing Machine|چاپ روی پلاستیک|
+Printing Machinery Parts|قطعات ماشین چاپ|
+Relief Printing Machine|چاپ برجسته (لترپرس)|
+Rotogravure Printing Machine|چاپ روتوگراور|
+Screen Printer|چاپ سیلک|
+Textile Printing Machine|چاپ پارچه|
+Other Printing Machinery|سایر ماشین‌آلات چاپ|
+# Packaging & Printing > Printing Materials
+3D Printer Material|مواد پرینتر سه‌بعدی|
+Adhesive|چسب چاپ|
+Coated Paper|کاغذ گلاسه|
+Newsprint|کاغذ روزنامه|
+Photographic Film|فیلم عکاسی|
+Printing Inks|مرکب چاپ|
+Printing Mesh|توری سیلک|
+Printing Plate|زینک چاپ|
+Special Paper|کاغذ ویژه|
+Transfer Film|فیلم انتقالی (DTF)|
+Transfer Paper|کاغذ ترانسفر|
+Two-Sided Offset Paper|کاغذ تحریر دورو|
+White Paperboard|مقوای سفید|
+Writing Paper|کاغذ تحریر|
+Other Printing Materials|سایر مواد چاپ|
+# Packaging & Printing > Package & Printing Service
+Book & Magazine Printing|چاپ کتاب و مجله|
+Brochure Printing|چاپ بروشور|
+Calendar Printing|چاپ تقویم|
+Card Printing|چاپ کارت|
+Design & Photography|طراحی و عکاسی|
+Disk / CD Replication & Printing|تکثیر و چاپ CD|
+Label & Sticker Printing|چاپ لیبل و برچسب|
+Metal & Tin Glass Printing|چاپ روی فلز و حلب|
+Paper & Paperboard Printing|چاپ کاغذ و مقوا|
+Plastic Printing|چاپ روی پلاستیک|
+Textile Printing|چاپ پارچه|
+Transfer Printing|چاپ انتقالی|
+Other Package & Printing Service|سایر خدمات چاپ و بسته‌بندی|

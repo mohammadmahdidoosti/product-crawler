@@ -1,0 +1,105 @@
+# Office Supplies > Conferencing System
+Audio Conferencing System|سیستم کنفرانس صوتی|
+Conferencing Accessories|لوازم جانبی کنفرانس|
+Video Conferencing System|سیستم ویدئو کنفرانس|
+Wireless Conference System|سیستم کنفرانس بی‌سیم|
+Other Conferencing Systems|سایر سیستم‌های کنفرانس|
+# Office Supplies > Copier & Copier Supplies
+Copier Developers|دولوپر دستگاه کپی|
+Copier Drum Unit|درام کپی|
+Copier Fuser Unit|فیوزر کپی|
+Copier Toner Cartridge & Toner Powder|کارتریج و پودر تونر کپی|
+Copier Tray & Drawer|سینی کاغذ کپی|
+Copiers|دستگاه کپی|
+Other Copier Supplies|سایر ملزومات کپی|
+# Office Supplies > Printer & Printer Supplies
+3D Printer Material|فیلامنت پرینتر سه‌بعدی|
+Continuous Ink System|مخزن جوهر جانبی|
+Desktop 3D Printer|پرینتر سه‌بعدی رومیزی|
+Dot Matrix Printer|پرینتر سوزنی|B2B
+Drum & Toner Cartridge|درام و کارتریج تونر|
+Fuser Assembly|فیوزر پرینتر|B2B
+Fuser Film Sleeve|فیلم فیوزر|B2B
+Fuser Roller|غلتک فیوزر|B2B
+Ink Cartridge|کارتریج جوهرافشان|
+Inkjet Printer|پرینتر جوهرافشان|
+Office Paper|کاغذ A4|
+Pick-up Roller|غلتک کاغذکش|B2B
+Power Board|برد پاور پرینتر|B2B
+Print Head|هد پرینتر|B2B
+Printer Blade|تیغه کارتریج|B2B
+Printer Chip|چیپ کارتریج|B2B
+Printer Ink|جوهر پرینتر|
+Printer Resin|رزین پرینتر سه‌بعدی|
+Printer Ribbon|ریبون پرینتر|B2B
+Printer Screen|نمایشگر پرینتر|B2B
+Thermal Printer|پرینتر حرارتی|B2B
+Toner Powder|پودر تونر|B2B
+Transfer Roller|غلتک ترانسفر|B2B
+Other Printers & Printer Supplies|سایر پرینتر و ملزومات|
+# Office Supplies > Stamp
+Business Stamp|مهر اداری|
+Kid's Stamp|مهر کودک|مصرفی
+Other Stamp|سایر مهرها|
+# Office Supplies > Pen, Pencil & Brush
+Ball Pen|خودکار|
+Crayon|مداد شمعی|
+Fountain Pen|خودنویس|
+Gel Pen|روان‌نویس ژله‌ای|
+Light Pen|قلم نوری|
+Marker & Highlighter|ماژیک و هایلایتر|
+Paint Brush|قلم‌مو|
+Pen Refill|مغزی خودکار|
+Pencil|مداد|
+Promotional Pen|خودکار تبلیغاتی|B2B
+Roller Ball Pen|روان‌نویس|
+Other Pens|سایر نوشت‌افزارها|
+# Office Supplies > Stationery
+Book Cover & Case|جلد کتاب|
+Bookend|نگهدارنده کتاب|
+Calendar|تقویم|
+Clip|گیره کاغذ|
+Compasses|پرگار|
+Drawing & Paint|لوازم نقاشی|
+Envelope & Letter Pad|پاکت نامه|
+Eraser & Rubber|پاک‌کن|
+File Folder|پوشه|
+File Tray|سینی کاغذ اداری|
+Glue|چسب مایع|
+Glue Stick|چسب ماتیکی|
+Knife & Scissors|کاتر و قیچی|
+Memo & Note Pad|یادداشت چسبی|
+Notebook|دفتر|
+Office Adhesive Tape|چسب نواری|
+Office Hole Punch|پانچ|
+Office Paper|کاغذ اداری|
+Office Staples|سوزن منگنه|
+Pen Holder|جامدادی رومیزی|
+Pencil Bags & Cases|جامدادی|
+Pencil Sharpener|تراش|
+Promotional Pen|خودکار تبلیغاتی|
+Ruler|خط‌کش|
+Staple Remover|سوزن‌کش|
+Stapler|منگنه|
+Stationery Set|ست لوازم‌التحریر|
+Tape Dispenser|پایه چسب|
+Other Stationery|سایر لوازم‌التحریر|
+# Office Supplies > Demonstrational & Teaching Utensil
+Chalk|گچ تخته|
+Globe|کره جغرافیایی|
+Marker & Highlighter|ماژیک|
+Mechatronics Training Equipment|تجهیزات آموزشی مکاترونیک|
+Presentation & Bulletin Board|تابلو اعلانات|
+Teaching Model|مولاژ و مدل آموزشی|
+Other Demonstrational & Teaching Utensils|سایر وسایل کمک‌آموزشی|
+# Office Supplies > Presentation & Bulletin Board
+Blackboard|تخته سیاه|
+Cork Board|تابلو چوب‌پنبه|
+Whiteboard|وایت‌برد|
+Other Boards|سایر تابلوها|
+# Office Supplies > Projector & Equipment
+Laser Pointer|پوینتر لیزری|
+Projection Screen|پرده نمایش|
+Projectors|ویدئو پروژکتور|
+Visual Presenter|ویژوالایزر|B2B
+Other Projector & Equipment|سایر تجهیزات پروژکتور|

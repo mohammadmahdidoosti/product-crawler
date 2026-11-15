@@ -1,0 +1,271 @@
+# Transportation > Forklifts & Parts
+Forklift|لیفتراک|
+Forklift Parts|قطعات لیفتراک|
+# Transportation > Trailer Parts
+Trailer Axle|اکسل تریلر|
+Trailer Coupler|کوپلر یدک‌کش|
+Trailer Frame|شاسی تریلر|
+Trailer Support|جک نگهدارنده تریلر|
+Trailer Suspension|تعلیق تریلر|
+Trailer Towing Device|کشنده (کفی اتصال)|
+Trailer Wheel|چرخ تریلر|
+Other Trailer Parts|سایر قطعات تریلر|
+# Transportation > Truck Parts
+Truck Air Filter|فیلتر هوای کامیون|
+Truck Alternator|دینام کامیون|
+Truck Axle|اکسل کامیون|
+Truck Battery|باتری کامیون|
+Truck Bearing|بلبرینگ کامیون|
+Truck Body Part|قطعات بدنه کامیون|
+Truck Brake|ترمز کامیون|
+Truck Brake Disc|دیسک ترمز کامیون|
+Truck Brake Shoe|لنت کامیون|
+Truck Clutch|کلاچ کامیون|
+Truck Compressor|کمپرسور باد کامیون|
+Truck Drive Shaft|گاردان کامیون|
+Truck Electronic|برق کامیون|
+Truck Engine|موتور کامیون|
+Truck Engine Assembly|موتور کامل کامیون|
+Truck Engine Mount|دسته موتور کامیون|
+Truck Exhaust Pipe|لوله اگزوز کامیون|
+Truck Fuel Filter|فیلتر سوخت کامیون|
+Truck Horn|بوق کامیون|
+Truck Hub|توپی چرخ کامیون|
+Truck Light|چراغ کامیون|
+Truck Oil Filter|فیلتر روغن کامیون|
+Truck Refrigeration System|یخچال کامیون (ترموکینگ)|
+Truck Rim|رینگ کامیون|
+Truck Shock Absorber|کمک‌فنر کامیون|
+Truck Spark Plug|شمع کامیون|
+Truck Spoke|پره چرخ کامیون|
+Truck Starter System|استارت کامیون|
+Truck Steering|فرمان کامیون|
+Truck Suspension|تعلیق کامیون|
+Truck Switch|کلید کامیون|
+Truck Transmission|گیربکس کامیون|
+Truck Universal Joint|چهارشاخ کامیون|
+Other Truck Parts|سایر قطعات کامیون|
+# Transportation > Bicycle Parts & Accessories
+Bicycle Bell|زنگ دوچرخه|
+Bicycle Brake|ترمز دوچرخه|
+Bicycle Cassette & Freewheel|کاست و رکاب‌آزاد|
+Bicycle Chain|زنجیر دوچرخه|
+Bicycle Crank & Chainwheel|طبق‌قامه دوچرخه|
+Bicycle Derailleur|شانژمان|
+Bicycle Fork|دوشاخ دوچرخه|
+Bicycle Frame|تنه دوچرخه|
+Bicycle Handlebar|فرمان دوچرخه|
+Bicycle Handlebar Grips|دسته فرمان دوچرخه|
+Bicycle Hubs|توپی دوچرخه|
+Bicycle Light|چراغ دوچرخه|
+Bicycle Pedal|پدال دوچرخه|
+Bicycle Pump|تلمبه دوچرخه|
+Bicycle Seat & Saddle|زین دوچرخه|
+Bicycle Seat Post|لوله زین|
+Bicycle Spoke|پره دوچرخه|
+Bicycle Stem|کرپی فرمان|
+Bicycle Tire|لاستیک دوچرخه|
+Bicycle Wheel|چرخ دوچرخه|
+Bike Bag|کیف دوچرخه|
+Bike Basket|سبد دوچرخه|
+Bike Computer|کیلومترشمار دوچرخه|
+Bike Lock|قفل دوچرخه|
+Rear Bike Rack|ترکبند دوچرخه|
+Other Bicycle Parts|سایر قطعات دوچرخه|
+# Transportation > Bike
+BMX Bicycle|دوچرخه BMX|
+Cruiser Bicycle|دوچرخه کروزر|
+Folding Bike|دوچرخه تاشو|
+Kids Driving Toys|دوچرخه کودک|
+Mountain Bicycle|دوچرخه کوهستان|
+Road Bicycle|دوچرخه جاده|
+Tandem Bicycle|دوچرخه دونفره|
+Track Bicycle|دوچرخه پیست|
+Utility Bicycle|دوچرخه باری|ترکیبی
+Other Bikes|سایر دوچرخه‌ها|
+# Transportation > Electric Vehicle & Parts
+Balance Vehicle|اسکوتر تعادلی|مصرفی
+Electric Bike|دوچرخه برقی|مصرفی
+Electric Car|خودروی برقی|
+Electric Motorcycle|موتورسیکلت برقی|
+Electric Scooter|اسکوتر برقی|مصرفی
+Electric Tricycle|سه‌چرخه برقی|
+Handicap Scooter|اسکوتر معلولین|مصرفی
+Parts of Electric Bike|قطعات دوچرخه برقی|
+Other Electric Vehicles|سایر وسایل نقلیه برقی|
+# Transportation > Tricycle & Parts
+Electric Tricycle|سه‌چرخه برقی|
+Motor Trike|سه‌چرخه موتوری|
+Parts of Tricycle|قطعات سه‌چرخه|
+Rickshaw|ریکشا|
+# Transportation > Bus
+Bus Parts|قطعات اتوبوس|
+City Bus|اتوبوس شهری|
+Coach|اتوبوس بین‌شهری|
+Mini Bus|مینی‌بوس|
+School Bus|اتوبوس مدرسه|
+Other Buses|سایر اتوبوس‌ها|
+# Transportation > Car
+Conventional Fuel Vehicles|خودروی بنزینی و دیزلی|
+Electric Car|خودروی برقی|
+Hybrid Electric Vehicles|خودروی هیبرید|
+New Energy Vehicles|خودروی انرژی نو|
+# Transportation > Barrow, Trolley & Cart
+Cage Cart|ترولی قفسی|
+Cleaning Cart|ترولی نظافت|
+Climb Cart|چرخ‌دستی پله‌رو|
+Garden Cart|گاری باغی|
+Hand Truck|چرخ‌دستی (دولی)|
+Luggage Cart|ترولی چمدان|
+Multi-Layer Cart|ترولی چندطبقه|
+Platform Trolley|چرخ‌دستی صفحه‌دار|
+Shopping Basket & Cart|سبد و چرخ خرید|
+Trolley Parts|قطعات ترولی|
+Trolley Wheel|چرخ ترولی|
+Wheelbarrow|فرغون|
+Other Barrows, Trolleys & Carts|سایر ترولی‌ها|
+# Transportation > Cargo & Storage
+IBC Tank|مخزن IBC|
+Industrial Plastic Containers|ظرف پلاستیکی صنعتی|
+Loading Dock|سکوی بارگیری|
+Locker|کمد لاکر|
+Pallets|پالت|
+Storage Cage|قفس انبار|
+Storage Racks|قفسه انبار (رک)|
+Transfer Cart|واگن انتقال|
+Warehouse|انبار پیش‌ساخته|
+Other Cargo & Storage Equipment|سایر تجهیزات انبار|
+# Transportation > Specialized Vehicle
+Advertising Truck|کامیون تبلیغاتی|
+Fire Truck|خودروی آتش‌نشانی|
+Food Trailer|فودتراک|
+Garbage Truck|خودروی حمل زباله|
+Golf Cart|خودروی گلف|
+Hearse|خودروی حمل متوفی|
+High-altitude Operation Truck|خودروی بالابر (سبدی)|
+Medical Vehicle|آمبولانس|
+Mixer Truck|تراک‌میکسر|
+Refrigerated Truck|کامیون یخچال‌دار|
+Sewage & Fecal Suction Truck|خودروی تخلیه فاضلاب|
+Sightseeing Bus & Car|خودروی گردشگری|
+Sweep Truck|خودروی جاروب خیابان|
+Water Truck|تانکر آب|
+Wrecker|یدک‌کش خودرو|
+Other Specialized Vehicles|سایر خودروهای ویژه|
+# Transportation > Tractor & Parts
+Parts of Tractor|قطعات تراکتور|
+Tractor|تراکتور|
+# Transportation > Trailer
+ATV Trailer|تریلر چهارچرخ|
+Bike Trailer|تریلر دوچرخه|مصرفی
+Boat Trailer|تریلر قایق|
+Car Trailer|تریلر خودروبر|
+Farm Trailer|تریلر کشاورزی|
+Food Trailer|تریلر غذا|
+Motorcycle Trailer|تریلر موتورسیکلت|
+Truck Trailer|تریلر کامیون|
+Other Trailers|سایر تریلرها|
+# Transportation > Truck
+Box Truck|کامیون مسقف|
+Dump Truck|کمپرسی|
+Feed Truck|کامیون حمل خوراک دام|
+General Cargo Truck|کامیون باری|
+Grain Truck|کامیون غله‌کش|
+Livestock Truck|کامیون دام‌کش|
+Tank Truck|تانکر|
+Tractor Truck|کشنده|
+Other Trucks|سایر کامیون‌ها|
+# Transportation > Boats & Ships
+Barge|بارج|
+Cargo Ship|کشتی باری|
+Fire Ship|کشتی آتش‌نشانی|
+Passenger Ship|کشتی مسافربری|
+Recreational Boat|قایق تفریحی|
+Salvage Ships|کشتی نجات|
+Speed Boat|قایق تندرو|
+Submarine|زیردریایی|
+Tugboat|یدک‌کش دریایی|
+Other Boats & Ships|سایر کشتی‌ها|
+# Transportation > Container & Fittings
+Container Fitting|متعلقات کانتینر|
+Dry Van Container|کانتینر خشک|
+Flat Rack Container|کانتینر فلت‌رک|
+High Cube Container|کانتینر های‌کیوب|
+Open Side Container|کانتینر درب‌کناری|
+Open Top Container|کانتینر سقف‌باز|
+Reefer Container|کانتینر یخچالی|
+Specialized Container|کانتینر ویژه|
+Tank Container|کانتینر تانکری|
+Other Container & Fittings|سایر کانتینرها|
+# Transportation > Marine Machinery Spare Parts
+Marine Air Compressor Spare Parts|قطعات کمپرسور دریایی|
+Marine Diesel Spare Parts|قطعات دیزل دریایی|
+Marine Oil Purifier Spare Parts|قطعات سپراتور روغن دریایی|
+Marine Pump Spare Parts|قطعات پمپ دریایی|
+Marine Turbocharger Spare Parts|قطعات توربوشارژر دریایی|
+Other Marine Machinery Spare Parts|سایر قطعات ماشین‌آلات دریایی|
+# Transportation > Marine Parts
+Boat Anchors|لنگر|
+Boat Covers|کاور قایق|
+Boat Fenders|ضربه‌گیر قایق|
+Boat Propellers|پروانه قایق|
+Buoy|بویه|
+Marine Airbags|بالشتک بادی دریایی|
+Marine Door|درب دریایی|
+Marine Engines|موتور دریایی|
+Marine Hardware|یراق‌آلات دریایی|
+Marine Hatch|دریچه دریایی|
+Marine Pumps|پمپ دریایی|
+Marine Windows|پنجره دریایی|
+Other Marine Parts|سایر قطعات دریایی|
+# Transportation > Roadway Facility
+Manhole Cover|درپوش منهول|
+Roadway Safety|ایمنی راه|
+Other Roadway Facilities|سایر تأسیسات جاده‌ای|
+# Transportation > Elevator & Funicular Car
+Construction Elevator|بالابر کارگاهی|
+Escalator|پله‌برقی|
+Freight Elevator|آسانسور باری|
+Moving Sidewalk|پیاده‌روی متحرک|
+Parts for Elevator & Funicular Car|قطعات آسانسور|
+Passenger Elevator|آسانسور مسافربر|
+Sightseeing Elevator|آسانسور پانوراما|
+Special Elevator|آسانسور ویژه|
+Other Elevators & Funicular Cars|سایر آسانسورها|
+# Transportation > Gas Station & Equipment
+Fuel Dispenser|پمپ بنزین (دیسپنسر)|
+Fuel Nozzle|نازل سوخت|
+Gas Dispenser|دیسپنسر CNG|
+Gas Station Equipment Accessories|لوازم جایگاه سوخت|
+LPG Filling Station|جایگاه LPG|
+Oil Tank|مخزن سوخت|
+Portable Fuel Station|جایگاه سوخت سیار|
+Other Gas Station Equipments|سایر تجهیزات جایگاه|
+# Transportation > Mechanical Parking Equipment
+Car Ramp|رمپ خودرو|
+Car Turntable|صفحه گردان خودرو|
+Parking Lift|بالابر پارکینگ|
+Puzzle Parking System|پارکینگ پازلی|
+Rotary Parking System|پارکینگ دوار|
+Stacked Parking System|پارکینگ طبقاتی|
+Vertical Parking System|پارکینگ عمودی (برجی)|
+Other Mechanical Parking Equipment|سایر پارکینگ‌های مکانیزه|
+# Transportation > Parking Ancillary Facilities
+Car Position Lock|قفل جای پارک|
+Car Ramp|رمپ خودرو|
+Large Carport|سایبان پارکینگ|
+Parking Access Control|کنترل تردد پارکینگ|
+Parking Camera|دوربین پلاک‌خوان|
+Parking Management System|سیستم مدیریت پارکینگ|
+Parking Pay Station|دستگاه پرداخت پارکینگ|
+Parking Sensor|سنسور جای پارک|
+Wheel Chock|استوپر چرخ (پارک)|
+Other Parking Ancillary Facilities|سایر تجهیزات پارکینگ|
+# Transportation > Recreational Vehicles
+Motorhome|موتورهوم|
+Recreational Vehicle Parts & Accessories|قطعات کاروان|
+Travel Trailer|کاروان یدک|
+# Transportation > Train & Railway
+Locomotive|لکوموتیو|
+Railway Supplies|تجهیزات ریلی|
+Train Parts|قطعات قطار|

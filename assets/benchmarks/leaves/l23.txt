@@ -1,0 +1,196 @@
+# Textile > Bast Fiber Fabric
+Hemp Fabric|پارچه کنف|
+Jute Fabric|پارچه کنفی (چتایی)|
+Linen & Flax Fabric|پارچه کتان|
+Ramie Fabric|پارچه رامی|
+Other Bast Fiber Fabrics|سایر پارچه‌های الیاف ساقه|
+# Textile > Functional Textile
+Abrasion-Resistant Fabric|پارچه ضدسایش|
+Anti Acid & Alkali Fabric|پارچه ضداسید و قلیا|
+Anti Static Fabric|پارچه آنتی‌استاتیک|
+Antimicrobial Fabric|پارچه آنتی‌باکتریال|
+Breathable Fabric|پارچه تنفس‌پذیر|
+Crease Resistant Fabric|پارچه ضدچروک|
+Flame Retardant Fabric|پارچه ضدشعله|
+Oil and Water Repellent Fabric|پارچه ضدآب و روغن|
+Quick Drying Fabric|پارچه زودخشک|
+Radiation Resistant Fabric|پارچه ضداشعه|
+Special Textiles|منسوجات ویژه|
+Stain Resistant Fabric|پارچه ضدلک|
+Stretch Fabric|پارچه کشی|
+Tear Resistant Fabric|پارچه ضدپارگی|
+Thermal Insulation Fabric|پارچه عایق حرارتی|
+UV Protection Fabric|پارچه ضد UV|
+# Textile > Industrial Textile
+Carbon Fiber Fabric|پارچه فیبر کربن|
+Felt|نمد|
+Fiberglass Cloth|پارچه فایبرگلاس|
+Filter Bag & Cartridge|کیسه فیلتر|
+Filter Cloth|پارچه فیلتر|
+Nylon Fabric|پارچه نایلون|
+Nylon Mesh Fabric|توری نایلونی|
+PE Mesh Fabric|توری PE|
+PE Tarpaulin|برزنت PE|
+PET Mesh Fabric|توری PET|
+PET Tarpaulin|برزنت PET|
+PP Mesh Fabric|توری PP|
+PP Tarpaulin|برزنت PP|
+PU Tarpaulin|برزنت PU|
+PVC Mesh Fabric|توری PVC|
+PVC Tarpaulin|برزنت PVC (چادر کامیون)|
+Other Industrial Textiles|سایر منسوجات صنعتی|
+# Textile > Lace & Purfle
+Crochet Lace|تور قلاب‌بافی|
+Embroidery Lace|تور گلدوزی|
+Jacquard Lace|تور ژاکارد|
+Knitted Lace|تور حلقوی|
+Other Lace & Purfle|سایر تورها|
+# Textile > Non Woven Fabric
+Meltblown Non Woven Fabric|ملت‌بلون|
+Needle Punched Non Woven Fabric|نبافته سوزنی|
+Pulp Airlaid Non Woven Fabric|نبافته ایرلاید|
+Spunbond Non Woven Fabric|اسپان‌باند|
+Spunlace Non Woven Fabric|اسپان‌لیس|
+Thermal Bonded Non Woven Fabric|نبافته حرارتی|
+Wet Laid Non Woven Fabric|نبافته ترریسی|
+# Textile > Printed & Color-woven Cloth
+Chiffon Printed Fabric|حریر چاپی|
+Cotton Printed Fabric|پارچه نخی چاپی|
+Linen Printed Fabric|کتان چاپی|
+Polyester Printed Fabric|پلی‌استر چاپی|
+Rayon Printed Fabric|ریون چاپی|
+Spandex Printed Fabric|اسپندکس چاپی|
+Other Printed Fabric|سایر پارچه‌های چاپی|
+# Textile > Raw Cotton & Cotton Frabic
+100% Cotton Fabric|پارچه صددرصد نخ|
+Cotton Blend Fabric|پارچه نخی مخلوط|
+Cotton/Linen Fabric|پارچه نخ-کتان|
+Cotton/Polyester Fabric|پارچه نخ-پلی‌استر|
+Cotton/Silk Fabric|پارچه نخ-ابریشم|
+Cotton/Spandex|پارچه نخ-اسپندکس|
+Raw Cotton|پنبه خام|
+# Textile > Synthetic Fabric
+100% Acrylic Fabric|پارچه اکریلیک|
+100% Aramid Fabric|پارچه آرامید|
+100% Nylon Fabric|پارچه نایلون|
+100% Polyester Fabric|پارچه پلی‌استر|
+100% Polypropylene Fabric|پارچه پلی‌پروپیلن|
+Aramid Blend Fabric|پارچه آرامید مخلوط|
+Bedding Fabric|پارچه ملحفه‌ای|
+Chemical Fiber|الیاف شیمیایی|
+Curtain Fabric|پارچه پرده‌ای|
+Cushion Fabric|پارچه کوسن|
+Lace Fabric|پارچه گیپور|
+Mattress Fabric|پارچه تشک|
+Nylon Blend Fabric|پارچه نایلون مخلوط|
+Outdoor Furniture Fabric|پارچه مبلمان فضای باز|
+Polyester Blend Fabric|پارچه پلی‌استر مخلوط|
+Polyester/Cotton Fabric|پارچه پلی‌استر-نخ|
+Polyester/Nylon Fabrics|پارچه پلی‌استر-نایلون|
+Polyester/Spandex Fabric|پارچه پلی‌استر-اسپندکس|
+Polyester/Viscose Fabric|پارچه پلی‌استر-ویسکوز|
+Sofa Fabric|پارچه مبلی|
+Spandex Blend Fabric|پارچه اسپندکس مخلوط|
+Wool/Acrylic Fabric|پارچه پشم-اکریلیک|
+Wool/Nylon Fabric|پارچه پشم-نایلون|
+Wool/Viscose Fabric|پارچه پشم-ویسکوز|
+Other Regenerated Fiber Fabric|سایر پارچه‌های مصنوعی|
+# Textile > Leather & Leatheroid
+Genuine Leather|چرم طبیعی|
+Synthetic Leather|چرم مصنوعی|
+# Textile > Carpet, Rug & Mat
+Bath Mat|پادری حمام|مصرفی
+Car Mat|کفپوش خودرو|
+Carpet Padding|زیرفرشی|
+Carpet Tile|موکت تایلی|B2B
+Chair Mat|کفپوش صندلی|
+Door Mat|پادری|
+Exercise Mat|زیرانداز ورزشی|مصرفی
+Kids Floor Mat|تشک بازی کودک|مصرفی
+Kitchen Rugs|فرش آشپزخانه|مصرفی
+Outdoor Mat|فرش فضای باز|
+Prayer Mat|سجاده|مصرفی
+Rug Set|ست فرش|مصرفی
+Runner Rug|کناره|
+Tapestry|تابلوفرش|مصرفی
+Wall-to-Wall Carpet|موکت|
+Other Carpets, Rugs & Mats|سایر فرش و موکت|
+# Textile > Curtains & Drapes
+Blackout Curtain|پرده بلک‌اوت|
+Curtain Rod|میله پرده|
+Curtain Rod Accessories|متعلقات میله پرده|
+Curtain Track|ریل پرده|
+Curtain Track Fittings|اتصالات ریل پرده|
+Door Curtains|پرده درب|
+Electric Curtain|پرده برقی|
+Hospital Curtain|پرده بیمارستانی|B2B
+Sheer Curtain|پرده حریر|
+Shower Curtain|پرده حمام|مصرفی
+Window Curtain|پرده پنجره|
+Zebra Blind|پرده زبرا|
+Other Curtains & Accessories|سایر پرده و متعلقات|
+# Textile > Furniture Cover
+Chair Cover|روکش صندلی|
+Sofa Cover|کاور مبل|
+Table Cloth|رومیزی|
+Other Furniture Covers|سایر روکش‌های مبلمان|
+# Textile > Table Cloth
+Cotton Tablecloth|رومیزی نخی|
+Linen Tablecloth|رومیزی کتان|
+Plastic Tablecloth|رومیزی پلاستیکی|
+Polyester Tablecloth|رومیزی پلی‌استر|
+Vinyl Tablecloth|رومیزی وینیل|
+Other Table Cloth|سایر رومیزی‌ها|
+# Textile > Towel & Handkerchief
+Bath Towel|حوله حمام|
+Beach Towel|حوله ساحلی|
+Face Towel|حوله دست و صورت|
+Hair Towel|حوله مو|
+Handkerchief|دستمال پارچه‌ای|
+Sports Towel|حوله ورزشی|
+Towel Set|ست حوله|
+Other Towels|سایر حوله‌ها|
+# Textile > Sewing Thread
+Core Spun Sewing Thread|نخ دوخت مغزی‌دار|
+Cotton Sewing Thread|نخ دوخت پنبه‌ای|
+Nylon Sewing Thread|نخ دوخت نایلونی|
+Polyester Filaments Sewing Thread|نخ دوخت فیلامنت پلی‌استر|
+Polyester Staple Fiber Thread|نخ دوخت پلی‌استر استیپل|
+Polyester-Cotton Sewing Thread|نخ دوخت پلی‌استر-پنبه|
+Other Sewing Threads|سایر نخ‌های دوخت|
+# Textile > Twine, Rope & Netting
+Netting|تور|
+Twine & Rope|نخ و طناب|
+# Textile > Garment Labels
+Printed Labels|لیبل چاپی|
+Woven Label|لیبل بافته|
+# Textile > Embroidery Thread
+Cotton Embroidery Thread|نخ گلدوزی پنبه‌ای|
+Machine Embroidery Thread|نخ گلدوزی ماشینی|
+Polyester Embroidery Thread|نخ گلدوزی پلی‌استر|
+Rayon Embroidery Thread|نخ گلدوزی ریون|
+Silk Embroidery Thread|نخ گلدوزی ابریشمی|
+Other Embroidery Threads|سایر نخ‌های گلدوزی|
+# Textile > Man-made Fiber
+100% Modal Fabric|پارچه مودال|
+100% Rayon Fabric|پارچه ریون|
+100% Rayon Silk|ابریشم مصنوعی ریون|
+100% Viscose Fabric|پارچه ویسکوز|
+Rayon/Cotton Fabric|پارچه ریون-نخ|
+Rayon/Linen Fabric|پارچه ریون-کتان|
+Rayon/Nylon Fabric|پارچه ریون-نایلون|
+Rayon/Polyester Fabric|پارچه ریون-پلی‌استر|
+Rayon/Viscose Fabric|پارچه ریون-ویسکوز|
+Viscose/Cotton Fabric|پارچه ویسکوز-نخ|
+Viscose/Nylon Fabric|پارچه ویسکوز-نایلون|
+Viscose/Polyester Fabric|پارچه ویسکوز-پلی‌استر|
+Other Regenerated Fiber Fabric|سایر پارچه‌های بازیافتی|
+# Textile > Pillow & Cushion
+Backrest Pillow & Cushion|کوسن پشتی|
+Bed Pillow|بالش|
+Cushion Cover|روکوسنی|
+Maternity Pillow|بالش بارداری|مصرفی
+Outdoor Pillow & Cushion|کوسن فضای باز|
+Pillow Case|روبالشی|
+Seat Cushion|تشکچه صندلی|
+Travel Pillow|بالش سفری|مصرفی

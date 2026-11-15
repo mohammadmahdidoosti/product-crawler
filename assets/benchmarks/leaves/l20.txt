@@ -1,0 +1,117 @@
+# Security & Protection > Access Control System
+Access Control Card|کارت تردد|
+Access Control Card Reader|کارت‌خوان تردد|
+Access Control Keypad|کیپد کنترل تردد|
+Access Control Power Supply|منبع تغذیه اکسس کنترل|
+Access Control Software|نرم‌افزار کنترل تردد|
+Access Controller|کنترلر تردد|
+Audio Door Phone|آیفون صوتی|
+Door Exit Button|کلید خروج درب|
+Electronic Lock|قفل برقی|
+Facial Recognition System|سیستم تشخیص چهره|
+Fingerprint Access Control|دستگاه اثرانگشت|
+Turnstile|گیت تردد (ترن‌استایل)|
+Video Door Phone|آیفون تصویری|
+Other Access Control Systems|سایر سیستم‌های کنترل تردد|
+# Security & Protection > Surveillance, Control & Protection
+CCTV Camera|دوربین مداربسته|
+Camera Housing|کاور دوربین|
+DVR|دی‌وی‌آر|
+Dome Camera|دوربین دام|
+Monitor|مانیتور نظارتی|
+Monitoring System & Software|نرم‌افزار نظارت تصویری|
+NVR|ان‌وی‌آر|
+Optical Transmitter & Receiver|فرستنده و گیرنده نوری|
+Wireless Transmission System|انتقال تصویر بی‌سیم|
+Other Surveillance, Control & Protection|سایر تجهیزات نظارتی|
+# Security & Protection > Alarm & Security Systems
+Alarm|آژیر و دزدگیر|
+Alarm & Security System Accessories|لوازم دزدگیر|
+Alarm Host|مرکز دزدگیر (پنل)|
+EAS & Accessories|گیت ضدسرقت فروشگاهی (EAS)|B2B
+Handheld Metal Detector|راکت فلزیاب|B2B
+Probe, Sensor|چشمی و سنسور دزدگیر|
+Security Display Stand|استند نمایش امنیتی|B2B
+Sender, Receiver|فرستنده و گیرنده دزدگیر|
+Stroboscopic Lamp|فلاشر|
+Walkthrough Metal Detector|گیت فلزیاب|B2B
+Other Alarm & Security Systems|سایر سیستم‌های امنیتی|
+# Security & Protection > Fire Control
+Emergency Light & Indicator Light|چراغ اضطراری|
+Fire Alarm & Smoke Detector|دتکتور دود و اعلام حریق|
+Fire Blanket|پتوی نسوز|
+Fire Extinguisher|کپسول آتش‌نشانی|
+Fire Extinguisher Cabinet|جعبه کپسول آتش‌نشانی|
+Fire Extinguisher Powder|پودر آتش‌نشانی|
+Fire Extinguisher Valve|شیر کپسول آتش‌نشانی|
+Fire Fastener & Fitting|اتصالات آتش‌نشانی|
+Fire Fighting Rack|رک آتش‌نشانی|
+Fire Hose|شیلنگ آتش‌نشانی|
+Fire Hose Reel & Cabinet|جعبه و قرقره آتش‌نشانی|
+Fire Hydrant|هیدرانت|
+Fire Ladder|نردبان آتش‌نشانی|
+Fire Nozzle|سرلوله آتش‌نشانی|
+Fire Sprinkler|اسپرینکلر|
+Fire Truck|خودروی آتش‌نشانی|
+Fire Truck Door|کرکره خودروی آتش‌نشانی|
+Firefighting Breathing Apparatus|دستگاه تنفسی آتش‌نشان (SCBA)|
+Fireproof Suit|لباس آتش‌نشانی|
+Other Fire Control Equipment|سایر تجهیزات آتش‌نشانی|
+# Security & Protection > Lifesaving
+Emergency Whistle|سوت نجات|
+First Aid Kit|جعبه کمک‌های اولیه|
+Life Jacket|جلیقه نجات|
+Life Raft|قایق نجات|
+Lifebuoy|حلقه نجات|
+Rescue Light|چراغ نجات|
+Rescue Line|طناب نجات|
+Rescue Throw Bag|کیسه طناب پرتابی|
+Other Lifesavings|سایر تجهیزات نجات|
+# Security & Protection > Roadway Safety
+Bollard|بولارد (استوانه ترافیکی)|
+Convex Mirror|آینه محدب|
+Highway Guard Rail|گاردریل|
+Reflective Material|مواد شبرنگ|
+Road Stud|چشم‌گربه‌ای|
+Speed Bump|سرعت‌گیر|
+Traffic Barrier|راه‌بند|
+Traffic Cone|مخروط ترافیکی|
+Traffic Light|چراغ راهنمایی|
+Traffic Sign|تابلو راهنمایی|
+Warning Triangle|مثلث خطر|
+Other Roadway Safety|سایر ایمنی راه|
+# Security & Protection > Anti-Static
+Anti Static Cleaner|تمیزکننده آنتی‌استاتیک|
+Anti Static Clothing|لباس آنتی‌استاتیک|
+Anti Static Packaging Materials|بسته‌بندی آنتی‌استاتیک|
+Anti Static Stationery|نوشت‌افزار آنتی‌استاتیک|
+Anti Static Storage|قفسه و جعبه آنتی‌استاتیک|
+Anti Static Tester|تستر آنتی‌استاتیک|
+Anti Static Vehicle|ترولی آنتی‌استاتیک|
+Antistatic Agents|افزودنی آنتی‌استاتیک|
+Other Anti-Static Products|سایر محصولات آنتی‌استاتیک|
+# Security & Protection > Safety Products & Supplies
+Asbestos Glove Bag|کیسه دستکش‌دار آزبست|
+Caution Board|تابلو هشدار|
+Caution Tape|نوار خطر|
+Chemical Storage Cabinet|کابینت مواد شیمیایی|
+Decontamination Shower|دوش اضطراری|
+Ear Protection, Earmuffs|گوشی ایمنی|
+Eyewash|چشم‌شوی اضطراری|
+Fireproof Suit|لباس نسوز|
+Flame Retardant Clothing|لباس ضدشعله|
+Labor Protection Mask|ماسک ایمنی کار|
+Medical-Ray Protective Products|محافظ اشعه (روپوش سربی)|
+Protective Face Mask|شیلد صورت|
+Reflective Safety Clothing|جلیقه شبرنگ|
+Safety & Protective Apparel|لباس ایمنی|
+Safety Belt & Rope|کمربند و طناب ایمنی|
+Safety Glasses|عینک ایمنی|
+Safety Helmet|کلاه ایمنی|
+Scaffolding Net|توری داربست|
+Special Labor Protection Mask|ماسک تنفسی ویژه (فیلتردار)|
+Sports Protection|محافظ ورزشی|مصرفی
+Welding Helmet|ماسک جوشکاری|
+Work & Safety Gloves|دستکش ایمنی|
+Work & Safety Shoes|کفش ایمنی|
+Workshop Apron|پیش‌بند کارگاهی|

@@ -1,0 +1,112 @@
+# Toys > Fidget Toys
+Finger Toys|اسباب‌بازی انگشتی|
+Handheld Games|بازی دستی|
+Rubik's Cube|مکعب روبیک|
+Spinning Top|فرفره|
+Squishy Toys|اسکوئیشی|
+Other Fidget Toys|سایر فیجت‌ها|
+# Toys > Plush & Stuffed Toy
+Electronic Plush Toy|عروسک پولیشی الکترونیکی|
+Plush Backpack|کوله پولیشی|
+Plush Cartoon Toy|عروسک کارتونی پولیشی|
+Plush Cushion & Sofa|کوسن و مبل پولیشی|
+Plush Decoration|تزئینات پولیشی|
+Plush Figure Toy|فیگور پولیشی|
+Plush Keychain|جاکلیدی پولیشی|
+Plush Pillow|بالش پولیشی|
+Plush Plant|گیاه پولیشی|
+Plush Purse|کیف پولیشی|
+Ride On Toy|عروسک سواری|
+Stuffed Animal Toy|عروسک حیوانات|
+Other Plush & Stuffed Toys|سایر عروسک‌های پولیشی|
+# Toys > Intellectual & Educational Toys
+Activity Cube|مکعب فعالیت|
+Art and Craft Toys|اسباب‌بازی هنری|
+Bath Toys|اسباب‌بازی حمام|مصرفی
+Building Blocks|لگو و بلوک ساختنی|
+Children's Book|کتاب کودک|
+Construction and Engineering Toys|اسباب‌بازی مهندسی|
+DIY Toys|کاردستی|
+Doll House|خانه عروسکی|مصرفی
+Dress Up & Pretend Play|بازی نقش‌آفرینی|مصرفی
+Kids' Tablet|تبلت کودک|مصرفی
+Learning Machine|دستگاه آموزشی کودک|
+Letters and Language Toys|اسباب‌بازی الفبا|
+Magnetic Ball|توپ مغناطیسی|
+Play House|خانه بازی|
+Play Mat|تشک بازی|
+Puzzle|پازل|
+Science Toys|اسباب‌بازی علمی|
+Sorting & Stacking Toys|اسباب‌بازی دسته‌بندی|
+Teaching Toys|اسباب‌بازی آموزشی|
+Track Toys|ریل بازی|
+Other Intellectual & Educational Toys|سایر اسباب‌بازی‌های آموزشی|
+# Toys > Inflatable Toys
+Inflatable Ball|توپ بادی|مصرفی
+Inflatable Boat|قایق بادی|مصرفی
+Inflatable Bouncer|بادی پرشی|B2B
+Inflatable Cartoon|کارتون بادی|
+Inflatable Castle|قلعه بادی|B2B
+Inflatable Pool|استخر بادی|مصرفی
+Inflatable Slide|سرسره بادی|B2B
+Other Inflatable Toys|سایر اسباب‌بازی‌های بادی|
+# Toys > Kids Driving Toys
+Kids Balance Car|دوچرخه تعادلی کودک|
+Kids Bicycle|دوچرخه کودک|
+Kids Driving Simulator|شبیه‌ساز رانندگی کودک|
+Kids Electric Vehicle|ماشین شارژی|
+Kids Engineering Vehicle|ماشین راهسازی سواری|
+Kids Four-Wheel Vehicle|چهارچرخ کودک|
+Kids Go Kart|کارتینگ کودک|
+Kids Motorcycle|موتور شارژی|
+Kids Scooter|اسکوتر کودک|
+Kids Swing Car|ماشین لاکپشتی|
+Kids Tricycle|سه‌چرخه|
+Kids Vehicles' Parts|قطعات ماشین کودک|
+Other Driving Toys|سایر سواری‌های کودک|
+# Toys > Remote Control Toys
+RC Airplane|هواپیمای کنترلی|
+RC Animal|حیوان کنترلی|
+RC Boat & Ship|قایق کنترلی|
+RC Car|ماشین کنترلی|
+RC Drone|کوادکوپتر اسباب‌بازی|
+RC Engineering Vehicle|ماشین راهسازی کنترلی|
+RC Helicopter|هلیکوپتر کنترلی|
+RC Motorcycle|موتور کنترلی|
+RC Tank|تانک کنترلی|
+Toy Robot|ربات اسباب‌بازی|
+Other Remote Control Toys|سایر اسباب‌بازی‌های کنترلی|
+# Toys > Vehicle Toys
+Aircraft Toy|هواپیمای اسباب‌بازی|
+Bike Toy|موتور اسباب‌بازی|
+Boat and Ship Toy|کشتی اسباب‌بازی|
+Car Toy|ماشین اسباب‌بازی|
+Construction Vehicle Toy|ماشین راهسازی اسباب‌بازی|
+Train Toy|قطار اسباب‌بازی|
+Truck Toy|کامیون اسباب‌بازی|
+Other Vehicle Toys|سایر ماشین‌های اسباب‌بازی|
+# Toys > Electrical Toys
+Electric Airplane Toy|هواپیمای برقی|
+Electric Animal Toy|حیوان برقی|
+Electric Engineering Toy|اسباب‌بازی مهندسی برقی|
+Electric Gun|تفنگ اسباب‌بازی برقی|
+Electric Robot|ربات برقی|
+Electric Track Toy|ریل برقی|
+Electric Vehicle Toy|ماشین برقی اسباب‌بازی|
+Interactive Toy|اسباب‌بازی تعاملی|
+Talking Toy|اسباب‌بازی سخنگو|
+Other Electrical Toys|سایر اسباب‌بازی‌های برقی|
+# Toys > Baby Toys
+Baby Rocking Chair|صندلی گهواره‌ای نوزاد|
+Balance Toy|اسباب‌بازی تعادلی|
+Interaction Toy|اسباب‌بازی تعاملی نوزاد|
+Light Toy|اسباب‌بازی نوری|
+Sensory Toy|اسباب‌بازی حسی|
+Soft Toy|اسباب‌بازی نرم|
+Teether Toy|دندان‌گیر|
+Water Toy|اسباب‌بازی آبی|
+Other Baby Toy|سایر اسباب‌بازی‌های نوزاد|
+# Toys > Pet Toys
+Cat Toys|اسباب‌بازی گربه|
+Dog Toys|اسباب‌بازی سگ|
+Other Pet Toys|سایر اسباب‌بازی‌های حیوانات|

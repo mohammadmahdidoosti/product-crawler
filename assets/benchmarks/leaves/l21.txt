@@ -1,0 +1,23 @@
+# Service > Shipment & Storage
+Air Freight|حمل هوایی|
+Combined Transport|حمل ترکیبی|
+Customs Clearance Services|ترخیص کالا|
+Express Delivery|پست سریع|
+Freight Agents|فورواردر|
+Railway Freight|حمل ریلی|
+Road Freight|حمل جاده‌ای|
+Sea Freight|حمل دریایی|
+Warehouse Services|انبارداری|
+Other Shipment & Storage Services|سایر خدمات حمل و انبار|
+# Service > Commercial Service
+Certification & Inspection|بازرسی و صدور گواهی|
+Company Registration|ثبت شرکت|
+Other Commercial Service|سایر خدمات بازرگانی|
+# Service > Custom Processing Service
+Customized Service for Apparel|تولید سفارشی پوشاک|
+Customized Service for Computer Products|تولید سفارشی محصولات کامپیوتری|
+Customized Service for Electronics|تولید سفارشی الکترونیک|
+Customized Service for Health & Medical|تولید سفارشی پزشکی|
+Customized Service for Machinery|ساخت سفارشی ماشین‌آلات|
+Customized Service for Textile|تولید سفارشی منسوجات|
+Industrial Customized Service|خدمات ساخت صنعتی سفارشی|

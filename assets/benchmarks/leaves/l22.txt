@@ -1,0 +1,256 @@
+# Sporting Goods & Recreation > Fitness Equipment & Body Building
+AB Exerciser|دستگاه شکم|
+Barbell|هالتر|
+Dumbbell|دمبل|
+Elliptical Trainer|اسکی فضایی (الپتیکال)|
+Exercise Bike|دوچرخه ثابت|
+Fitness Accessories|لوازم جانبی بدنسازی|
+Gym Bench|میز پرس|
+Hand Grip|فنر مچ|مصرفی
+Hula Hoop|حلقه هولاهوپ|مصرفی
+Jump Rope|طناب ورزشی|مصرفی
+Kettlebell|کتل‌بل|
+Outdoor Fitness Equipment|دستگاه بدنسازی پارکی|B2B
+Pedometer|گام‌شمار|مصرفی
+Pilates Equipment|تجهیزات پیلاتس|
+Rowing Machine|دستگاه روئینگ|
+Stepper|استپر|
+Strength Fitness Equipment|دستگاه بدنسازی باشگاهی|B2B
+Trampoline|ترامپولین|
+Treadmill|تردمیل|
+Vibration Platform|دستگاه ویبره|
+Yoga Supplies|لوازم یوگا|مصرفی
+Other Fitness Equipment & Body Building|سایر تجهیزات بدنسازی|
+# Sporting Goods & Recreation > Sporting Goods
+Air Mattress|تشک بادی|
+Badminton Set, Racket & Net|بدمینتون|
+Baseball Bat, Gloves & Ball|لوازم بیسبال|
+Basketball & Basketball Equipment|توپ و تجهیزات بسکتبال|
+Billiards|بیلیارد|
+Bow, Arrow & Shooting Equipment|تیر و کمان|
+Bowling Equipment|تجهیزات بولینگ|
+Diving Equipment|تجهیزات غواصی|
+Equestrian Equipment|لوازم سوارکاری|
+Football & Soccer Equipment|لوازم فوتبال|
+Golf Equipment|لوازم گلف|
+Gymnastics Equipment|تجهیزات ژیمناستیک|ترکیبی
+Hockey Equipment|لوازم هاکی|
+Martial Arts & Boxing Supplies|لوازم رزمی و بوکس|
+Pickleball Equipment|لوازم پیکل‌بال|
+Scope & Accessories|دوربین تفنگ و لوازم|
+Skiing & Skating Equipment|لوازم اسکی و اسکیت|
+Soccer Table|فوتبال دستی|
+Softball, Squash & Handball Equipment|لوازم اسکواش و هندبال|
+Sports & Fitness|ورزش و تناسب اندام|
+Surfing Equipment|لوازم موج‌سواری|
+Swimming Supplies|لوازم شنا|
+Table Tennis Equipment|پینگ‌پنگ|
+Tennis Equipment|لوازم تنیس|
+Track & Field Equipment|تجهیزات دوومیدانی|ترکیبی
+Volleyball Equipment|لوازم والیبال|
+Other Sporting Goods|سایر لوازم ورزشی|
+# Sporting Goods & Recreation > Sports Field Equipment & Facilities
+Artificial Grass|چمن مصنوعی|
+Bleachers|سکوی تماشاگران|
+Chain Link Fence|فنس زمین ورزشی|
+Court Maintenance Equipment|تجهیزات نگهداری زمین|
+Fence|فنس|
+LED Display|اسکوربورد LED|
+Scoreboard|تابلو امتیاز|
+Sports Floor|کفپوش ورزشی|
+Training Equipment|تجهیزات تمرین|
+Umpire Chair|صندلی داور|
+Waiting Bench & Chair|نیمکت ذخیره|
+Other Sports Field Equipment & Facilities|سایر تجهیزات زمین ورزشی|
+# Sporting Goods & Recreation > Sports Protection
+Ankle Support|قوزک‌بند|
+Elbow Pad|آرنج‌بند|
+Knee Pad|زانوبند|
+Shin Guards|ساق‌بند|
+Shoulder Support|شانه‌بند|
+Sweatband|هدبند و مچ‌بند|
+Waist Support|کمربند ورزشی|
+Wrist Support|مچ‌بند|
+Other Sports Safety|سایر محافظ‌های ورزشی|
+# Sporting Goods & Recreation > ATV, Quad & Parts
+Off Road ATV|موتور چهارچرخ آفرود|
+Quad & ATV Parts|قطعات چهارچرخ|
+Recreation and Utility ATV|چهارچرخ کاربردی|ترکیبی
+Sport ATV|چهارچرخ اسپرت|
+Youth ATV|چهارچرخ نوجوان|
+Other ATVs & Quads|سایر چهارچرخ‌ها|
+# Sporting Goods & Recreation > Balance Vehicle
+Self Balancing Bike|دوچرخه تعادلی|
+Self Balancing Electric Scooters|اسکوتر برقی تعادلی|
+Self Balancing Scooters|هاوربرد|
+Other Self Balancing Electric Scooter|سایر اسکوترهای تعادلی|
+# Sporting Goods & Recreation > Barbecue
+BBQ Accessories|لوازم باربیکیو|
+BBQ Grill|باربیکیو|
+BBQ Tools|ابزار کباب‌پزی|
+Camping Stove|اجاق کمپینگ|
+# Sporting Goods & Recreation > Camping & Outdoor Gear
+Backpack|کوله‌پشتی|
+Beach Chair|صندلی ساحلی|
+Beach Mat & Picnic Blanket|زیرانداز پیک‌نیک|
+Camping Bed|تخت کمپینگ|
+Camping Chairs|صندلی کمپینگ|
+Camping Light|چراغ کمپینگ|
+Camping Table|میز کمپینگ|
+Compass|قطب‌نما|
+Cooler Bag & Box|یخدان|
+Folding Wagon|گاری تاشو|
+Hammock|ننو|
+Hunting Supplies|لوازم شکار|
+Picnic Bags|کیف پیک‌نیک|
+Sleeping Bag|کیسه خواب|
+Tent|چادر مسافرتی|
+Travel Bag|ساک سفری|
+Travel Mug|ماگ سفری|
+Trekking Pole|باتوم کوهنوردی|
+Twine & Rope|طناب|
+Other Camping & Outdoor Gear|سایر لوازم کمپینگ|
+# Sporting Goods & Recreation > Fishing Tackle
+Fishfinder|ماهی‌یاب|
+Fishing Bag|کیف ماهیگیری|
+Fishing Float|شناور ماهیگیری|
+Fishing Hook|قلاب ماهیگیری|
+Fishing Line|نخ ماهیگیری|
+Fishing Lure|طعمه مصنوعی|
+Fishing Net|تور ماهیگیری|ترکیبی
+Fishing Reel|چرخ ماهیگیری|
+Fishing Rod|چوب ماهیگیری|
+Fishing Tackle Box|جعبه لوازم ماهیگیری|
+Fishing Waders & Wears|لباس ماهیگیری|
+Fishing Weight|وزنه ماهیگیری|
+Other Fishing Tackle|سایر لوازم ماهیگیری|
+# Sporting Goods & Recreation > Helmet
+Bicycle Helmet|کلاه دوچرخه|
+Motorcycle Helmets|کلاه کاسکت|
+Safety Helmet|کلاه ایمنی|B2B
+Sports Helmet|کلاه ورزشی|
+Other Helmets|سایر کلاه‌ها|
+# Sporting Goods & Recreation > Recreational Boat
+Canoe|کانو|
+Fishing Boat|قایق ماهیگیری|ترکیبی
+Jet Ski|جت‌اسکی|
+Kayak|کایاک|
+Sailboat|قایق بادبانی|
+Yacht|قایق تفریحی (یات)|
+Other Recreational Boats|سایر قایق‌های تفریحی|
+# Sporting Goods & Recreation > Scooters & Parts
+Electric Scooter|اسکوتر برقی|
+Kick Scooter & Surfing Scooter|اسکوتر پایی|
+Scooter Parts & Accessories|قطعات اسکوتر|
+# Sporting Goods & Recreation > Skateboard
+Cruiser Skateboard|اسکیت‌برد کروزر|
+Double Kick Skateboard|اسکیت‌برد دوطرفه|
+Electric Skateboard|اسکیت‌برد برقی|
+Longboard Skateboard|لانگ‌برد|
+Other Skateboard|سایر اسکیت‌بردها|
+# Sporting Goods & Recreation > Sports Gear
+Climbing Gear|تجهیزات صعود|
+Motorcycle Helmets|کلاه کاسکت|
+Safety Belt & Rope|هارنس و طناب|
+Sports Cap|کلاه ورزشی|
+Sports Glasses|عینک ورزشی|
+Sports Helmet|کلاه ورزشی|
+Sports Wear|لباس ورزشی|
+Other Sports Gear|سایر تجهیزات ورزشی|
+# Sporting Goods & Recreation > Pet Supplies
+Aquariums & Accessories|آکواریوم و لوازم|
+Cat Tree & Scratcher|درخت گربه|
+Food Bowl & Water Bowl|ظرف غذای حیوان|
+GPS Tracker|ردیاب حیوان|
+LED Aquarium Light|چراغ آکواریوم|
+Pet Bed|جای خواب حیوان|
+Pet Carrier|باکس حمل حیوان|
+Pet Cleaning and Beauty Appliance|لوازم آرایش حیوانات|
+Pet Collar|قلاده|
+Pet Diapers|پوشک حیوان|
+Pet Door|درب حیوان خانگی|
+Pet Gates & Pens|پارک و حصار حیوان|
+Pet Harness|بند بدن حیوان|
+Pet House|لانه حیوان|
+Pet Leash & Lead|بند قلاده|
+Pet Memorials & Funerary|محصولات یادبود حیوان|
+Pet Stroller|کالسکه حیوان|
+Pet Toys|اسباب‌بازی حیوان|
+Pet Training Supplies|لوازم آموزش حیوان|
+Pet Waste Disposal|لوازم بهداشتی حیوان (خاک گربه)|
+Pet Wipes|دستمال مرطوب حیوان|
+Other Pet Supplies|سایر لوازم حیوان خانگی|
+# Sporting Goods & Recreation > Amusement Park
+Amusement Rides|وسایل بازی شهربازی|
+Climbing Wall|دیوار صخره‌نوردی|
+Indoor Playground|خانه بازی سرپوشیده|
+Outdoor Playground|وسایل بازی پارکی|
+Slide|سرسره|
+Water Play Equipment|تجهیزات پارک آبی|
+Other Amusement Park Facilities|سایر تجهیزات شهربازی|
+# Sporting Goods & Recreation > Board Game & Card
+Bingo Game|بینگو|
+Board Game|بازی رومیزی|
+Card Game Table|میز بازی کارت|
+Card Shuffler|دستگاه برزدن کارت|
+Chess Game|شطرنج|
+Dice|تاس|
+Mahjong|ماهجونگ|
+Mahjong Table|میز ماهجونگ|
+Play Card|پاسور|
+Other Board Game & Card|سایر بازی‌های فکری|
+# Sporting Goods & Recreation > Coin Operated Game Machine
+Air Hockey Table|میز ایرهاکی|
+Arcade Games|بازی آرکید|
+Basketball Machine|دستگاه بسکتبال سکه‌ای|
+Boxing Game Machine|دستگاه بوکس سکه‌ای|
+Claw Crane Machine|دستگاه عروسک‌گیر|
+Coin Pusher|دستگاه سکه‌هل‌ده|
+Coin-Operated Kiddie Ride|دستگاه سواری کودک|
+Dance Machine|دستگاه رقص|
+Pinball Machine|پین‌بال|
+Racing Arcade Machine|دستگاه مسابقه رانندگی|
+Shooter Arcade Machine|دستگاه تیراندازی|
+Street Fighter Arcade Machine|دستگاه بازی مبارزه‌ای|
+Token Exchange Machine|دستگاه تبدیل ژتون|
+VR Arcade Machine|دستگاه واقعیت مجازی|
+Other Coin Operated Game Machine|سایر دستگاه‌های سکه‌ای|
+# Sporting Goods & Recreation > Guitar
+Bass|گیتار باس|
+Classical Guitar|گیتار کلاسیک|
+Electric Guitar|گیتار الکتریک|
+Folk & Acoustic Guitar|گیتار آکوستیک|
+Ukulele|یوکللی|
+Other Guitars|سایر گیتارها|
+# Sporting Goods & Recreation > Musical Instrument
+Accordion|آکاردئون|
+Banjo|بانجو|
+Cello|ویولنسل|
+Clarinet|کلارینت|
+Cymbal|سنج|
+Double Bass|کنترباس|
+Drum|درامز|
+Electronic Organ|ارگ|
+Flute|فلوت|
+Gong|گونگ|
+Guitar|گیتار|
+Harmonica|سازدهنی|
+Instruments Parts & Accessories|لوازم جانبی ساز|
+Mandolin|ماندولین|
+Metronome|مترونوم|
+Piano|پیانو|
+Piccolo|پیکولو|
+Saxophone|ساکسیفون|
+Trombone|ترومبون|
+Trumpet|ترومپت|
+Tuba|توبا|
+Viola|ویولا|
+Violin|ویولن|
+Other Musical Instruments|سایر سازها|
+# Sporting Goods & Recreation > Pool & Accessories
+Swimming Pool|استخر پیش‌ساخته|ترکیبی
+Swimming Pool Cover|پوشش استخر|
+Swimming Pool Ladder|نردبان استخر|
+Swimming Pool Pump|پمپ استخر|
+Swimming Pool Sand Filter|فیلتر شنی استخر|
+Other Pool Accessories|سایر تجهیزات استخر|
