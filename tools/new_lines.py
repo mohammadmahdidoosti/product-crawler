@@ -1,10 +1,11 @@
 """(15 Nov, owner) Which product LINES do batches 1-150 bring that the site had no example of before the crawler,
 and which shops sell them. Read-only.
 
-A product's line is judged by its category on the site, without the crawler's own products (author 208):
-  new_line     its level-2 family (e.g. «رنگ و پوشش > رنگ») has no product in its whole subtree
-  new_subtype  its own category subtree is empty, but the family has products
-  existing     its category already had products (a new model of a kind we sell)
+A product's line is its level-2 family (e.g. «رنگ و پوشش > رنگ»), judged on the site without the crawler's own
+products (author 208): the site's own products are in broad categories, so a leaf says nothing.
+  new_line     the family's whole subtree has none of the site's own products
+  thin         1-5 of them
+  existing     more (a new model of a kind the site sells)
 Input: /data/tmp/site_cat_counts2.tsv (term_id, parent, orig, crawler: products of any status, from the shop),
 the taxonomy and its site map, and each batch's 04_filtered / 05_* files.
 Out: /data/tmp/newlines_shops.csv, /data/tmp/newlines_families.csv
@@ -73,15 +74,9 @@ def wp_of(t):
 
 
 def line_of(t):
-    w = wp_of(t)
     w2 = wp_of(level2(t))
-    leaf_o = subtree(w)[0] if w else 0
-    fam_o = subtree(w2)[0] if w2 else 0
-    if fam_o == 0:
-        return "new_line"
-    if leaf_o == 0:
-        return "new_subtype"
-    return "existing"
+    fam_o, fam_a = subtree(w2) if w2 else (0, 0)
+    return ("new_line" if fam_o == 0 else "thin" if fam_o <= 5 else "existing"), fam_o, fam_a - fam_o
 
 
 pages = {}
@@ -108,13 +103,15 @@ rows = []
 for u, r in pages.items():
     t = r.get("taxonomy_id", "")
     price = pd.to_numeric(r.get("price_toman"), errors="coerce")
+    line, fam_o, fam_c = line_of(t)
     rows.append({"url": u, "domain": r.get("source_domain", ""), "seller": r.get("seller_name", ""),
                  "phones": r.get("seller_phones", ""), "name": r.get("name", ""), "tax": t,
                  "family": " > ".join(str(path.get(level2(t), r.get("breadcrumb", ""))).split(" > ")[:2]),
-                 "line": line_of(t), "priced": bool(price and price > 0),
+                 "line": line, "fam_site": fam_o, "fam_crawler": fam_c, "priced": bool(price and price > 0),
                  "photo": bool(str(r.get("image_urls", "")).strip()),
                  "status": "on_site" if u in onsite else "imported" if u in imported else "not_imported"})
 df = pd.DataFrame(rows)
+df.to_csv("/data/tmp/newlines_pages.csv", index=False, encoding="utf-8-sig")
 print("pages", len(df), df.line.value_counts().to_dict(), df.status.value_counts().to_dict())
 
 sh = rd(sorted(glob.glob("/data/shops/*/shops.csv"))[-1])[["domain", "catalog_size", "crawlable", "store_api"]] \
@@ -123,7 +120,7 @@ g = df.groupby("domain")
 shops = pd.DataFrame({
     "pages": g.size(),
     "new_line": g.apply(lambda x: (x.line == "new_line").sum()),
-    "new_subtype": g.apply(lambda x: (x.line == "new_subtype").sum()),
+    "thin": g.apply(lambda x: (x.line == "thin").sum()),
     "new_line_priced": g.apply(lambda x: ((x.line == "new_line") & x.priced).sum()),
     "new_line_not_imported_priced": g.apply(lambda x: ((x.line != "existing") & x.priced & (x.status == "not_imported")).sum()),
     "imported": g.apply(lambda x: (x.status == "imported").sum()),
@@ -132,19 +129,20 @@ shops = pd.DataFrame({
     "seller": g.seller.agg(lambda s: next((v for v in s if v), "")),
     "phones": g.phones.agg(lambda s: next((v for v in s if v), "")),
 }).reset_index()
-shops["new_share"] = ((shops.new_line + shops.new_subtype) / shops.pages).round(2)
+shops["new_share"] = (shops.new_line / shops.pages).round(2)
 shops = shops.merge(sh, on="domain", how="left").sort_values(["new_line_priced", "new_line"], ascending=False)
 shops.to_csv("/data/tmp/newlines_shops.csv", index=False, encoding="utf-8-sig")
 
 nl = df[df.line != "existing"]
 fg = nl.groupby(["family", "line"])
-fam = pd.DataFrame({"pages": fg.size(), "priced": fg.priced.sum(),
+fam = pd.DataFrame({"site_products": fg.fam_site.first(), "crawler_products": fg.fam_crawler.first(),
+                    "pages": fg.size(), "priced": fg.priced.sum(),
                     "imported": fg.apply(lambda x: (x.status == "imported").sum()),
                     "shops": fg.domain.nunique(),
                     "top_shops": fg.domain.agg(lambda s: " | ".join(f"{k} ({v})" for k, v in s.value_counts().head(4).items())),
                     }).reset_index().sort_values("pages", ascending=False)
 fam.to_csv("/data/tmp/newlines_families.csv", index=False, encoding="utf-8-sig")
 print("shops with new-line pages", (shops.new_line > 0).sum(), "with >=20 priced new-line", (shops.new_line_priced >= 20).sum())
-print(shops.head(25)[["domain", "pages", "new_line", "new_line_priced", "new_subtype", "imported",
+print(shops.head(25)[["domain", "pages", "new_line", "new_line_priced", "thin", "imported",
                       "new_line_not_imported_priced", "catalog_size", "crawlable"]].to_string(index=False))
-print(fam[fam.line == "new_line"].head(25)[["family", "pages", "priced", "imported", "shops"]].to_string(index=False))
+print(fam.head(40)[["family", "line", "site_products", "crawler_products", "pages", "priced", "imported", "shops"]].to_string(index=False))
