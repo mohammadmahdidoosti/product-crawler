@@ -1,0 +1,240 @@
+12715|4|Copper TIG Welding Rods|سیم جوش تیگ مس|
+12716|4|Low-Alloy Steel TIG Welding Rods|سیم جوش تیگ فولاد کم‌آلیاژ|
+12717|4|Magnesium TIG Welding Rods|سیم جوش تیگ منیزیم|
+12718|4|Nickel Alloy TIG Welding Rods|سیم جوش تیگ آلیاژ نیکل|
+12719|4|Stainless Steel TIG Welding Rods|سیم جوش تیگ استیل|
+12720|4|Titanium TIG Welding Rods|سیم جوش تیگ تیتانیوم|
+12721|4|Tool Steel TIG Welding Rods|سیم جوش تیگ فولاد ابزار|
+12722|3|Brazing & Soldering Filler Metals|آلیاژ لحیم سخت و قلع لحیم|
+12723|4|Brazing Alloys|آلیاژ لحیم سخت (سیم نقره/برنج)|
+12724|4|Brazing Flux|روانساز (فلاکس) لحیم سخت|
+12725|4|Brazing Alloy & Flux Kits|کیت آلیاژ لحیم سخت و فلاکس|
+12726|4|Solders|قلع لحیم|
+12727|4|Soldering Flux|روغن لحیم (فلاکس)|
+12728|4|Solder & Flux Kits|کیت قلع و روغن لحیم|
+12729|3|Gas Welding Rods|سیم جوش گاز (هواگاز)|
+12730|2|Gas Equipment|تجهیزات جوش و برش گاز|
+12731|3|Oxy-Fuel Equipment|تجهیزات هوا‌گاز (اکسی‌فیول)|
+12732|4|Oxy-Fuel Torch Tips|سرپیک (نازل) هوا‌گاز|
+12733|5|Oxy-Fuel Cutting Tips|سرپیک برش هوا‌گاز|
+12734|6|Victor-Style Torch Cutting Tips|سرپیک برش طرح Victor|
+12735|6|Harris-Style Torch Cutting Tips|سرپیک برش طرح Harris|
+12736|6|Smith-Style Torch Cutting Tips|سرپیک برش طرح Smith|
+12737|6|Airco-Style Torch Cutting Tips|سرپیک برش طرح Airco|
+12738|5|Oxy-Fuel Heating Nozzles|سرپیک حرارتی (گرم‌کن) هوا‌گاز|
+12739|6|Victor-Style Torch Heating Nozzles|سرپیک حرارتی طرح Victor|
+12740|6|Harris-Style Torch Heating Nozzles|سرپیک حرارتی طرح Harris|
+12741|6|Smith-Style Torch Heating Nozzles|سرپیک حرارتی طرح Smith|
+12742|5|Oxy-Fuel Welding & Brazing Tips|سرپیک جوش و لحیم هوا‌گاز|
+12743|6|Victor-Style Torch Welding & Brazing Tips|سرپیک جوش طرح Victor|
+12744|6|Harris-Style Torch Welding & Brazing Tips|سرپیک جوش طرح Harris|
+12745|6|Smith-Style Torch Welding & Brazing Tips|سرپیک جوش طرح Smith|
+12746|6|Airco-Style Torch Welding & Brazing Tips|سرپیک جوش طرح Airco|
+12747|5|Oxy-Fuel Torch Tip Mixers & Tubes|میکسر و لوله سرپیک هوا‌گاز|
+12748|4|Oxy-Fuel Torches, Handles & Attachments|مشعل برش، دسته و متعلقات هوا‌گاز|
+12749|5|Oxy-Fuel Cutting Torches|مشعل برش هوا‌گاز (سرپیک برش)|
+12750|5|Oxy-Fuel Torch Handles|دسته مشعل هوا‌گاز|
+12751|5|Oxy-Fuel Cutting Attachments|متعلقات برش هوا‌گاز|
+12752|5|Oxy-Fuel Flashback Arrestors & Check Valves|سوپاپ ضدبرگشت شعله و شیر یک‌طرفه|
+12753|5|Oxy-Fuel Hose Fittings & Couplings|اتصالات و کوپلینگ شیلنگ هوا‌گاز|
+12754|5|Oxy-Fuel Torch Cutting Guides|راهنمای برش مشعل (پرگار برش)|
+12755|5|Oxy-Fuel Torch Gas Savers|صرفه‌جوی گاز مشعل|
+12756|5|Oxy-Fuel Cutting Machines|دستگاه برش هوا‌گاز (اتوماتیک)|
+12757|4|Oxy-Fuel Torch Kits|کیت جوش و برش هوا‌گاز|
+12758|3|MAP-Pro & Propane Equipment|تجهیزات گاز MAP-Pro و پروپان|
+12759|4|MAP-Pro & Propane Torches|مشعل MAP-Pro و پروپان (کپسولی)|ترکیبی
+12760|4|MAP-Pro & Propane Torch Tips|سرمشعل MAP-Pro و پروپان|
+12761|3|Air-Acetylene Equipment|تجهیزات هوا-استیلن|
+12762|4|Air-Acetylene Torch Kits|کیت مشعل هوا-استیلن|
+12763|4|Air-Acetylene Torch Tips|سرمشعل هوا-استیلن|
+12764|3|Butane Torches & Lighters|مشعل و فندک بوتان|ترکیبی
+12765|3|Gas Regulators & Flowmeters|رگولاتور گاز و فلومتر|
+12766|4|Gas Regulators|رگولاتور (مانومتر) گاز|
+12767|4|Gas Flowmeters & Flowmeter Regulators|فلومتر گاز و رگولاتور فلومتردار|
+12768|4|Gas Switchover Systems|سیستم سوئیچ خودکار کپسول گاز|
+12769|3|Gas Cylinders & Accessories|کپسول گاز و لوازم|
+12770|4|Gas Cylinders & Canisters|کپسول و قوطی گاز|
+12771|4|Gas Cylinder Brackets & Stands|براکت و پایه کپسول گاز|
+12772|4|Gas Cylinder Collar Guards|محافظ گردن کپسول گاز|
+12773|4|Gas Cylinder Gauges|گیج کپسول گاز|
+12774|4|Gas Cylinder Wrenches|آچار کپسول گاز|
+12775|3|Flint Lighters|فندک سنگی جوشکاری|
+12776|2|Laser Welding|جوش لیزر|
+12777|3|ESAB|ESAB|
+12778|2|Plasma Cutting|برش پلاسما|
+12779|3|Plasma Cutters|دستگاه برش پلاسما|
+12780|4|Miller Plasma Cutters|دستگاه برش پلاسما Miller|
+12781|4|Thermal Dynamics Plasma Cutters|دستگاه برش پلاسما Thermal Dynamics|
+12782|4|Lincoln Electric Plasma Cutters|دستگاه برش پلاسما Lincoln Electric|
+12783|4|Hobart Plasma Cutters|دستگاه برش پلاسما Hobart|
+12784|4|ESAB Plasma Cutters|دستگاه برش پلاسما ESAB|
+12785|3|Plasma Torch Consumables|مصرفی‌های تورچ پلاسما|
+12786|4|Plasma Torch Tips & Nozzles|نازل تورچ پلاسما|
+12787|4|Plasma Torch Shield Caps & Deflectors|شیلد کپ و دیفلکتور تورچ پلاسما|
+12788|4|Plasma Torch Retaining Caps|کلاهک نگهدارنده تورچ پلاسما|
+12789|4|Plasma Torch Start Cartridges & Swirl Rings|کارتریج استارت و حلقه گردابی (سوئیرل) پلاسما|
+12790|4|Plasma Torch Electrodes|الکترود تورچ پلاسما|
+12791|4|Plasma Torch O-Rings|اورینگ تورچ پلاسما|
+12792|4|Plasma Torch Consumables Kits|کیت مصرفی پلاسما|
+12793|3|Plasma Torches|تورچ پلاسما|
+12794|3|Plasma Cutting Guides|راهنمای برش پلاسما|
+12795|3|Plasma Torch Adapter Kits|کیت تبدیل تورچ پلاسما|
+12796|3|Plasma Cutter Air Filters|فیلتر هوای برش پلاسما|
+12797|3|CNC Plasma Cutting Tables|میز برش پلاسما CNC|
+12798|2|Soldering|لحیم‌کاری|
+12799|3|Soldering Irons & Accessories|هویه و لوازم|
+12800|4|Soldering Irons|هویه|ترکیبی
+12801|5|Electric Corded Soldering Irons|هویه برقی|
+12802|5|Battery-Powered Cordless Soldering Irons|هویه شارژی|
+12803|5|Butane-Powered Cordless Soldering Irons|هویه گازی|
+12804|4|Soldering Iron Tips|نوک هویه|
+12805|5|Weller Soldering Iron Tips|نوک هویه Weller|
+12806|5|Hakko Soldering Iron Tips|نوک هویه Hakko|
+12807|5|American Beauty Soldering Iron Tips|نوک هویه American Beauty|
+12808|5|Master Appliance Soldering Iron Tips|نوک هویه Master Appliance|
+12809|5|Milwaukee Soldering Iron Tips|نوک هویه Milwaukee|
+12810|5|Westward Soldering Iron Tips|نوک هویه Westward|
+12811|4|Soldering Iron Heating Elements|المنت هویه|
+12812|4|Soldering Iron Handpieces|دسته هویه|
+12813|4|Soldering Iron Stands & Cradles|پایه هویه|
+12814|3|Soldering Stations & Accessories|ایستگاه لحیم‌کاری (هویه ایستگاهی) و لوازم|
+12815|4|Soldering, Desoldering & Hot Air Rework Stations|هویه ایستگاهی، قلع‌کش و هیتر هوای گرم (ریورک)|
+12816|4|Soldering Station Replacement Parts|قطعات یدکی هویه ایستگاهی|
+12817|3|Desoldering Equipment|تجهیزات قلع‌کشی|
+12818|4|Desoldering Braids|سیم قلع‌کش (فتیله)|
+12819|4|Desoldering Pumps|قلع‌کش (پمپ)|
+12820|4|Desoldering & Hot Air Rework Tools|قلع‌کش برقی و هیتر هوای گرم|
+12821|4|Desoldering & Hot Air Rework Tool Tips & Nozzles|نوک و نازل قلع‌کش و هیتر|
+12822|4|Desoldering Tool Heating Elements|المنت قلع‌کش|
+12823|3|Soldering & Desoldering Tip Cleaners|تمیزکن نوک هویه (سیم‌ظرفشویی/اسفنج)|
+12824|3|Solder Pots|پاتیل ذوب قلع (قلع‌دان)|
+12825|3|Soldering Iron Testers & Thermometers|تستر و دماسنج هویه|
+12826|3|Soldering Workholders & Positioners|گیره نگهدارنده قطعه لحیم‌کاری (دست سوم)|
+12827|3|Acid & Flux Brushes|برس اسید و فلاکس|
+12828|3|Conformal Coatings & Removers|پوشش محافظ برد (کانفورمال) و پاک‌کن|
+12829|2|Air Carbon Arc Cutting & Gouging|برش و شیارزنی قوس کربنی (گوجینگ)|
+12830|3|Air Carbon Arc Cutting & Gouging Electrodes|الکترود زغالی گوجینگ|
+12831|3|Air Carbon Arc Cutting & Gouging Torches|انبر گوجینگ|
+12832|3|Air Carbon Arc Cutting & Gouging Torch Parts & Accessories|قطعات و لوازم انبر گوجینگ|
+12833|2|Plastic Welding|جوش پلاستیک|
+12834|3|Plastic Welding Rods|فیلر جوش پلاستیک|
+12835|4|ABS Welding Rods|فیلر جوش ABS|
+12836|4|Acetal Copolymer Welding Rods|فیلر جوش استال (POM)|
+12837|4|CPVC Welding Rods|فیلر جوش CPVC|
+12838|4|HDPE Welding Rods|فیلر جوش HDPE|
+12839|4|HMWPE Welding Rods|فیلر جوش HMWPE|
+12840|4|LDPE Welding Rods|فیلر جوش LDPE|
+12841|4|MDPE Welding Rods|فیلر جوش MDPE|
+12842|4|Polycarbonate Welding Rods|فیلر جوش پلی‌کربنات|
+12843|4|Polypropylene Welding Rods|فیلر جوش پلی‌پروپیلن (PP)|
+12844|4|Polyurethane Welding Rods|فیلر جوش پلی‌یورتان|
+12845|4|PVC Welding Rods|فیلر جوش PVC|
+12846|4|PVDF Welding Rods|فیلر جوش PVDF|
+12847|4|Styrene Welding Rods|فیلر جوش استایرن|
+12848|4|UHMWPE Welding Rods|فیلر جوش UHMWPE|
+12849|3|Plastic Welding Tips|نازل جوش پلاستیک|
+12850|3|Plastic Welders|دستگاه جوش پلاستیک (هوای گرم)|
+12851|2|Spot Welding|جوش نقطه‌ای|
+12852|3|Spot Welding Tips|سر الکترود جوش نقطه‌ای|
+12853|3|Spot Welding Tongs|انبر (بازو) جوش نقطه‌ای|
+12854|2|Stud Welding|جوش گل‌میخ (استاد)|
+12855|3|Weld Studs|گل‌میخ جوشی (استاد)|
+12856|4|CD Weld Studs|گل‌میخ جوشی خازنی (CD)|
+12857|4|Drawn Arc Weld Studs|گل‌میخ جوشی قوسی|
+12858|3|Stud Welding Collets & Chucks|کولت و سه‌نظام جوش گل‌میخ|
+12859|3|Stud Welding Stop Pins|پین توقف جوش گل‌میخ|
+12860|3|Stud Welding Ferrule Grips|نگهدارنده فرول (حلقه سرامیکی) گل‌میخ|
+12861|3|Stud Welders|دستگاه جوش گل‌میخ|
+12862|2|Welding & Soldering Area Protection|حفاظت محیط جوشکاری و لحیم‌کاری|
+12863|3|Welding Blankets|پتوی نسوز جوشکاری|
+12864|3|Welding Blanket Rolls|رول پتوی نسوز جوشکاری|
+12865|3|Welding Curtains|پرده جوشکاری|
+12866|3|Welding Curtain Rolls|رول پرده جوشکاری|
+12867|3|Welding Screens|پاراوان (پرده محافظ) جوشکاری|
+12868|3|Welding Screen & Curtain Accessories|لوازم پاراوان و پرده جوشکاری|
+12869|3|Welding Booths|کابین جوشکاری|
+12870|3|Welding Tents|چادر جوشکاری|
+12871|3|Welding Umbrellas|چتر جوشکاری|
+12872|3|Insulated Welding Pads|پد عایق جوشکاری|
+12873|3|Pipeline Cooling Wraps|پوشش خنک‌کن خط لوله|
+12874|3|Soldering Flame Barriers|سپر حرارتی (ضدشعله) لحیم‌کاری|
+12875|2|Welding & Soldering Fume Extraction|مکش دود جوشکاری و لحیم‌کاری|
+12876|3|Fume Extractors|دستگاه دودگیر (فیوم اکستراکتور)|
+12877|4|Mobile Welding Fume Extractors|دودگیر جوش سیار|
+12878|4|Portable Welding Fume Extractors & Exhausters|دودگیر جوش پرتابل و هواکش|
+12879|4|Benchtop Soldering Fume Extractors & Absorbers|دودگیر رومیزی لحیم‌کاری|
+12880|4|Wall-Mount Welding Fume Extractors|دودگیر جوش دیواری|
+12881|4|Centralized Welding Fume Extractors|دودگیر جوش مرکزی|
+12882|3|Fume Extractor Filters|فیلتر دودگیر|
+12883|4|Dayton Welding Fume Extractor Filters|فیلتر دودگیر جوش Dayton|
+12884|4|Lincoln Welding Fume Extractor Filters|فیلتر دودگیر جوش Lincoln|
+12885|4|Miller Welding Fume Extractor Filters|فیلتر دودگیر جوش Miller|
+12886|4|Extract-All Welding & Soldering Fume Extractor Filters|فیلتر دودگیر Extract-All|
+12887|4|Robovent Welding Fume Extractor Filters|فیلتر دودگیر جوش Robovent|
+12888|4|Hakko Soldering Fume Extractor & Absorber Filters|فیلتر دودگیر لحیم‌کاری Hakko|
+12889|4|Weller Soldering Fume Extractor & Absorber Filters|فیلتر دودگیر لحیم‌کاری Weller|
+12890|3|Fume Extractor Hoses & Nozzles|شیلنگ و نازل دودگیر|
+12891|4|Lincoln Welding Fume Extractor Hoses & Nozzles|شیلنگ و نازل دودگیر Lincoln|
+12892|4|Miller Welding Fume Extractor Hoses & Nozzles|شیلنگ و نازل دودگیر Miller|
+12893|4|Hakko Soldering Fume Extractor Hoses & Nozzles|شیلنگ و نازل دودگیر Hakko|
+12894|4|Weller Soldering Fume Extractor Hoses & Nozzles|شیلنگ و نازل دودگیر Weller|
+12895|4|Dayton Welding Fume Extractor Replacement Parts|قطعات یدکی دودگیر جوش Dayton|
+12896|3|Fume Extractor & Exhauster Arms|بازوی مکش دودگیر|
+12897|2|Weld Fixturing, Marking & Preparation|فیکسچر، علامت‌گذاری و آماده‌سازی جوش|
+12898|3|Welding Tables & Accessories|میز جوشکاری و لوازم|
+12899|4|Modular Welding Tables & Accessories|میز جوشکاری ماژولار (سوراخ‌دار) و لوازم|
+12900|5|Modular Welding Tables|میز جوشکاری ماژولار|
+12901|5|Accessory Kits for Modular Welding Tables|کیت لوازم میز جوش ماژولار|
+12902|5|Clamps for Modular Welding Tables|کلمپ میز جوش ماژولار|
+12903|5|Fasteners for Modular Welding Tables|پین و اتصال میز جوش ماژولار|
+12904|5|Brackets for Modular Welding Tables|براکت میز جوش ماژولار|
+12905|5|Pegboard Panels & Attachments for Modular Welding Tables|پنل سوراخ‌دار و متعلقات میز جوش|
+12906|5|Risers for Modular Welding Tables|رایزر (بلندکن) میز جوش|
+12907|5|Stops for Modular Welding Tables|استاپ میز جوش ماژولار|
+12908|5|Tool Holders for Modular Welding Tables|جاابزاری میز جوش|
+12909|5|Casters & Floor Mounts for Modular Welding Tables|چرخ و پایه کف میز جوش|
+12910|4|Portable Welding Tables & Accessories|میز جوش پرتابل و لوازم|
+12911|5|Portable Welding Tables|میز جوش پرتابل|
+12912|5|Accessory Kits for Portable Welding Tables|کیت لوازم میز جوش پرتابل|
+12913|4|Mobile Welding Tables & Accessories|میز جوش چرخ‌دار و لوازم|
+12914|5|Mobile Welding Tables|میز جوش چرخ‌دار|
+12915|5|Accessories for Mobile Welding Tables|لوازم میز جوش چرخ‌دار|
+12916|4|Stationary Welding Tables|میز جوش ثابت|
+12917|4|Cobot Welding Tables & Accessories|میز جوش ربات همکار و لوازم|
+12918|3|Welding Magnets|گونیا مغناطیسی جوشکاری (آهنربای جوش)|
+12919|4|45/90-Degree Welding Magnets|آهنربای جوش ۴۵/۹۰ درجه|
+12920|4|90-Degree Welding Magnets|آهنربای جوش ۹۰ درجه|
+12921|4|Magnetic Welding Squares|گونیا مغناطیسی جوش|
+12922|4|Multi-Angle Welding Magnets|آهنربای جوش چندزاویه|
+12923|4|Adjustable-Angle Welding Magnets|آهنربای جوش زاویه متغیر|
+12924|3|Pipe Welding Layout & Preparation Tools|ابزار خط‌کشی و آماده‌سازی جوش لوله|
+12925|4|Pipe Marking Tools|ابزار علامت‌گذاری لوله (شابلون)|
+12926|4|Pipe Measuring Tools|ابزار اندازه‌گیری لوله|
+12927|4|Pipe Welding Clamps|کلمپ جوش لوله (هم‌محورکن)|
+12928|4|Socket Weld Spacer Rings|حلقه فاصله‌انداز جوش ساکتی|
+12929|4|Pipe Purging Equipment|تجهیزات پرج (گازدهی پشت جوش) لوله|
+12930|5|Oxygen Purge Monitors & Accessories|اکسیژن‌سنج پرج و لوازم|
+12931|5|Purge Bladders|بادکنک پرج|
+12932|5|Purge Dams|سد پرج|
+12933|5|Purge Paper|کاغذ پرج (حل‌شونده)|
+12934|5|Purge Plugs|درپوش پرج|
+12935|5|Argon Purging Lines|خط پرج آرگون|
+12936|3|Rotary Welding Positioners|پوزیشنر چرخان جوشکاری (میز گردان)|
+12937|3|Welding Markers|ماژیک جوشکاری (مقاوم حرارت)|
+12938|3|Electrochemical Marking & Etching Tools|دستگاه حکاکی الکتروشیمیایی (مارک‌زن)|
+12939|4|Electrochemical Marking & Etching Kits|کیت حکاکی الکتروشیمیایی|
+12940|4|Electrochemical Marking & Etching Solutions|محلول حکاکی الکتروشیمیایی|
+12941|4|Electrochemical Marking & Etching Accessories|لوازم حکاکی الکتروشیمیایی|
+12942|3|Antispatter|اسپری ضدپاشش جوش|
+12943|3|Weld-Through Primer|پرایمر قابل جوش|
+12944|3|Ceramic Weld Backing|پشت‌بند سرامیکی جوش|
+12945|2|Weld Testing & Inspection|آزمون و بازرسی جوش|
+12946|3|Dye Penetrant Testing|تست مایع نافذ (PT)|
+12947|3|Magnetic Particle Testing|تست ذرات مغناطیسی (MT)|
+12948|3|Weld Inspection Gauges|گیج بازرسی جوش|
+12949|3|Welding Temperature Indicators|نشانگر دمای جوش (گچ حرارتی)|
+12950|2|Weld Cleaning|تمیزکاری جوش|
+12951|3|Weld Cleaning Systems|دستگاه تمیزکاری جوش استیل (پولیش الکتروشیمیایی)|
+12952|3|Weld Cleaning Solutions|محلول تمیزکاری جوش (پاسیواسیون)|
+12953|3|Weld Cleaning System Accessories|لوازم دستگاه تمیزکاری جوش|
+12954|3|Welding Torch Tip & Nozzle Cleaning Tools|سوزن تمیزکن سرپیک و نازل|

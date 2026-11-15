@@ -1,0 +1,243 @@
+6975|4|Paint Pressure Tanks & Accessories|مخزن تحت فشار رنگ و لوازم جانبی|
+6976|4|Spray Gun Cups & Accessories|کاسه (لیوان) پیستوله و لوازم جانبی|
+6977|4|Paint Sprayer Replacement Parts|قطعات یدکی دستگاه رنگ‌پاش|
+6978|4|Paint Sprayer Hoses|شیلنگ دستگاه رنگ‌پاش|
+6979|4|Paint Spray Gun Washers & Cleaners|دستگاه شستشو و تمیزکننده پیستوله|
+6980|5|Paint Spray Gun Washers|دستگاه شستشوی پیستوله|
+6981|5|Spray Gun Cleaning Brushes|برس تمیزکاری پیستوله|
+6982|5|Paint Sprayer Maintenance Fluids|مایع نگهداری دستگاه رنگ‌پاش|
+6983|4|Powder Coating Systems|دستگاه رنگ پودری (الکترواستاتیک)|
+6984|3|Paint Spray Booths|کابین رنگ|
+6985|4|Open-Ended Paint Spray Booths|کابین رنگ روباز|
+6986|4|Portable Paint Spray Booths|کابین رنگ قابل‌حمل|
+6987|4|Paint Spray Booth Air Filters|فیلتر هوای کابین رنگ|
+6988|5|Paint Spray Booth Intake Air Filters|فیلتر سقفی (ورودی) کابین رنگ|
+6989|5|Paint Spray Booth Exhaust Air Filters|فیلتر کف (خروجی) کابین رنگ|
+6990|4|Paint Spray Booth Filter Accessories|لوازم جانبی فیلتر کابین رنگ|
+6991|4|Paint Booth Liners & Masking Paper|پوشش دیواره کابین رنگ و کاغذ ماسکه|
+6992|4|Paint Spray Booth Accessories|لوازم جانبی کابین رنگ|
+6993|4|Paint Spray Booth Exhaust Kits & Ducts|کیت اگزوز و کانال کابین رنگ|
+6994|4|Paint Spray Booth Control Panels|تابلو کنترل کابین رنگ|
+6995|3|Paint Shakers & Stir Sticks|شیکر رنگ و همزن چوبی|
+6996|4|Paint Shakers|دستگاه شیکر رنگ|
+6997|4|Paint Lid Presses|پرس درب قوطی رنگ|
+6998|4|Paint Mixer Attachments|سرهمزن رنگ (دریلی)|
+6999|4|Paint Mixers|همزن رنگ|
+7000|4|Paint Stir Sticks|همزن چوبی رنگ|
+7001|4|Paint Shaker Accessories & Replacement Parts|لوازم جانبی و قطعات یدکی شیکر رنگ|
+7002|3|Paint Can Tools|ابزار قوطی رنگ (درب‌بازکن)|
+7003|3|Wallpaper Tools|ابزار کاغذدیواری|ترکیبی
+7004|4|Wallpaper Applying Tools|ابزار نصب کاغذدیواری|
+7005|4|Wallpaper Removal Tools|ابزار کندن کاغذدیواری|
+7006|1|Pipe, Hose, Tube & Fittings|لوله، شیلنگ، تیوب و اتصالات|
+7007|2|Pipe & Pipe Fittings|لوله و اتصالات لوله|
+7008|3|Standard Pipe & Pipe Fittings|لوله و اتصالات استاندارد|
+7009|4|Steel & Iron High-Strength Pipe & Pipe Fittings|لوله و اتصالات فولادی و چدنی مقاومت بالا|
+7010|5|Steel & Iron Pipe & Pipe Nipples|لوله و مغزی فولادی و چدنی|
+7011|5|Drainage Iron Pipe Fittings|اتصالات چدنی فاضلابی|
+7012|5|Low-to-Medium Pressure Steel & Iron Pipe Fittings|اتصالات فولادی و چدنی فشار کم تا متوسط|
+7013|5|High-Pressure Steel & Iron Pipe Fittings|اتصالات فولادی و چدنی فشار بالا|
+7014|5|Extreme-Pressure Steel & Iron Pipe Fittings|اتصالات فولادی و چدنی فشار خیلی بالا|
+7015|5|Steel & Iron Pipe Flanges|فلنج فولادی و چدنی|
+7016|5|Grooved Iron Pipe Fittings & Flanges|اتصالات و فلنج شیاری (گروو) چدنی|
+7017|5|Low-Pressure Ductile Iron Service Saddles|زین انشعاب (کمربند انشعاب) چدن داکتیل فشار پایین|
+7018|5|Press Steel Pipe Fittings|اتصالات پرسی فولادی|
+7019|4|Galvanized Steel Pipe & Pipe Fittings for Potable Water|لوله و اتصالات گالوانیزه آب شرب|
+7020|5|Zinc Galvanized Pipe & Pipe Nipples|لوله و مغزی گالوانیزه|
+7021|5|Low-to-Medium Pressure Zinc-Galvanized Steel Pipe Fittings|اتصالات گالوانیزه فشار کم تا متوسط|
+7022|5|High Pressure Zinc-Galvanized Steel Pipe Fittings|اتصالات گالوانیزه فشار بالا|
+7023|5|Extreme-Pressure Zinc-Galvanized Steel Pipe Fittings|اتصالات گالوانیزه فشار خیلی بالا|
+7024|5|Zinc Galvanized Steel Pipe Flanges|فلنج گالوانیزه|
+7025|5|Grooved Zinc Galvanized Pipe Fittings & Flanges|اتصالات و فلنج شیاری گالوانیزه|
+7026|4|Chrome-Moly Steel High-Strength Pipe Fittings for High Heat|اتصالات فولاد کروم‌مولیبدن دمای بالا|
+7027|4|Corrosion-Resistant Stainless Steel Pipe & Pipe Fittings|لوله و اتصالات استیل ضدخوردگی|
+7028|5|Stainless Steel Pipe & Pipe Nipples|لوله و مغزی استیل|
+7029|5|Low-to-Medium Pressure Stainless Steel Pipe Fittings|اتصالات استیل فشار کم تا متوسط|
+7030|5|High Pressure Stainless Steel Pipe Fittings|اتصالات استیل فشار بالا|
+7031|5|Extreme Pressure Stainless Steel Pipe Fittings|اتصالات استیل فشار خیلی بالا|
+7032|5|Drainage Stainless Steel Pipe Fittings|اتصالات استیل فاضلابی|
+7033|5|Press Stainless Steel Pipe Fittings|اتصالات پرسی استیل|
+7034|5|Grooved Stainless Steel Pipe Fittings|اتصالات شیاری استیل|
+7035|5|Stainless Steel Pipe Flanges|فلنج استیل|
+7036|5|Low-Pressure Stainless Steel Service Saddles|زین انشعاب استیل فشار پایین|
+7037|4|Brass & Bronze Pipe & Fittings for High Heat|لوله و اتصالات برنجی و برنزی دمای بالا|
+7038|5|Brass & Bronze Pipe & Pipe Nipples|لوله و مغزی برنجی و برنزی|
+7039|5|Drainage Brass Pipe Fittings|اتصالات برنجی فاضلابی|
+7040|5|Low-to-Medium Pressure Brass Pipe Fittings|اتصالات برنجی فشار کم تا متوسط|
+7041|5|High-Pressure Brass Pipe Fittings|اتصالات برنجی فشار بالا|
+7042|5|Extreme-Pressure Brass & Bronze Instrumentation Pipe Fittings|اتصالات ابزار دقیق برنجی و برنزی فشار خیلی بالا|
+7043|5|Brass & Bronze Pipe Flanges|فلنج برنجی و برنزی|
+7044|4|Aluminum Lightweight Pipe & Pipe Fittings|لوله و اتصالات آلومینیومی سبک|
+7045|5|Aluminum Pipe & Pipe Nipples|لوله و مغزی آلومینیومی|
+7046|5|Aluminum Pipe Fittings|اتصالات آلومینیومی|
+7047|5|Aluminum Pipe Flanges|فلنج آلومینیومی|
+7048|4|PVC Pipe & Pipe Fittings for Plumbing|لوله و اتصالات PVC لوله‌کشی|
+7049|5|Pressure-Rated PVC Pipe & Pipe Nipples|لوله و مغزی PVC فشارقوی|
+7050|5|Pressure-Rated PVC Pipe Fittings & Flanges|اتصالات و فلنج PVC فشارقوی|
+7051|5|Drain, Waste & Vent PVC Pipe Fittings & Flanges|اتصالات و فلنج PVC فاضلاب و ونت (DWV)|
+7052|5|Irrigation Insert PVC Pipe Fittings|اتصالات PVC داخل‌رو آبیاری|
+7053|4|CPVC Pipe & Pipe Fittings for Hot Fluids|لوله و اتصالات CPVC سیالات داغ|
+7054|5|Pressure-Rated CPVC Pipe & Pipe Nipples|لوله و مغزی CPVC فشارقوی|
+7055|5|Pressure-Rated CPVC Pipe Fittings & Flanges|اتصالات و فلنج CPVC فشارقوی|
+7056|4|ABS Impact-Resistant Pipe & Pipe Fittings|لوله و اتصالات ABS مقاوم به ضربه|
+7057|4|Polypropylene Pipes & Pipe Fittings for Wastewater & Chemical Spray|لوله و اتصالات پلی‌پروپیلن فاضلاب و مواد شیمیایی|
+7058|5|Polypropylene Pipe & Pipe Nipples|لوله و مغزی پلی‌پروپیلن|
+7059|5|Polypropylene Fusion Pipe Fittings & Flanges for Chemical Waste|اتصالات و فلنج جوشی پلی‌پروپیلن پساب شیمیایی|
+7060|5|Polypropylene Quick-Clamp Pipe Fittings & Flanges for Chemical Spray|اتصالات و فلنج کلمپی سریع پلی‌پروپیلن اسپری شیمیایی|
+7061|4|PVDF High-Purity Pipes & Fittings|لوله و اتصالات PVDF خلوص بالا|
+7062|4|Polyethylene High-Strength Pipes & Pipe Fittings|لوله و اتصالات پلی‌اتیلن مقاومت بالا|
+7063|5|Polyethylene Drainage Pipe Fittings|اتصالات پلی‌اتیلن زهکشی|
+7064|5|Polyethylene Pressure Pipe Fittings & Flanges|اتصالات و فلنج پلی‌اتیلن تحت فشار|
+7065|4|Pipe Fittings for Dissimilar Materials|اتصالات غیرهم‌جنس (تبدیل)|
+7066|5|Dielectric Pipe Nipples|مغزی عایق (دی‌الکتریک)|
+7067|5|Dielectric Unions & Flanges|مهره ماسوره و فلنج عایق (دی‌الکتریک)|
+7068|5|Plastic to Metal Transition Fittings|اتصال تبدیل پلاستیک به فلز|
+7069|4|Flexible Plastic & Rubber Pipe Fittings|اتصالات انعطاف‌پذیر پلاستیکی و لاستیکی|
+7070|3|Pipe Fitting Gaskets|واشر اتصالات لوله|
+7071|4|Flange Gaskets|واشر فلنج|
+7072|5|High-Pressure Metal Ring-Type Joint Gaskets|واشر رینگی فلزی (RTJ) فشار بالا|
+7073|5|Wear-Resistant Aramid Flange Gaskets|واشر فلنج آرامیدی (نسوز) مقاوم به سایش|
+7074|6|Aramid Gaskets with Oil-Resistant Buna-N Binder|واشر آرامیدی با بایندر نیتریل ضدروغن|
+7075|6|Aramid Gaskets with Abrasion-Resistant SBR Binder|واشر آرامیدی با بایندر SBR ضدسایش|
+7076|6|Aramid Gaskets with Water-Resistant Neoprene Binder|واشر آرامیدی با بایندر نئوپرن ضدآب|
+7077|6|Aramid Gaskets with Steam-Resistant EPDM Binder|واشر آرامیدی با بایندر EPDM مقاوم بخار|
+7078|5|Chemical-Resistant PTFE Flange Gaskets|واشر فلنج تفلونی (PTFE) مقاوم شیمیایی|
+7079|5|Chemical & Oil-Resistant Viton Flange Gaskets|واشر فلنج وایتون مقاوم شیمیایی و روغن|
+7080|5|Oil-Resistant Buna-N Flange Gaskets|واشر فلنج نیتریل (بونا-N) ضدروغن|
+7081|5|Steam-Resistant EPDM Flange Gaskets|واشر فلنج EPDM مقاوم بخار|
+7082|5|Water-Resistant Neoprene Flange Gaskets|واشر فلنج نئوپرن ضدآب|
+7083|5|Abrasion-Resistant SBR Flange Gaskets|واشر فلنج SBR ضدسایش|
+7084|5|High-Temperature Silicone Flange Gaskets|واشر فلنج سیلیکونی دمای بالا|
+7085|5|High-Temperature Graphite Flange Gaskets|واشر فلنج گرافیتی دمای بالا|
+7086|5|Extreme-Temperature Metallic Flange Gaskets|واشر فلنج فلزی (اسپیرال) دمای خیلی بالا|
+7087|4|Gasket Sheets|ورق واشر (ورق گسکت)|
+7088|5|Wear-Resistant Aramid Gasket Sheets|ورق واشر آرامیدی مقاوم به سایش|
+7089|5|Chemical-Resistant PTFE Gasket Sheets|ورق تفلون (PTFE) مقاوم شیمیایی|
+7090|5|High-Temperature Graphite Gasket Sheets|ورق گرافیت دمای بالا|
+7091|5|High-Temperature Carbon Fiber Gasket Sheets|ورق واشر الیاف کربن دمای بالا|
+7092|5|Durable Leather Gasket Sheets|ورق واشر چرمی|
+7093|5|General Purpose Plant Fiber Gasket Sheets|ورق واشر الیاف گیاهی (کاغذ روغنی) همه‌منظوره|
+7094|5|Electrically-Insulating Fish Paper Gasket Sheets|ورق واشر فیش‌پیپر عایق الکتریکی|
+7095|4|Gasket-Making Tape|نوار واشرسازی (تفلون انبساطی)|
+7096|4|Blocking Paddle Gaskets|واشر کور (پدل بلایند)|
+7097|3|Bulkhead Tank Fittings|اتصالات دیواره مخزن (بالکهد)|
+7098|3|Rotating Joints & Unions|اتصال دوار (روتاری جوینت) و مهره ماسوره|
+7099|3|Pipe Expansion Joints|اتصال انبساطی (انبساط) لوله|
+7100|4|Flanged Expansion Joints|اتصال انبساطی فلنجی|
+7101|4|Butt-Weld Expansion Joints|اتصال انبساطی جوشی|
+7102|4|Threaded Expansion Joints|اتصال انبساطی دنده‌ای|
+7103|4|Slip-Socket Expansion Joints|اتصال انبساطی کشویی|
+7104|3|Bolted Pipe Couplings|کوپلینگ پیچی لوله (درسر)|
+7105|3|Pipe Flange Covers|کاور (محافظ) فلنج|
+7106|3|Pipe Fitting Spray Shields|محافظ پاشش فلنج (اسپری شیلد)|
+7107|3|Pipe Nipple Caddies|جعبه نگهداری مغزی|
+7108|3|Spray Nozzle Pipe Fittings|نازل پاششی|
+7109|4|Air-Atomizing Spray Nozzles|نازل اتمایزر هوایی|
+7110|4|Liquid Spray Nozzles|نازل پاشش مایع|
+7111|4|Tank Cleaning Nozzles|نازل شستشوی مخزن|
+7112|2|Hose, Hose Fittings & Hose Reels|شیلنگ، اتصالات شیلنگ و قرقره شیلنگ|
+7113|3|Hose|شیلنگ|
+7114|4|Air Hoses|شیلنگ باد|
+7115|5|Air Hose Assemblies|شیلنگ باد سرجمع (با اتصال)|
+7116|5|Bulk Air Hoses|شیلنگ باد متری (رولی)|
+7117|5|Bulk Push-On Air Hoses|شیلنگ باد متری فشاری (پوش‌آن)|
+7118|5|Coiled Air Hose Assemblies|شیلنگ باد فنری|
+7119|5|Jackhammer Hoses|شیلنگ چکش بادی (پیکور)|
+7120|5|Snubber Hoses|شیلنگ ضربه‌گیر (اسنابر)|
+7121|4|Automotive Hoses|شیلنگ خودرو|
+7122|5|Air-Brake Hose Assemblies|شیلنگ ترمز بادی سرجمع|
+7123|5|Air-Compressor Discharge Hoses|شیلنگ خروجی کمپرسور|
+7124|5|Air Cooler Hoses|شیلنگ اینترکولر|
+7125|5|Automotive Exhaust Hoses|شیلنگ اگزوز خودرو|
+7126|5|Automotive Fuel Hoses|شیلنگ بنزین خودرو|
+7127|5|Automotive Vacuum Hoses|شیلنگ وکیوم خودرو|
+7128|5|Bulk Air-Brake Hoses|شیلنگ ترمز بادی متری|
+7129|5|Heater Hoses|شیلنگ بخاری خودرو|
+7130|5|Radiator & Coolant Hoses|شیلنگ رادیاتور و آب|
+7131|4|Chemical Hoses|شیلنگ مواد شیمیایی|
+7132|5|Bulk Chemical Hoses|شیلنگ مواد شیمیایی متری|
+7133|5|Chemical Hose Assemblies|شیلنگ مواد شیمیایی سرجمع|
+7134|4|Duct Hoses|شیلنگ خرطومی (فلکسی کانال)|
+7135|5|Duct Hoses for Air|شیلنگ خرطومی هوا|
+7136|5|Duct Hoses for Dust|شیلنگ خرطومی غبار|
+7137|5|Duct Hoses for Fumes|شیلنگ خرطومی دود و بخار|
+7138|5|Duct Hoses for Liquid Waste|شیلنگ خرطومی پساب مایع|
+7139|5|Duct Hoses for Metal Shavings|شیلنگ خرطومی براده فلز|
+7140|5|Duct Hoses for Wood Chips & Plastic Pellets|شیلنگ خرطومی خرده چوب و گرانول پلاستیک|
+7141|4|Food & Beverage Hoses|شیلنگ مواد غذایی و نوشیدنی|
+7142|5|Bulk Food & Beverage Hoses|شیلنگ مواد غذایی متری|
+7143|5|Food & Beverage Hose Assemblies|شیلنگ مواد غذایی سرجمع|
+7144|4|Gas, Petroleum & Fuel Hoses|شیلنگ گاز، نفت و سوخت|
+7145|5|Bulk Gasoline Hoses|شیلنگ بنزین متری|
+7146|5|Gasoline Hose Assemblies|شیلنگ بنزین سرجمع|
+7147|5|Bulk Petroleum Hoses|شیلنگ فرآورده نفتی متری|
+7148|5|Petroleum Hose Assemblies|شیلنگ فرآورده نفتی سرجمع|
+7149|5|Bulk Diesel Exhaust Fluid (DEF) Hoses|شیلنگ ادبلو (DEF) متری|
+7150|5|Diesel Exhaust Fluid (DEF) Hose Assemblies|شیلنگ ادبلو (DEF) سرجمع|
+7151|5|Oil & Gas Exploration Hose Assemblies|شیلنگ حفاری نفت و گاز سرجمع|
+7152|5|Gas Connectors|شیلنگ اتصال گاز|
+7153|5|Gaseous Hoses|شیلنگ گاز|
+7154|4|Hydraulic Hoses|شیلنگ هیدرولیک|
+7155|5|Bulk Hydraulic Hoses|شیلنگ هیدرولیک متری|
+7156|5|Hydraulic Hose Assemblies|شیلنگ هیدرولیک پرس‌شده (سرجمع)|
+7157|4|Material-Handling Hoses|شیلنگ انتقال مواد|
+7158|5|Bulk Material-Handling Hoses|شیلنگ انتقال مواد متری|
+7159|5|Material-Handling Hose Assemblies|شیلنگ انتقال مواد سرجمع|
+7160|4|Metal Hoses|شیلنگ فلزی (فلکسیبل)|
+7161|5|Corrugated Metal Hoses|شیلنگ فلزی کنگره‌ای (فلکسیبل)|
+7162|5|Interlocked Metal Hoses|شیلنگ فلزی اینترلاک|
+7163|4|Stainless Steel Braided PTFE Hoses|شیلنگ تفلونی با روکش بافت استیل|
+7164|4|Abrasive Blasting Hoses|شیلنگ سندبلاست|
+7165|5|Bulk Abrasive Blasting Hoses|شیلنگ سندبلاست متری|
+7166|5|Abrasive Blasting Hose Assemblies|شیلنگ سندبلاست سرجمع|
+7167|4|Steam Hoses|شیلنگ بخار|
+7168|5|Bulk Steam Hoses|شیلنگ بخار متری|
+7169|5|Steam Hose Assemblies|شیلنگ بخار سرجمع|
+7170|4|Water Hoses|شیلنگ آب|
+7171|5|Service Sink & Garden Hoses|شیلنگ سینک خدماتی و باغبانی|ترکیبی
+7172|6|Garden Hoses|شیلنگ باغبانی|
+7173|6|Bulk Garden Hoses without Fittings|شیلنگ باغبانی متری بدون اتصال|
+7174|6|Soaker Hoses & Watering Rings|شیلنگ تراوا (قطره‌ای) و حلقه آبیاری|
+7175|6|Service Sink Hoses|شیلنگ سینک خدماتی|
+7176|5|Marine Exhaust Hoses|شیلنگ اگزوز دریایی|
+7177|5|Pressure Washer Hoses|شیلنگ کارواش|
+7178|5|Spray Hoses|شیلنگ سمپاشی|
+7179|5|Washdown Hoses|شیلنگ شستشو|
+7180|6|Bulk Washdown Hoses|شیلنگ شستشو متری|
+7181|6|Washdown Hose Assemblies|شیلنگ شستشو سرجمع|
+7182|5|Water Hoses for Suction & Discharge|شیلنگ مکش و دهش آب|
+7183|6|Water Discharge Hoses|شیلنگ دهش آب (لای‌فلت)|
+7184|6|Water Suction & Discharge Hoses|شیلنگ مکش و دهش آب (فنردار)|
+7185|5|Water Supply Hoses & Connectors|شیلنگ و شیلنگ‌رابط آب‌رسانی|ترکیبی
+7186|6|Dishwasher Connectors|شیلنگ ماشین ظرفشویی|
+7187|6|Faucet Connectors|شیلنگ‌رابط شیرآلات|
+7188|6|Ice Maker Connectors|شیلنگ یخ‌ساز|
+7189|6|Toilet Connectors|شیلنگ‌رابط توالت|
+7190|6|Washing Machine Hoses|شیلنگ ماشین لباسشویی|
+7191|6|Water Heater Connectors|شیلنگ‌رابط آبگرمکن|
+7192|4|Welding Hoses|شیلنگ جوشکاری (اکسیژن و استیلن)|
+7193|5|Bulk Welding Hoses|شیلنگ جوشکاری متری|
+7194|5|Welding Hose Assemblies|شیلنگ جوشکاری سرجمع|
+7195|3|Hose Fittings & Couplings|اتصالات و کوپلینگ شیلنگ|
+7196|4|Cam & Groove Fittings & Couplings|کوپلینگ کام‌لاک (Camlock)|
+7197|5|Aluminum Cam & Groove Fittings|کام‌لاک آلومینیومی|
+7198|6|Aluminum Cam & Groove Fittings|کام‌لاک آلومینیومی|
+7199|6|Anodized Aluminum Cam & Groove Fittings|کام‌لاک آلومینیوم آنودایز|
+7200|6|Aluminum Dry-Disconnect Cam & Groove Fittings|کام‌لاک آلومینیومی خشک‌جداشو (درای‌دیسکانکت)|
+7201|5|Stainless Steel Cam & Groove Fittings|کام‌لاک استیل|
+7202|6|Stainless Steel Cam & Groove Fittings|کام‌لاک استیل|
+7203|6|ETFE-Lined Stainless Steel Cam & Groove Fittings|کام‌لاک استیل با روکش داخلی ETFE|
+7204|6|Stainless Steel Dry-Break Cam & Groove Fittings|کام‌لاک استیل خشک‌جداشو (درای‌بریک)|
+7205|5|Cast Iron Cam & Groove Fittings|کام‌لاک چدنی|
+7206|5|Forged Brass Cam & Groove Fittings|کام‌لاک برنجی فورج|
+7207|5|Nylon Cam & Groove Fittings|کام‌لاک نایلونی|
+7208|5|Polypropylene Cam & Groove Fittings|کام‌لاک پلی‌پروپیلن|
+7209|5|Cam & Groove Gaskets|واشر کام‌لاک|
+7210|5|Cam & Groove Fitting Accessories|لوازم جانبی کام‌لاک|
+7211|4|Chicago-Style Universal Hose Couplings & Accessories|کوپلینگ پنجه‌ای (شیکاگو) و لوازم جانبی|
+7212|4|Garden Hose Fittings & Couplings|اتصالات و کوپلینگ شیلنگ باغبانی|ترکیبی
+7213|5|Garden Hose Repair Fittings|اتصال تعمیر شیلنگ باغبانی|
+7214|5|Garden Hose Couplings|کوپلینگ شیلنگ باغبانی|
+7215|5|Garden Hose Adapters & Connectors|تبدیل و رابط شیلنگ باغبانی|
+7216|5|Garden Hose Caps|درپوش شیلنگ باغبانی|
+7217|5|Garden Hose Washers|واشر شیلنگ باغبانی|

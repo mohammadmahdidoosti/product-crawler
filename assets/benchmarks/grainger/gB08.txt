@@ -1,0 +1,275 @@
+4465|4|Screw-Thread Insert (STI) Taps|قلاویز فنر رزوه (STI / هلی‌کویل)|
+4466|4|Extension, Pulley & Nut Taps|قلاویز بلند، پولی و مهره|
+4467|4|Drill Taps|مته‌قلاویز|
+4468|4|Impact Taps|قلاویز ایمپکت (شش‌گوش)|
+4469|4|Rethreading Taps|قلاویز اصلاح رزوه|
+4470|3|Dies|حدیده|
+4471|4|Round Threading Dies|حدیده گرد|
+4472|4|Hex Rethreading Dies|حدیده شش‌گوش اصلاح رزوه|
+4473|4|Pipe Threading Dies|حدیده لوله|
+4474|4|Impact Die Threading Systems|سیستم حدیده ایمپکت|
+4475|3|Threading Sets|ست قلاویز و حدیده|
+4476|4|Tap & Die Sets|ست قلاویز و حدیده|
+4477|4|Tap Sets|ست قلاویز|
+4478|4|Die Sets|ست حدیده|
+4479|4|Drill Bit & Tap Sets|ست مته و قلاویز|
+4480|4|Drill Bit, Tap & Die Sets|ست مته، قلاویز و حدیده|
+4481|4|Drill Tap Sets|ست مته‌قلاویز|
+4482|3|Tap & Die Accessories|لوازم جانبی قلاویز و حدیده|
+4483|4|Tap Wrenches|دسته قلاویز|
+4484|4|Die Stocks|دسته حدیده|
+4485|4|Combination Tap & Die Wrench Sets|ست دسته قلاویز و حدیده|
+4486|4|Tap Sockets|بکس قلاویز|
+4487|4|Hand Tappers|دستگاه قلاویززنی دستی|
+4488|4|Tap Extensions|رابط بلندکننده قلاویز|
+4489|4|Tap Extractors|قلاویزدرآر|
+4490|4|Tap Storage|جای قلاویز|
+4491|3|Thread Repair Tools|ابزار ترمیم رزوه|
+4492|3|Thread Mills|فرز رزوه‌زن (تردمیل)|
+4493|4|Helical-Flute Thread Mills|فرز رزوه مارپیچ|
+4494|4|Straight-Flute Thread Mills|فرز رزوه شیار صاف|
+4495|4|Single-Profile Thread Mills|فرز رزوه تک‌دندانه|
+4496|2|Turning, Boring & Grooving|تراشکاری، داخل‌تراشی و شیارزنی|
+4497|3|Boring Bars & Sets|بار داخل‌تراش و ست|
+4498|4|Boring Bars|بار داخل‌تراش (بورینگ بار)|
+4499|4|Boring Bar Sets|ست بار داخل‌تراش|
+4500|3|Internal Threading Tools & Sets|ابزار رزوه‌زنی داخلی و ست|
+4501|4|Internal Threading Tools|ابزار رزوه داخلی|
+4502|4|Internal Threading Tool Sets|ست ابزار رزوه داخلی|
+4503|3|Knurling Tools|ابزار آج‌زنی (رولت)|
+4504|4|Knurling Holders|هولدر آج‌زنی|
+4505|4|Knurling Wheels|قرقره آج‌زنی (رولت)|
+4506|3|Lathe Tool Bits, Blanks & Sets|رنده تراش، شمش و ست|
+4507|4|Brazed-Tip Lathe Tool Bits|رنده الماسه لحیمی (سرکاربید)|
+4508|4|Brazed-Tip Lathe Tool Bit Sets|ست رنده الماسه لحیمی|
+4509|4|Lathe Tool Blanks|شمش رنده تراش (الماس تراش)|
+4510|3|Turning & Grooving Tools & Sets|ابزار تراش و شیارزنی و ست|
+4511|4|Cut-Off Blades|تیغه برش (پارتینگ)|
+4512|4|Grooving Tools|ابزار شیارزنی|
+4513|4|Grooving Tool Sets|ست ابزار شیارزنی|
+4514|2|Indexable Cutting Tools|ابزار برشی اینسرتی|
+4515|3|Indexable Boring|داخل‌تراشی اینسرتی|
+4516|4|Indexable Boring Bars|بار داخل‌تراش اینسرتی|
+4517|4|Indexable Boring Bar Sets|ست بار داخل‌تراش اینسرتی|
+4518|4|Indexable Cutting Unit Heads for Internal Turning|سر ماژولار داخل‌تراشی|
+4519|3|Indexable & Exchangeable-Head Milling|فرزکاری اینسرتی و سر تعویضی|
+4520|4|Exchangeable-Head Milling Tools|ابزار فرز سر تعویضی|
+4521|5|Exchangeable Ball-Nose End Mill Heads|سر تعویضی فرز سرگرد|
+4522|5|Exchangeable Slotting & Slitting Cutter Heads|سر تعویضی فرز شیارزن|
+4523|5|Exchangeable Square End Mill Heads|سر تعویضی فرز تخت|
+4524|5|Holders for Exchangeable Milling Heads|هولدر سر فرز تعویضی|
+4525|4|Indexable Milling Inserts|اینسرت فرزکاری|
+4526|5|Ball-Nose Indexable Milling Inserts|اینسرت فرز سرگرد|
+4527|5|Diamond Indexable Milling Inserts|اینسرت فرز لوزی|
+4528|5|Heptagon Indexable Milling Inserts|اینسرت فرز هفت‌ضلعی|
+4529|5|Hexagon (H) Indexable Milling Inserts|اینسرت فرز شش‌ضلعی (H)|
+4530|5|Octagon (O) Indexable Milling Inserts|اینسرت فرز هشت‌ضلعی (O)|
+4531|5|Parallelogram Indexable Milling Inserts|اینسرت فرز متوازی‌الاضلاع|
+4532|5|Pentagon (P) Indexable Milling Inserts|اینسرت فرز پنج‌ضلعی (P)|
+4533|5|Rectangle (L) Indexable Milling Inserts|اینسرت فرز مستطیلی (L)|
+4534|5|Round (R) Indexable Milling Inserts|اینسرت فرز گرد (R)|
+4535|5|Specialty & Nonstandard Indexable Milling Inserts|اینسرت فرز خاص و غیراستاندارد|
+4536|5|Square (S) Indexable Milling Inserts|اینسرت فرز مربعی (S)|
+4537|5|Triangle (T) Indexable Milling Inserts|اینسرت فرز مثلثی (T)|
+4538|5|Trigon (W) Indexable Milling Inserts|اینسرت فرز تریگون (W)|
+4539|4|Indexable Mills & Milling Cutters|فرز اینسرتی و تیغ فرز|
+4540|5|Indexable Face Mills|کف‌تراش اینسرتی (فیس‌میل)|
+4541|5|Indexable Milling Cutters|تیغ فرز اینسرتی|
+4542|6|Indexable Chamfer Mills|فرز پخ‌زن اینسرتی|
+4543|6|Indexable Slitting Cutters|فرز شیارزن اینسرتی|
+4544|5|Indexable Profiling End Mills|فرز انگشتی پروفیل‌زن اینسرتی|
+4545|5|Indexable Square-Shoulder End Mills|فرز انگشتی گونیا اینسرتی|
+4546|3|Indexable & Modular Drilling & Holemaking|سوراخکاری اینسرتی و ماژولار|
+4547|4|Exchangeable-Tip Spade Drills|مته تخت سر تعویضی|
+4548|5|Exchangeable-Tip Spade Drill Bit Inserts|اینسرت مته تخت|
+4549|5|Exchangeable-Tip Spade Drill Bits|بدنه مته تخت سر تعویضی|
+4550|4|Indexable Countersinks|خزینه اینسرتی|
+4551|4|Indexable Drill Bits|مته اینسرتی (یو‌دریل)|
+4552|5|Indexable Drill Bit Inserts|اینسرت مته|
+4553|5|Indexable Drill Bits for General Drilling|مته اینسرتی عمومی|
+4554|5|Indexable Drill Bits for Small-Diameter Drilling|مته اینسرتی قطر کوچک|
+4555|4|Modular Drill Bits|مته ماژولار (سر تعویضی)|
+4556|5|Exchangeable Tips for Modular Drill Bits|سر تعویضی مته ماژولار|
+4557|5|Modular Drill Bits for General Drilling|بدنه مته ماژولار|
+4558|3|Indexable Parting & Grooving|برش و شیارزنی اینسرتی|
+4559|4|Indexable Cutting Unit Heads for Parting & Grooving|سر ماژولار برش و شیارزنی|
+4560|4|Indexable Parting & Cut-Off Blades|تیغه برش اینسرتی|
+4561|4|Indexable Parting & Grooving Inserts|اینسرت برش و شیارزنی|
+4562|4|Indexable Parting & Grooving Toolholders|هولدر برش و شیارزنی|
+4563|3|Indexable Threading|رزوه‌زنی اینسرتی|
+4564|4|Indexable Thread Milling|فرز رزوه اینسرتی|
+4565|5|Indexable Thread Mills|فرز رزوه‌زن اینسرتی|
+4566|5|Thread Mill Kits|کیت فرز رزوه|
+4567|4|Indexable Thread Turning|رزوه‌تراشی اینسرتی|
+4568|5|Indexable Thread-Cutting Unit Heads|سر ماژولار رزوه‌تراشی|
+4569|5|Indexable Thread-Turning Inserts|اینسرت رزوه‌تراشی|
+4570|5|Indexable Thread-Turning Toolholders|هولدر رزوه‌تراشی|
+4571|3|Indexable Turning|تراشکاری اینسرتی|
+4572|4|Indexable Cutting Unit Heads for External Turning|سر ماژولار روتراشی|
+4573|4|Indexable Turning Inserts|اینسرت تراشکاری|
+4574|5|Diamond Indexable Turning Inserts|اینسرت تراش لوزی|
+4575|5|Round (R) Indexable Turning Inserts|اینسرت تراش گرد (R)|
+4576|5|Specialty & Nonstandard Indexable Turning Inserts|اینسرت تراش خاص و غیراستاندارد|
+4577|5|Square (S) Indexable Turning Inserts|اینسرت تراش مربعی (S)|
+4578|5|Triangle (T) Indexable Turning Inserts|اینسرت تراش مثلثی (T)|
+4579|5|Trigon (W) Indexable Turning Inserts|اینسرت تراش تریگون (W)|
+4580|4|Indexable Turning & Profiling Toolholders|هولدر تراش و پروفیل‌تراشی|
+4581|3|Replacement Parts & Accessories for Indexable Cutting Tools|قطعات یدکی و لوازم جانبی ابزار اینسرتی|
+4582|4|Boring Bar Set Pins & Screws|پین و پیچ بار داخل‌تراش|
+4583|4|Carbide Insert Storage|جعبه نگهداری اینسرت|
+4584|4|Drivers & Wrenches for Indexable Cutting Tools|پیچ‌گوشتی و آچار ابزار اینسرتی (تورکس)|
+4585|4|Shim Seats for Indexable Cutting Tools|زیرسری (شیم) اینسرت|
+4586|4|Fasteners for Indexable Cutting Tools|پیچ و بست اینسرت|
+4587|2|Machinery|ماشین‌آلات|
+4588|3|Buffing & Grinding Machines|دستگاه سنگ و پولیش|
+4589|4|Bench Grinders|سنگ رومیزی|
+4590|4|Pedestal Grinders|سنگ پایه‌دار (ایستاده)|
+4591|4|Bench Buffers|پولیش رومیزی|
+4592|4|Combination Grinding & Buffing Machines|سنگ و پولیش ترکیبی|
+4593|4|Belt Grinding & Sanding Machines|سنباده نواری (بلت)|
+4594|4|Disc Grinding & Sanding Machines|سنباده دیسکی|
+4595|4|Combination Grinding & Sanding Machines|سنباده نواری و دیسکی ترکیبی|
+4596|4|Grinder Setup Parts & Accessories|قطعات و لوازم جانبی دستگاه سنگ|
+4597|5|Eye Shields for Bench & Pedestal Grinders|طلق محافظ چشم سنگ رومیزی|
+4598|5|Safety Gauges for Bench & Pedestal Grinders|گیج ایمنی سنگ رومیزی|
+4599|5|Stands for Bench & Pedestal Grinders|پایه سنگ رومیزی|
+4600|5|Replacement Parts for Bench & Pedestal Grinders|قطعات یدکی سنگ رومیزی|
+4601|5|Guards for Belt Grinding & Sanding Machines|حفاظ سنباده نواری|
+4602|5|Guards for Disc Grinding & Sanding Machines|حفاظ سنباده دیسکی|
+4603|5|Replacement Parts for Belt Grinding & Sanding Machines|قطعات یدکی سنباده نواری|
+4604|4|Surface Grinders|سنگ مغناطیس (سنگ سطح)|
+4605|3|Drill Presses|دریل ستونی|
+4606|4|Shop Drill Presses|دریل ستونی کارگاهی|
+4607|5|Drill Presses for Metal|دریل ستونی فلز|
+4608|6|Benchtop Drill Presses for Metal|دریل ستونی رومیزی|
+4609|6|Floor Stand Drill Presses for Metal|دریل ستونی ایستاده|
+4610|6|Radial Drill Presses for Metal|دریل رادیال|
+4611|5|Drill Presses for Wood|دریل ستونی چوب|
+4612|4|Drill Press Guards, Arbors & Adapters|حفاظ، آربور و تبدیل دریل ستونی|
+4613|5|Drill Press Guards|حفاظ دریل ستونی|
+4614|5|Drill Press Arbors|آربور (شفت سه‌نظام) دریل ستونی|
+4615|4|Replacement Parts for Drill Presses|قطعات یدکی دریل ستونی|
+4616|3|Hydraulic Presses & Accessories|پرس هیدرولیک و لوازم جانبی|
+4617|4|Hydraulic Presses|پرس هیدرولیک کارگاهی|
+4618|4|Parts & Accessories for Hydraulic Presses|قطعات و لوازم جانبی پرس هیدرولیک|
+4619|3|Lathes|دستگاه تراش|
+4620|4|Metal-Turning Lathes|ماشین تراش فلز|
+4621|4|Combination Lathe/Mill Drills|تراش و فرز ترکیبی|
+4622|4|Lathe Guards|حفاظ دستگاه تراش|
+4623|3|Metal Fabrication Machines|ماشین‌آلات ورقکاری و فلزکاری|
+4624|4|Metal Brakes & Bending Machines|دستگاه خم و برک|
+4625|5|Sheet Metal Brakes|دستگاه خم ورق (برک)|
+4626|6|Straight Brakes|خم ساده (تیغه سرتاسری)|
+4627|6|Box & Pan Brakes|خم جعبه‌ای (انگشتی)|
+4628|6|Press Brakes|پرس برک|
+4629|6|Horizontal Press Brakes|پرس برک افقی|
+4630|6|Replacement Parts for Sheet Metal Brakes|قطعات یدکی خم ورق|
+4631|5|Angle, Bar & Tube Benders|خم‌کن نبشی، میلگرد و لوله|
+4632|5|Lockformers|دستگاه قفل‌زن کانال (لاک‌فرمر)|
+4633|4|Metal Rolling Machines|دستگاه نورد (رول) فلز|
+4634|5|Slip & Plate Rollers|نورد ورق (رول ورق)|
+4635|5|Bar & Tube Rollers|نورد پروفیل و لوله|
+4636|5|Bead Rollers|دستگاه سیم‌زن (سیم‌گیر) ورق|
+4637|5|Replacement Parts for Metal Rolling Machines|قطعات یدکی دستگاه نورد|
+4638|4|Metal Shearing Machines|دستگاه برش ورق (گیوتین)|
+4639|5|Straight Machining Shears|گیوتین ورق|
+4640|5|Straight & Rotary Blade Bench Shears|قیچی رومیزی تیغه صاف و دوار|
+4641|5|Strut Shears & Dies|برش ناودانی (یونیسترات) و قالب|
+4642|4|Metal Notching & Punching Machines|دستگاه گوشه‌بر و پانچ ورق|
+4643|5|Sheet Metal Punches|پانچ ورق|
+4644|5|Sheet Metal Notchers|گوشه‌بر ورق (ناچر)|
+4645|6|Corded Sheet Metal Notchers|گوشه‌بر برقی|
+4646|6|Air-Powered Sheet Metal Notchers|گوشه‌بر بادی|
+4647|6|Manual Sheet Metal Notchers|گوشه‌بر دستی|
+4648|5|Pipe & Tube Notchers|ماهیچه‌زن لوله (ناچر لوله)|
+4649|4|Sheet Metal Shaping Machines|دستگاه فرم‌دهی ورق|
+4650|5|Power Planishing Hammers|چکش صاف‌کن برقی و بادی (پلانیشینگ)|
+4651|6|Corded Electric Planishing Hammers|چکش پلانیشینگ برقی|
+4652|6|Air-Powered Planishing Hammers|چکش پلانیشینگ بادی|
+4653|5|English Wheels|دستگاه چرخ انگلیسی (فرم ورق)|
+4654|5|Shrinker Stretchers|دستگاه جمع‌کن و کشش ورق|
+4655|4|Ironworkers & Combination Machines|دستگاه آیرون‌ورکر و چندکاره|
+4656|5|Ironworkers|آیرون‌ورکر (پانچ و قیچی پروفیل)|
+4657|5|Ironworker Dies & Add-On Units|قالب و متعلقات آیرون‌ورکر|
+4658|5|Sheet Metal Combination Machines|دستگاه ورقکاری چندکاره (گیوتین، خم، نورد)|
+4659|5|Replacement Parts for Combination Machines|قطعات یدکی دستگاه چندکاره|
+4660|3|Milling Machines|دستگاه فرز|
+4661|4|Vertical Milling Machines|فرز عمودی|
+4662|4|Mill Drills|فرز دریل|
+4663|4|Milling Machine Attachments & Accessories|متعلقات و لوازم جانبی فرز|
+4664|4|Milling Machine Guards|حفاظ دستگاه فرز|
+4665|3|Electric Tapping Arms|دستگاه قلاویززن بازویی برقی|
+4666|3|Engraving & Marking Machines|دستگاه حکاکی و نشانه‌گذاری|
+4667|4|Laser Engraving & Marking Machines|دستگاه حکاکی و مارکینگ لیزری|
+4668|4|Rotary Engraving Machines|دستگاه حکاکی دوار|
+4669|4|Percussion Marking Machines|دستگاه مارکینگ ضربه‌ای (سوزنی)|
+4670|3|Waterjet Cutting Machines|دستگاه برش واترجت|
+4671|3|Metal Dust Collection & Air Filtration|غبارگیر فلزکاری و تصفیه هوا|
+4672|4|Metal Dust Collectors|غبارگیر فلزکاری|
+4673|4|Filters for Metal Dust Collectors|فیلتر غبارگیر|
+4674|4|Hoses & Hose Fittings for Metal Dust Collectors|شلنگ و اتصالات غبارگیر|
+4675|4|Metalworking Air Filtration Systems|سیستم تصفیه هوای کارگاه فلزکاری (مه‌گیر)|
+4676|4|Filters for Metalworking Air Filtration Systems|فیلتر سیستم تصفیه هوای فلزکاری|
+4677|4|Metalworking Downdraft Tables|میز مکنده (داون‌درفت) فلزکاری|
+4678|4|Filters for Metalworking Downdraft Tables|فیلتر میز مکنده|
+4679|3|Machine Bases|پایه ماشین‌آلات|
+4680|3|Machine Leveling Components|قطعات تراز ماشین|
+4681|4|Machine Leveling Adjustment Bolts|پیچ تراز ماشین|
+4682|4|Machine Leveling Jack Screws|جک پیچی تراز ماشین|
+4683|3|Storage Baskets|سبد نگهداری|
+4684|2|Toolholding & Tooling Systems|ابزارگیر و سیستم‌های ابزار|
+4685|3|Drill Chucks & Accessories|سه‌نظام دریل و لوازم جانبی|
+4686|4|Drill Chucks|سه‌نظام دریل|
+4687|5|Keyed Drill Chucks|سه‌نظام آچاری|
+4688|5|Keyless Drill Chucks|سه‌نظام اتوماتیک (بدون آچار)|
+4689|4|Drill Chuck Arbors|شفت سه‌نظام (آربور)|
+4690|4|Morse Taper Sleeves & Extensions|بوش و رابط مورس|
+4691|4|Drill Chuck Keys|آچار سه‌نظام|
+4692|4|Drill Chuck Key Holders|جای آچار سه‌نظام|
+4693|4|Drill Chuck Removal Tools|ابزار بازکردن سه‌نظام (گوه مورس)|
+4694|3|Collets & Accessories|کولت و لوازم جانبی|
+4695|4|Collets|کولت (فشنگی)|
+4696|5|ER Collets|کولت ER|
+4697|5|DA Collets|کولت DA|
+4698|5|SK Collets|کولت SK|
+4699|5|TG Collets|کولت TG|
+4700|5|3J Collets|کولت 3J|
+4701|5|5C Collets|کولت 5C|
+4702|5|16C Collets|کولت 16C|
+4703|5|R8 Collets|کولت R8|
+4704|5|SlimFit 6 Collets|کولت SlimFit 6|
+4705|5|Milling Chuck Sleeves|بوش کولت فرز|
+4706|5|Tap Collets|کولت قلاویز|
+4707|5|Collet Sets|ست کولت|
+4708|4|Collet Nuts|مهره کولت|
+4709|4|Collet Wrenches|آچار کولت|
+4710|4|Collet Coolant Seals|آب‌بند کولت (کولانت)|
+4711|4|Collet Storage|جای کولت|
+4712|3|Collet Chucks|کولت‌گیر (هولدر کولت)|
+4713|4|CAT Collet Chucks|کولت‌گیر CAT|
+4714|4|BT Collet Chucks|کولت‌گیر BT|
+4715|4|HSK Collet Chucks|کولت‌گیر HSK|
+4716|4|NMTB Collet Chucks|کولت‌گیر NMTB|
+4717|4|R8 Collet Chucks|کولت‌گیر R8|
+4718|4|Collet Chuck Extensions|رابط بلندکننده کولت‌گیر|
+4719|3|Tapping Heads & Holders|سر قلاویززن و هولدر|
+4720|4|Tapping Heads|سر قلاویززن|
+4721|4|Tapping Head Arbors|آربور سر قلاویززن|
+4722|4|Tapping Head Parts & Accessories|قطعات و لوازم جانبی سر قلاویززن|
+4723|4|Tap Chucks|قلاویزگیر|
+4724|3|Lathe Tool Posts & Tool Post Holders|رنده‌گیر و هولدر رنده تراش|
+4725|4|Lathe Tool Posts|رنده‌گیر (تول‌پست)|
+4726|4|Tool Post Holders|هولدر رنده‌گیر|
+4727|4|Lathe Tool Post & Tool Post Holder Sets|ست رنده‌گیر و هولدر|
+4728|4|Lathe Toolholder Bushings|بوش هولدر تراش|
+4729|3|End Mill Holders, Adapters & Accessories|فرزگیر، تبدیل و لوازم جانبی|
+4730|4|End Mill Holders & Adapters|فرزگیر (ساید لاک) و تبدیل|
+4731|4|End Mill Holder Blanks|بلنک فرزگیر|
+4732|4|End Mill Holder Accessories|لوازم جانبی فرزگیر|
+4733|3|Milling Chucks|فرزگیر هیدرولیکی/قوی (میلینگ چاک)|
+4734|3|Face Mill Holders|هولدر کف‌تراش|
+4735|3|Shell Mill Holders|هولدر فرز پوسته‌ای (شل میل)|
+4736|3|Boring Heads & Holders|سر بورینگ و هولدر|
+4737|4|Boring Heads|سر بورینگ (کله‌تراش)|
+4738|4|Boring Head Holders|هولدر سر بورینگ|
+4739|3|Rotary Broach Holders & Set-Up Plugs|هولدر خان‌کش دوار و پلاگ تنظیم|
