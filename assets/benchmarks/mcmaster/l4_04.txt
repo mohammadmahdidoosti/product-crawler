@@ -1,0 +1,240 @@
+@0.2.1 Welders
+MIG Welders(3)|دستگاه جوش میگ|
+Multiprocess Welders(5)|دستگاه جوش چندکاره|
+TIG Welders(5)|دستگاه جوش تیگ (آرگون)|
+Stick Welders(1)|دستگاه جوش الکترودی|
+TIG Torch Nozzles(61)|نازل تورچ تیگ|
+MIG Gun Nozzles(33)|نازل تورچ میگ|
+Band Saw Blade Welders(1)|دستگاه جوش تیغ اره نواری|
+MIG Gun Contact Tips(17)|نازل مسی (کانتکت‌تیپ) میگ|
+MIG Guns(17)|تورچ میگ|
+TIG Welding Rod Feeders(1)|تغذیه‌کن سیم تیگ|
+TIG Welding Rods(298)|سیم جوش تیگ (فیلر)|
+MIG Welding Wire(181)|سیم جوش میگ|
+TIG Torches(57)|تورچ تیگ|
+TIG Torch Accessory Kits(28)|کیت لوازم تورچ تیگ|
+Stick Electrode Holders(21)|انبر الکترود|
+TIG Torch Gas Diffusers(15)|گازپخش‌کن تورچ تیگ|
+MIG Gun Gas Diffusers(10)|گازپخش‌کن تورچ میگ|
+MIG Wire Cleaning Pads(1)|پد تمیزکن سیم میگ|
+TIG Torch Collets(6)|کولت تورچ تیگ|
+MIG Wire Lubricating Pads(1)|پد روغن‌کاری سیم میگ|
+Ultrasonic Welders(15)|جوش التراسونیک|
+Oxyacetylene Torches(81)|سرپیک هوا‌گاز (اکسی‌استیلن)|
+Spot Welders(15)|دستگاه جوش نقطه‌ای|
+Spot Welding Electrode Cleaners(2)|تمیزکن الکترود نقطه‌جوش|
+Welding Pliers(2)|انبر جوشکاری|
+TIG Torch Bodies(32)|بدنه تورچ تیگ|
+TIG Torch-to-Machine Connectors(6)|اتصال تورچ به دستگاه|
+TIG Torch Heads(10)|سر تورچ تیگ|
+TIG Torch Back Caps(5)|درپوش پشت تورچ|
+MIG Welding Liners(8)|لاینر (فنر) تورچ میگ|
+Hot Air Welding Rods(98)|فیلر جوش پلاستیک|
+Oxyacetylene Welding Kits(23)|کیت جوش هوا‌گاز|
+TIG Torch Insulators(11)|عایق تورچ تیگ|
+TIG Torch Collet Bodies(8)|بدنه کولت تیگ|
+Welding Lugs(6)|کابلشو جوش|
+MIG Gun Insulators(3)|عایق تورچ میگ|
+TIG Torch Power Cable Adapters(3)|تبدیل کابل تورچ|
+Hot Air Welders(13)|دستگاه جوش هوای گرم (پلاستیک)|
+Welding Antispatter(5)|اسپری ضدپاشش جوش|
+Welding Cable Covers(6)|روکش کابل جوش|
+Welding Water Coolers(2)|واترکولر جوش|
+Stick Electrode Ovens(4)|فور الکترود|
+Welding Plates(8)|ورق جوشکاری|
+Welding Gas Flashback Arresters(24)|سوپاپ ضدبرگشت شعله|
+Welding Wire Drum Cones(3)|مخروط بشکه سیم جوش|
+Solder(356)|سیم لحیم|
+Soldering Iron Tips(164)|نوک هویه|
+Soldering Irons(274)|هویه|
+Soldering Iron Tip Cleaners(16)|تمیزکن نوک هویه|
+Soldering and Desoldering Stations(194)|ایستگاه هویه و قلع‌کش|
+Soldering Guns(14)|هویه تفنگی|
+Desoldering Guns(10)|قلع‌کش تفنگی|
+Desoldering Pumps(10)|قلع‌کش پمپی|
+Flux Removers(4)|فلاکس‌زدا|
+Soldering Flux(64)|روغن لحیم (فلاکس)|
+Solder Mask(4)|ماسک لحیم|
+Solder Spool Holders(5)|نگهدارنده قرقره قلع|
+Soldering and Desoldering Iron Stands(3)|پایه هویه|
+Soldering Coppers(12)|هویه مسی شعله‌ای|
+Oxygen/Propylene Torches(1)|سرپیک اکسیژن/پروپیلن|
+Propane Torches(18)|مشعل پروپان|
+Butane Torches(10)|مشعل بوتان|
+Brazing Alloys(142)|آلیاژ لحیم سخت (برنج‌جوش/نقره‌جوش)|
+Brazing Flux(15)|تنه‌کار (فلاکس) لحیم سخت|
+Brazing Rings(5)|حلقه لحیم سخت|
+Brazing Stop-Off(2)|مانع جریان لحیم|
+Hats(17)|کلاه|
+Welding Helmets(61)|کلاه ماسک جوشکاری|
+Jackets(18)|کاپشن جوشکاری|
+Respirator Harnesses(1)|بند ماسک تنفسی|
+Chaps(1)|شلوارپوش|
+Pants(1)|شلوار|
+Bib Overalls(1)|لباس سرهمی پیش‌بند‌دار|
+Bandanas(1)|دستمال سر|
+Arm Sleeves(16)|ساق‌دست|
+Coveralls(1)|لباس سرهمی|
+Welding Lenses(65)|شیشه جوشکاری|
+Sweatbands(1)|عرق‌گیر|
+Safety Glasses(18)|عینک ایمنی|
+Safety Goggles(13)|عینک گاگل|
+Cape Sleeves(2)|شنل آستین‌دار|
+Welding Helmet Bibs(3)|پیش‌بند کلاه جوش|
+Hoods(5)|کلاه سرپوش|
+Face Shields(23)|شیلد صورت|
+Respirators(21)|ماسک تنفسی|
+Welding Lens Magnifiers(8)|ذره‌بین شیشه جوش|
+Finger Cots(3)|انگشتانه|
+Respirator Cartridges(4)|فیلتر ماسک|
+Clothing Kits(4)|ست لباس|
+Aprons(16)|پیش‌بند|
+Respirator Blowers(7)|دمنده ماسک (PAPR)|
+Lens Covers(3)|محافظ شیشه|
+Backhand Pads(2)|پد پشت دست|
+Leggings(4)|ساق‌پا|
+Cape Sleeve Bibs(2)|پیش‌بند شنل|
+Arm Pads(2)|پد بازو|
+Glove Protectors(10)|محافظ دستکش|
+Respirator Breathing Tubes(3)|شیلنگ تنفس ماسک|
+Welding Pads(1)|پد جوشکاری|
+Spark-Resistant Film(1)|فیلم ضدجرقه|
+Heat-Resistant Blankets(35)|پتوی نسوز|
+Curtains(78)|پرده جوشکاری|
+Protective Screens(82)|پاراوان محافظ|
+Curtain Partitions(21)|پارتیشن پرده‌ای|
+C-Clamps(131)|پیچ‌دستی C|
+Pipe Welding Clamps(14)|گیره جوش لوله|
+Toggle Clamps(436)|کلمپ ضامن‌دار (تاگل)|
+Pliers Clamps(16)|انبر قفلی|
+Corner Clamps(3)|گیره گوشه|
+Clamp Holding Screw Tips(12)|سرپیچ گیره|
+Springs for Locking Pliers(4)|فنر انبر قفلی|
+Welding Positioners(7)|پوزیشنر جوش|
+Fixture Tables(69)|میز فیکسچر جوش|
+Fixture Squares(38)|گونیا فیکسچر|
+Grid Fixture Plates(46)|صفحه فیکسچر سوراخ‌دار|
+Plasma Cutters(8)|دستگاه برش پلاسما|
+Melting Pots(33)|کوره ذوب|
+Torch Lighters(11)|فندک مشعل|
+Heat Gun Nozzles(6)|نازل سشوار صنعتی|
+Heat Guns(88)|سشوار صنعتی (هیت‌گان)|
+Nozzle Tip Cleaners(5)|سوزن تمیزکن سرپیک|
+Extension Cords(11)|سیم سیار|
+Welding Cable Connectors(13)|اتصال کابل جوش|
+Welding Cords(10)|کابل رابط جوش|
+Welding Cable(28)|کابل جوش|
+Welding Lug Covers(1)|روکش کابلشو جوش|
+Grounding Clamps(24)|انبر اتصال (گیره ارت)|
+Helmet Bags(1)|کیف کلاه|
+Crucibles(6)|بوته ذوب|
+Creepers(1)|تخته زیرکار|
+Stools(3)|چهارپایه|
+Oxyacetylene Welding Equipment Totes(2)|کیف تجهیزات هوا‌گاز|
+TIG Welding Rod Carriers(3)|جاسیم تیگ|
+MIG Welding Wire Carriers(1)|جاسیم میگ|
+Welding Torch Holders(8)|نگهدارنده تورچ|
+Chests(2)|صندوق|
+Carts(9)|ترولی جوشکاری|
+Robot Arm Covers(12)|کاور بازوی ربات|
+Pressure-Regulating Valves(101)|رگولاتور فشار|
+Liquid Chillers(19)|چیلر مایع|
+Flowmeters(1)|فلومتر|
+Hose(19)|شیلنگ|
+Hose Reels(5)|قرقره شیلنگ|
+Tube Fitting Rings(6)|حلقه اتصال تیوب|
+Oxygen Gas(1)|گاز اکسیژن|
+Argon Gas(4)|گاز آرگون|
+Propylene Gas(1)|گاز پروپیلن|
+Nitrogen Gas(4)|گاز نیتروژن|
+Helium Gas(4)|گاز هلیوم|
+Butane Gas(2)|گاز بوتان|
+Carbon Dioxide Gas(4)|گاز CO2|
+Propane Gas(2)|گاز پروپان|
+Acetone(3)|استون|
+Methyl Ethyl Ketone(2)|متیل اتیل کتون (MEK)|
+Fabric(13)|پارچه|
+Flashlights(1)|چراغ‌قوه|
+Welding Gauges(3)|گیج جوش|
+Squares(2)|گونیا|
+Flaw-Detecting Dyes(7)|رنگ نفوذی عیب‌یابی|
+Belt Joining Kits(12)|کیت اتصال تسمه|
+Soapstone(9)|گچ صابونی (سنگ صابون)|
+Window Film(4)|فیلم شیشه|
+Coolants(2)|خنک‌کننده|
+@0.2.3 Welding Gloves
+TIG Welding Gloves(24)|دستکش جوش تیگ|
+Stick Welding Gloves(20)|دستکش جوش الکترود|
+MIG Welding Gloves(19)|دستکش جوش میگ|
+Multipurpose Welding Gloves(11)|دستکش جوش چندمنظوره|
+Welding Mitts(3)|دستکش یک‌انگشتی جوش|
+Heat-Reflective Aluminized Welding Mitts(1)|دستکش یک‌انگشتی آلومینیومی|
+Heat-Reflective Aluminized Welding Gloves(3)|دستکش جوش آلومینیومی|
+Welding Gloves with Aluminized Detachable Hand Pads(3)|دستکش جوش با پد آلومینیومی|
+Heat-Protection Static-Dissipative Gloves(2)|دستکش حرارتی آنتی‌استاتیک|
+@0.2.5 Protective Screens
+Protective Panels(15)|پنل محافظ|
+Chip Guards(4)|محافظ براده|
+Temporary Partition Poles(3)|پایه پارتیشن موقت|
+Partition Panels(28)|پنل پارتیشن|
+Bellows(1)|فانوسی|
+Sink Splash Guards(9)|محافظ پاشش سینک|
+@0.2.6 Brazing Alloys
+Gas Welding Rods(7)|سیم جوش گاز|
+Air/Acetylene Torches(16)|مشعل هوا/استیلن|
+Gas Burners(5)|مشعل گازی|
+Vibration-Damping Coatings(2)|پوشش ضدلرزش|
+@0.2.7 Torches
+Lighters(2)|فندک|
+Portable Work Lights(165)|چراغ کار سیار|
+Batteries(1)|باتری|
+Portable Work Light Mounts(1)|پایه چراغ کار|
+Headlamps(28)|چراغ پیشانی|ترکیبی
+Lightsticks(5)|لایت‌استیک|
+Neck Lights(2)|چراغ گردنی|
+Ultraviolet Inspection Lights(3)|چراغ UV بازرسی|
+@0.2.8 Solder
+Rosin Flux-Core Solder for Electronics and Electrical Applications(61)|سیم لحیم مغزه رزین الکترونیک|
+Solder for Drinking Water(1)|لحیم لوله آب شرب|
+No-Clean Flux-Core Solder for Electronics and Electrical Applications(32)|سیم لحیم نوکلین الکترونیک|
+Paste Solder(1)|خمیر لحیم|
+Solder for Electronics and Electrical Applications(27)|سیم لحیم الکترونیک|
+Quick-Flow No-Clean Flux-Core Solder for Electronics and Electrical Applications(32)|سیم لحیم نوکلین روان|
+Bar Solder(1)|شمش لحیم|
+Solder for Torch Soldering(14)|لحیم شعله‌ای|
+Quick-Flow Rosin Flux-Core Solder for Electronics and Electrical Applications(30)|سیم لحیم رزین روان|
+No-Flux Solder for Aluminum(1)|لحیم آلومینیوم بدون فلاکس|
+Solder Pellets(8)|گرانول لحیم|
+Bar Solder for Torch Soldering(1)|شمش لحیم شعله‌ای|
+Low-Melting-Point Solder for Low-Temperature Applications(3)|لحیم نقطه ذوب پایین|
+Acid Flux-Core Solder for HVAC Applications(1)|لحیم مغزه اسیدی تأسیسات|
+Bar Solder for Electronics and Electrical Applications(7)|شمش لحیم الکترونیک|
+Solder for Aluminum(3)|لحیم آلومینیوم|
+No-Clean Flux-Core Solder for HVAC Applications(1)|لحیم نوکلین تأسیسات|
+High-Density Low-Melting-Point Solder(2)|لحیم چگال نقطه ذوب پایین|
+Acid Flux-Core Solder for Electronics and Electrical Applications(35)|سیم لحیم مغزه اسیدی|
+Easy-Clean Flux-Core Solder for Electronics and Electrical Applications(18)|سیم لحیم تمیزشونده آسان|
+Solder for High-Temperature Applications(6)|لحیم دمای بالا|
+Rosin Flux-Core High-Melting-Point Solder for Electronics and Electrical Applications(5)|لحیم رزین نقطه ذوب بالا|
+Bar Solder for High-Temperature Applications(1)|شمش لحیم دمای بالا|
+High-Melting-Point Bar Solder for Electronics and Electrical Applications(1)|شمش لحیم نقطه ذوب بالا|
+Bar Solder for Machine Soldering(1)|شمش لحیم ماشینی|
+Bar Solder for Food Service Equipment(1)|شمش لحیم تجهیزات غذایی|
+Solder for HVAC Applications(3)|لحیم تأسیسات|
+Solder for Food Service Equipment(5)|لحیم تجهیزات غذایی|
+Quick-Flow Easy-Clean Flux-Core Solder for Electronics and Electrical Applications(9)|لحیم روان تمیزشونده|
+Solder for Machine Soldering(8)|لحیم ماشینی|
+Low-Melting-Point Solder Ribbon for Low-Temperature Applications(3)|نوار لحیم نقطه ذوب پایین|
+Solder for Stainless Steel(5)|لحیم استیل|
+No-Clean Flux-Core Solder for High-Temperature Applications(6)|لحیم نوکلین دمای بالا|
+High-Melting-Point Solder for Electronics and Electrical Applications(4)|لحیم نقطه ذوب بالا|
+Rosin Flux-Core Solder for HVAC Applications(3)|لحیم رزین تأسیسات|
+Rosin Flux-Core Solder for High-Temperature Applications(2)|لحیم رزین دمای بالا|
+Easy-Clean Flux-Core Solder for High-Temperature Applications(2)|لحیم تمیزشونده دمای بالا|
+Desoldering Braids(56)|سیم قلع‌کش|
+Desoldering Irons(11)|هویه قلع‌کش|
+Desoldering Iron Tips(11)|نوک هویه قلع‌کش|
+Small Parts Positioners(17)|گیره قطعات ریز (دست سوم)|
+Tin(10)|قلع|
+Heat Sink Compounds(11)|خمیر هیت‌سینک|
+Thermometers(4)|دماسنج|

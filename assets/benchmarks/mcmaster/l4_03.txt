@@ -1,0 +1,284 @@
+@0.0.20 Lanyards
+Eye-to-Eye Lanyards—Not for Lifting(138)|بند سیمی چشمی‌به‌چشمی (غیرباربر)|
+Loop-to-Eye Lanyards—Not for Lifting(79)|بند سیمی حلقه‌به‌چشمی (غیرباربر)|
+Loop-to-Loop Lanyards—Not for Lifting(118)|بند سیمی حلقه‌به‌حلقه (غیرباربر)|
+Create-Your-Own Lanyards—Not for Lifting(33)|بند سیمی سفارشی (غیرباربر)|
+Loop-to-Tab Lanyards—Not for Lifting(104)|بند سیمی حلقه‌به‌زبانه (غیرباربر)|
+Eye-to-Tab Lanyards—Not for Lifting(56)|بند سیمی چشمی‌به‌زبانه (غیرباربر)|
+Carabiner-to-Carabiner Lanyards—Not for Lifting(10)|بند دوکارابین (غیرباربر)|
+Eye-to-90°-Eye Lanyards—Not for Lifting(10)|بند چشمی‌به‌چشمی ۹۰ درجه|
+Reinforced-Loop-to-Loop Lanyards—Not for Lifting(49)|بند حلقه‌به‌حلقه تقویت‌شده|
+Mil. Spec. Eye-to-Stud Lanyards—Not for Lifting(15)|بند چشمی‌به‌پین نظامی|
+Loop-to-90°-Eye Lanyards—Not for Lifting(10)|بند حلقه‌به‌چشمی ۹۰ درجه|
+Ball-with-Shank-to-Plain-End Lanyards—Not for Lifting(36)|بند ساچمه‌سر به سرساده|
+Mil. Spec. Eye-to-Eye Lanyards—Not for Lifting(18)|بند چشمی‌به‌چشمی نظامی|
+Eye-to-Ball-with-Shank Lanyards—Not for Lifting(10)|بند چشمی‌به‌ساچمه‌سر|
+Eye-to-Swivel-Fork Lanyards—Not for Lifting(10)|بند چشمی‌به‌دوشاخ گردان|
+Eye-to-Eye Retractable Lanyards—Not for Lifting(8)|بند جمع‌شونده چشمی‌به‌چشمی|
+Loop-to-Loop Retractable Lanyards—Not for Lifting(10)|بند جمع‌شونده حلقه‌به‌حلقه|
+Adjustable-Loop-to-Hook Lanyards—Not for Lifting(9)|بند حلقه قابل تنظیم به قلاب|
+Adjustable-Loop-to-90°-Eye Lanyards—Not for Lifting(5)|بند حلقه قابل تنظیم به چشمی ۹۰|
+Loop-to-Eye Retractable Lanyards—Not for Lifting(7)|بند جمع‌شونده حلقه‌به‌چشمی|
+Adjustable-Loop-to-Stud Lanyards—Not for Lifting(5)|بند حلقه قابل تنظیم به پین|
+Loop-to-Tab Retractable Lanyards—Not for Lifting(10)|بند جمع‌شونده حلقه‌به‌زبانه|
+Swivel-Fork-to-Swivel-Fork Retractable Lanyards—Not for Lifting(5)|بند جمع‌شونده دوشاخ گردان|
+Adjustable-Loop-to-Twin-Hook Lanyards—Not for Lifting(3)|بند حلقه تنظیمی به دوقلاب|
+Nylon Lanyards—Not for Lifting(13)|بند نایلونی|
+Low-Stretch Polyester Plastic Rope Lanyards—Not for Lifting(10)|بند طناب پلی‌استر کم‌کشش|
+Bead-Chain Lanyards—Not for Lifting(13)|بند زنجیر ساچمه‌ای|
+Sash-Chain Lanyards—Not for Lifting(14)|بند زنجیر تخت|
+Key Holders(11)|جاکلیدی|ترکیبی
+Tool Lanyards(20)|بند ابزار|
+Name Badge Holders(45)|جاکارتی|ترکیبی
+Tool Retractors(47)|نگهدارنده جمع‌شونده ابزار|
+Vests(1)|جلیقه|ترکیبی
+Starter Pull Cords(1)|طناب استارت|
+Glove Clips(4)|گیره دستکش|
+Hard Hat Lanyards(1)|بند کلاه ایمنی|
+Padlock Cables(9)|کابل قفل آویز|
+Eyeglass Lanyards(4)|بند عینک|ترکیبی
+Pull Cords(7)|طناب کشش|
+Hose Whip Checks(16)|ضامن ضدشلاق شیلنگ|
+Fall-Arrest Extension Straps(6)|تسمه رابط ضدسقوط|
+Travel-Limiting Belts(2)|کمربند محدودکننده|
+@0.0.21 Magnets
+Neodymium Disc Magnets(388)|آهنربای دیسکی نئودیمیم|
+Threaded Encased Neodymium Disc Magnets(64)|آهنربای نئودیمیم قاب‌دار رزوه‌ای|
+Encased Neodymium Disc Magnets(41)|آهنربای نئودیمیم قاب‌دار|
+Encased Ceramic Disc Magnets(48)|آهنربای سرامیکی قاب‌دار|
+Threaded Encased Ceramic Disc Magnets(56)|آهنربای سرامیکی قاب‌دار رزوه‌ای|
+Nonmarring Threaded Encased Neodymium Disc Magnets(15)|آهنربای نئودیمیم روکش‌دار رزوه‌ای|
+Multipole Neodymium Disc Magnets(27)|آهنربای نئودیمیم چندقطبی|
+Ceramic Disc Magnets(31)|آهنربای دیسکی سرامیکی (فریت)|
+Nonmarring Encased Neodymium Disc Magnets(11)|آهنربای نئودیمیم روکش‌دار|
+Self-Aligning Neodymium Disc Paired Magnets(3)|جفت آهنربای خودتراز|
+Alnico Disc Magnets(30)|آهنربای دیسکی آلنیکو|
+Threaded Encased Alnico Disc Magnets(26)|آهنربای آلنیکو قاب‌دار رزوه‌ای|
+Samarium-Cobalt Disc Magnets(8)|آهنربای ساماریوم‌کبالت|
+Machinable Neodymium Disc Magnets(43)|آهنربای نئودیمیم قابل ماشینکاری|
+Encased Samarium-Cobalt Disc Magnets(18)|آهنربای ساماریوم‌کبالت قاب‌دار|
+Encased Alnico Disc Magnets(3)|آهنربای آلنیکو قاب‌دار|
+Nonmarring Neodymium Disc Magnets(2)|آهنربای نئودیمیم بی‌خش|
+Stepped Neodymium Disc Magnets(4)|آهنربای نئودیمیم پله‌دار|
+Multiposition Neodymium Disc Paired Magnets(6)|جفت آهنربای چندحالته|
+Nonmarring Encased Ceramic Disc Magnets(2)|آهنربای سرامیکی روکش‌دار|
+Twist Release Neodymium Disc Paired Magnets(6)|جفت آهنربای رهاسازی چرخشی|
+Flexible Ceramic Disc Magnets(2)|آهنربای دیسکی انعطاف‌پذیر|
+Neodymium Rectangle Magnets(108)|آهنربای مکعبی نئودیمیم|
+Easy On/Off Neodymium Magnets(9)|آهنربای نئودیمیم قطع‌ووصل آسان|
+Encased Ceramic Rectangle Magnets(37)|آهنربای مکعبی سرامیکی قاب‌دار|
+Ceramic Rectangle Magnets(29)|آهنربای مکعبی سرامیکی|
+Flexible Cut-to-Size Ceramic Rectangle Magnets(123)|ورق آهنربایی برش‌پذیر|
+Flexible Neodymium Rectangle Magnets(98)|نوار آهنربای نئودیمیم انعطاف‌پذیر|
+Nonmarring Encased Neodymium Rectangle Magnets(7)|آهنربای مکعبی روکش‌دار|
+Multipole Neodymium Rectangle Magnets(13)|آهنربای مکعبی چندقطبی|
+Alnico Rectangle Magnets(14)|آهنربای مکعبی آلنیکو|
+Flexible Ceramic Rectangle Magnets(42)|آهنربای مکعبی انعطاف‌پذیر|
+Nonmarring Threaded Encased Neodymium Rectangle Magnets(4)|آهنربای مکعبی روکش‌دار رزوه‌ای|
+Machinable Neodymium Rectangle Magnets(21)|آهنربای مکعبی قابل ماشینکاری|
+Stepped Neodymium Rectangle Magnets(5)|آهنربای مکعبی پله‌دار|
+Samarium-Cobalt Rectangle Magnets(4)|آهنربای مکعبی ساماریوم‌کبالت|
+Encased Neodymium Rectangle Magnets with Polished Cover(3)|آهنربای مکعبی با روکش صیقلی|
+Nonmarring Encased Ceramic Rectangle Magnets(2)|آهنربای مکعبی سرامیکی روکش‌دار|
+Alnico U Magnets(19)|آهنربای نعلی آلنیکو|
+Neodymium Ball Magnets(6)|آهنربای کروی نئودیمیم|
+Alnico Button Magnets(9)|آهنربای دکمه‌ای آلنیکو|
+Alnico Rotor Magnets(4)|آهنربای روتور آلنیکو|
+Alnico U-Channel Magnets(6)|آهنربای ناودانی آلنیکو|
+Magnetic Retrievers(41)|آهنربای جمع‌کن|
+Electromagnets(48)|آهنربای الکتریکی|
+Magnetic Latches(144)|قفل آهنربایی|
+Lifting Magnets(82)|آهنربای بالابر|
+Labels(25)|برچسب|
+Ferrite Cores(6)|هسته فریت|
+Stirring Bars(64)|مگنت همزن آزمایشگاهی|
+Magnetic Filters(66)|فیلتر مغناطیسی|
+Magnetic Wristbands(1)|مچ‌بند آهنربایی|
+Magnet-Receptive Sheets(3)|ورق جذب آهنربا|
+Magnetic Tool Holders(18)|نگهدارنده ابزار آهنربایی|
+Magnetic Clamps(30)|گیره آهنربایی|
+Retrievers(1)|جمع‌کن|
+Sine Plates(1)|صفحه سینوسی|
+Slatwall Tool Holders(1)|نگهدارنده ابزار دیواری|
+Magnetic Chip Collectors(3)|جمع‌کن براده مغناطیسی|
+Signs(30)|تابلو|
+Tool Trays(8)|سینی ابزار|
+Magnetic Filter Rods(14)|میله فیلتر مغناطیسی|
+Sweepers(31)|جاروی مغناطیسی|
+DIN Rails(1)|ریل DIN|
+Magnetic Workholding Plates(72)|صفحه مگنت (نگهدارنده قطعه‌کار)|
+Magnetic Switches(120)|کلید مغناطیسی|
+Picks(4)|سوزن قلاب|
+Socket Adapters(3)|تبدیل بکس|
+Socket Organizers(4)|نظم‌دهنده بکس|
+Bottle Holders(4)|نگهدارنده بطری|
+Socket Inserts(3)|نگهدارنده بکس|
+Magnetizer/Demagnetizers(4)|مغناطیس‌کن/مغناطیس‌زدا|
+Polarity Testers(5)|تستر قطب|
+Gloves(1)|دستکش|
+V-Blocks(4)|بلوک V|
+Pans(2)|سینی|
+Sheet Metal Separators(5)|جداکننده ورق مغناطیسی|
+Magnetic Field Indicators(12)|نشانگر میدان مغناطیسی|
+Whiteboards(4)|وایت‌برد|ترکیبی
+Demagnetizers(5)|مغناطیس‌زدا|
+Strainers(7)|صافی|
+Inspection Mirrors(9)|آینه بازرسی|
+Wrench Organizers(5)|نظم‌دهنده آچار|
+Magnetic Conveyor Belt Plates(33)|صفحه مغناطیسی نوار نقاله|
+Door Holders(15)|نگهدارنده در|
+Safety Switches(9)|کلید ایمنی|
+Document Binders(11)|کلاسور مدارک|ترکیبی
+Air Filters(13)|فیلتر هوا|
+Stirring Bar Retrievers(2)|جمع‌کن مگنت همزن|
+Pick-and-Place Grippers(18)|گریپر برداشت‌وگذاشت|
+Tool Pouches(2)|کیف ابزار|
+Magnetic Particles(6)|ذرات مغناطیسی|
+Electromagnetic Locks(14)|قفل الکترومغناطیسی|
+Cylinder Position Sensors(8)|سنسور موقعیت سیلندر|
+Manhole-Cover Lifters(2)|بالابر درب منهول|
+Vacuum Cleaner Magnets(2)|آهنربای جاروبرقی|
+Cam Locks(43)|قفل بادامکی|
+Conveyor Belt Pulleys(4)|پولی نوار نقاله|
+Magnetic Particle Flaw Detection Kits(2)|کیت تست ذرات مغناطیسی|
+Magnetic Yokes(5)|یوک مغناطیسی|
+Whiteboard Trays(3)|جاماژیکی وایت‌برد|
+@0.1.0 Adhesives
+Structural Adhesives(237)|چسب سازه‌ای|
+Instant-Bond Adhesives(169)|چسب فوری (قطره‌ای)|
+Contact Adhesives(53)|چسب تماسی|
+Sealants(274)|درزگیر|
+Threadlockers(166)|چسب قفل رزوه|
+Adhesive Dispensing Gun Nozzles(75)|نازل تفنگ چسب|
+Adhesive Dispensing Guns(49)|تفنگ چسب دوجزئی|
+Adhesive Cement(28)|سیمان چسب|
+Construction Adhesives(21)|چسب ساختمانی|
+Potting Compounds(82)|رزین پاتینگ|
+Mounting Adhesives(68)|چسب نصب|
+Glue(29)|چسب|
+Thread Sealants(179)|آب‌بند رزوه|
+Adhesive and Sealant Assortments(1)|ست چسب و درزگیر|
+Cartridge Sealing Caps(1)|درپوش کارتریج|
+Gasket Sealants(11)|چسب واشر|
+Protective Coatings(21)|پوشش محافظ|
+Hot Glue(24)|چسب حرارتی|
+Retaining Compounds(80)|چسب نگهدارنده یاتاقان|
+Adhesive Primers(19)|پرایمر چسب|
+Footwear Adhesives(1)|چسب کفش|ترکیبی
+Adhesive Activators(2)|فعال‌کننده چسب|
+Adhesive Spacing Beads(1)|ساچمه فاصله‌انداز چسب|
+Adhesive Accelerators(12)|تسریع‌کننده چسب|
+Sealant Primers(8)|پرایمر درزگیر|
+Backer Rods(35)|پشت‌بند درز (بکر راد)|
+Adhesive Dispensing Gun Cartridge Plungers(6)|پیستون کارتریج چسب|
+Glue Guns(19)|تفنگ چسب حرارتی|
+Tube Dispensers(2)|تیوب‌فشار|
+Threadlocker and Retaining Compound Dispensers(2)|دیسپنسر چسب رزوه|
+Caulk Guns(61)|گان چسب|
+Adhesive Dispensing Gun Cartridges(34)|کارتریج تفنگ چسب|
+Adhesive Dispensing Gun Cartridge Holders(7)|نگهدارنده کارتریج|
+Glue-on-a-Roll Dispensers(3)|دیسپنسر چسب رولی|
+Laminating Rollers(10)|غلتک لمینیت|
+Adhesive Brushes(6)|قلم‌موی چسب|
+Caulk Gun Nozzles(12)|نازل گان چسب|
+Glue Pots(2)|ظرف گرم‌کن چسب|
+Caulk Gun Sleeves(1)|غلاف گان چسب|
+Glue Gun Nozzles(1)|نازل تفنگ چسب حرارتی|
+Repair and Duct Tape(121)|چسب تعمیر و داکت|
+Packaging Tape(117)|چسب بسته‌بندی|
+Office Tape(15)|چسب اداری|ترکیبی
+Splicing Tape(18)|چسب اتصال|
+Drafting Tape(3)|چسب نقشه‌کشی|
+Welding Purge Tape(2)|چسب پرج جوشکاری|
+Paint Primers(1)|آستر رنگ|
+Floor Finish Applicators(1)|پدکش پوشش کف|
+Paint(3)|رنگ|
+Paint Brushes(30)|قلم‌مو|
+Paint Roller Covers(2)|روکش غلتک رنگ|
+Paint Roller Frames(42)|دسته غلتک رنگ|
+Adhesive Removers(38)|چسب‌زدا|
+Sealant Removers(2)|درزگیرزدا|
+Surface-Preparation Cleaners(2)|پاک‌کننده آماده‌سازی سطح|
+Degreasers(10)|چربی‌زدا|
+Electrical Parts Cleaners(2)|پاک‌کننده قطعات برقی|
+Epoxy Removers(2)|اپوکسی‌زدا|
+Mold Release Cleaners(2)|پاک‌کننده رهاساز قالب|
+Roof Brushes(1)|برس پشت‌بام|
+Roof Coatings(4)|پوشش پشت‌بام|
+Plumber's Putty(3)|بتونه لوله‌کشی|
+Seam Rollers(7)|غلتک درز|
+Drywall Tape(3)|نوار کناف|
+Drywall Patches(3)|وصله کناف|
+Black-Out Tape(8)|چسب نورگیر مشکی|
+Light Filters(3)|فیلتر نور|
+Trowels(32)|ماله|
+Electrical Insulating Adhesives(24)|چسب عایق برق|
+Heat-Shrink Tubing(17)|وارنیش حرارتی|
+Heat-Shrink Tubing Seal Wrap(5)|نوار حرارتی آب‌بند|
+Conformal Coatings(31)|پوشش کانفورمال برد|
+Thermal Control Coatings(1)|پوشش کنترل حرارت|
+Conductive Adhesives(8)|چسب رسانا|
+Gasket Makers(58)|واشرساز (چسب واشر)|
+Gasket Tape(36)|نوار واشر|
+Mixing Sticks(1)|همزن چوبی|
+Mixing Cups(3)|لیوان مخلوط|
+Thermal Paste(18)|خمیر سیلیکون حرارتی|
+Syringe Needles(342)|سرسوزن دوزینگ|
+Syringes(158)|سرنگ|
+Squeeze Bottles(16)|بطری فشاری|
+Syringe Tips(20)|سر سرنگ|
+Syringe Barrels(15)|بدنه سرنگ دوزینگ|
+Controlled-Flow Bottles and Pens(6)|بطری و قلم جریان کنترل‌شده|
+Syringe Dispensers(12)|دیسپنسر سرنگی|
+Syringe Filters(15)|فیلتر سرنگی|
+Syringe Caps(13)|درپوش سرنگ|
+Syringe Thread Adapters(3)|تبدیل رزوه سرنگ|
+Syringe Holders(2)|نگهدارنده سرنگ|
+Removable Adhesive Strips(9)|نوار چسب جداشدنی|
+Tank Patches(4)|وصله مخزن|
+Casting Compounds(78)|رزین ریخته‌گری|
+Babbitt Paste(1)|خمیر بابیت|
+Casting Metals(3)|فلز ریخته‌گری|
+Blackener Kits(5)|کیت سیاه‌کاری|
+Firebrick Mortar(5)|ملات آجر نسوز|
+Refractory Cement(2)|سیمان نسوز|
+Protective Clothing Tape(1)|نوار لباس محافظ|
+Sports Tape(1)|چسب ورزشی|مصرفی
+Spill-Control Berms(2)|مانع نشت|
+Fire Stops(14)|مسدودکننده آتش|
+Vehicle-Marking Tape(12)|نوار شبرنگ خودرو|
+Roller Grip Tape(13)|نوار روکش غلتک|
+Antislip Tape(147)|نوار ضدلغزش|
+Vibration-Damping Sheets and Tape(27)|ورق و نوار ضدلرزش|
+Pipe Insulation(4)|عایق لوله|
+Heat Barriers(8)|سپر حرارتی|
+Pipe Insulation Repair Strips(3)|نوار تعمیر عایق لوله|
+HVAC Tape(51)|نوار تأسیسات (HVAC)|
+Wax(9)|واکس|
+Lead(8)|سرب|
+Label-Protecting Tape(9)|نوار محافظ برچسب|
+Floor-Marking Tape(159)|نوار خط‌کشی کف|
+Floor Decals(34)|برچسب کف|
+@0.1.1 Tape
+Tape Dispensers(112)|چسب‌برش (دیسپنسر نوار)|
+Weld-Backing Tape(11)|نوار پشت‌بند جوش|
+Cable Ramps(15)|محافظ کابل کف|
+Heat-Shrink Wrap(34)|شرینک حرارتی|
+First-Aid Tape(4)|چسب زخم|ترکیبی
+Floor Mat Tape(3)|نوار کفپوش|
+Pipe Marker Tape(10)|نوار نشانگر لوله|
+Hose End Safety Straps(3)|تسمه ایمنی سرشیلنگ|
+Carbon Fiber(2)|فیبر کربن|
+Black-Out Paper and Tape(10)|کاغذ و نوار نورگیر مشکی|
+@0.1.2 Hook & Loop
+Knee Supports(5)|زانوبند|ترکیبی
+@0.2.0 Electrodes & Wire
+Stick Electrodes(120)|الکترود جوشکاری|
+Tungsten Electrode Sharpeners(1)|تیزکن الکترود تنگستن|
+Tungsten Electrodes(80)|الکترود تنگستن|
+Spot Welding Electrodes(20)|الکترود جوش نقطه‌ای|
+Tungsten Electrode Grinders(7)|سنگ الکترود تنگستن|
+Tungsten Electrode Stick-Out Gauges(2)|گیج بیرون‌زدگی تنگستن|
+Plasma Cutter Replacement Parts(12)|قطعات یدکی برش پلاسما|
+Tungsten Electrode Carriers(3)|جاالکترود تنگستن|
+Stick Electrode Carriers(7)|جاالکترود|
