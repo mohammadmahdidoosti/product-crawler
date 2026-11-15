@@ -5,7 +5,10 @@ container connects to it over the docker network, sends the shared token, and ge
 on the shop (ssh shop ... wp eval-file shop_bridge.php) wired to its connection. One connection = one
 WordPress process; at most --max at a time.
 
-    python3 bridge_proxy.py --bind 10.0.1.1 --port 8765 --token-file /srv/caravan-data/tmp/bridge.token
+    python3 bridge_proxy.py --unix /srv/caravan-data/tmp/bridge.sock --token-file /srv/caravan-data/tmp/bridge.token
+
+A Unix socket in the data folder the container shares (/data/tmp/bridge.sock there): no port is opened and
+the host's firewall is not touched. --bind/--port listen on TCP instead.
 
 Only standard library. The token file is readable in the container as /data/tmp/bridge.token.
 """
@@ -13,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import hmac
+import os
 import socket
 import subprocess
 import threading
@@ -81,7 +85,8 @@ def serve(conn: socket.socket, addr, token: str, slots: threading.Semaphore, ssh
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--bind", required=True, help="the docker network gateway address (not 0.0.0.0)")
+    ap.add_argument("--unix", help="a Unix socket path (the container reaches it through the shared folder)")
+    ap.add_argument("--bind", help="TCP: the docker network gateway address (not 0.0.0.0)")
     ap.add_argument("--port", type=int, default=8765)
     ap.add_argument("--token-file", required=True)
     ap.add_argument("--max", type=int, default=3, help="WordPress processes on the shop at once")
@@ -91,11 +96,22 @@ def main() -> None:
     if len(token) < 20:
         raise SystemExit("token too short")
     slots = threading.Semaphore(a.max)
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    s.bind((a.bind, a.port))
+    if a.unix:
+        if os.path.exists(a.unix):
+            os.remove(a.unix)
+        s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        s.bind(a.unix)
+        os.chmod(a.unix, 0o600)
+        where = a.unix
+    elif a.bind:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        s.bind((a.bind, a.port))
+        where = f"{a.bind}:{a.port}"
+    else:
+        raise SystemExit("--unix or --bind")
     s.listen(8)
-    log("listening on", a.bind, a.port, "max", a.max)
+    log("listening on", where, "max", a.max)
     while True:
         conn, addr = s.accept()
         threading.Thread(target=serve, args=(conn, addr, token, slots, a.ssh), daemon=True).start()

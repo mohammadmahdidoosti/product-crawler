@@ -1,6 +1,6 @@
 """(15 Nov) The crawler's REST calls to the shop through the SSH bridge instead of HTTPS.
 
-WC_BRIDGE=host:port (and the token in WC_BRIDGE_TOKEN_FILE, default /data/tmp/bridge.token) makes
+WC_BRIDGE=unix:/data/tmp/bridge.sock or host:port (and the token in WC_BRIDGE_TOKEN_FILE, default /data/tmp/bridge.token) makes
 WC._wc / WC._wp send every call through tools/bridge_proxy.py on the crawler host to a WordPress process
 on the shop (tools/shop_bridge.php). The answers look like `requests` responses, so all of publish.py,
 catmake.py and the brands code work unchanged: same payloads, same retries, same checks.
@@ -44,8 +44,13 @@ class Response:
 
 class _Conn:
     def __init__(self, addr: str, token: str, timeout: int):
-        host, port = addr.rsplit(":", 1)
-        self.sock = socket.create_connection((host, int(port)), timeout=30)
+        if addr.startswith("unix:"):                     # the proxy's socket in the shared data folder
+            self.sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+            self.sock.settimeout(30)
+            self.sock.connect(addr[5:])
+        else:
+            host, port = addr.rsplit(":", 1)
+            self.sock = socket.create_connection((host, int(port)), timeout=30)
         self.sock.settimeout(timeout)
         self.f = self.sock.makefile("rb")
         self.sock.sendall(token.encode() + b"\n")

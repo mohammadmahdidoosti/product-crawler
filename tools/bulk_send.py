@@ -2,8 +2,8 @@
 the other: site categories, then the products as drafts - the same code as a lane's send, only the way in
 is different (WC_BRIDGE must be set). A batch that went through moves from the queue's ready/ to done/.
 
-    WC_BRIDGE=10.0.1.1:8765 python tools/bulk_send.py kw2 --workers 2              # every ready batch
-    WC_BRIDGE=10.0.1.1:8765 python tools/bulk_send.py kw2 --run batch-111 --limit 10 # a test, no move
+    WC_BRIDGE=unix:/data/tmp/bridge.sock python tools/bulk_send.py kw2 --workers 2              # every ready batch
+    WC_BRIDGE=unix:/data/tmp/bridge.sock python tools/bulk_send.py kw2 --run batch-111 --limit 10 # a test, no move
 
 A file STOP in /data/lanes/<queue>/ stops after the current batch.
 """
