@@ -25,6 +25,9 @@ if (!get_current_user_id()) {
 }
 @ini_set('display_errors', '0');                 // notices must not land between the answers
 rest_get_server();                                // registers the REST routes (rest_api_init)
+// (15 Nov) the category counts are worked out once when this process ends, not after every product
+// (drafts are not counted anyway): less work for the database during a bulk send
+wp_defer_term_counting(true);
 fwrite(STDOUT, "@@R " . json_encode(['status' => 200, 'ready' => true, 'user' => get_current_user_id()]) . "\n");
 
 $served = 0;
@@ -76,3 +79,4 @@ while (($line = fgets(STDIN)) !== false) {
         gc_collect_cycles();
     }
 }
+wp_defer_term_counting(false);                    // the deferred counts, once
