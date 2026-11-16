@@ -2569,6 +2569,11 @@ def create_new(cfg: dict, run: str, wc=None, progress=None, stop=None, limit: in
         if stop and stop():
             return None
         res = one(r)
+        for wait in (20, 60, 180):                       # (16 Nov) the shop bridge says busy when runs overlap:
+            if "busy" not in str(res.get("error") or ""):  # Saba's 51 new products all failed on it
+                break
+            time.sleep(wait)
+            res = one(r)
         with brand_lock:
             count[0] += 1
             if progress:
