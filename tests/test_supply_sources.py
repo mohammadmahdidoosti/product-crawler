@@ -99,3 +99,27 @@ def test_find_with_no_sources_only_merges_imports(tmp_path, monkeypatch):
     assert called == [] and [x["name"] for x in out["merged"]] == ["بذرینو"]
     out = S.find(cfg, "بذر", None)
     assert called == ["بذر"] and len(out["merged"]) == 1
+
+
+def test_main_word_skips_generic():
+    assert S.main_word("دستگاه جوش") == "جوش" and S.main_word("بذر هویج") == "بذر"
+    assert S.broader("دستگاه جوش") == ["جوش"]
+    assert S.mentions("انجمن صنفی جوشکاری", "دستگاه جوش")
+    assert not S.mentions("انجمن ماشین سازان صنایع غذایی دستگاه", "دستگاه جوش")
+
+
+def test_member_names_and_bare_tehran_numbers():
+    page = """<ul><li><p>نام شرکت : آیش بذر دلتا</p><p>شماره ثابت : 88762262</p><p>ایمیل: info@ayeshbazr.com</p></li>
+    <li><p>اطلاعات تماس:</p><p>استان: مرکزی شهر: اراک</p><p>تلفن: 09188637175</p></li></ul>"""
+    b = S.contact_blocks(page)
+    ayesh = next(x for x in b if "info@ayeshbazr.com" in x["emails"])
+    assert ayesh["name"] == "آیش بذر دلتا" and ayesh["phones"] == ["02188762262"]
+    other = next(x for x in b if "09188637175" in x["phones"])
+    assert other["name"] == ""                                      # labels and addresses are not names
+
+
+def test_channel_must_name_product_and_not_repair():
+    assert not S.channel_ok("کانال مریم بادی نماینده محصولات PMLM", "فروش محصولات", "بذر هویج")
+    assert not S.channel_ok("تعمیر دستگاه جوش درودی", "فروش", "دستگاه جوش")
+    assert S.channel_ok("شرکت آریا جوش بارثاوا", "فروش دستگاه جوش", "دستگاه جوش")
+    assert S._channel_of("https://rubika.ir/media") == ("", "")

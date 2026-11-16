@@ -37,6 +37,8 @@ SELLER = re.compile(r"فروش|عمده|پخش|توزیع|تولید|سازند�
                     r"سفارش|تامین|تأمین|بازرگانی|فروشگاه|کارخانه|شرکت", re.I)
 NEWS = re.compile(r"خبر|اخبار|نیوز|news|پایگاه\s*خبری|صدای|آوای|روزنامه|هفته\s*نامه|خبرگزاری|شبکه\s*اطلاع|"
                   r"منتظران|بیت\s*مایند|کریپتو|crypto", re.I)
+ARTICLE = re.compile(r"بهترین|معرفی|چیست|چگونه|راهنمای\s*خرید|لیست\s*ده|مقایسه|آموزش|محققان|دانشمندان|"
+                     r"یافت\s*نشد|نتایج:\s*0|0\s*آگهی", re.I)
 ASSOC = re.compile(r"انجمن|سندیکا|اتحادیه|کانون|اتاق\s*بازرگانی|تشکل", re.I)
 MEMBER_LINK = re.compile(r"اعضا|عضو|members?|فهرست\s*شرکت|لیست\s*شرکت|اعضای", re.I)
 NOT_MEMBERS = re.compile(r"انواع\s*عضویت|فرم\s*عضویت|شرایط\s*عضویت|ثبت\s*نام|هیات\s*مدیره|هیئت\s*مدیره|"
@@ -73,21 +75,32 @@ def _sites(t: str) -> list[str]:
     return list(dict.fromkeys(out))
 
 
+GENERIC = {"دستگاه", "ماشین", "انواع", "لوازم", "تجهیزات", "قطعات", "ابزار", "خرید", "فروش", "قیمت", "عمده"}
+
+
 def kw_words(kw: str) -> list[str]:
     return [w for w in norm_text(kw).split() if len(w) >= 2]
 
 
-def mentions(text: str, kw: str) -> bool:
-    """The first (main) word of the keyword in the text: «بذر» for «بذر هویج»."""
+def main_word(kw: str) -> str:
+    """The word that names the trade: «بذر» for «بذر هویج», «جوش» for «دستگاه جوش» (not the generic «دستگاه»)."""
     w = kw_words(kw)
-    return bool(w) and w[0] in norm_text(text)
+    return next((x for x in w if x not in GENERIC), w[0] if w else "")
+
+
+def mentions(text: str, kw: str) -> bool:
+    m = main_word(kw)
+    return bool(m) and m in norm_text(text)
 
 
 def broader(kw: str) -> list[str]:
-    """Wider words to try where a list (the exhibition, an association) knows only the trade: «بذر هویج» -> «بذر»."""
+    """Wider words to try where a list (the exhibition, an association) knows only the trade:
+    «بذر هویج» -> «بذر», «دستگاه جوش» -> «جوش»."""
     w = norm_text(kw).split()
+    if len(w) > 1 and w[0] in GENERIC:
+        return [" ".join(w[1:])] + broader(" ".join(w[1:]))
     out = [" ".join(w[:i]) for i in range(len(w) - 1, 0, -1)]
-    return [x for x in out if len(x) >= 2]
+    return [x for x in out if len(x) >= 2 and x not in GENERIC]
 
 
 def row(name: str, source: str, *, kind: str = "", phones=None, emails=None, site: str = "", channel: str = "",
@@ -99,16 +112,35 @@ def row(name: str, source: str, *, kind: str = "", phones=None, emails=None, sit
 
 
 # ---------------------------------------------------------------- contact blocks in a page (associations, imports)
+NOT_NAME = re.compile(r"[:：]\s*$|^(اطلاعات\s*تماس|تماس\s*بگیرید|استان|شهر|خیابان|بلوار|میدان|کوچه|جاده|پلاک|"
+                      r"نام\s*و\s*نام\s*خانوادگی|رئیس|رییس|دبیر|مدیر|هیئت|هیات|عضو|ارسال|دانلود|موضوع)", re.I)
+
+
 def _name_of(lines: list[str]) -> str:
     for ln in lines:
-        m = re.match(r"^(نام\s*شرکت|نام)\s*[:：]\s*(.+)$", ln)
+        m = re.match(r"^(نام\s*شرکت|نام\s*واحد|نام\s*فروشگاه)\s*[:：]\s*(.+)$", ln)
         if m:
             return m.group(2).strip()
     for ln in lines:
-        if LABEL.match(ln) or _phones(ln) or EMAIL.search(ln) or len(ln) < 3:
+        if LABEL.match(ln) or NOT_NAME.search(ln) or _phones(ln) or EMAIL.search(ln) or len(ln) < 3 or len(ln) > 70:
             continue
         return ln
     return ""
+
+
+LANDLINE = re.compile(r"(?:شماره\s*ثابت|تلفن|تلفکس|شماره\s*تماس)\s*[:：]?\s*([\d۰-۹٠-٩][\d۰-۹٠-٩\-–\s]{6,14})")
+
+
+def _block_phones(t: str) -> list[str]:
+    """Phones of a members list, also the bare 8-digit Tehran numbers after «شماره ثابت/تلفن» (seedia: 88747645)."""
+    out = _phones(t)
+    for m in LANDLINE.findall(t):
+        d = re.sub(r"\D", "", m.translate(str.maketrans("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩", "01234567890123456789")))
+        if len(d) == 8 and d[0] != "0":
+            d = "021" + d
+        if len(d) == 11 and d.startswith("0") and not any(d[-8:] == p[-8:] for p in out):
+            out.append(d)
+    return out
 
 
 def contact_blocks(page: str) -> list[dict]:
@@ -130,16 +162,17 @@ def contact_blocks(page: str) -> list[dict]:
             if len(t) > 700:
                 break
             best = el
-            if el.name in ("li", "tr", "article") or (el.name in ("div", "section") and len(t) > 40):
-                if _name_of([x.strip() for x in t.split("\n") if x.strip()]):
-                    break
+            if el.name in ("li", "tr", "article"):              # a list item is one member, named or not
+                break
+            if el.name in ("div", "section") and len(t) > 40 and _name_of([x.strip() for x in t.split("\n") if x.strip()]):
+                break
             el = el.parent
         if id(best) in seen:
             continue
         seen.add(id(best))
         lines = [x.strip() for x in best.get_text("\n", strip=True).split("\n") if x.strip()]
         t = " ".join(lines)
-        ph, em = _phones(t), _emails(t)
+        ph, em = _block_phones(t), _emails(t)
         if not (ph or em):
             continue
         blocks.append({"name": _name_of(lines), "phones": ph, "emails": em, "sites": _sites(t), "text": t[:300]})
@@ -178,7 +211,8 @@ def google(cfg: dict, f, kw: str) -> dict:
         for o in j.get("organic") or []:
             url, t = o.get("link", ""), f"{o.get('title', '')} {o.get('snippet', '')}"
             h = _host(url)
-            if any(s in h for s in SKIP_HOSTS) or OFFTOPIC.search(t) or not mentions(t, kw):
+            if (any(s in h for s in SKIP_HOSTS) or OFFTOPIC.search(t) or not mentions(t, kw) or ARTICLE.search(t)
+                    or NEWS.search(o.get("title", "")) or h.startswith("my.")):
                 continue
             app = next((a for a in CHANNEL_APPS if h == a or h.endswith("." + a)), "")
             rows.append(row(o.get("title", ""), "google", kind=kind_of(t, url), phones=_phones(t), emails=_emails(t),
@@ -191,13 +225,15 @@ def google(cfg: dict, f, kw: str) -> dict:
 def associations(cfg: dict, f, kw: str) -> dict:
     """«انجمن/سندیکا/اتحادیه + keyword» (and the broader word), then the association's members pages."""
     pages, n = [], 0
-    for word in [kw] + broader(kw)[:1]:
+    for word in list(dict.fromkeys([kw] + broader(kw)[:1])):
         for q in (f"انجمن {word}", f"سندیکا {word}", f"اتحادیه {word} اعضا"):
             j = _serper(f, "search", q)
             n += 1
             for o in (j.get("organic") or [])[:8]:
                 t = f"{o.get('title', '')} {o.get('snippet', '')}"
-                if ASSOC.search(t) and mentions(t, word):
+                h_ = _host(o.get("link", ""))
+                if (ASSOC.search(o.get("title", "")) and mentions(o.get("title", "") + " " + o.get("snippet", ""), word)
+                        and not any(h_ == a or h_.endswith("." + a) for a in CHANNEL_APPS) and not NEWS.search(o.get("title", ""))):
                     pages.append((o.get("link", ""), o.get("title", "")))
     rows, done_hosts, read = [], set(), 0
     for url, title in pages:
@@ -234,14 +270,16 @@ def _channel_of(url: str) -> tuple[str, str]:
     if not app or not parts:
         return "", ""
     ch = parts[1] if parts[0] == "s" and len(parts) > 1 else parts[0]
-    if ch.lower() in ("joinchat", "addstickers", "share", "iv", "proxy", "c") or ch.startswith("+"):
+    if ch.lower() in ("joinchat", "addstickers", "share", "iv", "proxy", "c", "media", "post", "s") or ch.startswith("+"):
         return "", ""
     return app, ch
 
 
-def channel_ok(title: str, text: str) -> bool:
-    """A seller's channel: names selling words, not a news or local-news channel."""
-    return bool(SELLER.search(f"{title} {text}")) and not NEWS.search(title)
+def channel_ok(title: str, text: str, kw: str = "") -> bool:
+    """A seller's channel: names selling words (and the product), not a news, local-news or repair channel."""
+    t = f"{title} {text}"
+    return (bool(SELLER.search(t)) and not NEWS.search(title) and not OFFTOPIC.search(title)
+            and (not kw or mentions(t, kw)))
 
 
 def channels(cfg: dict, f, kw: str) -> dict:
@@ -264,16 +302,19 @@ def channels(cfg: dict, f, kw: str) -> dict:
         if c["app"] == "t.me":                         # a public channel can be searched without login
             r = f.get(f"https://t.me/s/{c['ch']}?q={quote(kw)}")
             tx = _text((r or {}).get("text") or "")
-            posts = norm_text(tx).count(kw_words(kw)[0]) if kw_words(kw) else 0
+            posts = norm_text(tx).count(main_word(kw)) if main_word(kw) else 0
             c["phones"] = list(dict.fromkeys(c["phones"] + _phones(tx)))
             ids = [i for i in _ids(tx) if i.lower() != c["ch"].lower()][:4]
             c["text"] += " " + tx[:4000]
-        if not channel_ok(c["title"], c["text"]):
+        if not channel_ok(c["title"], c["text"], kw):
             dropped += 1
             continue
         src = {"t.me": "telegram", "eitaa.com": "eitaa", "ble.ir": "bale", "rubika.ir": "rubika"}[c["app"]]
         price = bool(re.search(r"لیست\s*قیمت|قیمت\s*روز|عمده", c["text"]))
-        rows.append(row(c["title"].split("–")[0].split("|")[0], src, kind="channel", phones=c["phones"],
+        name = re.sub(r"^(ایتا|بله|روبیکا|Rubika|Telegram)\s*[-–:|]\s*", "", c["title"].split("–")[0].split("|")[0]).strip()
+        if norm_text(name) in ("", "بله", "ایتا", "روبیکا", "rubika", "telegram", "تلگرام"):
+            name = "@" + c["ch"]
+        rows.append(row(name, src, kind="channel", phones=c["phones"],
                         channel=f"https://{c['app']}/{c['ch']}", app=CHANNEL_APPS[c["app"]],
                         evidence=(f"{posts} پست درباره‌ی کالا" if posts else "") + (" · لیست قیمت/عمده" if price else "")
                         + (f" · آیدی: {', '.join('@' + i for i in ids)}" if ids else ""),
