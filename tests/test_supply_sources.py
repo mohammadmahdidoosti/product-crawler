@@ -123,3 +123,20 @@ def test_channel_must_name_product_and_not_repair():
     assert not S.channel_ok("تعمیر دستگاه جوش درودی", "فروش", "دستگاه جوش")
     assert S.channel_ok("شرکت آریا جوش بارثاوا", "فروش دستگاه جوش", "دستگاه جوش")
     assert S._channel_of("https://rubika.ir/media") == ("", "")
+
+
+def test_loose_phones_from_profiles():
+    f = S.loose_phones
+    assert f("4134220928") == ["04134220928"]
+    assert f("66916415") == ["02166916415"]
+    assert f("(021)66819622") == ["02166819622"]
+    assert f("(+9821)88780436") == ["02188780436"]
+    assert f("+989351804024") == ["09351804024"]
+    assert f("021-66593922-3") == ["02166593922"]
+    assert f("www.irancombine.com | 08633130012") == ["08633130012"]
+
+
+def test_channel_strict_for_google_only_channels():
+    assert not S.channel_ok("@ldoraline", "فروش بذر هویج و محصولات", "بذر هویج", "ldoraline", strict=True)
+    assert S.channel_ok("کانال فروشگاه بذر گل و گیاه فردین کشت", "فروش", "بذر هویج", "x", strict=True)
+    assert not S.channel_ok("سیمپیچی و خدمات ابزار اجلالی", "فروش دستگاه جوش", "دستگاه جوش", "tamir_inverter")

@@ -113,7 +113,7 @@ def row(name: str, source: str, *, kind: str = "", phones=None, emails=None, sit
 
 # ---------------------------------------------------------------- contact blocks in a page (associations, imports)
 NOT_NAME = re.compile(r"[:：]\s*$|^(اطلاعات\s*تماس|تماس\s*بگیرید|استان|شهر|خیابان|بلوار|میدان|کوچه|جاده|پلاک|"
-                      r"نام\s*و\s*نام\s*خانوادگی|رئیس|رییس|دبیر|مدیر|هیئت|هیات|عضو|ارسال|دانلود|موضوع)", re.I)
+                      r"نام\s*و\s*نام\s*خانوادگی|رئیس|رییس|دبیر|مدیر|هیئت|هیات|عضو|ارسال|دانلود|موضوع|برای|شنبه|ساعت|www\.|https?:)", re.I)
 
 
 def _name_of(lines: list[str]) -> str:
@@ -275,11 +275,15 @@ def _channel_of(url: str) -> tuple[str, str]:
     return app, ch
 
 
-def channel_ok(title: str, text: str, kw: str = "") -> bool:
-    """A seller's channel: names selling words (and the product), not a news, local-news or repair channel."""
+def channel_ok(title: str, text: str, kw: str = "", ch: str = "", strict: bool = False) -> bool:
+    """A seller's channel: names selling words (and the product), not a news, local-news or repair channel.
+    strict (Eitaa/Bale/Rubika, read only from Google's line): the product in the channel's own title or id."""
     t = f"{title} {text}"
-    return (bool(SELLER.search(t)) and not NEWS.search(title) and not OFFTOPIC.search(title)
-            and (not kw or mentions(t, kw)))
+    if NEWS.search(title) or OFFTOPIC.search(title) or re.search(r"tamir|repair|news|akhbar", ch, re.I):
+        return False
+    if strict and kw and not mentions(f"{title} {ch}", kw) and not mentions(title, kw):
+        return False
+    return bool(SELLER.search(t)) and (not kw or mentions(t, kw))
 
 
 def channels(cfg: dict, f, kw: str) -> dict:
@@ -306,7 +310,7 @@ def channels(cfg: dict, f, kw: str) -> dict:
             c["phones"] = list(dict.fromkeys(c["phones"] + _phones(tx)))
             ids = [i for i in _ids(tx) if i.lower() != c["ch"].lower()][:4]
             c["text"] += " " + tx[:4000]
-        if not channel_ok(c["title"], c["text"], kw):
+        if not channel_ok(c["title"], c["text"], kw, c["ch"], strict=c["app"] != "t.me" and not c["phones"]):
             dropped += 1
             continue
         src = {"t.me": "telegram", "eitaa.com": "eitaa", "ble.ir": "bale", "rubika.ir": "rubika"}[c["app"]]
@@ -331,6 +335,28 @@ BOOKMARKLET = ("javascript:(()=>{const L=[...document.querySelectorAll('a[href*=
                "navigator.clipboard.writeText(JSON.stringify(d)).then(()=>alert('\\u06a9\\u067e\\u06cc \\u0634\\u062f: '+(rows.length||'\\u0645\\u062a\\u0646 \\u0635\\u0641\\u062d\\u0647')));})()")
 
 
+def loose_phones(t: str) -> list[str]:
+    """Phones as people type them in a profile: 4134220928, 66916415, (021)66819622, (+9821)88780436, +989351804024,
+    021-66593922-3. A bare 8-digit number is a Tehran line; 10 digits without the 0 get it back."""
+    out = [("0" + re.sub(r"\D", "", p)[2:]) if p.startswith("+98") else p for p in _phones(t)]
+    tt = (t or "").translate(str.maketrans("۰۱۲۳۴۵۶۷۸۹٠١٢٣٤٥٦٧٨٩", "01234567890123456789"))
+    for m in re.findall(r"(?<![\w@.])[(+]?[\d()+][\d()\-–\s]{6,18}\d(?![\w@.])", tt):
+        d = re.sub(r"\D", "", m)
+        if d.startswith("0098"):
+            d = "0" + d[4:]
+        elif d.startswith("98") and len(d) >= 11:
+            d = "0" + d[2:]
+        if len(d) == 8 and d[0] != "0":
+            d = "021" + d
+        elif len(d) == 10 and d[0] != "0":
+            d = "0" + d
+        elif len(d) > 11 and d.startswith("0"):
+            d = d[:11]                                   # 021-66593922-3: the first line of a range
+        if len(d) == 11 and d.startswith("0") and not any(d[-8:] == p[-8:] for p in out):
+            out.append(d)
+    return out
+
+
 def parse_import(data: dict) -> list[dict]:
     """What the bookmarklet copied: exhibition cards (name, activity, email, site, phone) or a messenger's search
     page as text (blocks around each @id / channel line)."""
@@ -343,7 +369,7 @@ def parse_import(data: dict) -> list[dict]:
         t = " ".join(lines)
         if not lines:
             continue
-        out.append(row(lines[0], src, kind=kind_of(t, ""), phones=_phones(t), emails=_emails(t),
+        out.append(row(lines[0], src, kind=kind_of(t, ""), phones=loose_phones(" | ".join(lines[1:])), emails=_emails(t),
                        site=(_sites(" ".join(l for l in lines if "@" not in l)) or [""])[0],
                        evidence=lines[1] if len(lines) > 1 else "", url=str(r.get("url") or ""), score=3))
     text = str(data.get("text") or "")
