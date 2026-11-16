@@ -1261,7 +1261,7 @@ def market_check(cfg: dict, run: str, hold: bool = True, progress=None) -> dict:
         market's feedback corrects it later (6 Nov, the owner: publish, then fix from the market)
     market.csv keeps the evidence; a corrected row says so in its note."""
     from . import fx as fxmod
-    from .detective import _same_model, _search_prices, decide
+    from .detective import _same_model, _search_prices, decide, model_head
     from .pipeline import _codes, _fetchers, price_peers
     from .pricemem import recall, remember
     pc = cfg.get("pricelist", {})
@@ -1272,6 +1272,9 @@ def market_check(cfg: dict, run: str, hold: bool = True, progress=None) -> dict:
     rate = fxmod.today_rate(cfg)
     f = _fetchers(cfg)["iran"]
     pool = price_peers(cfg, d)
+    by_head: dict[str, list] = {}                       # (16 Nov) only names that can match: same first word
+    for p in pool:
+        by_head.setdefault(model_head(p["name"]), []).append(p)
     per_page = int(pc.get("market_samples", 2))
     budget = int(pc.get("market_max_searches", 300))
     searched, out, page_bad, row_bad = 0, [], {}, {}
@@ -1289,7 +1292,8 @@ def market_check(cfg: dict, run: str, hold: bool = True, progress=None) -> dict:
             if v <= 0:
                 continue
             rec = {"name": f"{r.get('name', '')} {r.get('model', '')}".strip(), "brand": r.get("brand", ""), "url": ""}
-            others = [(p["dom"] or p["url"], p["price"]) for p in pool if _same_model(rec, p["name"])]
+            others = [(p["dom"] or p["url"], p["price"]) for p in by_head.get(model_head(rec["name"]), [])
+                      if _same_model(rec, p["name"])]
             others += [(dm, pr) for dm, pr, nm in recall(cfg, rec["name"]) if _same_model(rec, nm)]
             if len({o[0] for o in others}) < 2:
                 try:

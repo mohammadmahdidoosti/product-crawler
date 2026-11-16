@@ -802,3 +802,13 @@ def test_new_price_doubt(monkeypatch):
     assert "نمی‌خواند" in PL._new_price_doubt({}, r, "فرز آهنگری اکتیو AC-2109")
     r["list_toman"] = "16500000"
     assert PL._new_price_doubt({}, r, "فرز آهنگری اکتیو AC-2109") == ""
+
+
+def test_model_head_groups_like_same_model():
+    from crawler.detective import _same_model, model_head
+    names = ["خرید دریل شارژی ماکیتا DDF482", "دریل شارژی ماکیتا مدل DDF482Z", "فرز آهنگری بوش GWS 750",
+             "قیمت فرز بوش GWS750", "دریل بتن کن DDF482"]
+    rec = {"name": "دریل شارژی ماکیتا DDF482"}
+    for n in names:                                      # a match always shares the head: grouping loses nothing
+        if _same_model(rec, n):
+            assert model_head(n) == model_head(rec["name"])

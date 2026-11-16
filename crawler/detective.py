@@ -22,6 +22,8 @@ import logging
 import re
 from statistics import median
 
+from functools import lru_cache
+
 import pandas as pd
 
 from .io import read_csv, write_csv
@@ -41,11 +43,24 @@ def _num(x) -> float | None:
         return None
 
 
-def _same_model(ours: dict, name: str) -> bool:
+@lru_cache(maxsize=300000)
+def clean_norm(name: str) -> str:
+    """A name cleaned and normalised, kept: (16 Nov) market_check compared each list row with the whole crawl
+    pool and cleaned every pool name again for every row (PIT and Scheppach sat at 100% CPU for hours)."""
     from .names import clean_name
+    return norm_text(clean_name(str(name or "")))
+
+
+def model_head(name: str) -> str:
+    """The first word _same_model insists on: candidates can be grouped by it."""
+    a = clean_norm(name)
+    return a.split()[0] if a else ""
+
+
+def _same_model(ours: dict, name: str) -> bool:
     from .pipeline import _codes
     from .rules import code_in
-    a, b = norm_text(clean_name(str(ours.get("name") or ""))), norm_text(clean_name(name))
+    a, b = clean_norm(str(ours.get("name") or "")), clean_norm(str(name or ""))
     if not a or not b or a.split()[0] != b.split()[0]:
         return False
     import re as _re
