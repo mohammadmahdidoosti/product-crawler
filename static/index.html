@@ -525,6 +525,30 @@ td select,td input{padding:3px 6px;font-size:12.5px}
   <!-- ===================== SELLERS ===================== -->
   <section class="page" id="page-sellers">
     <div class="card" style="margin-bottom:14px">
+      <h3 style="margin:0 0 4px">تأمین‌کننده‌ی این کالا</h3>
+      <p style="margin:0 0 8px;color:var(--muted,#777);font-size:13px">اسم کالا را بدهید (مثلاً: بذر هویج، کودپاش، دستگاه جوش). هر منبع جدا گشته می‌شود و همه در یک فهرست تماس جمع می‌شوند: گوگل و نقشه، انجمن‌ها و اعضایشان، کانال‌های تلگرام/ایتا/بله/روبیکا. نمایشگاه بین‌المللی و جستجوی سراسری بله و ایتا را با دکمه‌ی «جمع‌کن» از مرورگر خودتان اضافه کنید. هر کالا حدود ۱۵ جستجو (کمتر از ۲ سنت).</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+        <input id="ssKw" placeholder="اسم کالا" style="flex:0 0 220px">
+        <label><input type="checkbox" class="ssSrc" value="google" checked> گوگل و نقشه</label>
+        <label><input type="checkbox" class="ssSrc" value="assoc" checked> انجمن‌ها</label>
+        <label><input type="checkbox" class="ssSrc" value="channels" checked> کانال‌ها</label>
+        <button class="btn" id="ssGo">پیدا کن</button>
+        <button class="btn ghost" id="ssOld">نتیجه‌ی قبلی</button>
+      </div>
+      <div id="ssMsg" style="margin-top:6px;font-size:13px"></div>
+      <div id="ssTabs" style="display:flex;gap:6px;flex-wrap:wrap;margin-top:8px"></div>
+      <div class="tablewrap" style="max-height:560px;margin-top:8px"><table id="ssTable"></table></div>
+      <details style="margin-top:10px"><summary style="cursor:pointer">افزودن از مرورگر خودم (نمایشگاه، بله، ایتا، روبیکا)</summary>
+        <ol style="font-size:13px;line-height:1.9;margin:6px 0">
+          <li>این دکمه را به نوار بوکمارک مرورگر بکشید (یک بار): <a id="ssBm" class="btn ghost" style="padding:2px 10px">جمع‌کن کاروان</a></li>
+          <li>در <a href="https://calendar.iranfair.com/fa/companies/explore" target="_blank" rel="noopener">لیست شرکت‌های نمایشگاه</a> کلمه را جستجو کنید (اگر چیزی نیامد کلمه‌ی کلی‌تر: <span id="ssBroad"></span>)، یا در جستجوی سراسری بله/ایتا/روبیکا.</li>
+          <li>روی «جمع‌کن کاروان» بزنید؛ نتیجه کپی می‌شود. اینجا بچسبانید و «افزودن» را بزنید. برای صفحه‌ی بعد نتیجه، دوباره.</li>
+        </ol>
+        <textarea id="ssPaste" rows="3" style="width:100%" placeholder="متن کپی‌شده را اینجا بچسبانید"></textarea>
+        <button class="btn" id="ssAdd" style="margin-top:6px">افزودن</button>
+      </details>
+    </div>
+    <div class="card" style="margin-bottom:14px">
       <h3 style="margin:0 0 4px">تأمین‌کننده‌ی یک برند را پیدا کن</h3>
       <p style="margin:0 0 8px;color:var(--muted,#777);font-size:13px">برای برندی که سفارشش آمده: نمایندگی‌ها، واردکننده‌ها، پخش عمده، لیست قیمت PDF، کانال‌ها و مغازه‌های تهران از گوگل و نقشه، به‌علاوه‌ی فروشنده‌هایی که خودمان کراول کرده‌ایم. هر برند حدود ۷ جستجو (کمتر از یک سنت). بعد از تماس، «خوب بود» یا «نه» بزنید تا دفعه‌ی بعد بالا یا پایین بیاید.</p>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -1330,6 +1354,60 @@ function supRender(){
 }
 $('#spGo').onclick = ()=>supFind(false);
 ['spBrand','spCtx','spAka'].forEach(id=>$('#'+id).addEventListener('keydown', e=>{ if(e.key==='Enter') supFind(false); }));
+
+// ---------------- suppliers of a product (crawler/supply_sources.py)
+const SS_SRC = {google:'گوگل', maps:'نقشه گوگل', assoc:'انجمن', telegram:'تلگرام', eitaa:'ایتا', bale:'بله', rubika:'روبیکا', iranfair:'نمایشگاه', import:'از مرورگر'};
+const SS_SEC = {merged:'همه (یکی‌شده)', google:'گوگل و نقشه', assoc:'انجمن‌ها', channels:'کانال‌ها', imports:'از مرورگر'};
+let SS_LAST = null, SS_TAB = 'merged';
+function ssRows(){
+  if(!SS_LAST || SS_LAST.none) return [];
+  return SS_TAB === 'merged' ? (SS_LAST.merged||[]) : ((SS_LAST.sections||{})[SS_TAB]||{}).rows || [];
+}
+function ssRender(){
+  if(!SS_LAST) return;
+  const secs = ['merged', ...Object.keys(SS_LAST.sections||{})];
+  $('#ssTabs').innerHTML = secs.map(s=>{ const n = s==='merged' ? (SS_LAST.merged||[]).length : ((SS_LAST.sections[s]||{}).rows||[]).length;
+    return `<button class="btn ${SS_TAB===s?'':'ghost'}" style="padding:2px 10px;font-size:12.5px" onclick="SS_TAB='${s}';ssRender()">${SS_SEC[s]||s} (${fa(n)})</button>`; }).join('');
+  const sec = (SS_LAST.sections||{})[SS_TAB] || {};
+  const extra = SS_TAB==='assoc' && sec.associations ? `<div style="font-size:12px;margin:4px 0">انجمن‌های پیداشده: ${sec.associations.map(esc).join(' · ')}</div>` : '';
+  const rows = ssRows(), merged = SS_TAB === 'merged';
+  $('#ssBroad').textContent = (SS_LAST.broader||[]).join('، ') || '—';
+  $('#ssTable').innerHTML = (extra ? `<caption style="text-align:right">${extra}</caption>` : '') + (rows.length ? '<tr><th>نام</th><th>نوع</th><th>تلفن</th><th>سایت / کانال</th><th>منبع</th><th>شاهد</th>' + (merged?'<th>نتیجه‌ی تماس</th>':'') + '</tr>' +
+    rows.map((x,i)=>`<tr><td>${esc(x.name)}${x.city?`<div style="font-size:11.5px;color:var(--muted,#777)">${esc(x.city)}</div>`:''}</td>
+      <td style="font-size:12px">${SP_KIND[x.kind]||esc(x.kind||'')}</td>
+      <td class="ltr">${(x.phones||[]).map(p=>`<a href="tel:${esc(p)}">${esc(p)}</a>`).join('<br>')}${(x.emails||[]).map(e=>`<div style="font-size:11.5px">${esc(e)}</div>`).join('')}</td>
+      <td class="ltr" style="font-size:12px">${x.site?`<a href="https://${esc(x.site)}" target="_blank" rel="noopener">${esc(x.site)}</a><br>`:''}${x.channel?(x.channel.startsWith('http')?`<a href="${esc(x.channel)}" target="_blank" rel="noopener">${esc(x.channel.replace('https://',''))}</a>`:esc(x.channel)):''}</td>
+      <td style="font-size:12px">${(x.sources||[x.source]).map(s=>SS_SRC[s]||esc(s)).join('، ')}</td>
+      <td style="font-size:12px;max-width:320px">${esc(x.evidence||'')}</td>
+      ${merged?`<td style="white-space:nowrap">${['good','ok','no'].map(v=>`<button class="btn ${x.verdict===v?'':'ghost'}" style="padding:2px 8px;font-size:12px" onclick="ssNote(${i},'${v}')">${SP_V[v]}</button>`).join(' ')}</td>`:''}</tr>`).join('')
+    : '<tr><td class="empty">در این بخش چیزی نیست.</td></tr>');
+}
+async function ssFind(cached){
+  const kw = $('#ssKw').value.trim(); if(!kw){ toast('اسم کالا را بنویسید', true); return; }
+  const src = [...document.querySelectorAll('.ssSrc:checked')].map(x=>x.value).join(',');
+  $('#ssMsg').textContent = cached ? '' : 'در حال جستجو… (۱ تا ۳ دقیقه)';
+  try{ SS_LAST = await api(`/api/supply?kw=${encodeURIComponent(kw)}&src=${encodeURIComponent(src)}` + (cached?'&cached=1':'')); }
+  catch(e){ $('#ssMsg').textContent = 'خطا: '+e.message; return; }
+  if(SS_LAST.none){ $('#ssMsg').textContent = 'برای این کالا هنوز جستجویی نشده'; $('#ssTable').innerHTML=''; $('#ssTabs').innerHTML=''; return; }
+  $('#ssMsg').innerHTML = `<b>${fa((SS_LAST.merged||[]).length)}</b> تأمین‌کننده` + (cached?'':`، با ${fa(SS_LAST.searches||0)} جستجو`) + ` — ${esc(SS_LAST.at||'')}`;
+  SS_TAB = 'merged'; ssRender();
+}
+async function ssNote(i, v){
+  const x = SS_LAST.merged[i];
+  try{ await post('/api/suppliers/note', {brand: SS_LAST.kw, key: x.key, verdict: v, name: x.name, phone: (x.phones||[])[0]||''});
+       x.verdict = v; toast('ثبت شد'); ssRender(); }catch(e){ toast(e.message, true); }
+}
+$('#ssGo').onclick = ()=>ssFind(false);
+$('#ssOld').onclick = ()=>ssFind(true);
+$('#ssKw').addEventListener('keydown', e=>{ if(e.key==='Enter') ssFind(false); });
+$('#ssAdd').onclick = async ()=>{
+  const kw = $('#ssKw').value.trim(), data = $('#ssPaste').value.trim();
+  if(!kw || !data){ toast('اسم کالا و متن کپی‌شده لازم است', true); return; }
+  try{ const r = await post('/api/supply/import', {kw, data}); toast(`${fa(r.added)} مورد اضافه شد`); $('#ssPaste').value='';
+       SS_LAST = r.result; SS_TAB='merged'; ssRender(); $('#ssMsg').innerHTML = `<b>${fa((SS_LAST.merged||[]).length)}</b> تأمین‌کننده — ${esc(SS_LAST.at||'')}`; }
+  catch(e){ toast(e.message, true); }
+};
+api('/api/supply/bookmarklet').then(r=>{ $('#ssBm').href = r.js; }).catch(()=>{});
 
 // ---------------- sellers
 async function loadSellers(){

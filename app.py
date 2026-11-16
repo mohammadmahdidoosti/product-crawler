@@ -1135,6 +1135,19 @@ class Handler(BaseHTTPRequestHandler):
                         return self._json(json.loads(f_.read_text(encoding="utf-8")))
                 aliases = [x.strip() for x in (q.get("aka") or "").split(",") if x.strip()]
                 return self._json(SUP.find(build_cfg(), b, aliases, ctx))
+            if parts == ["api", "supply"]:              # (16 Nov) suppliers of a product: every source, one list
+                from crawler import supply_sources as SS
+                kw = (q.get("kw") or "").strip()
+                if not kw:
+                    return self._err("اسم کالا را بدهید")
+                f_ = SS.out_path(build_cfg(), kw)
+                if q.get("cached") == "1":
+                    return self._json(json.loads(f_.read_text(encoding="utf-8")) if f_.exists() else {"kw": kw, "none": True})
+                src = [x for x in (q.get("src") or "").split(",") if x] or None
+                return self._json(SS.find(build_cfg(), kw, src))
+            if parts == ["api", "supply", "bookmarklet"]:
+                from crawler import supply_sources as SS
+                return self._json({"js": SS.BOOKMARKLET})
             if parts[:2] == ["api", "routing"]:
                 from crawler import routing_state as RS
                 from crawler.probe import total_usage
@@ -1447,6 +1460,20 @@ class Handler(BaseHTTPRequestHandler):
             if parts == ["api", "autopilot"]:              # {"batches": [11, 12], "enabled": true, "max_usd": 1}
                 from crawler import autopilot as AP
                 return self._json(AP.configure(build_cfg(), self._jbody()))
+            if parts == ["api", "supply", "import"]:      # what the bookmarklet copied in the person's browser
+                from crawler import supply_sources as SS
+                body = self._jbody()
+                kw = str(body.get("kw") or "").strip()
+                data = body.get("data")
+                if isinstance(data, str):
+                    try:
+                        data = json.loads(data)
+                    except ValueError:
+                        data = {"host": "paste", "text": data}
+                if not kw or not isinstance(data, dict):
+                    return self._err("اسم کالا و متن کپی‌شده را بدهید")
+                res = SS.save_import(build_cfg(), kw, data)
+                return self._json({**res, "result": SS.find(build_cfg(), kw, [])})
             if parts[:3] == ["api", "suppliers", "note"]:
                 from crawler import suppliers as SUP
                 body = self._jbody()
