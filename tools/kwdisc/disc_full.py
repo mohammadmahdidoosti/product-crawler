@@ -81,15 +81,21 @@ def menu_of(h):
     menu, cats = [], []
     for b in BLOCK.finditer(t):
         for href, txt in TAG.findall(b.group(0)):
-            u = urljoin("https://" + h + "/", href)
-            if urlparse(u).netloc.lower().removeprefix("www.") != h:
+            try:
+                u = urljoin("https://" + h + "/", href)
+                if urlparse(u).netloc.lower().removeprefix("www.") != h:
+                    continue
+            except ValueError:                      # a malformed link on the page
                 continue
             n = clean(txt)
             if 2 <= len(n) <= 50 and n not in menu:
                 menu.append(n)
     for href, txt in TAG.findall(t):
-        u = urljoin("https://" + h + "/", href)
-        if urlparse(u).netloc.lower().removeprefix("www.") != h or not CAT.search(unquote(u)):
+        try:
+            u = urljoin("https://" + h + "/", href)
+            if urlparse(u).netloc.lower().removeprefix("www.") != h or not CAT.search(unquote(u)):
+                continue
+        except ValueError:
             continue
         n = clean(txt)
         if 2 <= len(n) <= 50 and n not in cats:
@@ -130,6 +136,13 @@ def shops_of(org, n):
 
 
 def one(item):
+    try:
+        _one(item)
+    except Exception as e:                          # one bad keyword or page must not stop the whole run
+        print("ERR", item[0], type(e).__name__, str(e)[:120], flush=True)
+
+
+def _one(item):
     i, kw, leaf = item
     if i in done or fails[0] >= 25:
         return
@@ -155,7 +168,10 @@ def one(item):
             return
         s2 = [h for h in shops_of(org2, 4) if h not in s1]
     for h in s1 + s2:
-        menu_of(h)
+        try:
+            menu_of(h)
+        except Exception as e:
+            print("ERR host", h, type(e).__name__, flush=True)
     rec = {"id": i, "kw": kw, "leaf": leaf, "match": round(match, 2), "org": org, "shops": s1}
     if q2:
         rec.update({"q2k": q2[0], "q2": q2[1], "org2": org2, "shops2": s2})
