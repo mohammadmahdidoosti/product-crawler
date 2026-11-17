@@ -130,7 +130,7 @@ def is_shop(o):
 
 
 term_kws, term_type, term_mentions, term_junk = defaultdict(set), {}, Counter(), {}
-kw_rows = []
+kw_rows, kw_terms = [], []
 for l in open(D / "disc.jsonl", encoding="utf-8"):
     r = json.loads(l)
     kw = norm(r["kw"])
@@ -161,6 +161,8 @@ for l in open(D / "disc.jsonl", encoding="utf-8"):
         term_kws[n].add(r["id"]); term_type[n] = "هم‌خانواده"; term_mentions[n] += per[n]
     for n in adj[:15]:
         term_kws[n].add(r["id"]); term_type.setdefault(n, "هم‌جوار"); term_mentions[n] += per[n]
+    kw_terms.append([r["id"], r["kw"], " | ".join(f"{n}:{per[n]}" for n in fam[:30]),
+                     " | ".join(f"{n}:{per[n]}" for n in adj[:15])])        # (17 Nov) the tree of each keyword
     kw_rows.append([r["id"], r["kw"], r.get("leaf", ""), round(match, 2), mk1, len(shops1), r.get("q2k", ""),
                     r.get("q2", ""), mk2, len(shops2), whole, biz, cons, int(svc), len(fam), len(adj),
                     " ¦ ".join(shops1[:5]), " ¦ ".join(shops2[:4]), " ¦ ".join(t[:50] for t in shop_titles[:4]),
@@ -172,6 +174,10 @@ with open(O / "kw_v2.csv", "w", encoding="utf-8", newline="") as fh:
                 "wholesalers", "biz", "cons", "svc_word", "family", "adjacent", "shop_hosts1", "shop_hosts2",
                 "shop_titles", "titles1", "titles2"])
     w.writerows(sorted(kw_rows))
+with open(O / "kw_terms.csv", "w", encoding="utf-8", newline="") as fh:
+    w = csv.writer(fh)
+    w.writerow(["id", "kw", "family_terms", "adjacent_terms"])     # each term as name:shops-mentioning-it
+    w.writerows(sorted(kw_terms))
 with open(O / "terms_v2.csv", "w", encoding="utf-8", newline="") as fh:
     w = csv.writer(fh)
     w.writerow(["term", "type", "junk", "in_missing_list", "on_site", "n_keywords", "mentions", "keyword_ids"])
