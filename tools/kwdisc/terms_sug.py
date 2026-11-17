@@ -102,6 +102,9 @@ if sp.exists():
         try: done.add(json.loads(l)["t"])
         except Exception: pass
 todo = [t for t in terms if t not in nd and t not in done]
+import os
+if os.environ.get("MAXN"):                          # (17 Nov) the sheet's Apps Script takes the rest from the far end
+    todo = todo[:int(os.environ["MAXN"])]
 LOCK = threading.Lock()
 pause = [0.0]
 bad = [0]
