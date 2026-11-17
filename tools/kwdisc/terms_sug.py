@@ -86,7 +86,15 @@ with open(D / "terms.csv", "w", encoding="utf-8", newline="") as fh:
                     " ".join(map(str, sorted(term_kws[t])[:30]))])
 print("TERMS", len(terms), "kw", len(rows), flush=True)
 
-# ---- Google Suggest on each new term (terms already in the missing list had theirs earlier)
+# ---- Google Suggest on each new term (terms already in the missing list had theirs earlier).
+# (17 Nov) runs only once the terms have been filtered and approved: the approved list is /data/tmp/sug_terms.txt
+# (one term per line); without it the script stops here.
+ap = Path("/data/tmp/sug_terms.txt")
+if not ap.exists():
+    print("EXTRACTED; Suggest waits for /data/tmp/sug_terms.txt", flush=True)
+    sys.exit(0)
+approved = {norm(l.strip()) for l in open(ap, encoding="utf-8") if l.strip()}
+terms = [t for t in terms if t in approved] + sorted(approved - set(terms))
 sp = D / "sug.jsonl"
 done = set()
 if sp.exists():
