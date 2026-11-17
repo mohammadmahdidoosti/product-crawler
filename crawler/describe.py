@@ -138,6 +138,12 @@ class Writer:
         dc = cfg.get("describe", {})
         self.key = secret("OPENROUTER_API_KEY")
         self.model = model or dc.get("model", "deepseek/deepseek-v4.1-flash")
+        # (17 Nov) 'model@endpoint' (e.g. deepseek/deepseek-v4.1-flash@novita/fp8) pins one OpenRouter endpoint,
+        # describe.providers (a list) pins the default model: one model, many endpoints, prices up to 13x apart
+        self.providers = list(dc.get("providers") or []) if model is None else []
+        if "@" in self.model:
+            self.model, ep = self.model.split("@", 1)
+            self.providers = [ep]
         self.max_tokens = int(dc.get("max_tokens", 2500))
         self.s = requests.Session()
         self.usage = {"in": 0, "out": 0, "calls": 0, "failed": 0, "usd": 0.0}
@@ -159,6 +165,8 @@ class Writer:
                 "response_format": {"type": "json_object"},
                 "reasoning": {"enabled": False},                 # no hidden 'thinking' tokens: plain writing
                 "usage": {"include": True}}                      # OpenRouter returns the call's cost
+        if self.providers:
+            body["provider"] = {"order": self.providers, "allow_fallbacks": False}
         retried = cut = False
         for attempt in range(5):
             try:

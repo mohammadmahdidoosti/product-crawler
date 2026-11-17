@@ -81,3 +81,15 @@ class CutRetry(unittest.TestCase):
         w.s.post.side_effect = [resp('{"html": "<p>نیمه', "length"), resp(json.dumps(good, ensure_ascii=False), "stop")]
         self.assertIsNotNone(w.write(r))
         self.assertEqual(w.s.post.call_args_list[1].kwargs["json"]["max_tokens"], 5000)
+
+
+def test_writer_pins_endpoint(monkeypatch):
+    """(17 Nov) 'model@endpoint' sends provider.order with no fallback; the plain model sends none."""
+    from crawler import describe
+    monkeypatch.setattr(describe, "secret", lambda k: "x")
+    w = describe.Writer({"describe": {}}, "deepseek/deepseek-v4.1-flash@novita/fp8")
+    assert w.model == "deepseek/deepseek-v4.1-flash" and w.providers == ["novita/fp8"]
+    w2 = describe.Writer({"describe": {"providers": ["river"]}})
+    assert w2.providers == ["river"]
+    w3 = describe.Writer({"describe": {"providers": ["river"]}}, "xiaomi/mimo-v2.6-flash")
+    assert w3.providers == []
