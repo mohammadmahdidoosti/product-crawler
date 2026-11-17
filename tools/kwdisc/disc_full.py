@@ -186,6 +186,10 @@ lt = open("/data/tmp/leaf.txt", encoding="utf-8").read().split("\n#\n")
 leaves, ids = lt[0].split("\n"), [int(x) for x in lt[1].split()]
 assert len(ids) == len(kws), (len(ids), len(kws))
 items = [(i, kws[i], leaves[ids[i]]) for i in range(len(kws))]
+import os
+if os.environ.get("SHARD"):                         # SHARD=k/n: this process takes keywords i % n == k (parallel runs)
+    k_, n_ = map(int, os.environ["SHARD"].split("/"))
+    items = [it for it in items if it[0] % n_ == k_ and it[0] not in done]
 print("START", len(items), "done", len(done), "hosts", len(hosts_cache), flush=True)
 with ThreadPoolExecutor(W) as ex:
     for n, _ in enumerate(ex.map(one, items), 1):
