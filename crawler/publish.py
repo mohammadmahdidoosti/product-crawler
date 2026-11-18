@@ -439,15 +439,40 @@ def _save(d: Path, done: pd.DataFrame, new_rows: list[dict]) -> None:
     write_csv(df, d / RESULT_FILE)
 
 
-def _paid_photo_fixes(cfg: dict, run: str, d, items: list) -> list:
+PHOTO_HELD = "05_photo_held.csv"
+
+
+def _paid_photo_fixes(cfg: dict, run: str, d, items: list, explicit: bool = False) -> list:
     """Products whose photo still needs the paid image model (left for publishing by the image step)
-    get it now, only these, and are built again with the new photo."""
+    get it now, only these, and are built again with the new photo.
+    (18 Nov) images.defer_check: the photo check itself (and the free fixes, the search) is done here, for
+    the products being sent only. images.paid_fix_at_publish false: no paid edit at all; a product whose
+    photo still needs one is held back (not sent, listed in 05_photo_held.csv) unless it was asked for by
+    SKU (explicit), the owner's own pick."""
     from .pipeline import export_rows
+    ic = cfg.get("images", {})
+    urls = {rec.get("url") for rec, _ in items}
+    if ic.get("defer_check") and urls:
+        from .aiphotos import fix_photos
+        try:
+            log.info("publish %s: photo check for %d product(s) first", run, len(urls))
+            fix_photos(cfg, run, paid=False, only=urls)
+        except Exception as e:                           # noqa: BLE001 - the products go with the photos they have
+            log.warning("publish %s: photo check failed (%s)", run, e)
     p = d / "05_images.csv"
     im = read_csv(p) if p.exists() else pd.DataFrame(columns=["url", "notes"])
     pending = set(im.loc[im["notes"].astype(str).str.contains("paid_fix_pending"), "url"]) if "notes" in im else set()
-    want = {rec.get("url") for rec, _ in items} & pending
-    urls = {rec.get("url") for rec, _ in items}
+    want = urls & pending
+    held = set()
+    if want and not explicit and not ic.get("paid_fix_at_publish", True):
+        held, want = want, set()
+        rows = [{"url": rec.get("url"), "sku": row.get("SKU"), "name": row.get("Name"),
+                 "time": time.strftime("%Y-%m-%d %H:%M")} for rec, row in items if rec.get("url") in held]
+        hp = d / PHOTO_HELD
+        old = read_csv(hp) if hp.exists() else pd.DataFrame(columns=["url", "sku", "name", "time"])
+        write_csv(pd.concat([old[~old["url"].isin(held)], pd.DataFrame(rows)], ignore_index=True), hp)
+        log.info("publish %s: %d product(s) held back, their photo needs the paid model (05_photo_held.csv)",
+                 run, len(held))
     dp = d / "05_descriptions.csv"
     templ = set()
     if dp.exists():                                      # the model writes only for the products sent
@@ -455,7 +480,7 @@ def _paid_photo_fixes(cfg: dict, run: str, d, items: list) -> list:
         last = dd.drop_duplicates("url", keep="last")
         templ = set(last.loc[last["method"] == "template", "url"]) & urls
     if not want and not templ:
-        return items
+        return [x for x in items if x[0].get("url") not in held]
     if templ:
         from .describe import step_describe
         try:
@@ -470,6 +495,7 @@ def _paid_photo_fixes(cfg: dict, run: str, d, items: list) -> list:
             fix_photos(cfg, run, paid=True, only=want)
         except Exception as e:                           # noqa: BLE001 - the product goes with the photo it has
             log.warning("publish %s: paid photo fix failed (%s)", run, e)
+    items = [x for x in items if x[0].get("url") not in held]
     skus = [row["SKU"] for _, row in items]
     fresh = {row["SKU"]: (rec, row) for rec, row in export_rows(cfg, run)}
     return [fresh.get(s, x) for s, x in zip(skus, items)]
@@ -560,7 +586,7 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
         items = [x for x in items if x[1]["SKU"] not in sent]
     items = items[:max(int(limit or 0), 0)] if limit else items
     if not dry_run and items:
-        items = _paid_photo_fixes(cfg, run, d, items)
+        items = _paid_photo_fixes(cfg, run, d, items, explicit=bool(skus))
     log.info("publish %s: %d product(s)%s", run, len(items), " (dry run)" if dry_run else "")
     specs = {}
     if not dry_run and items and cfg.get("publish", {}).get("spec_table", True):

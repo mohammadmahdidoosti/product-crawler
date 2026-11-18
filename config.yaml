@@ -140,6 +140,9 @@ images:
   search_checks: 12       # (6 Nov) found photos looked at before the paid edit (8 before): a look is ~0.01 cent, an edit ~1.8
   delay_seconds: 1        # between two photo downloads from one site (pages: http.delay_seconds)
   defer_paid_fix: true    # the paid image-model edit is done at publishing, only for the products kept
+  defer_check: true       # (18 Nov, owner's OK) the photo check, free fixes and search also wait for publishing
+  paid_fix_at_publish: false   # (18 Nov, owner's OK) no paid edit: a product still needing one is held (05_photo_held.csv); a SKU picked by hand still gets it
+  vision_endpoint: deepinfra/fp8   # (18 Nov, owner's OK) photo checks through this OpenRouter endpoint (60-photo test: same verdicts, ~12% cheaper)
   ai_fix: true            # check every photo with a vision model and fix the bad ones (OpenRouter)
   vision_workers: 24      # photos checked at the same time (a photo checked before is not sent again)
   fix_workers: 6          # bad photos fixed at the same time (an image-model edit takes 20-40 s)

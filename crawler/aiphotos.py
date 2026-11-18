@@ -129,6 +129,9 @@ def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) 
     new = {r["url"]: r for r in read_csv(d / "05_new_products.csv").to_dict("records")}
     base = (ic.get("public_base") or os.environ.get("PUBLIC_URL") or os.environ.get("RENDER_EXTERNAL_URL") or "").rstrip("/")
     vmodel = ic.get("vision_model", "deepseek/deepseek-v4.1-flash")
+    # (18 Nov) the photo checks through one OpenRouter endpoint (images.vision_endpoint, e.g. deepinfra/fp8):
+    # same verdicts in a 60-photo test, a little cheaper; the free fixes keep the plain model
+    vcheck = vmodel + ("@" + ic["vision_endpoint"] if ic.get("vision_endpoint") else "")
     root = cfg["_data_dir"] / "images"
 
     # 0. photos dropped earlier as 'bad' come back to be judged again (the checker used to take our
@@ -160,6 +163,8 @@ def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) 
     # 1. check every photo
     jobs, found = [], set()
     for r in im.to_dict("records"):
+        if only is not None and r["url"] not in only:   # (18 Nov) checked at publishing: only the products sent
+            continue
         fs = [x.strip() for x in str(r.get("files") or "").split("|") if x.strip()]
         for f in fs:
             p0 = new.get(r["url"], {})
@@ -185,8 +190,8 @@ def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) 
     with ThreadPoolExecutor(int(ic.get("vision_workers", 24))) as ex:
         def look(j):
             if (j[0], j[1]) not in found:
-                return check(vmodel, f"{base}/img/{j[1]}", j[2], key)
-            v = check(vmodel, f"{base}/img/{j[1]}", j[2], key, ASK_FOUND)
+                return check(vcheck, f"{base}/img/{j[1]}", j[2], key)
+            v = check(vcheck, f"{base}/img/{j[1]}", j[2], key, ASK_FOUND)
             return {**v, "found_ok": found_ok(v)} if not v.get("_error") else v
         fresh = list(ex.map(look, todo))
         # a second look at a photo flagged only for an overlay or a logo: the check is not steady
@@ -200,10 +205,10 @@ def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) 
                 return not v.get("_error") and v.get("overlay_text") is not True and v.get("shop_logo") is not True
 
             def looks(i):                           # a shop's advert must never reach the site: a photo
-                v2 = check(vmodel, f"{base}/img/{todo[i][1]}", todo[i][2], key)   # is cleared only when
+                v2 = check(vcheck, f"{base}/img/{todo[i][1]}", todo[i][2], key)   # is cleared only when
                 if not clean(v2):                   # two more looks both find nothing (2 of 3)
                     return v2, None
-                return v2, check(vmodel, f"{base}/img/{todo[i][1]}", todo[i][2], key)
+                return v2, check(vcheck, f"{base}/img/{todo[i][1]}", todo[i][2], key)
             second = list(ex.map(looks, again))
             cleared = 0
             for i, (v2, v3) in zip(again, second):
@@ -404,7 +409,7 @@ def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) 
                             pic, _ = make(one, None, int(ic.get("size", 1000)))
                     rel = f"{k}/ai9_{n}.webp"
                     pic.save(root / rel, "WEBP", quality=85, method=4)
-                    v = check(vmodel, f"{base}/img/{rel}", new.get(r["url"], {}).get("name", ""), key, ASK_FOUND)
+                    v = check(vcheck, f"{base}/img/{rel}", new.get(r["url"], {}).get("name", ""), key, ASK_FOUND)
                     looked += 1
                     if found_ok(v):                      # strict: unsure is a no (batch 5: 8 of 44 were wrong)
                         fixed = rel
@@ -429,7 +434,7 @@ def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) 
                 rel = f"{k}/ai{mi}_{n}.webp"
                 pic.save(root / rel, "WEBP", quality=88, method=4)
                 # the edit is looked at before it is used: an edit of a 'فروخته شد' stamp is still a stamp
-                v = check(vmodel, f"{base}/img/{rel}", new.get(r["url"], {}).get("name", ""), key)
+                v = check(vcheck, f"{base}/img/{rel}", new.get(r["url"], {}).get("name", ""), key)
                 if _bad(v, False) or v.get("matches_name") is False:
                     log.info("photo fix %s with %s: the edit still fails the check (%s)", r["url"][-40:], m,
                              str(v.get("note") or "")[:60])

@@ -603,7 +603,11 @@ def step_images(cfg: dict, run: str) -> Path | None:
         from .aiphotos import fix_photos
         # vision check, free fixes and search; the paid image-model edit waits for publishing (only the
         # products kept get it) unless images.defer_paid_fix is false
-        fix_photos(cfg, run, paid=not cfg.get("images", {}).get("defer_paid_fix", True))
+        if cfg.get("images", {}).get("defer_check"):
+            # (18 Nov) the photo check waits for publishing too: only the products kept are looked at
+            log.info("photo check: deferred to publishing (images.defer_check)")
+        else:
+            fix_photos(cfg, run, paid=not cfg.get("images", {}).get("defer_paid_fix", True))
     except Exception as e:                       # noqa: BLE001 - the photos already made stay usable
         log.warning("photo check failed: %s", e)
     return done_p
