@@ -141,12 +141,18 @@ class Writer:
         # (17 Nov) 'model@endpoint' (e.g. deepseek/deepseek-v4.1-flash@novita/fp8) pins one OpenRouter endpoint,
         # describe.providers (a list) pins the default model: one model, many endpoints, prices up to 13x apart
         self.providers = list(dc.get("providers") or []) if model is None else []
+        # (18 Nov) describe.routing: OpenRouter's own provider options, sent as they are, e.g.
+        # {max_price: {completion: 0.5}, ignore: [novita, baidu]}: only endpoints at or under the cap, chosen by
+        # OpenRouter among them (no names to keep up to date, another one takes over when one fails)
+        self.routing = dict(dc.get("routing") or {}) if model is None else {}
         if "@" in self.model:
             self.model, ep = self.model.split("@", 1)
-            self.providers = [ep]
+            self.providers, self.routing = [ep], {}
         self.max_tokens = int(dc.get("max_tokens", 2500))
         self.s = requests.Session()
         self.usage = {"in": 0, "out": 0, "calls": 0, "failed": 0, "usd": 0.0}
+        from collections import Counter
+        self.served = Counter()                  # (18 Nov) which OpenRouter provider answered, per call
         self.spent = False
         import threading
         self._tl = threading.local()           # .last = 'rejected' when the model answered but broke a rule
@@ -167,6 +173,8 @@ class Writer:
                 "usage": {"include": True}}                      # OpenRouter returns the call's cost
         if self.providers:
             body["provider"] = {"order": self.providers, "allow_fallbacks": False}
+        elif self.routing:
+            body["provider"] = self.routing
         retried = cut = False
         for attempt in range(5):
             try:
@@ -191,6 +199,7 @@ class Writer:
                 self.usage["failed"] += 1
                 return None
             data = res.json()
+            self.served[data.get("provider") or "?"] += 1
             u = data.get("usage") or {}
             self.usage["in"] += int(u.get("prompt_tokens") or 0)
             self.usage["out"] += int(u.get("completion_tokens") or 0)

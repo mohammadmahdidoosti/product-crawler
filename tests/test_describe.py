@@ -93,3 +93,14 @@ def test_writer_pins_endpoint(monkeypatch):
     assert w2.providers == ["river"]
     w3 = describe.Writer({"describe": {"providers": ["river"]}}, "xiaomi/mimo-v2.6-flash")
     assert w3.providers == []
+
+
+def test_writer_routing_from_config(monkeypatch):
+    """(18 Nov) describe.routing goes to OpenRouter as the provider object; a pinned endpoint wins."""
+    from crawler import describe
+    monkeypatch.setattr(describe, "secret", lambda k: "x")
+    cap = {"max_price": {"completion": 0.5}, "ignore": ["novita"]}
+    w = describe.Writer({"describe": {"routing": cap}})
+    assert w.routing == cap and not w.providers
+    w2 = describe.Writer({"describe": {"routing": cap}}, "deepseek/deepseek-v4.1-flash@river")
+    assert w2.routing == {} and w2.providers == ["river"]
