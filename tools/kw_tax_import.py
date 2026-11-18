@@ -22,6 +22,7 @@ SRC = sys.argv[1]
 GO = "go" in sys.argv[2:]
 cfg = load_config(); cfg["_data_dir"] = Path("/data"); cfg.setdefault("taxonomy", {})["file"] = "/data/taxonomy.csv"
 lst = pd.read_csv(SRC, dtype=str).fillna("")
+lst = lst[lst["path"].str.strip() != ""]          # kw_place.py drops (not a product) have no path
 tree = CM.Tree(cfg)
 src_col = next((c for c in tree.raw.columns if c.strip().startswith("Source")), None)
 ids, reused, refused, new_nodes, new_groups = [], [], [], 0, set()
