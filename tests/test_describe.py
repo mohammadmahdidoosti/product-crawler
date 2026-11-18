@@ -104,3 +104,12 @@ def test_writer_routing_from_config(monkeypatch):
     assert w.routing == cap and not w.providers
     w2 = describe.Writer({"describe": {"routing": cap}}, "deepseek/deepseek-v4.1-flash@river")
     assert w2.routing == {} and w2.providers == ["river"]
+
+
+def test_fa_numbers_keeps_codes():
+    """(18 Nov) plain numbers become Persian digits; model codes, Latin names and tags stay."""
+    from crawler.describe import fa_numbers
+    s = '<li class="c2">سایز 4.5 اینچ و 10 میلی‌متر، مدل AC-6315E، دستگاه PSS 3000، ابعاد 11 × 8 × 2، M8</li>'
+    out = fa_numbers(s)
+    assert '<li class="c2">' in out and "۴.۵ اینچ" in out and "۱۰ میلی‌متر" in out
+    assert "AC-6315E" in out and "PSS 3000" in out and "M8" in out and "۱۱ × ۸ × ۲" in out

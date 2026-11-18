@@ -153,6 +153,7 @@ describe:
   provider: auto          # auto: OpenRouter when OPENROUTER_API_KEY is set, otherwise the free template
   model: deepseek/deepseek-v4.1-flash  # chosen after a blind comparison with MiMo V2.6 Flash (fuller Persian)
   fallback_models: [xiaomi/mimo-v2.6-flash]   # tried when the main model's text is rejected
+  providers: [deepinfra/fp8]   # (18 Nov, owner's OK) one OpenRouter endpoint: 46% cheaper, same Persian in a 20-product test
   workers: 16             # products written at the same time
   max_tokens: 2500
 

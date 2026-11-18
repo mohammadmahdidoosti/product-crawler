@@ -212,6 +212,7 @@ class Writer:
             out = parse_answer(text)
             why = "unparsable" if not out else check_why(out, r)
             if out and not why:
+                out["html"], out["short"] = fa_numbers(out.get("html", "")), fa_numbers(out.get("short", ""))
                 out["tokens_in"], out["tokens_out"] = u.get("prompt_tokens", ""), u.get("completion_tokens", "")
                 return out
             finish = ((data.get("choices") or [{}])[0]).get("finish_reason")
@@ -236,6 +237,27 @@ class Writer:
             return None
         self.usage["failed"] += 1
         return None
+
+
+_EN2FA = str.maketrans("0123456789", "۰۱۲۳۴۵۶۷۸۹")
+_NUM = re.compile(r"\d+(?:[.,/×x]\d+)*")
+
+
+def fa_numbers(text: str) -> str:
+    """(18 Nov) Plain numbers in Persian digits (some endpoints wrote '4.5', '10'); model codes and Latin
+    names keep theirs: a number touching a Latin letter, '-', '_' or '/' (AC-6070G, M8, 1/4"), or right
+    after a Latin word (PSS 3000), is left as it is. HTML tags are not touched."""
+    def num(m):
+        s, a, b = m.string, m.start(), m.end()
+        before, after = s[a - 1] if a else " ", s[b] if b < len(s) else " "
+        if re.match(r"[A-Za-z_\-]", before) or re.match(r"[A-Za-z_\-]", after):
+            return m.group(0)
+        if re.search(r"[A-Za-z][A-Za-z0-9\-]*\s+$", s[max(0, a - 30):a]):
+            return m.group(0)
+        return m.group(0).translate(_EN2FA)
+
+    parts = re.split(r"(<[^>]*>)", text or "")
+    return "".join(p if p.startswith("<") else _NUM.sub(num, p) for p in parts)
 
 
 def parse_answer(text: str) -> dict | None:
