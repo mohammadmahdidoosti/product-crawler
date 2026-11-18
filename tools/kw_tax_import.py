@@ -4,7 +4,9 @@ batches planned in the sheet (100 keywords each, a subgroup's keywords together)
 seed_tax_import.py; the list itself stays on the server (/data/tmp), not in the repo.
 In:  a CSV with columns batch (1, 2, ... in the sheet), path ('group > subgroup > keyword'), query, note
 python3 tools/kw_tax_import.py FILE          -> dry run (counts only)
-python3 tools/kw_tax_import.py FILE go       -> write taxonomy.csv and routing.csv (backups first)"""
+python3 tools/kw_tax_import.py FILE go       -> write taxonomy.csv and routing.csv (backups first)
+base=N (optional): the routing batch number that the list's batch 0 maps to. The first import prints it; give the
+same base to a later import of more of the list so its batches line up (rows already routed are skipped)."""
 import sys, os, shutil, time
 sys.path.insert(0, "/app")
 os.environ.setdefault("DATA_DIR", "/data")
@@ -53,6 +55,7 @@ for g in sorted(new_groups)[:15]:
 old = RS.load(cfg)
 have = set(old["taxonomy_id"].astype(str))
 b0 = int(pd.to_numeric(old["batch"], errors="coerce").max())
+b0 = next((int(a.split("=", 1)[1]) for a in sys.argv[2:] if a.startswith("base=")), b0)
 gl = RS.load_glossary()
 new = []
 for tid, path, q, b, note, was in ids:
@@ -66,7 +69,7 @@ for tid, path, q, b, note, was in ids:
                 "english": leaf_english(q, g.split(">")[-1].strip(), RS.english_for(g, gl)),
                 "review": "", "final_route": "", "note": "kwdisc-1405-08 " + note, "queued": ""})
 nd = pd.DataFrame(new)
-print("routing: last old batch", b0, "new rows", len(nd), "batches", nd["batch"].iloc[0], "-", nd["batch"].iloc[-1],
+print("routing: base", b0, "new rows", len(nd), "batches", nd["batch"].iloc[0], "-", nd["batch"].iloc[-1],
       "skipped (already routed)", len(ids) - len(nd), "decisions", nd["decision"].value_counts().to_dict(), flush=True)
 if GO:
     stamp = time.strftime("%Y%m%d-%H%M%S")
