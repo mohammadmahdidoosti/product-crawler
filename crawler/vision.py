@@ -64,9 +64,14 @@ def found_ok(v: dict) -> bool:
 
 
 def check(model: str, img_url: str, name: str, key: str, ask: str = ASK) -> dict:
+    ep = None
+    if "@" in model:                       # (18 Nov) 'model@endpoint' pins one OpenRouter endpoint, as describe does
+        model, ep = model.split("@", 1)
     body = {"model": model, "max_tokens": 300, "temperature": 0, "reasoning": {"enabled": False},
             "messages": [{"role": "user", "content": [{"type": "text", "text": ask.format(name=name)},
                                                       {"type": "image_url", "image_url": {"url": img_url}}]}]}
+    if ep:
+        body["provider"] = {"order": [ep], "allow_fallbacks": False}
     for attempt in range(2):
         if attempt and "reasoning" in body:                  # some models cannot switch thinking off
             pass
