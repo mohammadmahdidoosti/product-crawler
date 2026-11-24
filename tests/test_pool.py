@@ -139,3 +139,22 @@ class SameModelOnSite(unittest.TestCase):
                      ).to_csv(cfg["_data_dir"] / "runs" / "batch-1" / "07_published.csv", index=False)
         self.assertEqual(models_on_site_from_other_runs(cfg, "batch-4"), {"سشوار|ghg2366|": "7"})
         self.assertEqual(models_on_site_from_other_runs(cfg, "batch-1"), {})
+
+
+class PoolAppend(unittest.TestCase):
+    """(24 Nov) appended, read a piece at a time: a newer read of a page wins, compaction keeps one copy."""
+
+    def test_newest_wins_and_compact(self):
+        from crawler.pool import add_to_pool, compact_pool, from_pool, pool_path
+        cfg = {"_data_dir": Path(tempfile.mkdtemp()), "pool": {"max_age_days": 30, "compact_mb": 0}}
+        q = [{"taxonomy_id": "A", "breadcrumb": "ابزار برقی > اره عمود بر > اره عمود بر رونیکس 4111", "query": "q"}]
+        add_to_pool(cfg, pd.DataFrame([page("u1", "اره عمود بر رونیکس 750 وات مدل 4111", days=2),
+                                       page("u9", "اره عمود بر رونیکس مدل 4111 قدیمی", days=60)]).fillna(""))
+        newer = page("u1", "اره عمود بر رونیکس 750 وات مدل 4111", days=0)
+        newer["price_toman"] = "2000000"
+        add_to_pool(cfg, pd.DataFrame([newer]).fillna(""))
+        rows = from_pool(cfg, q, set())
+        self.assertEqual([(r["url"], r["price_toman"]) for r in rows], [("u1", "2000000")])
+        self.assertEqual(compact_pool(cfg), 1)                     # the old copy and the 60-day page go
+        self.assertEqual(sum(1 for _ in pool_path(cfg).open(encoding="utf-8-sig")), 2)
+        self.assertEqual([r["price_toman"] for r in from_pool(cfg, q, set())], ["2000000"])

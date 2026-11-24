@@ -942,10 +942,12 @@ def price_peers(cfg: dict, d: Path) -> list[dict]:
     """Priced pages of Iranian shops (this run's crawl and the crawl pool): other shops' prices for
     the same model, to settle a price that looks wrong without a person."""
     parts = []
+    from .io import iter_csv
+    cols = ["url", "name", "price_toman", "source_type", "source_domain"]
     for p in (d / FILES["crawled"], cfg["_data_dir"] / "crawl_pool.csv"):
-        if p.exists():
-            x = read_csv(p)
-            parts.append(x[["url", "name", "price_toman", "source_type", "source_domain"]])
+        if p.exists():                      # (24 Nov) the 5 columns only, a piece at a time: the pool is 700 MB
+            for x in iter_csv(p, cols):
+                parts.append(x[cols])
     if not parts:
         return []
     mem_p = cfg["_data_dir"] / "price_memory.csv"            # prices earlier checks confirmed or found

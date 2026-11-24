@@ -164,7 +164,8 @@ def images_and_texts(app, lane: str, run: str) -> None:
 PREPARED = "prepared.ok"      # (14 Nov) photos, texts and prepare are done: a restart goes straight to the send
 
 
-def run_lane(name: str, lane: str, slots: int, max_usd: float, skip_prices: bool, no_send: bool = False) -> None:
+def run_lane(name: str, lane: str, slots: int, max_usd: float, skip_prices: bool, no_send: bool = False,
+             once: bool = False) -> None:
     import app
     from crawler.config import run_dir
     from crawler.costs import summary
@@ -216,6 +217,8 @@ def run_lane(name: str, lane: str, slots: int, max_usd: float, skip_prices: bool
             finish(q, item, "failed", note)
             if "OpenRouter" in note or "اعتبار" in note:
                 (q / "STOP").write_text("no credit", encoding="utf-8")
+        if once:
+            break
     say(lane, "ALLDONE")
 
 
@@ -237,6 +240,7 @@ def main() -> None:
     ap.add_argument("--max-usd", type=float, default=2.0, help="a batch costing more is not sent")
     ap.add_argument("--with-prices", action="store_true", help="also run the price detective step")
     ap.add_argument("--no-send", action="store_true", help="crawl and prepare only; the batch waits in ready/")
+    ap.add_argument("--once", action="store_true", help="one batch, then exit: its memory is freed (24 Nov)")
     a = ap.parse_args()
     import app
     cfg = app.build_cfg()
@@ -248,7 +252,7 @@ def main() -> None:
     elif a.cmd == "status":
         status(cfg, a.name)
     else:
-        run_lane(a.name, a.args[0] if a.args else "1", a.slots, a.max_usd, not a.with_prices, a.no_send)
+        run_lane(a.name, a.args[0] if a.args else "1", a.slots, a.max_usd, not a.with_prices, a.no_send, a.once)
 
 
 if __name__ == "__main__":

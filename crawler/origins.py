@@ -27,23 +27,34 @@ def learn(cfg: dict, crawled: pd.DataFrame, min_pages: int = 3, min_share: float
     counts: dict[str, collections.Counter] = collections.defaultdict(collections.Counter)
     pages: collections.Counter = collections.Counter()
     # every page read so far (the crawl pool and every run), each page once
-    from .io import read_csv
+    # (24 Nov) read a piece at a time and only the 5 columns used: the pool and 220 runs are ~5 GB together,
+    # read whole they took each lane past 3 GB of memory
+    from .io import iter_csv
     from .pool import pool_path
-    parts = [crawled] if crawled is not None else []
-    if pool_path(cfg).exists():
-        parts.append(read_csv(pool_path(cfg)))
-    for other in (cfg["_data_dir"] / "runs").glob("*/03_crawled.csv"):
-        parts.append(read_csv(other))
-    allp = pd.concat([x for x in parts if x is not None and len(x)], ignore_index=True).fillna("") if parts else None
-    if allp is not None and len(allp):
-        for r in allp.drop_duplicates("url").to_dict("records"):
-            if r.get("source_type") == "foreign":
+    cols = ["url", "name", "short_description", "description", "source_type"]
+
+    def parts():
+        if crawled is not None and len(crawled):
+            yield crawled.reindex(columns=cols, fill_value="").fillna("")
+        srcs = [pool_path(cfg)] if pool_path(cfg).exists() else []
+        srcs += sorted((cfg["_data_dir"] / "runs").glob("*/03_crawled.csv"))
+        for s in srcs:
+            yield from iter_csv(s, cols)
+
+    seen: set[str] = set()
+    for part in parts():
+        for u, name, short, desc, st in zip(part["url"], part["name"], part["short_description"],
+                                            part["description"], part["source_type"]):
+            if u in seen:
                 continue
-            fb = find_brand(str(r.get("name") or ""))
+            seen.add(u)
+            if st == "foreign":
+                continue
+            fb = find_brand(str(name or ""))
             if not fb:
                 continue
             pages[fb[0]] += 1
-            t = f"{r.get('name', '')} {r.get('short_description', '')} {str(r.get('description') or '')[:1500]}".lower()
+            t = f"{name} {short} {str(desc or '')[:1500]}".lower()
             for c, pat in SAID.items():
                 if re.search(pat, t):
                     counts[fb[0]][c] += 1

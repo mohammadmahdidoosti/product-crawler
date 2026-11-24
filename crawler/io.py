@@ -59,6 +59,24 @@ def read_csv(path: Path) -> pd.DataFrame:
         return pd.DataFrame()
 
 
+def iter_csv(path: Path, columns: Iterable[str] | None = None, chunk: int = 5000):
+    """(24 Nov) A big shared file read a piece at a time, only the columns asked for (a missing one comes
+    back empty). crawl_pool.csv and the 200+ runs' 03_crawled.csv are several GB together: read whole,
+    with every column, each lane went past 3 GB and the server ran out of memory."""
+    want = list(columns) if columns is not None else None
+    try:
+        reader = pd.read_csv(path, encoding=ENCODING, dtype=str, keep_default_na=False, chunksize=chunk,
+                             usecols=(lambda c: c in want) if want is not None else None)
+        for part in reader:
+            if want is not None:
+                for c in want:
+                    if c not in part.columns:
+                        part[c] = ""
+            yield part
+    except pd.errors.EmptyDataError:
+        return
+
+
 def write_csv(df: pd.DataFrame, path: Path, columns: list[str] | None = None) -> Path:
     if columns:
         for c in columns:
