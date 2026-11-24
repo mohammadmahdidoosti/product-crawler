@@ -174,10 +174,14 @@ def run_lane(name: str, lane: str, slots: int, max_usd: float, skip_prices: bool
         app.STEPS.remove("prices")
     cfg = app.build_cfg()
     q = qdir(cfg, name)
+    taken = False
     while not (q / "STOP").exists():
+        if once and taken:
+            break               # (24 Nov) checked here: the --no-send path ends its batch with `continue`
         item = claim(q)
         if item is None:
             break
+        taken = True
         run = item if not item.isdigit() else f"batch-{item}"
         since = time.strftime("%Y-%m-%d %H:%M")
         t0 = time.time()
@@ -217,8 +221,6 @@ def run_lane(name: str, lane: str, slots: int, max_usd: float, skip_prices: bool
             finish(q, item, "failed", note)
             if "OpenRouter" in note or "اعتبار" in note:
                 (q / "STOP").write_text("no credit", encoding="utf-8")
-        if once:
-            break
     say(lane, "ALLDONE")
 
 
