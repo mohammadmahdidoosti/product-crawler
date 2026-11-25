@@ -175,7 +175,24 @@ def a_workers(arg: dict) -> str:
     return f"{who}: {n} workers from its next batch (needs send_loop.sh senders)"
 
 
-ACTIONS = {"status": a_status, "requeue_failed": a_requeue_failed, "queue_list": a_queue_list,
+def a_costs(arg: dict) -> str:
+    """Read only: OpenRouter/Serper cost per unit and per step before and after a time (YYYY-MM-DDTHH:MM, UTC as
+    the ledger writes it), from every run's 09_costs.csv of this queue's batches."""
+    at = arg.get("at", "")
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}", at):
+        return "refused: at=YYYY-MM-DDTHH:MM"
+    code = ("import pandas as pd,glob\n"
+            "fs=glob.glob('/data/runs/batch-*/09_costs.csv')\n"
+            "d=pd.concat([pd.read_csv(f,dtype=str).assign(b=f) for f in fs]);d['usd']=d.usd.astype(float);d['units']=d.units.astype(float)\n"
+            f"t='{at.replace('T', ' ')}';d=d[d.time>=(pd.Timestamp(t)-pd.Timedelta(days=1)).strftime('%Y-%m-%d %H:%M')]\n"
+            "d['when']=(d.time>=t).map({True:'after',False:'before'})\n"
+            "g=d.groupby(['step','when']).agg(usd=('usd','sum'),units=('units','sum'),rows=('usd','size'),batches=('b','nunique'))\n"
+            "g['usd_per_unit_x1000']=(1000*g.usd/g.units.where(g.units>0)).round(4);print(g.round(3).to_string())\n"
+            "print('batches before/after',d[d.when=='before'].b.nunique(),d[d.when=='after'].b.nunique())\n")
+    return dexec("python3", "-c", code, timeout=300)
+
+
+ACTIONS = {"costs": a_costs, "status": a_status, "requeue_failed": a_requeue_failed, "queue_list": a_queue_list,
            "start_all": a_start_all, "stop_all": a_stop_all, "workers": a_workers}
 
 

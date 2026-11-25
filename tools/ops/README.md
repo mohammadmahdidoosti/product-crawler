@@ -14,6 +14,7 @@ Actions (nothing else runs; no shell command is ever taken from the repository):
 | `queue_list` | `file=kw_NNN_NNN.csv` | a list from /srv/caravan-data/kwlists: dry run, import, fill (at most 151 batches) |
 | `start_all` | | lanes 1-9, senders, presend workers: only those not running; removes STOP files |
 | `stop_all` | | STOP files: each part ends after its current batch |
+| `costs` | `at=YYYY-MM-DDTHH:MM` | read only: cost per unit and step, the day before vs after that time |
 | `workers` | `sender=send|send2 n=1|2|3` | a sender's worker count from its next batch |
 
 Install on the host: a deploy key with write access to `caravan-ops` only, a clone at /root/ops/repo, and
