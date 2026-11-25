@@ -142,7 +142,7 @@ images:
   defer_paid_fix: true    # the paid image-model edit is done at publishing, only for the products kept
   defer_check: true       # (18 Nov, owner's OK) the photo check, free fixes and search also wait for publishing
   paid_fix_at_publish: false   # (18 Nov, owner's OK) no paid edit: a product still needing one is held (05_photo_held.csv); a SKU picked by hand still gets it
-  vision_endpoint: deepinfra/fp8   # (18 Nov, owner's OK) photo checks through this OpenRouter endpoint (60-photo test: same verdicts, ~12% cheaper)
+  vision_endpoint: deepinfra/fp8/flex,deepinfra/fp8   # (25 Nov, owner's OK) flex first: 20% less, same answers in a 30-photo test; (18 Nov, owner's OK) photo checks through this OpenRouter endpoint (60-photo test: same verdicts, ~12% cheaper)
   ai_fix: true            # check every photo with a vision model and fix the bad ones (OpenRouter)
   vision_workers: 24      # photos checked at the same time (a photo checked before is not sent again)
   fix_workers: 6          # bad photos fixed at the same time (an image-model edit takes 20-40 s)
@@ -156,7 +156,7 @@ describe:
   provider: auto          # auto: OpenRouter when OPENROUTER_API_KEY is set, otherwise the free template
   model: deepseek/deepseek-v4.1-flash  # chosen after a blind comparison with MiMo V2.6 Flash (fuller Persian)
   fallback_models: [xiaomi/mimo-v2.6-flash]   # tried when the main model's text is rejected
-  providers: [deepinfra/fp8]   # (18 Nov, owner's OK) one OpenRouter endpoint: 46% cheaper, same Persian in a 20-product test
+  providers: [deepinfra/fp8/flex, deepinfra/fp8]   # (25 Nov, owner's OK) flex first (20% less), the normal one when flex is busy; (18 Nov, owner's OK) one OpenRouter endpoint: 46% cheaper, same Persian in a 20-product test
   workers: 16             # products written at the same time
   max_tokens: 2500
 

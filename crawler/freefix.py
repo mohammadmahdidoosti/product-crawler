@@ -29,7 +29,7 @@ log = logging.getLogger(__name__)
 OPENROUTER = "https://openrouter.ai/api/v1/chat/completions"
 # (25 Nov, owner's OK) the free fixes' model calls go to the photo check's endpoint first (deepinfra/fp8), another
 # endpoint may answer when it is busy or down; and they carry the app's name (they were "Unknown" in the logs)
-PROVIDER = {"order": ["deepinfra/fp8"], "allow_fallbacks": True}
+PROVIDER = {"order": ["deepinfra/fp8/flex", "deepinfra/fp8"], "allow_fallbacks": True}   # (25 Nov) flex: 20% less
 HEADERS = {"HTTP-Referer": "https://caravansanat.com", "X-Title": "Caravan crawler"}
 
 BOX = ("This is a product photo for an online store. Find every mark ADDED on top of the photo by a shop: "

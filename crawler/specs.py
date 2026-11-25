@@ -154,7 +154,7 @@ def clean_rows(rows, items: list[str]) -> list[dict]:
 
 # (25 Nov, owner's OK) the same OpenRouter endpoint as describe (deepinfra/fp8), but another one may answer
 # when it is down, so a crawl never stops for it
-PROVIDER = {"order": ["deepinfra/fp8"], "allow_fallbacks": True}
+PROVIDER = {"order": ["deepinfra/fp8/flex", "deepinfra/fp8"], "allow_fallbacks": True}   # (25 Nov) flex: 20% less
 
 
 def to_pairs(items: list[str], name: str, key: str, model: str = "deepseek/deepseek-v4.1-flash",

@@ -72,7 +72,8 @@ def check(model: str, img_url: str, name: str, key: str, ask: str = ASK, provide
             "messages": [{"role": "user", "content": [{"type": "text", "text": ask.format(name=name)},
                                                       {"type": "image_url", "image_url": {"url": img_url}}]}]}
     if ep:
-        body["provider"] = {"order": [ep], "allow_fallbacks": False}
+        # (25 Nov) 'a,b': endpoints in this order (deepinfra/fp8/flex, then deepinfra/fp8 when flex is busy)
+        body["provider"] = {"order": [x.strip() for x in ep.split(",") if x.strip()], "allow_fallbacks": False}
     if provider:
         body["provider"] = provider
     for attempt in range(2):
