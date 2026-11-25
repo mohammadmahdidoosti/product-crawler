@@ -541,8 +541,11 @@ def prepare(cfg: dict, run: str, wc: WC | None = None) -> dict:
         _paid_photo_fixes(cfg, run, d, items)
         items = [x for x in export_rows(cfg, run) if x[1]["SKU"] not in sent]
         # the new brands are made on the site now too (5 Nov: 296 brands at ~5 s each held batch 23 for 25 min)
+        # (25 Nov) the ~7,800 site brands are read OUTSIDE the lock: read inside, nine lanes and the senders
+        # queued behind one lane's 78-page read for an hour. A brand made meanwhile by another process is
+        # found again by create_brand (term_exists), so a slightly old list makes no second brand.
+        brands = SiteBrands(wc or WC())
         with BRANDS_LOCK:                                # two batches must not make the same brand twice
-            brands = SiteBrands(wc or WC())
             seen = set()
             for rec, _ in items:
                 br = rec.get("_brand") or {}
