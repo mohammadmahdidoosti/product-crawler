@@ -125,6 +125,9 @@ def a_requeue_failed(_: dict) -> str:
 
 def a_queue_list(arg: dict) -> str:
     name = arg.get("file", "")
+    if re.fullmatch(r"kw_\d{3}_\d{3}\.csv", name) and not (KWLISTS / name).exists() and (REPO / "lists" / name).exists():
+        KWLISTS.mkdir(parents=True, exist_ok=True)
+        shutil.copy(REPO / "lists" / name, KWLISTS / name)      # (25 Nov) lists come through the private repo
     if not re.fullmatch(r"kw_\d{3}_\d{3}\.csv", name) or not (KWLISTS / name).exists():
         return f"refused: file must be kw_NNN_NNN.csv and exist in {KWLISTS}"
     shutil.copy(KWLISTS / name, DATA / "tmp" / name)
