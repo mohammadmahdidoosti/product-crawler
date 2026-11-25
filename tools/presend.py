@@ -82,8 +82,13 @@ def main() -> None:
             say(run, "DONE", res, f"min={(time.time() - t0) / 60:.0f}")
         except Exception as e:                             # noqa: BLE001 - the sender does it as before
             say(run, "FAILED", f"{type(e).__name__}: {e}"[:400])
+            failed = True
+        else:
+            failed = False
         finally:
             os.rename(mine / item, q / "ready" / item)
+        if failed and not a.once:
+            time.sleep(300)    # (25 Nov) no credit: 4,400 failures in a minute without this pause
         if a.once:
             break
 
