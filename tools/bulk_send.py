@@ -10,6 +10,8 @@ A file STOP in /data/lanes/<queue>/ stops after the current batch.
 (24 Nov) Several senders may run side by side (--workers split between them): a sender first moves the batch
 from ready/ to sending/ (a rename: only one sender gets it), and it goes to done/ when sent or back to ready/
 when it failed. A sender that is killed leaves its batch in sending/: move it back to ready/ by hand.
+
+(25 Nov) A batch with presend.ok (tools/presend.py) skips the site categories and the photo check here.
 """
 from __future__ import annotations
 
@@ -44,6 +46,8 @@ def main() -> None:
     q = qdir(cfg, a.queue)
     runs = [a.run] if a.run else [f"batch-{p.name}" if p.name.isdigit() else p.name
                                   for p in sorted((q / "ready").iterdir(), key=lambda p: (len(p.name), p.name))]
+    # (25 Nov) batches tools/presend.py got ready go first: they need only the products sent
+    runs.sort(key=lambda r: not (run_dir(cfg, r) / "presend.ok").exists())
     sending = q / "sending"
     sending.mkdir(exist_ok=True)
     n = 0
@@ -65,11 +69,14 @@ def main() -> None:
             if whole:
                 os.rename(sending / item, q / "ready" / item)
             continue
+        pre = (run_dir(cfg, run) / "presend.ok").exists()
         try:
-            say(run, "site categories")
-            site_categories(app, run)
-            say(run, "send", f"limit={a.limit} workers={a.workers}")
-            res = publish(app.build_cfg(), run, limit=a.limit, keep_draft=True, workers=a.workers)
+            if not pre:
+                say(run, "site categories")
+                site_categories(app, run)
+            say(run, "send", f"limit={a.limit} workers={a.workers}", "(presend)" if pre else "")
+            res = publish(app.build_cfg(), run, limit=a.limit, keep_draft=True, workers=a.workers,
+                          photos_done=pre)
         except Exception as e:                          # noqa: BLE001 - the next batch still goes
             say(run, "FAILED", f"{type(e).__name__}: {e}"[:400])
             if whole:

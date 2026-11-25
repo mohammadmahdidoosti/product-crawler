@@ -442,17 +442,18 @@ def _save(d: Path, done: pd.DataFrame, new_rows: list[dict]) -> None:
 PHOTO_HELD = "05_photo_held.csv"
 
 
-def _paid_photo_fixes(cfg: dict, run: str, d, items: list, explicit: bool = False) -> list:
+def _paid_photo_fixes(cfg: dict, run: str, d, items: list, explicit: bool = False, checked: bool = False) -> list:
     """Products whose photo still needs the paid image model (left for publishing by the image step)
     get it now, only these, and are built again with the new photo.
     (18 Nov) images.defer_check: the photo check itself (and the free fixes, the search) is done here, for
     the products being sent only. images.paid_fix_at_publish false: no paid edit at all; a product whose
     photo still needs one is held back (not sent, listed in 05_photo_held.csv) unless it was asked for by
-    SKU (explicit), the owner's own pick."""
+    SKU (explicit), the owner's own pick.
+    (25 Nov) checked: tools/presend.py did the photo check for this batch just before: not again."""
     from .pipeline import export_rows
     ic = cfg.get("images", {})
     urls = {rec.get("url") for rec, _ in items}
-    if ic.get("defer_check") and urls:
+    if ic.get("defer_check") and urls and not checked:
         from .aiphotos import fix_photos
         try:
             log.info("publish %s: photo check for %d product(s) first", run, len(urls))
@@ -499,6 +500,22 @@ def _paid_photo_fixes(cfg: dict, run: str, d, items: list, explicit: bool = Fals
     skus = [row["SKU"] for _, row in items]
     fresh = {row["SKU"]: (rec, row) for rec, row in export_rows(cfg, run)}
     return [fresh.get(s, x) for s, x in zip(skus, items)]
+
+
+def presend(cfg: dict, run: str) -> dict:
+    """(25 Nov) The photo work of publishing (check, free fixes, search, held list, model texts), done ahead
+    on the crawler for the products publishing would send now (tools/presend.py). Nothing is sent."""
+    from .llm import require_credit
+    from .pipeline import export_rows, run_dir
+    require_credit("آماده‌سازی " + run)
+    d = run_dir(cfg, run)
+    items = export_rows(cfg, run)
+    done = _results(d)
+    sent = set(done.loc[done["action"].isin(["created", "updated"]), "sku"]) if len(done) else set()
+    items = [x for x in items if x[1]["SKU"] not in sent]
+    if items:
+        items = _paid_photo_fixes(cfg, run, d, items)
+    return {"items": len(items)}
 
 
 def prepare(cfg: dict, run: str, wc: WC | None = None) -> dict:
@@ -550,9 +567,10 @@ def _publish_workers(cfg: dict, hour: int | None = None) -> int:
 
 def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, dry_run: bool = False,
             republish: bool = False, wc: WC | None = None, progress=None, stop=None, keep_draft: bool = False,
-            workers: int = 0) -> dict:
+            workers: int = 0, photos_done: bool = False) -> dict:
     """Send up to `limit` products of a run (the ones not yet sent first; `skus` picks exact ones).
-    dry_run: build and check every payload, upload nothing."""
+    dry_run: build and check every payload, upload nothing.
+    photos_done: tools/presend.py did the photo check ahead (25 Nov): not again here."""
     from .pipeline import export_rows, run_dir
     d = run_dir(cfg, run)
     items = export_rows(cfg, run)
@@ -586,7 +604,7 @@ def publish(cfg: dict, run: str, limit: int = 3, skus: list[str] | None = None, 
         items = [x for x in items if x[1]["SKU"] not in sent]
     items = items[:max(int(limit or 0), 0)] if limit else items
     if not dry_run and items:
-        items = _paid_photo_fixes(cfg, run, d, items, explicit=bool(skus))
+        items = _paid_photo_fixes(cfg, run, d, items, explicit=bool(skus), checked=photos_done)
     log.info("publish %s: %d product(s)%s", run, len(items), " (dry run)" if dry_run else "")
     specs = {}
     if not dry_run and items and cfg.get("publish", {}).get("spec_table", True):
