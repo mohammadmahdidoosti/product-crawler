@@ -204,7 +204,7 @@ def parse(line: str) -> tuple[str, dict]:
     arg = {}
     for w in words[1:]:
         k, _, v = w.partition("=")
-        if re.fullmatch(r"[a-z_]{1,20}", k) and re.fullmatch(r"[A-Za-z0-9_.\-]{0,60}", v):
+        if re.fullmatch(r"[a-z_]{1,20}", k) and re.fullmatch(r"[A-Za-z0-9_.:\-]{0,60}", v):
             arg[k] = v
     return words[0], arg
 
