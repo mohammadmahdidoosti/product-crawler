@@ -177,6 +177,8 @@ class Namer:
         self.key = secret("OPENROUTER_API_KEY")
         self.model = bc.get("model") or cfg.get("describe", {}).get("model") or "deepseek/deepseek-v4.1-flash"
         self.batch = int(bc.get("batch_size", 40))
+        # (25 Nov, owner's OK) describe's endpoint first; another may answer when it is down
+        self.providers = bc.get("providers") or cfg.get("describe", {}).get("providers") or []
         self.s = requests.Session()
 
     def ok(self) -> bool:
@@ -187,6 +189,8 @@ class Namer:
                 "messages": [{"role": "system", "content": SYSTEM},
                              {"role": "user", "content": json.dumps({"items": items}, ensure_ascii=False)}],
                 "response_format": {"type": "json_object"}, "reasoning": {"enabled": False}}
+        if self.providers:
+            body["provider"] = {"order": list(self.providers), "allow_fallbacks": True}
         for attempt in range(3):
             try:
                 res = self.s.post(OPENROUTER, json=body, timeout=120, headers={

@@ -152,6 +152,11 @@ def clean_rows(rows, items: list[str]) -> list[dict]:
     return out[:MAX_ROWS]
 
 
+# (25 Nov, owner's OK) the same OpenRouter endpoint as describe (deepinfra/fp8), but another one may answer
+# when it is down, so a crawl never stops for it
+PROVIDER = {"order": ["deepinfra/fp8"], "allow_fallbacks": True}
+
+
 def to_pairs(items: list[str], name: str, key: str, model: str = "deepseek/deepseek-v4.1-flash",
              timeout: int = 60) -> tuple[list[dict], float]:
     """(rows, usd) for one product's feature lines."""
@@ -161,9 +166,10 @@ def to_pairs(items: list[str], name: str, key: str, model: str = "deepseek/deeps
     body = {"model": model, "messages": [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}],
             "response_format": {"type": "json_object"}, "max_tokens": 1500, "temperature": 0.1,
             "reasoning": {"enabled": False},                  # no hidden thinking: it used up the tokens
-            "usage": {"include": True}}
+            "usage": {"include": True}, "provider": PROVIDER}
     r = requests.post("https://openrouter.ai/api/v1/chat/completions", json=body, timeout=timeout,
-                      headers={"Authorization": f"Bearer {key}"})
+                      headers={"Authorization": f"Bearer {key}", "HTTP-Referer": "https://caravansanat.com",
+                               "X-Title": "Caravan crawler"})
     r.raise_for_status()
     j = r.json()
     usd = float((j.get("usage") or {}).get("cost") or 0)
