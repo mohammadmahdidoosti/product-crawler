@@ -125,6 +125,18 @@ def payload(cfg: dict, rec: dict, row: dict, cats: dict[str, str]) -> tuple[dict
 _BRANDS_KEPT: list | None = None                 # the site's brands, kept for the bulk send's next batches
 
 
+BRANDS_MAX_AGE = 900                             # (26 Nov) the shared list of site brands: read again after 15 min
+
+
+def _shared_brands(wc) -> list[dict] | None:
+    """The site's brands from the list shared by this machine's processes (WC.list_brands(max_age)); a stand-in
+    WC without that argument (tests) reads directly."""
+    import inspect
+    if "max_age" in inspect.signature(wc.list_brands).parameters:
+        return wc.list_brands(max_age=BRANDS_MAX_AGE)
+    return wc.list_brands()
+
+
 class SiteBrands:
     """Brand terms on the site, matched by Persian or Latin name; missing ones are created once."""
 
@@ -138,7 +150,7 @@ class SiteBrands:
             self.terms, self.made = _BRANDS_KEPT, 0
             return
         try:
-            self.terms = wc.list_brands() if wc.ok() else []
+            self.terms = _shared_brands(wc) if wc.ok() else []
         except WCError as e:
             log.warning("site brands not read (%s): brand kept as an attribute only", e)
             self.terms = None
@@ -161,6 +173,8 @@ class SiteBrands:
             return None, True
         t = self.wc.create_brand(br["display"])
         self.terms.append({"id": t["id"], "name": br["display"]})
+        if hasattr(self.wc, "remember_brand"):
+            self.wc.remember_brand({"id": t["id"], "name": br["display"]})
         self.made += 1
         log.info("brand created on the site: %s (#%s)", br["display"], t["id"])
         return t["id"], True

@@ -251,7 +251,8 @@ class Namer:
 def site_brands(wc) -> list[dict] | None:
     """Every brand term on the site, or None when the site has no brands endpoint."""
     try:
-        return wc.list_brands()
+        from .publish import _shared_brands       # (26 Nov) the shared 15-minute list, not 78 pages each prepare
+        return _shared_brands(wc)
     except Exception as e:                         # noqa: BLE001 - optional enrichment of the table
         log.warning("site brands not read: %s", e)
         return None

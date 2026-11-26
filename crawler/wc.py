@@ -172,8 +172,66 @@ class WC:
         return self._call(lambda: self._wc("POST", f"products/{pid}/variations/batch", json=body),
                           f"variations of {pid}")
 
-    def list_brands(self) -> list[dict] | None:
-        """All WooCommerce brand terms (WooCommerce 9.6+ 'Brands'); None if the site has no such endpoint."""
+    def _brands_file(self) -> Path | None:
+        """The shared list's file: in WC_BRANDS_CACHE_DIR, else /data/tmp on the crawler; None (no sharing) elsewhere."""
+        import hashlib
+        d = os.environ.get("WC_BRANDS_CACHE_DIR") or ("/data/tmp" if Path("/data/tmp").is_dir() else "")
+        if not d or not self.base:
+            return None
+        tag = hashlib.md5(self.base.encode()).hexdigest()[:10]
+        return Path(d) / f"site_brands_{tag}.json"
+
+    def list_brands(self, max_age: int | None = None) -> list[dict] | None:
+        """All WooCommerce brand terms (WooCommerce 9.6+ 'Brands'); None if the site has no such endpoint.
+
+        (26 Nov, owner's OK) max_age (seconds): take the list from a file shared by every process on this
+        machine while it is younger than that. Each lane's prepare read the 78 pages twice and each sender
+        once: ~70 full reads (~5,500 requests) in 4 hours, the shop's heaviest load. Brands made since are
+        added to the file (remember_brand); one made by another machine is found by create_brand anyway.
+        """
+        f = self._brands_file() if max_age is not None else None
+        if f is None:
+            return self._list_brands_site()
+        import fcntl
+        import json
+        with open(f.with_suffix(".lock"), "a") as lk:
+            fcntl.flock(lk, fcntl.LOCK_EX)              # one process reads the site; the others wait, then use its list
+            try:
+                if f.exists() and time.time() - f.stat().st_mtime < max_age:
+                    return json.loads(f.read_text(encoding="utf-8"))["terms"]
+            except (OSError, ValueError, KeyError):
+                pass
+            terms = self._list_brands_site()
+            if terms is not None:
+                tmp = f.with_suffix(f".{os.getpid()}.tmp")
+                tmp.write_text(json.dumps({"terms": terms}, ensure_ascii=False), encoding="utf-8")
+                os.replace(tmp, f)
+            return terms
+
+    def remember_brand(self, term: dict) -> None:
+        """A brand just made: into the shared list too, so a process using the file does not miss it."""
+        import fcntl
+        import json
+        f = self._brands_file()
+        if f is None:
+            return
+        try:
+            with open(f.with_suffix(".lock"), "a") as lk:
+                fcntl.flock(lk, fcntl.LOCK_EX)
+                if not f.exists():
+                    return
+                st = f.stat()
+                data = json.loads(f.read_text(encoding="utf-8"))
+                if not any(t.get("id") == term.get("id") for t in data["terms"]):
+                    data["terms"].append(term)
+                    tmp = f.with_suffix(f".{os.getpid()}.tmp")
+                    tmp.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+                    os.replace(tmp, f)
+                    os.utime(f, (st.st_atime, st.st_mtime))  # its age stays that of the site read
+        except (OSError, ValueError, KeyError) as e:
+            log.info("brand %s not added to the shared list (%s)", term.get("name"), e)
+
+    def _list_brands_site(self) -> list[dict] | None:
         out, page = [], 1
         while True:
             try:
