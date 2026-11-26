@@ -194,13 +194,24 @@ class WC:
             return self._list_brands_site()
         import fcntl
         import json
-        with open(f.with_suffix(".lock"), "a") as lk:
-            fcntl.flock(lk, fcntl.LOCK_EX)              # one process reads the site; the others wait, then use its list
+        def kept(fresh_only: bool):
             try:
-                if f.exists() and time.time() - f.stat().st_mtime < max_age:
+                if f.exists() and (not fresh_only or time.time() - f.stat().st_mtime < max_age):
                     return json.loads(f.read_text(encoding="utf-8"))["terms"]
             except (OSError, ValueError, KeyError):
                 pass
+            return None
+        with open(f.with_suffix(".lock"), "a") as lk:
+            try:                                        # (26 Nov) a full read takes ~11 min (15,800 brands, 159 pages):
+                fcntl.flock(lk, fcntl.LOCK_EX | fcntl.LOCK_NB)   # while one process reads the site the others
+            except OSError:                             # take the older list instead of waiting for it
+                old = kept(False)
+                if old is not None:
+                    return old
+                fcntl.flock(lk, fcntl.LOCK_EX)
+            terms = kept(True)
+            if terms is not None:
+                return terms
             terms = self._list_brands_site()
             if terms is not None:
                 tmp = f.with_suffix(f".{os.getpid()}.tmp")

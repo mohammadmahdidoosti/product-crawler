@@ -125,7 +125,7 @@ def payload(cfg: dict, rec: dict, row: dict, cats: dict[str, str]) -> tuple[dict
 _BRANDS_KEPT: list | None = None                 # the site's brands, kept for the bulk send's next batches
 
 
-BRANDS_MAX_AGE = 900                             # (26 Nov) the shared list of site brands: read again after 15 min
+BRANDS_MAX_AGE = 3600    # (26 Nov) the shared list of site brands: read again after an hour (a read takes ~11 min)
 
 
 def _shared_brands(wc) -> list[dict] | None:

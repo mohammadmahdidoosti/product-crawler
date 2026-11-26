@@ -39,6 +39,20 @@ def test_made_brand_added_and_old_list_read_again(tmp_path, monkeypatch):
     assert b.reads == 1
 
 
+def test_old_list_used_while_another_process_reads(tmp_path, monkeypatch):
+    import fcntl
+    monkeypatch.setenv("WC_BRANDS_CACHE_DIR", str(tmp_path))
+    a, b = FakeWC(), FakeWC()
+    a.list_brands(max_age=900)
+    f = a._brands_file()
+    old = time.time() - 1000
+    os.utime(f, (old, old))
+    with open(f.with_suffix(".lock"), "a") as lk:
+        fcntl.flock(lk, fcntl.LOCK_EX)                                  # someone is reading the site now
+        assert b.list_brands(max_age=900) == [{"id": 1, "name": "Bosch"}]
+    assert b.reads == 0
+
+
 def test_no_max_age_reads_the_site(tmp_path, monkeypatch):
     monkeypatch.setenv("WC_BRANDS_CACHE_DIR", str(tmp_path))
     a = FakeWC()
