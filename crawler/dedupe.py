@@ -121,6 +121,26 @@ def merge_crawl(df: pd.DataFrame, name_threshold: float = 0.9, trusted: list | N
     return pd.DataFrame([_aggregate(g) for g in _join_same_code(out)])
 
 
+def _urls(raw) -> list[str]:
+    """(26 Nov) A page's image_urls as plain strings: batches 303-304 had a nested list in it (a srcset read as a
+    list), and the merge stopped on it ('unhashable type: list')."""
+    try:
+        v = json.loads(raw or "[]")
+    except (TypeError, ValueError):
+        return []
+    out, todo = [], [v]
+    while todo:
+        x = todo.pop(0)
+        if isinstance(x, str):
+            if x.strip():
+                out.append(x.strip())
+        elif isinstance(x, list):
+            todo = list(x) + todo
+        elif isinstance(x, dict) and isinstance(x.get("url") or x.get("src"), str):
+            out.append(x.get("url") or x.get("src"))
+    return out
+
+
 def _join_same_code(groups: list[list[dict]]) -> list[list[dict]]:
     """The same maker code worded from another end: 'تفنگ میخ کوب رونیکس RH-0450', 'RH-0450 تفنگ
     میخکوب رونیکس', 'میخ کوب رونیکس RH-0450' (batch 5: three products). A group joins another when
@@ -283,8 +303,8 @@ def _aggregate(g: list[dict]) -> dict:
     out["sellers"] = " | ".join(dict.fromkeys(r.get("seller_name", "") for r in g if r.get("seller_name")))
     out["seller_phones"] = " | ".join(dict.fromkeys(
         p for r in g for p in str(r.get("seller_phones") or "").split(" | ") if p))
-    imgs = [u for r in g for u in json.loads(r.get("image_urls") or "[]")]
-    out["image_urls"] = json.dumps(list(dict.fromkeys(imgs))[:6], ensure_ascii=False)
+    out["image_urls"] = json.dumps(list(dict.fromkeys(u for r in g for u in _urls(r.get("image_urls"))))[:6],
+                                   ensure_ascii=False)
     return out
 
 
