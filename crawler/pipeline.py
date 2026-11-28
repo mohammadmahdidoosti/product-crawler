@@ -60,13 +60,46 @@ def _fetchers(cfg: dict) -> dict[str, Fetcher]:
     return {"iran": Fetcher(cfg, "iran"), "foreign": Fetcher(cfg, "foreign")}
 
 
+_COMMON_WORDS: dict = {}
+
+
+def _common_words(cfg: dict) -> set[str]:
+    """Words found in category names under 3 or more top-level groups (سیم، ریز، استیل، صنعتی، گاز ...):
+    plain words, not brands. Read once per process from the taxonomy."""
+    if "w" not in _COMMON_WORDS:
+        import collections
+        from .normalize import norm_text
+        groups: dict = collections.defaultdict(set)
+        try:
+            from .taxonomy import load_taxonomy
+            for path in load_taxonomy(Path(cfg.get("taxonomy", {}).get("file") or ""))["breadcrumb"].astype(str):
+                parts = [x.strip() for x in path.split(">")]
+                for w in set(norm_text(parts[-1]).split()):
+                    groups[w].add(parts[0])
+        except Exception as e:                             # noqa: BLE001 - then no word counts as common
+            log.warning("common words not read: %s", e)
+        _COMMON_WORDS["w"] = {w for w, g in groups.items() if len(g) >= 3}
+    return _COMMON_WORDS["w"]
+
+
 def _brand_names(cfg: dict, merged: pd.DataFrame) -> set[str]:
-    """Brand names for keeping Made-in-China products out of a brand's category: only the crawler's own
-    reviewed brand list (brands.csv). (28 Nov) The site's brand table and the brands shops wrote on products
-    carry plain words (سیم، ریز، استیل، صنعتی، گاز، تور، فیلم ...): with them, 40 of 92 categories in the
-    route test (batch 901) lost every Made-in-China product as 'a brand's category'."""
+    """Brand names for keeping Made-in-China products out of a brand's category: the crawler's reviewed
+    brand list, plus the site's brand table without names made only of plain words. (28 Nov) The site's table
+    and the brand text shops wrote carry plain words (سیم، ریز، استیل، صنعتی، گاز، تور، فیلم ...): with them,
+    40 of 92 categories of the route test (batch 901) lost every Made-in-China product. Shop text is no longer
+    used; اندرس هاوزر, ماکیتا, آما, آرش still count."""
+    from .normalize import norm_text
     from .routing import brands
     names = {n for n, _, _ in brands()}
+    common = _common_words(cfg)
+    try:
+        from .brands_fa import load as load_brands
+        t = load_brands(cfg)
+        for c in [c for c in t.columns if c in ("brand", "name_fa", "fa", "persian", "display")]:
+            names |= {x for x in (norm_text(v) for v in t[c].astype(str) if v)
+                      if x and not all(w in common for w in x.split())}
+    except Exception:                                      # noqa: BLE001 - brands.csv alone then
+        pass
     return {x for x in names if len(x) >= 3}
 
 

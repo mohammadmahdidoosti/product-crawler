@@ -59,3 +59,20 @@ def test_no_max_age_reads_the_site(tmp_path, monkeypatch):
     a.list_brands(max_age=900)
     a.list_brands()
     assert a.reads == 2
+
+
+def test_brand_names_skip_plain_words(tmp_path, monkeypatch):
+    """(28 Nov) Plain words in the site's brand table (سیم، ریز) are not brands; a real one stays."""
+    import pandas as pd
+    from crawler import pipeline as P
+    tx = tmp_path / "tax.csv"
+    rows = ["ID,Level 1,Level 2,Full Breadcrumb Path"]
+    for i, g in enumerate(["الف", "ب", "ج"]):
+        rows += [f"{i}1,{g},x,{g} > x > سیم ریز {i}"]
+    rows += ["99,د,x,د > x > ترانسمیتر اندرس هاوزر"]
+    tx.write_text("\n".join(rows), encoding="utf-8")
+    P._COMMON_WORDS.clear()
+    monkeypatch.setattr("crawler.brands_fa.load", lambda cfg: pd.DataFrame({"name_fa": ["سیم", "ریز", "اندرس هاوزر"]}))
+    names = P._brand_names({"taxonomy": {"file": str(tx)}}, pd.DataFrame())
+    P._COMMON_WORDS.clear()
+    assert "اندرس هاوزر" in names and "سیم" not in names and "ریز" not in names
