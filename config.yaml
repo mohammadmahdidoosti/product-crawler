@@ -210,3 +210,12 @@ torob_check:              # Torob price check of the site's products (crawler/to
 # (7 Nov, the owner's calls) shops whose prices are kept current: when one of them sells the model, its price is
 # the product's price instead of the median of all shops (the reps and the shops found up to date)
 trusted_price_shops: [barghstore.ir, toolsyab.com, yarmohamadishop.com, abzarreza.com]
+
+openrouter:
+  # (28 Nov, owner) price hunting (crawler/pricehunt.py): per model, the endpoints whose quality was tested side by
+  # side with the current one; every call goes to the cheapest of them at that moment (a discount is used while
+  # it lasts, the next cheapest takes over when it ends). Untested endpoints never get work this way:
+  # tools/ops/price_watch.py reports cheaper ones to test (tools/provider_test.py, tools/vision_test.py).
+  # 28 Nov test (30 texts, 60 photos): baidu/fp8 = same quality as deepinfra/fp8/flex, 40-54% cheaper (83% promo).
+  approved:
+    deepseek/deepseek-v4.1-flash: [baidu/fp8, deepinfra/fp8/flex, deepinfra/fp8]

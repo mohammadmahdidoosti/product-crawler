@@ -157,6 +157,11 @@ def clean_rows(rows, items: list[str]) -> list[dict]:
 PROVIDER = {"order": ["deepinfra/fp8/flex", "deepinfra/fp8"], "allow_fallbacks": True}   # (25 Nov) flex: 20% less
 
 
+def _provider(model: str) -> dict:
+    from . import pricehunt
+    return pricehunt.provider(model) or PROVIDER     # (28 Nov) openrouter.approved: the cheapest tested endpoint
+
+
 def to_pairs(items: list[str], name: str, key: str, model: str = "deepseek/deepseek-v4.1-flash",
              timeout: int = 60) -> tuple[list[dict], float]:
     """(rows, usd) for one product's feature lines."""
@@ -166,7 +171,7 @@ def to_pairs(items: list[str], name: str, key: str, model: str = "deepseek/deeps
     body = {"model": model, "messages": [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}],
             "response_format": {"type": "json_object"}, "max_tokens": 1500, "temperature": 0.1,
             "reasoning": {"enabled": False},                  # no hidden thinking: it used up the tokens
-            "usage": {"include": True}, "provider": PROVIDER}
+            "usage": {"include": True}, "provider": _provider(model)}
     r = requests.post("https://openrouter.ai/api/v1/chat/completions", json=body, timeout=timeout,
                       headers={"Authorization": f"Bearer {key}", "HTTP-Referer": "https://caravansanat.com",
                                "X-Title": "Caravan crawler"})

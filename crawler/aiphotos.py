@@ -132,6 +132,9 @@ def fix_photos(cfg: dict, run: str, paid: bool = True, only: set | None = None) 
     # (18 Nov) the photo checks through one OpenRouter endpoint (images.vision_endpoint, e.g. deepinfra/fp8):
     # same verdicts in a 60-photo test, a little cheaper; the free fixes keep the plain model
     vcheck = vmodel + ("@" + ic["vision_endpoint"] if ic.get("vision_endpoint") else "")
+    from . import pricehunt
+    if pricehunt.provider(vmodel):                     # (28 Nov) openrouter.approved: the cheapest tested endpoint
+        vcheck = vmodel
     root = cfg["_data_dir"] / "images"
 
     # 0. photos dropped earlier as 'bad' come back to be judged again (the checker used to take our

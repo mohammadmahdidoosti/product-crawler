@@ -189,7 +189,10 @@ class Namer:
                 "messages": [{"role": "system", "content": SYSTEM},
                              {"role": "user", "content": json.dumps({"items": items}, ensure_ascii=False)}],
                 "response_format": {"type": "json_object"}, "reasoning": {"enabled": False}}
-        if self.providers:
+        from . import pricehunt
+        if pricehunt.provider(self.model):            # (28 Nov) openrouter.approved: the cheapest tested endpoint
+            body["provider"] = pricehunt.provider(self.model)
+        elif self.providers:
             body["provider"] = {"order": list(self.providers), "allow_fallbacks": True}
         for attempt in range(3):
             try:

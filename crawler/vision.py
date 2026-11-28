@@ -15,6 +15,7 @@ import requests
 
 from .config import run_dir, secret
 from .io import read_csv
+from . import pricehunt
 
 log = logging.getLogger(__name__)
 OPENROUTER = "https://openrouter.ai/api/v1/chat/completions"
@@ -76,6 +77,8 @@ def check(model: str, img_url: str, name: str, key: str, ask: str = ASK, provide
         body["provider"] = {"order": [x.strip() for x in ep.split(",") if x.strip()], "allow_fallbacks": False}
     if provider:
         body["provider"] = provider
+    elif not ep and pricehunt.provider(model):          # (28 Nov) the cheapest tested endpoint
+        body["provider"] = pricehunt.provider(model)
     for attempt in range(2):
         if attempt and "reasoning" in body:                  # some models cannot switch thinking off
             pass

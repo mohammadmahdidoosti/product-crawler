@@ -102,6 +102,8 @@ def a_status(_: dict) -> str:
         f"openrouter left ${left}",
         "drive " + sh(["rclone", "about", "gdrive:"], 90).replace("\n", " ").strip(),
         "backup " + tail(Path("/root/backups/backup.log"), 2),
+        "shop backup " + tail(Path("/srv/shop-backup/backup.log"), 2, r"files ok|FAILED|db ok"),
+        "--- prices (price_watch)", tail(Path("/root/ops/price_watch.log"), 4),
         "--- sends", tail(Q / "send.log", 4, r"BULK .*(SENT|FAILED|send limit)") + "\n"
         + tail(Q / "send2.log", 4, r"BULK .*(SENT|FAILED|send limit)"),
         "--- presend", tail(Q / "presend1.log", 3, r"DONE|FAILED") + "\n" + tail(Q / "presend2.log", 3, r"DONE|FAILED"),

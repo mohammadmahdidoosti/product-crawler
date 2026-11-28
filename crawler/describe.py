@@ -21,6 +21,8 @@ from pathlib import Path
 from urllib.parse import unquote
 
 import pandas as pd
+
+from . import pricehunt
 import requests
 
 from .config import run_dir, secret
@@ -145,6 +147,7 @@ class Writer:
         # {max_price: {completion: 0.5}, ignore: [novita, baidu]}: only endpoints at or under the cap, chosen by
         # OpenRouter among them (no names to keep up to date, another one takes over when one fails)
         self.routing = dict(dc.get("routing") or {}) if model is None else {}
+        self.pinned = "@" in self.model                  # (28 Nov) a test's 'model@endpoint' pin: as given
         if "@" in self.model:
             self.model, ep = self.model.split("@", 1)
             self.providers, self.routing = [ep], {}
@@ -171,7 +174,10 @@ class Writer:
                 "response_format": {"type": "json_object"},
                 "reasoning": {"enabled": False},                 # no hidden 'thinking' tokens: plain writing
                 "usage": {"include": True}}                      # OpenRouter returns the call's cost
-        if self.providers:
+        hunt = None if self.pinned else pricehunt.provider(self.model)   # (28 Nov) the cheapest tested endpoint
+        if hunt:
+            body["provider"] = hunt
+        elif self.providers:
             body["provider"] = {"order": self.providers, "allow_fallbacks": False}
         elif self.routing:
             body["provider"] = self.routing

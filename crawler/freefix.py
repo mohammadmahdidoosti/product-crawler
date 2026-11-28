@@ -30,6 +30,15 @@ OPENROUTER = "https://openrouter.ai/api/v1/chat/completions"
 # (25 Nov, owner's OK) the free fixes' model calls go to the photo check's endpoint first (deepinfra/fp8), another
 # endpoint may answer when it is busy or down; and they carry the app's name (they were "Unknown" in the logs)
 PROVIDER = {"order": ["deepinfra/fp8/flex", "deepinfra/fp8"], "allow_fallbacks": True}   # (25 Nov) flex: 20% less
+_DEFAULT = PROVIDER
+
+
+def _provider(model: str):
+    """(28 Nov) openrouter.approved: the cheapest tested endpoint; a PROVIDER set by a test tool wins."""
+    if PROVIDER is not _DEFAULT:
+        return PROVIDER
+    from . import pricehunt
+    return pricehunt.provider(model) or PROVIDER
 HEADERS = {"HTTP-Referer": "https://caravansanat.com", "X-Title": "Caravan crawler"}
 
 BOX = ("This is a product photo for an online store. Find every mark ADDED on top of the photo by a shop: "
@@ -69,8 +78,8 @@ def find_boxes(model: str, im: Image.Image, key: str) -> tuple[list[list[float]]
     body = {"model": model, "max_tokens": 400, "temperature": 0, "reasoning": {"enabled": False},
             "messages": [{"role": "user", "content": [{"type": "text", "text": BOX},
                                                       {"type": "image_url", "image_url": {"url": data_url(im)}}]}]}
-    if PROVIDER:
-        body["provider"] = PROVIDER
+    if _provider(model):
+        body["provider"] = _provider(model)
     try:
         r = requests.post(OPENROUTER, json=body, timeout=90, headers={"Authorization": f"Bearer {key}", **HEADERS})
         j = r.json()
@@ -263,8 +272,8 @@ def unchanged(model: str, before: Image.Image, after: Image.Image, key: str) -> 
                 {"type": "text", "text": SAME},
                 {"type": "image_url", "image_url": {"url": data_url(before)}},
                 {"type": "image_url", "image_url": {"url": data_url(after)}}]}]}
-    if PROVIDER:
-        body["provider"] = PROVIDER
+    if _provider(model):
+        body["provider"] = _provider(model)
     try:
         j = requests.post(OPENROUTER, json=body, timeout=90,
                           headers={"Authorization": f"Bearer {key}", **HEADERS}).json()
@@ -350,7 +359,7 @@ def free_fix(im: Image.Image, name: str, model: str, key: str, lock=None, check=
         nonlocal cost
         if ink(cand, [WM_BOX]) < 0.8 * before:
             return False, "part of the product lost"
-        v = check(model, data_url(cand), name, key, ASK_FREE, provider=PROVIDER)
+        v = check(model, data_url(cand), name, key, ASK_FREE, provider=_provider(model))
         cost += float(v.get("_cost") or 0)
         good, w = passes(v)
         if not good:
