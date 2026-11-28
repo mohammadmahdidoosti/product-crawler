@@ -61,20 +61,12 @@ def _fetchers(cfg: dict) -> dict[str, Fetcher]:
 
 
 def _brand_names(cfg: dict, merged: pd.DataFrame) -> set[str]:
-    """Brand names known to the crawler (brands.csv, the site's brand table, the brands the shops wrote on
-    this run's products), normalised: for keeping Made-in-China products out of a brand's category."""
-    from .normalize import norm_text
+    """Brand names for keeping Made-in-China products out of a brand's category: only the crawler's own
+    reviewed brand list (brands.csv). (28 Nov) The site's brand table and the brands shops wrote on products
+    carry plain words (سیم، ریز، استیل، صنعتی، گاز، تور، فیلم ...): with them, 40 of 92 categories in the
+    route test (batch 901) lost every Made-in-China product as 'a brand's category'."""
     from .routing import brands
     names = {n for n, _, _ in brands()}
-    try:
-        from .brands_fa import load as load_brands
-        t = load_brands(cfg)
-        for c in [c for c in t.columns if c in ("brand", "name_fa", "fa", "persian", "display")]:
-            names |= {norm_text(x) for x in t[c].astype(str) if x}
-    except Exception:                                      # noqa: BLE001 - brands.csv alone then
-        pass
-    if "brand" in merged:
-        names |= {norm_text(x) for x in merged["brand"].astype(str) if x and x.lower() != "nan"}
     return {x for x in names if len(x) >= 3}
 
 
